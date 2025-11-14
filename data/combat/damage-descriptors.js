@@ -336,7 +336,41 @@ export const DAMAGE_VERBS = {
       "ignite violently",
       "sear completely through",
       "blaze through",
-      "reduce to cinders"
+      "reduce to cinders",
+      "engulf in flames",
+      "set ablaze",
+      "burn to a crisp",
+      "roast alive",
+      "carbonize",
+      "cremate",
+      "torch completely",
+      "turn to ash",
+      "consume in inferno",
+      "reduce to embers",
+      "scorch to the bone",
+      "burn away flesh from",
+      "sear through to the core of",
+      "ignite catastrophically",
+      "set fire to",
+      "kindle an inferno on",
+      "flash-burn",
+      "superheat",
+      "vaporize with heat",
+      "melt through",
+      "flash-fry",
+      "sear to blackness",
+      "char to carbon",
+      "burn completely through",
+      "ignite like a torch",
+      "set alight",
+      "combust",
+      "deflagrate",
+      "conflagrate",
+      "consume with flame",
+      "reduce to charcoal",
+      "cook thoroughly",
+      "blacken with fire",
+      "burn away"
     ],
     success: [
       "burn",
@@ -348,7 +382,42 @@ export const DAMAGE_VERBS = {
       "kindle flames across",
       "blaze across",
       "lick flames across",
-      "scald"
+      "scald",
+      "sear lightly",
+      "burn painfully",
+      "scorch the surface of",
+      "singe the edges of",
+      "char partially",
+      "ignite briefly",
+      "kindle across",
+      "flame across",
+      "burn across",
+      "heat intensely",
+      "roast",
+      "bake",
+      "toast",
+      "singe badly",
+      "scald badly",
+      "burn the skin of",
+      "blacken with heat",
+      "redden with fire",
+      "blister with flame",
+      "crisp",
+      "brown with heat",
+      "sizzle across",
+      "crackle across",
+      "warm dangerously",
+      "heat severely",
+      "set smoldering",
+      "spark across",
+      "flash across",
+      "flare across",
+      "glow across",
+      "radiate heat onto",
+      "cook lightly",
+      "warm painfully",
+      "heat to burning",
+      "scorch badly"
     ]
   },
 
@@ -367,7 +436,41 @@ export const DAMAGE_VERBS = {
       "petrify with frost",
       "freeze devastatingly",
       "glaciate",
-      "turn to ice"
+      "turn to ice",
+      "freeze completely through",
+      "encase entirely in ice",
+      "chill to absolute zero",
+      "crystallize completely",
+      "flash-freeze",
+      "freeze and shatter",
+      "encase in permafrost",
+      "freeze to the core of",
+      "chill to death",
+      "turn to a frozen statue",
+      "coat in thick ice",
+      "freeze bone-deep in",
+      "turn blood to ice in",
+      "crystallize the flesh of",
+      "freeze internal organs in",
+      "coat in rime and ice",
+      "glaciate completely",
+      "encase in arctic frost",
+      "freeze into stillness",
+      "lock in ice",
+      "petrify with arctic cold",
+      "chill fatally",
+      "supercool",
+      "cryogenically freeze",
+      "encase in glacier",
+      "coat in hoarfrost",
+      "freeze solid as stone",
+      "chill to stasis",
+      "freeze every cell of",
+      "turn to frozen flesh",
+      "encase in crystal ice",
+      "freeze from within",
+      "chill to the marrow of",
+      "coat in freezing rime"
     ],
     success: [
       "chill",
@@ -379,7 +482,41 @@ export const DAMAGE_VERBS = {
       "coat in frost",
       "freeze partially",
       "cool rapidly",
-      "rime with ice"
+      "rime with ice",
+      "chill painfully",
+      "freeze the surface of",
+      "frost lightly",
+      "numb badly",
+      "ice the edges of",
+      "crystallize partially",
+      "coat with rime",
+      "freeze superficially",
+      "cool dangerously",
+      "chill deeply",
+      "frost heavily",
+      "numb severely",
+      "ice considerably",
+      "chill to shivering",
+      "freeze uncomfortably",
+      "coat in cold",
+      "chill badly",
+      "freeze painfully",
+      "ice painfully",
+      "frost painfully",
+      "numb completely",
+      "chill through",
+      "freeze through",
+      "coat in ice crystals",
+      "chill severely",
+      "numb with frost",
+      "freeze with rime",
+      "chill with ice",
+      "frost with cold",
+      "cool with frost",
+      "ice with cold",
+      "numb with chill",
+      "freeze with frost",
+      "chill with freeze"
     ]
   },
 
@@ -398,7 +535,41 @@ export const DAMAGE_VERBS = {
       "blast with electricity",
       "strike like a thunderbolt",
       "overload with voltage",
-      "fry completely"
+      "fry completely",
+      "electrocute fatally",
+      "arc through completely",
+      "surge lethally through",
+      "burn with electric fire",
+      "shock to death",
+      "course like lightning through",
+      "blast with voltage",
+      "strike with thunder and lightning",
+      "overload catastrophically",
+      "fry to a crisp",
+      "electrify completely",
+      "arc with deadly voltage through",
+      "surge with lethal current through",
+      "burn electrically through",
+      "shock with full voltage",
+      "zap with maximum power",
+      "bolt through like lightning",
+      "strike as thunder and lightning",
+      "flash through with electricity",
+      "crackle devastatingly through",
+      "spark violently through",
+      "jolt with killing voltage",
+      "charge lethally",
+      "ionize completely",
+      "discharge catastrophically into",
+      "electrify fatally",
+      "strike with a lightning bolt",
+      "channel deadly current through",
+      "conduct lethal voltage through",
+      "arc with blue lightning through",
+      "surge with deadly amperage through",
+      "shock with lethal current",
+      "electrocute thoroughly",
+      "blast with thunderbolt"
     ],
     success: [
       "shock",
@@ -410,7 +581,41 @@ export const DAMAGE_VERBS = {
       "spark across",
       "electrify",
       "course through",
-      "tingle across"
+      "tingle across",
+      "shock painfully",
+      "jolt severely",
+      "zap badly",
+      "arc across",
+      "crackle through",
+      "surge painfully through",
+      "spark through",
+      "electrify painfully",
+      "course painfully through",
+      "tingle painfully across",
+      "shock with voltage",
+      "jolt with current",
+      "zap with electricity",
+      "arc with power through",
+      "crackle with energy across",
+      "surge with current through",
+      "spark with electricity across",
+      "electrify with voltage",
+      "conduct through",
+      "charge",
+      "ionize",
+      "discharge into",
+      "flash across",
+      "bolt across",
+      "strike with lightning",
+      "channel current through",
+      "conduct electricity through",
+      "buzz across",
+      "hum through",
+      "crackle energetically across",
+      "snap across",
+      "pop across",
+      "sizzle electrically across",
+      "jitter through"
     ]
   },
 
@@ -1233,11 +1438,54 @@ export function getDamageEffect(damageType, outcome, varietyMode = 'high') {
 }
 
 /**
+ * Detect natural weapon from item name
+ * @param {Object} item - The weapon/attack item
+ * @returns {string|null} Natural weapon descriptor or null
+ */
+function detectNaturalWeapon(item) {
+  if (!item || !item.name) return null;
+
+  const name = item.name.toLowerCase();
+
+  // Check for specific natural weapons
+  if (name.includes('claw') || name.includes('talons')) return "Your claws";
+  if (name.includes('bite') || name.includes('jaw') || name.includes('jaws') || name.includes('fangs') || name.includes('teeth')) return "Your jaws";
+  if (name.includes('tail') || name.includes('tail slap') || name.includes('tail sweep')) return "Your tail";
+  if (name.includes('horn') || name.includes('horns') || name.includes('gore')) return "Your horns";
+  if (name.includes('slam') || name.includes('fist')) return "Your strike";
+  if (name.includes('tentacle') || name.includes('tentacles')) return "Your tentacles";
+  if (name.includes('wing') || name.includes('wings')) return "Your wings";
+  if (name.includes('sting') || name.includes('stinger')) return "Your stinger";
+  if (name.includes('beak')) return "Your beak";
+  if (name.includes('trunk')) return "Your trunk";
+  if (name.includes('hoof') || name.includes('hooves')) return "Your hooves";
+  if (name.includes('pincer') || name.includes('pincers') || name.includes('claw')) return "Your pincers";
+  if (name.includes('pseudopod')) return "Your pseudopod";
+  if (name.includes('vine') || name.includes('tendril')) return "Your vines";
+  if (name.includes('branch') || name.includes('branches')) return "Your branches";
+  if (name.includes('antler') || name.includes('antlers')) return "Your antlers";
+  if (name.includes('mandible') || name.includes('mandibles')) return "Your mandibles";
+  if (name.includes('spine') || name.includes('spines') || name.includes('quill')) return "Your spines";
+  if (name.includes('foot') || name.includes('feet') || name.includes('kick')) return "Your foot";
+  if (name.includes('head butt') || name.includes('headbutt')) return "Your head";
+
+  return null;
+}
+
+/**
  * Get weapon type descriptor
  * @param {string} damageType
+ * @param {Object} item - Optional weapon/attack item for natural weapon detection
  * @returns {string}
  */
-export function getWeaponType(damageType) {
+export function getWeaponType(damageType, item = null) {
+  // Check for natural weapons first
+  if (item) {
+    const naturalWeapon = detectNaturalWeapon(item);
+    if (naturalWeapon) return naturalWeapon;
+  }
+
+  // Fall back to damage type
   const data = DAMAGE_VERBS[damageType];
   return data ? data.weaponType : "Your weapon";
 }
