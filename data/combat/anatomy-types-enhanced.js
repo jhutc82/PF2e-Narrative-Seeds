@@ -94,6 +94,15 @@ export const ANATOMY_DEFINITIONS = {
   // UNDEAD TYPES
   // ========================================
 
+  "incorporeal": {
+    name: "Incorporeal",
+    description: "Ghostly, non-physical entity",
+    traitMatches: ["incorporeal", "ghost", "wraith", "specter", "shadow"],
+    nameMatches: ["ghost", "wraith", "specter", "shadow", "phantom", "spirit"],
+    priority: 38,
+    examples: ["Ghost", "Wraith", "Shadow", "Specter", "Phantom"]
+  },
+
   "skeleton": {
     name: "Skeleton",
     description: "Animated bones with no flesh",
@@ -110,15 +119,6 @@ export const ANATOMY_DEFINITIONS = {
     nameMatches: ["zombie"],
     priority: 41,
     examples: ["Zombie Shambler", "Plague Zombie", "Husk Zombie"]
-  },
-
-  "incorporeal": {
-    name: "Incorporeal",
-    description: "Ghostly, non-physical entity",
-    traitMatches: ["incorporeal", "ghost", "wraith", "specter", "shadow"],
-    nameMatches: ["ghost", "wraith", "specter", "shadow", "phantom", "spirit"],
-    priority: 42,
-    examples: ["Ghost", "Wraith", "Shadow", "Specter", "Phantom"]
   },
 
   "vampire": {

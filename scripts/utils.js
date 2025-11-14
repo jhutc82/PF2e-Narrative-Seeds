@@ -157,6 +157,79 @@ export class RandomUtils {
    */
   static clearHistory() {
     this.usageHistory = new Map();
+    this.messageHistory = [];
+  }
+
+  /**
+   * Check if a complete message was recently used
+   * @param {string} message - The complete message to check
+   * @param {string} varietyMode - Variety setting
+   * @returns {boolean} True if message was recently used
+   */
+  static isMessageRecentlyUsed(message, varietyMode = 'high') {
+    if (!this.messageHistory) {
+      this.messageHistory = [];
+    }
+
+    // Determine message history size based on variety mode
+    let historySize;
+    switch(varietyMode) {
+      case 'low':
+        historySize = 3;
+        break;
+      case 'medium':
+        historySize = 10;
+        break;
+      case 'high':
+        historySize = 20;
+        break;
+      case 'extreme':
+        historySize = 50;
+        break;
+      default:
+        historySize = 20;
+    }
+
+    // Check if message is in recent history
+    return this.messageHistory.includes(message);
+  }
+
+  /**
+   * Record a message as used
+   * @param {string} message - The complete message to record
+   * @param {string} varietyMode - Variety setting
+   */
+  static recordMessage(message, varietyMode = 'high') {
+    if (!this.messageHistory) {
+      this.messageHistory = [];
+    }
+
+    // Determine message history size based on variety mode
+    let historySize;
+    switch(varietyMode) {
+      case 'low':
+        historySize = 3;
+        break;
+      case 'medium':
+        historySize = 10;
+        break;
+      case 'high':
+        historySize = 20;
+        break;
+      case 'extreme':
+        historySize = 50;
+        break;
+      default:
+        historySize = 20;
+    }
+
+    // Add message to history
+    this.messageHistory.push(message);
+
+    // Trim history to size
+    if (this.messageHistory.length > historySize) {
+      this.messageHistory = this.messageHistory.slice(-historySize);
+    }
   }
 
   /**

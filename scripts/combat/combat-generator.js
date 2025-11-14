@@ -70,28 +70,49 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     const varietyMode = NarrativeSeedsSettings.get("varietyMode");
     const showAnatomy = NarrativeSeedsSettings.get("showAnatomyType");
 
-    // Generate description based on detail level
+    // Generate description with repetition prevention
     let description = "";
+    let attempts = 0;
+    const maxAttempts = 5;
 
-    switch(detailLevel) {
-      case "minimal":
-        description = this.generateMinimal(anatomy, outcome, damageType, varietyMode);
-        break;
-      case "standard":
-        description = this.generateStandard(anatomy, outcome, damageType, varietyMode, item);
-        break;
-      case "detailed":
-        description = this.generateDetailed(anatomy, outcome, damageType, target, varietyMode, item);
-        break;
-      case "cinematic":
-        description = this.generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item);
-        break;
-      default:
-        description = this.generateStandard(anatomy, outcome, damageType, varietyMode, item);
-    }
+    do {
+      // Generate description based on detail level
+      switch(detailLevel) {
+        case "minimal":
+          description = this.generateMinimal(anatomy, outcome, damageType, varietyMode);
+          break;
+        case "standard":
+          description = this.generateStandard(anatomy, outcome, damageType, varietyMode, item);
+          break;
+        case "detailed":
+          description = this.generateDetailed(anatomy, outcome, damageType, target, varietyMode, item);
+          break;
+        case "cinematic":
+          description = this.generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item);
+          break;
+        default:
+          description = this.generateStandard(anatomy, outcome, damageType, varietyMode, item);
+      }
 
-    // Apply tone filter
-    description = ToneFilter.apply(description, tone);
+      // Apply tone filter
+      description = ToneFilter.apply(description, tone);
+
+      attempts++;
+
+      // Check if message was recently used
+      if (!RandomUtils.isMessageRecentlyUsed(description, varietyMode)) {
+        break; // Message is unique, use it
+      }
+
+      // If we've hit max attempts, use it anyway to avoid infinite loop
+      if (attempts >= maxAttempts) {
+        console.warn("PF2e Narrative Seeds | Could not generate unique message after", maxAttempts, "attempts");
+        break;
+      }
+    } while (attempts < maxAttempts);
+
+    // Record the message as used
+    RandomUtils.recordMessage(description, varietyMode);
 
     return {
       description,
@@ -204,7 +225,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     const location = getLocation(anatomy, outcome, varietyMode);
     const verb = getDamageVerb(damageType, outcome, varietyMode);
     const effect = getDamageEffect(damageType, outcome, varietyMode);
-    const weaponType = getWeaponType(damageType, item);
+    const weaponType = getWeaponType(damageType, item, "third");
     const targetName = target.name;
     const attackerName = attacker ? attacker.name : "The attacker";
 
