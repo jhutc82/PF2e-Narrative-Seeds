@@ -100,6 +100,10 @@ export class CombatHooks {
     const context = flags.context;
     if (!context) return false;
 
+    // IMPORTANT: Only process attack rolls, not damage rolls
+    // This prevents duplicate narratives from appearing on both hit and damage
+    if (context.type === "damage-roll") return false;
+
     // Check if it's an attack roll
     if (context.type === "attack-roll") return true;
     if (context.action === "strike") return true;
@@ -108,8 +112,9 @@ export class CombatHooks {
     if (flags.origin?.type === "weapon") return true;
     if (flags.origin?.type === "melee") return true;
 
-    // Check message flavor
+    // Check message flavor (but make sure it's not a damage roll)
     const flavor = message.flavor?.toLowerCase() || "";
+    if (flavor.includes("damage")) return false;
     if (flavor.includes("strike") || flavor.includes("attack")) return true;
 
     return false;

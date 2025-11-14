@@ -82,52 +82,81 @@ export class NarrativeSeedGenerator {
  */
 export class RandomUtils {
   /**
-   * Select a random element from an array
+   * Select a random element from an array with variety tracking
    * @param {Array} array - Array to select from
    * @param {string} varietyMode - Variety setting (low, medium, high, extreme)
+   * @param {string} category - Category key for tracking (e.g., "location:humanoid:success")
    * @returns {*} Random element
    */
-  static selectRandom(array, varietyMode = 'high') {
+  static selectRandom(array, varietyMode = 'high', category = null) {
     if (!array || array.length === 0) return null;
 
-    // For extreme mode, track recently used items
-    if (varietyMode === 'extreme') {
-      return this.selectRandomExtreme(array);
-    }
-
-    // Standard random selection
-    const index = Math.floor(Math.random() * array.length);
-    return array[index];
-  }
-
-  /**
-   * Select random with history tracking to avoid repetition
-   * @param {Array} array
-   * @returns {*}
-   */
-  static selectRandomExtreme(array) {
+    // Initialize history tracking
     if (!this.usageHistory) {
       this.usageHistory = new Map();
     }
 
-    const key = JSON.stringify(array);
-    let history = this.usageHistory.get(key) || [];
-
-    // Reset if we've used all items
-    if (history.length >= array.length) {
-      history = [];
+    // Determine history size based on variety mode
+    let historySize;
+    switch(varietyMode) {
+      case 'low':
+        historySize = Math.min(3, Math.floor(array.length * 0.2));
+        break;
+      case 'medium':
+        historySize = Math.min(8, Math.floor(array.length * 0.4));
+        break;
+      case 'high':
+        historySize = Math.min(15, Math.floor(array.length * 0.6));
+        break;
+      case 'extreme':
+        historySize = array.length - 1; // Never repeat until all used
+        break;
+      default:
+        historySize = Math.min(15, Math.floor(array.length * 0.6));
     }
 
-    // Find unused items
-    const unused = array.filter((item, index) => !history.includes(index));
-    const selected = unused[Math.floor(Math.random() * unused.length)];
+    // If no category or history size is 0, use simple random
+    if (!category || historySize === 0) {
+      return array[Math.floor(Math.random() * array.length)];
+    }
+
+    // Get or create history for this category
+    let history = this.usageHistory.get(category) || [];
+
+    // Trim history to appropriate size
+    if (history.length > historySize) {
+      history = history.slice(-historySize);
+    }
+
+    // Find items not in recent history
+    const available = array.filter((item, index) => !history.includes(index));
+
+    // If all items are in history (shouldn't happen with proper sizing), reset
+    if (available.length === 0) {
+      history = [];
+      const selected = array[Math.floor(Math.random() * array.length)];
+      const selectedIndex = array.indexOf(selected);
+      history.push(selectedIndex);
+      this.usageHistory.set(category, history);
+      return selected;
+    }
+
+    // Select from available items
+    const selected = available[Math.floor(Math.random() * available.length)];
     const selectedIndex = array.indexOf(selected);
 
     // Update history
     history.push(selectedIndex);
-    this.usageHistory.set(key, history);
+    this.usageHistory.set(category, history);
 
     return selected;
+  }
+
+  /**
+   * Clear all usage history (useful for testing or resetting)
+   */
+  static clearHistory() {
+    this.usageHistory = new Map();
   }
 
   /**

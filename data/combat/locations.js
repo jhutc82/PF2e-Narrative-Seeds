@@ -4,6 +4,8 @@
  * Structure: { anatomyType: { outcome: [locations] } }
  */
 
+import { RandomUtils } from '../../scripts/utils.js';
+
 export const LOCATIONS = {
   // ========================================
   // HUMANOID
@@ -2554,6 +2556,7 @@ export function getLocation(anatomyType, outcome, varietyMode = 'high') {
     return null;
   }
 
-  // Simple random selection (can be enhanced with variety mode later)
-  return locations[Math.floor(Math.random() * locations.length)];
+  // Use variety-aware selection with category tracking
+  const category = `location:${anatomyType}:${outcome}`;
+  return RandomUtils.selectRandom(locations, varietyMode, category);
 }
