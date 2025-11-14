@@ -41,8 +41,8 @@
     "requires": []
   },
   "url": "https://github.com/jhutc82/PF2e-Narrative-Seeds",
-  "manifest": "https://raw.githubusercontent.com/jhutc82/PF2e-Narrative-Seeds/refs/heads/main/module.json",
-  "download": "https://github.com/jhutc82/PF2e-Narrative-Seeds/archive/refs/tags/v1.1.0.zip",
+  "manifest": "https://raw.githubusercontent.com/jhutc82/PF2e-Narrative-Seeds/main/module.json",
+  "download": "https://github.com/jhutc82/PF2e-Narrative-Seeds/archive/refs/heads/main.zip",
   "bugs": "https://github.com/jhutc82/PF2e-Narrative-Seeds/issues",
   "readme": "https://github.com/jhutc82/PF2e-Narrative-Seeds/blob/main/README.md",
   "license": "LICENSE",
