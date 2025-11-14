@@ -1731,16 +1731,21 @@ function detectNaturalWeapon(item) {
  * Get weapon type descriptor
  * @param {string} damageType
  * @param {Object} item - Optional weapon/attack item for natural weapon detection
+ * @param {string} pov - Point of view: "second" (Your weapon) or "third" (The weapon)
  * @returns {string}
  */
-export function getWeaponType(damageType, item = null) {
+export function getWeaponType(damageType, item = null, pov = "second") {
   // Check for natural weapons first
   if (item) {
     const naturalWeapon = detectNaturalWeapon(item);
-    if (naturalWeapon) return naturalWeapon;
+    if (naturalWeapon) {
+      return pov === "third" ? naturalWeapon.replace("Your", "The") : naturalWeapon;
+    }
   }
 
   // Fall back to damage type
   const data = DAMAGE_VERBS[damageType];
-  return data ? data.weaponType : "Your weapon";
+  const weaponType = data ? data.weaponType : "Your weapon";
+
+  return pov === "third" ? weaponType.replace("Your", "The") : weaponType;
 }
