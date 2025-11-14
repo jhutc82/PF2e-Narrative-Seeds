@@ -1,0 +1,16 @@
+{
+  "summary": {
+    "totalTraits": 0,
+    "totalCreatureTypes": 0,
+    "totalAttackPatterns": 0,
+    "totalDamageTypes": 0,
+    "totalNaturalWeaponTypes": 0
+  },
+  "traits": [],
+  "creatureTypes": [],
+  "damageTypes": [],
+  "naturalWeapons": [],
+  "topTraitCombinations": [],
+  "attackPatternExamples": [],
+  "traitDistribution": []
+}

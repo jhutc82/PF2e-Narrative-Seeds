@@ -1657,27 +1657,72 @@ function detectNaturalWeapon(item) {
 
   const name = item.name.toLowerCase();
 
-  // Check for specific natural weapons
-  if (name.includes('claw') || name.includes('talons')) return "Your claws";
-  if (name.includes('bite') || name.includes('jaw') || name.includes('jaws') || name.includes('fangs') || name.includes('teeth')) return "Your jaws";
-  if (name.includes('tail') || name.includes('tail slap') || name.includes('tail sweep')) return "Your tail";
-  if (name.includes('horn') || name.includes('horns') || name.includes('gore')) return "Your horns";
-  if (name.includes('slam') || name.includes('fist')) return "Your strike";
-  if (name.includes('tentacle') || name.includes('tentacles')) return "Your tentacles";
-  if (name.includes('wing') || name.includes('wings')) return "Your wings";
-  if (name.includes('sting') || name.includes('stinger')) return "Your stinger";
+  // Comprehensive natural weapon detection based on PF2e creature data
+  // Ordered by specificity to avoid false matches
+
+  // Bite/Jaw attacks (most common)
+  if (name.includes('bite')) return "Your jaws";
+  if (name.includes('jaw') || name.includes('jaws')) return "Your jaws";
+  if (name.includes('fangs') || name.includes('fang')) return "Your fangs";
+  if (name.includes('teeth')) return "Your teeth";
   if (name.includes('beak')) return "Your beak";
-  if (name.includes('trunk')) return "Your trunk";
-  if (name.includes('hoof') || name.includes('hooves')) return "Your hooves";
-  if (name.includes('pincer') || name.includes('pincers') || name.includes('claw')) return "Your pincers";
-  if (name.includes('pseudopod')) return "Your pseudopod";
-  if (name.includes('vine') || name.includes('tendril')) return "Your vines";
-  if (name.includes('branch') || name.includes('branches')) return "Your branches";
+
+  // Claw/Talon attacks
+  if (name.includes('talons') || name.includes('talon')) return "Your talons";
+  if (name.includes('claw') || name.includes('claws')) return "Your claws";
+
+  // Horn/Gore attacks
+  if (name.includes('gore')) return "Your horns";
+  if (name.includes('horn') || name.includes('horns')) return "Your horns";
   if (name.includes('antler') || name.includes('antlers')) return "Your antlers";
+  if (name.includes('tusk') || name.includes('tusks')) return "Your tusks";
+
+  // Tail attacks
+  if (name.includes('tail slap')) return "Your tail";
+  if (name.includes('tail sweep')) return "Your tail";
+  if (name.includes('tail')) return "Your tail";
+
+  // Tentacle/Appendage attacks
+  if (name.includes('tentacle') || name.includes('tentacles')) return "Your tentacles";
+  if (name.includes('pseudopod')) return "Your pseudopod";
+  if (name.includes('tendril') || name.includes('tendrils')) return "Your tendrils";
+
+  // Wing attacks
+  if (name.includes('wing buffet')) return "Your wings";
+  if (name.includes('wing') || name.includes('wings')) return "Your wings";
+
+  // Stinger/Spine attacks
+  if (name.includes('sting') || name.includes('stinger')) return "Your stinger";
+  if (name.includes('spine') || name.includes('spines')) return "Your spines";
+  if (name.includes('quill') || name.includes('quills')) return "Your quills";
+
+  // Hoof/Foot attacks
+  if (name.includes('hoof') || name.includes('hooves')) return "Your hooves";
+  if (name.includes('kick')) return "Your foot";
+  if (name.includes('foot') || name.includes('feet')) return "Your foot";
+
+  // Pincer/Mandible attacks
+  if (name.includes('pincer') || name.includes('pincers')) return "Your pincers";
   if (name.includes('mandible') || name.includes('mandibles')) return "Your mandibles";
-  if (name.includes('spine') || name.includes('spines') || name.includes('quill')) return "Your spines";
-  if (name.includes('foot') || name.includes('feet') || name.includes('kick')) return "Your foot";
+
+  // Plant attacks
+  if (name.includes('vine') || name.includes('vines')) return "Your vines";
+  if (name.includes('branch') || name.includes('branches')) return "Your branches";
+
+  // Trunk/Proboscis
+  if (name.includes('trunk')) return "Your trunk";
+  if (name.includes('proboscis')) return "Your proboscis";
+
+  // Slam/Fist attacks
+  if (name.includes('slam')) return "Your strike";
+  if (name.includes('fist') || name.includes('fists')) return "Your fists";
+
+  // Head attacks
   if (name.includes('head butt') || name.includes('headbutt')) return "Your head";
+  if (name.includes('ram')) return "Your head";
+
+  // Touch attacks (incorporeal/magical)
+  if (name.includes('touch') && (name.includes('incorporeal') || name.includes('corrupting'))) return "Your touch";
 
   return null;
 }

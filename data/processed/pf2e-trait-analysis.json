@@ -1,0 +1,433 @@
+{
+  "creatureTraits": {
+    "aberration": {
+      "description": "Aberrations are creatures from beyond reality or with unnatural anatomies",
+      "exampleCreatures": ["Aboleth", "Gibbering Mouther", "Otyugh", "Will-o'-Wisp", "Chuul"],
+      "commonAttacks": ["tentacle", "pseudopod", "bite"],
+      "suggestedAnatomy": "aberration"
+    },
+    "animal": {
+      "description": "Non-magical beasts",
+      "exampleCreatures": ["Wolf", "Bear", "Lion", "Eagle", "Snake"],
+      "commonAttacks": ["bite", "claw", "tail"],
+      "suggestedAnatomy": "quadruped"
+    },
+    "beast": {
+      "description": "Magical or unusual animals",
+      "exampleCreatures": ["Owlbear", "Bulette", "Worg", "Winter Wolf"],
+      "commonAttacks": ["bite", "claw", "gore"],
+      "suggestedAnatomy": "quadruped"
+    },
+    "celestial": {
+      "description": "Good-aligned outsiders from celestial planes",
+      "exampleCreatures": ["Angel", "Archon", "Azata"],
+      "commonAttacks": ["holy weapon", "wing buffet", "radiant touch"],
+      "suggestedAnatomy": "humanoid"
+    },
+    "construct": {
+      "description": "Animated objects and artificial beings",
+      "exampleCreatures": ["Golem", "Animated Armor", "Clockwork"],
+      "commonAttacks": ["slam", "fist", "construct weapon"],
+      "suggestedAnatomy": "construct"
+    },
+    "dragon": {
+      "description": "Powerful draconic creatures",
+      "exampleCreatures": ["Red Dragon", "Blue Dragon", "Drake", "Wyvern"],
+      "commonAttacks": ["bite", "claw", "tail", "wing", "breath weapon"],
+      "suggestedAnatomy": "dragon"
+    },
+    "elemental": {
+      "description": "Creatures from elemental planes",
+      "exampleCreatures": ["Fire Elemental", "Water Elemental", "Earth Elemental"],
+      "commonAttacks": ["slam", "engulf", "elemental touch"],
+      "suggestedAnatomy": "elemental"
+    },
+    "fey": {
+      "description": "Magical creatures tied to nature and the First World",
+      "exampleCreatures": ["Nymph", "Satyr", "Sprite", "Redcap", "Gremlin"],
+      "commonAttacks": ["touch", "weapon", "fey magic"],
+      "suggestedAnatomy": "fey-humanoid"
+    },
+    "fiend": {
+      "description": "Evil outsiders from lower planes",
+      "exampleCreatures": ["Demon", "Devil", "Daemon"],
+      "commonAttacks": ["claw", "bite", "gore", "unholy weapon"],
+      "suggestedAnatomy": "fiend"
+    },
+    "fungus": {
+      "description": "Fungal creatures and plant-fungus hybrids",
+      "exampleCreatures": ["Myceloid", "Fungus Leshy", "Violet Fungus"],
+      "commonAttacks": ["spore cloud", "tendril", "touch"],
+      "suggestedAnatomy": "plant"
+    },
+    "giant": {
+      "description": "Massive humanoids",
+      "exampleCreatures": ["Hill Giant", "Stone Giant", "Cloud Giant", "Cyclops", "Ogre", "Troll"],
+      "commonAttacks": ["fist", "club", "rock", "greatclub"],
+      "suggestedAnatomy": "giant"
+    },
+    "humanoid": {
+      "description": "Bipedal intelligent creatures",
+      "exampleCreatures": ["Human", "Elf", "Dwarf", "Orc", "Goblin", "Hobgoblin"],
+      "commonAttacks": ["weapon", "unarmed strike"],
+      "suggestedAnatomy": "humanoid"
+    },
+    "monitor": {
+      "description": "Neutral outsiders maintaining cosmic balance",
+      "exampleCreatures": ["Aeon", "Psychopomp", "Inevitable"],
+      "commonAttacks": ["touch", "weapon", "cosmic energy"],
+      "suggestedAnatomy": "humanoid"
+    },
+    "ooze": {
+      "description": "Amorphous creatures",
+      "exampleCreatures": ["Gelatinous Cube", "Black Pudding", "Gray Ooze", "Ochre Jelly"],
+      "commonAttacks": ["pseudopod", "engulf", "acid"],
+      "suggestedAnatomy": "amorphous"
+    },
+    "plant": {
+      "description": "Plant creatures",
+      "exampleCreatures": ["Shambling Mound", "Treant", "Assassin Vine", "Scythe Tree"],
+      "commonAttacks": ["vine", "slam", "branch", "tendril"],
+      "suggestedAnatomy": "plant"
+    },
+    "undead": {
+      "description": "Animated dead or death-touched creatures",
+      "exampleCreatures": ["Zombie", "Skeleton", "Ghost", "Vampire", "Lich", "Mummy"],
+      "commonAttacks": ["claw", "bite", "touch", "weapon"],
+      "suggestedAnatomy": "undead-general"
+    },
+    "air": {
+      "description": "Air-associated creatures",
+      "exampleCreatures": ["Air Elemental", "Djinni", "Invisible Stalker"],
+      "commonAttacks": ["slam", "gust"],
+      "suggestedAnatomy": "elemental"
+    },
+    "earth": {
+      "description": "Earth-associated creatures",
+      "exampleCreatures": ["Earth Elemental", "Xorn", "Shaitan"],
+      "commonAttacks": ["slam", "fist"],
+      "suggestedAnatomy": "elemental"
+    },
+    "fire": {
+      "description": "Fire-associated creatures",
+      "exampleCreatures": ["Fire Elemental", "Efreeti", "Magma Dragon"],
+      "commonAttacks": ["slam", "burn"],
+      "suggestedAnatomy": "elemental"
+    },
+    "water": {
+      "description": "Water-associated creatures",
+      "exampleCreatures": ["Water Elemental", "Marid", "Sea Devil"],
+      "commonAttacks": ["slam", "wave"],
+      "suggestedAnatomy": "elemental"
+    },
+    "aquatic": {
+      "description": "Water-dwelling creatures",
+      "exampleCreatures": ["Shark", "Octopus", "Sahuagin", "Aboleth"],
+      "commonAttacks": ["bite", "tentacle"],
+      "suggestedAnatomy": "aquatic"
+    },
+    "incorporeal": {
+      "description": "Non-corporeal entities",
+      "exampleCreatures": ["Ghost", "Wraith", "Specter", "Shadow"],
+      "commonAttacks": ["incorporeal touch"],
+      "suggestedAnatomy": "incorporeal"
+    },
+    "skeleton": {
+      "description": "Animated bones",
+      "exampleCreatures": ["Skeleton Guard", "Skeletal Champion", "Skeletal Giant"],
+      "commonAttacks": ["claw", "weapon"],
+      "suggestedAnatomy": "skeleton"
+    },
+    "zombie": {
+      "description": "Animated corpses",
+      "exampleCreatures": ["Zombie Shambler", "Plague Zombie", "Husk Zombie"],
+      "commonAttacks": ["fist", "bite"],
+      "suggestedAnatomy": "zombie"
+    },
+    "ghost": {
+      "description": "Spectral undead",
+      "exampleCreatures": ["Ghost Commoner", "Ghost Mage"],
+      "commonAttacks": ["corrupting touch", "frightful moan"],
+      "suggestedAnatomy": "incorporeal"
+    },
+    "vampire": {
+      "description": "Blood-drinking undead",
+      "exampleCreatures": ["Vampire Spawn", "Vampire Count"],
+      "commonAttacks": ["claw", "fangs"],
+      "suggestedAnatomy": "undead-general"
+    },
+    "troll": {
+      "description": "Regenerating giants",
+      "exampleCreatures": ["Troll", "Cave Troll", "Frost Troll"],
+      "commonAttacks": ["claw", "bite"],
+      "suggestedAnatomy": "troll"
+    }
+  },
+  "naturalWeapons": {
+    "bite": {
+      "descriptor": "Your jaws",
+      "commonCreatureTypes": ["animal", "beast", "dragon", "undead"],
+      "damageTypes": ["piercing", "slashing"]
+    },
+    "claw": {
+      "descriptor": "Your claws",
+      "commonCreatureTypes": ["animal", "beast", "dragon", "fiend"],
+      "damageTypes": ["slashing"]
+    },
+    "claws": {
+      "descriptor": "Your claws",
+      "commonCreatureTypes": ["animal", "beast", "dragon", "fiend"],
+      "damageTypes": ["slashing"]
+    },
+    "tail": {
+      "descriptor": "Your tail",
+      "commonCreatureTypes": ["dragon", "beast", "aquatic"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "horn": {
+      "descriptor": "Your horns",
+      "commonCreatureTypes": ["beast", "fiend"],
+      "damageTypes": ["piercing"]
+    },
+    "horns": {
+      "descriptor": "Your horns",
+      "commonCreatureTypes": ["beast", "fiend"],
+      "damageTypes": ["piercing"]
+    },
+    "gore": {
+      "descriptor": "Your horns",
+      "commonCreatureTypes": ["beast", "animal"],
+      "damageTypes": ["piercing"]
+    },
+    "slam": {
+      "descriptor": "Your strike",
+      "commonCreatureTypes": ["construct", "elemental", "ooze"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "fist": {
+      "descriptor": "Your fist",
+      "commonCreatureTypes": ["giant", "humanoid", "construct"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "tentacle": {
+      "descriptor": "Your tentacles",
+      "commonCreatureTypes": ["aberration", "aquatic"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "tentacles": {
+      "descriptor": "Your tentacles",
+      "commonCreatureTypes": ["aberration", "aquatic"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "wing": {
+      "descriptor": "Your wings",
+      "commonCreatureTypes": ["dragon", "celestial", "fiend"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "wings": {
+      "descriptor": "Your wings",
+      "commonCreatureTypes": ["dragon", "celestial", "fiend"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "sting": {
+      "descriptor": "Your stinger",
+      "commonCreatureTypes": ["beast", "vermin"],
+      "damageTypes": ["piercing"]
+    },
+    "stinger": {
+      "descriptor": "Your stinger",
+      "commonCreatureTypes": ["beast", "vermin"],
+      "damageTypes": ["piercing"]
+    },
+    "beak": {
+      "descriptor": "Your beak",
+      "commonCreatureTypes": ["beast", "animal"],
+      "damageTypes": ["piercing"]
+    },
+    "trunk": {
+      "descriptor": "Your trunk",
+      "commonCreatureTypes": ["animal", "beast"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "hoof": {
+      "descriptor": "Your hooves",
+      "commonCreatureTypes": ["animal", "beast", "fiend"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "hooves": {
+      "descriptor": "Your hooves",
+      "commonCreatureTypes": ["animal", "beast", "fiend"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "pincer": {
+      "descriptor": "Your pincers",
+      "commonCreatureTypes": ["vermin", "aquatic"],
+      "damageTypes": ["bludgeoning", "slashing"]
+    },
+    "pincers": {
+      "descriptor": "Your pincers",
+      "commonCreatureTypes": ["vermin", "aquatic"],
+      "damageTypes": ["bludgeoning", "slashing"]
+    },
+    "pseudopod": {
+      "descriptor": "Your pseudopod",
+      "commonCreatureTypes": ["ooze", "aberration"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "vine": {
+      "descriptor": "Your vines",
+      "commonCreatureTypes": ["plant"],
+      "damageTypes": ["bludgeoning", "slashing"]
+    },
+    "vines": {
+      "descriptor": "Your vines",
+      "commonCreatureTypes": ["plant"],
+      "damageTypes": ["bludgeoning", "slashing"]
+    },
+    "tendril": {
+      "descriptor": "Your tendrils",
+      "commonCreatureTypes": ["plant", "aberration"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "tendrils": {
+      "descriptor": "Your tendrils",
+      "commonCreatureTypes": ["plant", "aberration"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "branch": {
+      "descriptor": "Your branches",
+      "commonCreatureTypes": ["plant"],
+      "damageTypes": ["bludgeoning", "slashing"]
+    },
+    "branches": {
+      "descriptor": "Your branches",
+      "commonCreatureTypes": ["plant"],
+      "damageTypes": ["bludgeoning", "slashing"]
+    },
+    "antler": {
+      "descriptor": "Your antlers",
+      "commonCreatureTypes": ["animal", "beast", "fey"],
+      "damageTypes": ["piercing"]
+    },
+    "antlers": {
+      "descriptor": "Your antlers",
+      "commonCreatureTypes": ["animal", "beast", "fey"],
+      "damageTypes": ["piercing"]
+    },
+    "mandible": {
+      "descriptor": "Your mandibles",
+      "commonCreatureTypes": ["vermin"],
+      "damageTypes": ["piercing", "slashing"]
+    },
+    "mandibles": {
+      "descriptor": "Your mandibles",
+      "commonCreatureTypes": ["vermin"],
+      "damageTypes": ["piercing", "slashing"]
+    },
+    "spine": {
+      "descriptor": "Your spines",
+      "commonCreatureTypes": ["beast", "dragon"],
+      "damageTypes": ["piercing"]
+    },
+    "spines": {
+      "descriptor": "Your spines",
+      "commonCreatureTypes": ["beast", "dragon"],
+      "damageTypes": ["piercing"]
+    },
+    "quill": {
+      "descriptor": "Your quills",
+      "commonCreatureTypes": ["beast", "animal"],
+      "damageTypes": ["piercing"]
+    },
+    "quills": {
+      "descriptor": "Your quills",
+      "commonCreatureTypes": ["beast", "animal"],
+      "damageTypes": ["piercing"]
+    },
+    "foot": {
+      "descriptor": "Your foot",
+      "commonCreatureTypes": ["humanoid", "giant", "beast"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "feet": {
+      "descriptor": "Your feet",
+      "commonCreatureTypes": ["humanoid", "giant", "beast"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "kick": {
+      "descriptor": "Your kick",
+      "commonCreatureTypes": ["humanoid", "animal", "beast"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "head butt": {
+      "descriptor": "Your head",
+      "commonCreatureTypes": ["animal", "beast", "giant"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "headbutt": {
+      "descriptor": "Your head",
+      "commonCreatureTypes": ["animal", "beast", "giant"],
+      "damageTypes": ["bludgeoning"]
+    },
+    "jaws": {
+      "descriptor": "Your jaws",
+      "commonCreatureTypes": ["dragon", "beast", "undead"],
+      "damageTypes": ["piercing", "slashing"]
+    },
+    "fangs": {
+      "descriptor": "Your fangs",
+      "commonCreatureTypes": ["beast", "undead", "fiend"],
+      "damageTypes": ["piercing"]
+    },
+    "teeth": {
+      "descriptor": "Your teeth",
+      "commonCreatureTypes": ["beast", "animal", "undead"],
+      "damageTypes": ["piercing", "slashing"]
+    },
+    "talons": {
+      "descriptor": "Your talons",
+      "commonCreatureTypes": ["beast", "dragon", "fiend"],
+      "damageTypes": ["slashing"]
+    },
+    "talon": {
+      "descriptor": "Your talons",
+      "commonCreatureTypes": ["beast", "dragon", "fiend"],
+      "damageTypes": ["slashing"]
+    },
+    "tusk": {
+      "descriptor": "Your tusks",
+      "commonCreatureTypes": ["animal", "beast"],
+      "damageTypes": ["piercing"]
+    },
+    "tusks": {
+      "descriptor": "Your tusks",
+      "commonCreatureTypes": ["animal", "beast"],
+      "damageTypes": ["piercing"]
+    }
+  },
+  "traitPriorities": {
+    "highPriorityTraits": [
+      "skeleton",
+      "zombie",
+      "ghost",
+      "incorporeal",
+      "dragon",
+      "ooze",
+      "construct",
+      "troll"
+    ],
+    "mediumPriorityTraits": [
+      "giant",
+      "fey",
+      "aberration",
+      "plant",
+      "undead",
+      "elemental"
+    ],
+    "lowPriorityTraits": [
+      "humanoid",
+      "beast",
+      "animal"
+    ]
+  }
+}

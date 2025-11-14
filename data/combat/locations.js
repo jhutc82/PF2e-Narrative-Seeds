@@ -2864,6 +2864,1033 @@ export const LOCATIONS = {
   },
 
   // ========================================
+  // ELEMENTAL TYPES
+  // ========================================
+  "air-elemental": {
+    criticalSuccess: [
+      "central vortex",
+      "wind core",
+      "essence center",
+      "vital winds",
+      "heart of the storm",
+      "cyclone center",
+      "whirlwind core",
+      "air nexus",
+      "storm heart",
+      "vital essence"
+    ],
+    success: [
+      "swirling winds",
+      "left vortex",
+      "right spiral",
+      "upper winds",
+      "lower currents",
+      "wind form",
+      "air body",
+      "cyclone edge",
+      "whirlwind side",
+      "tempest form"
+    ],
+    failure: [
+      "through their airy form",
+      "past their swirling winds",
+      "around their vortex",
+      "through empty air",
+      "past their cyclone",
+      "around their tempest"
+    ],
+    criticalFailure: [
+      "completely through them",
+      "nowhere near their form",
+      "through empty air",
+      "missing their winds",
+      "far from their vortex",
+      "wide of their essence"
+    ]
+  },
+
+  "earth-elemental": {
+    criticalSuccess: [
+      "core stone",
+      "vital crystal",
+      "heart rock",
+      "central gem",
+      "essence stone",
+      "core mineral",
+      "vital core",
+      "earth heart",
+      "stone nexus",
+      "mineral center"
+    ],
+    success: [
+      "rocky left side",
+      "stone right side",
+      "boulder body",
+      "crystalline form",
+      "earthen mass",
+      "rocky exterior",
+      "stone body",
+      "mineral form",
+      "craggy surface",
+      "rocky torso"
+    ],
+    failure: [
+      "off their rocky hide",
+      "around their stone form",
+      "past their boulder body",
+      "beside their earthen mass",
+      "around their form",
+      "past their body"
+    ],
+    criticalFailure: [
+      "nowhere near the elemental",
+      "harmlessly bouncing off",
+      "missing their form",
+      "wide of their body",
+      "off their stone hide",
+      "past their mass"
+    ]
+  },
+
+  "fire-elemental": {
+    criticalSuccess: [
+      "flame core",
+      "burning heart",
+      "inferno center",
+      "vital flames",
+      "fire nexus",
+      "blaze center",
+      "conflagration core",
+      "essence of fire",
+      "heart of flame",
+      "burning essence"
+    ],
+    success: [
+      "left flames",
+      "right fire",
+      "upper blaze",
+      "lower flames",
+      "burning form",
+      "fiery body",
+      "flame limb",
+      "blazing torso",
+      "inferno mass",
+      "fire body"
+    ],
+    failure: [
+      "through their flames",
+      "around their burning form",
+      "past their fire",
+      "through their blaze",
+      "around their inferno",
+      "past their body"
+    ],
+    criticalFailure: [
+      "completely through them",
+      "nowhere near the flames",
+      "through empty fire",
+      "missing their form",
+      "wide of their blaze",
+      "past their inferno"
+    ]
+  },
+
+  "water-elemental": {
+    criticalSuccess: [
+      "water core",
+      "vital current",
+      "essence center",
+      "heart of water",
+      "tidal nexus",
+      "wave core",
+      "fluid heart",
+      "aqueous center",
+      "vital waters",
+      "liquid essence"
+    ],
+    success: [
+      "left wave",
+      "right current",
+      "upper waters",
+      "lower flow",
+      "fluid form",
+      "watery body",
+      "liquid limb",
+      "aqueous mass",
+      "flowing torso",
+      "water body"
+    ],
+    failure: [
+      "through their watery form",
+      "past their flowing body",
+      "around their liquid mass",
+      "through their waters",
+      "past their waves",
+      "around their form"
+    ],
+    criticalFailure: [
+      "completely through them",
+      "nowhere near their waters",
+      "through empty liquid",
+      "missing their form",
+      "wide of their flow",
+      "past their mass"
+    ]
+  },
+
+  "elemental-general": {
+    criticalSuccess: [
+      "elemental core",
+      "vital nexus",
+      "essence center",
+      "elemental heart",
+      "power source",
+      "vital center",
+      "core essence",
+      "central mass",
+      "heart of power",
+      "vital core"
+    ],
+    success: [
+      "elemental form",
+      "left side",
+      "right side",
+      "upper body",
+      "lower body",
+      "main mass",
+      "elemental body",
+      "energy form",
+      "physical manifestation",
+      "elemental essence"
+    ],
+    failure: [
+      "through their form",
+      "past their body",
+      "around their essence",
+      "through their mass",
+      "past their manifestation",
+      "around their form"
+    ],
+    criticalFailure: [
+      "completely through them",
+      "nowhere near them",
+      "missing their form",
+      "wide of their body",
+      "through empty space",
+      "past their essence"
+    ]
+  },
+
+  // ========================================
+  // FIEND TYPES
+  // ========================================
+  "demon": {
+    criticalSuccess: [
+      "exposed throat",
+      "left eye",
+      "right eye",
+      "heart",
+      "brain",
+      "vital organs",
+      "spine",
+      "skull",
+      "neck",
+      "chest cavity",
+      "demonic core",
+      "essence center"
+    ],
+    success: [
+      "left wing",
+      "right wing",
+      "clawed left hand",
+      "clawed right hand",
+      "left horn",
+      "right horn",
+      "muscular chest",
+      "scaled back",
+      "demonic tail",
+      "left side",
+      "right side",
+      "demonic form",
+      "chaotic body"
+    ],
+    failure: [
+      "past their demonic form",
+      "around their chaotic body",
+      "through their wings",
+      "past their claws",
+      "around their horns",
+      "past their tail"
+    ],
+    criticalFailure: [
+      "nowhere near the demon",
+      "completely missing",
+      "far from their form",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their body"
+    ]
+  },
+
+  "devil": {
+    criticalSuccess: [
+      "exposed throat",
+      "left eye",
+      "right eye",
+      "heart",
+      "brain",
+      "vital organs",
+      "spine",
+      "skull",
+      "neck",
+      "chest cavity",
+      "infernal core",
+      "essence center"
+    ],
+    success: [
+      "left wing",
+      "right wing",
+      "clawed left hand",
+      "clawed right hand",
+      "barbed tail",
+      "scaled chest",
+      "armored back",
+      "left horn",
+      "right horn",
+      "left side",
+      "right side",
+      "infernal form",
+      "orderly body"
+    ],
+    failure: [
+      "past their infernal form",
+      "around their ordered body",
+      "through their wings",
+      "past their tail",
+      "around their scales",
+      "past their armor"
+    ],
+    criticalFailure: [
+      "nowhere near the devil",
+      "completely missing",
+      "far from their form",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their body"
+    ]
+  },
+
+  "daemon": {
+    criticalSuccess: [
+      "exposed throat",
+      "left eye",
+      "right eye",
+      "heart",
+      "brain",
+      "vital organs",
+      "spine",
+      "skull",
+      "neck",
+      "chest cavity",
+      "daemonic core",
+      "essence of death"
+    ],
+    success: [
+      "left appendage",
+      "right appendage",
+      "death-touched body",
+      "corrupted chest",
+      "withered back",
+      "left side",
+      "right side",
+      "daemonic form",
+      "neutral evil body",
+      "death-form"
+    ],
+    failure: [
+      "past their daemonic form",
+      "around their death-body",
+      "through their appendages",
+      "past their form",
+      "around their body",
+      "past their mass"
+    ],
+    criticalFailure: [
+      "nowhere near the daemon",
+      "completely missing",
+      "far from their form",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their body"
+    ]
+  },
+
+  "fiend": {
+    criticalSuccess: [
+      "exposed throat",
+      "left eye",
+      "right eye",
+      "heart",
+      "brain",
+      "vital organs",
+      "spine",
+      "skull",
+      "neck",
+      "chest cavity",
+      "fiendish core",
+      "evil essence"
+    ],
+    success: [
+      "left side",
+      "right side",
+      "fiendish body",
+      "evil form",
+      "chest",
+      "back",
+      "limb",
+      "torso",
+      "corrupted flesh",
+      "unholy body"
+    ],
+    failure: [
+      "past their fiendish form",
+      "around their evil body",
+      "past their torso",
+      "around their form",
+      "past their body",
+      "around their mass"
+    ],
+    criticalFailure: [
+      "nowhere near the fiend",
+      "completely missing",
+      "far from their form",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their body"
+    ]
+  },
+
+  // ========================================
+  // CELESTIAL TYPES
+  // ========================================
+  "angel": {
+    criticalSuccess: [
+      "radiant heart",
+      "left eye",
+      "right eye",
+      "holy essence",
+      "divine core",
+      "vital center",
+      "celestial nexus",
+      "throat",
+      "skull",
+      "neck"
+    ],
+    success: [
+      "left wing",
+      "right wing",
+      "radiant left side",
+      "glowing right side",
+      "holy chest",
+      "blessed back",
+      "celestial body",
+      "divine form",
+      "angelic torso",
+      "radiant limb"
+    ],
+    failure: [
+      "past their radiant form",
+      "around their holy body",
+      "through their wings",
+      "past their divine form",
+      "around their celestial body",
+      "past their blessed form"
+    ],
+    criticalFailure: [
+      "nowhere near the angel",
+      "completely missing",
+      "far from their radiance",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their form"
+    ]
+  },
+
+  "archon": {
+    criticalSuccess: [
+      "lawful essence",
+      "left eye",
+      "right eye",
+      "holy heart",
+      "divine core",
+      "vital center",
+      "ordered nexus",
+      "throat",
+      "skull",
+      "neck"
+    ],
+    success: [
+      "armored left side",
+      "protected right side",
+      "lawful chest",
+      "ordered back",
+      "archon body",
+      "celestial form",
+      "divine torso",
+      "holy limb",
+      "blessed body",
+      "radiant form"
+    ],
+    failure: [
+      "off their holy armor",
+      "around their lawful form",
+      "past their divine body",
+      "around their blessed form",
+      "past their celestial body",
+      "around their radiance"
+    ],
+    criticalFailure: [
+      "nowhere near the archon",
+      "harmlessly bouncing off",
+      "far from their form",
+      "wildly off target",
+      "missing their body",
+      "wide of their form"
+    ]
+  },
+
+  "azata": {
+    criticalSuccess: [
+      "chaotic essence",
+      "left eye",
+      "right eye",
+      "free heart",
+      "divine core",
+      "vital center",
+      "chaotic nexus",
+      "throat",
+      "skull",
+      "neck"
+    ],
+    success: [
+      "left wing",
+      "right wing",
+      "chaotic left side",
+      "free right side",
+      "wild chest",
+      "liberated back",
+      "azata body",
+      "free form",
+      "chaotic torso",
+      "wild limb"
+    ],
+    failure: [
+      "past their chaotic form",
+      "around their free body",
+      "through their wings",
+      "past their wild form",
+      "around their azata body",
+      "past their chaotic essence"
+    ],
+    criticalFailure: [
+      "nowhere near the azata",
+      "completely missing",
+      "far from their form",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their body"
+    ]
+  },
+
+  "celestial": {
+    criticalSuccess: [
+      "holy heart",
+      "left eye",
+      "right eye",
+      "divine essence",
+      "celestial core",
+      "vital center",
+      "blessed nexus",
+      "throat",
+      "skull",
+      "neck"
+    ],
+    success: [
+      "blessed left side",
+      "holy right side",
+      "divine chest",
+      "celestial back",
+      "radiant body",
+      "holy form",
+      "blessed torso",
+      "divine limb",
+      "celestial body",
+      "radiant form"
+    ],
+    failure: [
+      "past their holy form",
+      "around their blessed body",
+      "past their divine form",
+      "around their celestial body",
+      "past their radiant form",
+      "around their blessed essence"
+    ],
+    criticalFailure: [
+      "nowhere near the celestial",
+      "completely missing",
+      "far from their radiance",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their form"
+    ]
+  },
+
+  // ========================================
+  // MONITOR TYPES
+  // ========================================
+  "psychopomp": {
+    criticalSuccess: [
+      "death essence",
+      "skull mask",
+      "vital center",
+      "psychopomp core",
+      "neutral nexus",
+      "throat",
+      "heart",
+      "brain",
+      "chest cavity",
+      "neck"
+    ],
+    success: [
+      "robed left side",
+      "masked right side",
+      "death-touched chest",
+      "neutral back",
+      "psychopomp body",
+      "judge form",
+      "impartial torso",
+      "death limb",
+      "neutral body",
+      "psychopomp form"
+    ],
+    failure: [
+      "past their death form",
+      "around their neutral body",
+      "through their robes",
+      "past their psychopomp form",
+      "around their judge body",
+      "past their impartial form"
+    ],
+    criticalFailure: [
+      "nowhere near the psychopomp",
+      "completely missing",
+      "far from their form",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their body"
+    ]
+  },
+
+  "monitor": {
+    criticalSuccess: [
+      "balanced essence",
+      "neutral heart",
+      "vital center",
+      "monitor core",
+      "neutral nexus",
+      "throat",
+      "brain",
+      "chest cavity",
+      "neck",
+      "skull"
+    ],
+    success: [
+      "neutral left side",
+      "balanced right side",
+      "impartial chest",
+      "ordered back",
+      "monitor body",
+      "neutral form",
+      "balanced torso",
+      "impartial limb",
+      "neutral body",
+      "monitor form"
+    ],
+    failure: [
+      "past their neutral form",
+      "around their balanced body",
+      "past their monitor form",
+      "around their impartial body",
+      "past their neutral essence",
+      "around their balanced form"
+    ],
+    criticalFailure: [
+      "nowhere near the monitor",
+      "completely missing",
+      "far from their form",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their body"
+    ]
+  },
+
+  // ========================================
+  // UNDEAD (ADDITIONAL)
+  // ========================================
+  "vampire": {
+    criticalSuccess: [
+      "exposed heart",
+      "left eye",
+      "right eye",
+      "throat",
+      "skull",
+      "spine",
+      "neck",
+      "chest cavity",
+      "temple",
+      "base of skull"
+    ],
+    success: [
+      "pale left shoulder",
+      "cold right shoulder",
+      "undead left arm",
+      "vampiric right arm",
+      "lifeless chest",
+      "cold back",
+      "left side",
+      "right side",
+      "vampire body",
+      "undead form"
+    ],
+    failure: [
+      "past their vampiric form",
+      "around their undead body",
+      "past their pale form",
+      "around their cold body",
+      "past their vampire form",
+      "around their undead essence"
+    ],
+    criticalFailure: [
+      "nowhere near the vampire",
+      "completely missing",
+      "far from their form",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their body"
+    ]
+  },
+
+  "mummy": {
+    criticalSuccess: [
+      "wrapped head",
+      "left eye socket",
+      "right eye socket",
+      "desiccated heart",
+      "preserved brain",
+      "spine",
+      "chest cavity",
+      "throat",
+      "skull",
+      "neck"
+    ],
+    success: [
+      "bandaged left shoulder",
+      "wrapped right shoulder",
+      "preserved left arm",
+      "mummified right arm",
+      "bound chest",
+      "wrapped back",
+      "left side",
+      "right side",
+      "mummy body",
+      "preserved form"
+    ],
+    failure: [
+      "through their wrappings",
+      "past their bandaged form",
+      "around their mummified body",
+      "past their preserved form",
+      "around their wrapped body",
+      "past their mummy form"
+    ],
+    criticalFailure: [
+      "nowhere near the mummy",
+      "through empty wrappings",
+      "far from their form",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their body"
+    ]
+  },
+
+  "lich": {
+    criticalSuccess: [
+      "phylactery location",
+      "skull",
+      "left eye socket",
+      "right eye socket",
+      "undead heart",
+      "brain",
+      "spine",
+      "chest cavity",
+      "vital organs",
+      "neck"
+    ],
+    success: [
+      "skeletal left shoulder",
+      "bony right shoulder",
+      "withered left arm",
+      "decayed right arm",
+      "ribcage",
+      "spine",
+      "left side",
+      "right side",
+      "lich body",
+      "undead form"
+    ],
+    failure: [
+      "past their skeletal form",
+      "through their bones",
+      "around their undead body",
+      "past their lich form",
+      "around their skeletal body",
+      "past their withered form"
+    ],
+    criticalFailure: [
+      "nowhere near the lich",
+      "through empty air",
+      "far from their bones",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their form"
+    ]
+  },
+
+  // ========================================
+  // ABERRATION TYPES
+  // ========================================
+  "aberration-tentacled": {
+    criticalSuccess: [
+      "central brain",
+      "eye cluster",
+      "vital organs",
+      "nerve center",
+      "heart mass",
+      "brain core",
+      "neural nexus",
+      "central body",
+      "core mass",
+      "vital center"
+    ],
+    success: [
+      "left tentacle",
+      "right tentacle",
+      "upper tentacle",
+      "lower tentacle",
+      "central mass",
+      "aberrant body",
+      "grotesque form",
+      "writhing tentacles",
+      "alien body",
+      "strange mass"
+    ],
+    failure: [
+      "between writhing tentacles",
+      "past their alien form",
+      "around their grotesque body",
+      "through their tentacles",
+      "past their aberrant mass",
+      "around their strange form"
+    ],
+    criticalFailure: [
+      "nowhere near the aberration",
+      "completely missing",
+      "far from their mass",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their form"
+    ]
+  },
+
+  "aberration-general": {
+    criticalSuccess: [
+      "alien core",
+      "vital center",
+      "unnatural heart",
+      "brain mass",
+      "central organs",
+      "nexus point",
+      "essence center",
+      "core mass",
+      "vital nexus",
+      "aberrant heart"
+    ],
+    success: [
+      "aberrant left side",
+      "strange right side",
+      "alien body",
+      "grotesque form",
+      "unnatural mass",
+      "weird body",
+      "bizarre form",
+      "alien torso",
+      "strange limb",
+      "aberrant mass"
+    ],
+    failure: [
+      "past their alien form",
+      "around their aberrant body",
+      "through their strange mass",
+      "past their grotesque form",
+      "around their unnatural body",
+      "past their weird form"
+    ],
+    criticalFailure: [
+      "nowhere near the aberration",
+      "completely missing",
+      "far from their form",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their mass"
+    ]
+  },
+
+  // ========================================
+  // HUMANOID (ADDITIONAL)
+  // ========================================
+  "goblinoid": {
+    criticalSuccess: [
+      "exposed throat",
+      "left eye",
+      "right eye",
+      "heart",
+      "liver",
+      "kidney",
+      "base of skull",
+      "spine",
+      "solar plexus",
+      "neck"
+    ],
+    success: [
+      "scrawny left shoulder",
+      "thin right shoulder",
+      "left arm",
+      "right arm",
+      "small chest",
+      "hunched back",
+      "left leg",
+      "right leg",
+      "goblinoid torso",
+      "small frame"
+    ],
+    failure: [
+      "past their quick form",
+      "around their small body",
+      "over their hunched back",
+      "past their dodging form",
+      "around their goblinoid body",
+      "past their scrawny frame"
+    ],
+    criticalFailure: [
+      "nowhere near the goblinoid",
+      "completely missing",
+      "far from their body",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their form"
+    ]
+  },
+
+  "orc": {
+    criticalSuccess: [
+      "exposed throat",
+      "left eye",
+      "right eye",
+      "heart",
+      "liver",
+      "kidney",
+      "base of skull",
+      "spine",
+      "solar plexus",
+      "neck"
+    ],
+    success: [
+      "muscular left shoulder",
+      "powerful right shoulder",
+      "thick left arm",
+      "strong right arm",
+      "broad chest",
+      "solid back",
+      "left leg",
+      "right leg",
+      "orcish torso",
+      "powerful frame"
+    ],
+    failure: [
+      "past their powerful form",
+      "around their muscular body",
+      "past their thick hide",
+      "around their orcish frame",
+      "past their broad body",
+      "around their strong form"
+    ],
+    criticalFailure: [
+      "nowhere near the orc",
+      "completely missing",
+      "far from their body",
+      "wildly off target",
+      "harmlessly past",
+      "wide of their form"
+    ]
+  },
+
+  // ========================================
+  // GOLEM
+  // ========================================
+  "golem": {
+    criticalSuccess: [
+      "animation rune",
+      "control sigil",
+      "binding glyph",
+      "power core",
+      "vital rune",
+      "central mechanism",
+      "enchantment focus",
+      "key joint",
+      "core magic",
+      "binding point"
+    ],
+    success: [
+      "left arm",
+      "right arm",
+      "left leg",
+      "right leg",
+      "heavy torso",
+      "solid chassis",
+      "thick plating",
+      "golem body",
+      "construct frame",
+      "enchanted mass"
+    ],
+    failure: [
+      "off their thick plating",
+      "past their golem body",
+      "around their solid form",
+      "deflecting off them",
+      "bouncing off armor",
+      "past their heavy frame"
+    ],
+    criticalFailure: [
+      "nowhere near the golem",
+      "harmlessly bouncing off",
+      "completely deflected",
+      "wide of their mass",
+      "off their thick hide",
+      "missing the huge target"
+    ]
+  },
+
+  // ========================================
   // AQUATIC
   // ========================================
   aquatic: {
