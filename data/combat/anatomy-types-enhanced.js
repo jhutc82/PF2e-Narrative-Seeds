@@ -103,6 +103,15 @@ export const ANATOMY_DEFINITIONS = {
     examples: ["Ghost", "Wraith", "Shadow", "Specter", "Phantom"]
   },
 
+  "zombie": {
+    name: "Zombie",
+    description: "Reanimated corpse with rotting flesh",
+    traitMatches: ["zombie"],
+    nameMatches: ["zombie"],
+    priority: 39,
+    examples: ["Zombie Shambler", "Plague Zombie", "Husk Zombie", "Zombie Dragon"]
+  },
+
   "skeleton": {
     name: "Skeleton",
     description: "Animated bones with no flesh",
@@ -110,15 +119,6 @@ export const ANATOMY_DEFINITIONS = {
     nameMatches: ["skeleton", "skeletal"],
     priority: 40,
     examples: ["Skeleton Guard", "Skeletal Champion", "Skeletal Giant", "Skeletal Dragon"]
-  },
-
-  "zombie": {
-    name: "Zombie",
-    description: "Reanimated corpse with rotting flesh",
-    traitMatches: ["zombie"],
-    nameMatches: ["zombie"],
-    priority: 41,
-    examples: ["Zombie Shambler", "Plague Zombie", "Husk Zombie"]
   },
 
   "vampire": {

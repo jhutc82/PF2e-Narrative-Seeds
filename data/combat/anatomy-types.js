@@ -94,13 +94,13 @@ export const ANATOMY_DEFINITIONS = {
   // UNDEAD TYPES
   // ========================================
 
-  "skeleton": {
-    name: "Skeleton",
-    description: "Animated bones with no flesh",
-    traitMatches: ["skeleton"],
-    nameMatches: ["skeleton", "skeletal"],
-    priority: 40,
-    examples: ["Skeleton Guard", "Skeletal Champion", "Skeletal Giant", "Skeletal Dragon"]
+  "incorporeal": {
+    name: "Incorporeal",
+    description: "Ghostly, non-physical entity",
+    traitMatches: ["incorporeal", "ghost", "wraith", "specter", "shadow"],
+    nameMatches: ["ghost", "wraith", "specter", "shadow", "phantom", "spirit"],
+    priority: 38,
+    examples: ["Ghost", "Wraith", "Shadow", "Specter", "Phantom"]
   },
 
   "zombie": {
@@ -108,17 +108,17 @@ export const ANATOMY_DEFINITIONS = {
     description: "Reanimated corpse with rotting flesh",
     traitMatches: ["zombie"],
     nameMatches: ["zombie"],
-    priority: 41,
-    examples: ["Zombie Shambler", "Plague Zombie", "Husk Zombie"]
+    priority: 39,
+    examples: ["Zombie Shambler", "Plague Zombie", "Husk Zombie", "Zombie Dragon"]
   },
 
-  "incorporeal": {
-    name: "Incorporeal",
-    description: "Ghostly, non-physical entity",
-    traitMatches: ["incorporeal", "ghost", "wraith", "specter", "shadow"],
-    nameMatches: ["ghost", "wraith", "specter", "shadow", "phantom", "spirit"],
-    priority: 42,
-    examples: ["Ghost", "Wraith", "Shadow", "Specter", "Phantom"]
+  "skeleton": {
+    name: "Skeleton",
+    description: "Animated bones with no flesh",
+    traitMatches: ["skeleton"],
+    nameMatches: ["skeleton", "skeletal"],
+    priority: 40,
+    examples: ["Skeleton Guard", "Skeletal Champion", "Skeletal Giant", "Skeletal Dragon"]
   },
 
   "vampire": {
