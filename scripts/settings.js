@@ -118,40 +118,6 @@ export class NarrativeSeedsSettings {
       default: true
     });
 
-    // ========================================
-    // FUTURE PHASE SETTINGS (Placeholders)
-    // ========================================
-
-    // Phase 2: Spells
-    game.settings.register("pf2e-narrative-seeds", "enableSpells", {
-      name: "Enable Spell Narration (Coming Soon)",
-      hint: "Generate descriptions for spell effects - Phase 2 feature",
-      scope: "world",
-      config: true,
-      type: Boolean,
-      default: false
-    });
-
-    // Phase 3: Skills
-    game.settings.register("pf2e-narrative-seeds", "enableSkills", {
-      name: "Enable Skill Check Narration (Coming Soon)",
-      hint: "Generate descriptions for skill checks - Phase 3 feature",
-      scope: "world",
-      config: true,
-      type: Boolean,
-      default: false
-    });
-
-    // Phase 4: Exploration
-    game.settings.register("pf2e-narrative-seeds", "enableExploration", {
-      name: "Enable Exploration Narration (Coming Soon)",
-      hint: "Generate descriptions for exploration activities - Phase 4 feature",
-      scope: "world",
-      config: true,
-      type: Boolean,
-      default: false
-    });
-
     console.log("PF2e Narrative Seeds | Settings registered successfully");
   }
 

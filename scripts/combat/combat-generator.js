@@ -124,8 +124,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
   generateStandard(anatomy, outcome, damageType, varietyMode) {
     // Get components
     const location = getLocation(anatomy, outcome, varietyMode);
-    const verb = getDamageVerb(damageType, outcome);
-    const effect = getDamageEffect(damageType, outcome);
+    const verb = getDamageVerb(damageType, outcome, varietyMode);
+    const effect = getDamageEffect(damageType, outcome, varietyMode);
     const weaponType = getWeaponType(damageType);
 
     if (!location) return "Your attack connects!";
@@ -163,8 +163,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    */
   generateDetailed(anatomy, outcome, damageType, target, varietyMode) {
     const location = getLocation(anatomy, outcome, varietyMode);
-    const verb = getDamageVerb(damageType, outcome);
-    const effect = getDamageEffect(damageType, outcome);
+    const verb = getDamageVerb(damageType, outcome, varietyMode);
+    const effect = getDamageEffect(damageType, outcome, varietyMode);
     const weaponType = getWeaponType(damageType);
     const targetName = target.name;
 
@@ -202,8 +202,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    */
   generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode) {
     const location = getLocation(anatomy, outcome, varietyMode);
-    const verb = getDamageVerb(damageType, outcome);
-    const effect = getDamageEffect(damageType, outcome);
+    const verb = getDamageVerb(damageType, outcome, varietyMode);
+    const effect = getDamageEffect(damageType, outcome, varietyMode);
     const weaponType = getWeaponType(damageType);
     const targetName = target.name;
     const attackerName = attacker ? attacker.name : "The attacker";

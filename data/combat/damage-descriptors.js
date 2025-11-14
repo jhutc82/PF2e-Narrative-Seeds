@@ -3,6 +3,8 @@
  * Verbs and effects for each damage type
  */
 
+import { RandomUtils } from '../../scripts/utils.js';
+
 /**
  * Damage verbs for each damage type and outcome
  * Structure: { damageType: { outcome: [verbs], weaponType: "descriptor" } }
@@ -773,28 +775,32 @@ export const DAMAGE_EFFECTS = {
  * Get verb for damage type and outcome
  * @param {string} damageType
  * @param {string} outcome
+ * @param {string} varietyMode - Variety setting
  * @returns {string|null}
  */
-export function getDamageVerb(damageType, outcome) {
+export function getDamageVerb(damageType, outcome, varietyMode = 'high') {
   const data = DAMAGE_VERBS[damageType];
   if (!data || !data[outcome]) return null;
 
   const verbs = data[outcome];
-  return verbs[Math.floor(Math.random() * verbs.length)];
+  const category = `verb:${damageType}:${outcome}`;
+  return RandomUtils.selectRandom(verbs, varietyMode, category);
 }
 
 /**
  * Get effect for damage type and outcome
  * @param {string} damageType
  * @param {string} outcome
+ * @param {string} varietyMode - Variety setting
  * @returns {string|null}
  */
-export function getDamageEffect(damageType, outcome) {
+export function getDamageEffect(damageType, outcome, varietyMode = 'high') {
   const data = DAMAGE_EFFECTS[damageType];
   if (!data || !data[outcome]) return null;
 
   const effects = data[outcome];
-  return effects[Math.floor(Math.random() * effects.length)];
+  const category = `effect:${damageType}:${outcome}`;
+  return RandomUtils.selectRandom(effects, varietyMode, category);
 }
 
 /**

@@ -75,7 +75,7 @@ export const ANATOMY_DEFINITIONS = {
   "giant-cyclops": {
     name: "Cyclops",
     description: "One-eyed giant",
-    traitMatches: ["giant", "humanoid"],
+    traitMatches: ["giant"],
     nameMatches: ["cyclops"],
     priority: 30,
     examples: ["Cyclops", "Great Cyclops"]
