@@ -1,0 +1,150 @@
+{
+  "pf2e-narrative-seeds": {
+    "title": "PF2e Narrative Seeds",
+    "description": "Comprehensive narrative generation system for Pathfinder 2e",
+
+    "settings": {
+      "enableModule": {
+        "name": "Enable Narrative Seeds",
+        "hint": "Master switch for all narrative generation features"
+      },
+      "visibilityMode": {
+        "name": "Narrative Visibility",
+        "hint": "Who sees the generated narrative seeds?",
+        "choices": {
+          "gm-only": "GM Only (Whispered)",
+          "everyone": "All Players",
+          "gm-plus-actor": "GM + Acting Player"
+        }
+      },
+      "contentTone": {
+        "name": "Content Tone",
+        "hint": "How graphic/intense should descriptions be?",
+        "choices": {
+          "family-friendly": "Family Friendly (PG)",
+          "standard": "Standard (PG-13)",
+          "gritty": "Gritty & Realistic (R)",
+          "dark": "Dark Fantasy (R+)"
+        }
+      },
+      "varietyMode": {
+        "name": "Variety Level",
+        "hint": "How much variation in descriptions?",
+        "choices": {
+          "low": "Low (Familiar, less varied)",
+          "medium": "Medium (Balanced)",
+          "high": "High (Maximum variety)",
+          "extreme": "Extreme (Never repeat)"
+        }
+      },
+      "enableCombat": {
+        "name": "Enable Combat Narration",
+        "hint": "Generate descriptions for attack rolls"
+      },
+      "combatDetailLevel": {
+        "name": "Combat Detail Level",
+        "hint": "How much information to include",
+        "choices": {
+          "minimal": "Minimal (Location only)",
+          "standard": "Standard (Location + effect)",
+          "detailed": "Detailed (Full description)",
+          "cinematic": "Cinematic (Maximum drama)"
+        }
+      },
+      "showAnatomyType": {
+        "name": "Show Detected Anatomy",
+        "hint": "Display detected creature anatomy type in output"
+      },
+      "enableSpells": {
+        "name": "Enable Spell Narration (Coming Soon)",
+        "hint": "Generate descriptions for spell effects - Phase 2 feature"
+      },
+      "enableSkills": {
+        "name": "Enable Skill Check Narration (Coming Soon)",
+        "hint": "Generate descriptions for skill checks - Phase 3 feature"
+      },
+      "enableExploration": {
+        "name": "Enable Exploration Narration (Coming Soon)",
+        "hint": "Generate descriptions for exploration activities - Phase 4 feature"
+      }
+    },
+
+    "chat": {
+      "title": "Combat Narrative Seed",
+      "attacker": "Attacker",
+      "target": "Target",
+      "outcome": "Outcome",
+      "anatomy": "Anatomy",
+      "damageType": "Damage",
+      "buttons": {
+        "narrate": "Narrate Now",
+        "reroll": "Reroll Description",
+        "copy": "Copy"
+      }
+    },
+
+    "outcomes": {
+      "criticalSuccess": "Critical Success",
+      "success": "Success",
+      "failure": "Failure",
+      "criticalFailure": "Critical Failure"
+    },
+
+    "notifications": {
+      "loaded": "PF2e Narrative Seeds loaded successfully!",
+      "requiresPF2e": "PF2e Narrative Seeds requires the Pathfinder 2e game system.",
+      "moduleEnabled": "Module enabled. Reload required.",
+      "moduleDisabled": "Module disabled. Reload required.",
+      "combatEnabled": "Combat narration enabled. Reload required.",
+      "combatDisabled": "Combat narration disabled. Reload required.",
+      "copied": "Copied to clipboard!",
+      "copyFailed": "Failed to copy to clipboard",
+      "rerollSoon": "Reroll feature coming soon!"
+    },
+
+    "anatomy": {
+      "humanoid": "Humanoid",
+      "giant": "Giant",
+      "quadruped": "Quadruped",
+      "serpent": "Serpent",
+      "avian": "Avian",
+      "insectoid": "Insectoid",
+      "amorphous": "Amorphous",
+      "construct": "Construct",
+      "skeleton": "Skeleton",
+      "zombie": "Zombie",
+      "incorporeal": "Incorporeal",
+      "undead-general": "Undead",
+      "troll": "Troll",
+      "owlbear": "Owlbear",
+      "worg": "Worg",
+      "fey-humanoid": "Fey Humanoid",
+      "fey-tiny": "Tiny Fey",
+      "fey-small": "Small Fey",
+      "fey-general": "Fey",
+      "plant": "Plant",
+      "vine": "Vine",
+      "shambling-mound": "Shambling Mound",
+      "scythe-tree": "Scythe Tree",
+      "giant-cyclops": "Cyclops",
+      "will-o-wisp": "Will-o'-Wisp",
+      "aquatic": "Aquatic"
+    },
+
+    "damageTypes": {
+      "slashing": "Slashing",
+      "piercing": "Piercing",
+      "bludgeoning": "Bludgeoning",
+      "fire": "Fire",
+      "cold": "Cold",
+      "electricity": "Electricity",
+      "sonic": "Sonic",
+      "acid": "Acid",
+      "poison": "Poison",
+      "force": "Force",
+      "mental": "Mental",
+      "positive": "Positive",
+      "negative": "Negative"
+    }
+  }
+}

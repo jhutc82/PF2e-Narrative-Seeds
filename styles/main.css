@@ -1,0 +1,403 @@
+/**
+ * PF2e Narrative Seeds - Main Stylesheet
+ * Styling for narrative seed chat cards
+ */
+
+/* ============================================================================
+   BASE CARD STYLING
+   ============================================================================ */
+
+.pf2e-narrative-seed {
+  background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+  border: 2px solid #8b4513;
+  border-radius: 8px;
+  margin: 8px 0;
+  padding: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  font-family: "Signika", sans-serif;
+  color: #e8e8e8;
+}
+
+/* ============================================================================
+   HEADER STYLING
+   ============================================================================ */
+
+.pf2e-narrative-seed .seed-header {
+  background: linear-gradient(135deg, #8b4513 0%, #654321 100%);
+  border-bottom: 2px solid #d4af37;
+  border-radius: 6px 6px 0 0;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pf2e-narrative-seed .seed-header h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: #f5f5dc;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.pf2e-narrative-seed .seed-header.cinematic {
+  background: linear-gradient(135deg, #b8860b 0%, #8b6508 100%);
+}
+
+.pf2e-narrative-seed .anatomy-tag {
+  background: rgba(0, 0, 0, 0.3);
+  color: #d4af37;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================================
+   CONTENT STYLING
+   ============================================================================ */
+
+.pf2e-narrative-seed .seed-content {
+  padding: 12px;
+}
+
+.pf2e-narrative-seed .seed-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 8px;
+  font-size: 12px;
+}
+
+.pf2e-narrative-seed .seed-metadata span {
+  display: inline-block;
+}
+
+.pf2e-narrative-seed .seed-metadata strong {
+  color: #d4af37;
+  font-weight: 600;
+}
+
+.pf2e-narrative-seed .seed-metadata.cinematic {
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pf2e-narrative-seed .seed-metadata.cinematic .metadata-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+/* ============================================================================
+   DESCRIPTION STYLING
+   ============================================================================ */
+
+.pf2e-narrative-seed .seed-description {
+  background: rgba(0, 0, 0, 0.2);
+  border-left: 3px solid #8b4513;
+  padding: 10px 12px;
+  border-radius: 4px;
+  margin-top: 8px;
+}
+
+.pf2e-narrative-seed .seed-description p {
+  margin: 0;
+  padding: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #f0f0f0;
+  font-style: italic;
+}
+
+.pf2e-narrative-seed .seed-description.cinematic p {
+  font-size: 15px;
+  line-height: 1.8;
+  font-weight: 500;
+}
+
+/* ============================================================================
+   OUTCOME STYLING
+   ============================================================================ */
+
+.pf2e-narrative-seed .outcome {
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: bold;
+}
+
+.pf2e-narrative-seed .outcome-critical-success {
+  background: rgba(0, 255, 0, 0.2);
+  color: #00ff00;
+  border: 1px solid #00cc00;
+}
+
+.pf2e-narrative-seed .outcome-success {
+  background: rgba(0, 128, 255, 0.2);
+  color: #5eb3ff;
+  border: 1px solid #0080ff;
+}
+
+.pf2e-narrative-seed .outcome-failure {
+  background: rgba(255, 165, 0, 0.2);
+  color: #ffaa44;
+  border: 1px solid #ff8800;
+}
+
+.pf2e-narrative-seed .outcome-critical-failure {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff5555;
+  border: 1px solid #ff0000;
+}
+
+/* ============================================================================
+   DIVIDER
+   ============================================================================ */
+
+.pf2e-narrative-seed hr {
+  border: none;
+  border-top: 1px solid #555;
+  margin: 8px 0;
+}
+
+/* ============================================================================
+   MINIMAL VARIANT
+   ============================================================================ */
+
+.pf2e-narrative-seed.minimal {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid #666;
+  padding: 8px 12px;
+}
+
+.pf2e-narrative-seed.minimal .seed-description {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pf2e-narrative-seed.minimal .seed-description p {
+  font-size: 13px;
+  font-style: normal;
+  color: #ccc;
+}
+
+/* ============================================================================
+   CINEMATIC VARIANT
+   ============================================================================ */
+
+.pf2e-narrative-seed.cinematic {
+  border: 2px solid #b8860b;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4), 0 0 20px rgba(184, 134, 11, 0.3);
+}
+
+.pf2e-narrative-seed.cinematic .seed-description {
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 4px solid #b8860b;
+  padding: 14px;
+}
+
+/* ============================================================================
+   ACTION BUTTONS (CINEMATIC MODE)
+   ============================================================================ */
+
+.pf2e-narrative-seed .seed-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+
+.pf2e-narrative-seed .seed-button {
+  flex: 1;
+  min-width: 100px;
+  padding: 6px 12px;
+  border: 1px solid #666;
+  border-radius: 4px;
+  background: linear-gradient(135deg, #3a3a3a 0%, #2a2a2a 100%);
+  color: #e8e8e8;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.pf2e-narrative-seed .seed-button:hover {
+  background: linear-gradient(135deg, #4a4a4a 0%, #3a3a3a 100%);
+  border-color: #888;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+.pf2e-narrative-seed .seed-button:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.pf2e-narrative-seed .narrate-button:hover {
+  border-color: #5eb3ff;
+  color: #5eb3ff;
+}
+
+.pf2e-narrative-seed .reroll-button:hover {
+  border-color: #b8860b;
+  color: #d4af37;
+}
+
+.pf2e-narrative-seed .copy-button:hover {
+  border-color: #888;
+  color: #ccc;
+}
+
+/* ============================================================================
+   RESPONSIVE DESIGN
+   ============================================================================ */
+
+@media (max-width: 600px) {
+  .pf2e-narrative-seed .seed-metadata {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .pf2e-narrative-seed .seed-actions {
+    flex-direction: column;
+  }
+
+  .pf2e-narrative-seed .seed-button {
+    width: 100%;
+    min-width: auto;
+  }
+}
+
+/* ============================================================================
+   CHAT MESSAGE INTEGRATION
+   ============================================================================ */
+
+.chat-message .pf2e-narrative-seed {
+  margin: 0;
+  border-radius: 6px;
+}
+
+.chat-message .message-content .pf2e-narrative-seed {
+  margin-top: 4px;
+}
+
+/* ============================================================================
+   HOVER EFFECTS
+   ============================================================================ */
+
+.pf2e-narrative-seed {
+  transition: all 0.2s ease;
+}
+
+.pf2e-narrative-seed:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.4);
+  transform: translateY(-1px);
+}
+
+.pf2e-narrative-seed.cinematic:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5), 0 0 30px rgba(184, 134, 11, 0.4);
+}
+
+/* ============================================================================
+   ACCESSIBILITY
+   ============================================================================ */
+
+.pf2e-narrative-seed *:focus {
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+.pf2e-narrative-seed .seed-button:focus-visible {
+  outline: 2px solid #5eb3ff;
+}
+
+/* ============================================================================
+   PRINT STYLES
+   ============================================================================ */
+
+@media print {
+  .pf2e-narrative-seed {
+    background: white;
+    color: black;
+    border: 1px solid black;
+    box-shadow: none;
+  }
+
+  .pf2e-narrative-seed .seed-header {
+    background: #ccc;
+    color: black;
+  }
+
+  .pf2e-narrative-seed .seed-actions {
+    display: none;
+  }
+}
+
+/* ============================================================================
+   DARK MODE ENHANCEMENTS (if Foundry has dark mode)
+   ============================================================================ */
+
+@media (prefers-color-scheme: dark) {
+  .pf2e-narrative-seed {
+    background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+  }
+
+  .pf2e-narrative-seed .seed-description {
+    background: rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ============================================================================
+   ANIMATION EFFECTS (OPTIONAL)
+   ============================================================================ */
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.pf2e-narrative-seed {
+  animation: slideInFromRight 0.3s ease-out;
+}
+
+/* ============================================================================
+   SPECIAL EFFECTS FOR CRITICAL OUTCOMES
+   ============================================================================ */
+
+.pf2e-narrative-seed.combat-seed .outcome-critical-success {
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+.pf2e-narrative-seed.combat-seed .outcome-critical-failure {
+  animation: pulse-red 2s ease-in-out infinite;
+}
+
+@keyframes pulse-green {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 8px 2px rgba(0, 255, 0, 0.6);
+  }
+}
+
+@keyframes pulse-red {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 8px 2px rgba(255, 0, 0, 0.6);
+  }
+}
