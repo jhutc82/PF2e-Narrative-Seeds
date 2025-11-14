@@ -81,6 +81,15 @@ export const ANATOMY_DEFINITIONS = {
     examples: ["Cyclops", "Great Cyclops"]
   },
 
+  "dragon": {
+    name: "Dragon",
+    description: "Mighty draconic creature",
+    traitMatches: ["dragon"],
+    nameMatches: ["dragon", "drake", "wyrm", "wyvern"],
+    priority: 35,
+    examples: ["Red Dragon", "Black Dragon", "Zombie Dragon", "Skeletal Dragon"]
+  },
+
   // ========================================
   // UNDEAD TYPES
   // ========================================
