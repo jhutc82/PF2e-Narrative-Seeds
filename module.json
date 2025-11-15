@@ -2,7 +2,7 @@
   "id": "pf2e-narrative-seeds",
   "title": "PF2e Narrative Seeds",
   "description": "Comprehensive narrative generation system for Pathfinder 2e. Automatically provides GMs with contextual description seeds for combat, spells, skills, and more. Phase 1: Combat narration with 25+ creature types and 1.6M+ unique combinations.",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "compatibility": {
     "minimum": "12",
     "verified": "13",
@@ -42,7 +42,7 @@
   },
   "url": "https://github.com/jhutc82/PF2e-Narrative-Seeds",
   "manifest": "https://raw.githubusercontent.com/jhutc82/PF2e-Narrative-Seeds/refs/heads/main/module.json",
-  "download": "https://github.com/jhutc82/PF2e-Narrative-Seeds/archive/refs/tags/v1.1.0.zip",
+  "download": "https://github.com/jhutc82/PF2e-Narrative-Seeds/archive/refs/tags/v1.1.1.zip",
   "bugs": "https://github.com/jhutc82/PF2e-Narrative-Seeds/issues",
   "readme": "https://github.com/jhutc82/PF2e-Narrative-Seeds/blob/main/README.md",
   "license": "LICENSE",
