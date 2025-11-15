@@ -23,6 +23,7 @@ export class DefenseDetector {
       hasShield: false,
       shieldRaised: false,
       shieldName: null,
+      hasShieldBlock: false,
       hasNaturalArmor: false,
       dexModifier: 0,
       missReason: 'miss', // Default to plain miss
@@ -43,10 +44,22 @@ export class DefenseDetector {
     }
 
     // Check for equipped armor
-    const equippedArmor = target.items?.find(item =>
+    let equippedArmor = target.items?.find(item =>
       item.type === 'armor' &&
       item.system?.equipped === true
     );
+
+    // For NPCs, also check inventory for armor (they might have it but not marked as equipped)
+    if (!equippedArmor && target.type === 'npc') {
+      const inventoryArmor = target.items?.find(item =>
+        item.type === 'armor'
+      );
+
+      if (inventoryArmor) {
+        equippedArmor = inventoryArmor;
+        console.log('PF2e Narrative Seeds: Found armor in NPC inventory (not equipped)', inventoryArmor.name);
+      }
+    }
 
     if (equippedArmor) {
       analysis.hasArmor = true;
@@ -76,9 +89,13 @@ export class DefenseDetector {
       // Check if shield is raised (PF2e tracks this in actor effects or conditions)
       analysis.shieldRaised = this.isShieldRaised(target);
 
+      // Check if they can use Shield Block
+      analysis.hasShieldBlock = this.hasShieldBlock(target);
+
       // Only give shield weight if it's actually raised
       if (analysis.shieldRaised) {
-        analysis.weights.shield = 25;
+        // Increase weight if they have Shield Block (more likely to actively use shield)
+        analysis.weights.shield = analysis.hasShieldBlock ? 30 : 25;
       }
     }
 
@@ -89,7 +106,7 @@ export class DefenseDetector {
 
     const naturalArmorTraits = [
       'dragon', 'construct', 'aberration', 'elemental',
-      'giant', 'beast', 'animal', 'ooze', 'plant'
+      'giant', 'beast', 'animal', 'ooze', 'plant', 'fungus'
     ];
 
     analysis.hasNaturalArmor = traits.some(trait =>
@@ -100,6 +117,23 @@ export class DefenseDetector {
     const creatureType = target.system?.details?.creatureType?.toLowerCase() || '';
     if (naturalArmorTraits.some(type => creatureType.includes(type))) {
       analysis.hasNaturalArmor = true;
+    }
+
+    // Check for damage resistances/immunities (strong indicator of natural armor)
+    const hasPhysicalResistance = this.hasPhysicalDefenses(target);
+    if (hasPhysicalResistance && !analysis.hasArmor) {
+      analysis.hasNaturalArmor = true;
+    }
+
+    // If creature has inventory armor but it's not equipped, they likely have natural armor
+    if (!analysis.hasArmor && target.type === 'npc') {
+      const hasUnequippedArmor = target.items?.some(item =>
+        item.type === 'armor' && item.system?.equipped === false
+      );
+      if (hasUnequippedArmor) {
+        analysis.hasNaturalArmor = true;
+        console.log('PF2e Narrative Seeds: NPC has unequipped armor, assuming natural armor');
+      }
     }
 
     if (analysis.hasNaturalArmor && !analysis.hasArmor) {
@@ -162,6 +196,102 @@ export class DefenseDetector {
   }
 
   /**
+   * Checks if an actor has physical damage resistances or immunities
+   * @param {Actor} target - The target actor
+   * @returns {boolean} True if has physical resistances/immunities
+   */
+  static hasPhysicalDefenses(target) {
+    try {
+      // Check for resistances
+      const resistances = target.system?.attributes?.resistances || [];
+      const immunities = target.system?.attributes?.immunities || [];
+
+      const physicalTypes = ['physical', 'slashing', 'piercing', 'bludgeoning', 'all'];
+
+      // Check resistances array
+      if (Array.isArray(resistances)) {
+        for (const resist of resistances) {
+          const type = resist.type?.toLowerCase() || '';
+          if (physicalTypes.some(pt => type.includes(pt))) {
+            return true;
+          }
+        }
+      }
+
+      // Check immunities array
+      if (Array.isArray(immunities)) {
+        for (const immunity of immunities) {
+          const type = immunity.type?.toLowerCase() || '';
+          if (physicalTypes.some(pt => type.includes(pt))) {
+            return true;
+          }
+        }
+      }
+
+      // Check traits for resistance/immunity indicators
+      const traits = target.system?.traits?.value || [];
+      const drTraits = traits.filter(t => {
+        const tLower = t.toLowerCase();
+        return tLower.includes('resistance') || tLower.includes('immunity') ||
+               tLower.includes('dr') || tLower.includes('hardness');
+      });
+
+      if (drTraits.length > 0) {
+        return true;
+      }
+
+    } catch (e) {
+      console.warn('PF2e Narrative Seeds: Error checking physical defenses', e);
+    }
+
+    return false;
+  }
+
+  /**
+   * Checks if an actor has the Shield Block reaction available
+   * @param {Actor} target - The target actor
+   * @returns {boolean} True if has Shield Block
+   */
+  static hasShieldBlock(target) {
+    try {
+      // Check for Shield Block feat
+      const hasShieldBlockFeat = target.items?.some(item =>
+        item.type === 'feat' &&
+        item.name?.toLowerCase().includes('shield block')
+      );
+
+      if (hasShieldBlockFeat) {
+        return true;
+      }
+
+      // Check for classes that get Shield Block automatically
+      const classItems = target.items?.filter(item => item.type === 'class') || [];
+
+      for (const classItem of classItems) {
+        const className = classItem.name?.toLowerCase() || '';
+
+        // Fighter and Champion get Shield Block
+        if (className.includes('fighter') || className.includes('champion')) {
+          return true;
+        }
+
+        // Warpriest doctrine for Cleric
+        if (className.includes('cleric')) {
+          const doctrine = classItem.system?.doctrine?.value || '';
+          if (doctrine.toLowerCase().includes('warpriest')) {
+            return true;
+          }
+        }
+      }
+
+    } catch (e) {
+      console.warn('PF2e Narrative Seeds: Error checking Shield Block', e);
+    }
+
+    return false;
+  }
+
+  /**
    * Selects a miss reason based on weighted probabilities
    * @param {Object} weights - Object with weights for each miss reason
    * @returns {string} The selected miss reason
@@ -199,6 +329,7 @@ export class DefenseDetector {
       hasShield: false,
       shieldRaised: false,
       shieldName: null,
+      hasShieldBlock: false,
       hasNaturalArmor: false,
       dexModifier: 0,
       missReason: 'miss',
