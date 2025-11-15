@@ -70,10 +70,11 @@ export class CombatFormatter {
    * @returns {string}
    */
   static generateMinimalHTML(description) {
+    const escapedDescription = StringUtils.escapeHTML(description);
     return `
       <div class="pf2e-narrative-seed combat-seed minimal">
         <div class="seed-description">
-          <p>${description}</p>
+          <p>${escapedDescription}</p>
         </div>
       </div>
     `;
@@ -94,21 +95,26 @@ export class CombatFormatter {
       attackerName
     } = seed;
 
+    const escapedDescription = StringUtils.escapeHTML(description);
+    const escapedAnatomyDisplay = StringUtils.escapeHTML(anatomyDisplay);
+    const escapedTargetName = StringUtils.escapeHTML(targetName);
+    const escapedAttackerName = StringUtils.escapeHTML(attackerName);
+
     return `
       <div class="pf2e-narrative-seed combat-seed">
         <header class="seed-header">
           <h3>⚔️ Combat Narrative Seed</h3>
-          ${anatomyDisplay ? `<span class="anatomy-tag">[${anatomyDisplay}]</span>` : ''}
+          ${anatomyDisplay ? `<span class="anatomy-tag">[${escapedAnatomyDisplay}]</span>` : ''}
         </header>
         <div class="seed-content">
           <div class="seed-metadata">
-            <span class="attacker"><strong>Attacker:</strong> ${attackerName}</span>
-            <span class="target"><strong>Target:</strong> ${targetName}</span>
+            <span class="attacker"><strong>Attacker:</strong> ${escapedAttackerName}</span>
+            <span class="target"><strong>Target:</strong> ${escapedTargetName}</span>
             <span class="outcome ${outcomeClass}"><strong>Outcome:</strong> ${outcomeFormatted}</span>
           </div>
           <hr>
           <div class="seed-description">
-            <p>${description}</p>
+            <p>${escapedDescription}</p>
           </div>
         </div>
       </div>
@@ -132,27 +138,32 @@ export class CombatFormatter {
     } = seed;
 
     const damageTypeDisplay = StringUtils.capitalizeFirst(damageType);
+    const escapedDescription = StringUtils.escapeHTML(description);
+    const escapedAnatomyDisplay = StringUtils.escapeHTML(anatomyDisplay);
+    const escapedTargetName = StringUtils.escapeHTML(targetName);
+    const escapedAttackerName = StringUtils.escapeHTML(attackerName);
+    const escapedDamageTypeDisplay = StringUtils.escapeHTML(damageTypeDisplay);
 
     return `
       <div class="pf2e-narrative-seed combat-seed cinematic">
         <header class="seed-header cinematic">
           <h3>⚔️ Combat Narrative Seed 🎬</h3>
-          ${anatomyDisplay ? `<span class="anatomy-tag">[${anatomyDisplay}]</span>` : ''}
+          ${anatomyDisplay ? `<span class="anatomy-tag">[${escapedAnatomyDisplay}]</span>` : ''}
         </header>
         <div class="seed-content">
           <div class="seed-metadata cinematic">
             <div class="metadata-row">
-              <span class="attacker"><strong>Attacker:</strong> ${attackerName}</span>
-              <span class="target"><strong>Target:</strong> ${targetName}</span>
+              <span class="attacker"><strong>Attacker:</strong> ${escapedAttackerName}</span>
+              <span class="target"><strong>Target:</strong> ${escapedTargetName}</span>
             </div>
             <div class="metadata-row">
-              <span class="damage-type"><strong>Damage:</strong> ${damageTypeDisplay}</span>
+              <span class="damage-type"><strong>Damage:</strong> ${escapedDamageTypeDisplay}</span>
               <span class="outcome ${outcomeClass}"><strong>Outcome:</strong> ${outcomeFormatted}</span>
             </div>
           </div>
           <hr>
           <div class="seed-description cinematic">
-            <p>${description}</p>
+            <p>${escapedDescription}</p>
           </div>
           <div class="seed-actions">
             <button class="seed-button narrate-button" data-action="narrate">
