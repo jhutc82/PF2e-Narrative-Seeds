@@ -26,6 +26,8 @@ export class DefenseDetector {
       hasShieldBlock: false,
       hasNaturalArmor: false,
       dexModifier: 0,
+      effectiveDexModifier: 0, // Dex after armor cap applied
+      armorDexCap: null,
       missReason: 'miss', // Default to plain miss
       weights: {
         dodge: 0,
@@ -37,8 +39,11 @@ export class DefenseDetector {
     };
 
     // Get dexterity modifier
+    // NOTE: PF2e system automatically includes conditions/effects in the .mod value
+    // (e.g., "clumsy" condition, enfeebled, active effects, etc. are already factored in)
     try {
       analysis.dexModifier = target.system?.abilities?.dex?.mod || 0;
+      analysis.effectiveDexModifier = analysis.dexModifier;
     } catch (e) {
       console.warn('PF2e Narrative Seeds: Could not read dex modifier', e);
     }
@@ -65,6 +70,21 @@ export class DefenseDetector {
       analysis.hasArmor = true;
       analysis.armorType = equippedArmor.system?.armorType?.value || 'medium';
       analysis.armorName = equippedArmor.name;
+
+      // Check for armor dexterity cap
+      const dexCap = equippedArmor.system?.dexCap?.value ??
+                     equippedArmor.system?.dex?.value ??
+                     null;
+
+      if (dexCap !== null && dexCap !== undefined) {
+        analysis.armorDexCap = dexCap;
+
+        // Apply dex cap if character's dex exceeds it
+        if (analysis.dexModifier > dexCap) {
+          analysis.effectiveDexModifier = dexCap;
+          console.log(`PF2e Narrative Seeds: Armor dex cap (${dexCap}) applied, reducing effective dex from ${analysis.dexModifier} to ${dexCap}`);
+        }
+      }
 
       // Weight based on armor type
       const armorWeights = {
@@ -132,19 +152,22 @@ export class DefenseDetector {
       analysis.weights.naturalArmor = 25;
     }
 
-    // Calculate dodge weight based on dex modifier
+    // Calculate dodge weight based on effective dex modifier (after armor cap applied)
     // Higher dex = much higher chance of dodge being the reason
-    if (analysis.dexModifier >= 5) {
+    // Note: effectiveDexModifier already includes conditions/effects from PF2e system
+    const effectiveDex = analysis.effectiveDexModifier;
+
+    if (effectiveDex >= 5) {
       analysis.weights.dodge = 40;
-    } else if (analysis.dexModifier >= 4) {
+    } else if (effectiveDex >= 4) {
       analysis.weights.dodge = 35;
-    } else if (analysis.dexModifier >= 3) {
+    } else if (effectiveDex >= 3) {
       analysis.weights.dodge = 30;
-    } else if (analysis.dexModifier >= 2) {
+    } else if (effectiveDex >= 2) {
       analysis.weights.dodge = 25;
-    } else if (analysis.dexModifier >= 1) {
+    } else if (effectiveDex >= 1) {
       analysis.weights.dodge = 20;
-    } else if (analysis.dexModifier >= 0) {
+    } else if (effectiveDex >= 0) {
       analysis.weights.dodge = 15;
     } else {
       // Negative dex = low dodge chance
@@ -323,6 +346,8 @@ export class DefenseDetector {
       hasShieldBlock: false,
       hasNaturalArmor: false,
       dexModifier: 0,
+      effectiveDexModifier: 0,
+      armorDexCap: null,
       missReason: 'miss',
       weights: {
         dodge: 0,
