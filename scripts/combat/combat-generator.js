@@ -114,10 +114,27 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     // Record the message as used
     RandomUtils.recordMessage(description, varietyMode);
 
+    // Get anatomy display name
+    let anatomyDisplay = null;
+    if (showAnatomy) {
+      if (typeof anatomy === 'string') {
+        anatomyDisplay = AnatomyDetector.getDisplayName(anatomy);
+      } else if (anatomy && anatomy.base) {
+        // Build display name with modifiers
+        const baseName = AnatomyDetector.getDisplayName(anatomy.base);
+        if (anatomy.modifiers && anatomy.modifiers.length > 0) {
+          const modifierNames = anatomy.modifiers.map(m => AnatomyDetector.getDisplayName(m)).join(' ');
+          anatomyDisplay = `${modifierNames} ${baseName}`;
+        } else {
+          anatomyDisplay = baseName;
+        }
+      }
+    }
+
     return {
       description,
       anatomy,
-      anatomyDisplay: showAnatomy ? AnatomyDetector.getDisplayName(anatomy) : null,
+      anatomyDisplay,
       damageType,
       outcome,
       targetName: target.name,

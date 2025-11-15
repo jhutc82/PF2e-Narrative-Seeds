@@ -3990,13 +3990,27 @@ export const LOCATIONS = {
 };
 
 /**
- * Get a random location for anatomy type and outcome
- * @param {string} anatomyType - Type of anatomy
+ * Get a random location for anatomy type and outcome (supports layered anatomy)
+ * @param {string|Object} anatomy - Anatomy type key (string) or anatomy object { base, modifiers, anatomyKey }
  * @param {string} outcome - Attack outcome
  * @param {string} varietyMode - Variety setting
  * @returns {string|null} Location description
  */
-export function getLocation(anatomyType, outcome, varietyMode = 'high') {
+export function getLocation(anatomy, outcome, varietyMode = 'high') {
+  // Handle both legacy string format and new object format
+  let anatomyType, modifiers = [];
+
+  if (typeof anatomy === 'string') {
+    // Legacy support: anatomy is a string
+    anatomyType = anatomy;
+  } else if (anatomy && typeof anatomy === 'object') {
+    // New layered system: anatomy is an object
+    anatomyType = anatomy.base || anatomy.anatomyKey || 'humanoid';
+    modifiers = anatomy.modifiers || [];
+  } else {
+    anatomyType = 'humanoid';
+  }
+
   const anatomyData = LOCATIONS[anatomyType];
   if (!anatomyData) {
     console.warn(`PF2e Narrative Seeds | No location data for anatomy: ${anatomyType}`);
@@ -4011,5 +4025,111 @@ export function getLocation(anatomyType, outcome, varietyMode = 'high') {
 
   // Use variety-aware selection with category tracking
   const category = `location:${anatomyType}:${outcome}`;
-  return RandomUtils.selectRandom(locations, varietyMode, category);
+  let location = RandomUtils.selectRandom(locations, varietyMode, category);
+
+  // Apply modifiers to the location description
+  if (modifiers.length > 0) {
+    location = applyModifiersToLocation(location, modifiers, anatomyType);
+  }
+
+  return location;
+}
+
+/**
+ * Apply anatomy modifiers to a location description
+ * @param {string} location - Base location description
+ * @param {Array<string>} modifiers - Array of modifier keys
+ * @param {string} anatomyType - Base anatomy type
+ * @returns {string} Modified location description
+ */
+function applyModifiersToLocation(location, modifiers, anatomyType) {
+  // Apply each modifier in priority order
+  for (const modifierKey of modifiers) {
+    // Apply skeletal modifier
+    if (modifierKey === 'skeletal') {
+      location = location.replace(/flesh/gi, 'bones')
+        .replace(/skin/gi, 'skeletal form')
+        .replace(/muscle/gi, 'bone structure')
+        .replace(/body/gi, 'skeletal frame')
+        .replace(/form/gi, 'skeletal form')
+        .replace(/\b(wing|tail|limb|arm|leg|claw|fang)\b/gi, (match) => `skeletal ${match}`)
+        .replace(/throat/gi, 'vertebrae')
+        .replace(/heart/gi, 'ribcage')
+        .replace(/eye/gi, 'eye socket');
+
+      // If location doesn't mention skeleton yet, prefix it
+      if (!location.includes('skeletal') && !location.includes('bone')) {
+        location = `skeletal ${location}`;
+      }
+    }
+
+    // Apply zombie modifier
+    else if (modifierKey === 'zombie') {
+      location = location.replace(/flesh/gi, 'rotting flesh')
+        .replace(/skin/gi, 'decaying skin')
+        .replace(/body/gi, 'rotting body')
+        .replace(/form/gi, 'decaying form')
+        .replace(/\b(wing|tail|limb|arm|leg)\b/gi, (match) => `rotting ${match}`);
+
+      // If location doesn't mention decay/rot yet, prefix it
+      if (!location.includes('rotting') && !location.includes('decaying')) {
+        location = `rotting ${location}`;
+      }
+    }
+
+    // Apply incorporeal modifier
+    else if (modifierKey === 'incorporeal') {
+      location = location.replace(/flesh/gi, 'ectoplasm')
+        .replace(/skin/gi, 'ethereal form')
+        .replace(/body/gi, 'ghostly form')
+        .replace(/bone/gi, 'spectral essence')
+        .replace(/form/gi, 'ethereal form')
+        .replace(/\b(wing|tail|limb|arm|leg)\b/gi, (match) => `ghostly ${match}`);
+
+      // If location doesn't mention ghostly/ethereal yet, prefix it
+      if (!location.includes('ghostly') && !location.includes('ethereal') && !location.includes('spectral')) {
+        location = `ghostly ${location}`;
+      }
+    }
+
+    // Apply vampire modifier
+    else if (modifierKey === 'vampire') {
+      if (!location.includes('vampiric') && !location.includes('blood-drained')) {
+        location = `blood-drained ${location}`;
+      }
+    }
+
+    // Apply mummy modifier
+    else if (modifierKey === 'mummy') {
+      location = location.replace(/flesh/gi, 'mummified flesh')
+        .replace(/skin/gi, 'bandage-wrapped skin')
+        .replace(/body/gi, 'mummified body')
+        .replace(/form/gi, 'mummified form');
+
+      if (!location.includes('mummified') && !location.includes('bandage')) {
+        location = `mummified ${location}`;
+      }
+    }
+
+    // Apply lich modifier
+    else if (modifierKey === 'lich') {
+      location = location.replace(/flesh/gi, 'withered flesh')
+        .replace(/skin/gi, 'desiccated skin')
+        .replace(/body/gi, 'desiccated body')
+        .replace(/form/gi, 'withered form');
+
+      if (!location.includes('withered') && !location.includes('desiccated')) {
+        location = `withered ${location}`;
+      }
+    }
+
+    // Apply general undead modifier (lowest priority, only if no other undead modifier)
+    else if (modifierKey === 'undead') {
+      if (!location.includes('undead') && !modifiers.some(m => ['skeletal', 'zombie', 'vampire', 'mummy', 'lich', 'incorporeal'].includes(m))) {
+        location = `undead ${location}`;
+      }
+    }
+  }
+
+  return location;
 }

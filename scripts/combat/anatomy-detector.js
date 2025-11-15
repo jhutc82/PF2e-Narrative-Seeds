@@ -1,31 +1,96 @@
 /**
  * PF2e Narrative Seeds - Anatomy Detector
- * Detects creature anatomy types from PF2e actors
+ * Detects creature anatomy types from PF2e actors using layered detection system
  */
 
-import { getSortedAnatomyTypes, getAnatomyDefinition } from '../../data/combat/anatomy-types.js';
+import { getSortedAnatomyTypes, getSortedModifiers, getAnatomyDefinition, getModifierDefinition } from '../../data/combat/anatomy-types.js';
 
 /**
- * Anatomy detection system
+ * Anatomy detection system with layered base + modifiers architecture
  */
 export class AnatomyDetector {
 
   /**
-   * Detect anatomy type for an actor
+   * Detect anatomy type for an actor (new layered system)
    * @param {Actor} actor - PF2e actor
-   * @returns {string} Anatomy type key
+   * @returns {Object} Anatomy result with base and modifiers
+   *   { base: string, modifiers: string[], anatomyKey: string }
    */
   static detect(actor) {
     if (!actor) {
       console.warn("PF2e Narrative Seeds | No actor provided to anatomy detector");
-      return "humanoid";
+      return { base: "humanoid", modifiers: [], anatomyKey: "humanoid" };
     }
 
     // Get actor traits and name
     const traits = this.getActorTraits(actor);
     const name = actor.name?.toLowerCase() || "";
 
-    // Check each anatomy type in priority order
+    // Step 1: Detect all matching modifiers
+    const modifiers = this.detectModifiers(name, traits);
+
+    // Step 2: Detect base anatomy (excluding modifiers from consideration)
+    const base = this.detectBaseAnatomy(name, traits);
+
+    // Log the result
+    if (modifiers.length > 0) {
+      console.log(`PF2e Narrative Seeds | Anatomy detected: ${base} with modifiers [${modifiers.join(", ")}] for ${actor.name}`);
+    } else {
+      console.log(`PF2e Narrative Seeds | Anatomy detected: ${base} (no modifiers) for ${actor.name}`);
+    }
+
+    // Return layered result
+    // anatomyKey is kept for backward compatibility
+    return {
+      base: base,
+      modifiers: modifiers,
+      anatomyKey: base  // Primary anatomy type (backward compatible)
+    };
+  }
+
+  /**
+   * Detect all matching modifiers
+   * @param {string} name - Lowercase creature name
+   * @param {Array<string>} traits - Lowercase traits
+   * @returns {Array<string>} Array of modifier keys
+   */
+  static detectModifiers(name, traits) {
+    const modifiers = [];
+    const sortedModifiers = getSortedModifiers();
+
+    for (const [key, definition] of sortedModifiers) {
+      // Check name matches first (more specific)
+      if (definition.nameMatches && definition.nameMatches.length > 0) {
+        for (const nameMatch of definition.nameMatches) {
+          if (name.includes(nameMatch.toLowerCase())) {
+            modifiers.push(key);
+            break; // Only add this modifier once
+          }
+        }
+        if (modifiers.includes(key)) continue;
+      }
+
+      // Check trait matches
+      if (definition.traitMatches && definition.traitMatches.length > 0) {
+        for (const traitMatch of definition.traitMatches) {
+          if (traits.includes(traitMatch.toLowerCase())) {
+            modifiers.push(key);
+            break; // Only add this modifier once
+          }
+        }
+      }
+    }
+
+    return modifiers;
+  }
+
+  /**
+   * Detect base anatomy type
+   * @param {string} name - Lowercase creature name
+   * @param {Array<string>} traits - Lowercase traits
+   * @returns {string} Base anatomy key
+   */
+  static detectBaseAnatomy(name, traits) {
     const sortedTypes = getSortedAnatomyTypes();
 
     for (const [key, definition] of sortedTypes) {
@@ -33,7 +98,6 @@ export class AnatomyDetector {
       if (definition.nameMatches && definition.nameMatches.length > 0) {
         for (const nameMatch of definition.nameMatches) {
           if (name.includes(nameMatch.toLowerCase())) {
-            console.log(`PF2e Narrative Seeds | Anatomy detected: ${key} (name match: ${nameMatch})`);
             return key;
           }
         }
@@ -43,7 +107,6 @@ export class AnatomyDetector {
       if (definition.traitMatches && definition.traitMatches.length > 0) {
         for (const traitMatch of definition.traitMatches) {
           if (traits.includes(traitMatch.toLowerCase())) {
-            console.log(`PF2e Narrative Seeds | Anatomy detected: ${key} (trait match: ${traitMatch})`);
             return key;
           }
         }
@@ -51,7 +114,6 @@ export class AnatomyDetector {
     }
 
     // Default fallback
-    console.log(`PF2e Narrative Seeds | Anatomy detected: humanoid (default fallback for ${actor.name})`);
     return "humanoid";
   }
 
@@ -87,23 +149,46 @@ export class AnatomyDetector {
   }
 
   /**
-   * Get anatomy display name
-   * @param {string} anatomyKey
+   * Get anatomy or modifier display name
+   * @param {string} key - Anatomy or modifier key
    * @returns {string}
    */
-  static getDisplayName(anatomyKey) {
-    const definition = getAnatomyDefinition(anatomyKey);
-    return definition ? definition.name : anatomyKey;
+  static getDisplayName(key) {
+    // Check if it's a base anatomy first
+    let definition = getAnatomyDefinition(key);
+    if (definition) {
+      return definition.name;
+    }
+
+    // Check if it's a modifier
+    definition = getModifierDefinition(key);
+    if (definition) {
+      return definition.name;
+    }
+
+    // Fallback to the key itself
+    return key;
   }
 
   /**
-   * Get anatomy description
-   * @param {string} anatomyKey
+   * Get anatomy or modifier description
+   * @param {string} key - Anatomy or modifier key
    * @returns {string}
    */
-  static getDescription(anatomyKey) {
-    const definition = getAnatomyDefinition(anatomyKey);
-    return definition ? definition.description : "";
+  static getDescription(key) {
+    // Check if it's a base anatomy first
+    let definition = getAnatomyDefinition(key);
+    if (definition) {
+      return definition.description;
+    }
+
+    // Check if it's a modifier
+    definition = getModifierDefinition(key);
+    if (definition) {
+      return definition.description;
+    }
+
+    return "";
   }
 
   /**
