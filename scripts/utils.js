@@ -474,7 +474,21 @@ export class ToneFilter {
    */
   static applyDark(description) {
     // Add dramatic and ominous flair
+    // Handle specific adverb combinations first to avoid grammar issues
     return description
+      .replace(/\blands?\s+solidly\b/gi, "crashes down")
+      .replace(/\blands?\s+cleanly\b/gi, "slams down")
+      .replace(/\blands?\s+perfectly\b/gi, "strikes down with brutal precision")
+      .replace(/\blands?\s+heavily\b/gi, "hammers down")
+      .replace(/\blands?\s+squarely\b/gi, "impacts with crushing force")
+      .replace(/\bconnects?\s+solidly\b/gi, "impacts brutally")
+      .replace(/\bconnects?\s+cleanly\b/gi, "tears through")
+      .replace(/\bconnects?\s+perfectly\b/gi, "finds its mark with devastating precision")
+      .replace(/\bstrikes?\s+solidly\b/gi, "rends savagely")
+      .replace(/\bstrikes?\s+cleanly\b/gi, "cleaves through")
+      .replace(/\bhits?\s+solidly\b/gi, "tears deep into")
+      .replace(/\bhits?\s+cleanly\b/gi, "rips through")
+      // Then handle single word replacements
       .replace(/\bhits?\b/gi, "tears into")
       .replace(/\bstrikes?\b/gi, "rends")
       .replace(/\blands?\b/gi, "crashes down upon")
