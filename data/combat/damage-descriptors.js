@@ -1615,18 +1615,187 @@ export const DAMAGE_EFFECTS = {
   }
 };
 
+// ========================================
+// ANATOMY METADATA SYSTEM
+// ========================================
+
+/**
+ * Maps location keywords to anatomy types present in those locations
+ * Used to filter anatomically-specific damage verbs
+ */
+const LOCATION_ANATOMY_MAP = {
+  // Skeletal structures
+  skull: ['bone', 'skull'],
+  head: ['bone', 'skull', 'flesh'],
+  brain: ['bone', 'skull', 'organ'],
+  cranium: ['bone', 'skull'],
+
+  // Torso and chest
+  chest: ['bone', 'ribs', 'chest', 'flesh', 'organ'],
+  ribcage: ['bone', 'ribs', 'chest'],
+  ribs: ['bone', 'ribs'],
+  sternum: ['bone', 'chest'],
+  torso: ['bone', 'ribs', 'chest', 'flesh', 'organ'],
+
+  // Spine and back
+  spine: ['bone', 'spine'],
+  back: ['bone', 'spine', 'flesh'],
+  vertebrae: ['bone', 'spine'],
+
+  // Neck and throat
+  neck: ['bone', 'spine', 'flesh', 'windpipe'],
+  throat: ['flesh', 'windpipe'],
+  windpipe: ['windpipe'],
+
+  // Limbs
+  arm: ['bone', 'flesh', 'muscle'],
+  leg: ['bone', 'flesh', 'muscle'],
+  wing: ['bone', 'flesh', 'muscle'],
+  tail: ['bone', 'flesh', 'muscle'],
+  tentacle: ['flesh', 'muscle'],
+
+  // Organs
+  heart: ['organ'],
+  liver: ['organ'],
+  lung: ['organ'],
+  kidney: ['organ'],
+  stomach: ['organ'],
+  intestine: ['organ'],
+  organ: ['organ'],
+
+  // Mouth and face
+  jaw: ['bone', 'skull'],
+  mouth: ['flesh'],
+  face: ['bone', 'skull', 'flesh'],
+  eye: ['flesh'],
+  ear: ['flesh'],
+
+  // Generic anatomy
+  bone: ['bone'],
+  flesh: ['flesh'],
+  muscle: ['muscle'],
+  sinew: ['muscle'],
+  skin: ['flesh'],
+  hide: ['flesh'],
+  scales: ['flesh']
+};
+
+/**
+ * Maps damage verbs to required anatomy types
+ * Empty array means the verb is generic and works with any anatomy
+ */
+const VERB_ANATOMY_REQUIREMENTS = {
+  // Bone-specific verbs
+  "splinters bone in": ['bone'],
+  "pulverizes bone in": ['bone'],
+  "hammers through bone in": ['bone'],
+  "pierces through bone in": ['bone'],
+  "shatters bone in": ['bone'],
+  "breaks multiple bones in": ['bone'],
+  "parts flesh and bone in": ['bone'],
+  "cuts deep to the bone in": ['bone'],
+  "scorch to the bone": ['bone'],
+  "chill to the bone": ['bone'],
+
+  // Rib-specific verbs
+  "caves in ribs in": ['ribs'],
+  "splinters ribs in": ['ribs'],
+  "drives through ribs into": ['ribs'],
+
+  // Skull-specific verbs
+  "shatters the skull of": ['skull'],
+  "cracks the skull of": ['skull'],
+
+  // Spine/back-specific verbs
+  "fractures the spine of": ['spine'],
+  "crushes vertebrae in": ['spine'],
+  "breaks the back of": ['spine'],
+
+  // Chest-specific verbs
+  "crushes the chest of": ['chest'],
+  "collapses the sternum of": ['chest'],
+
+  // Windpipe-specific verbs
+  "crushes the windpipe of": ['windpipe'],
+
+  // Organ-specific verbs
+  "pulverizes vital organs in": ['organ'],
+  "penetrates to vital organs in": ['organ'],
+
+  // Muscle-specific verbs
+  "slices through muscle and sinew in": ['muscle']
+
+  // All other verbs are generic (no entry = no requirements)
+};
+
+/**
+ * Extract anatomy types from a location string
+ * @param {string} location - The location string (e.g., "rotting chest", "skull")
+ * @returns {string[]} Array of anatomy types present in this location
+ */
+export function getLocationAnatomy(location) {
+  if (!location) return ['flesh']; // Default fallback
+
+  const anatomyTags = new Set();
+  const locationLower = location.toLowerCase();
+
+  // Check each keyword in the location anatomy map
+  for (const [keyword, tags] of Object.entries(LOCATION_ANATOMY_MAP)) {
+    if (locationLower.includes(keyword)) {
+      tags.forEach(tag => anatomyTags.add(tag));
+    }
+  }
+
+  // If no specific anatomy found, assume generic flesh/soft tissue
+  if (anatomyTags.size === 0) {
+    anatomyTags.add('flesh');
+  }
+
+  return Array.from(anatomyTags);
+}
+
+/**
+ * Filter verbs based on location anatomy
+ * @param {string[]} verbs - Array of possible verbs
+ * @param {string[]} locationAnatomy - Anatomy types present in the location
+ * @returns {string[]} Filtered array of anatomically-appropriate verbs
+ */
+function filterVerbsByAnatomy(verbs, locationAnatomy) {
+  const filtered = verbs.filter(verb => {
+    const requirements = VERB_ANATOMY_REQUIREMENTS[verb];
+
+    // If no requirements specified, verb is generic and always allowed
+    if (!requirements || requirements.length === 0) {
+      return true;
+    }
+
+    // Check if location has all required anatomy types
+    return requirements.every(req => locationAnatomy.includes(req));
+  });
+
+  // If filtering eliminated all verbs, return original list as fallback
+  return filtered.length > 0 ? filtered : verbs;
+}
+
 /**
  * Get verb for damage type and outcome
  * @param {string} damageType
  * @param {string} outcome
  * @param {string} varietyMode - Variety setting
+ * @param {string[]} locationAnatomy - Optional anatomy types of the target location
  * @returns {string|null}
  */
-export function getDamageVerb(damageType, outcome, varietyMode = 'high') {
+export function getDamageVerb(damageType, outcome, varietyMode = 'high', locationAnatomy = null) {
   const data = DAMAGE_VERBS[damageType];
   if (!data || !data[outcome]) return null;
 
-  const verbs = data[outcome];
+  let verbs = data[outcome];
+
+  // Filter by anatomy if location anatomy is provided
+  if (locationAnatomy && locationAnatomy.length > 0) {
+    verbs = filterVerbsByAnatomy(verbs, locationAnatomy);
+  }
+
   const category = `verb:${damageType}:${outcome}`;
   return RandomUtils.selectRandom(verbs, varietyMode, category);
 }

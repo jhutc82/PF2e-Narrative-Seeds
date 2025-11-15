@@ -8,7 +8,7 @@ import { NarrativeSeedsSettings } from '../settings.js';
 import { AnatomyDetector } from './anatomy-detector.js';
 import { DamageDetector } from './damage-detector.js';
 import { getLocation } from '../../data/combat/locations.js';
-import { getDamageVerb, getDamageEffect, getWeaponType } from '../../data/combat/damage-descriptors.js';
+import { getDamageVerb, getDamageEffect, getWeaponType, getLocationAnatomy } from '../../data/combat/damage-descriptors.js';
 
 /**
  * Combat narrative generator
@@ -240,7 +240,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    */
   generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item) {
     const location = getLocation(anatomy, outcome, varietyMode);
-    const verb = getDamageVerb(damageType, outcome, varietyMode);
+    const locationAnatomy = getLocationAnatomy(location);
+    const verb = getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
     const effect = getDamageEffect(damageType, outcome, varietyMode);
     const weaponType = getWeaponType(damageType, item, "third");
     const targetName = target.name;
