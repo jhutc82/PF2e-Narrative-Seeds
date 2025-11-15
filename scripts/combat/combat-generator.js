@@ -177,8 +177,9 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
   generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense) {
     // Get components
     const location = getLocation(anatomy, outcome, varietyMode);
-    const verb = getDamageVerb(damageType, outcome, varietyMode);
-    const effect = getDamageEffect(damageType, outcome, varietyMode);
+    const locationAnatomy = getLocationAnatomy(location);
+    const verb = getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
+    const effect = getDamageEffect(damageType, outcome, varietyMode, locationAnatomy);
     const weaponType = getWeaponType(damageType, item);
 
     if (!location) return "Your attack connects!";
@@ -209,23 +210,35 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     switch(outcome) {
       case "criticalSuccess":
         if (verb && effect) {
-          return `${opening} ${verb} their ${location}! ${effect}`;
+          return `${opening} ${verb} their ${location}! ${effect} A critical hit!`;
+        } else if (verb) {
+          return `${opening} ${verb} their ${location} with brutal force! A devastating critical strike!`;
+        } else if (effect) {
+          return `${opening} striking their ${location} with crushing power! ${effect}`;
         } else {
-          return `${opening} striking their ${location} with devastating force!`;
+          return `${opening} striking their ${location} with devastating force! A perfect critical hit!`;
         }
 
       case "success":
         if (verb && effect) {
           return `${opening} ${verb} their ${location}. ${effect}`;
+        } else if (verb) {
+          return `${opening} ${verb} their ${location}, connecting solidly!`;
+        } else if (effect) {
+          return `${opening} hitting their ${location}. ${effect}`;
         } else {
-          return `${opening} hitting their ${location}.`;
+          return `${opening} hitting their ${location} cleanly!`;
         }
 
       case "failure":
-        return `${opening} ${location}.`;
+        // Provide more descriptive failure text
+        const targetName = target ? target.name : "the target";
+        return `${opening} ${location}. ${targetName} manages to avoid the worst of it, the attack missing narrowly as they react at the last moment.`;
 
       case "criticalFailure":
-        return `${opening} ${location}!`;
+        // Provide more descriptive critical failure text
+        const targetNameCrit = target ? target.name : "the target";
+        return `${opening} ${location}! ${targetNameCrit} easily avoids the poorly executed attack, leaving the attacker exposed and off-balance!`;
 
       default:
         return `${weaponType} targets their ${location}.`;
@@ -238,8 +251,9 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    */
   generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense) {
     const location = getLocation(anatomy, outcome, varietyMode);
-    const verb = getDamageVerb(damageType, outcome, varietyMode);
-    const effect = getDamageEffect(damageType, outcome, varietyMode);
+    const locationAnatomy = getLocationAnatomy(location);
+    const verb = getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
+    const effect = getDamageEffect(damageType, outcome, varietyMode, locationAnatomy);
     const weaponType = getWeaponType(damageType, item);
     const targetName = target.name;
 
@@ -268,23 +282,47 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     switch(outcome) {
       case "criticalSuccess":
         if (verb && effect) {
-          return `${opening} ${verb} their ${location} with crushing force! ${effect} The strike is devastating!`;
+          return `${opening} ${verb} their ${location} with crushing force! ${effect} The devastating strike leaves them reeling!`;
+        } else if (verb) {
+          return `${opening} ${verb} their ${location} with brutal precision! A devastating critical hit that connects perfectly!`;
+        } else if (effect) {
+          return `${opening} slamming into their ${location} with overwhelming power! ${effect} A critical strike!`;
         } else {
-          return `${opening} slamming into their ${location}! A critical hit!`;
+          return `${opening} crashing into their ${location} with devastating force! The perfect critical hit leaves them staggered!`;
         }
 
       case "success":
         if (verb && effect) {
-          return `${opening} ${verb} their ${location}. ${effect}`;
+          return `${opening} ${verb} their ${location}. ${effect} A solid, effective blow!`;
+        } else if (verb) {
+          return `${opening} ${verb} their ${location}, the attack connecting cleanly and dealing significant damage!`;
+        } else if (effect) {
+          return `${opening} landing on their ${location} with force. ${effect}`;
         } else {
-          return `${opening} landing on their ${location} cleanly.`;
+          return `${opening} striking their ${location} cleanly, the attack finding its mark and dealing damage!`;
         }
 
       case "failure":
-        return `${opening} ${location}, missing narrowly.`;
+        // Provide more descriptive failure text with target name and explanation
+        if (defense && defense.missReason) {
+          const reason = defense.missReason === 'armor' ? `${targetName}'s armor deflects the blow` :
+                        defense.missReason === 'shield' ? `${targetName} blocks with their shield` :
+                        defense.missReason === 'dodge' ? `${targetName} dodges with practiced precision` :
+                        `${targetName} reacts in time`;
+          return `${opening} ${location}, but ${reason}. The attack fails to find its mark, leaving ${targetName} unscathed.`;
+        }
+        return `${opening} ${location}, but ${targetName} sees it coming and shifts at the last second. The attack whistles harmlessly past, missing by mere inches.`;
 
       case "criticalFailure":
-        return `${opening} ${location}! A complete miss!`;
+        // Provide more descriptive critical failure text
+        if (defense && defense.missReason) {
+          const reason = defense.missReason === 'armor' ? `${targetName}'s armor easily turns aside the clumsy strike` :
+                        defense.missReason === 'shield' ? `${targetName} contemptuously blocks with their shield` :
+                        defense.missReason === 'dodge' ? `${targetName} effortlessly sidesteps the telegraphed attack` :
+                        `${targetName} barely needs to react`;
+          return `${opening} ${location}! ${reason}. The attacker stumbles, completely off-balance from the failed strike!`;
+        }
+        return `${opening} ${location}! ${targetName} doesn't even need to try hard to avoid the poorly executed attack. The attacker is left stumbling and exposed, having wasted their opportunity!`;
 
       default:
         return `${weaponType} moves toward ${targetName}'s ${location}.`;
@@ -299,7 +337,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     const location = getLocation(anatomy, outcome, varietyMode);
     const locationAnatomy = getLocationAnatomy(location);
     const verb = getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
-    const effect = getDamageEffect(damageType, outcome, varietyMode);
+    const effect = getDamageEffect(damageType, outcome, varietyMode, locationAnatomy);
     const weaponType = getWeaponType(damageType, item, "third");
     const targetName = target.name;
     const attackerName = attacker ? attacker.name : "The attacker";
@@ -329,22 +367,46 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
       case "criticalSuccess":
         if (verb && effect) {
           return `${opening} ${weaponType} ${verb} ${targetName}'s ${location} with crushing force! ${effect} ${targetName} staggers backward, the impact overwhelming!`;
+        } else if (verb) {
+          return `${opening} ${weaponType} ${verb} ${targetName}'s ${location} with devastating precision! The critical strike leaves ${targetName} reeling from the perfect hit!`;
+        } else if (effect) {
+          return `${opening} ${weaponType} crashes into ${targetName}'s ${location} with overwhelming force! ${effect} A devastating critical strike!`;
         } else {
-          return `${opening} ${weaponType} crashes into ${targetName}'s ${location} with devastating precision! A perfect, critical strike!`;
+          return `${opening} ${weaponType} crashes into ${targetName}'s ${location} with devastating precision! The perfect strike finds its mark with catastrophic effect, leaving ${targetName} staggering from the blow!`;
         }
 
       case "success":
         if (verb && effect) {
           return `${opening} ${weaponType} lands solidly, ${verb} ${targetName}'s ${location}. ${effect}`;
+        } else if (verb) {
+          return `${opening} ${weaponType} ${verb} ${targetName}'s ${location}. The attack finds its mark, dealing solid damage!`;
+        } else if (effect) {
+          return `${opening} ${weaponType} connects firmly with ${targetName}'s ${location}. ${effect}`;
         } else {
-          return `${opening} ${weaponType} connects with ${targetName}'s ${location}, a solid hit!`;
+          return `${opening} ${weaponType} connects with ${targetName}'s ${location}, delivering a solid, effective hit that leaves its mark!`;
         }
 
       case "failure":
-        return `${opening} ${weaponType} swings ${location}, the attack missing by mere inches!`;
+        // More dramatic, descriptive failure for cinematic mode
+        if (defense && defense.missReason) {
+          const defenseDesc = defense.missReason === 'armor' ? `${targetName}'s armor deflects the strike with a resounding clang` :
+                             defense.missReason === 'shield' ? `${targetName} interposes their shield at the perfect moment` :
+                             defense.missReason === 'dodge' ? `${targetName} flows like water around the incoming attack` :
+                             `${targetName} reacts with battle-honed instincts`;
+          return `${opening} ${weaponType} arcs toward ${location}, but ${defenseDesc}! The attack fails to connect, ${targetName} emerging unscathed from the exchange!`;
+        }
+        return `${opening} ${weaponType} arcs toward ${location}, but ${targetName} reads the attack perfectly! With a fluid motion, they evade at the last possible moment, the weapon missing by mere inches. ${targetName} capitalizes on the opening!`;
 
       case "criticalFailure":
-        return `${opening} ${weaponType} goes ${location}, completely missing the mark in an embarrassing fumble!`;
+        // Even more dramatic critical failure for cinematic mode
+        if (defense && defense.missReason) {
+          const defenseDesc = defense.missReason === 'armor' ? `${targetName}'s armor turns it aside like it was nothing` :
+                             defense.missReason === 'shield' ? `${targetName} casually deflects it with their shield` :
+                             defense.missReason === 'dodge' ? `${targetName} sidesteps with contemptuous ease` :
+                             `${targetName} barely needs to acknowledge the threat`;
+          return `${opening} ${weaponType} flails wildly ${location}, but ${defenseDesc}! The completely botched attack leaves the wielder stumbling and exposed, having achieved nothing but embarrassment!`;
+        }
+        return `${opening} ${weaponType} swings in a wild, uncontrolled arc ${location}, but ${targetName} doesn't even break stride! The catastrophically poor attack misses by a mile, leaving the attacker off-balance and vulnerable. Combat instructors everywhere weep at such incompetence!`;
 
       default:
         return `${attackerName} moves to strike ${targetName}...`;

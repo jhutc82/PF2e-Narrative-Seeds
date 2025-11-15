@@ -2598,50 +2598,74 @@ export const DAMAGE_EFFECTS = {
  */
 const LOCATION_ANATOMY_MAP = {
   // Skeletal structures
-  skull: ['bone', 'skull'],
-  head: ['bone', 'skull', 'flesh'],
-  brain: ['bone', 'skull', 'organ'],
-  cranium: ['bone', 'skull'],
+  skull: ['bone', 'skull', 'head'],
+  head: ['bone', 'skull', 'flesh', 'head'],
+  brain: ['bone', 'skull', 'organ', 'head'],
+  cranium: ['bone', 'skull', 'head'],
+  temple: ['bone', 'skull', 'head'],
+  foramen: ['bone', 'skull', 'head'], // Covers jugular foramen, foramen magnum, etc.
 
   // Torso and chest
   chest: ['bone', 'ribs', 'chest', 'flesh', 'organ'],
   ribcage: ['bone', 'ribs', 'chest'],
-  ribs: ['bone', 'ribs'],
+  ribs: ['bone', 'ribs', 'chest'],
   sternum: ['bone', 'chest'],
   torso: ['bone', 'ribs', 'chest', 'flesh', 'organ'],
+  pericardium: ['chest', 'organ'],
+  myocardium: ['chest', 'organ'],
+  pulmonary: ['chest', 'organ'], // Covers pulmonary artery, vein, etc.
+
+  // Abdomen
+  abdomen: ['flesh', 'organ', 'abdomen'],
+  abdominal: ['flesh', 'organ', 'abdomen'],
+  belly: ['flesh', 'organ', 'abdomen'],
+  gut: ['flesh', 'organ', 'abdomen'],
 
   // Spine and back
   spine: ['bone', 'spine'],
   back: ['bone', 'spine', 'flesh'],
   vertebrae: ['bone', 'spine'],
 
-  // Neck and throat
-  neck: ['bone', 'spine', 'flesh', 'windpipe'],
-  throat: ['flesh', 'windpipe'],
-  windpipe: ['windpipe'],
+  // Neck and throat (NOT chest/lungs!)
+  neck: ['bone', 'spine', 'flesh', 'windpipe', 'neck'],
+  throat: ['flesh', 'windpipe', 'neck'],
+  windpipe: ['windpipe', 'neck'],
+  trachea: ['windpipe', 'neck'],
+  larynx: ['windpipe', 'neck'],
+  jugular: ['neck', 'flesh'], // Jugular vein, jugular foramen
+  carotid: ['neck', 'flesh'], // Carotid artery
 
   // Limbs
-  arm: ['bone', 'flesh', 'muscle'],
-  leg: ['bone', 'flesh', 'muscle'],
-  wing: ['bone', 'flesh', 'muscle'],
+  arm: ['bone', 'flesh', 'muscle', 'limb'],
+  leg: ['bone', 'flesh', 'muscle', 'limb'],
+  wing: ['bone', 'flesh', 'muscle', 'limb'],
   tail: ['bone', 'flesh', 'muscle'],
   tentacle: ['flesh', 'muscle'],
+  hand: ['bone', 'flesh', 'limb'],
+  foot: ['bone', 'flesh', 'limb'],
+  finger: ['bone', 'flesh', 'limb'],
+  toe: ['bone', 'flesh', 'limb'],
 
-  // Organs
-  heart: ['organ'],
-  liver: ['organ'],
-  lung: ['organ'],
-  kidney: ['organ'],
-  stomach: ['organ'],
-  intestine: ['organ'],
+  // Organs (torso/chest)
+  heart: ['organ', 'chest'],
+  liver: ['organ', 'abdomen'],
+  lung: ['organ', 'chest'],
+  kidney: ['organ', 'abdomen'],
+  stomach: ['organ', 'abdomen'],
+  intestine: ['organ', 'abdomen'],
+  spleen: ['organ', 'abdomen'],
+  pancreas: ['organ', 'abdomen'],
+  gallbladder: ['organ', 'abdomen'],
+  bladder: ['organ', 'abdomen'],
   organ: ['organ'],
 
   // Mouth and face
-  jaw: ['bone', 'skull'],
-  mouth: ['flesh'],
-  face: ['bone', 'skull', 'flesh'],
-  eye: ['flesh'],
-  ear: ['flesh'],
+  jaw: ['bone', 'skull', 'head'],
+  mouth: ['flesh', 'head'],
+  face: ['bone', 'skull', 'flesh', 'head'],
+  eye: ['flesh', 'head'],
+  ear: ['flesh', 'head'],
+  nose: ['bone', 'skull', 'head'],
 
   // Generic anatomy
   bone: ['bone'],
@@ -2702,6 +2726,42 @@ const VERB_ANATOMY_REQUIREMENTS = {
 };
 
 /**
+ * Maps damage effects to required anatomy types
+ * Effects requiring specific anatomy (like lungs, heart) will only appear when hitting that anatomy
+ * Empty array or no entry means the effect is generic and works with any anatomy
+ */
+const EFFECT_ANATOMY_REQUIREMENTS = {
+  // Chest/lung-specific effects (require chest anatomy, NOT neck/head)
+  "Blood froths from the punctured lung!": ['chest'],
+  "They stagger, struggling to breathe!": ['chest', 'windpipe'],
+  "The piercing strike finds their heart!": ['chest'],
+  "They choke as blood fills vital cavities!": ['chest', 'abdomen'],
+  "The deep wound penetrates to the core!": ['chest', 'abdomen'],
+
+  // Head/skull-specific effects
+  "They stagger, possibly concussed!": ['head', 'skull'],
+  "Their vision blurs from the head trauma!": ['head', 'skull'],
+  "They reel, disoriented and dazed!": ['head', 'skull'],
+  "A grotesque dent appears!": ['skull'],
+
+  // Windpipe/throat-specific effects
+  "They gasp, clutching their throat!": ['neck', 'windpipe'],
+  "They struggle to draw breath!": ['neck', 'windpipe'],
+
+  // Abdomen-specific effects
+  "They double over from the gut blow!": ['abdomen'],
+  "They vomit from the gut blow!": ['abdomen'],
+  "Internal organs shift violently!": ['abdomen', 'chest'],
+
+  // Bone-breaking effects (require bone, but exclude combinations that don't make sense)
+  "Multiple bones shatter!": ['bone'],
+  "Bones crack audibly!": ['bone'],
+  "Something breaks with a sickening crunch!": ['bone'],
+
+  // All other effects are generic (no entry = no requirements)
+};
+
+/**
  * Extract anatomy types from a location string
  * @param {string} location - The location string (e.g., "rotting chest", "skull")
  * @returns {string[]} Array of anatomy types present in this location
@@ -2751,6 +2811,30 @@ function filterVerbsByAnatomy(verbs, locationAnatomy) {
 }
 
 /**
+ * Filter effects based on location anatomy
+ * @param {string[]} effects - Array of possible effects
+ * @param {string[]} locationAnatomy - Anatomy types present in the location
+ * @returns {string[]} Filtered array of anatomically-appropriate effects
+ */
+function filterEffectsByAnatomy(effects, locationAnatomy) {
+  const filtered = effects.filter(effect => {
+    const requirements = EFFECT_ANATOMY_REQUIREMENTS[effect];
+
+    // If no requirements specified, effect is generic and always allowed
+    if (!requirements || requirements.length === 0) {
+      return true;
+    }
+
+    // Check if location has at least ONE of the required anatomy types
+    // (Different from verbs - effects need ANY match, not ALL matches)
+    return requirements.some(req => locationAnatomy.includes(req));
+  });
+
+  // If filtering eliminated all effects, return original list as fallback
+  return filtered.length > 0 ? filtered : effects;
+}
+
+/**
  * Get verb for damage type and outcome
  * @param {string} damageType
  * @param {string} outcome
@@ -2778,13 +2862,20 @@ export function getDamageVerb(damageType, outcome, varietyMode = 'high', locatio
  * @param {string} damageType
  * @param {string} outcome
  * @param {string} varietyMode - Variety setting
+ * @param {string[]} locationAnatomy - Optional anatomy types of the target location
  * @returns {string|null}
  */
-export function getDamageEffect(damageType, outcome, varietyMode = 'high') {
+export function getDamageEffect(damageType, outcome, varietyMode = 'high', locationAnatomy = null) {
   const data = DAMAGE_EFFECTS[damageType];
   if (!data || !data[outcome]) return null;
 
-  const effects = data[outcome];
+  let effects = data[outcome];
+
+  // Filter by anatomy if location anatomy is provided
+  if (locationAnatomy && locationAnatomy.length > 0) {
+    effects = filterEffectsByAnatomy(effects, locationAnatomy);
+  }
+
   const category = `effect:${damageType}:${outcome}`;
   return RandomUtils.selectRandom(effects, varietyMode, category);
 }
