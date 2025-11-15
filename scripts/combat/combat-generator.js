@@ -7,9 +7,11 @@ import { NarrativeSeedGenerator, RandomUtils, StringUtils, ToneFilter } from '..
 import { NarrativeSeedsSettings } from '../settings.js';
 import { AnatomyDetector } from './anatomy-detector.js';
 import { DamageDetector } from './damage-detector.js';
+import { DefenseDetector } from './defense-detector.js';
 import { getLocation } from '../../data/combat/locations.js';
 import { getDamageVerb, getDamageEffect, getWeaponType, getLocationAnatomy } from '../../data/combat/damage-descriptors.js';
 import { getOpeningSentence } from '../../data/combat/opening-sentences.js';
+import { getDefenseOpenings } from '../../data/combat/defense-opening-sentences.js';
 
 /**
  * Combat narrative generator
@@ -47,13 +49,20 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
       return null;
     }
 
+    // Detect defensive capabilities (for failures/critical failures)
+    let defense = null;
+    if (outcome === 'failure' || outcome === 'criticalFailure') {
+      defense = DefenseDetector.detect(target);
+    }
+
     return {
       anatomy,
       damageType,
       outcome,
       target,
       attacker: params.actor,
-      item
+      item,
+      defense
     };
   }
 
@@ -63,7 +72,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * @returns {Object}
    */
   constructSeed(context) {
-    const { anatomy, damageType, outcome, target, attacker, item } = context;
+    const { anatomy, damageType, outcome, target, attacker, item, defense } = context;
 
     // Get settings
     const detailLevel = NarrativeSeedsSettings.get("combatDetailLevel");
@@ -83,16 +92,16 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           description = this.generateMinimal(anatomy, outcome, damageType, varietyMode);
           break;
         case "standard":
-          description = this.generateStandard(anatomy, outcome, damageType, varietyMode, item);
+          description = this.generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense);
           break;
         case "detailed":
-          description = this.generateDetailed(anatomy, outcome, damageType, target, varietyMode, item);
+          description = this.generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense);
           break;
         case "cinematic":
-          description = this.generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item);
+          description = this.generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense);
           break;
         default:
-          description = this.generateStandard(anatomy, outcome, damageType, varietyMode, item);
+          description = this.generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense);
       }
 
       // Apply tone filter
@@ -160,7 +169,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * Generate standard description
    * @returns {string}
    */
-  generateStandard(anatomy, outcome, damageType, varietyMode, item) {
+  generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense) {
     // Get components
     const location = getLocation(anatomy, outcome, varietyMode);
     const verb = getDamageVerb(damageType, outcome, varietyMode);
@@ -170,7 +179,26 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     if (!location) return "Your attack connects!";
 
     // Get random opening sentence
-    const opening = getOpeningSentence('standard', outcome, { weaponType });
+    let opening;
+
+    // For failures/critical failures, use defense-aware openings if available
+    if ((outcome === 'failure' || outcome === 'criticalFailure') && defense) {
+      const defenseOpenings = getDefenseOpenings(outcome, defense.missReason, 'cinematic');
+      if (defenseOpenings && defenseOpenings.length > 0) {
+        // Select random opening from defense-aware sentences
+        const targetName = target ? target.name : "the target";
+        const attackerName = attacker ? attacker.name : "The attacker";
+        opening = RandomUtils.choice(defenseOpenings);
+        // Replace template variables
+        opening = opening.replace(/\$\{attackerName\}/g, attackerName);
+        opening = opening.replace(/\$\{targetName\}/g, targetName);
+        opening = opening.replace(/\$\{weaponType\}/g, weaponType);
+        return opening; // Defense-aware openings are complete sentences
+      }
+    }
+
+    // Fall back to standard opening sentences
+    opening = getOpeningSentence('standard', outcome, { weaponType });
 
     // Construct based on outcome
     switch(outcome) {
@@ -203,7 +231,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * Generate detailed description
    * @returns {string}
    */
-  generateDetailed(anatomy, outcome, damageType, target, varietyMode, item) {
+  generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense) {
     const location = getLocation(anatomy, outcome, varietyMode);
     const verb = getDamageVerb(damageType, outcome, varietyMode);
     const effect = getDamageEffect(damageType, outcome, varietyMode);
@@ -213,7 +241,24 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     if (!location) return `Your attack finds ${targetName}!`;
 
     // Get random opening sentence
-    const opening = getOpeningSentence('detailed', outcome, { weaponType, targetName });
+    let opening;
+
+    // For failures/critical failures, use defense-aware openings if available
+    if ((outcome === 'failure' || outcome === 'criticalFailure') && defense) {
+      const defenseOpenings = getDefenseOpenings(outcome, defense.missReason, 'cinematic');
+      if (defenseOpenings && defenseOpenings.length > 0) {
+        const attackerName = attacker ? attacker.name : "The attacker";
+        opening = RandomUtils.choice(defenseOpenings);
+        // Replace template variables
+        opening = opening.replace(/\$\{attackerName\}/g, attackerName);
+        opening = opening.replace(/\$\{targetName\}/g, targetName);
+        opening = opening.replace(/\$\{weaponType\}/g, weaponType);
+        return opening; // Defense-aware openings are complete sentences
+      }
+    }
+
+    // Fall back to standard opening sentences
+    opening = getOpeningSentence('detailed', outcome, { weaponType, targetName });
 
     switch(outcome) {
       case "criticalSuccess":
@@ -245,7 +290,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * Generate cinematic description
    * @returns {string}
    */
-  generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item) {
+  generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense) {
     const location = getLocation(anatomy, outcome, varietyMode);
     const locationAnatomy = getLocationAnatomy(location);
     const verb = getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
@@ -257,7 +302,23 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     if (!location) return `${attackerName}'s attack finds its mark on ${targetName}!`;
 
     // Get random opening sentence
-    const opening = getOpeningSentence('cinematic', outcome, { attackerName, targetName, weaponType });
+    let opening;
+
+    // For failures/critical failures, use defense-aware openings if available
+    if ((outcome === 'failure' || outcome === 'criticalFailure') && defense) {
+      const defenseOpenings = getDefenseOpenings(outcome, defense.missReason, 'cinematic');
+      if (defenseOpenings && defenseOpenings.length > 0) {
+        opening = RandomUtils.choice(defenseOpenings);
+        // Replace template variables
+        opening = opening.replace(/\$\{attackerName\}/g, attackerName);
+        opening = opening.replace(/\$\{targetName\}/g, targetName);
+        opening = opening.replace(/\$\{weaponType\}/g, weaponType);
+        return opening; // Defense-aware openings are complete sentences
+      }
+    }
+
+    // Fall back to standard opening sentences
+    opening = getOpeningSentence('cinematic', outcome, { attackerName, targetName, weaponType });
 
     switch(outcome) {
       case "criticalSuccess":
