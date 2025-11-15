@@ -3128,6 +3128,135 @@ function detectRangedOrThrownWeapon(item, message = null) {
 }
 
 /**
+ * Get ranged weapon category for specialized opening sentences
+ * @param {Object} item - PF2e item
+ * @param {Object} message - Optional chat message for context
+ * @returns {string|null} - Returns 'bow', 'crossbow', 'thrown', 'firearm', 'bomb', 'spell', or null
+ */
+export function getRangedWeaponCategory(item, message = null) {
+  if (!item) return null;
+
+  const name = (item.name || "").toLowerCase();
+  const traits = item.system?.traits?.value || [];
+  const group = item.system?.group?.value || item.system?.group || "";
+  const baseType = item.system?.baseType || "";
+  const itemType = item.type?.toLowerCase() || "";
+
+  // Check if this is actually a ranged attack (for thrown weapons that can be used in melee)
+  let isRangedAttack = false;
+  if (message?.flags?.pf2e) {
+    const origin = message.flags.pf2e.origin;
+    const context = message.flags.pf2e.context;
+
+    // Check for range penalty or ranged attack indicators
+    if (context?.options?.includes('ranged') ||
+        origin?.type === 'ranged' ||
+        context?.rangePenalty ||
+        message.content?.toLowerCase().includes('range penalty')) {
+      isRangedAttack = true;
+    }
+  }
+
+  // Check for spells and spell attacks
+  if (itemType === "spell" || traits.includes("spell")) {
+    const isAttackSpell = item.system?.spellType?.value === "attack" ||
+                         traits.includes("attack") ||
+                         name.includes("ray") ||
+                         name.includes("missile") ||
+                         name.includes("bolt") ||
+                         name.includes("strike");
+
+    if (isAttackSpell) {
+      return "spell";
+    }
+    return null; // Non-attack spells don't use ranged opening sentences
+  }
+
+  // Check for bombs and alchemical items
+  if (itemType === "consumable" || traits.includes("bomb") || traits.includes("alchemical")) {
+    if (name.includes("bomb") || traits.includes("bomb")) {
+      return "bomb";
+    }
+    if (name.includes("alchemical") || name.includes("flask") || name.includes("vial")) {
+      return "bomb"; // Treat alchemical items as bombs for narrative purposes
+    }
+  }
+
+  // Check for thrown trait
+  const isThrownWeapon = traits.includes("thrown") || name.includes("throwing");
+
+  // Bows (always ranged)
+  if (group === "bow" || baseType === "bow" || name.includes("bow")) {
+    return "bow";
+  }
+
+  // Crossbows (always ranged)
+  if (group === "crossbow" || baseType === "crossbow" || name.includes("crossbow")) {
+    return "crossbow";
+  }
+
+  // Slings (treat as thrown for narrative purposes)
+  if (group === "sling" || baseType === "sling" || name.includes("sling")) {
+    return "thrown";
+  }
+
+  // Darts (always thrown/ranged)
+  if (group === "dart" || baseType === "dart" || name.includes("dart")) {
+    return "thrown";
+  }
+
+  // Thrown weapons (axes, hammers, knives, spears, etc.)
+  if (isThrownWeapon) {
+    // Dedicated throwing weapons (always thrown, never melee)
+    const dedicatedThrown = name.includes("javelin") ||
+                           name.includes("shuriken") ||
+                           name.includes("throwing star") ||
+                           name.includes("chakram") ||
+                           name.includes("boomerang") ||
+                           name.includes("throwing knife") ||
+                           name.includes("throwing axe") ||
+                           name.includes("throwing hammer") ||
+                           name.includes("throwing dagger");
+
+    // For dual-purpose weapons (hatchet, dagger, etc.), only show as thrown if used at range
+    const isDualPurpose = (name.includes("hatchet") ||
+                          name.includes("dagger") ||
+                          name.includes("spear") ||
+                          name.includes("trident") ||
+                          name.includes("axe") ||
+                          name.includes("hammer")) &&
+                         !dedicatedThrown;
+
+    // If it's dual-purpose and used in melee, don't treat as ranged
+    if (isDualPurpose && !isRangedAttack && message) {
+      return null; // Fall through to melee
+    }
+
+    return "thrown";
+  }
+
+  // Firearms (if present)
+  if (group === "firearm" || traits.includes("firearm") || name.includes("pistol") || name.includes("musket") || name.includes("gun")) {
+    return "firearm";
+  }
+
+  // Check for other ranged traits
+  const hasRange = item.system?.range?.value || item.system?.range?.max;
+  const isRanged = traits.includes("ranged") || hasRange;
+
+  if (isRanged) {
+    // Generic ranged weapons - try to categorize
+    if (name.includes("arrow") || traits.includes("arrow")) return "bow";
+    if (name.includes("bolt") && !name.includes("crossbow")) return "crossbow";
+
+    // Default to 'bow' for generic ranged weapons
+    return "bow";
+  }
+
+  return null; // Not a ranged weapon
+}
+
+/**
  * Get weapon type descriptor
  * @param {string} damageType
  * @param {Object} item - Optional weapon/attack item for natural weapon detection

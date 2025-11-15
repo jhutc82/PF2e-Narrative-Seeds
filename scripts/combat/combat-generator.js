@@ -9,9 +9,10 @@ import { AnatomyDetector } from './anatomy-detector.js';
 import { DamageDetector } from './damage-detector.js';
 import { DefenseDetector } from './defense-detector.js';
 import { getLocation } from '../../data/combat/locations.js';
-import { getDamageVerb, getDamageEffect, getWeaponType, getLocationAnatomy } from '../../data/combat/damage-descriptors.js';
+import { getDamageVerb, getDamageEffect, getWeaponType, getLocationAnatomy, getRangedWeaponCategory } from '../../data/combat/damage-descriptors.js';
 import { getOpeningSentence } from '../../data/combat/opening-sentences.js';
 import { getDefenseOpenings } from '../../data/combat/defense-opening-sentences.js';
+import { getRangedOpeningSentence } from '../../data/combat/ranged-opening-sentences.js';
 
 /**
  * Combat narrative generator
@@ -185,11 +186,30 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     if (!location) return "Your attack connects!";
 
+    // Check if this is a ranged weapon
+    const rangedCategory = getRangedWeaponCategory(item, message);
+
     // Get random opening sentence
     let opening;
 
-    // For failures/critical failures, use defense-aware openings if available
-    if ((outcome === 'failure' || outcome === 'criticalFailure') && defense) {
+    // For ranged weapons, use specialized ranged opening sentences
+    if (rangedCategory) {
+      const targetName = target ? target.name : "the target";
+      const attackerName = attacker ? attacker.name : "The attacker";
+      opening = getRangedOpeningSentence(rangedCategory, 'standard', outcome, { attackerName, targetName, weaponType });
+
+      // If we got a ranged opening, check if it's a complete sentence
+      if (opening) {
+        // Ranged openings are often complete sentences, so return early for failures
+        if (outcome === 'failure' || outcome === 'criticalFailure') {
+          return opening;
+        }
+        // For successes, continue to add location/damage details
+      }
+    }
+
+    // For failures/critical failures, use defense-aware openings if available (and if no ranged opening was used)
+    if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
       const defenseOpenings = getDefenseOpenings(outcome, defense.missReason, 'cinematic');
       if (defenseOpenings && defenseOpenings.length > 0) {
         // Select random opening from defense-aware sentences
@@ -204,8 +224,10 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
       }
     }
 
-    // Fall back to standard opening sentences
-    opening = getOpeningSentence('standard', outcome, { weaponType });
+    // Fall back to standard opening sentences if no ranged opening was found
+    if (!opening) {
+      opening = getOpeningSentence('standard', outcome, { weaponType });
+    }
 
     // Construct based on outcome
     switch(outcome) {
@@ -260,11 +282,29 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     if (!location) return `Your attack finds ${targetName}!`;
 
+    // Check if this is a ranged weapon
+    const rangedCategory = getRangedWeaponCategory(item, message);
+
     // Get random opening sentence
     let opening;
 
-    // For failures/critical failures, use defense-aware openings if available
-    if ((outcome === 'failure' || outcome === 'criticalFailure') && defense) {
+    // For ranged weapons, use specialized ranged opening sentences
+    if (rangedCategory) {
+      const attackerName = attacker ? attacker.name : "The attacker";
+      opening = getRangedOpeningSentence(rangedCategory, 'detailed', outcome, { attackerName, targetName, weaponType });
+
+      // If we got a ranged opening, check if it's a complete sentence
+      if (opening) {
+        // Ranged openings are often complete sentences, so return early for failures
+        if (outcome === 'failure' || outcome === 'criticalFailure') {
+          return opening;
+        }
+        // For successes, continue to add location/damage details
+      }
+    }
+
+    // For failures/critical failures, use defense-aware openings if available (and if no ranged opening was used)
+    if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
       const defenseOpenings = getDefenseOpenings(outcome, defense.missReason, 'cinematic');
       if (defenseOpenings && defenseOpenings.length > 0) {
         const attackerName = attacker ? attacker.name : "The attacker";
@@ -277,8 +317,10 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
       }
     }
 
-    // Fall back to standard opening sentences
-    opening = getOpeningSentence('detailed', outcome, { weaponType, targetName });
+    // Fall back to standard opening sentences if no ranged opening was found
+    if (!opening) {
+      opening = getOpeningSentence('detailed', outcome, { weaponType, targetName });
+    }
 
     switch(outcome) {
       case "criticalSuccess":
@@ -345,11 +387,28 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     if (!location) return `${attackerName}'s attack finds its mark on ${targetName}!`;
 
+    // Check if this is a ranged weapon
+    const rangedCategory = getRangedWeaponCategory(item, message);
+
     // Get random opening sentence
     let opening;
 
-    // For failures/critical failures, use defense-aware openings if available
-    if ((outcome === 'failure' || outcome === 'criticalFailure') && defense) {
+    // For ranged weapons, use specialized ranged opening sentences
+    if (rangedCategory) {
+      opening = getRangedOpeningSentence(rangedCategory, 'cinematic', outcome, { attackerName, targetName, weaponType });
+
+      // If we got a ranged opening, check if it's a complete sentence
+      if (opening) {
+        // Ranged openings are often complete sentences, so return early for failures
+        if (outcome === 'failure' || outcome === 'criticalFailure') {
+          return opening;
+        }
+        // For successes, continue to add location/damage details
+      }
+    }
+
+    // For failures/critical failures, use defense-aware openings if available (and if no ranged opening was used)
+    if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
       const defenseOpenings = getDefenseOpenings(outcome, defense.missReason, 'cinematic');
       if (defenseOpenings && defenseOpenings.length > 0) {
         opening = RandomUtils.selectRandom(defenseOpenings, varietyMode, `defense-opening-${outcome}-${defense.missReason}`);
@@ -361,8 +420,10 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
       }
     }
 
-    // Fall back to standard opening sentences
-    opening = getOpeningSentence('cinematic', outcome, { attackerName, targetName, weaponType });
+    // Fall back to standard opening sentences if no ranged opening was found
+    if (!opening) {
+      opening = getOpeningSentence('cinematic', outcome, { attackerName, targetName, weaponType });
+    }
 
     switch(outcome) {
       case "criticalSuccess":
