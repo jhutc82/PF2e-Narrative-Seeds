@@ -2961,18 +2961,192 @@ function detectNaturalWeapon(item) {
 }
 
 /**
+ * Detect ranged, thrown, or special weapon types
+ * @param {Object} item - PF2e item
+ * @param {Object} message - Optional chat message for context
+ * @returns {string|null} Weapon type descriptor or null
+ */
+function detectRangedOrThrownWeapon(item, message = null) {
+  if (!item) return null;
+
+  const name = (item.name || "").toLowerCase();
+  const traits = item.system?.traits?.value || [];
+  const group = item.system?.group?.value || item.system?.group || "";
+  const baseType = item.system?.baseType || "";
+  const category = item.system?.category || "";
+  const itemType = item.type?.toLowerCase() || "";
+
+  // Check if this is actually a ranged attack (for thrown weapons that can be used in melee)
+  let isRangedAttack = false;
+  if (message?.flags?.pf2e) {
+    const origin = message.flags.pf2e.origin;
+    const context = message.flags.pf2e.context;
+
+    // Check for range penalty or ranged attack indicators
+    if (context?.options?.includes('ranged') ||
+        origin?.type === 'ranged' ||
+        context?.rangePenalty ||
+        message.content?.toLowerCase().includes('range penalty')) {
+      isRangedAttack = true;
+    }
+  }
+
+  // Check for spells and spell attacks
+  if (itemType === "spell" || traits.includes("spell")) {
+    // Check for attack spells vs save spells
+    const isAttackSpell = item.system?.spellType?.value === "attack" ||
+                         traits.includes("attack") ||
+                         name.includes("ray") ||
+                         name.includes("missile") ||
+                         name.includes("bolt") ||
+                         name.includes("strike");
+
+    if (isAttackSpell) {
+      // Specific spell attack types
+      if (name.includes("ray")) return "Your spell ray";
+      if (name.includes("magic missile") || name.includes("missile")) return "Your magic missile";
+      if (name.includes("shocking grasp") || name.includes("grasp")) return "Your spell";
+      if (name.includes("acid splash") || name.includes("splash")) return "Your spell";
+      return "Your spell attack";
+    }
+
+    return "Your spell";
+  }
+
+  // Check for bombs and alchemical items
+  if (itemType === "consumable" || traits.includes("bomb") || traits.includes("alchemical")) {
+    if (name.includes("bomb") || traits.includes("bomb")) {
+      return "Your bomb";
+    }
+    if (name.includes("alchemical") || name.includes("flask") || name.includes("vial")) {
+      return "Your alchemical item";
+    }
+  }
+
+  // Check for thrown trait
+  const isThrownWeapon = traits.includes("thrown") || name.includes("throwing");
+
+  // Specific weapon type detection
+  // Bows (always ranged)
+  if (group === "bow" || baseType === "bow" || name.includes("bow")) {
+    if (name.includes("longbow")) return "Your longbow";
+    if (name.includes("shortbow")) return "Your shortbow";
+    if (name.includes("composite")) return "Your composite bow";
+    return "Your bow";
+  }
+
+  // Crossbows (always ranged)
+  if (group === "crossbow" || baseType === "crossbow" || name.includes("crossbow")) {
+    if (name.includes("heavy crossbow")) return "Your heavy crossbow";
+    if (name.includes("hand crossbow")) return "Your hand crossbow";
+    if (name.includes("light crossbow")) return "Your light crossbow";
+    return "Your crossbow";
+  }
+
+  // Slings (always ranged)
+  if (group === "sling" || baseType === "sling" || name.includes("sling")) {
+    if (name.includes("halfling sling staff")) return "Your sling staff";
+    return "Your sling";
+  }
+
+  // Darts (always thrown/ranged)
+  if (group === "dart" || baseType === "dart" || name.includes("dart")) {
+    return "Your dart";
+  }
+
+  // Thrown weapons (axes, hammers, knives, spears, etc.)
+  // Only treat as thrown if:
+  // 1. It's a dedicated throwing weapon (javelin, shuriken, etc.), OR
+  // 2. It has thrown trait AND is being used at range, OR
+  // 3. It has thrown trait and we can't determine attack type (assume thrown to be safe)
+  if (isThrownWeapon) {
+    // Dedicated throwing weapons (always thrown, never melee)
+    const dedicatedThrown = name.includes("javelin") ||
+                           name.includes("shuriken") ||
+                           name.includes("throwing star") ||
+                           name.includes("chakram") ||
+                           name.includes("boomerang") ||
+                           name.includes("throwing knife") ||
+                           name.includes("throwing axe") ||
+                           name.includes("throwing hammer") ||
+                           name.includes("throwing dagger");
+
+    // For dual-purpose weapons (hatchet, dagger, etc.), only show as thrown if used at range
+    const isDualPurpose = (name.includes("hatchet") ||
+                          name.includes("dagger") ||
+                          name.includes("spear") ||
+                          name.includes("trident") ||
+                          name.includes("axe") ||
+                          name.includes("hammer")) &&
+                         !dedicatedThrown;
+
+    // If it's dual-purpose and used in melee, don't treat as thrown
+    if (isDualPurpose && !isRangedAttack && message) {
+      return null; // Fall through to generic weapon type
+    }
+
+    // Specific thrown weapon types
+    if (name.includes("javelin")) return "Your javelin";
+    if (name.includes("hatchet") || name.includes("throwing axe")) return "Your thrown axe";
+    if (name.includes("throwing hammer")) return "Your thrown hammer";
+    if (name.includes("throwing knife") || name.includes("throwing dagger")) return "Your thrown blade";
+    if (name.includes("shuriken") || name.includes("throwing star")) return "Your shuriken";
+    if (name.includes("chakram")) return "Your chakram";
+    if (name.includes("boomerang")) return "Your boomerang";
+    if (name.includes("spear") && !name.includes("longspear")) return "Your thrown spear";
+    if (name.includes("trident")) return "Your thrown trident";
+    if (name.includes("net")) return "Your net";
+
+    // Generic thrown weapon (for other thrown weapons)
+    if (name.includes("dagger") || name.includes("knife")) return "Your thrown blade";
+    if (name.includes("axe")) return "Your thrown axe";
+    if (name.includes("hammer")) return "Your thrown hammer";
+    if (name.includes("star")) return "Your throwing star";
+
+    return "Your thrown weapon";
+  }
+
+  // Firearms (if present)
+  if (group === "firearm" || traits.includes("firearm") || name.includes("pistol") || name.includes("musket")) {
+    return "Your firearm";
+  }
+
+  // Check for ranged trait or range property
+  const hasRange = item.system?.range?.value || item.system?.range?.max;
+  const isRanged = traits.includes("ranged") || hasRange;
+
+  if (isRanged) {
+    // Try to identify the ranged weapon type
+    if (name.includes("arrow") || traits.includes("arrow")) return "Your arrow";
+    if (name.includes("bolt") || traits.includes("bolt")) return "Your bolt";
+
+    // Generic ranged weapon
+    return "Your ranged weapon";
+  }
+
+  return null;
+}
+
+/**
  * Get weapon type descriptor
  * @param {string} damageType
  * @param {Object} item - Optional weapon/attack item for natural weapon detection
  * @param {string} pov - Point of view: "second" (Your weapon) or "third" (The weapon)
+ * @param {Object} message - Optional chat message for context (helps determine thrown vs melee)
  * @returns {string}
  */
-export function getWeaponType(damageType, item = null, pov = "second") {
+export function getWeaponType(damageType, item = null, pov = "second", message = null) {
   // Check for natural weapons first
   if (item) {
     const naturalWeapon = detectNaturalWeapon(item);
     if (naturalWeapon) {
       return pov === "third" ? naturalWeapon.replace("Your", "The") : naturalWeapon;
+    }
+
+    // Check for ranged, thrown, or special weapons
+    const rangedWeapon = detectRangedOrThrownWeapon(item, message);
+    if (rangedWeapon) {
+      return pov === "third" ? rangedWeapon.replace("Your", "The") : rangedWeapon;
     }
   }
 
