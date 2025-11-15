@@ -40,12 +40,15 @@ export class DamageDetector {
     "polearm": "slashing",
     "spear": "piercing",
     "bow": "piercing",
+    "crossbow": "piercing",
     "dart": "piercing",
+    "sling": "bludgeoning",
     "club": "bludgeoning",
     "hammer": "bludgeoning",
     "flail": "bludgeoning",
     "shield": "bludgeoning",
-    "brawling": "bludgeoning"
+    "brawling": "bludgeoning",
+    "firearm": "piercing"
   };
 
   /**
@@ -101,6 +104,12 @@ export class DamageDetector {
    * @returns {string|null}
    */
   static getDamageFromItem(item) {
+    // Check for active versatile trait first (takes precedence)
+    const versatileDamage = this.getVersatileDamage(item);
+    if (versatileDamage) {
+      return this.normalizeDamageType(versatileDamage);
+    }
+
     // Check damage property
     if (item.system?.damage?.damageType) {
       return this.normalizeDamageType(item.system.damage.damageType);
@@ -122,6 +131,46 @@ export class DamageDetector {
       const rolls = Object.values(item.system.damageRolls);
       if (rolls.length > 0 && rolls[0].damageType) {
         return this.normalizeDamageType(rolls[0].damageType);
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * Get active versatile damage type from item
+   * Checks if weapon has versatile trait and if a specific type is selected
+   * @param {Item} item
+   * @returns {string|null}
+   */
+  static getVersatileDamage(item) {
+    if (!item?.system?.traits?.value) return null;
+
+    const traits = item.system.traits.value;
+
+    // Check for versatile traits (versatile-p, versatile-s, versatile-b)
+    for (const trait of traits) {
+      if (typeof trait === 'string' && trait.startsWith('versatile-')) {
+        const damageType = trait.split('-')[1];
+        // Map trait suffix to damage type
+        const typeMap = {
+          'p': 'piercing',
+          's': 'slashing',
+          'b': 'bludgeoning'
+        };
+
+        if (typeMap[damageType]) {
+          // Check if this versatile option is actively selected
+          // PF2e may store the active selection in various ways
+          // For now, we'll check if it's in the damage type or trait toggles
+          const selectedType = item.system?.selectedVersatile ||
+                              item.system?.damage?.versatile ||
+                              item.system?.traits?.toggles?.versatile?.selected;
+
+          if (selectedType === trait || selectedType === typeMap[damageType]) {
+            return typeMap[damageType];
+          }
+        }
       }
     }
 

@@ -67,7 +67,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
       target,
       attacker: params.actor,
       item,
-      defense
+      defense,
+      message
     };
   }
 
@@ -77,7 +78,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * @returns {Object}
    */
   constructSeed(context) {
-    const { anatomy, damageType, outcome, target, attacker, item, defense } = context;
+    const { anatomy, damageType, outcome, target, attacker, item, defense, message } = context;
 
     // Get settings
     const detailLevel = NarrativeSeedsSettings.get("combatDetailLevel");
@@ -97,16 +98,16 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           description = this.generateMinimal(anatomy, outcome, damageType, varietyMode);
           break;
         case "standard":
-          description = this.generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense);
+          description = this.generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message);
           break;
         case "detailed":
-          description = this.generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense);
+          description = this.generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense, message);
           break;
         case "cinematic":
-          description = this.generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense);
+          description = this.generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message);
           break;
         default:
-          description = this.generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense);
+          description = this.generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message);
       }
 
       // Apply tone filter
@@ -174,13 +175,13 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * Generate standard description
    * @returns {string}
    */
-  generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense) {
+  generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message = null) {
     // Get components
     const location = getLocation(anatomy, outcome, varietyMode);
     const locationAnatomy = getLocationAnatomy(location);
     const verb = getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
     const effect = getDamageEffect(damageType, outcome, varietyMode, locationAnatomy);
-    const weaponType = getWeaponType(damageType, item);
+    const weaponType = getWeaponType(damageType, item, "second", message);
 
     if (!location) return "Your attack connects!";
 
@@ -249,12 +250,12 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * Generate detailed description
    * @returns {string}
    */
-  generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense) {
+  generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense, message = null) {
     const location = getLocation(anatomy, outcome, varietyMode);
     const locationAnatomy = getLocationAnatomy(location);
     const verb = getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
     const effect = getDamageEffect(damageType, outcome, varietyMode, locationAnatomy);
-    const weaponType = getWeaponType(damageType, item);
+    const weaponType = getWeaponType(damageType, item, "second", message);
     const targetName = target.name;
 
     if (!location) return `Your attack finds ${targetName}!`;
@@ -333,12 +334,12 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * Generate cinematic description
    * @returns {string}
    */
-  generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense) {
+  generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message = null) {
     const location = getLocation(anatomy, outcome, varietyMode);
     const locationAnatomy = getLocationAnatomy(location);
     const verb = getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
     const effect = getDamageEffect(damageType, outcome, varietyMode, locationAnatomy);
-    const weaponType = getWeaponType(damageType, item, "third");
+    const weaponType = getWeaponType(damageType, item, "third", message);
     const targetName = target.name;
     const attackerName = attacker ? attacker.name : "The attacker";
 
