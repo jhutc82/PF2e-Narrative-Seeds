@@ -9,6 +9,7 @@ import { AnatomyDetector } from './anatomy-detector.js';
 import { DamageDetector } from './damage-detector.js';
 import { getLocation } from '../../data/combat/locations.js';
 import { getDamageVerb, getDamageEffect, getWeaponType, getLocationAnatomy } from '../../data/combat/damage-descriptors.js';
+import { getOpeningSentence } from '../../data/combat/opening-sentences.js';
 
 /**
  * Combat narrative generator
@@ -168,27 +169,30 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     if (!location) return "Your attack connects!";
 
+    // Get random opening sentence
+    const opening = getOpeningSentence('standard', outcome, { weaponType });
+
     // Construct based on outcome
     switch(outcome) {
       case "criticalSuccess":
         if (verb && effect) {
-          return `${weaponType} strikes true, ${verb} their ${location}! ${effect}`;
+          return `${opening} ${verb} their ${location}! ${effect}`;
         } else {
-          return `${weaponType} strikes their ${location} with devastating force!`;
+          return `${opening} striking their ${location} with devastating force!`;
         }
 
       case "success":
         if (verb && effect) {
-          return `${weaponType} lands solidly, ${verb} their ${location}. ${effect}`;
+          return `${opening} ${verb} their ${location}. ${effect}`;
         } else {
-          return `${weaponType} hits their ${location}.`;
+          return `${opening} hitting their ${location}.`;
         }
 
       case "failure":
-        return `${weaponType} swings ${location}.`;
+        return `${opening} ${location}.`;
 
       case "criticalFailure":
-        return `${weaponType} goes ${location}!`;
+        return `${opening} ${location}!`;
 
       default:
         return `${weaponType} targets their ${location}.`;
@@ -208,26 +212,29 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     if (!location) return `Your attack finds ${targetName}!`;
 
+    // Get random opening sentence
+    const opening = getOpeningSentence('detailed', outcome, { weaponType, targetName });
+
     switch(outcome) {
       case "criticalSuccess":
         if (verb && effect) {
-          return `${weaponType} strikes true against ${targetName}, ${verb} their ${location} with crushing force! ${effect} The strike is devastating!`;
+          return `${opening} ${verb} their ${location} with crushing force! ${effect} The strike is devastating!`;
         } else {
-          return `${weaponType} connects perfectly with ${targetName}'s ${location}! A critical hit!`;
+          return `${opening} slamming into their ${location}! A critical hit!`;
         }
 
       case "success":
         if (verb && effect) {
-          return `${weaponType} lands solidly against ${targetName}, ${verb} their ${location}. ${effect}`;
+          return `${opening} ${verb} their ${location}. ${effect}`;
         } else {
-          return `${weaponType} strikes ${targetName}'s ${location} cleanly.`;
+          return `${opening} landing on their ${location} cleanly.`;
         }
 
       case "failure":
-        return `${weaponType} swings toward ${targetName} but goes ${location}, missing narrowly.`;
+        return `${opening} ${location}, missing narrowly.`;
 
       case "criticalFailure":
-        return `${weaponType} swings wildly at ${targetName}, going ${location}! A complete miss!`;
+        return `${opening} ${location}! A complete miss!`;
 
       default:
         return `${weaponType} moves toward ${targetName}'s ${location}.`;
@@ -249,26 +256,29 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     if (!location) return `${attackerName}'s attack finds its mark on ${targetName}!`;
 
+    // Get random opening sentence
+    const opening = getOpeningSentence('cinematic', outcome, { attackerName, targetName, weaponType });
+
     switch(outcome) {
       case "criticalSuccess":
         if (verb && effect) {
-          return `Time seems to slow as ${attackerName}'s attack arcs through the air. ${weaponType} ${verb} ${targetName}'s ${location} with crushing force! ${effect} ${targetName} staggers backward, the impact overwhelming!`;
+          return `${opening} ${weaponType} ${verb} ${targetName}'s ${location} with crushing force! ${effect} ${targetName} staggers backward, the impact overwhelming!`;
         } else {
-          return `${attackerName} seizes the perfect opening! ${weaponType} crashes into ${targetName}'s ${location} with devastating precision! A perfect, critical strike!`;
+          return `${opening} ${weaponType} crashes into ${targetName}'s ${location} with devastating precision! A perfect, critical strike!`;
         }
 
       case "success":
         if (verb && effect) {
-          return `${attackerName} presses the attack! ${weaponType} lands solidly, ${verb} ${targetName}'s ${location}. ${effect}`;
+          return `${opening} ${weaponType} lands solidly, ${verb} ${targetName}'s ${location}. ${effect}`;
         } else {
-          return `${attackerName} strikes true! ${weaponType} connects with ${targetName}'s ${location}, a solid hit!`;
+          return `${opening} ${weaponType} connects with ${targetName}'s ${location}, a solid hit!`;
         }
 
       case "failure":
-        return `${attackerName} swings hard, but ${targetName} shifts at the last moment! ${weaponType} swings ${location}, the attack missing by mere inches!`;
+        return `${opening} ${weaponType} swings ${location}, the attack missing by mere inches!`;
 
       case "criticalFailure":
-        return `${attackerName} commits to the strike, but ${targetName} easily evades! ${weaponType} goes ${location}, completely missing the mark in an embarrassing fumble!`;
+        return `${opening} ${weaponType} goes ${location}, completely missing the mark in an embarrassing fumble!`;
 
       default:
         return `${attackerName} moves to strike ${targetName}...`;
