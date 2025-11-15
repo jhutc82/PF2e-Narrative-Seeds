@@ -120,20 +120,11 @@ export class DefenseDetector {
     }
 
     // Check for damage resistances/immunities (strong indicator of natural armor)
+    // Only if they don't have worn armor - physical defenses indicate natural armor
     const hasPhysicalResistance = this.hasPhysicalDefenses(target);
     if (hasPhysicalResistance && !analysis.hasArmor) {
       analysis.hasNaturalArmor = true;
-    }
-
-    // If creature has inventory armor but it's not equipped, they likely have natural armor
-    if (!analysis.hasArmor && target.type === 'npc') {
-      const hasUnequippedArmor = target.items?.some(item =>
-        item.type === 'armor' && item.system?.equipped === false
-      );
-      if (hasUnequippedArmor) {
-        analysis.hasNaturalArmor = true;
-        console.log('PF2e Narrative Seeds: NPC has unequipped armor, assuming natural armor');
-      }
+      console.log('PF2e Narrative Seeds: Creature has physical resistances/immunities, indicating natural armor');
     }
 
     if (analysis.hasNaturalArmor && !analysis.hasArmor) {
