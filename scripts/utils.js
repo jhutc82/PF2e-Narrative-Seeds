@@ -82,6 +82,27 @@ export class NarrativeSeedGenerator {
  */
 export class RandomUtils {
   /**
+   * Get history size based on variety mode
+   * @param {string} varietyMode - Variety setting (low, medium, high, extreme)
+   * @param {number} arrayLength - Length of array (for calculating percentage-based limits)
+   * @returns {number} History size
+   */
+  static getHistorySize(varietyMode, arrayLength = null) {
+    switch(varietyMode) {
+      case 'low':
+        return arrayLength ? Math.min(3, Math.floor(arrayLength * 0.2)) : 3;
+      case 'medium':
+        return arrayLength ? Math.min(8, Math.floor(arrayLength * 0.4)) : 10;
+      case 'high':
+        return arrayLength ? Math.min(15, Math.floor(arrayLength * 0.6)) : 20;
+      case 'extreme':
+        return arrayLength ? arrayLength - 1 : 50;
+      default:
+        return arrayLength ? Math.min(15, Math.floor(arrayLength * 0.6)) : 20;
+    }
+  }
+
+  /**
    * Select a random element from an array with variety tracking
    * @param {Array} array - Array to select from
    * @param {string} varietyMode - Variety setting (low, medium, high, extreme)
@@ -97,23 +118,7 @@ export class RandomUtils {
     }
 
     // Determine history size based on variety mode
-    let historySize;
-    switch(varietyMode) {
-      case 'low':
-        historySize = Math.min(3, Math.floor(array.length * 0.2));
-        break;
-      case 'medium':
-        historySize = Math.min(8, Math.floor(array.length * 0.4));
-        break;
-      case 'high':
-        historySize = Math.min(15, Math.floor(array.length * 0.6));
-        break;
-      case 'extreme':
-        historySize = array.length - 1; // Never repeat until all used
-        break;
-      default:
-        historySize = Math.min(15, Math.floor(array.length * 0.6));
-    }
+    const historySize = this.getHistorySize(varietyMode, array.length);
 
     // If no category or history size is 0, use simple random
     if (!category || historySize === 0) {
@@ -171,25 +176,6 @@ export class RandomUtils {
       this.messageHistory = [];
     }
 
-    // Determine message history size based on variety mode
-    let historySize;
-    switch(varietyMode) {
-      case 'low':
-        historySize = 3;
-        break;
-      case 'medium':
-        historySize = 10;
-        break;
-      case 'high':
-        historySize = 20;
-        break;
-      case 'extreme':
-        historySize = 50;
-        break;
-      default:
-        historySize = 20;
-    }
-
     // Check if message is in recent history
     return this.messageHistory.includes(message);
   }
@@ -205,23 +191,7 @@ export class RandomUtils {
     }
 
     // Determine message history size based on variety mode
-    let historySize;
-    switch(varietyMode) {
-      case 'low':
-        historySize = 3;
-        break;
-      case 'medium':
-        historySize = 10;
-        break;
-      case 'high':
-        historySize = 20;
-        break;
-      case 'extreme':
-        historySize = 50;
-        break;
-      default:
-        historySize = 20;
-    }
+    const historySize = this.getHistorySize(varietyMode);
 
     // Add message to history
     this.messageHistory.push(message);
@@ -297,6 +267,18 @@ export class StringUtils {
    */
   static cleanWhitespace(str) {
     return str.replace(/\s+/g, ' ').trim();
+  }
+
+  /**
+   * Escape HTML to prevent XSS attacks
+   * @param {string} str
+   * @returns {string}
+   */
+  static escapeHTML(str) {
+    if (!str) return "";
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
   }
 }
 
@@ -491,7 +473,16 @@ export class ToneFilter {
    * @returns {string}
    */
   static applyDark(description) {
-    // Add dramatic flair
-    return description;  // Already at maximum darkness in base descriptions
+    // Add dramatic and ominous flair
+    return description
+      .replace(/\bhits?\b/gi, "tears into")
+      .replace(/\bstrikes?\b/gi, "rends")
+      .replace(/\blands?\b/gi, "crashes down upon")
+      .replace(/\bconnects?\b/gi, "brutally impacts")
+      .replace(/\bmisses?\b/gi, "fails to find purchase")
+      .replace(/\bwounds?\b/gi, "grievous wounds")
+      .replace(/\binjur(y|ies)\b/gi, "traumatic $1")
+      .replace(/\bforcefully\b/gi, "with merciless force")
+      .replace(/\bflows?\b/gi, "pours freely");
   }
 }

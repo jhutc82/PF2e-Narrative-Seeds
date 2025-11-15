@@ -4,12 +4,14 @@
  *
  * @module pf2e-narrative-seeds
  * @author Justin Hutchinson
- * @version 1.0.0
+ * @version 1.1.1
  */
 
 import { NarrativeSeedsSettings } from './settings.js';
 import { PF2eUtils } from './utils.js';
 import { CombatHooks } from './combat/combat-hooks.js';
+import { AnatomyDetector } from './combat/anatomy-detector.js';
+import { DamageDetector } from './combat/damage-detector.js';
 
 /**
  * Main module class
@@ -18,7 +20,7 @@ class PF2eNarrativeSeeds {
 
   static MODULE_ID = "pf2e-narrative-seeds";
   static MODULE_TITLE = "PF2e Narrative Seeds";
-  static VERSION = "1.0.0";
+  static VERSION = "1.1.1";
 
   static generators = new Map();
   static initialized = false;
@@ -222,13 +224,11 @@ Hooks.once("ready", () => {
 
     // Helper function to test anatomy detection
     testAnatomy: (actor) => {
-      const { AnatomyDetector } = require('./combat/anatomy-detector.js');
       AnatomyDetector.debugDetection(actor);
     },
 
     // Helper function to test damage detection
     testDamage: (item) => {
-      const { DamageDetector } = require('./combat/damage-detector.js');
       DamageDetector.debugDetection(item);
     }
   };

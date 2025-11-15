@@ -66,7 +66,13 @@ export class CombatHooks {
       // Extract attack data
       const attackData = await this.extractAttackData(message);
       if (!attackData) {
-        console.log("PF2e Narrative Seeds | Could not extract attack data");
+        console.log("PF2e Narrative Seeds | Could not extract attack data from message:", message.id);
+        return;
+      }
+
+      // Validate required data
+      if (!attackData.target) {
+        console.warn("PF2e Narrative Seeds | Attack data missing target");
         return;
       }
 
@@ -167,7 +173,8 @@ export class CombatHooks {
         // Get targets of current combatant
         const targets = game.user.targets;
         if (targets.size > 0) {
-          target = targets.first().actor;
+          const firstTarget = targets.first();
+          if (firstTarget) target = firstTarget.actor;
         }
       }
     }

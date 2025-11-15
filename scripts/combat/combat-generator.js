@@ -30,6 +30,11 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
   async detectContext(params) {
     const { message, item, target } = params;
 
+    if (!message) {
+      console.warn("PF2e Narrative Seeds | No message provided for combat narration");
+      return null;
+    }
+
     if (!target) {
       console.warn("PF2e Narrative Seeds | No target provided for combat narration");
       return null;
@@ -188,7 +193,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
         // Select random opening from defense-aware sentences
         const targetName = target ? target.name : "the target";
         const attackerName = attacker ? attacker.name : "The attacker";
-        opening = RandomUtils.choice(defenseOpenings);
+        opening = RandomUtils.selectRandom(defenseOpenings, varietyMode, `defense-opening-${outcome}-${defense.missReason}`);
         // Replace template variables
         opening = opening.replace(/\$\{attackerName\}/g, attackerName);
         opening = opening.replace(/\$\{targetName\}/g, targetName);
@@ -248,7 +253,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
       const defenseOpenings = getDefenseOpenings(outcome, defense.missReason, 'cinematic');
       if (defenseOpenings && defenseOpenings.length > 0) {
         const attackerName = attacker ? attacker.name : "The attacker";
-        opening = RandomUtils.choice(defenseOpenings);
+        opening = RandomUtils.selectRandom(defenseOpenings, varietyMode, `defense-opening-${outcome}-${defense.missReason}`);
         // Replace template variables
         opening = opening.replace(/\$\{attackerName\}/g, attackerName);
         opening = opening.replace(/\$\{targetName\}/g, targetName);
@@ -308,7 +313,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     if ((outcome === 'failure' || outcome === 'criticalFailure') && defense) {
       const defenseOpenings = getDefenseOpenings(outcome, defense.missReason, 'cinematic');
       if (defenseOpenings && defenseOpenings.length > 0) {
-        opening = RandomUtils.choice(defenseOpenings);
+        opening = RandomUtils.selectRandom(defenseOpenings, varietyMode, `defense-opening-${outcome}-${defense.missReason}`);
         // Replace template variables
         opening = opening.replace(/\$\{attackerName\}/g, attackerName);
         opening = opening.replace(/\$\{targetName\}/g, targetName);
