@@ -38,6 +38,11 @@ export class CombatHooks {
     Hooks.on("createChatMessage", async (message, options, userId) => {
       await this.onChatMessage(message, options, userId);
     });
+
+    // Hook into chat message rendering to attach event listeners
+    Hooks.on("renderChatMessage", (message, html, data) => {
+      this.onRenderChatMessage(message, html, data);
+    });
   }
 
   /**
@@ -86,9 +91,28 @@ export class CombatHooks {
       // Format narrative HTML
       const narrativeHTML = CombatFormatter.generateHTML(seed);
 
+      // Store attack data for potential regeneration
+      const narrativeFlags = {
+        "pf2e-narrative-seeds": {
+          hasNarrative: true,
+          attackData: {
+            actorId: attackData.actor?.id,
+            targetId: attackData.target?.id,
+            itemId: attackData.item?.id,
+            itemUuid: attackData.origin?.uuid,
+            outcome: attackData.context?.outcome
+          },
+          seed: seed
+        }
+      };
+
       // Append narrative to existing attack roll message
       await message.update({
-        content: message.content + narrativeHTML
+        content: message.content + narrativeHTML,
+        flags: {
+          ...message.flags,
+          ...narrativeFlags
+        }
       });
 
     } catch (error) {
@@ -210,6 +234,118 @@ export class CombatHooks {
       context,
       origin
     };
+  }
+
+  /**
+   * Handle chat message rendering
+   * @param {ChatMessage} message
+   * @param {jQuery} html
+   * @param {Object} data
+   */
+  static onRenderChatMessage(message, html, data) {
+    // Check if this message has our narrative
+    const hasNarrative = message.flags?.["pf2e-narrative-seeds"]?.hasNarrative;
+    if (!hasNarrative) return;
+
+    // Find and attach event listeners to buttons
+    const regenerateButton = html.find('.regenerate-button');
+    if (regenerateButton.length > 0) {
+      regenerateButton.on('click', async (event) => {
+        event.preventDefault();
+        await this.regenerateNarrative(message);
+      });
+    }
+
+    // Also attach listeners to other buttons if present
+    const narrateButton = html.find('.narrate-button');
+    if (narrateButton.length > 0) {
+      narrateButton.on('click', async (event) => {
+        event.preventDefault();
+        const seed = message.flags["pf2e-narrative-seeds"]?.seed;
+        if (seed?.description) {
+          await CombatFormatter.narrateToChat(seed.description);
+        }
+      });
+    }
+
+    const copyButton = html.find('.copy-button');
+    if (copyButton.length > 0) {
+      copyButton.on('click', (event) => {
+        event.preventDefault();
+        const seed = message.flags["pf2e-narrative-seeds"]?.seed;
+        if (seed?.description) {
+          CombatFormatter.copyToClipboard(seed.description);
+        }
+      });
+    }
+  }
+
+  /**
+   * Regenerate narrative for an existing message
+   * @param {ChatMessage} message
+   */
+  static async regenerateNarrative(message) {
+    try {
+      // Get stored attack data
+      const storedData = message.flags?.["pf2e-narrative-seeds"]?.attackData;
+      if (!storedData) {
+        ui.notifications.warn("Cannot regenerate: attack data not found");
+        return;
+      }
+
+      // Reconstruct attack data
+      const attackData = {
+        message: message,
+        actor: storedData.actorId ? game.actors.get(storedData.actorId) : null,
+        target: storedData.targetId ? game.actors.get(storedData.targetId) : null,
+        item: null,
+        context: message.flags?.pf2e?.context,
+        origin: message.flags?.pf2e?.origin
+      };
+
+      // Try to get item
+      if (storedData.itemUuid) {
+        try {
+          attackData.item = await fromUuid(storedData.itemUuid);
+        } catch (e) {
+          console.warn("PF2e Narrative Seeds | Could not resolve item UUID:", storedData.itemUuid);
+        }
+      }
+
+      if (!attackData.item && storedData.itemId && attackData.actor) {
+        attackData.item = attackData.actor.items.get(storedData.itemId);
+      }
+
+      // Generate new narrative
+      const seed = await this.generator.generate(attackData);
+      if (!seed) {
+        ui.notifications.warn("Could not generate new narrative");
+        return;
+      }
+
+      // Format new narrative HTML
+      const narrativeHTML = CombatFormatter.generateHTML(seed);
+
+      // Get original PF2e content (everything before our narrative)
+      const originalContent = message.content.split('<div class="pf2e-narrative-seed')[0];
+
+      // Update message with new narrative
+      await message.update({
+        content: originalContent + narrativeHTML,
+        flags: {
+          ...message.flags,
+          "pf2e-narrative-seeds": {
+            ...message.flags["pf2e-narrative-seeds"],
+            seed: seed
+          }
+        }
+      });
+
+      ui.notifications.info("Narrative regenerated successfully");
+    } catch (error) {
+      console.error("PF2e Narrative Seeds | Error regenerating narrative:", error);
+      ui.notifications.error("Failed to regenerate narrative");
+    }
   }
 
   /**

@@ -76,6 +76,11 @@ export class CombatFormatter {
         <div class="seed-description">
           <p>${escapedDescription}</p>
         </div>
+        <div class="seed-actions minimal">
+          <button class="seed-button regenerate-button" data-action="regenerate" title="Generate a new narrative description">
+            🔄 Regenerate
+          </button>
+        </div>
       </div>
     `;
   }
@@ -115,6 +120,11 @@ export class CombatFormatter {
           <hr>
           <div class="seed-description">
             <p>${escapedDescription}</p>
+          </div>
+          <div class="seed-actions">
+            <button class="seed-button regenerate-button" data-action="regenerate" title="Generate a new narrative description">
+              🔄 Regenerate
+            </button>
           </div>
         </div>
       </div>
@@ -166,13 +176,13 @@ export class CombatFormatter {
             <p>${escapedDescription}</p>
           </div>
           <div class="seed-actions">
-            <button class="seed-button narrate-button" data-action="narrate">
+            <button class="seed-button regenerate-button" data-action="regenerate" title="Generate a new narrative description">
+              🔄 Regenerate
+            </button>
+            <button class="seed-button narrate-button" data-action="narrate" title="Send description as in-character message">
               💡 Narrate Now
             </button>
-            <button class="seed-button reroll-button" data-action="reroll">
-              🎲 Reroll Description
-            </button>
-            <button class="seed-button copy-button" data-action="copy">
+            <button class="seed-button copy-button" data-action="copy" title="Copy description to clipboard">
               📋 Copy
             </button>
           </div>
@@ -199,29 +209,6 @@ export class CombatFormatter {
       default:
         return "outcome-unknown";
     }
-  }
-
-  /**
-   * Add click handlers for cinematic buttons
-   * @param {HTMLElement} html
-   * @param {Object} seed
-   */
-  static addButtonHandlers(html, seed) {
-    // Narrate button
-    html.querySelector('.narrate-button')?.addEventListener('click', () => {
-      this.narrateToChat(seed.description);
-    });
-
-    // Reroll button
-    html.querySelector('.reroll-button')?.addEventListener('click', () => {
-      // Trigger regeneration (would need to store context)
-      ui.notifications.info("Reroll feature coming soon!");
-    });
-
-    // Copy button
-    html.querySelector('.copy-button')?.addEventListener('click', () => {
-      this.copyToClipboard(seed.description);
-    });
   }
 
   /**
