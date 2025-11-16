@@ -11,6 +11,45 @@ from pathlib import Path
 
 # Replacement mappings for each weapon category
 SWORD_REPLACEMENTS = [
+    # Japanese sword terms (remove all Japanese terminology)
+    (r'\bthe wakizashi\b', 'the blade'),
+    (r'\bwakizashi\b', 'blade'),
+    (r'\bthe tachi\b', 'the blade'),
+    (r'\btachi\b', 'blade'),
+    (r'\bsaya-biki draw\b', 'quick draw'),
+    (r'\bsaya-biki\b', 'draw'),
+    (r'\bkissaki\b', 'point'),
+    (r'\btenouchi grip\b', 'grip'),
+    (r'\btenouchi\b', 'grip'),
+    (r'\bkiriotoshi\b', 'cutting strike'),
+    (r'\bkesa-giri\b', 'diagonal cut'),
+    (r'\bdo-giri\b', 'horizontal cut'),
+    (r'\bmushin perfection\b', 'perfect focus'),
+    (r'\bmushin\b', 'focused'),
+    (r'\biai geometry\b', 'perfect form'),
+    (r'\biai\b', 'draw'),
+    # German fencing terms (remove all German terminology)
+    (r'\bthe perfect Zwerchhau\b', 'the perfect diagonal strike'),
+    (r'\ba competent Zwerchhau\b', 'a competent diagonal strike'),
+    (r'\bZwerchhau\b', 'diagonal strike'),
+    (r'\bSchielhau\b', 'angled cut'),
+    (r'\bOberhau\b', 'overhead strike'),
+    (r'\bUnterhau\b', 'rising cut'),
+    (r'\bNebenhut guard\b', 'side guard'),
+    (r'\bNebenhut\b', 'guard'),
+    (r'\bKrumphau\b', 'hooking strike'),
+    (r'\bShielhau\b', 'squinting cut'),
+    # Historical fencing masters (replace with generic descriptions)
+    (r'\bthe Liechtenauer master strike\b', 'the master strike'),
+    (r'\bLiechtenauer\b', 'a master'),
+    (r'\bthe Fiore dei Liberi killing blow\b', 'the killing blow'),
+    (r'\bFiore dei Liberi\b', 'a master'),
+    (r'\bthe Meyer master cut\b', 'the master cut'),
+    (r'\bMeyer\b', 'a master'),
+    (r'\bthe Thibault\'s perfect thrust\b', 'the perfect thrust'),
+    (r'\bThibault\'s\b', 'a master\'s'),
+    (r'\ba Verdadera Destreza masterpiece\b', 'a masterful strike'),
+    (r'\bVerdadera Destreza\b', 'masterful technique'),
     # Specific swords → generic terms (order matters - longest first)
     (r'\bthe longsword\b', 'the sword'),
     (r'\blongsword\b', 'sword'),
@@ -67,6 +106,19 @@ SWORD_REPLACEMENTS = [
     (r'\bmontante\b', 'great sword'),
     (r'\bthe miao dao\b', 'the long blade'),
     (r'\bmiao dao\b', 'long blade'),
+    # Remove cultural/regional references
+    (r'\btaiji geometry\b', 'perfect form'),
+    (r'\btaiji precision\b', 'precise technique'),
+    (r'\btaiji\b', 'flowing'),
+    (r'\bRoman precision\b', 'precise technique'),
+    (r'\bPersian precision\b', 'precise technique'),
+    (r'\bPersian finality\b', 'decisive force'),
+    (r'\bPersian cavalry precision\b', 'mounted precision'),
+    (r'\bScythian savagery\b', 'brutal force'),
+    (r'\bKorean perfection\b', 'perfect technique'),
+    (r'\bSwiss precision\b', 'precise technique'),
+    (r'\bthe shamsheer\b', 'the curved blade'),
+    (r'\bshamsheer\b', 'curved blade'),
     # Remove dagger references from sword file
     (r'\bthe tanto\b', 'the short blade'),
     (r'\btanto\b', 'short blade'),
@@ -76,6 +128,16 @@ SWORD_REPLACEMENTS = [
 ]
 
 HAMMER_REPLACEMENTS = [
+    # Cultural/foreign weapon names that ended up in hammer.json
+    (r'\bthe tabar-e-zin\b', 'the weapon'),
+    (r'\btabar-e-zin\b', 'weapon'),
+    (r'\bthe tabar\b', 'the weapon'),
+    (r'\btabar\b', 'weapon'),
+    (r'\bthe sagaris\b', 'the weapon'),
+    (r'\bsagaris\b', 'weapon'),
+    (r'\bthe chuk-do\b', 'the weapon'),
+    (r'\bchuk-do\b', 'weapon'),
+    # Standard hammers
     (r'\bthe warhammer\b', 'the hammer'),
     (r'\bwarhammer\b', 'hammer'),
     (r'\bthe greatclub\b', 'the heavy weapon'),
@@ -105,6 +167,18 @@ HAMMER_REPLACEMENTS = [
 ]
 
 SPEAR_REPLACEMENTS = [
+    # Remove cultural/regional references
+    (r'\bPersian precision\b', 'precise technique'),
+    (r'\bPersian cavalry precision\b', 'mounted precision'),
+    (r'\bPersian finality\b', 'decisive force'),
+    (r'\bScythian savagery\b', 'brutal force'),
+    (r'\bKorean perfection\b', 'perfect technique'),
+    (r'\bSwiss precision\b', 'precise technique'),
+    # Foreign compound weapon names that were already partially replaced
+    (r'\bmulti-pronged spear-e-zin\b', 'multi-pronged spear'),
+    (r'\bspear-e-zin\b', 'spear'),
+    (r'\bpolearm spear-point\b', 'polearm point'),
+    # Specific spears
     (r'\bthe battle spear\b', 'the spear'),
     (r'\bbattle spear\b', 'spear'),
     (r'\bthe pike\b', 'the polearm'),
@@ -130,6 +204,20 @@ SPEAR_REPLACEMENTS = [
 ]
 
 DAGGER_REPLACEMENTS = [
+    # Japanese dagger terms
+    (r'\bthe wakizashi\b', 'the blade'),
+    (r'\bwakizashi\b', 'blade'),
+    # Remove cultural/regional references
+    (r'\bPersian precision\b', 'precise technique'),
+    (r'\bPersian cavalry precision\b', 'mounted precision'),
+    (r'\bPersian finality\b', 'decisive force'),
+    (r'\bScythian savagery\b', 'brutal force'),
+    (r'\bKorean perfection\b', 'perfect technique'),
+    (r'\bSwiss precision\b', 'precise technique'),
+    # Foreign compound weapon names that were already partially replaced
+    (r'\bblade-e-zin\b', 'blade'),
+    (r'\bbowie knife dagger-blade\b', 'heavy blade'),
+    # Specific daggers
     (r'\bthe stiletto\b', 'the dagger'),
     (r'\bstiletto\b', 'dagger'),
     (r'\bthe kukri\b', 'the curved blade'),
@@ -166,6 +254,22 @@ DAGGER_REPLACEMENTS = [
 ]
 
 AXE_REPLACEMENTS = [
+    # Cultural/foreign axe names
+    (r'\bthe tabar-e-zin\b', 'the axe'),
+    (r'\btabar-e-zin\b', 'axe'),
+    (r'\bthe tabar\b', 'the axe'),
+    (r'\btabar\b', 'axe'),
+    (r'\bthe sagaris\b', 'the axe'),
+    (r'\bsagaris\b', 'axe'),
+    (r'\bthe chuk-do\b', 'the axe'),
+    (r'\bchuk-do\b', 'axe'),
+    # Remove cultural/regional references
+    (r'\bPersian precision\b', 'precise technique'),
+    (r'\bPersian cavalry precision\b', 'mounted precision'),
+    (r'\bPersian finality\b', 'decisive force'),
+    (r'\bScythian savagery\b', 'brutal force'),
+    (r'\bKorean perfection\b', 'perfect technique'),
+    (r'\bSwiss precision\b', 'precise technique'),
     # Specific axes
     (r'\bthe battleaxe\b', 'the axe'),
     (r'\bbattleaxe\b', 'axe'),
@@ -253,6 +357,18 @@ CROSSBOW_REPLACEMENTS = [
 ]
 
 UNARMED_REPLACEMENTS = [
+    # Remove cultural/regional references
+    (r'\bPersian precision\b', 'precise technique'),
+    (r'\bPersian cavalry precision\b', 'mounted precision'),
+    (r'\bPersian finality\b', 'decisive force'),
+    (r'\bScythian savagery\b', 'brutal force'),
+    (r'\bKorean perfection\b', 'perfect technique'),
+    (r'\bSwiss precision\b', 'precise technique'),
+    # Foreign compound weapon names that were already partially replaced
+    (r'\bpalm strike-e-zin\b', 'palm strike'),
+    (r'\btail strike\b', 'tail attack'),
+    (r'\bflowing strike\b', 'flowing attack'),
+    (r'\bhaymaker strike-fist\b', 'heavy strike'),
     # Remove hammer references from unarmed file
     (r'\bthe splitting maul\b', 'the heavy strike'),
     (r'\bsplitting maul\b', 'heavy strike'),
