@@ -22,12 +22,15 @@ export class DamageDetector {
     "electricity",
     "sonic",
     "acid",
-    // Special
+    // Spiritual/Essential (Remastered)
+    "spirit",
+    "vitality",
+    "void",
+    // Other
+    "mental",
     "poison",
     "force",
-    "mental",
-    "positive",
-    "negative"
+    "bleed"
   ];
 
   /**
@@ -250,15 +253,26 @@ export class DamageDetector {
 
     const normalized = String(damageType).toLowerCase().trim();
 
-    // Handle alternative names
+    // Handle alternative names and backward compatibility
     const aliases = {
       "electric": "electricity",
       "lightning": "electricity",
       "thunder": "sonic",
       "psychic": "mental",
-      "necrotic": "negative",
-      "radiant": "positive",
-      "healing": "positive"
+      // Backward compatibility for pre-Remaster terms
+      "positive": "vitality",
+      "negative": "void",
+      "necrotic": "void",
+      "radiant": "vitality",
+      "healing": "vitality",
+      // Common alternatives
+      "good": "spirit",
+      "evil": "spirit",
+      "lawful": "spirit",
+      "chaotic": "spirit",
+      "alignment": "spirit",
+      "blood": "bleed",
+      "persistent": "bleed"
     };
 
     return aliases[normalized] || normalized;
@@ -284,6 +298,112 @@ export class DamageDetector {
   }
 
   /**
+   * Detect all damage types from an item (for mixed damage)
+   * @param {Item} item - PF2e item (weapon, spell, etc.)
+   * @returns {Array<string>} Array of damage types
+   */
+  static detectAllDamageTypes(item) {
+    if (!item) return [];
+
+    const damageTypes = new Set();
+
+    // Check damage instances (PF2e new format) - most reliable for mixed damage
+    if (item.system?.damageRolls) {
+      const rolls = Object.values(item.system.damageRolls);
+      for (const roll of rolls) {
+        if (roll.damageType) {
+          const normalized = this.normalizeDamageType(roll.damageType);
+          if (this.DAMAGE_TYPES.includes(normalized)) {
+            damageTypes.add(normalized);
+          }
+        }
+      }
+    }
+
+    // Check damage dice array
+    if (item.system?.damage?.dice) {
+      const dice = item.system.damage.dice;
+      if (Array.isArray(dice)) {
+        for (const die of dice) {
+          if (die.damageType) {
+            const normalized = this.normalizeDamageType(die.damageType);
+            if (this.DAMAGE_TYPES.includes(normalized)) {
+              damageTypes.add(normalized);
+            }
+          }
+        }
+      }
+    }
+
+    // Check traits for damage type traits
+    const damageFromTraits = this.getDamageFromTraits(item);
+    if (damageFromTraits) {
+      damageTypes.add(damageFromTraits);
+    }
+
+    // If nothing found, use standard detection
+    if (damageTypes.size === 0) {
+      const singleType = this.detect(item);
+      damageTypes.add(singleType);
+    }
+
+    return Array.from(damageTypes);
+  }
+
+  /**
+   * Check if an item has mixed damage types
+   * @param {Item} item
+   * @returns {boolean}
+   */
+  static hasMixedDamage(item) {
+    return this.detectAllDamageTypes(item).length > 1;
+  }
+
+  /**
+   * Get primary damage type for narrative purposes (for mixed damage items)
+   * Priority: highest damage die > first damage type > standard detection
+   * @param {Item} item
+   * @returns {string}
+   */
+  static getPrimaryDamageType(item) {
+    if (!item) return "bludgeoning";
+
+    // Try to find the damage type with the highest damage die
+    if (item.system?.damageRolls) {
+      const rolls = Object.values(item.system.damageRolls);
+      if (rolls.length > 0) {
+        // Sort by die size (extract number from dice notation like "1d8")
+        const sorted = rolls
+          .filter(r => r.damageType && r.damage)
+          .map(r => ({
+            type: this.normalizeDamageType(r.damageType),
+            dieSize: this.extractDieSize(r.damage)
+          }))
+          .filter(r => this.DAMAGE_TYPES.includes(r.type))
+          .sort((a, b) => b.dieSize - a.dieSize);
+
+        if (sorted.length > 0) {
+          return sorted[0].type;
+        }
+      }
+    }
+
+    // Fallback to standard detection
+    return this.detect(item);
+  }
+
+  /**
+   * Extract die size from damage notation (e.g., "1d8" -> 8)
+   * @param {string} damageNotation
+   * @returns {number}
+   */
+  static extractDieSize(damageNotation) {
+    if (!damageNotation) return 0;
+    const match = String(damageNotation).match(/\d*d(\d+)/);
+    return match ? parseInt(match[1], 10) : 0;
+  }
+
+  /**
    * Test detection for debugging
    * @param {Item} item
    */
@@ -293,6 +413,9 @@ export class DamageDetector {
     console.log("Type:", item.type);
     console.log("System Data:", item.system);
     console.log("Detected:", this.detect(item));
+    console.log("All Types:", this.detectAllDamageTypes(item));
+    console.log("Has Mixed:", this.hasMixedDamage(item));
+    console.log("Primary:", this.getPrimaryDamageType(item));
     console.log("==============================");
   }
 }

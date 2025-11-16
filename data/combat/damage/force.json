@@ -95,7 +95,8 @@
       "devastate with magical force through flesh and bone of",
       "obliterate with arcane energy through torso of",
       "demolish with pure power through limbs of",
-      "annihilate with magical might through entirety of"
+      "annihilate with magical might through entirety of",
+      "pulverize with arcane force through body of"
     ],
     "success": [
       "strike with force",
@@ -190,7 +191,9 @@
       "crash with pure energy against exposed areas of",
       "pound with arcane power against weak points of",
       "hammer with force against tender areas of",
-      "hit with magic at wounded areas of"
+      "hit with magic at wounded areas of",
+      "strike with force at exposed areas of",
+      "blast with arcane energy at unprotected areas of"
     ],
     "failure": [],
     "criticalFailure": []

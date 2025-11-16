@@ -96,9 +96,7 @@
       "parts vital structures in",
       "sunders anatomical defenses of",
       "cleaves through protective anatomy of",
-      "cuts through arterial networks in",
-      "finds vital weaknesses and ravages",
-      "slashes through muscular systems in"
+      "cuts through arterial networks in"
     ],
     "success": [
       "cuts across",
@@ -195,8 +193,7 @@
       "chops a wound in",
       "hacks a line through",
       "cleaves deeply into",
-      "splits flesh in",
-      "shears through to"
+      "splits flesh in"
     ],
     "failure": [],
     "criticalFailure": []
@@ -294,7 +291,6 @@
       "The wound opens, bleeding steadily.",
       "They wince, blood soaking through.",
       "A red stain blooms and spreads.",
-      "Blood drips to the ground.",
       "They stumble, clutching the bleeding wound."
     ],
     "failure": [],

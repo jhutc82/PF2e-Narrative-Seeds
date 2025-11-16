@@ -96,8 +96,7 @@
       "penetrates through major vessels in",
       "punches through anatomical defenses of",
       "perforates through vital areas of",
-      "spears through protective layers of",
-      "gores through critical structures in"
+      "spears through protective layers of"
     ],
     "success": [
       "pierces into",
@@ -194,8 +193,7 @@
       "jabs through",
       "thrusts deeply",
       "penetrates layers of",
-      "enters deeply",
-      "pushes deep into"
+      "enters deeply"
     ],
     "failure": [],
     "criticalFailure": []
