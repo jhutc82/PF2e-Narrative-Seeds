@@ -1,0 +1,109 @@
+{
+  "complications": [
+    {
+      "id": "overextended",
+      "name": "Overextended",
+      "description": "The wild swing leaves the attacker exposed and off-guard.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 25,
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning", "slashing"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "off-guard",
+        "duration": 1
+      }
+    },
+    {
+      "id": "weapon-jarred",
+      "name": "Weapon Jarred",
+      "description": "The failed attack jars the weapon in the attacker's grip.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 18,
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning", "slashing", "piercing"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "clumsy",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "lost-footing",
+      "name": "Lost Footing",
+      "description": "The attacker loses their balance in the failed attack.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 20,
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "off-guard",
+        "duration": 1
+      }
+    },
+    {
+      "id": "defensive-gap",
+      "name": "Defensive Gap",
+      "description": "The attacker's failed strike creates an opening in their defenses.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 15,
+      "applicableContexts": {
+        "damageTypes": ["piercing", "slashing"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "stumble",
+      "name": "Stumble",
+      "description": "The attacker stumbles awkwardly, hindering movement.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning", "slashing"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -5,
+        "duration": 1
+      }
+    },
+    {
+      "id": "rattled",
+      "name": "Rattled",
+      "description": "The embarrassing miss rattles the attacker's confidence.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["any"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -1,
+        "duration": 1
+      }
+    }
+  ]
+}

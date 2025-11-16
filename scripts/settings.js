@@ -118,6 +118,38 @@ export class NarrativeSeedsSettings {
       default: true
     });
 
+    // ========================================
+    // COMPLICATIONS SYSTEM
+    // ========================================
+
+    // Enable complications
+    game.settings.register("pf2e-narrative-seeds", "enableComplications", {
+      name: "Enable Combat Complications",
+      hint: "Generate mechanical complications for critical successes and failures",
+      scope: "world",
+      config: true,
+      type: Boolean,
+      default: true,
+      onChange: value => {
+        ui.notifications.info("Combat complications " + (value ? "enabled" : "disabled"));
+      }
+    });
+
+    // Complication frequency
+    game.settings.register("pf2e-narrative-seeds", "complicationChance", {
+      name: "Complication Frequency",
+      hint: "Percentage chance for a complication to occur on critical outcomes (0-100)",
+      scope: "world",
+      config: true,
+      type: Number,
+      range: {
+        min: 0,
+        max: 100,
+        step: 5
+      },
+      default: 60
+    });
+
     console.log("PF2e Narrative Seeds | Settings registered successfully");
   }
 

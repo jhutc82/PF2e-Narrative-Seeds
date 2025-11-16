@@ -13,6 +13,7 @@ import { DataLoader } from '../data-loader.js';
 import { TemplateEngine } from './template-engine.js';
 import { ErrorNotifications } from '../error-notifications.js';
 import { CombatMemory } from './combat-memory.js';
+import { ComplicationManager } from './complication-manager.js';
 import {
   getLocation,
   getDamageVerb,
@@ -181,6 +182,13 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           }
         }
 
+        // Generate complication if applicable
+        const complication = ComplicationManager.selectComplication({
+          outcome,
+          damageType,
+          anatomy: typeof anatomy === 'string' ? anatomy : anatomy?.base || 'torso'
+        });
+
         return {
           description,
           anatomy,
@@ -190,7 +198,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           targetName: target.name,
           attackerName: attacker ? attacker.name : "Unknown",
           detailLevel,
-          tone
+          tone,
+          complication
         };
       } catch (error) {
         ErrorNotifications.handleCriticalError('combat narrative generation', error);
