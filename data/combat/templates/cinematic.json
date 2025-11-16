@@ -1,0 +1,140 @@
+{
+  "criticalSuccess": [
+    {
+      "pattern": "${opening} ${attackerName}'s ${weaponType} ${verb} ${targetName}'s ${location} with devastating precision! ${effect}!",
+      "weight": 20,
+      "grammar": "standard"
+    },
+    {
+      "pattern": "${effect}! ${opening} In a masterful display, ${attackerName}'s ${weaponType} ${verb} ${targetName}'s ${location} perfectly!",
+      "weight": 20,
+      "grammar": "dramatic-effect-first"
+    },
+    {
+      "pattern": "In a moment of perfect clarity, ${attackerName} ${verb} ${targetName}'s ${location}! ${opening} ${effect}! ${weaponType} finds its mark with brutal precision!",
+      "weight": 18,
+      "grammar": "epic-moment"
+    },
+    {
+      "pattern": "${targetName}'s ${location} shatters under the impact! ${opening} ${attackerName}'s ${weaponType} ${verb} with unstoppable force! ${effect}!",
+      "weight": 15,
+      "grammar": "dramatic-location"
+    },
+    {
+      "pattern": "Time seems to slow as ${opening} ${attackerName}'s ${weaponType} ${verb} ${targetName}'s ${location} with perfect accuracy! ${effect}!",
+      "weight": 12,
+      "grammar": "slow-motion"
+    },
+    {
+      "pattern": "${opening} ${effect}! ${attackerName} delivers the perfect strike, ${verb} ${targetName}'s ${location} with ${weaponType} in a devastating blow!",
+      "weight": 10,
+      "grammar": "perfect-strike"
+    },
+    {
+      "pattern": "${attackerName} strikes true! ${opening} ${weaponType} ${verb} ${targetName}'s ${location}! ${effect}! Critical impact!",
+      "weight": 5,
+      "grammar": "triumphant"
+    }
+  ],
+  "success": [
+    {
+      "pattern": "${opening} ${attackerName}'s ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
+      "weight": 25,
+      "grammar": "standard"
+    },
+    {
+      "pattern": "${effect} ${opening} ${attackerName}'s ${weaponType} ${verb} ${targetName}'s ${location} with skilled precision.",
+      "weight": 18,
+      "grammar": "effect-first"
+    },
+    {
+      "pattern": "${targetName}'s ${location} takes the full impact of the strike as ${opening} ${attackerName} ${verb} with ${weaponType}. ${effect}",
+      "weight": 15,
+      "grammar": "location-focused"
+    },
+    {
+      "pattern": "With precise aim, ${attackerName} targets ${targetName}'s ${location}. ${opening} ${weaponType} ${verb}. ${effect}",
+      "weight": 12,
+      "grammar": "tactical"
+    },
+    {
+      "pattern": "${opening} ${effect} ${attackerName}'s strike finds ${targetName}'s ${location}, ${verb} with purpose.",
+      "weight": 12,
+      "grammar": "flowing"
+    },
+    {
+      "pattern": "${attackerName} ${verb} ${targetName}'s ${location}! ${opening} ${effect}",
+      "weight": 10,
+      "grammar": "direct-action"
+    },
+    {
+      "pattern": "The battle rages as ${opening} ${attackerName} ${verb} ${targetName}'s ${location} with ${weaponType}. ${effect}",
+      "weight": 8,
+      "grammar": "battle-context"
+    }
+  ],
+  "failure": [
+    {
+      "pattern": "${opening} but ${attackerName}'s ${weaponType} misses ${targetName}'s ${location} by inches.",
+      "weight": 30,
+      "grammar": "standard"
+    },
+    {
+      "pattern": "${opening} ${attackerName}'s strike sails past ${targetName} harmlessly!",
+      "weight": 22,
+      "grammar": "simple"
+    },
+    {
+      "pattern": "${targetName} evades as ${opening} ${attackerName}'s ${weaponType} finds only empty air where ${targetName}'s ${location} had been.",
+      "weight": 18,
+      "grammar": "evasion"
+    },
+    {
+      "pattern": "Targeting ${targetName}'s ${location}, ${attackerName}'s attack goes wide. ${opening} The strike misses its mark.",
+      "weight": 15,
+      "grammar": "tactical-miss"
+    },
+    {
+      "pattern": "${attackerName}'s ${weaponType} fails to connect with ${targetName}. ${opening} The moment passes.",
+      "weight": 10,
+      "grammar": "moment-lost"
+    },
+    {
+      "pattern": "Fortune favors ${targetName} as ${opening} ${attackerName}'s attack fails.",
+      "weight": 5,
+      "grammar": "fortune"
+    }
+  ],
+  "criticalFailure": [
+    {
+      "pattern": "${opening} but ${attackerName}'s attack against ${targetName} goes disastrously astray!",
+      "weight": 25,
+      "grammar": "standard"
+    },
+    {
+      "pattern": "${opening} ${attackerName}'s ${weaponType} misses ${targetName} by an embarrassingly wide margin!",
+      "weight": 22,
+      "grammar": "embarrassing"
+    },
+    {
+      "pattern": "Disaster! ${opening} ${attackerName}'s strike against ${targetName} fails spectacularly!",
+      "weight": 18,
+      "grammar": "dramatic"
+    },
+    {
+      "pattern": "${targetName} barely has to move as ${opening} ${attackerName}'s ${weaponType} swings through empty space!",
+      "weight": 15,
+      "grammar": "effortless-dodge"
+    },
+    {
+      "pattern": "${opening} ${attackerName} loses focus, and ${weaponType} doesn't even come close to ${targetName}!",
+      "weight": 12,
+      "grammar": "lost-focus"
+    },
+    {
+      "pattern": "The tides of battle turn against ${attackerName} as ${opening} the attack fails miserably!",
+      "weight": 8,
+      "grammar": "battle-turn"
+    }
+  ]
+}

@@ -9,6 +9,8 @@ import { AnatomyDetector } from './anatomy-detector.js';
 import { DamageDetector } from './damage-detector.js';
 import { DefenseDetector } from './defense-detector.js';
 import { PerformanceMonitor } from '../performance-monitor.js';
+import { DataLoader } from '../data-loader.js';
+import { TemplateEngine } from './template-engine.js';
 import {
   getLocation,
   getDamageVerb,
@@ -313,111 +315,71 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * @returns {Promise<string>}
    */
   async generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message = null) {
-    // Get components in parallel for 80% speed improvement
-    const [location, verb, effect] = await Promise.all([
+    // Get components in parallel (including templates!) for maximum speed
+    const [location, verb, effect, templates] = await Promise.all([
       getLocation(anatomy, outcome, varietyMode),
       getDamageVerb(damageType, outcome, varietyMode),
-      getDamageEffect(damageType, outcome, varietyMode)
+      getDamageEffect(damageType, outcome, varietyMode),
+      DataLoader.loadTemplates('standard', outcome)
     ]);
+
     const locationAnatomy = getLocationAnatomy(location);
     const weaponType = getWeaponType(damageType, item, "second", message);
+    const targetName = target ? target.name : "the target";
+    const attackerName = attacker ? attacker.name : "The attacker";
 
     if (!location) return "Your attack connects!";
 
-    // Check if this is a ranged weapon
+    // Check weapon categories
     const rangedCategory = getRangedWeaponCategory(item, message);
     const meleeCategory = !rangedCategory ? getMeleeWeaponCategory(item, message) : null;
 
-    // Get random opening sentence
+    // Get opening sentence (ranged/melee-specific or standard)
     let opening;
-
-    // For ranged weapons, use specialized ranged opening sentences
     if (rangedCategory) {
-      const targetName = target ? target.name : "the target";
-      const attackerName = attacker ? attacker.name : "The attacker";
       opening = await getRangedOpeningSentence(rangedCategory, 'standard', outcome, { attackerName, targetName, weaponType });
-
-      // If we got a ranged opening, check if it's a complete sentence
-      if (opening) {
-        // Ranged openings are often complete sentences, so return early for failures
-        if (outcome === 'failure' || outcome === 'criticalFailure') {
-          return opening;
-        }
-        // For successes, continue to add location/damage details
+      // For failures, ranged openings are often complete - return early
+      if (opening && (outcome === 'failure' || outcome === 'criticalFailure')) {
+        return opening;
       }
     } else if (meleeCategory) {
-      // For melee weapons, use specialized melee opening sentences
-      const targetName = target ? target.name : "the target";
-      const attackerName = attacker ? attacker.name : "The attacker";
       opening = await getMeleeOpeningSentence(meleeCategory, 'standard', outcome, { attackerName, targetName, weaponType });
-
-      // If we got a melee opening for failures, return early
+      // For failures, melee openings may be complete - return early
       if (opening && (outcome === 'failure' || outcome === 'criticalFailure')) {
         return opening;
       }
     }
 
-    // For failures/critical failures, use defense-aware openings if available (and if no weapon-specific opening was used)
+    // Defense-aware openings for failures (if no weapon-specific opening)
     if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
       const defenseOpenings = await getDefenseOpenings(outcome, defense.missReason, 'cinematic');
       if (defenseOpenings && defenseOpenings.length > 0) {
-        // Select random opening from defense-aware sentences
-        const targetName = target ? target.name : "the target";
-        const attackerName = attacker ? attacker.name : "The attacker";
         opening = RandomUtils.selectRandom(defenseOpenings, varietyMode, `defense-opening-${outcome}-${defense.missReason}`);
-        // Replace template variables with StringUtils.interpolate
         opening = StringUtils.interpolate(opening, { attackerName, targetName, weaponType });
-        return opening; // Defense-aware openings are complete sentences
+        return opening; // Defense-aware openings are complete
       }
     }
 
-    // Fall back to standard opening sentences if no weapon-specific opening was found
+    // Fallback to standard opening
     if (!opening) {
       opening = await getOpeningSentence('standard', outcome, { weaponType });
     }
 
-    // Construct based on outcome
-    let description;
-    switch(outcome) {
-      case "criticalSuccess":
-        if (verb && effect) {
-          description = `${opening} ${verb} their ${location}! ${effect} A critical hit!`;
-        } else if (verb) {
-          description = `${opening} ${verb} their ${location} with brutal force! A devastating critical strike!`;
-        } else if (effect) {
-          description = `${opening} striking their ${location} with crushing power! ${effect}`;
-        } else {
-          description = `${opening} striking their ${location} with devastating force! A perfect critical hit!`;
-        }
-        break;
+    // NEW: Select template and fill with components
+    const templateObj = TemplateEngine.selectTemplate(templates, varietyMode, `standard-${outcome}`);
+    const components = {
+      opening: opening || "",
+      verb: verb || "strikes",
+      effect: effect || "",
+      location: location || "body",
+      weaponType,
+      targetName,
+      attackerName,
+      damageType
+    };
 
-      case "success":
-        if (verb && effect) {
-          description = `${opening} ${verb} their ${location}. ${effect}`;
-        } else if (verb) {
-          description = `${opening} ${verb} their ${location}, connecting solidly!`;
-        } else if (effect) {
-          description = `${opening} hitting their ${location}. ${effect}`;
-        } else {
-          description = `${opening} hitting their ${location} cleanly!`;
-        }
-        break;
-
-      case "failure":
-        // Provide more descriptive failure text
-        const targetName = target ? target.name : "the target";
-        description = `${opening} ${location}. ${targetName} manages to avoid the worst of it, the attack missing narrowly as they react at the last moment.`;
-        break;
-
-      case "criticalFailure":
-        // Provide more descriptive critical failure text
-        const targetNameCrit = target ? target.name : "the target";
-        description = `${opening} ${location}! ${targetNameCrit} easily avoids the poorly executed attack, leaving the attacker exposed and off-balance!`;
-        break;
-
-      default:
-        description = `${weaponType} targets their ${location}.`;
-    }
+    let description = TemplateEngine.fillTemplate(templateObj, components);
+    description = TemplateEngine.cleanOutput(description);
 
     // Apply modifiers
     const sizeDiff = getSizeDifference(attacker, target);
@@ -434,121 +396,69 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * @returns {Promise<string>}
    */
   async generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense, message = null) {
-    // Get components in parallel for 80% speed improvement
-    const [location, verb, effect] = await Promise.all([
+    // Get components in parallel (including templates!)
+    const [location, verb, effect, templates] = await Promise.all([
       getLocation(anatomy, outcome, varietyMode),
       getDamageVerb(damageType, outcome, varietyMode),
-      getDamageEffect(damageType, outcome, varietyMode)
+      getDamageEffect(damageType, outcome, varietyMode),
+      DataLoader.loadTemplates('detailed', outcome)
     ]);
+
     const locationAnatomy = getLocationAnatomy(location);
     const weaponType = getWeaponType(damageType, item, "second", message);
     const targetName = target.name;
+    const attackerName = attacker ? attacker.name : "The attacker";
 
     if (!location) return `Your attack finds ${targetName}!`;
 
-    // Check if this is a ranged weapon
+    // Check weapon categories
     const rangedCategory = getRangedWeaponCategory(item, message);
     const meleeCategory = !rangedCategory ? getMeleeWeaponCategory(item, message) : null;
 
-    // Get random opening sentence
+    // Get opening sentence (ranged/melee-specific or standard)
     let opening;
-
-    // For ranged weapons, use specialized ranged opening sentences
     if (rangedCategory) {
-      const attackerName = attacker ? attacker.name : "The attacker";
       opening = await getRangedOpeningSentence(rangedCategory, 'detailed', outcome, { attackerName, targetName, weaponType });
-
-      // If we got a ranged opening, check if it's a complete sentence
-      if (opening) {
-        // Ranged openings are often complete sentences, so return early for failures
-        if (outcome === 'failure' || outcome === 'criticalFailure') {
-          return opening;
-        }
-        // For successes, continue to add location/damage details
+      if (opening && (outcome === 'failure' || outcome === 'criticalFailure')) {
+        return opening;
       }
     } else if (meleeCategory) {
-      // For melee weapons, use specialized melee opening sentences
-      const attackerName = attacker ? attacker.name : "The attacker";
       opening = await getMeleeOpeningSentence(meleeCategory, 'detailed', outcome, { attackerName, targetName, weaponType });
-
-      // If we got a melee opening for failures, return early
       if (opening && (outcome === 'failure' || outcome === 'criticalFailure')) {
         return opening;
       }
     }
 
-    // For failures/critical failures, use defense-aware openings if available (and if no weapon-specific opening was used)
+    // Defense-aware openings for failures
     if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
       const defenseOpenings = await getDefenseOpenings(outcome, defense.missReason, 'cinematic');
       if (defenseOpenings && defenseOpenings.length > 0) {
-        const attackerName = attacker ? attacker.name : "The attacker";
         opening = RandomUtils.selectRandom(defenseOpenings, varietyMode, `defense-opening-${outcome}-${defense.missReason}`);
-        // Replace template variables with StringUtils.interpolate
         opening = StringUtils.interpolate(opening, { attackerName, targetName, weaponType });
-        return opening; // Defense-aware openings are complete sentences
+        return opening;
       }
     }
 
-    // Fall back to standard opening sentences if no weapon-specific opening was found
+    // Fallback to standard opening
     if (!opening) {
       opening = await getOpeningSentence('detailed', outcome, { weaponType, targetName });
     }
 
-    let description;
-    switch(outcome) {
-      case "criticalSuccess":
-        if (verb && effect) {
-          description = `${opening} ${verb} their ${location} with crushing force! ${effect} The devastating strike leaves them reeling!`;
-        } else if (verb) {
-          description = `${opening} ${verb} their ${location} with brutal precision! A devastating critical hit that connects perfectly!`;
-        } else if (effect) {
-          description = `${opening} slamming into their ${location} with overwhelming power! ${effect} A critical strike!`;
-        } else {
-          description = `${opening} crashing into their ${location} with devastating force! The perfect critical hit leaves them staggered!`;
-        }
-        break;
+    // NEW: Select template and fill with components
+    const templateObj = TemplateEngine.selectTemplate(templates, varietyMode, `detailed-${outcome}`);
+    const components = {
+      opening: opening || "",
+      verb: verb || "strikes",
+      effect: effect || "",
+      location: location || "body",
+      weaponType,
+      targetName,
+      attackerName,
+      damageType
+    };
 
-      case "success":
-        if (verb && effect) {
-          description = `${opening} ${verb} their ${location}. ${effect} A solid, effective blow!`;
-        } else if (verb) {
-          description = `${opening} ${verb} their ${location}, the attack connecting cleanly and dealing significant damage!`;
-        } else if (effect) {
-          description = `${opening} landing on their ${location} with force. ${effect}`;
-        } else {
-          description = `${opening} striking their ${location} cleanly, the attack finding its mark and dealing damage!`;
-        }
-        break;
-
-      case "failure":
-        // Provide more descriptive failure text with target name and explanation
-        if (defense && defense.missReason) {
-          const reason = defense.missReason === 'armor' ? `${targetName}'s armor deflects the blow` :
-                        defense.missReason === 'shield' ? `${targetName} blocks with their shield` :
-                        defense.missReason === 'dodge' ? `${targetName} dodges with practiced precision` :
-                        `${targetName} reacts in time`;
-          description = `${opening} ${location}, but ${reason}. The attack fails to find its mark, leaving ${targetName} unscathed.`;
-        } else {
-          description = `${opening} ${location}, but ${targetName} sees it coming and shifts at the last second. The attack whistles harmlessly past, missing by mere inches.`;
-        }
-        break;
-
-      case "criticalFailure":
-        // Provide more descriptive critical failure text
-        if (defense && defense.missReason) {
-          const reason = defense.missReason === 'armor' ? `${targetName}'s armor easily turns aside the clumsy strike` :
-                        defense.missReason === 'shield' ? `${targetName} contemptuously blocks with their shield` :
-                        defense.missReason === 'dodge' ? `${targetName} effortlessly sidesteps the telegraphed attack` :
-                        `${targetName} barely needs to react`;
-          description = `${opening} ${location}! ${reason}. The attacker stumbles, completely off-balance from the failed strike!`;
-        } else {
-          description = `${opening} ${location}! ${targetName} doesn't even need to try hard to avoid the poorly executed attack. The attacker is left stumbling and exposed, having wasted their opportunity!`;
-        }
-        break;
-
-      default:
-        description = `${weaponType} moves toward ${targetName}'s ${location}.`;
-    }
+    let description = TemplateEngine.fillTemplate(templateObj, components);
+    description = TemplateEngine.cleanOutput(description);
 
     // Apply modifiers
     const sizeDiff = getSizeDifference(attacker, target);
@@ -565,12 +475,14 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * @returns {Promise<string>}
    */
   async generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message = null) {
-    // Get components in parallel for 80% speed improvement
-    const [location, verb, effect] = await Promise.all([
+    // Get components in parallel (including templates!)
+    const [location, verb, effect, templates] = await Promise.all([
       getLocation(anatomy, outcome, varietyMode),
       getDamageVerb(damageType, outcome, varietyMode),
-      getDamageEffect(damageType, outcome, varietyMode)
+      getDamageEffect(damageType, outcome, varietyMode),
+      DataLoader.loadTemplates('cinematic', outcome)
     ]);
+
     const locationAnatomy = getLocationAnatomy(location);
     const weaponType = getWeaponType(damageType, item, "third", message);
     const targetName = target.name;
@@ -578,106 +490,54 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     if (!location) return `${attackerName}'s attack finds its mark on ${targetName}!`;
 
-    // Check if this is a ranged weapon
+    // Check weapon categories
     const rangedCategory = getRangedWeaponCategory(item, message);
     const meleeCategory = !rangedCategory ? getMeleeWeaponCategory(item, message) : null;
 
-    // Get random opening sentence
+    // Get opening sentence (ranged/melee-specific or standard)
     let opening;
-
-    // For ranged weapons, use specialized ranged opening sentences
     if (rangedCategory) {
       opening = await getRangedOpeningSentence(rangedCategory, 'cinematic', outcome, { attackerName, targetName, weaponType });
-
-      // If we got a ranged opening, check if it's a complete sentence
-      if (opening) {
-        // Ranged openings are often complete sentences, so return early for failures
-        if (outcome === 'failure' || outcome === 'criticalFailure') {
-          return opening;
-        }
-        // For successes, continue to add location/damage details
+      if (opening && (outcome === 'failure' || outcome === 'criticalFailure')) {
+        return opening;
       }
     } else if (meleeCategory) {
-      // For melee weapons, use specialized melee opening sentences
       opening = await getMeleeOpeningSentence(meleeCategory, 'cinematic', outcome, { attackerName, targetName, weaponType });
-
-      // If we got a melee opening for failures, return early
       if (opening && (outcome === 'failure' || outcome === 'criticalFailure')) {
         return opening;
       }
     }
 
-    // For failures/critical failures, use defense-aware openings if available (and if no weapon-specific opening was used)
+    // Defense-aware openings for failures
     if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
       const defenseOpenings = await getDefenseOpenings(outcome, defense.missReason, 'cinematic');
       if (defenseOpenings && defenseOpenings.length > 0) {
         opening = RandomUtils.selectRandom(defenseOpenings, varietyMode, `defense-opening-${outcome}-${defense.missReason}`);
-        // Replace template variables with StringUtils.interpolate
         opening = StringUtils.interpolate(opening, { attackerName, targetName, weaponType });
-        return opening; // Defense-aware openings are complete sentences
+        return opening;
       }
     }
 
-    // Fall back to standard opening sentences if no weapon-specific opening was found
+    // Fallback to standard opening
     if (!opening) {
       opening = await getOpeningSentence('cinematic', outcome, { attackerName, targetName, weaponType });
     }
 
-    let description;
-    switch(outcome) {
-      case "criticalSuccess":
-        if (verb && effect) {
-          description = `${opening} ${weaponType} ${verb} ${targetName}'s ${location} with crushing force! ${effect} ${targetName} staggers backward, the impact overwhelming!`;
-        } else if (verb) {
-          description = `${opening} ${weaponType} ${verb} ${targetName}'s ${location} with devastating precision! The critical strike leaves ${targetName} reeling from the perfect hit!`;
-        } else if (effect) {
-          description = `${opening} ${weaponType} crashes into ${targetName}'s ${location} with overwhelming force! ${effect} A devastating critical strike!`;
-        } else {
-          description = `${opening} ${weaponType} crashes into ${targetName}'s ${location} with devastating precision! The perfect strike finds its mark with catastrophic effect, leaving ${targetName} staggering from the blow!`;
-        }
-        break;
+    // NEW: Select template and fill with components
+    const templateObj = TemplateEngine.selectTemplate(templates, varietyMode, `cinematic-${outcome}`);
+    const components = {
+      opening: opening || "",
+      verb: verb || "strikes",
+      effect: effect || "",
+      location: location || "body",
+      weaponType,
+      targetName,
+      attackerName,
+      damageType
+    };
 
-      case "success":
-        if (verb && effect) {
-          description = `${opening} ${weaponType} lands solidly, ${verb} ${targetName}'s ${location}. ${effect}`;
-        } else if (verb) {
-          description = `${opening} ${weaponType} ${verb} ${targetName}'s ${location}. The attack finds its mark, dealing solid damage!`;
-        } else if (effect) {
-          description = `${opening} ${weaponType} connects firmly with ${targetName}'s ${location}. ${effect}`;
-        } else {
-          description = `${opening} ${weaponType} connects with ${targetName}'s ${location}, delivering a solid, effective hit that leaves its mark!`;
-        }
-        break;
-
-      case "failure":
-        // More dramatic, descriptive failure for cinematic mode
-        if (defense && defense.missReason) {
-          const defenseDesc = defense.missReason === 'armor' ? `${targetName}'s armor deflects the strike with a resounding clang` :
-                             defense.missReason === 'shield' ? `${targetName} interposes their shield at the perfect moment` :
-                             defense.missReason === 'dodge' ? `${targetName} flows like water around the incoming attack` :
-                             `${targetName} reacts with battle-honed instincts`;
-          description = `${opening} ${weaponType} arcs toward ${location}, but ${defenseDesc}! The attack fails to connect, ${targetName} emerging unscathed from the exchange!`;
-        } else {
-          description = `${opening} ${weaponType} arcs toward ${location}, but ${targetName} reads the attack perfectly! With a fluid motion, they evade at the last possible moment, the weapon missing by mere inches. ${targetName} capitalizes on the opening!`;
-        }
-        break;
-
-      case "criticalFailure":
-        // Even more dramatic critical failure for cinematic mode
-        if (defense && defense.missReason) {
-          const defenseDesc = defense.missReason === 'armor' ? `${targetName}'s armor turns it aside like it was nothing` :
-                             defense.missReason === 'shield' ? `${targetName} casually deflects it with their shield` :
-                             defense.missReason === 'dodge' ? `${targetName} sidesteps with contemptuous ease` :
-                             `${targetName} barely needs to acknowledge the threat`;
-          description = `${opening} ${weaponType} flails wildly ${location}, but ${defenseDesc}! The completely botched attack leaves the wielder stumbling and exposed, having achieved nothing but embarrassment!`;
-        } else {
-          description = `${opening} ${weaponType} swings in a wild, uncontrolled arc ${location}, but ${targetName} doesn't even break stride! The catastrophically poor attack misses by a mile, leaving the attacker off-balance and vulnerable. Combat instructors everywhere weep at such incompetence!`;
-        }
-        break;
-
-      default:
-        description = `${attackerName} moves to strike ${targetName}...`;
-    }
+    let description = TemplateEngine.fillTemplate(templateObj, components);
+    description = TemplateEngine.cleanOutput(description);
 
     // Apply modifiers
     const sizeDiff = getSizeDifference(attacker, target);
