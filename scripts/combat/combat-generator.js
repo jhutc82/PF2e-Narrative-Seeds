@@ -460,24 +460,27 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
   }
 
   /**
-   * Generate standard description
+   * Generate standard description (convenience wrapper)
    * @returns {Promise<string>}
+   * @see generateNarrative
    */
   async generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message = null, memoryContext = null) {
     return this.generateNarrative('standard', anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message, memoryContext);
   }
 
   /**
-   * Generate detailed description
+   * Generate detailed description (convenience wrapper)
    * @returns {Promise<string>}
+   * @see generateNarrative
    */
   async generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense, message = null, memoryContext = null) {
     return this.generateNarrative('detailed', anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message, memoryContext);
   }
 
   /**
-   * Generate cinematic description
+   * Generate cinematic description (convenience wrapper)
    * @returns {Promise<string>}
+   * @see generateNarrative
    */
   async generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message = null, memoryContext = null) {
     return this.generateNarrative('cinematic', anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message, memoryContext);

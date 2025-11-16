@@ -45,7 +45,7 @@ export class DefenseDetector {
       analysis.dexModifier = target.system?.abilities?.dex?.mod || 0;
       analysis.effectiveDexModifier = analysis.dexModifier;
     } catch (e) {
-      console.warn('PF2e Narrative Seeds: Could not read dex modifier', e);
+      console.warn('PF2e Narrative Seeds | Could not read dex modifier', e);
     }
 
     // Check for equipped armor
@@ -62,7 +62,7 @@ export class DefenseDetector {
 
       if (inventoryArmor) {
         equippedArmor = inventoryArmor;
-        console.log('PF2e Narrative Seeds: Found armor in NPC inventory (not equipped)', inventoryArmor.name);
+        console.log('PF2e Narrative Seeds | Found armor in NPC inventory (not equipped)', inventoryArmor.name);
       }
     }
 
@@ -82,7 +82,7 @@ export class DefenseDetector {
         // Apply dex cap if character's dex exceeds it
         if (analysis.dexModifier > dexCap) {
           analysis.effectiveDexModifier = dexCap;
-          console.log(`PF2e Narrative Seeds: Armor dex cap (${dexCap}) applied, reducing effective dex from ${analysis.dexModifier} to ${dexCap}`);
+          console.log(`PF2e Narrative Seeds | Armor dex cap (${dexCap}) applied, reducing effective dex from ${analysis.dexModifier} to ${dexCap}`);
         }
       }
 
@@ -144,7 +144,7 @@ export class DefenseDetector {
     const hasPhysicalResistance = this.hasPhysicalDefenses(target);
     if (hasPhysicalResistance && !analysis.hasArmor) {
       analysis.hasNaturalArmor = true;
-      console.log('PF2e Narrative Seeds: Creature has physical resistances/immunities, indicating natural armor');
+      console.log('PF2e Narrative Seeds | Creature has physical resistances/immunities, indicating natural armor');
     }
 
     if (analysis.hasNaturalArmor && !analysis.hasArmor) {
@@ -255,7 +255,7 @@ export class DefenseDetector {
       }
 
     } catch (e) {
-      console.warn('PF2e Narrative Seeds: Error checking physical defenses', e);
+      console.warn('PF2e Narrative Seeds | Error checking physical defenses', e);
     }
 
     return false;
@@ -299,7 +299,7 @@ export class DefenseDetector {
       }
 
     } catch (e) {
-      console.warn('PF2e Narrative Seeds: Error checking Shield Block', e);
+      console.warn('PF2e Narrative Seeds | Error checking Shield Block', e);
     }
 
     return false;
