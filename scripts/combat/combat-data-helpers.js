@@ -417,6 +417,26 @@ export function getLocationAnatomy(location) {
 }
 
 /**
+ * Get size modifier phrase for a size difference
+ * @param {string} sizeDifference - Size difference category (much-larger, larger, much-smaller, smaller, same)
+ * @param {string} varietyMode - Variety setting
+ * @returns {Promise<string|null>} Size modifier phrase or null if same size
+ */
+export async function getSizeModifier(sizeDifference, varietyMode = 'high') {
+  if (sizeDifference === 'same' || !sizeDifference) {
+    return null;
+  }
+
+  const modifiers = await DataLoader.loadSizeModifiers(sizeDifference);
+  if (!modifiers || modifiers.length === 0) {
+    return null;
+  }
+
+  const category = `size-modifier:${sizeDifference}`;
+  return RandomUtils.selectRandom(modifiers, varietyMode, category);
+}
+
+/**
  * Interpolate template string with context variables
  * @private
  * @param {string} template - Template string
