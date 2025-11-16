@@ -15,6 +15,8 @@ import {
   getLocation,
   getDamageVerb,
   getDamageEffect,
+  getContextualDamageVerb,
+  getContextualDamageEffect,
   getWeaponType,
   getLocationAnatomy,
   getRangedWeaponCategory,
@@ -315,11 +317,9 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * @returns {Promise<string>}
    */
   async generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message = null) {
-    // Get components in parallel (including templates!) for maximum speed
-    const [location, verb, effect, templates] = await Promise.all([
+    // Get location and templates first
+    const [location, templates] = await Promise.all([
       getLocation(anatomy, outcome, varietyMode),
-      getDamageVerb(damageType, outcome, varietyMode),
-      getDamageEffect(damageType, outcome, varietyMode),
       DataLoader.loadTemplates('standard', outcome)
     ]);
 
@@ -327,6 +327,13 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     const weaponType = getWeaponType(damageType, item, "second", message);
     const targetName = target ? target.name : "the target";
     const attackerName = attacker ? attacker.name : "The attacker";
+
+    // Now get contextual verb and effect with filtering applied
+    const context = { anatomy, damageType, location };
+    const [verb, effect] = await Promise.all([
+      getContextualDamageVerb(damageType, outcome, varietyMode, context),
+      getContextualDamageEffect(damageType, outcome, varietyMode, context)
+    ]);
 
     if (!location) return "Your attack connects!";
 
@@ -396,11 +403,9 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * @returns {Promise<string>}
    */
   async generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense, message = null) {
-    // Get components in parallel (including templates!)
-    const [location, verb, effect, templates] = await Promise.all([
+    // Get location and templates first
+    const [location, templates] = await Promise.all([
       getLocation(anatomy, outcome, varietyMode),
-      getDamageVerb(damageType, outcome, varietyMode),
-      getDamageEffect(damageType, outcome, varietyMode),
       DataLoader.loadTemplates('detailed', outcome)
     ]);
 
@@ -408,6 +413,13 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     const weaponType = getWeaponType(damageType, item, "second", message);
     const targetName = target.name;
     const attackerName = attacker ? attacker.name : "The attacker";
+
+    // Now get contextual verb and effect with filtering applied
+    const context = { anatomy, damageType, location };
+    const [verb, effect] = await Promise.all([
+      getContextualDamageVerb(damageType, outcome, varietyMode, context),
+      getContextualDamageEffect(damageType, outcome, varietyMode, context)
+    ]);
 
     if (!location) return `Your attack finds ${targetName}!`;
 
@@ -475,11 +487,9 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * @returns {Promise<string>}
    */
   async generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message = null) {
-    // Get components in parallel (including templates!)
-    const [location, verb, effect, templates] = await Promise.all([
+    // Get location and templates first
+    const [location, templates] = await Promise.all([
       getLocation(anatomy, outcome, varietyMode),
-      getDamageVerb(damageType, outcome, varietyMode),
-      getDamageEffect(damageType, outcome, varietyMode),
       DataLoader.loadTemplates('cinematic', outcome)
     ]);
 
@@ -487,6 +497,13 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     const weaponType = getWeaponType(damageType, item, "third", message);
     const targetName = target.name;
     const attackerName = attacker ? attacker.name : "The attacker";
+
+    // Now get contextual verb and effect with filtering applied
+    const context = { anatomy, damageType, location };
+    const [verb, effect] = await Promise.all([
+      getContextualDamageVerb(damageType, outcome, varietyMode, context),
+      getContextualDamageEffect(damageType, outcome, varietyMode, context)
+    ]);
 
     if (!location) return `${attackerName}'s attack finds its mark on ${targetName}!`;
 

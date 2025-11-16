@@ -7,6 +7,7 @@
 import { DataLoader } from '../data-loader.js';
 import { RandomUtils } from '../utils.js';
 import { WeaponNameExtractor } from './weapon-name-extractor.js';
+import { ContextFilters } from './context-filters.js';
 
 /**
  * Get a random location for an anatomy type and outcome
@@ -60,6 +61,63 @@ export async function getDamageEffect(damageType, outcome, varietyMode = 'high',
 
   const category = `damage-effect:${damageType}:${outcome}`;
   return RandomUtils.selectRandom(effects, varietyMode, category);
+}
+
+/**
+ * Get context-aware damage verb with filtering applied
+ * Filters out semantically inappropriate verbs based on damage type and location
+ * @param {string} damageType - Damage type
+ * @param {string} outcome - Outcome type
+ * @param {string} varietyMode - Variety setting
+ * @param {Object} context - Context (anatomy, location)
+ * @returns {Promise<string>} Contextually appropriate damage verb
+ */
+export async function getContextualDamageVerb(damageType, outcome, varietyMode = 'high', context = {}) {
+  const verbs = await DataLoader.loadDamageDescriptors(damageType, 'verbs', outcome);
+  if (!verbs || verbs.length === 0) {
+    return null;
+  }
+
+  // Apply context filtering
+  const filtered = ContextFilters.applyContextFilters(verbs, [], context);
+  const filteredVerbs = filtered.verbs;
+
+  const category = `contextual-verb:${damageType}:${outcome}`;
+  return RandomUtils.selectRandom(filteredVerbs, varietyMode, category);
+}
+
+/**
+ * Get context-aware damage effect with filtering and anatomy overrides applied
+ * Returns anatomy-specific effects for special creatures, or filtered standard effects
+ * @param {string} damageType - Damage type
+ * @param {string} outcome - Outcome type
+ * @param {string} varietyMode - Variety setting
+ * @param {Object} context - Context (anatomy, location)
+ * @returns {Promise<string>} Contextually appropriate damage effect
+ */
+export async function getContextualDamageEffect(damageType, outcome, varietyMode = 'high', context = {}) {
+  const { anatomy } = context;
+  const anatomyBase = typeof anatomy === 'string' ? anatomy : anatomy?.base || 'humanoid';
+
+  // Check for anatomy-specific overrides first
+  const overrides = await DataLoader.loadAnatomyOverrides(anatomyBase, outcome);
+  if (overrides && overrides.length > 0) {
+    const category = `anatomy-override:${anatomyBase}:${outcome}`;
+    return RandomUtils.selectRandom(overrides, varietyMode, category);
+  }
+
+  // Fall back to standard effects with filtering
+  const effects = await DataLoader.loadDamageDescriptors(damageType, 'effects', outcome);
+  if (!effects || effects.length === 0) {
+    return null;
+  }
+
+  // Apply context filtering
+  const filtered = ContextFilters.applyContextFilters([], effects, context);
+  const filteredEffects = filtered.effects;
+
+  const category = `contextual-effect:${damageType}:${outcome}`;
+  return RandomUtils.selectRandom(filteredEffects, varietyMode, category);
 }
 
 /**

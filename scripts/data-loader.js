@@ -352,6 +352,61 @@ export class DataLoader {
   }
 
   /**
+   * Load anatomy-specific effect overrides
+   * @param {string} anatomyType - Anatomy type (skeleton, incorporeal, etc.)
+   * @param {string} outcome - Outcome type
+   * @returns {Promise<Array<string>>} Array of anatomy-specific effects
+   */
+  static async loadAnatomyOverrides(anatomyType, outcome) {
+    const cacheKey = `anatomy-overrides:${anatomyType}:${outcome}`;
+
+    // Check cache
+    if (this.cache.has(cacheKey)) {
+      PerformanceMonitor.recordCacheHit();
+      return this.cache.get(cacheKey);
+    }
+
+    PerformanceMonitor.recordCacheMiss();
+
+    // Check if already loading
+    if (this.loading.has(cacheKey)) {
+      return await this.loading.get(cacheKey);
+    }
+
+    // Load data
+    const loadPromise = this.loadAnatomyOverrideData(anatomyType, outcome);
+    this.loading.set(cacheKey, loadPromise);
+
+    try {
+      const data = await loadPromise;
+      this.setCacheData(cacheKey, data);
+      return data;
+    } finally {
+      this.loading.delete(cacheKey);
+    }
+  }
+
+  /**
+   * Load anatomy override data from JSON file
+   * @private
+   */
+  static async loadAnatomyOverrideData(anatomyType, outcome) {
+    return await PerformanceMonitor.measureAsync('data-load-anatomy-overrides', async () => {
+      try {
+        const response = await fetch(`modules/pf2e-narrative-seeds/data/combat/effects/anatomy-overrides.json`);
+        if (!response.ok) {
+          return [];
+        }
+        const data = await response.json();
+        return data[anatomyType]?.[outcome] || [];
+      } catch (error) {
+        console.error(`PF2e Narrative Seeds | Error loading anatomy overrides:`, error);
+        return [];
+      }
+    });
+  }
+
+  /**
    * Set cache data with timestamp
    * @private
    */
