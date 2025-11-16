@@ -182,6 +182,11 @@ export class WeaponNameExtractor {
    * Remove rune names from weapon string
    */
   static removeRunes(name) {
+    // Ensure name is a string
+    if (typeof name !== 'string') {
+      name = String(name);
+    }
+
     const runes = [
       'striking', 'greater striking', 'major striking',
       'flaming', 'frost', 'shock', 'thundering', 'corrosive',

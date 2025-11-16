@@ -246,12 +246,15 @@ export class DamageDetector {
   /**
    * Normalize damage type string
    * @param {string} damageType
-   * @returns {string}
+   * @returns {string|null}
    */
   static normalizeDamageType(damageType) {
-    if (!damageType) return null;
+    if (!damageType || damageType === '') return null;
 
     const normalized = String(damageType).toLowerCase().trim();
+
+    // Check again after normalization in case it became empty
+    if (normalized === '') return null;
 
     // Handle alternative names and backward compatibility
     const aliases = {

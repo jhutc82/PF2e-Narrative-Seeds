@@ -87,6 +87,31 @@ export class RandomUtils {
   static cacheTimestamps = new Map();
   static messageHistory = [];
 
+  // History size limits for variety modes
+  // These control how many recent selections to avoid repeating
+  static HISTORY_LIMITS = {
+    LOW: {
+      ABSOLUTE: 3,      // Minimum history for low variety (small pools)
+      DEFAULT: 3,       // Default history when no array length
+      PERCENTAGE: 0.2   // Use 20% of array length
+    },
+    MEDIUM: {
+      ABSOLUTE: 8,      // Minimum history for medium variety
+      DEFAULT: 10,      // Default history when no array length
+      PERCENTAGE: 0.4   // Use 40% of array length
+    },
+    HIGH: {
+      ABSOLUTE: 15,     // Minimum history for high variety
+      DEFAULT: 20,      // Default history when no array length
+      PERCENTAGE: 0.6   // Use 60% of array length
+    },
+    EXTREME: {
+      ABSOLUTE: 50,     // Cap at 50 to prevent excessive memory
+      DEFAULT: 50,      // Default history when no array length
+      PERCENTAGE: 1.0   // Use nearly all of array (arrayLength - 1)
+    }
+  };
+
   /**
    * Get history size based on variety mode
    * @param {string} varietyMode - Variety setting (low, medium, high, extreme)
@@ -94,18 +119,19 @@ export class RandomUtils {
    * @returns {number} History size
    */
   static getHistorySize(varietyMode, arrayLength = null) {
-    switch(varietyMode) {
-      case 'low':
-        return arrayLength ? Math.min(3, Math.floor(arrayLength * 0.2)) : 3;
-      case 'medium':
-        return arrayLength ? Math.min(8, Math.floor(arrayLength * 0.4)) : 10;
-      case 'high':
-        return arrayLength ? Math.min(15, Math.floor(arrayLength * 0.6)) : 20;
-      case 'extreme':
-        return arrayLength ? Math.min(50, arrayLength - 1) : 50;  // Cap at 50 to prevent excessive memory
-      default:
-        return arrayLength ? Math.min(15, Math.floor(arrayLength * 0.6)) : 20;
+    const mode = varietyMode?.toUpperCase() || 'HIGH';
+    const limits = this.HISTORY_LIMITS[mode] || this.HISTORY_LIMITS.HIGH;
+
+    if (arrayLength) {
+      const percentageBased = Math.floor(arrayLength * limits.PERCENTAGE);
+      // For extreme mode, use arrayLength - 1 to avoid filtering out all options
+      if (mode === 'EXTREME') {
+        return Math.min(limits.ABSOLUTE, arrayLength - 1);
+      }
+      return Math.min(limits.ABSOLUTE, percentageBased);
     }
+
+    return limits.DEFAULT;
   }
 
   /**
@@ -169,30 +195,33 @@ export class RandomUtils {
       history = history.slice(-historySize);
     }
 
-    // Find items not in recent history
-    const available = array.filter((item, index) => !history.includes(index));
+    // Find indices not in recent history
+    const availableIndices = [];
+    for (let i = 0; i < array.length; i++) {
+      if (!history.includes(i)) {
+        availableIndices.push(i);
+      }
+    }
 
     // If all items are in history (shouldn't happen with proper sizing), reset
-    if (available.length === 0) {
+    if (availableIndices.length === 0) {
       history = [];
-      const selected = array[Math.floor(Math.random() * array.length)];
-      const selectedIndex = array.indexOf(selected);
+      const selectedIndex = Math.floor(Math.random() * array.length);
       history.push(selectedIndex);
       this.usageHistory.set(category, history);
       this.cacheTimestamps.set(category, Date.now());
-      return selected;
+      return array[selectedIndex];
     }
 
-    // Select from available items
-    const selected = available[Math.floor(Math.random() * available.length)];
-    const selectedIndex = array.indexOf(selected);
+    // Select from available indices
+    const selectedIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
 
     // Update history
     history.push(selectedIndex);
     this.usageHistory.set(category, history);
     this.cacheTimestamps.set(category, Date.now());
 
-    return selected;
+    return array[selectedIndex];
   }
 
   /**

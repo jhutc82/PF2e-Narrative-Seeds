@@ -267,11 +267,18 @@ export class ContextFilters {
    * Returns filtered lists that make semantic sense
    * @param {Array<string>} verbs - Raw verb list
    * @param {Array<string>} effects - Raw effect list
-   * @param {Object} context - Context (anatomy, damageType, location)
-   * @returns {Object} { verbs, effects } - Filtered lists
+   * @param {Object} context - Context object
+   * @param {string|Object} context.anatomy - Anatomy type (string) or anatomy object with {base, modifiers}
+   * @param {string} context.damageType - Damage type (slashing, piercing, bludgeoning, fire, etc.)
+   * @param {string} context.location - Hit location on the body
+   * @returns {{verbs: Array<string>, effects: Array<string>}} Filtered verbs and effects arrays
    */
   static applyContextFilters(verbs, effects, context) {
     const { anatomy, damageType, location } = context;
+
+    // Store original counts
+    const originalVerbCount = verbs?.length || 0;
+    const originalEffectCount = effects?.length || 0;
 
     // Apply all filters
     let filteredVerbs = verbs;
@@ -288,12 +295,12 @@ export class ContextFilters {
 
     // Fallback to unfiltered if we filtered out everything
     if (filteredVerbs.length === 0) {
-      console.warn(`PF2e Narrative Seeds | All verbs filtered out for ${damageType} at ${location}, using unfiltered`);
+      console.warn(`PF2e Narrative Seeds | Filtered out all ${originalVerbCount} verbs for ${damageType} at ${location}, using unfiltered`);
       filteredVerbs = verbs;
     }
 
     if (filteredEffects.length === 0) {
-      console.warn(`PF2e Narrative Seeds | All effects filtered out for ${anatomy?.base || anatomy} with ${damageType}, using unfiltered`);
+      console.warn(`PF2e Narrative Seeds | Filtered out all ${originalEffectCount} effects for ${anatomy?.base || anatomy} with ${damageType}, using unfiltered`);
       filteredEffects = effects;
     }
 
