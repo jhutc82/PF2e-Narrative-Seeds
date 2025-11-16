@@ -4,6 +4,7 @@
  */
 
 import { PerformanceMonitor } from './performance-monitor.js';
+import { ErrorNotifications } from './error-notifications.js';
 
 /**
  * Data loader with caching and lazy loading
@@ -62,7 +63,13 @@ export class DataLoader {
         const response = await fetch(`modules/pf2e-narrative-seeds/data/combat/locations/${anatomyKey}.json`);
         if (!response.ok) {
           console.warn(`PF2e Narrative Seeds | Could not load locations for ${anatomyKey}, using fallback`);
-          return await this.loadLocationData('humanoid', outcome);
+          // Only fallback to humanoid if we're not already loading humanoid
+          if (anatomyKey !== 'humanoid') {
+            return await this.loadLocationData('humanoid', outcome);
+          }
+          // If humanoid fails, notify user and return empty
+          ErrorNotifications.handleDataLoadError('locations', anatomyKey, new Error(`HTTP ${response.status}`));
+          return [];
         }
         const data = await response.json();
         return data[outcome] || [];
@@ -72,6 +79,8 @@ export class DataLoader {
         if (anatomyKey !== 'humanoid') {
           return await this.loadLocationData('humanoid', outcome);
         }
+        // Critical error - notify user
+        ErrorNotifications.handleDataLoadError('locations', anatomyKey, error);
         return [];
       }
     });
@@ -122,13 +131,13 @@ export class DataLoader {
       try {
         const response = await fetch(`modules/pf2e-narrative-seeds/data/combat/damage/${damageType}.json`);
         if (!response.ok) {
-          console.warn(`PF2e Narrative Seeds | Could not load damage data for ${damageType}`);
+          ErrorNotifications.handleDataLoadError('damage', `${damageType} (${descriptorType})`, new Error(`HTTP ${response.status}`));
           return [];
         }
         const data = await response.json();
         return data[descriptorType]?.[outcome] || [];
       } catch (error) {
-        console.error(`PF2e Narrative Seeds | Error loading damage data for ${damageType}:`, error);
+        ErrorNotifications.handleDataLoadError('damage', `${damageType} (${descriptorType})`, error);
         return [];
       }
     });
@@ -178,30 +187,43 @@ export class DataLoader {
     return await PerformanceMonitor.measureAsync('data-load-openings', async () => {
       try {
         let response;
+        let filePath;
 
         // Determine which file to load based on category
         if (category.startsWith('ranged-')) {
           const weaponType = category.replace('ranged-', '');
-          response = await fetch(`modules/pf2e-narrative-seeds/data/combat/openings/ranged/${weaponType}.json`);
+          filePath = `modules/pf2e-narrative-seeds/data/combat/openings/ranged/${weaponType}.json`;
+          response = await fetch(filePath);
         } else if (category.startsWith('melee-')) {
           const weaponType = category.replace('melee-', '');
-          response = await fetch(`modules/pf2e-narrative-seeds/data/combat/openings/melee/${weaponType}.json`);
+          filePath = `modules/pf2e-narrative-seeds/data/combat/openings/melee/${weaponType}.json`;
+          response = await fetch(filePath);
         } else if (category.startsWith('defense-')) {
           const defenseType = category.replace('defense-', '');
-          response = await fetch(`modules/pf2e-narrative-seeds/data/combat/openings/defense/${defenseType}.json`);
+          filePath = `modules/pf2e-narrative-seeds/data/combat/openings/defense/${defenseType}.json`;
+          response = await fetch(filePath);
         } else {
-          response = await fetch(`modules/pf2e-narrative-seeds/data/combat/openings/${detailLevel}.json`);
+          filePath = `modules/pf2e-narrative-seeds/data/combat/openings/${detailLevel}.json`;
+          response = await fetch(filePath);
         }
 
         if (!response.ok) {
-          console.warn(`PF2e Narrative Seeds | Could not load openings for ${category}/${detailLevel}`);
+          // Silently fallback for optional files (weapon/defense specific openings)
+          if (category !== 'default') {
+            console.warn(`PF2e Narrative Seeds | Could not load openings for ${category}/${detailLevel}`);
+          } else {
+            ErrorNotifications.handleDataLoadError('openings', `${detailLevel}/${category}`, new Error(`HTTP ${response.status}`));
+          }
           return [];
         }
 
         const data = await response.json();
         return data[outcome] || [];
       } catch (error) {
-        console.error(`PF2e Narrative Seeds | Error loading openings:`, error);
+        // Only notify for critical failures (non-optional files)
+        if (category === 'default') {
+          ErrorNotifications.handleDataLoadError('openings', `${detailLevel}/${category}`, error);
+        }
         return [];
       }
     });
@@ -339,13 +361,13 @@ export class DataLoader {
       try {
         const response = await fetch(`modules/pf2e-narrative-seeds/data/combat/templates/${detailLevel}.json`);
         if (!response.ok) {
-          console.warn(`PF2e Narrative Seeds | Could not load templates for ${detailLevel}`);
+          ErrorNotifications.handleDataLoadError('templates', detailLevel, new Error(`HTTP ${response.status}`));
           return [];
         }
         const data = await response.json();
         return data[outcome] || [];
       } catch (error) {
-        console.error(`PF2e Narrative Seeds | Error loading templates for ${detailLevel}:`, error);
+        ErrorNotifications.handleDataLoadError('templates', detailLevel, error);
         return [];
       }
     });
@@ -395,12 +417,16 @@ export class DataLoader {
       try {
         const response = await fetch(`modules/pf2e-narrative-seeds/data/combat/effects/anatomy-overrides.json`);
         if (!response.ok) {
+          // Only notify on critical error (file completely missing)
+          if (response.status !== 404) {
+            ErrorNotifications.handleDataLoadError('anatomy-overrides', anatomyType, new Error(`HTTP ${response.status}`));
+          }
           return [];
         }
         const data = await response.json();
         return data[anatomyType]?.[outcome] || [];
       } catch (error) {
-        console.error(`PF2e Narrative Seeds | Error loading anatomy overrides:`, error);
+        ErrorNotifications.handleDataLoadError('anatomy-overrides', anatomyType, error);
         return [];
       }
     });

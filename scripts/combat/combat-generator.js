@@ -11,6 +11,7 @@ import { DefenseDetector } from './defense-detector.js';
 import { PerformanceMonitor } from '../performance-monitor.js';
 import { DataLoader } from '../data-loader.js';
 import { TemplateEngine } from './template-engine.js';
+import { ErrorNotifications } from '../error-notifications.js';
 import {
   getLocation,
   getDamageVerb,
@@ -130,7 +131,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
                 description = await this.generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message);
             }
           } catch (error) {
-            console.error("PF2e Narrative Seeds | Error generating description:", error);
+            ErrorNotifications.showError('generation', `Narrative generation failed (${detailLevel} mode). Using fallback.`, error);
             // Fallback to simple description
             description = this.generateFallback(outcome, target, attacker);
             break;
@@ -185,7 +186,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           tone
         };
       } catch (error) {
-        console.error("PF2e Narrative Seeds | Critical error in constructSeed:", error);
+        ErrorNotifications.handleCriticalError('combat narrative generation', error);
         // Return basic fallback
         return this.generateFallbackSeed(context);
       }
