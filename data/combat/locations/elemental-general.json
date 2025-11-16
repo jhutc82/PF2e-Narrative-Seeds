@@ -1,0 +1,42 @@
+{
+  "criticalSuccess": [
+    "elemental core",
+    "vital nexus",
+    "essence center",
+    "elemental heart",
+    "power source",
+    "vital center",
+    "core essence",
+    "central mass",
+    "heart of power",
+    "vital core"
+  ],
+  "success": [
+    "elemental form",
+    "left side",
+    "right side",
+    "upper body",
+    "lower body",
+    "main mass",
+    "elemental body",
+    "energy form",
+    "physical manifestation",
+    "elemental essence"
+  ],
+  "failure": [
+    "through their form",
+    "past their body",
+    "around their essence",
+    "through their mass",
+    "past their manifestation",
+    "around their form"
+  ],
+  "criticalFailure": [
+    "completely through them",
+    "nowhere near them",
+    "missing their form",
+    "wide of their body",
+    "through empty space",
+    "past their essence"
+  ]
+}

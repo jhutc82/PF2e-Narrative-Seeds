@@ -1,0 +1,42 @@
+{
+  "criticalSuccess": [
+    "central vortex",
+    "wind core",
+    "essence center",
+    "vital winds",
+    "heart of the storm",
+    "cyclone center",
+    "whirlwind core",
+    "air nexus",
+    "storm heart",
+    "vital essence"
+  ],
+  "success": [
+    "swirling winds",
+    "left vortex",
+    "right spiral",
+    "upper winds",
+    "lower currents",
+    "wind form",
+    "air body",
+    "cyclone edge",
+    "whirlwind side",
+    "tempest form"
+  ],
+  "failure": [
+    "through their airy form",
+    "past their swirling winds",
+    "around their vortex",
+    "through empty air",
+    "past their cyclone",
+    "around their tempest"
+  ],
+  "criticalFailure": [
+    "completely through them",
+    "nowhere near their form",
+    "through empty air",
+    "missing their winds",
+    "far from their vortex",
+    "wide of their essence"
+  ]
+}

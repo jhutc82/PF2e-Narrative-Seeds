@@ -1,0 +1,44 @@
+{
+  "criticalSuccess": [
+    "exposed throat",
+    "left eye",
+    "right eye",
+    "heart",
+    "brain",
+    "vital organs",
+    "spine",
+    "skull",
+    "neck",
+    "chest cavity",
+    "fiendish core",
+    "evil essence"
+  ],
+  "success": [
+    "left side",
+    "right side",
+    "fiendish body",
+    "evil form",
+    "chest",
+    "back",
+    "limb",
+    "torso",
+    "corrupted flesh",
+    "unholy body"
+  ],
+  "failure": [
+    "past their fiendish form",
+    "around their evil body",
+    "past their torso",
+    "around their form",
+    "past their body",
+    "around their mass"
+  ],
+  "criticalFailure": [
+    "nowhere near the fiend",
+    "completely missing",
+    "far from their form",
+    "wildly off target",
+    "harmlessly past",
+    "wide of their body"
+  ]
+}

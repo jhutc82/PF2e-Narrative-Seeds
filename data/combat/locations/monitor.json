@@ -1,0 +1,42 @@
+{
+  "criticalSuccess": [
+    "balanced essence",
+    "neutral heart",
+    "vital center",
+    "monitor core",
+    "neutral nexus",
+    "throat",
+    "brain",
+    "chest cavity",
+    "neck",
+    "skull"
+  ],
+  "success": [
+    "neutral left side",
+    "balanced right side",
+    "impartial chest",
+    "ordered back",
+    "monitor body",
+    "neutral form",
+    "balanced torso",
+    "impartial limb",
+    "neutral body",
+    "monitor form"
+  ],
+  "failure": [
+    "past their neutral form",
+    "around their balanced body",
+    "past their monitor form",
+    "around their impartial body",
+    "past their neutral essence",
+    "around their balanced form"
+  ],
+  "criticalFailure": [
+    "nowhere near the monitor",
+    "completely missing",
+    "far from their form",
+    "wildly off target",
+    "harmlessly past",
+    "wide of their body"
+  ]
+}

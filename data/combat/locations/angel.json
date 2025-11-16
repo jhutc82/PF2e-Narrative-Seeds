@@ -1,0 +1,42 @@
+{
+  "criticalSuccess": [
+    "radiant heart",
+    "left eye",
+    "right eye",
+    "holy essence",
+    "divine core",
+    "vital center",
+    "celestial nexus",
+    "throat",
+    "skull",
+    "neck"
+  ],
+  "success": [
+    "left wing",
+    "right wing",
+    "radiant left side",
+    "glowing right side",
+    "holy chest",
+    "blessed back",
+    "celestial body",
+    "divine form",
+    "angelic torso",
+    "radiant limb"
+  ],
+  "failure": [
+    "past their radiant form",
+    "around their holy body",
+    "through their wings",
+    "past their divine form",
+    "around their celestial body",
+    "past their blessed form"
+  ],
+  "criticalFailure": [
+    "nowhere near the angel",
+    "completely missing",
+    "far from their radiance",
+    "wildly off target",
+    "harmlessly past",
+    "wide of their form"
+  ]
+}

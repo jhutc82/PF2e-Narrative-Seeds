@@ -1,0 +1,42 @@
+{
+  "criticalSuccess": [
+    "alien core",
+    "vital center",
+    "unnatural heart",
+    "brain mass",
+    "central organs",
+    "nexus point",
+    "essence center",
+    "core mass",
+    "vital nexus",
+    "aberrant heart"
+  ],
+  "success": [
+    "aberrant left side",
+    "strange right side",
+    "alien body",
+    "grotesque form",
+    "unnatural mass",
+    "weird body",
+    "bizarre form",
+    "alien torso",
+    "strange limb",
+    "aberrant mass"
+  ],
+  "failure": [
+    "past their alien form",
+    "around their aberrant body",
+    "through their strange mass",
+    "past their grotesque form",
+    "around their unnatural body",
+    "past their weird form"
+  ],
+  "criticalFailure": [
+    "nowhere near the aberration",
+    "completely missing",
+    "far from their form",
+    "wildly off target",
+    "harmlessly past",
+    "wide of their mass"
+  ]
+}
