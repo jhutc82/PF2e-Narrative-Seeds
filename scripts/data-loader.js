@@ -183,6 +183,9 @@ export class DataLoader {
         if (category.startsWith('ranged-')) {
           const weaponType = category.replace('ranged-', '');
           response = await fetch(`modules/pf2e-narrative-seeds/data/combat/openings/ranged/${weaponType}.json`);
+        } else if (category.startsWith('melee-')) {
+          const weaponType = category.replace('melee-', '');
+          response = await fetch(`modules/pf2e-narrative-seeds/data/combat/openings/melee/${weaponType}.json`);
         } else if (category.startsWith('defense-')) {
           const defenseType = category.replace('defense-', '');
           response = await fetch(`modules/pf2e-narrative-seeds/data/combat/openings/defense/${defenseType}.json`);
