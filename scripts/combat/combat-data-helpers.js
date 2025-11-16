@@ -128,6 +128,29 @@ export async function getRangedOpeningSentence(weaponCategory, detailLevel, outc
 }
 
 /**
+ * Get melee opening sentence
+ * @param {string} weaponCategory - Weapon category (sword, axe, hammer, etc.)
+ * @param {string} detailLevel - Detail level
+ * @param {string} outcome - Outcome type
+ * @param {Object} context - Context variables
+ * @returns {Promise<string>} Melee opening sentence
+ */
+export async function getMeleeOpeningSentence(weaponCategory, detailLevel, outcome, context = {}) {
+  const category = `melee-${weaponCategory}`;
+  const openings = await DataLoader.loadOpenings(detailLevel, outcome, category);
+
+  if (!openings || openings.length === 0) {
+    // Fallback to standard openings
+    return await getOpeningSentence(detailLevel, outcome, context);
+  }
+
+  const selectionCategory = `melee-opening:${weaponCategory}:${detailLevel}:${outcome}`;
+  const template = RandomUtils.selectRandom(openings, 'high', selectionCategory);
+
+  return interpolateTemplate(template, context);
+}
+
+/**
  * Get defense openings for failures
  * @param {string} outcome - Outcome type (failure or criticalFailure)
  * @param {string} defenseType - Defense type (armor, shield, dodge, miss)
@@ -195,6 +218,157 @@ export function getRangedWeaponCategory(item, message = null) {
   if (group === 'dart') return 'thrown';
 
   return null;
+}
+
+/**
+ * Get melee weapon category from item
+ * @param {Object} item - PF2e item
+ * @param {Object} message - Optional chat message
+ * @returns {string|null} Weapon category (sword, axe, hammer, spear, dagger, unarmed)
+ */
+export function getMeleeWeaponCategory(item, message = null) {
+  if (!item) return null;
+
+  const itemType = item.type?.toLowerCase();
+  const itemName = item.name?.toLowerCase() || '';
+  const traits = item.system?.traits?.value || [];
+  const group = item.system?.group?.value;
+
+  // Check for unarmed attacks
+  if (itemType === 'melee' && (traits.includes('unarmed') || group === 'brawling')) {
+    return 'unarmed';
+  }
+
+  // Natural attacks (claws, bites, etc.)
+  if (itemName.includes('fist') || itemName.includes('claw') || itemName.includes('bite') ||
+      itemName.includes('horn') || itemName.includes('tail') || itemName.includes('wing') ||
+      itemName.includes('tentacle') || itemName.includes('jaws')) {
+    return 'unarmed';
+  }
+
+  // Daggers and small blades
+  if (group === 'knife' || itemName.includes('dagger') || itemName.includes('dirk') ||
+      itemName.includes('stiletto') || itemName.includes('kukri') || itemName.includes('kris') ||
+      itemName.includes('tanto') || itemName.includes('sai') || itemName.includes('katar') ||
+      itemName.includes('karambit') || itemName.includes('main gauche')) {
+    return 'dagger';
+  }
+
+  // Spears and polearms
+  if (group === 'spear' || group === 'polearm' || itemName.includes('spear') ||
+      itemName.includes('pike') || itemName.includes('lance') || itemName.includes('javelin') ||
+      itemName.includes('trident') || itemName.includes('partisan') || itemName.includes('glaive') ||
+      itemName.includes('halberd') || itemName.includes('naginata') || itemName.includes('ranseur') ||
+      itemName.includes('fauchard')) {
+    return 'spear';
+  }
+
+  // Axes
+  if (group === 'axe' || itemName.includes('axe') || itemName.includes('hatchet') ||
+      itemName.includes('tomahawk') || itemName.includes('bardiche') || itemName.includes('poleaxe')) {
+    return 'axe';
+  }
+
+  // Hammers, maces, clubs, flails
+  if (group === 'club' || group === 'hammer' || group === 'flail' ||
+      itemName.includes('hammer') || itemName.includes('mace') || itemName.includes('maul') ||
+      itemName.includes('club') || itemName.includes('cudgel') || itemName.includes('morningstar') ||
+      itemName.includes('flail') || itemName.includes('quarterstaff') || itemName.includes('staff') ||
+      itemName.includes('baton') || itemName.includes('shillelagh')) {
+    return 'hammer';
+  }
+
+  // Swords (check last as it's the most common/default)
+  if (group === 'sword' || itemName.includes('sword') || itemName.includes('blade') ||
+      itemName.includes('rapier') || itemName.includes('scimitar') || itemName.includes('katana') ||
+      itemName.includes('falchion') || itemName.includes('saber') || itemName.includes('cutlass') ||
+      itemName.includes('longsword') || itemName.includes('shortsword') || itemName.includes('greatsword') ||
+      itemName.includes('broadsword') || itemName.includes('claymore')) {
+    return 'sword';
+  }
+
+  return null;
+}
+
+/**
+ * Get size of an actor
+ * @param {Object} actor - PF2e actor
+ * @returns {string} Size (tiny, small, medium, large, huge, gargantuan)
+ */
+export function getActorSize(actor) {
+  if (!actor) return 'medium';
+
+  const size = actor.system?.traits?.size?.value || actor.system?.traits?.size;
+
+  if (typeof size === 'string') {
+    return size.toLowerCase();
+  }
+
+  return 'medium';
+}
+
+/**
+ * Get size difference category between attacker and target
+ * @param {Object} attacker - Attacker actor
+ * @param {Object} target - Target actor
+ * @returns {string} Size difference (same, larger, smaller, much-larger, much-smaller)
+ */
+export function getSizeDifference(attacker, target) {
+  if (!attacker || !target) return 'same';
+
+  const sizeOrder = ['tiny', 'small', 'medium', 'large', 'huge', 'gargantuan'];
+  const attackerSize = getActorSize(attacker);
+  const targetSize = getActorSize(target);
+
+  const attackerIndex = sizeOrder.indexOf(attackerSize);
+  const targetIndex = sizeOrder.indexOf(targetSize);
+
+  if (attackerIndex === -1 || targetIndex === -1) return 'same';
+
+  const difference = attackerIndex - targetIndex;
+
+  if (difference === 0) return 'same';
+  if (difference >= 2) return 'much-larger';
+  if (difference === 1) return 'larger';
+  if (difference <= -2) return 'much-smaller';
+  if (difference === -1) return 'smaller';
+
+  return 'same';
+}
+
+/**
+ * Check if an attack is non-lethal
+ * @param {Object} item - PF2e item
+ * @param {Object} message - Optional chat message
+ * @returns {boolean} True if non-lethal
+ */
+export function isNonLethalAttack(item, message = null) {
+  if (!item) return false;
+
+  const traits = item.system?.traits?.value || [];
+  const itemName = item.name?.toLowerCase() || '';
+
+  // Check for nonlethal trait
+  if (traits.includes('nonlethal')) {
+    return true;
+  }
+
+  // Check item name for non-lethal indicators
+  if (itemName.includes('nonlethal') || itemName.includes('non-lethal')) {
+    return true;
+  }
+
+  // Check if it's a fist/unarmed attack (typically non-lethal by default)
+  if (itemName.includes('fist') && !itemName.includes('spiked')) {
+    return true;
+  }
+
+  // Check message flags for non-lethal context
+  if (message?.flags?.pf2e?.context?.options?.includes('nonlethal')) {
+    return true;
+  }
+
+  return false;
 }
 
 /**

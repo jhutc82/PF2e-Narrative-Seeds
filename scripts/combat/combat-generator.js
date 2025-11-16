@@ -16,9 +16,13 @@ import {
   getWeaponType,
   getLocationAnatomy,
   getRangedWeaponCategory,
+  getMeleeWeaponCategory,
   getOpeningSentence,
   getDefenseOpenings,
-  getRangedOpeningSentence
+  getRangedOpeningSentence,
+  getMeleeOpeningSentence,
+  getSizeDifference,
+  isNonLethalAttack
 } from './combat-data-helpers.js';
 
 /**
@@ -184,6 +188,100 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
   }
 
   /**
+   * Apply size difference modifier to description
+   * @param {string} description - Base description
+   * @param {string} sizeDiff - Size difference (same, larger, smaller, much-larger, much-smaller)
+   * @param {string} outcome - Outcome type
+   * @returns {string} Modified description
+   */
+  applySizeModifier(description, sizeDiff, outcome) {
+    if (sizeDiff === 'same' || !description) return description;
+
+    // Don't modify failures - size doesn't matter if you miss
+    if (outcome === 'failure' || outcome === 'criticalFailure') return description;
+
+    // Add size-appropriate flavor text
+    const sizeModifiers = {
+      'much-larger': [
+        ' The massive strike overwhelms their smaller frame!',
+        ' The size advantage is devastating!',
+        ' The sheer mass difference makes the impact overwhelming!',
+        ' Their smaller size offers no protection from such a powerful blow!'
+      ],
+      'larger': [
+        ' The size advantage shows!',
+        ' The larger frame adds extra force!',
+        ' Their smaller stature makes them vulnerable!',
+        ' The reach advantage proves decisive!'
+      ],
+      'much-smaller': [
+        ' Despite the size disadvantage, they find a weak point!',
+        ' Agility overcomes size!',
+        ' The smaller attacker strikes a vulnerable spot!',
+        ' Speed and precision triumph over size!'
+      ],
+      'smaller': [
+        ' The nimble strike finds its mark!',
+        ' Quick reflexes compensate for size!',
+        ' A well-placed blow despite the size difference!',
+        ' Precision overcomes the reach disadvantage!'
+      ]
+    };
+
+    const modifiers = sizeModifiers[sizeDiff];
+    if (modifiers && modifiers.length > 0) {
+      const modifier = modifiers[Math.floor(Math.random() * modifiers.length)];
+      return description + modifier;
+    }
+
+    return description;
+  }
+
+  /**
+   * Apply non-lethal modifier to description
+   * @param {string} description - Base description
+   * @param {boolean} isNonLethal - Whether attack is non-lethal
+   * @returns {string} Modified description
+   */
+  applyNonLethalModifier(description, isNonLethal) {
+    if (!isNonLethal || !description) return description;
+
+    // Replace lethal-sounding words with non-lethal equivalents
+    let modified = description;
+
+    // Critical injuries -> stunning impacts
+    modified = modified.replace(/fatal/gi, 'stunning');
+    modified = modified.replace(/lethal/gi, 'powerful');
+    modified = modified.replace(/deadly/gi, 'forceful');
+    modified = modified.replace(/kills?/gi, 'incapacitates');
+    modified = modified.replace(/slays?/gi, 'subdues');
+    modified = modified.replace(/mortal/gi, 'incapacitating');
+    modified = modified.replace(/death/gi, 'unconsciousness');
+
+    // Wounds -> impacts
+    modified = modified.replace(/\bwound(s|ed|ing)?\b/gi, (match) => {
+      if (match.toLowerCase().includes('wound')) {
+        const suffix = match.slice(5);
+        return 'bruise' + suffix;
+      }
+      return match;
+    });
+
+    // Bleeding -> bruising
+    modified = modified.replace(/bleed(s|ing)?\b/gi, 'bruising');
+    modified = modified.replace(/\bblood\b/gi, 'impact');
+
+    // Cutting -> striking
+    modified = modified.replace(/\bcut(s)?\b/gi, (match) => match.endsWith('s') ? 'strikes' : 'strike');
+    modified = modified.replace(/\bslice(s|d)?\b/gi, (match) => {
+      if (match.endsWith('d')) return 'struck';
+      return match.endsWith('s') ? 'strikes' : 'strike';
+    });
+
+    return modified;
+  }
+
+  /**
    * Generate fallback description when data loading fails
    * @param {string} outcome - Outcome type
    * @param {Object} target - Target actor
@@ -252,6 +350,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     // Check if this is a ranged weapon
     const rangedCategory = getRangedWeaponCategory(item, message);
+    const meleeCategory = !rangedCategory ? getMeleeWeaponCategory(item, message) : null;
 
     // Get random opening sentence
     let opening;
@@ -270,9 +369,19 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
         }
         // For successes, continue to add location/damage details
       }
+    } else if (meleeCategory) {
+      // For melee weapons, use specialized melee opening sentences
+      const targetName = target ? target.name : "the target";
+      const attackerName = attacker ? attacker.name : "The attacker";
+      opening = await getMeleeOpeningSentence(meleeCategory, 'standard', outcome, { attackerName, targetName, weaponType });
+
+      // If we got a melee opening for failures, return early
+      if (opening && (outcome === 'failure' || outcome === 'criticalFailure')) {
+        return opening;
+      }
     }
 
-    // For failures/critical failures, use defense-aware openings if available (and if no ranged opening was used)
+    // For failures/critical failures, use defense-aware openings if available (and if no weapon-specific opening was used)
     if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
       const defenseOpenings = await getDefenseOpenings(outcome, defense.missReason, 'cinematic');
       if (defenseOpenings && defenseOpenings.length > 0) {
@@ -286,48 +395,62 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
       }
     }
 
-    // Fall back to standard opening sentences if no ranged opening was found
+    // Fall back to standard opening sentences if no weapon-specific opening was found
     if (!opening) {
       opening = await getOpeningSentence('standard', outcome, { weaponType });
     }
 
     // Construct based on outcome
+    let description;
     switch(outcome) {
       case "criticalSuccess":
         if (verb && effect) {
-          return `${opening} ${verb} their ${location}! ${effect} A critical hit!`;
+          description = `${opening} ${verb} their ${location}! ${effect} A critical hit!`;
         } else if (verb) {
-          return `${opening} ${verb} their ${location} with brutal force! A devastating critical strike!`;
+          description = `${opening} ${verb} their ${location} with brutal force! A devastating critical strike!`;
         } else if (effect) {
-          return `${opening} striking their ${location} with crushing power! ${effect}`;
+          description = `${opening} striking their ${location} with crushing power! ${effect}`;
         } else {
-          return `${opening} striking their ${location} with devastating force! A perfect critical hit!`;
+          description = `${opening} striking their ${location} with devastating force! A perfect critical hit!`;
         }
+        break;
 
       case "success":
         if (verb && effect) {
-          return `${opening} ${verb} their ${location}. ${effect}`;
+          description = `${opening} ${verb} their ${location}. ${effect}`;
         } else if (verb) {
-          return `${opening} ${verb} their ${location}, connecting solidly!`;
+          description = `${opening} ${verb} their ${location}, connecting solidly!`;
         } else if (effect) {
-          return `${opening} hitting their ${location}. ${effect}`;
+          description = `${opening} hitting their ${location}. ${effect}`;
         } else {
-          return `${opening} hitting their ${location} cleanly!`;
+          description = `${opening} hitting their ${location} cleanly!`;
         }
+        break;
 
       case "failure":
         // Provide more descriptive failure text
         const targetName = target ? target.name : "the target";
-        return `${opening} ${location}. ${targetName} manages to avoid the worst of it, the attack missing narrowly as they react at the last moment.`;
+        description = `${opening} ${location}. ${targetName} manages to avoid the worst of it, the attack missing narrowly as they react at the last moment.`;
+        break;
 
       case "criticalFailure":
         // Provide more descriptive critical failure text
         const targetNameCrit = target ? target.name : "the target";
-        return `${opening} ${location}! ${targetNameCrit} easily avoids the poorly executed attack, leaving the attacker exposed and off-balance!`;
+        description = `${opening} ${location}! ${targetNameCrit} easily avoids the poorly executed attack, leaving the attacker exposed and off-balance!`;
+        break;
 
       default:
-        return `${weaponType} targets their ${location}.`;
+        description = `${weaponType} targets their ${location}.`;
     }
+
+    // Apply modifiers
+    const sizeDiff = getSizeDifference(attacker, target);
+    const nonLethal = isNonLethalAttack(item, message);
+
+    description = this.applySizeModifier(description, sizeDiff, outcome);
+    description = this.applyNonLethalModifier(description, nonLethal);
+
+    return description;
   }
 
   /**
@@ -346,6 +469,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     // Check if this is a ranged weapon
     const rangedCategory = getRangedWeaponCategory(item, message);
+    const meleeCategory = !rangedCategory ? getMeleeWeaponCategory(item, message) : null;
 
     // Get random opening sentence
     let opening;
@@ -363,9 +487,18 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
         }
         // For successes, continue to add location/damage details
       }
+    } else if (meleeCategory) {
+      // For melee weapons, use specialized melee opening sentences
+      const attackerName = attacker ? attacker.name : "The attacker";
+      opening = await getMeleeOpeningSentence(meleeCategory, 'detailed', outcome, { attackerName, targetName, weaponType });
+
+      // If we got a melee opening for failures, return early
+      if (opening && (outcome === 'failure' || outcome === 'criticalFailure')) {
+        return opening;
+      }
     }
 
-    // For failures/critical failures, use defense-aware openings if available (and if no ranged opening was used)
+    // For failures/critical failures, use defense-aware openings if available (and if no weapon-specific opening was used)
     if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
       const defenseOpenings = await getDefenseOpenings(outcome, defense.missReason, 'cinematic');
       if (defenseOpenings && defenseOpenings.length > 0) {
@@ -377,33 +510,36 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
       }
     }
 
-    // Fall back to standard opening sentences if no ranged opening was found
+    // Fall back to standard opening sentences if no weapon-specific opening was found
     if (!opening) {
       opening = await getOpeningSentence('detailed', outcome, { weaponType, targetName });
     }
 
+    let description;
     switch(outcome) {
       case "criticalSuccess":
         if (verb && effect) {
-          return `${opening} ${verb} their ${location} with crushing force! ${effect} The devastating strike leaves them reeling!`;
+          description = `${opening} ${verb} their ${location} with crushing force! ${effect} The devastating strike leaves them reeling!`;
         } else if (verb) {
-          return `${opening} ${verb} their ${location} with brutal precision! A devastating critical hit that connects perfectly!`;
+          description = `${opening} ${verb} their ${location} with brutal precision! A devastating critical hit that connects perfectly!`;
         } else if (effect) {
-          return `${opening} slamming into their ${location} with overwhelming power! ${effect} A critical strike!`;
+          description = `${opening} slamming into their ${location} with overwhelming power! ${effect} A critical strike!`;
         } else {
-          return `${opening} crashing into their ${location} with devastating force! The perfect critical hit leaves them staggered!`;
+          description = `${opening} crashing into their ${location} with devastating force! The perfect critical hit leaves them staggered!`;
         }
+        break;
 
       case "success":
         if (verb && effect) {
-          return `${opening} ${verb} their ${location}. ${effect} A solid, effective blow!`;
+          description = `${opening} ${verb} their ${location}. ${effect} A solid, effective blow!`;
         } else if (verb) {
-          return `${opening} ${verb} their ${location}, the attack connecting cleanly and dealing significant damage!`;
+          description = `${opening} ${verb} their ${location}, the attack connecting cleanly and dealing significant damage!`;
         } else if (effect) {
-          return `${opening} landing on their ${location} with force. ${effect}`;
+          description = `${opening} landing on their ${location} with force. ${effect}`;
         } else {
-          return `${opening} striking their ${location} cleanly, the attack finding its mark and dealing damage!`;
+          description = `${opening} striking their ${location} cleanly, the attack finding its mark and dealing damage!`;
         }
+        break;
 
       case "failure":
         // Provide more descriptive failure text with target name and explanation
@@ -412,9 +548,11 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
                         defense.missReason === 'shield' ? `${targetName} blocks with their shield` :
                         defense.missReason === 'dodge' ? `${targetName} dodges with practiced precision` :
                         `${targetName} reacts in time`;
-          return `${opening} ${location}, but ${reason}. The attack fails to find its mark, leaving ${targetName} unscathed.`;
+          description = `${opening} ${location}, but ${reason}. The attack fails to find its mark, leaving ${targetName} unscathed.`;
+        } else {
+          description = `${opening} ${location}, but ${targetName} sees it coming and shifts at the last second. The attack whistles harmlessly past, missing by mere inches.`;
         }
-        return `${opening} ${location}, but ${targetName} sees it coming and shifts at the last second. The attack whistles harmlessly past, missing by mere inches.`;
+        break;
 
       case "criticalFailure":
         // Provide more descriptive critical failure text
@@ -423,13 +561,24 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
                         defense.missReason === 'shield' ? `${targetName} contemptuously blocks with their shield` :
                         defense.missReason === 'dodge' ? `${targetName} effortlessly sidesteps the telegraphed attack` :
                         `${targetName} barely needs to react`;
-          return `${opening} ${location}! ${reason}. The attacker stumbles, completely off-balance from the failed strike!`;
+          description = `${opening} ${location}! ${reason}. The attacker stumbles, completely off-balance from the failed strike!`;
+        } else {
+          description = `${opening} ${location}! ${targetName} doesn't even need to try hard to avoid the poorly executed attack. The attacker is left stumbling and exposed, having wasted their opportunity!`;
         }
-        return `${opening} ${location}! ${targetName} doesn't even need to try hard to avoid the poorly executed attack. The attacker is left stumbling and exposed, having wasted their opportunity!`;
+        break;
 
       default:
-        return `${weaponType} moves toward ${targetName}'s ${location}.`;
+        description = `${weaponType} moves toward ${targetName}'s ${location}.`;
     }
+
+    // Apply modifiers
+    const sizeDiff = getSizeDifference(attacker, target);
+    const nonLethal = isNonLethalAttack(item, message);
+
+    description = this.applySizeModifier(description, sizeDiff, outcome);
+    description = this.applyNonLethalModifier(description, nonLethal);
+
+    return description;
   }
 
   /**
@@ -449,6 +598,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     // Check if this is a ranged weapon
     const rangedCategory = getRangedWeaponCategory(item, message);
+    const meleeCategory = !rangedCategory ? getMeleeWeaponCategory(item, message) : null;
 
     // Get random opening sentence
     let opening;
@@ -465,9 +615,17 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
         }
         // For successes, continue to add location/damage details
       }
+    } else if (meleeCategory) {
+      // For melee weapons, use specialized melee opening sentences
+      opening = await getMeleeOpeningSentence(meleeCategory, 'cinematic', outcome, { attackerName, targetName, weaponType });
+
+      // If we got a melee opening for failures, return early
+      if (opening && (outcome === 'failure' || outcome === 'criticalFailure')) {
+        return opening;
+      }
     }
 
-    // For failures/critical failures, use defense-aware openings if available (and if no ranged opening was used)
+    // For failures/critical failures, use defense-aware openings if available (and if no weapon-specific opening was used)
     if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
       const defenseOpenings = await getDefenseOpenings(outcome, defense.missReason, 'cinematic');
       if (defenseOpenings && defenseOpenings.length > 0) {
@@ -478,33 +636,36 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
       }
     }
 
-    // Fall back to standard opening sentences if no ranged opening was found
+    // Fall back to standard opening sentences if no weapon-specific opening was found
     if (!opening) {
       opening = await getOpeningSentence('cinematic', outcome, { attackerName, targetName, weaponType });
     }
 
+    let description;
     switch(outcome) {
       case "criticalSuccess":
         if (verb && effect) {
-          return `${opening} ${weaponType} ${verb} ${targetName}'s ${location} with crushing force! ${effect} ${targetName} staggers backward, the impact overwhelming!`;
+          description = `${opening} ${weaponType} ${verb} ${targetName}'s ${location} with crushing force! ${effect} ${targetName} staggers backward, the impact overwhelming!`;
         } else if (verb) {
-          return `${opening} ${weaponType} ${verb} ${targetName}'s ${location} with devastating precision! The critical strike leaves ${targetName} reeling from the perfect hit!`;
+          description = `${opening} ${weaponType} ${verb} ${targetName}'s ${location} with devastating precision! The critical strike leaves ${targetName} reeling from the perfect hit!`;
         } else if (effect) {
-          return `${opening} ${weaponType} crashes into ${targetName}'s ${location} with overwhelming force! ${effect} A devastating critical strike!`;
+          description = `${opening} ${weaponType} crashes into ${targetName}'s ${location} with overwhelming force! ${effect} A devastating critical strike!`;
         } else {
-          return `${opening} ${weaponType} crashes into ${targetName}'s ${location} with devastating precision! The perfect strike finds its mark with catastrophic effect, leaving ${targetName} staggering from the blow!`;
+          description = `${opening} ${weaponType} crashes into ${targetName}'s ${location} with devastating precision! The perfect strike finds its mark with catastrophic effect, leaving ${targetName} staggering from the blow!`;
         }
+        break;
 
       case "success":
         if (verb && effect) {
-          return `${opening} ${weaponType} lands solidly, ${verb} ${targetName}'s ${location}. ${effect}`;
+          description = `${opening} ${weaponType} lands solidly, ${verb} ${targetName}'s ${location}. ${effect}`;
         } else if (verb) {
-          return `${opening} ${weaponType} ${verb} ${targetName}'s ${location}. The attack finds its mark, dealing solid damage!`;
+          description = `${opening} ${weaponType} ${verb} ${targetName}'s ${location}. The attack finds its mark, dealing solid damage!`;
         } else if (effect) {
-          return `${opening} ${weaponType} connects firmly with ${targetName}'s ${location}. ${effect}`;
+          description = `${opening} ${weaponType} connects firmly with ${targetName}'s ${location}. ${effect}`;
         } else {
-          return `${opening} ${weaponType} connects with ${targetName}'s ${location}, delivering a solid, effective hit that leaves its mark!`;
+          description = `${opening} ${weaponType} connects with ${targetName}'s ${location}, delivering a solid, effective hit that leaves its mark!`;
         }
+        break;
 
       case "failure":
         // More dramatic, descriptive failure for cinematic mode
@@ -513,9 +674,11 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
                              defense.missReason === 'shield' ? `${targetName} interposes their shield at the perfect moment` :
                              defense.missReason === 'dodge' ? `${targetName} flows like water around the incoming attack` :
                              `${targetName} reacts with battle-honed instincts`;
-          return `${opening} ${weaponType} arcs toward ${location}, but ${defenseDesc}! The attack fails to connect, ${targetName} emerging unscathed from the exchange!`;
+          description = `${opening} ${weaponType} arcs toward ${location}, but ${defenseDesc}! The attack fails to connect, ${targetName} emerging unscathed from the exchange!`;
+        } else {
+          description = `${opening} ${weaponType} arcs toward ${location}, but ${targetName} reads the attack perfectly! With a fluid motion, they evade at the last possible moment, the weapon missing by mere inches. ${targetName} capitalizes on the opening!`;
         }
-        return `${opening} ${weaponType} arcs toward ${location}, but ${targetName} reads the attack perfectly! With a fluid motion, they evade at the last possible moment, the weapon missing by mere inches. ${targetName} capitalizes on the opening!`;
+        break;
 
       case "criticalFailure":
         // Even more dramatic critical failure for cinematic mode
@@ -524,13 +687,24 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
                              defense.missReason === 'shield' ? `${targetName} casually deflects it with their shield` :
                              defense.missReason === 'dodge' ? `${targetName} sidesteps with contemptuous ease` :
                              `${targetName} barely needs to acknowledge the threat`;
-          return `${opening} ${weaponType} flails wildly ${location}, but ${defenseDesc}! The completely botched attack leaves the wielder stumbling and exposed, having achieved nothing but embarrassment!`;
+          description = `${opening} ${weaponType} flails wildly ${location}, but ${defenseDesc}! The completely botched attack leaves the wielder stumbling and exposed, having achieved nothing but embarrassment!`;
+        } else {
+          description = `${opening} ${weaponType} swings in a wild, uncontrolled arc ${location}, but ${targetName} doesn't even break stride! The catastrophically poor attack misses by a mile, leaving the attacker off-balance and vulnerable. Combat instructors everywhere weep at such incompetence!`;
         }
-        return `${opening} ${weaponType} swings in a wild, uncontrolled arc ${location}, but ${targetName} doesn't even break stride! The catastrophically poor attack misses by a mile, leaving the attacker off-balance and vulnerable. Combat instructors everywhere weep at such incompetence!`;
+        break;
 
       default:
-        return `${attackerName} moves to strike ${targetName}...`;
+        description = `${attackerName} moves to strike ${targetName}...`;
     }
+
+    // Apply modifiers
+    const sizeDiff = getSizeDifference(attacker, target);
+    const nonLethal = isNonLethalAttack(item, message);
+
+    description = this.applySizeModifier(description, sizeDiff, outcome);
+    description = this.applyNonLethalModifier(description, nonLethal);
+
+    return description;
   }
 
   /**
