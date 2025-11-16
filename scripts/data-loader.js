@@ -296,6 +296,62 @@ export class DataLoader {
   }
 
   /**
+   * Load narrative templates for a detail level and outcome
+   * @param {string} detailLevel - Detail level (standard, detailed, cinematic)
+   * @param {string} outcome - Outcome type (criticalSuccess, success, failure, criticalFailure)
+   * @returns {Promise<Array<Object>>} Array of template objects
+   */
+  static async loadTemplates(detailLevel, outcome) {
+    const cacheKey = `templates:${detailLevel}:${outcome}`;
+
+    // Check cache
+    if (this.cache.has(cacheKey)) {
+      PerformanceMonitor.recordCacheHit();
+      return this.cache.get(cacheKey);
+    }
+
+    PerformanceMonitor.recordCacheMiss();
+
+    // Check if already loading
+    if (this.loading.has(cacheKey)) {
+      return await this.loading.get(cacheKey);
+    }
+
+    // Load data
+    const loadPromise = this.loadTemplateData(detailLevel, outcome);
+    this.loading.set(cacheKey, loadPromise);
+
+    try {
+      const data = await loadPromise;
+      this.setCacheData(cacheKey, data);
+      return data;
+    } finally {
+      this.loading.delete(cacheKey);
+    }
+  }
+
+  /**
+   * Load template data from JSON file
+   * @private
+   */
+  static async loadTemplateData(detailLevel, outcome) {
+    return await PerformanceMonitor.measureAsync('data-load-templates', async () => {
+      try {
+        const response = await fetch(`modules/pf2e-narrative-seeds/data/combat/templates/${detailLevel}.json`);
+        if (!response.ok) {
+          console.warn(`PF2e Narrative Seeds | Could not load templates for ${detailLevel}`);
+          return [];
+        }
+        const data = await response.json();
+        return data[outcome] || [];
+      } catch (error) {
+        console.error(`PF2e Narrative Seeds | Error loading templates for ${detailLevel}:`, error);
+        return [];
+      }
+    });
+  }
+
+  /**
    * Set cache data with timestamp
    * @private
    */
@@ -371,6 +427,14 @@ export class DataLoader {
     const sizeDifferences = ['much-larger', 'larger', 'much-smaller', 'smaller'];
     for (const sizeDiff of sizeDifferences) {
       promises.push(this.loadSizeModifiers(sizeDiff));
+    }
+
+    // Pre-load templates
+    const detailLevels = ['standard', 'detailed', 'cinematic'];
+    for (const detailLevel of detailLevels) {
+      for (const outcome of outcomes) {
+        promises.push(this.loadTemplates(detailLevel, outcome));
+      }
     }
 
     await Promise.all(promises);

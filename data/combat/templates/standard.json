@@ -1,0 +1,125 @@
+{
+  "criticalSuccess": [
+    {
+      "pattern": "${opening} ${verb} their ${location}! ${effect}",
+      "weight": 20,
+      "grammar": "standard"
+    },
+    {
+      "pattern": "${effect}! ${opening} ${verb} their ${location} with devastating force!",
+      "weight": 25,
+      "grammar": "dramatic-effect-first"
+    },
+    {
+      "pattern": "${opening} In a perfect strike, ${weaponType} ${verb} their ${location}! ${effect}!",
+      "weight": 20,
+      "grammar": "perfect-strike"
+    },
+    {
+      "pattern": "Their ${location} takes a devastating hit! ${opening} ${effect}!",
+      "weight": 15,
+      "grammar": "location-first"
+    },
+    {
+      "pattern": "${opening} ${effect}! The strike ${verb} their ${location} with brutal precision!",
+      "weight": 15,
+      "grammar": "delayed-impact"
+    },
+    {
+      "pattern": "${verb} their ${location} perfectly! ${effect}! ${opening}",
+      "weight": 10,
+      "grammar": "action-first"
+    }
+  ],
+  "success": [
+    {
+      "pattern": "${opening} ${verb} their ${location}. ${effect}",
+      "weight": 25,
+      "grammar": "standard"
+    },
+    {
+      "pattern": "${effect} ${opening} ${verb} their ${location}.",
+      "weight": 15,
+      "grammar": "effect-first"
+    },
+    {
+      "pattern": "Their ${location} takes the hit as ${opening} ${effect}",
+      "weight": 12,
+      "grammar": "location-first"
+    },
+    {
+      "pattern": "${opening} ${weaponType} ${verb} their ${location}. ${effect}",
+      "weight": 18,
+      "grammar": "weapon-focused"
+    },
+    {
+      "pattern": "Targeting their ${location}, ${verb}. ${effect}",
+      "weight": 10,
+      "grammar": "terse"
+    },
+    {
+      "pattern": "${verb} their ${location}! ${effect} ${opening}",
+      "weight": 10,
+      "grammar": "action-first"
+    },
+    {
+      "pattern": "${opening} ${effect} The strike finds their ${location}.",
+      "weight": 10,
+      "grammar": "delayed-location"
+    }
+  ],
+  "failure": [
+    {
+      "pattern": "${opening} but misses their ${location}.",
+      "weight": 30,
+      "grammar": "standard"
+    },
+    {
+      "pattern": "${opening} The strike misses!",
+      "weight": 25,
+      "grammar": "simple"
+    },
+    {
+      "pattern": "Targeting their ${location}, the attack goes wide. ${opening}",
+      "weight": 20,
+      "grammar": "location-focus"
+    },
+    {
+      "pattern": "${opening} ${weaponType} misses the mark.",
+      "weight": 15,
+      "grammar": "weapon-focus"
+    },
+    {
+      "pattern": "The attack fails to connect. ${opening}",
+      "weight": 10,
+      "grammar": "result-first"
+    }
+  ],
+  "criticalFailure": [
+    {
+      "pattern": "${opening} but the attack goes completely astray!",
+      "weight": 30,
+      "grammar": "standard"
+    },
+    {
+      "pattern": "${opening} ${weaponType} misses badly!",
+      "weight": 25,
+      "grammar": "weapon-focus"
+    },
+    {
+      "pattern": "The attack fails spectacularly! ${opening}",
+      "weight": 20,
+      "grammar": "dramatic"
+    },
+    {
+      "pattern": "${opening} Wide miss!",
+      "weight": 15,
+      "grammar": "terse"
+    },
+    {
+      "pattern": "${opening} The strike doesn't even come close!",
+      "weight": 10,
+      "grammar": "emphatic"
+    }
+  ]
+}

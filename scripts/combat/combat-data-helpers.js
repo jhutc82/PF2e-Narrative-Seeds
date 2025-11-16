@@ -6,6 +6,7 @@
 
 import { DataLoader } from '../data-loader.js';
 import { RandomUtils } from '../utils.js';
+import { WeaponNameExtractor } from './weapon-name-extractor.js';
 
 /**
  * Get a random location for an anatomy type and outcome
@@ -62,26 +63,16 @@ export async function getDamageEffect(damageType, outcome, varietyMode = 'high',
 }
 
 /**
- * Get weapon type descriptor for a damage type
- * @param {string} damageType - Damage type
- * @param {Object} item - Optional item for specific weapon info
+ * Get weapon type descriptor - NOW USES ACTUAL WEAPON NAME
+ * @param {string} damageType - Damage type (for fallback)
+ * @param {Object} item - PF2e item (NOW ACTUALLY USED!)
  * @param {string} pov - Point of view (first, second, third)
  * @param {Object} message - Optional message for context
- * @returns {Promise<string>} Weapon type descriptor
+ * @returns {string} Weapon display name
  */
-export async function getWeaponType(damageType, item = null, pov = "second", message = null) {
-  const weaponType = await DataLoader.loadWeaponType(damageType);
-
-  // Adjust POV
-  switch(pov) {
-    case "first":
-      return weaponType.replace(/Your/g, 'My').replace(/your/g, 'my');
-    case "third":
-      return weaponType.replace(/Your/g, 'The').replace(/your/g, 'the');
-    case "second":
-    default:
-      return weaponType;
-  }
+export function getWeaponType(damageType, item = null, pov = "second", message = null) {
+  // Use the smart extractor to get the best weapon name
+  return WeaponNameExtractor.getWeaponDisplayName(item, damageType, pov);
 }
 
 /**
