@@ -12,6 +12,7 @@ import { PerformanceMonitor } from '../performance-monitor.js';
 import { DataLoader } from '../data-loader.js';
 import { TemplateEngine } from './template-engine.js';
 import { ErrorNotifications } from '../error-notifications.js';
+import { CombatMemory } from './combat-memory.js';
 import {
   getLocation,
   getDamageVerb,
@@ -106,6 +107,12 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
         const varietyMode = NarrativeSeedsSettings.get("varietyMode");
         const showAnatomy = NarrativeSeedsSettings.get("showAnatomyType");
 
+        // Record attack in combat memory and get memory context
+        const combatId = message?.combat?.id || 'default';
+        const attackerId = attacker?.id || attacker?.name || 'unknown';
+        const targetId = target?.id || target?.name || 'unknown';
+        const memoryContext = CombatMemory.recordAttack(combatId, attackerId, targetId, outcome);
+
         // Generate description with repetition prevention
         let description = "";
         let attempts = 0;
@@ -116,19 +123,19 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           try {
             switch(detailLevel) {
               case "minimal":
-                description = await this.generateMinimal(anatomy, outcome, damageType, varietyMode);
+                description = await this.generateMinimal(anatomy, outcome, damageType, varietyMode, memoryContext);
                 break;
               case "standard":
-                description = await this.generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message);
+                description = await this.generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message, memoryContext);
                 break;
               case "detailed":
-                description = await this.generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense, message);
+                description = await this.generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense, message, memoryContext);
                 break;
               case "cinematic":
-                description = await this.generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message);
+                description = await this.generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message, memoryContext);
                 break;
               default:
-                description = await this.generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message);
+                description = await this.generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message, memoryContext);
             }
           } catch (error) {
             ErrorNotifications.showError('generation', `Narrative generation failed (${detailLevel} mode). Using fallback.`, error);
@@ -306,9 +313,14 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * Generate minimal description
    * @returns {Promise<string>}
    */
-  async generateMinimal(anatomy, outcome, damageType, varietyMode) {
+  async generateMinimal(anatomy, outcome, damageType, varietyMode, memoryContext = null) {
     const location = await getLocation(anatomy, outcome, varietyMode);
     if (!location) return "Strike!";
+
+    // Add dramatic flair for dramatic moments
+    if (memoryContext?.isDramatic) {
+      return StringUtils.capitalizeFirst(location) + "!";
+    }
 
     return StringUtils.capitalizeFirst(location);
   }
@@ -326,9 +338,10 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * @param {Object} item - Attack item
    * @param {Object} defense - Defense info (for failures)
    * @param {Object} message - Chat message
+   * @param {Object} memoryContext - Combat memory context for escalation
    * @returns {Promise<string>} Generated description
    */
-  async generateNarrative(detailLevel, anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message = null) {
+  async generateNarrative(detailLevel, anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message = null, memoryContext = null) {
     // Get location and templates first
     const [location, templates] = await Promise.all([
       getLocation(anatomy, outcome, varietyMode),
@@ -397,11 +410,27 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     }
 
     // Select template and fill with components
-    const templateObj = TemplateEngine.selectTemplate(templates, varietyMode, `${detailLevel}-${outcome}`);
+    // Use memory context to influence template selection for dramatic moments
+    let effectiveVarietyMode = varietyMode;
+    if (memoryContext?.isDramatic && varietyMode === 'low') {
+      effectiveVarietyMode = 'medium'; // Boost variety for dramatic moments
+    }
+
+    const templateObj = TemplateEngine.selectTemplate(templates, effectiveVarietyMode, `${detailLevel}-${outcome}`);
+
+    // Apply escalation modifiers to effect text
+    let escalatedEffect = effect || "";
+    if (memoryContext?.escalation >= 7 && escalatedEffect) {
+      // High escalation: intensify effect with exclamation
+      if (!escalatedEffect.endsWith('!')) {
+        escalatedEffect = escalatedEffect.replace(/\.$/, '!');
+      }
+    }
+
     const components = {
       opening: opening || "",
       verb: verb || "strikes",
-      effect: effect || "",
+      effect: escalatedEffect,
       location: location || "body",
       weaponType,
       targetName,
@@ -411,6 +440,14 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     let description = TemplateEngine.fillTemplate(templateObj, components);
     description = TemplateEngine.cleanOutput(description);
+
+    // Add streak-based modifiers for dramatic moments
+    if (memoryContext?.isDramatic && outcome === 'criticalSuccess') {
+      // Breaking a losing streak with a crit deserves extra flair
+      if (memoryContext.streak.streakBroken && memoryContext.streak.consecutiveHits === 1) {
+        description = description + " Finally!";
+      }
+    }
 
     // Apply modifiers
     const sizeDiff = getSizeDifference(attacker, target);
@@ -426,24 +463,24 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * Generate standard description
    * @returns {Promise<string>}
    */
-  async generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message = null) {
-    return this.generateNarrative('standard', anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message);
+  async generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message = null, memoryContext = null) {
+    return this.generateNarrative('standard', anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message, memoryContext);
   }
 
   /**
    * Generate detailed description
    * @returns {Promise<string>}
    */
-  async generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense, message = null) {
-    return this.generateNarrative('detailed', anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message);
+  async generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense, message = null, memoryContext = null) {
+    return this.generateNarrative('detailed', anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message, memoryContext);
   }
 
   /**
    * Generate cinematic description
    * @returns {Promise<string>}
    */
-  async generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message = null) {
-    return this.generateNarrative('cinematic', anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message);
+  async generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message = null, memoryContext = null) {
+    return this.generateNarrative('cinematic', anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message, memoryContext);
   }
 
   /**
