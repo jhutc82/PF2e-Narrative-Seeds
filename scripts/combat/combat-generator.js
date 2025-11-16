@@ -22,7 +22,8 @@ import {
   getRangedOpeningSentence,
   getMeleeOpeningSentence,
   getSizeDifference,
-  isNonLethalAttack
+  isNonLethalAttack,
+  getSizeModifier
 } from './combat-data-helpers.js';
 
 /**
@@ -192,229 +193,18 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * @param {string} description - Base description
    * @param {string} sizeDiff - Size difference (same, larger, smaller, much-larger, much-smaller)
    * @param {string} outcome - Outcome type
-   * @returns {string} Modified description
+   * @param {string} varietyMode - Variety setting
+   * @returns {Promise<string>} Modified description
    */
-  applySizeModifier(description, sizeDiff, outcome) {
+  async applySizeModifier(description, sizeDiff, outcome, varietyMode = 'high') {
     if (sizeDiff === 'same' || !description) return description;
 
     // Don't modify failures - size doesn't matter if you miss
     if (outcome === 'failure' || outcome === 'criticalFailure') return description;
 
-    // Add size-appropriate flavor text
-    const sizeModifiers = {
-      'much-larger': [
-        ' The massive strike overwhelms their smaller frame!',
-        ' The size advantage is devastating!',
-        ' The sheer mass difference makes the impact overwhelming!',
-        ' Their smaller size offers no protection from such a powerful blow!',
-        ' The enormous weight behind the blow crushes through!',
-        ' Superior reach allows the strike to land with full force!',
-        ' The towering attacker brings overwhelming momentum!',
-        ' Physical dominance makes the attack unstoppable!',
-        ' The colossal size difference proves decisive!',
-        ' Massive proportions turn the strike into a catastrophe!',
-        ' The gigantic attacker leverages their full mass!',
-        ' Superior leverage multiplies the devastating force!',
-        ' The huge frame generates crushing momentum!',
-        ' Overwhelming size makes resistance futile!',
-        ' The immense attacker delivers bone-shattering force!',
-        ' Physical superiority ensures brutal effectiveness!',
-        ' The massive reach advantage seals their fate!',
-        ' Greater mass transfers into devastating trauma!',
-        ' The enormous attacker brings incredible power to bear!',
-        ' Superior height enables a punishing downward angle!',
-        ' The vast size difference creates overwhelming force!',
-        ' Tremendous bulk adds catastrophic weight to the blow!',
-        ' The giant attacker\'s strike is utterly devastating!',
-        ' Incredible reach allows no chance of escape!',
-        ' The huge proportions make every strike overwhelming!',
-        ' Massive limbs deliver proportionally massive force!',
-        ' The towering figure rains down destructive power!',
-        ' Superior size enables maximum force transfer!',
-        ' The enormous attacker demonstrates brutal efficiency!',
-        ' Greater mass makes the impact unstoppable!',
-        ' The colossal difference in size proves fatal!',
-        ' Overwhelming physical advantage decides the exchange!',
-        ' The massive frame generates incredible striking power!',
-        ' Superior proportions enable devastating leverage!',
-        ' The huge attacker crushes resistance utterly!',
-        ' Immense size translates to immense trauma!',
-        ' The giant\'s blow carries catastrophic momentum!',
-        ' Greater reach ensures the strike lands perfectly!',
-        ' The enormous size difference is brutally evident!',
-        ' Massive strength overwhelms their defenses completely!',
-        ' The towering attacker delivers crushing superiority!',
-        ' Superior bulk makes the blow devastating!',
-        ' The colossal attacker demonstrates overwhelming power!',
-        ' Incredible size provides incredible force!',
-        ' The huge advantage in mass proves decisive!',
-        ' Greater proportions enable brutal effectiveness!',
-        ' The massive attacker shows no mercy!',
-        ' Superior dimensions translate to superior damage!',
-        ' The enormous frame channels devastating power!',
-        ' Overwhelming size ensures overwhelming trauma!'
-      ],
-      'larger': [
-        ' The size advantage shows!',
-        ' The larger frame adds extra force!',
-        ' Their smaller stature makes them vulnerable!',
-        ' The reach advantage proves decisive!',
-        ' Superior height provides better leverage!',
-        ' The size difference tips the scales!',
-        ' Greater mass enhances the impact!',
-        ' Extended reach finds its mark easily!',
-        ' The larger attacker presses their advantage!',
-        ' Physical superiority adds to the blow!',
-        ' Better leverage amplifies the force!',
-        ' The height advantage is clear!',
-        ' Superior proportions increase effectiveness!',
-        ' Greater size means greater power!',
-        ' The reach difference is telling!',
-        ' Larger frame generates more momentum!',
-        ' The size edge proves valuable!',
-        ' Superior dimensions add force!',
-        ' Extended limbs ensure solid contact!',
-        ' The bigger attacker dominates!',
-        ' Greater bulk transfers more energy!',
-        ' The height difference aids the strike!',
-        ' Superior reach makes the difference!',
-        ' Larger proportions enhance impact!',
-        ' The size advantage is unmistakable!',
-        ' Better reach enables clean striking!',
-        ' Greater mass drives the blow home!',
-        ' The taller attacker strikes down effectively!',
-        ' Superior size provides superior force!',
-        ' Extended reach proves its worth!',
-        ' The bigger frame adds momentum!',
-        ' Height advantage enables better angles!',
-        ' Greater proportions equal greater trauma!',
-        ' The size difference favors the attacker!',
-        ' Longer reach ensures solid connection!',
-        ' Superior dimensions enhance the strike!',
-        ' The larger attacker capitalizes fully!',
-        ' Better leverage increases effectiveness!',
-        ' Greater size translates to greater impact!',
-        ' The reach advantage is exploited well!',
-        ' Bigger proportions generate more force!',
-        ' The height edge proves beneficial!',
-        ' Superior mass multiplies the damage!',
-        ' Extended reach allows perfect placement!',
-        ' The size advantage decides the exchange!',
-        ' Greater bulk adds to the devastation!',
-        ' The taller frame provides superior angles!',
-        ' Better proportions enhance striking power!',
-        ' Superior reach makes defense difficult!',
-        ' The larger attacker shows their edge!'
-      ],
-      'much-smaller': [
-        ' Despite the size disadvantage, they find a weak point!',
-        ' Agility overcomes size!',
-        ' The smaller attacker strikes a vulnerable spot!',
-        ' Speed and precision triumph over size!',
-        ' Nimble movement exploits a critical gap!',
-        ' Quick reflexes find the perfect opening!',
-        ' The diminutive attacker strikes where it counts!',
-        ' Superior speed compensates for lack of size!',
-        ' Precision placement defeats raw power!',
-        ' The small attacker finds an unguarded spot!',
-        ' Incredible agility enables the perfect strike!',
-        ' The tiny combatant exploits their size advantage!',
-        ' Swift movement finds the vulnerability!',
-        ' The smaller frame allows better maneuverability!',
-        ' Quickness triumphs over brute strength!',
-        ' The diminutive fighter strikes with surgical precision!',
-        ' Speed and skill overcome the size disparity!',
-        ' The small attacker hits where armor gaps!',
-        ' Superior dexterity finds the weak point!',
-        ' The tiny warrior proves size isn\'t everything!',
-        ' Quick strikes hit joints and gaps!',
-        ' The smaller combatant demonstrates pure skill!',
-        ' Agile movement targets vital areas!',
-        ' The diminutive attacker shows mastery over might!',
-        ' Swift precision defeats lumbering power!',
-        ' The small fighter exploits every opening!',
-        ' Incredible speed finds the perfect angle!',
-        ' The tiny attacker strikes where defense is weakest!',
-        ' Superior reflexes compensate brilliantly!',
-        ' The smaller form allows unprecedented access!',
-        ' Quick wit and quicker strikes prevail!',
-        ' The diminutive warrior finds the critical point!',
-        ' Agility provides what size cannot!',
-        ' The small combatant hits beneath the guard!',
-        ' Speed creates opportunities size cannot!',
-        ' The tiny fighter proves technique over mass!',
-        ' Nimble strikes find anatomical weaknesses!',
-        ' The smaller attacker demonstrates perfect timing!',
-        ' Superior mobility enables the decisive blow!',
-        ' The diminutive warrior strikes with precision!',
-        ' Quick movement exploits the larger target!',
-        ' The small fighter shows skill beats size!',
-        ' Incredible agility finds the opening!',
-        ' The tiny combatant targets vital points!',
-        ' Swift strikes hit where armor cannot protect!',
-        ' The smaller form grants maneuverability!',
-        ' Quick reflexes find the perfect moment!',
-        ' The diminutive attacker proves deadly despite size!',
-        ' Speed and skill overcome physical disadvantage!',
-        ' The small warrior demonstrates perfect technique!'
-      ],
-      'smaller': [
-        ' The nimble strike finds its mark!',
-        ' Quick reflexes compensate for size!',
-        ' A well-placed blow despite the size difference!',
-        ' Precision overcomes the reach disadvantage!',
-        ' Superior agility makes the difference!',
-        ' The smaller attacker shows skill!',
-        ' Quick movement finds an opening!',
-        ' Speed compensates for lack of reach!',
-        ' The agile fighter strikes true!',
-        ' Nimble footwork enables the blow!',
-        ' Quick thinking defeats size advantage!',
-        ' The smaller combatant demonstrates finesse!',
-        ' Deft movement overcomes the disadvantage!',
-        ' The lighter fighter shows superior technique!',
-        ' Swift strikes find their target!',
-        ' Agile maneuvering creates the opening!',
-        ' The smaller warrior proves their skill!',
-        ' Quick reflexes overcome reach deficit!',
-        ' Precision strikes where it matters!',
-        ' The nimble attacker exploits the gap!',
-        ' Speed makes up for size difference!',
-        ' The agile combatant finds the mark!',
-        ' Dexterous striking overcomes disadvantage!',
-        ' The smaller fighter demonstrates mastery!',
-        ' Quick footwork enables perfect placement!',
-        ' Nimble strikes hit the vulnerable point!',
-        ' The lighter attacker shows expertise!',
-        ' Swift movement compensates admirably!',
-        ' Agility proves more valuable than size!',
-        ' The smaller warrior strikes with skill!',
-        ' Quick reflexes turn disadvantage around!',
-        ' Precision targeting defeats size advantage!',
-        ' The nimble fighter capitalizes on speed!',
-        ' Deft strikes find the opening!',
-        ' The smaller combatant overcomes the odds!',
-        ' Swift technique defeats raw reach!',
-        ' Agile striking proves effective!',
-        ' The lighter warrior demonstrates finesse!',
-        ' Quick movement creates opportunity!',
-        ' Nimble attacks find success!',
-        ' The smaller attacker shows determination!',
-        ' Speed and skill bridge the gap!',
-        ' Dexterous striking overcomes size!',
-        ' The agile fighter proves their worth!',
-        ' Quick precision defeats reach!',
-        ' Nimble technique compensates well!',
-        ' The smaller combatant strikes effectively!',
-        ' Swift skill overcomes physical difference!',
-        ' Agile execution makes size irrelevant!',
-        ' The lighter attacker demonstrates ability!'
-      ]
-    };
-
-    const modifiers = sizeModifiers[sizeDiff];
-    if (modifiers && modifiers.length > 0) {
-      const modifier = modifiers[Math.floor(Math.random() * modifiers.length)];
+    // Load and apply size modifier from JSON
+    const modifier = await getSizeModifier(sizeDiff, varietyMode);
+    if (modifier) {
       return description + modifier;
     }
 
@@ -631,7 +421,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     const sizeDiff = getSizeDifference(attacker, target);
     const nonLethal = isNonLethalAttack(item, message);
 
-    description = this.applySizeModifier(description, sizeDiff, outcome);
+    description = await this.applySizeModifier(description, sizeDiff, outcome, varietyMode);
     description = this.applyNonLethalModifier(description, nonLethal);
 
     return description;
@@ -759,7 +549,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     const sizeDiff = getSizeDifference(attacker, target);
     const nonLethal = isNonLethalAttack(item, message);
 
-    description = this.applySizeModifier(description, sizeDiff, outcome);
+    description = await this.applySizeModifier(description, sizeDiff, outcome, varietyMode);
     description = this.applyNonLethalModifier(description, nonLethal);
 
     return description;
@@ -885,7 +675,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     const sizeDiff = getSizeDifference(attacker, target);
     const nonLethal = isNonLethalAttack(item, message);
 
-    description = this.applySizeModifier(description, sizeDiff, outcome);
+    description = await this.applySizeModifier(description, sizeDiff, outcome, varietyMode);
     description = this.applyNonLethalModifier(description, nonLethal);
 
     return description;

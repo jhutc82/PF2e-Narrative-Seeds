@@ -241,6 +241,61 @@ export class DataLoader {
   }
 
   /**
+   * Load size modifiers for size differences
+   * @param {string} sizeDifference - Size difference category (much-larger, larger, much-smaller, smaller)
+   * @returns {Promise<Array<string>>} Array of size modifier phrases
+   */
+  static async loadSizeModifiers(sizeDifference) {
+    const cacheKey = `size-modifiers:${sizeDifference}`;
+
+    // Check cache
+    if (this.cache.has(cacheKey)) {
+      PerformanceMonitor.recordCacheHit();
+      return this.cache.get(cacheKey);
+    }
+
+    PerformanceMonitor.recordCacheMiss();
+
+    // Check if already loading
+    if (this.loading.has(cacheKey)) {
+      return await this.loading.get(cacheKey);
+    }
+
+    // Load data
+    const loadPromise = this.loadSizeModifierData(sizeDifference);
+    this.loading.set(cacheKey, loadPromise);
+
+    try {
+      const data = await loadPromise;
+      this.setCacheData(cacheKey, data);
+      return data;
+    } finally {
+      this.loading.delete(cacheKey);
+    }
+  }
+
+  /**
+   * Load size modifier data from JSON file
+   * @private
+   */
+  static async loadSizeModifierData(sizeDifference) {
+    return await PerformanceMonitor.measureAsync('data-load-size-modifiers', async () => {
+      try {
+        const response = await fetch(`modules/pf2e-narrative-seeds/data/combat/size/${sizeDifference}.json`);
+        if (!response.ok) {
+          console.warn(`PF2e Narrative Seeds | Could not load size modifiers for ${sizeDifference}`);
+          return [];
+        }
+        const data = await response.json();
+        return data || [];
+      } catch (error) {
+        console.error(`PF2e Narrative Seeds | Error loading size modifiers for ${sizeDifference}:`, error);
+        return [];
+      }
+    });
+  }
+
+  /**
    * Set cache data with timestamp
    * @private
    */
@@ -310,6 +365,12 @@ export class DataLoader {
     for (const outcome of outcomes) {
       promises.push(this.loadOpenings('standard', outcome));
       promises.push(this.loadOpenings('detailed', outcome));
+    }
+
+    // Pre-load size modifiers
+    const sizeDifferences = ['much-larger', 'larger', 'much-smaller', 'smaller'];
+    for (const sizeDiff of sizeDifferences) {
+      promises.push(this.loadSizeModifiers(sizeDiff));
     }
 
     await Promise.all(promises);
