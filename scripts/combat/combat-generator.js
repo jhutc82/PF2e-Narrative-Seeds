@@ -318,7 +318,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     const locationAnatomy = getLocationAnatomy(location);
     const verb = await getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
     const effect = await getDamageEffect(damageType, outcome, varietyMode, locationAnatomy);
-    const weaponType = await getWeaponType(damageType, item, "second", message);
+    const weaponType = getWeaponType(damageType, item, "second", message);
 
     if (!location) return "Your attack connects!";
 
@@ -436,7 +436,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     const locationAnatomy = getLocationAnatomy(location);
     const verb = await getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
     const effect = await getDamageEffect(damageType, outcome, varietyMode, locationAnatomy);
-    const weaponType = await getWeaponType(damageType, item, "second", message);
+    const weaponType = getWeaponType(damageType, item, "second", message);
     const targetName = target.name;
 
     if (!location) return `Your attack finds ${targetName}!`;
@@ -564,7 +564,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     const locationAnatomy = getLocationAnatomy(location);
     const verb = await getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
     const effect = await getDamageEffect(damageType, outcome, varietyMode, locationAnatomy);
-    const weaponType = await getWeaponType(damageType, item, "third", message);
+    const weaponType = getWeaponType(damageType, item, "third", message);
     const targetName = target.name;
     const attackerName = attacker ? attacker.name : "The attacker";
 
