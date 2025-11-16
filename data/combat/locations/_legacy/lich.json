@@ -1,0 +1,42 @@
+{
+  "criticalSuccess": [
+    "phylactery location",
+    "skull",
+    "left eye socket",
+    "right eye socket",
+    "undead heart",
+    "brain",
+    "spine",
+    "chest cavity",
+    "vital organs",
+    "neck"
+  ],
+  "success": [
+    "skeletal left shoulder",
+    "bony right shoulder",
+    "withered left arm",
+    "decayed right arm",
+    "ribcage",
+    "spine",
+    "left side",
+    "right side",
+    "lich body",
+    "undead form"
+  ],
+  "failure": [
+    "past their skeletal form",
+    "through their bones",
+    "around their undead body",
+    "past their lich form",
+    "around their skeletal body",
+    "past their withered form"
+  ],
+  "criticalFailure": [
+    "nowhere near the lich",
+    "through empty air",
+    "far from their bones",
+    "wildly off target",
+    "harmlessly past",
+    "wide of their form"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "criticalSuccess": [
+    "wrapped head",
+    "left eye socket",
+    "right eye socket",
+    "desiccated heart",
+    "preserved brain",
+    "spine",
+    "chest cavity",
+    "throat",
+    "skull",
+    "neck"
+  ],
+  "success": [
+    "bandaged left shoulder",
+    "wrapped right shoulder",
+    "preserved left arm",
+    "mummified right arm",
+    "bound chest",
+    "wrapped back",
+    "left side",
+    "right side",
+    "mummy body",
+    "preserved form"
+  ],
+  "failure": [
+    "through their wrappings",
+    "past their bandaged form",
+    "around their mummified body",
+    "past their preserved form",
+    "around their wrapped body",
+    "past their mummy form"
+  ],
+  "criticalFailure": [
+    "nowhere near the mummy",
+    "through empty wrappings",
+    "far from their form",
+    "wildly off target",
+    "harmlessly past",
+    "wide of their body"
+  ]
+}

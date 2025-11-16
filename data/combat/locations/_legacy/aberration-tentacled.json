@@ -1,0 +1,42 @@
+{
+  "criticalSuccess": [
+    "central brain",
+    "eye cluster",
+    "vital organs",
+    "nerve center",
+    "heart mass",
+    "brain core",
+    "neural nexus",
+    "central body",
+    "core mass",
+    "vital center"
+  ],
+  "success": [
+    "left tentacle",
+    "right tentacle",
+    "upper tentacle",
+    "lower tentacle",
+    "central mass",
+    "aberrant body",
+    "grotesque form",
+    "writhing tentacles",
+    "alien body",
+    "strange mass"
+  ],
+  "failure": [
+    "between writhing tentacles",
+    "past their alien form",
+    "around their grotesque body",
+    "through their tentacles",
+    "past their aberrant mass",
+    "around their strange form"
+  ],
+  "criticalFailure": [
+    "nowhere near the aberration",
+    "completely missing",
+    "far from their mass",
+    "wildly off target",
+    "harmlessly past",
+    "wide of their form"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "criticalSuccess": [
+    "lawful essence",
+    "left eye",
+    "right eye",
+    "holy heart",
+    "divine core",
+    "vital center",
+    "ordered nexus",
+    "throat",
+    "skull",
+    "neck"
+  ],
+  "success": [
+    "armored left side",
+    "protected right side",
+    "lawful chest",
+    "ordered back",
+    "archon body",
+    "celestial form",
+    "divine torso",
+    "holy limb",
+    "blessed body",
+    "radiant form"
+  ],
+  "failure": [
+    "off their holy armor",
+    "around their lawful form",
+    "past their divine body",
+    "around their blessed form",
+    "past their celestial body",
+    "around their radiance"
+  ],
+  "criticalFailure": [
+    "nowhere near the archon",
+    "harmlessly bouncing off",
+    "far from their form",
+    "wildly off target",
+    "missing their body",
+    "wide of their form"
+  ]
+}
