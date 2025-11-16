@@ -1015,9 +1015,9 @@
       "${attackerName} pulls the trigger toward the enemy.",
       "Steady skill from ${attackerName}.",
       "${attackerName} aims the crossbow and fires.",
-      "${attackerName} fires from the heavy crossbow.",
-      "The bolt launches from the light crossbow.",
-      "${attackerName} shoots the hand crossbow reliably."
+      "${attackerName} fires from the crossbow.",
+      "The bolt launches from the crossbow.",
+      "${attackerName} shoots the crossbow reliably."
     ],
     "failure": [
       "${attackerName} shoots but ${targetName} dodges.",
@@ -1449,10 +1449,10 @@
       "${attackerName} sends the bolt.",
       "Bolt flies from ${attackerName}'s crossbow.",
       "${attackerName} fires with focus.",
-      "${attackerName} shoots the heavy crossbow.",
-      "${attackerName} fires the light crossbow.",
+      "${attackerName} shoots the crossbow.",
+      "${attackerName} fires the crossbow.",
       "Shot sent from ${attackerName}.",
-      "${attackerName} shoots the hand crossbow.",
+      "${attackerName} shoots the crossbow.",
       "${attackerName} fires with intent.",
       "Bolt sent toward ${targetName}.",
       "${attackerName} shoots with intent.",
