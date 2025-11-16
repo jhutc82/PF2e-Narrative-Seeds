@@ -1,0 +1,329 @@
+{
+  "dismemberments": [
+    {
+      "id": "severed-hand",
+      "name": "Severed Hand",
+      "description": "The devastating blow severs the hand at the wrist, permanently removing it from the body.",
+      "severity": "severe",
+      "location": "hand",
+      "applicableContexts": {
+        "damageTypes": ["slashing", "piercing"],
+        "anatomyTypes": ["arms", "hand"]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Severed Hand",
+          "description": "You have lost your hand. You cannot use this hand to hold items or weapons. You cannot wield two-handed weapons or use items requiring two hands unless you have a prosthetic.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "attack",
+              "value": -2,
+              "condition": "when using one-handed weapons in remaining hand"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "severed-arm",
+      "name": "Severed Arm",
+      "description": "The brutal strike severs the entire arm, removing it permanently from the body.",
+      "severity": "critical",
+      "location": "arm",
+      "applicableContexts": {
+        "damageTypes": ["slashing"],
+        "anatomyTypes": ["arms"]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Severed Arm",
+          "description": "You have lost your entire arm. You cannot use this arm at all. You cannot wield two-handed weapons, use shields, or use items requiring two hands unless you have a prosthetic. You take a -4 circumstance penalty to Athletics checks to Climb and Swim.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "athletics",
+              "value": -4,
+              "skills": ["climb", "swim"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "severed-foot",
+      "name": "Severed Foot",
+      "description": "The crushing blow severs the foot at the ankle, permanently crippling mobility.",
+      "severity": "severe",
+      "location": "foot",
+      "applicableContexts": {
+        "damageTypes": ["slashing", "bludgeoning"],
+        "anatomyTypes": ["legs", "feet"]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Severed Foot",
+          "description": "You have lost your foot. Your Speed is reduced by 10 feet (minimum 5 feet). You take a -4 circumstance penalty to Acrobatics and Athletics checks involving movement unless you have a prosthetic.",
+          "modifiers": [
+            {
+              "type": "speed-reduction",
+              "value": 10,
+              "minimum": 5
+            }
+          ],
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "acrobatics",
+              "value": -4
+            },
+            {
+              "type": "circumstance",
+              "stat": "athletics",
+              "value": -4,
+              "skills": ["balance", "jump"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "severed-leg",
+      "name": "Severed Leg",
+      "description": "The devastating strike severs the entire leg, permanently removing mobility.",
+      "severity": "critical",
+      "location": "leg",
+      "applicableContexts": {
+        "damageTypes": ["slashing"],
+        "anatomyTypes": ["legs"]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Severed Leg",
+          "description": "You have lost your entire leg. You cannot Stride or Step without aid. You must Crawl or use crutches/prosthetic. Your Speed is reduced to 5 feet when crawling. You automatically fall prone when you lose your balance.",
+          "modifiers": [
+            {
+              "type": "speed-override",
+              "value": 5,
+              "mode": "crawl"
+            }
+          ],
+          "conditions": ["prone-vulnerability"]
+        }
+      ]
+    },
+    {
+      "id": "destroyed-eye",
+      "name": "Destroyed Eye",
+      "description": "The piercing attack destroys the eye, permanently blinding it.",
+      "severity": "severe",
+      "location": "eye",
+      "applicableContexts": {
+        "damageTypes": ["piercing", "slashing"],
+        "anatomyTypes": ["head", "face"]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Destroyed Eye",
+          "description": "You have lost vision in one eye. You take a -2 circumstance penalty to Perception checks and ranged attack rolls due to impaired depth perception.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "perception",
+              "value": -2
+            },
+            {
+              "type": "circumstance",
+              "stat": "attack",
+              "value": -2,
+              "condition": "ranged attacks only"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "both-eyes-destroyed",
+      "name": "Both Eyes Destroyed",
+      "description": "The catastrophic blow destroys both eyes, leaving permanent blindness.",
+      "severity": "catastrophic",
+      "location": "eyes",
+      "applicableContexts": {
+        "damageTypes": ["piercing", "slashing", "acid", "fire"],
+        "anatomyTypes": ["head", "face"]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Blinded",
+          "description": "You have lost vision in both eyes and are permanently blinded. You cannot see and automatically critically fail Perception checks requiring sight. You must use other senses to navigate.",
+          "conditions": ["blinded"]
+        }
+      ]
+    },
+    {
+      "id": "severed-ear",
+      "name": "Severed Ear",
+      "description": "The slashing attack severs the ear, permanently reducing hearing.",
+      "severity": "moderate",
+      "location": "ear",
+      "applicableContexts": {
+        "damageTypes": ["slashing"],
+        "anatomyTypes": ["head"]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Severed Ear",
+          "description": "You have lost one ear. You take a -2 circumstance penalty to auditory Perception checks.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "perception",
+              "value": -2,
+              "condition": "auditory only"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "both-ears-destroyed",
+      "name": "Both Ears Destroyed",
+      "description": "The devastating attack destroys both ears, causing permanent deafness.",
+      "severity": "critical",
+      "location": "ears",
+      "applicableContexts": {
+        "damageTypes": ["slashing", "bludgeoning", "sonic"],
+        "anatomyTypes": ["head"]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Deafened",
+          "description": "You have lost hearing in both ears and are permanently deafened. You automatically critically fail auditory Perception checks.",
+          "conditions": ["deafened"]
+        }
+      ]
+    },
+    {
+      "id": "severed-wing",
+      "name": "Severed Wing",
+      "description": "The slashing blow severs the wing, permanently grounding the creature.",
+      "severity": "critical",
+      "location": "wing",
+      "applicableContexts": {
+        "damageTypes": ["slashing"],
+        "anatomyTypes": ["wings"]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Severed Wing",
+          "description": "You have lost a wing. If you had a fly Speed, it is reduced by half. You take a -4 circumstance penalty to Acrobatics checks while flying.",
+          "modifiers": [
+            {
+              "type": "fly-speed-reduction",
+              "value": 50,
+              "unit": "percent"
+            }
+          ],
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "acrobatics",
+              "value": -4,
+              "condition": "while flying"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "both-wings-severed",
+      "name": "Both Wings Severed",
+      "description": "The brutal attacks sever both wings, permanently removing the ability to fly.",
+      "severity": "catastrophic",
+      "location": "wings",
+      "applicableContexts": {
+        "damageTypes": ["slashing"],
+        "anatomyTypes": ["wings"]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Both Wings Severed",
+          "description": "You have lost both wings. You lose your fly Speed entirely and cannot use any ability that requires wings.",
+          "modifiers": [
+            {
+              "type": "fly-speed-override",
+              "value": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "severed-tail",
+      "name": "Severed Tail",
+      "description": "The slicing attack severs the tail, permanently affecting balance.",
+      "severity": "moderate",
+      "location": "tail",
+      "applicableContexts": {
+        "damageTypes": ["slashing"],
+        "anatomyTypes": ["tail"]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Severed Tail",
+          "description": "You have lost your tail. You take a -2 circumstance penalty to Acrobatics checks to Balance and you cannot use abilities that require your tail.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "acrobatics",
+              "value": -2,
+              "skills": ["balance"]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mangled-fingers",
+      "name": "Mangled Fingers",
+      "description": "The crushing blow mangles multiple fingers, permanently reducing dexterity.",
+      "severity": "moderate",
+      "location": "hand",
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning", "slashing"],
+        "anatomyTypes": ["arms", "hand"]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Mangled Fingers",
+          "description": "Several of your fingers are mangled beyond repair. You take a -2 circumstance penalty to checks using Thievery and to attack rolls with weapons requiring fine manipulation.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "thievery",
+              "value": -2
+            },
+            {
+              "type": "circumstance",
+              "stat": "attack",
+              "value": -2,
+              "condition": "with weapons requiring fine manipulation"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

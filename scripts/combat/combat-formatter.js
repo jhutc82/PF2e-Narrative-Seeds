@@ -6,6 +6,7 @@
 import { ChatUtils, StringUtils } from '../utils.js';
 import { NarrativeSeedsSettings } from '../settings.js';
 import { ComplicationManager } from './complication-manager.js';
+import { DismembermentManager } from './dismemberment-manager.js';
 
 /**
  * Combat narrative formatter
@@ -100,6 +101,7 @@ export class CombatFormatter {
       targetName,
       attackerName,
       complication,
+      dismemberment,
       outcome
     } = seed;
 
@@ -108,6 +110,7 @@ export class CombatFormatter {
     const escapedTargetName = StringUtils.escapeHTML(targetName);
     const escapedAttackerName = StringUtils.escapeHTML(attackerName);
     const complicationHTML = this.generateComplicationHTML(complication, outcome);
+    const dismembermentHTML = this.generateDismembermentHTML(dismemberment);
 
     return `
       <div class="pf2e-narrative-seed combat-seed">
@@ -126,6 +129,7 @@ export class CombatFormatter {
             <p>${escapedDescription}</p>
           </div>
           ${complicationHTML}
+          ${dismembermentHTML}
           <div class="seed-actions">
             <button class="seed-button regenerate-button" data-action="regenerate" title="Generate a new narrative description">
               🔄 Regenerate
@@ -151,6 +155,7 @@ export class CombatFormatter {
       targetName,
       attackerName,
       complication,
+      dismemberment,
       outcome
     } = seed;
 
@@ -161,6 +166,7 @@ export class CombatFormatter {
     const escapedAttackerName = StringUtils.escapeHTML(attackerName);
     const escapedDamageTypeDisplay = StringUtils.escapeHTML(damageTypeDisplay);
     const complicationHTML = this.generateComplicationHTML(complication, outcome);
+    const dismembermentHTML = this.generateDismembermentHTML(dismemberment);
 
     return `
       <div class="pf2e-narrative-seed combat-seed cinematic">
@@ -184,6 +190,7 @@ export class CombatFormatter {
             <p>${escapedDescription}</p>
           </div>
           ${complicationHTML}
+          ${dismembermentHTML}
           <div class="seed-actions">
             <button class="seed-button regenerate-button" data-action="regenerate" title="Generate a new narrative description">
               🔄 Regenerate
@@ -258,6 +265,49 @@ export class CombatFormatter {
             data-outcome="${outcome}"
             title="Apply this effect to the ${targetDesc}">
             ✨ Apply to ${StringUtils.capitalizeFirst(targetDesc)}
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+  /**
+   * Generate HTML for dismemberment display
+   * @param {Object} dismemberment - Dismemberment data
+   * @returns {string} HTML for dismemberment or empty string
+   */
+  static generateDismembermentHTML(dismemberment) {
+    if (!dismemberment) return '';
+
+    const escapedName = StringUtils.escapeHTML(dismemberment.name);
+    const escapedDescription = StringUtils.escapeHTML(dismemberment.description);
+    const warningText = DismembermentManager.getWarningText(dismemberment);
+    const severityClass = `severity-${dismemberment.severity}`;
+
+    // Encode dismemberment data for the button
+    const dismembermentData = JSON.stringify(dismemberment);
+    const escapedData = StringUtils.escapeHTML(dismembermentData);
+
+    return `
+      <div class="seed-dismemberment ${severityClass}">
+        <div class="dismemberment-header">
+          <span class="dismemberment-icon">💀</span>
+          <span class="dismemberment-warning">${warningText}</span>
+        </div>
+        <div class="dismemberment-name">${escapedName}</div>
+        <div class="dismemberment-description">
+          ${escapedDescription}
+        </div>
+        <div class="dismemberment-notice">
+          ⚠️ This is a PERMANENT effect that cannot be easily removed!
+        </div>
+        <div class="dismemberment-actions">
+          <button
+            class="seed-button apply-dismemberment-button"
+            data-action="apply-dismemberment"
+            data-dismemberment='${escapedData}'
+            title="Apply this permanent injury to the target">
+            💀 Apply Permanent Injury
           </button>
         </div>
       </div>

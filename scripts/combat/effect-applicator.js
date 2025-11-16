@@ -250,4 +250,158 @@ export class EffectApplicator {
             console.warn('Could not set condition duration:', error);
         }
     }
+
+    /**
+     * Apply a permanent dismemberment effect to an actor
+     * @param {Actor} actor - The target actor
+     * @param {Object} dismemberment - The dismemberment data
+     * @returns {Promise<boolean>} Success status
+     */
+    static async applyDismemberment(actor, dismemberment) {
+        if (!actor) {
+            ui.notifications.warn('No valid target for dismemberment effect');
+            return false;
+        }
+
+        const { name, description, effects } = dismemberment;
+
+        try {
+            // Create a permanent effect item for the dismemberment
+            const rules = [];
+
+            // Process all effects
+            for (const effect of effects) {
+                // Add permanent conditions
+                if (effect.conditions) {
+                    for (const condition of effect.conditions) {
+                        // Apply PF2e condition if it's a standard one
+                        if (['blinded', 'deafened'].includes(condition)) {
+                            try {
+                                await game.pf2e.ConditionManager.addConditionToActor(condition, actor);
+                            } catch (error) {
+                                console.warn(`Could not apply condition ${condition}:`, error);
+                            }
+                        }
+                    }
+                }
+
+                // Add penalties as rule elements
+                if (effect.penalties) {
+                    for (const penalty of effect.penalties) {
+                        const rule = {
+                            key: 'FlatModifier',
+                            selector: this.mapStatToSelector(penalty.stat),
+                            value: penalty.value,
+                            type: penalty.type || 'circumstance',
+                            label: penalty.condition || name
+                        };
+                        rules.push(rule);
+                    }
+                }
+
+                // Add speed modifiers
+                if (effect.modifiers) {
+                    for (const modifier of effect.modifiers) {
+                        if (modifier.type === 'speed-reduction') {
+                            rules.push({
+                                key: 'FlatModifier',
+                                selector: 'speed',
+                                value: -modifier.value,
+                                type: 'untyped'
+                            });
+                        } else if (modifier.type === 'speed-override') {
+                            rules.push({
+                                key: 'BaseSpeed',
+                                selector: 'land-speed',
+                                value: modifier.value
+                            });
+                        } else if (modifier.type === 'fly-speed-reduction') {
+                            rules.push({
+                                key: 'FlatModifier',
+                                selector: 'fly-speed',
+                                value: -Math.floor(actor.system?.attributes?.speed?.fly || 0) * (modifier.value / 100),
+                                type: 'untyped'
+                            });
+                        } else if (modifier.type === 'fly-speed-override') {
+                            rules.push({
+                                key: 'BaseSpeed',
+                                selector: 'fly',
+                                value: modifier.value
+                            });
+                        }
+                    }
+                }
+            }
+
+            // Create the permanent effect
+            const effectData = {
+                type: 'effect',
+                name: `Dismemberment: ${name}`,
+                img: 'icons/svg/blood.svg',
+                system: {
+                    description: {
+                        value: `<p><strong>PERMANENT INJURY</strong></p><p>${description}</p>${effects.map(e => `<p>${e.description}</p>`).join('')}`
+                    },
+                    duration: {
+                        value: -1,
+                        unit: 'unlimited',
+                        sustained: false,
+                        expiry: null
+                    },
+                    tokenIcon: {
+                        show: true
+                    },
+                    rules: rules,
+                    slug: `dismemberment-${name.toLowerCase().replace(/\s+/g, '-')}`,
+                    traits: {
+                        value: ['dismemberment', 'permanent']
+                    },
+                    badge: {
+                        type: 'counter',
+                        value: null
+                    }
+                }
+            };
+
+            await actor.createEmbeddedDocuments('Item', [effectData]);
+
+            ui.notifications.warn(`${actor.name} has suffered a permanent injury: ${name}`);
+
+            // Also send a chat message to highlight this major event
+            await ChatMessage.create({
+                content: `<div style="background: #8b0000; border: 2px solid #ff0000; padding: 10px; border-radius: 5px; color: #fff;">
+                    <h3 style="margin: 0 0 5px 0; color: #ff0000;">💀 PERMANENT INJURY 💀</h3>
+                    <p style="margin: 0;"><strong>${actor.name}</strong> has suffered: <strong>${name}</strong></p>
+                    <p style="margin: 5px 0 0 0; font-size: 0.9em;">${description}</p>
+                </div>`,
+                type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+                whisper: game.users.filter(u => u.isGM).map(u => u.id)
+            });
+
+            return true;
+        } catch (error) {
+            console.error('PF2e Narrative Seeds | Failed to apply dismemberment:', error);
+            ui.notifications.error(`Failed to apply dismemberment: ${name}`);
+            return false;
+        }
+    }
+
+    /**
+     * Map stat names to PF2e selectors
+     * @param {string} stat - Stat name
+     * @returns {string} PF2e selector
+     */
+    static mapStatToSelector(stat) {
+        const selectorMap = {
+            'ac': 'ac',
+            'attack': 'attack-roll',
+            'perception': 'perception',
+            'athletics': 'athletics',
+            'acrobatics': 'acrobatics',
+            'thievery': 'thievery',
+            'speed': 'speed'
+        };
+
+        return selectorMap[stat] || stat;
+    }
 }
