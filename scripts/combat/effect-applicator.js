@@ -132,23 +132,20 @@ export class EffectApplicator {
     static async applyPenalty(actor, effect, name, description, duration) {
         const { stat, value } = effect;
 
-        // Map stat names to PF2e paths
-        const statPaths = {
-            'ac': 'system.attributes.ac.modifier',
-            'attack': 'system.attributes.attack.modifier'
-        };
-
-        const path = statPaths[stat];
-        if (!path) {
+        // Map stat names to PF2e selectors for FlatModifier rule element
+        const selector = this.mapStatToSelector(stat);
+        if (!selector) {
             console.warn(`Unknown stat type: ${stat}`);
             return false;
         }
 
         return await this.createCustomEffect(actor, name, description, duration, [
             {
-                key: path,
-                mode: 'add',
-                value: value
+                key: 'FlatModifier',
+                selector: selector,
+                value: value,
+                type: 'circumstance',
+                label: name
             }
         ]);
     }
@@ -167,9 +164,11 @@ export class EffectApplicator {
 
         return await this.createCustomEffect(actor, name, description, duration, [
             {
-                key: 'system.attributes.speed.total',
-                mode: 'add',
-                value: value
+                key: 'FlatModifier',
+                selector: 'land-speed',
+                value: value, // value is already negative (e.g., -5)
+                type: 'untyped',
+                label: name
             }
         ]);
     }
@@ -305,24 +304,31 @@ export class EffectApplicator {
                         if (modifier.type === 'speed-reduction') {
                             rules.push({
                                 key: 'FlatModifier',
-                                selector: 'speed',
+                                selector: 'land-speed',
                                 value: -modifier.value,
-                                type: 'untyped'
+                                type: 'untyped',
+                                label: name
                             });
                         } else if (modifier.type === 'speed-override') {
+                            // For speed override, set land speed to specific value
                             rules.push({
                                 key: 'BaseSpeed',
-                                selector: 'land-speed',
+                                selector: 'land',
                                 value: modifier.value
                             });
                         } else if (modifier.type === 'fly-speed-reduction') {
+                            // Calculate percentage reduction of current fly speed
+                            const currentFlySpeed = actor.system?.attributes?.speed?.fly || 0;
+                            const reduction = Math.floor(currentFlySpeed * (modifier.value / 100));
                             rules.push({
                                 key: 'FlatModifier',
                                 selector: 'fly-speed',
-                                value: -Math.floor(actor.system?.attributes?.speed?.fly || 0) * (modifier.value / 100),
-                                type: 'untyped'
+                                value: -reduction,
+                                type: 'untyped',
+                                label: name
                             });
                         } else if (modifier.type === 'fly-speed-override') {
+                            // Set fly speed to specific value (often 0)
                             rules.push({
                                 key: 'BaseSpeed',
                                 selector: 'fly',
@@ -387,21 +393,57 @@ export class EffectApplicator {
     }
 
     /**
-     * Map stat names to PF2e selectors
+     * Map stat names to PF2e selectors for rule elements
      * @param {string} stat - Stat name
      * @returns {string} PF2e selector
      */
     static mapStatToSelector(stat) {
         const selectorMap = {
+            // Defense
             'ac': 'ac',
+            'armor-class': 'ac',
+
+            // Attack rolls
             'attack': 'attack-roll',
+            'attack-roll': 'attack-roll',
+            'strike': 'attack-roll',
+
+            // Perception
             'perception': 'perception',
-            'athletics': 'athletics',
+
+            // Skills
             'acrobatics': 'acrobatics',
+            'arcana': 'arcana',
+            'athletics': 'athletics',
+            'crafting': 'crafting',
+            'deception': 'deception',
+            'diplomacy': 'diplomacy',
+            'intimidation': 'intimidation',
+            'medicine': 'medicine',
+            'nature': 'nature',
+            'occultism': 'occultism',
+            'performance': 'performance',
+            'religion': 'religion',
+            'society': 'society',
+            'stealth': 'stealth',
+            'survival': 'survival',
             'thievery': 'thievery',
-            'speed': 'speed'
+
+            // Saves
+            'fortitude': 'fortitude',
+            'reflex': 'reflex',
+            'will': 'will',
+            'saving-throw': 'saving-throw',
+
+            // Speed
+            'speed': 'land-speed',
+            'land-speed': 'land-speed',
+            'fly-speed': 'fly-speed',
+            'swim-speed': 'swim-speed',
+            'climb-speed': 'climb-speed',
+            'burrow-speed': 'burrow-speed'
         };
 
-        return selectorMap[stat] || stat;
+        return selectorMap[stat.toLowerCase()] || stat.toLowerCase();
     }
 }
