@@ -247,7 +247,20 @@ export class CombatHooks {
     const hasNarrative = message.flags?.["pf2e-narrative-seeds"]?.hasNarrative;
     if (!hasNarrative) return;
 
-    // Find and attach event listeners to buttons
+    // Check if current user should see the narrative based on visibility settings
+    const visibilityMode = NarrativeSeedsSettings.get("visibilityMode");
+    const shouldShowNarrative = this.shouldShowNarrative(message, visibilityMode);
+
+    // Find the narrative element
+    const narrativeElement = html.find('.pf2e-narrative-seed');
+
+    if (!shouldShowNarrative) {
+      // Remove narrative from DOM if user shouldn't see it
+      narrativeElement.remove();
+      return;
+    }
+
+    // User can see narrative, so attach event listeners to buttons
     const regenerateButton = html.find('.regenerate-button');
     if (regenerateButton.length > 0) {
       regenerateButton.on('click', async (event) => {
@@ -277,6 +290,44 @@ export class CombatHooks {
           CombatFormatter.copyToClipboard(seed.description);
         }
       });
+    }
+  }
+
+  /**
+   * Check if current user should see the narrative based on visibility settings
+   * @param {ChatMessage} message
+   * @param {string} visibilityMode
+   * @returns {boolean}
+   */
+  static shouldShowNarrative(message, visibilityMode) {
+    const currentUser = game.user;
+
+    switch (visibilityMode) {
+      case "gm-only":
+        // Only GMs can see the narrative
+        return currentUser.isGM;
+
+      case "everyone":
+        // Everyone can see the narrative
+        return true;
+
+      case "gm-plus-actor":
+        // GMs and the owner of the acting character can see it
+        if (currentUser.isGM) return true;
+
+        // Get the actor from stored attack data
+        const actorId = message.flags?.["pf2e-narrative-seeds"]?.attackData?.actorId;
+        if (!actorId) return false;
+
+        const actor = game.actors.get(actorId);
+        if (!actor) return false;
+
+        // Check if current user owns this actor
+        return actor.testUserPermission(currentUser, "OWNER");
+
+      default:
+        // Default to GM-only for safety
+        return currentUser.isGM;
     }
   }
 
