@@ -17,9 +17,7 @@
       "chill to absolute zero",
       "crystallize completely",
       "flash-freeze",
-      "freeze and shatter",
       "encase in permafrost",
-      "freeze to the core of",
       "chill to death",
       "turn to a frozen statue",
       "coat in thick ice",
@@ -93,7 +91,6 @@
       "coat in lethal ice",
       "chill organ systems in",
       "crystallize ligaments in",
-      "freeze respiratory system in",
       "encase in absolute zero ice",
       "glaciate cellular level of",
       "chill to cardiac arrest",
@@ -139,8 +136,6 @@
       "chill severely",
       "numb with frost",
       "freeze with rime",
-      "chill with ice",
-      "frost with cold",
       "cool with frost",
       "ice with cold",
       "numb with chill",
@@ -197,7 +192,8 @@
       "frost tender areas of",
       "ice sensitive areas of",
       "numb wounded areas of",
-      "freeze wet areas of"
+      "freeze wet areas of",
+      "chill exposed skin of"
     ],
     "failure": [],
     "criticalFailure": []

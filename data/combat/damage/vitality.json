@@ -1,5 +1,5 @@
 {
-  "weaponType": "Your radiant energy",
+  "weaponType": "Your vitality energy",
   "verbs": {
     "criticalSuccess": [
       "burn away with light",
@@ -96,8 +96,7 @@
       "overwhelm with radiant purity through darkness of",
       "incinerate with holy brilliance through unholy flesh of",
       "destroy with divine fire through negative essence of",
-      "burn catastrophically through undead vitals of",
-      "purge devastatingly through shadow-substance of"
+      "burn catastrophically through undead vitals of"
     ],
     "success": [
       "sear with light",
@@ -193,7 +192,8 @@
       "shine on damaged areas of",
       "glow across weak points of",
       "radiate through defenses of",
-      "brighten through armor of"
+      "brighten through armor of",
+      "sear with holy radiance through"
     ],
     "failure": [],
     "criticalFailure": []

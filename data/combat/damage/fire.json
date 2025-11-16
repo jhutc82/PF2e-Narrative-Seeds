@@ -95,7 +95,8 @@
       "burn through anatomical barriers of",
       "incinerate through protective defenses of",
       "scorch through vital systems in",
-      "char through defensive anatomy of"
+      "char through defensive anatomy of",
+      "ignite through internal structures of"
     ],
     "success": [
       "burn",
@@ -188,12 +189,11 @@
       "warm severely",
       "heat painfully",
       "scorch surface of",
-      "burn lightly into",
-      "sear painfully",
       "ignite briefly on",
       "char partially",
       "burn across",
-      "scorch into"
+      "scorch into",
+      "flame over"
     ],
     "failure": [],
     "criticalFailure": []
