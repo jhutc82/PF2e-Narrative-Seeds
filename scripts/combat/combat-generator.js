@@ -1,6 +1,6 @@
 /**
  * PF2e Narrative Seeds - Combat Generator
- * Generates combat narrative descriptions
+ * Generates combat narrative descriptions with lazy-loaded data
  */
 
 import { NarrativeSeedGenerator, RandomUtils, StringUtils, ToneFilter } from '../utils.js';
@@ -8,11 +8,18 @@ import { NarrativeSeedsSettings } from '../settings.js';
 import { AnatomyDetector } from './anatomy-detector.js';
 import { DamageDetector } from './damage-detector.js';
 import { DefenseDetector } from './defense-detector.js';
-import { getLocation } from '../../data/combat/locations.js';
-import { getDamageVerb, getDamageEffect, getWeaponType, getLocationAnatomy, getRangedWeaponCategory } from '../../data/combat/damage-descriptors.js';
-import { getOpeningSentence } from '../../data/combat/opening-sentences.js';
-import { getDefenseOpenings } from '../../data/combat/defense-opening-sentences.js';
-import { getRangedOpeningSentence } from '../../data/combat/ranged-opening-sentences.js';
+import { PerformanceMonitor } from '../performance-monitor.js';
+import {
+  getLocation,
+  getDamageVerb,
+  getDamageEffect,
+  getWeaponType,
+  getLocationAnatomy,
+  getRangedWeaponCategory,
+  getOpeningSentence,
+  getDefenseOpenings,
+  getRangedOpeningSentence
+} from './combat-data-helpers.js';
 
 /**
  * Combat narrative generator
@@ -76,97 +83,154 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
   /**
    * Construct narrative seed from context
    * @param {Object} context
-   * @returns {Object}
+   * @returns {Promise<Object>} Narrative seed
    */
-  constructSeed(context) {
-    const { anatomy, damageType, outcome, target, attacker, item, defense, message } = context;
+  async constructSeed(context) {
+    return await PerformanceMonitor.measureAsync('combat-generation', async () => {
+      try {
+        const { anatomy, damageType, outcome, target, attacker, item, defense, message } = context;
 
-    // Get settings
-    const detailLevel = NarrativeSeedsSettings.get("combatDetailLevel");
-    const tone = NarrativeSeedsSettings.get("contentTone");
-    const varietyMode = NarrativeSeedsSettings.get("varietyMode");
-    const showAnatomy = NarrativeSeedsSettings.get("showAnatomyType");
+        // Get settings
+        const detailLevel = NarrativeSeedsSettings.get("combatDetailLevel");
+        const tone = NarrativeSeedsSettings.get("contentTone");
+        const varietyMode = NarrativeSeedsSettings.get("varietyMode");
+        const showAnatomy = NarrativeSeedsSettings.get("showAnatomyType");
 
-    // Generate description with repetition prevention
-    let description = "";
-    let attempts = 0;
-    const maxAttempts = 5;
+        // Generate description with repetition prevention
+        let description = "";
+        let attempts = 0;
+        const maxAttempts = 5;
 
-    do {
-      // Generate description based on detail level
-      switch(detailLevel) {
-        case "minimal":
-          description = this.generateMinimal(anatomy, outcome, damageType, varietyMode);
-          break;
-        case "standard":
-          description = this.generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message);
-          break;
-        case "detailed":
-          description = this.generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense, message);
-          break;
-        case "cinematic":
-          description = this.generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message);
-          break;
-        default:
-          description = this.generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message);
-      }
+        do {
+          // Generate description based on detail level
+          try {
+            switch(detailLevel) {
+              case "minimal":
+                description = await this.generateMinimal(anatomy, outcome, damageType, varietyMode);
+                break;
+              case "standard":
+                description = await this.generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message);
+                break;
+              case "detailed":
+                description = await this.generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense, message);
+                break;
+              case "cinematic":
+                description = await this.generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message);
+                break;
+              default:
+                description = await this.generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message);
+            }
+          } catch (error) {
+            console.error("PF2e Narrative Seeds | Error generating description:", error);
+            // Fallback to simple description
+            description = this.generateFallback(outcome, target, attacker);
+            break;
+          }
 
-      // Apply tone filter
-      description = ToneFilter.apply(description, tone);
+          // Apply tone filter
+          description = ToneFilter.apply(description, tone);
 
-      attempts++;
+          attempts++;
 
-      // Check if message was recently used
-      if (!RandomUtils.isMessageRecentlyUsed(description, varietyMode)) {
-        break; // Message is unique, use it
-      }
+          // Check if message was recently used
+          if (!RandomUtils.isMessageRecentlyUsed(description, varietyMode)) {
+            break; // Message is unique, use it
+          }
 
-      // If we've hit max attempts, use it anyway to avoid infinite loop
-      if (attempts >= maxAttempts) {
-        console.warn("PF2e Narrative Seeds | Could not generate unique message after", maxAttempts, "attempts");
-        break;
-      }
-    } while (attempts < maxAttempts);
+          // If we've hit max attempts, use it anyway to avoid infinite loop
+          if (attempts >= maxAttempts) {
+            console.warn("PF2e Narrative Seeds | Could not generate unique message after", maxAttempts, "attempts");
+            break;
+          }
+        } while (attempts < maxAttempts);
 
-    // Record the message as used
-    RandomUtils.recordMessage(description, varietyMode);
+        // Record the message as used
+        RandomUtils.recordMessage(description, varietyMode);
 
-    // Get anatomy display name
-    let anatomyDisplay = null;
-    if (showAnatomy) {
-      if (typeof anatomy === 'string') {
-        anatomyDisplay = AnatomyDetector.getDisplayName(anatomy);
-      } else if (anatomy && anatomy.base) {
-        // Build display name with modifiers
-        const baseName = AnatomyDetector.getDisplayName(anatomy.base);
-        if (anatomy.modifiers && anatomy.modifiers.length > 0) {
-          const modifierNames = anatomy.modifiers.map(m => AnatomyDetector.getDisplayName(m)).join(' ');
-          anatomyDisplay = `${modifierNames} ${baseName}`;
-        } else {
-          anatomyDisplay = baseName;
+        // Get anatomy display name
+        let anatomyDisplay = null;
+        if (showAnatomy) {
+          if (typeof anatomy === 'string') {
+            anatomyDisplay = AnatomyDetector.getDisplayName(anatomy);
+          } else if (anatomy && anatomy.base) {
+            // Build display name with modifiers
+            const baseName = AnatomyDetector.getDisplayName(anatomy.base);
+            if (anatomy.modifiers && anatomy.modifiers.length > 0) {
+              const modifierNames = anatomy.modifiers.map(m => AnatomyDetector.getDisplayName(m)).join(' ');
+              anatomyDisplay = `${modifierNames} ${baseName}`;
+            } else {
+              anatomyDisplay = baseName;
+            }
+          }
         }
+
+        return {
+          description,
+          anatomy,
+          anatomyDisplay,
+          damageType,
+          outcome,
+          targetName: target.name,
+          attackerName: attacker ? attacker.name : "Unknown",
+          detailLevel,
+          tone
+        };
+      } catch (error) {
+        console.error("PF2e Narrative Seeds | Critical error in constructSeed:", error);
+        // Return basic fallback
+        return this.generateFallbackSeed(context);
       }
-    }
+    });
+  }
+
+  /**
+   * Generate fallback description when data loading fails
+   * @param {string} outcome - Outcome type
+   * @param {Object} target - Target actor
+   * @param {Object} attacker - Attacker actor
+   * @returns {string} Simple fallback description
+   */
+  generateFallback(outcome, target, attacker) {
+    const targetName = target?.name || "the target";
+    const attackerName = attacker?.name || "The attacker";
+
+    const fallbacks = {
+      criticalSuccess: `${attackerName} critically hits ${targetName}!`,
+      success: `${attackerName} hits ${targetName}.`,
+      failure: `${attackerName} misses ${targetName}.`,
+      criticalFailure: `${attackerName} critically misses ${targetName}!`
+    };
+
+    return fallbacks[outcome] || "Attack resolves.";
+  }
+
+  /**
+   * Generate complete fallback seed object
+   * @param {Object} context - Generation context
+   * @returns {Object} Fallback seed
+   */
+  generateFallbackSeed(context) {
+    const { outcome, target, attacker, anatomy, damageType } = context;
 
     return {
-      description,
-      anatomy,
-      anatomyDisplay,
-      damageType,
-      outcome,
-      targetName: target.name,
-      attackerName: attacker ? attacker.name : "Unknown",
-      detailLevel,
-      tone
+      description: this.generateFallback(outcome, target, attacker),
+      anatomy: anatomy || "humanoid",
+      anatomyDisplay: null,
+      damageType: damageType || "bludgeoning",
+      outcome: outcome || "success",
+      targetName: target?.name || "Unknown",
+      attackerName: attacker?.name || "Unknown",
+      detailLevel: "minimal",
+      tone: "standard"
     };
   }
 
   /**
    * Generate minimal description
-   * @returns {string}
+   * @returns {Promise<string>}
    */
-  generateMinimal(anatomy, outcome, damageType, varietyMode) {
-    const location = getLocation(anatomy, outcome, varietyMode);
+  async generateMinimal(anatomy, outcome, damageType, varietyMode) {
+    const location = await getLocation(anatomy, outcome, varietyMode);
     if (!location) return "Strike!";
 
     return StringUtils.capitalizeFirst(location);
@@ -174,15 +238,15 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
   /**
    * Generate standard description
-   * @returns {string}
+   * @returns {Promise<string>}
    */
-  generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message = null) {
+  async generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message = null) {
     // Get components
-    const location = getLocation(anatomy, outcome, varietyMode);
+    const location = await getLocation(anatomy, outcome, varietyMode);
     const locationAnatomy = getLocationAnatomy(location);
-    const verb = getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
-    const effect = getDamageEffect(damageType, outcome, varietyMode, locationAnatomy);
-    const weaponType = getWeaponType(damageType, item, "second", message);
+    const verb = await getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
+    const effect = await getDamageEffect(damageType, outcome, varietyMode, locationAnatomy);
+    const weaponType = await getWeaponType(damageType, item, "second", message);
 
     if (!location) return "Your attack connects!";
 
@@ -196,7 +260,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     if (rangedCategory) {
       const targetName = target ? target.name : "the target";
       const attackerName = attacker ? attacker.name : "The attacker";
-      opening = getRangedOpeningSentence(rangedCategory, 'standard', outcome, { attackerName, targetName, weaponType });
+      opening = await getRangedOpeningSentence(rangedCategory, 'standard', outcome, { attackerName, targetName, weaponType });
 
       // If we got a ranged opening, check if it's a complete sentence
       if (opening) {
@@ -210,23 +274,21 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     // For failures/critical failures, use defense-aware openings if available (and if no ranged opening was used)
     if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
-      const defenseOpenings = getDefenseOpenings(outcome, defense.missReason, 'cinematic');
+      const defenseOpenings = await getDefenseOpenings(outcome, defense.missReason, 'cinematic');
       if (defenseOpenings && defenseOpenings.length > 0) {
         // Select random opening from defense-aware sentences
         const targetName = target ? target.name : "the target";
         const attackerName = attacker ? attacker.name : "The attacker";
         opening = RandomUtils.selectRandom(defenseOpenings, varietyMode, `defense-opening-${outcome}-${defense.missReason}`);
-        // Replace template variables
-        opening = opening.replace(/\$\{attackerName\}/g, attackerName);
-        opening = opening.replace(/\$\{targetName\}/g, targetName);
-        opening = opening.replace(/\$\{weaponType\}/g, weaponType);
+        // Replace template variables with StringUtils.interpolate
+        opening = StringUtils.interpolate(opening, { attackerName, targetName, weaponType });
         return opening; // Defense-aware openings are complete sentences
       }
     }
 
     // Fall back to standard opening sentences if no ranged opening was found
     if (!opening) {
-      opening = getOpeningSentence('standard', outcome, { weaponType });
+      opening = await getOpeningSentence('standard', outcome, { weaponType });
     }
 
     // Construct based on outcome
@@ -270,14 +332,14 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
   /**
    * Generate detailed description
-   * @returns {string}
+   * @returns {Promise<string>}
    */
-  generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense, message = null) {
-    const location = getLocation(anatomy, outcome, varietyMode);
+  async generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense, message = null) {
+    const location = await getLocation(anatomy, outcome, varietyMode);
     const locationAnatomy = getLocationAnatomy(location);
-    const verb = getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
-    const effect = getDamageEffect(damageType, outcome, varietyMode, locationAnatomy);
-    const weaponType = getWeaponType(damageType, item, "second", message);
+    const verb = await getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
+    const effect = await getDamageEffect(damageType, outcome, varietyMode, locationAnatomy);
+    const weaponType = await getWeaponType(damageType, item, "second", message);
     const targetName = target.name;
 
     if (!location) return `Your attack finds ${targetName}!`;
@@ -291,7 +353,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     // For ranged weapons, use specialized ranged opening sentences
     if (rangedCategory) {
       const attackerName = attacker ? attacker.name : "The attacker";
-      opening = getRangedOpeningSentence(rangedCategory, 'detailed', outcome, { attackerName, targetName, weaponType });
+      opening = await getRangedOpeningSentence(rangedCategory, 'detailed', outcome, { attackerName, targetName, weaponType });
 
       // If we got a ranged opening, check if it's a complete sentence
       if (opening) {
@@ -305,21 +367,19 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     // For failures/critical failures, use defense-aware openings if available (and if no ranged opening was used)
     if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
-      const defenseOpenings = getDefenseOpenings(outcome, defense.missReason, 'cinematic');
+      const defenseOpenings = await getDefenseOpenings(outcome, defense.missReason, 'cinematic');
       if (defenseOpenings && defenseOpenings.length > 0) {
         const attackerName = attacker ? attacker.name : "The attacker";
         opening = RandomUtils.selectRandom(defenseOpenings, varietyMode, `defense-opening-${outcome}-${defense.missReason}`);
-        // Replace template variables
-        opening = opening.replace(/\$\{attackerName\}/g, attackerName);
-        opening = opening.replace(/\$\{targetName\}/g, targetName);
-        opening = opening.replace(/\$\{weaponType\}/g, weaponType);
+        // Replace template variables with StringUtils.interpolate
+        opening = StringUtils.interpolate(opening, { attackerName, targetName, weaponType });
         return opening; // Defense-aware openings are complete sentences
       }
     }
 
     // Fall back to standard opening sentences if no ranged opening was found
     if (!opening) {
-      opening = getOpeningSentence('detailed', outcome, { weaponType, targetName });
+      opening = await getOpeningSentence('detailed', outcome, { weaponType, targetName });
     }
 
     switch(outcome) {
@@ -374,14 +434,14 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
   /**
    * Generate cinematic description
-   * @returns {string}
+   * @returns {Promise<string>}
    */
-  generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message = null) {
-    const location = getLocation(anatomy, outcome, varietyMode);
+  async generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message = null) {
+    const location = await getLocation(anatomy, outcome, varietyMode);
     const locationAnatomy = getLocationAnatomy(location);
-    const verb = getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
-    const effect = getDamageEffect(damageType, outcome, varietyMode, locationAnatomy);
-    const weaponType = getWeaponType(damageType, item, "third", message);
+    const verb = await getDamageVerb(damageType, outcome, varietyMode, locationAnatomy);
+    const effect = await getDamageEffect(damageType, outcome, varietyMode, locationAnatomy);
+    const weaponType = await getWeaponType(damageType, item, "third", message);
     const targetName = target.name;
     const attackerName = attacker ? attacker.name : "The attacker";
 
@@ -395,7 +455,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     // For ranged weapons, use specialized ranged opening sentences
     if (rangedCategory) {
-      opening = getRangedOpeningSentence(rangedCategory, 'cinematic', outcome, { attackerName, targetName, weaponType });
+      opening = await getRangedOpeningSentence(rangedCategory, 'cinematic', outcome, { attackerName, targetName, weaponType });
 
       // If we got a ranged opening, check if it's a complete sentence
       if (opening) {
@@ -409,20 +469,18 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     // For failures/critical failures, use defense-aware openings if available (and if no ranged opening was used)
     if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
-      const defenseOpenings = getDefenseOpenings(outcome, defense.missReason, 'cinematic');
+      const defenseOpenings = await getDefenseOpenings(outcome, defense.missReason, 'cinematic');
       if (defenseOpenings && defenseOpenings.length > 0) {
         opening = RandomUtils.selectRandom(defenseOpenings, varietyMode, `defense-opening-${outcome}-${defense.missReason}`);
-        // Replace template variables
-        opening = opening.replace(/\$\{attackerName\}/g, attackerName);
-        opening = opening.replace(/\$\{targetName\}/g, targetName);
-        opening = opening.replace(/\$\{weaponType\}/g, weaponType);
+        // Replace template variables with StringUtils.interpolate
+        opening = StringUtils.interpolate(opening, { attackerName, targetName, weaponType });
         return opening; // Defense-aware openings are complete sentences
       }
     }
 
     // Fall back to standard opening sentences if no ranged opening was found
     if (!opening) {
-      opening = getOpeningSentence('cinematic', outcome, { attackerName, targetName, weaponType });
+      opening = await getOpeningSentence('cinematic', outcome, { attackerName, targetName, weaponType });
     }
 
     switch(outcome) {

@@ -8,10 +8,12 @@
  */
 
 import { NarrativeSeedsSettings } from './settings.js';
-import { PF2eUtils } from './utils.js';
+import { PF2eUtils, RandomUtils } from './utils.js';
 import { CombatHooks } from './combat/combat-hooks.js';
 import { AnatomyDetector } from './combat/anatomy-detector.js';
 import { DamageDetector } from './combat/damage-detector.js';
+import { PerformanceMonitor } from './performance-monitor.js';
+import { DataLoader } from './data-loader.js';
 
 /**
  * Main module class
@@ -230,10 +232,34 @@ Hooks.once("ready", () => {
     // Helper function to test damage detection
     testDamage: (item) => {
       DamageDetector.debugDetection(item);
+    },
+
+    // Performance monitoring
+    performance: {
+      enable: () => PerformanceMonitor.enable(),
+      disable: () => PerformanceMonitor.disable(),
+      report: () => PerformanceMonitor.printReport(),
+      getReport: () => PerformanceMonitor.getReport(),
+      reset: () => PerformanceMonitor.reset()
+    },
+
+    // Data loader utilities
+    data: {
+      clearCache: () => DataLoader.clearCache(),
+      warmCache: () => DataLoader.warmCache(),
+      stats: () => DataLoader.getCacheStats()
+    },
+
+    // Random utils for debugging
+    random: {
+      clearHistory: () => RandomUtils.clearHistory(),
+      stats: () => RandomUtils.getCacheStats()
     }
   };
 
   console.log("PF2e Narrative Seeds | Console API available as window.PF2eNarrativeSeeds");
+  console.log("PF2e Narrative Seeds | Performance monitoring: window.PF2eNarrativeSeeds.performance.enable()");
+  console.log("PF2e Narrative Seeds | Cache warming: window.PF2eNarrativeSeeds.data.warmCache()");
 });
 
 // ============================================================================

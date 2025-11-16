@@ -78,9 +78,15 @@ export class NarrativeSeedGenerator {
 }
 
 /**
- * Randomization utilities
+ * Randomization utilities with bounded memory usage
  */
 export class RandomUtils {
+  static MAX_CACHE_SIZE = 100;  // Maximum number of categories to track
+  static MAX_CACHE_AGE = 300000;  // 5 minutes in milliseconds
+  static usageHistory = new Map();
+  static cacheTimestamps = new Map();
+  static messageHistory = [];
+
   /**
    * Get history size based on variety mode
    * @param {string} varietyMode - Variety setting (low, medium, high, extreme)
@@ -96,9 +102,39 @@ export class RandomUtils {
       case 'high':
         return arrayLength ? Math.min(15, Math.floor(arrayLength * 0.6)) : 20;
       case 'extreme':
-        return arrayLength ? arrayLength - 1 : 50;
+        return arrayLength ? Math.min(50, arrayLength - 1) : 50;  // Cap at 50 to prevent excessive memory
       default:
         return arrayLength ? Math.min(15, Math.floor(arrayLength * 0.6)) : 20;
+    }
+  }
+
+  /**
+   * Prune cache to prevent unbounded growth
+   * @private
+   */
+  static pruneCache() {
+    const now = Date.now();
+
+    // Remove old entries based on age
+    for (const [key, timestamp] of this.cacheTimestamps) {
+      if (now - timestamp > this.MAX_CACHE_AGE) {
+        this.usageHistory.delete(key);
+        this.cacheTimestamps.delete(key);
+      }
+    }
+
+    // Limit size (LRU eviction) - remove oldest entries if over limit
+    if (this.usageHistory.size > this.MAX_CACHE_SIZE) {
+      const toDelete = this.usageHistory.size - this.MAX_CACHE_SIZE;
+      // Get oldest entries based on timestamp
+      const sortedEntries = Array.from(this.cacheTimestamps.entries())
+        .sort((a, b) => a[1] - b[1])
+        .slice(0, toDelete);
+
+      sortedEntries.forEach(([key]) => {
+        this.usageHistory.delete(key);
+        this.cacheTimestamps.delete(key);
+      });
     }
   }
 
@@ -112,17 +148,17 @@ export class RandomUtils {
   static selectRandom(array, varietyMode = 'high', category = null) {
     if (!array || array.length === 0) return null;
 
-    // Initialize history tracking
-    if (!this.usageHistory) {
-      this.usageHistory = new Map();
-    }
-
     // Determine history size based on variety mode
     const historySize = this.getHistorySize(varietyMode, array.length);
 
     // If no category or history size is 0, use simple random
     if (!category || historySize === 0) {
       return array[Math.floor(Math.random() * array.length)];
+    }
+
+    // Prune cache periodically
+    if (this.usageHistory.size > this.MAX_CACHE_SIZE * 0.9) {
+      this.pruneCache();
     }
 
     // Get or create history for this category
@@ -143,6 +179,7 @@ export class RandomUtils {
       const selectedIndex = array.indexOf(selected);
       history.push(selectedIndex);
       this.usageHistory.set(category, history);
+      this.cacheTimestamps.set(category, Date.now());
       return selected;
     }
 
@@ -153,6 +190,7 @@ export class RandomUtils {
     // Update history
     history.push(selectedIndex);
     this.usageHistory.set(category, history);
+    this.cacheTimestamps.set(category, Date.now());
 
     return selected;
   }
@@ -161,8 +199,10 @@ export class RandomUtils {
    * Clear all usage history (useful for testing or resetting)
    */
   static clearHistory() {
-    this.usageHistory = new Map();
+    this.usageHistory.clear();
+    this.cacheTimestamps.clear();
     this.messageHistory = [];
+    console.log("PF2e Narrative Seeds | Random usage history cleared");
   }
 
   /**
@@ -172,10 +212,6 @@ export class RandomUtils {
    * @returns {boolean} True if message was recently used
    */
   static isMessageRecentlyUsed(message, varietyMode = 'high') {
-    if (!this.messageHistory) {
-      this.messageHistory = [];
-    }
-
     // Check if message is in recent history
     return this.messageHistory.includes(message);
   }
@@ -186,17 +222,13 @@ export class RandomUtils {
    * @param {string} varietyMode - Variety setting
    */
   static recordMessage(message, varietyMode = 'high') {
-    if (!this.messageHistory) {
-      this.messageHistory = [];
-    }
-
     // Determine message history size based on variety mode
     const historySize = this.getHistorySize(varietyMode);
 
     // Add message to history
     this.messageHistory.push(message);
 
-    // Trim history to size
+    // Trim history to size to prevent unbounded growth
     if (this.messageHistory.length > historySize) {
       this.messageHistory = this.messageHistory.slice(-historySize);
     }
@@ -218,6 +250,21 @@ export class RandomUtils {
    */
   static checkChance(chance) {
     return Math.random() * 100 < chance;
+  }
+
+  /**
+   * Get cache statistics (for debugging)
+   * @returns {Object} Cache stats
+   */
+  static getCacheStats() {
+    return {
+      categories: this.usageHistory.size,
+      maxCategories: this.MAX_CACHE_SIZE,
+      messageHistory: this.messageHistory.length,
+      oldestEntry: this.cacheTimestamps.size > 0
+        ? Date.now() - Math.min(...this.cacheTimestamps.values())
+        : 0
+    };
   }
 }
 
@@ -279,6 +326,26 @@ export class StringUtils {
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
+  }
+
+  /**
+   * Interpolate template variables in a single pass
+   * Optimized replacement for multiple regex operations
+   * @param {string} template - String with ${var} placeholders
+   * @param {Object} vars - Variable substitutions
+   * @returns {string} Interpolated string
+   * @example
+   * interpolate("${name} hits ${target}", {name: "Bob", target: "Alice"})
+   * // Returns: "Bob hits Alice"
+   */
+  static interpolate(template, vars) {
+    if (!template) return "";
+    if (!vars || typeof vars !== 'object') return template;
+
+    // Single pass replacement - much faster than multiple regex calls
+    return template.replace(/\$\{(\w+)\}/g, (match, key) => {
+      return vars[key] !== undefined ? vars[key] : match;
+    });
   }
 }
 
