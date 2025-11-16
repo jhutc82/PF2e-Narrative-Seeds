@@ -313,29 +313,49 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
   }
 
   /**
-   * Generate standard description
-   * @returns {Promise<string>}
+   * Generate narrative description (shared implementation for all detail levels)
+   * @private
+   * @param {string} detailLevel - Detail level (standard, detailed, cinematic)
+   * @param {Object} anatomy - Anatomy info
+   * @param {string} outcome - Outcome type
+   * @param {string} damageType - Damage type
+   * @param {Object} target - Target actor
+   * @param {Object} attacker - Attacker actor
+   * @param {string} varietyMode - Variety setting
+   * @param {Object} item - Attack item
+   * @param {Object} defense - Defense info (for failures)
+   * @param {Object} message - Chat message
+   * @returns {Promise<string>} Generated description
    */
-  async generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message = null) {
+  async generateNarrative(detailLevel, anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message = null) {
     // Get location and templates first
     const [location, templates] = await Promise.all([
       getLocation(anatomy, outcome, varietyMode),
-      DataLoader.loadTemplates('standard', outcome)
+      DataLoader.loadTemplates(detailLevel, outcome)
     ]);
 
-    const locationAnatomy = getLocationAnatomy(location);
-    const weaponType = getWeaponType(damageType, item, "second", message);
+    // Determine POV based on detail level
+    const pov = detailLevel === 'cinematic' ? 'third' : 'second';
+    const weaponType = getWeaponType(damageType, item, pov, message);
     const targetName = target ? target.name : "the target";
     const attackerName = attacker ? attacker.name : "The attacker";
 
-    // Now get contextual verb and effect with filtering applied
+    // Get contextual verb and effect with filtering applied
     const context = { anatomy, damageType, location };
     const [verb, effect] = await Promise.all([
       getContextualDamageVerb(damageType, outcome, varietyMode, context),
       getContextualDamageEffect(damageType, outcome, varietyMode, context)
     ]);
 
-    if (!location) return "Your attack connects!";
+    // Early return if no location with detail-level specific fallback
+    if (!location) {
+      const fallbacks = {
+        standard: "Your attack connects!",
+        detailed: `Your attack finds ${targetName}!`,
+        cinematic: `${attackerName}'s attack finds its mark on ${targetName}!`
+      };
+      return fallbacks[detailLevel] || "Your attack connects!";
+    }
 
     // Check weapon categories
     const rangedCategory = getRangedWeaponCategory(item, message);
@@ -344,13 +364,13 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     // Get opening sentence (ranged/melee-specific or standard)
     let opening;
     if (rangedCategory) {
-      opening = await getRangedOpeningSentence(rangedCategory, 'standard', outcome, { attackerName, targetName, weaponType });
+      opening = await getRangedOpeningSentence(rangedCategory, detailLevel, outcome, { attackerName, targetName, weaponType });
       // For failures, ranged openings are often complete - return early
       if (opening && (outcome === 'failure' || outcome === 'criticalFailure')) {
         return opening;
       }
     } else if (meleeCategory) {
-      opening = await getMeleeOpeningSentence(meleeCategory, 'standard', outcome, { attackerName, targetName, weaponType });
+      opening = await getMeleeOpeningSentence(meleeCategory, detailLevel, outcome, { attackerName, targetName, weaponType });
       // For failures, melee openings may be complete - return early
       if (opening && (outcome === 'failure' || outcome === 'criticalFailure')) {
         return opening;
@@ -369,11 +389,14 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
 
     // Fallback to standard opening
     if (!opening) {
-      opening = await getOpeningSentence('standard', outcome, { weaponType });
+      const openingContext = detailLevel === 'standard' ? { weaponType } :
+                             detailLevel === 'detailed' ? { weaponType, targetName } :
+                             { attackerName, targetName, weaponType };
+      opening = await getOpeningSentence(detailLevel, outcome, openingContext);
     }
 
-    // NEW: Select template and fill with components
-    const templateObj = TemplateEngine.selectTemplate(templates, varietyMode, `standard-${outcome}`);
+    // Select template and fill with components
+    const templateObj = TemplateEngine.selectTemplate(templates, varietyMode, `${detailLevel}-${outcome}`);
     const components = {
       opening: opening || "",
       verb: verb || "strikes",
@@ -396,6 +419,14 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     description = this.applyNonLethalModifier(description, nonLethal);
 
     return description;
+  }
+
+  /**
+   * Generate standard description
+   * @returns {Promise<string>}
+   */
+  async generateStandard(anatomy, outcome, damageType, varietyMode, item, target, attacker, defense, message = null) {
+    return this.generateNarrative('standard', anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message);
   }
 
   /**
@@ -403,83 +434,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * @returns {Promise<string>}
    */
   async generateDetailed(anatomy, outcome, damageType, target, varietyMode, item, attacker, defense, message = null) {
-    // Get location and templates first
-    const [location, templates] = await Promise.all([
-      getLocation(anatomy, outcome, varietyMode),
-      DataLoader.loadTemplates('detailed', outcome)
-    ]);
-
-    const locationAnatomy = getLocationAnatomy(location);
-    const weaponType = getWeaponType(damageType, item, "second", message);
-    const targetName = target.name;
-    const attackerName = attacker ? attacker.name : "The attacker";
-
-    // Now get contextual verb and effect with filtering applied
-    const context = { anatomy, damageType, location };
-    const [verb, effect] = await Promise.all([
-      getContextualDamageVerb(damageType, outcome, varietyMode, context),
-      getContextualDamageEffect(damageType, outcome, varietyMode, context)
-    ]);
-
-    if (!location) return `Your attack finds ${targetName}!`;
-
-    // Check weapon categories
-    const rangedCategory = getRangedWeaponCategory(item, message);
-    const meleeCategory = !rangedCategory ? getMeleeWeaponCategory(item, message) : null;
-
-    // Get opening sentence (ranged/melee-specific or standard)
-    let opening;
-    if (rangedCategory) {
-      opening = await getRangedOpeningSentence(rangedCategory, 'detailed', outcome, { attackerName, targetName, weaponType });
-      if (opening && (outcome === 'failure' || outcome === 'criticalFailure')) {
-        return opening;
-      }
-    } else if (meleeCategory) {
-      opening = await getMeleeOpeningSentence(meleeCategory, 'detailed', outcome, { attackerName, targetName, weaponType });
-      if (opening && (outcome === 'failure' || outcome === 'criticalFailure')) {
-        return opening;
-      }
-    }
-
-    // Defense-aware openings for failures
-    if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
-      const defenseOpenings = await getDefenseOpenings(outcome, defense.missReason, 'cinematic');
-      if (defenseOpenings && defenseOpenings.length > 0) {
-        opening = RandomUtils.selectRandom(defenseOpenings, varietyMode, `defense-opening-${outcome}-${defense.missReason}`);
-        opening = StringUtils.interpolate(opening, { attackerName, targetName, weaponType });
-        return opening;
-      }
-    }
-
-    // Fallback to standard opening
-    if (!opening) {
-      opening = await getOpeningSentence('detailed', outcome, { weaponType, targetName });
-    }
-
-    // NEW: Select template and fill with components
-    const templateObj = TemplateEngine.selectTemplate(templates, varietyMode, `detailed-${outcome}`);
-    const components = {
-      opening: opening || "",
-      verb: verb || "strikes",
-      effect: effect || "",
-      location: location || "body",
-      weaponType,
-      targetName,
-      attackerName,
-      damageType
-    };
-
-    let description = TemplateEngine.fillTemplate(templateObj, components);
-    description = TemplateEngine.cleanOutput(description);
-
-    // Apply modifiers
-    const sizeDiff = getSizeDifference(attacker, target);
-    const nonLethal = isNonLethalAttack(item, message);
-
-    description = await this.applySizeModifier(description, sizeDiff, outcome, varietyMode);
-    description = this.applyNonLethalModifier(description, nonLethal);
-
-    return description;
+    return this.generateNarrative('detailed', anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message);
   }
 
   /**
@@ -487,83 +442,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * @returns {Promise<string>}
    */
   async generateCinematic(anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message = null) {
-    // Get location and templates first
-    const [location, templates] = await Promise.all([
-      getLocation(anatomy, outcome, varietyMode),
-      DataLoader.loadTemplates('cinematic', outcome)
-    ]);
-
-    const locationAnatomy = getLocationAnatomy(location);
-    const weaponType = getWeaponType(damageType, item, "third", message);
-    const targetName = target.name;
-    const attackerName = attacker ? attacker.name : "The attacker";
-
-    // Now get contextual verb and effect with filtering applied
-    const context = { anatomy, damageType, location };
-    const [verb, effect] = await Promise.all([
-      getContextualDamageVerb(damageType, outcome, varietyMode, context),
-      getContextualDamageEffect(damageType, outcome, varietyMode, context)
-    ]);
-
-    if (!location) return `${attackerName}'s attack finds its mark on ${targetName}!`;
-
-    // Check weapon categories
-    const rangedCategory = getRangedWeaponCategory(item, message);
-    const meleeCategory = !rangedCategory ? getMeleeWeaponCategory(item, message) : null;
-
-    // Get opening sentence (ranged/melee-specific or standard)
-    let opening;
-    if (rangedCategory) {
-      opening = await getRangedOpeningSentence(rangedCategory, 'cinematic', outcome, { attackerName, targetName, weaponType });
-      if (opening && (outcome === 'failure' || outcome === 'criticalFailure')) {
-        return opening;
-      }
-    } else if (meleeCategory) {
-      opening = await getMeleeOpeningSentence(meleeCategory, 'cinematic', outcome, { attackerName, targetName, weaponType });
-      if (opening && (outcome === 'failure' || outcome === 'criticalFailure')) {
-        return opening;
-      }
-    }
-
-    // Defense-aware openings for failures
-    if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
-      const defenseOpenings = await getDefenseOpenings(outcome, defense.missReason, 'cinematic');
-      if (defenseOpenings && defenseOpenings.length > 0) {
-        opening = RandomUtils.selectRandom(defenseOpenings, varietyMode, `defense-opening-${outcome}-${defense.missReason}`);
-        opening = StringUtils.interpolate(opening, { attackerName, targetName, weaponType });
-        return opening;
-      }
-    }
-
-    // Fallback to standard opening
-    if (!opening) {
-      opening = await getOpeningSentence('cinematic', outcome, { attackerName, targetName, weaponType });
-    }
-
-    // NEW: Select template and fill with components
-    const templateObj = TemplateEngine.selectTemplate(templates, varietyMode, `cinematic-${outcome}`);
-    const components = {
-      opening: opening || "",
-      verb: verb || "strikes",
-      effect: effect || "",
-      location: location || "body",
-      weaponType,
-      targetName,
-      attackerName,
-      damageType
-    };
-
-    let description = TemplateEngine.fillTemplate(templateObj, components);
-    description = TemplateEngine.cleanOutput(description);
-
-    // Apply modifiers
-    const sizeDiff = getSizeDifference(attacker, target);
-    const nonLethal = isNonLethalAttack(item, message);
-
-    description = await this.applySizeModifier(description, sizeDiff, outcome, varietyMode);
-    description = this.applyNonLethalModifier(description, nonLethal);
-
-    return description;
+    return this.generateNarrative('cinematic', anatomy, outcome, damageType, target, attacker, varietyMode, item, defense, message);
   }
 
   /**
