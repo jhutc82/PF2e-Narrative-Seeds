@@ -1,0 +1,17 @@
+{
+  "name": "pf2e-narrative-seeds",
+  "version": "1.0.0",
+  "description": "Narrative combat descriptions for Pathfinder 2e in Foundry VTT",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/run-tests.js"
+  },
+  "keywords": [
+    "foundry-vtt",
+    "pathfinder",
+    "pf2e",
+    "narrative"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}
