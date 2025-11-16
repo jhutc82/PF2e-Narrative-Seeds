@@ -1,0 +1,42 @@
+{
+  "criticalSuccess": [
+    "exposed throat",
+    "left eye",
+    "right eye",
+    "heart",
+    "liver",
+    "kidney",
+    "base of skull",
+    "spine",
+    "solar plexus",
+    "neck"
+  ],
+  "success": [
+    "muscular left shoulder",
+    "powerful right shoulder",
+    "thick left arm",
+    "strong right arm",
+    "broad chest",
+    "solid back",
+    "left leg",
+    "right leg",
+    "orcish torso",
+    "powerful frame"
+  ],
+  "failure": [
+    "past their powerful form",
+    "around their muscular body",
+    "past their thick hide",
+    "around their orcish frame",
+    "past their broad body",
+    "around their strong form"
+  ],
+  "criticalFailure": [
+    "nowhere near the orc",
+    "completely missing",
+    "far from their body",
+    "wildly off target",
+    "harmlessly past",
+    "wide of their form"
+  ]
+}

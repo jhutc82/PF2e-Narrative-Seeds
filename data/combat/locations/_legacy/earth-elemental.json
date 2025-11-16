@@ -1,0 +1,42 @@
+{
+  "criticalSuccess": [
+    "core stone",
+    "vital crystal",
+    "heart rock",
+    "central gem",
+    "essence stone",
+    "core mineral",
+    "vital core",
+    "earth heart",
+    "stone nexus",
+    "mineral center"
+  ],
+  "success": [
+    "rocky left side",
+    "stone right side",
+    "boulder body",
+    "crystalline form",
+    "earthen mass",
+    "rocky exterior",
+    "stone body",
+    "mineral form",
+    "craggy surface",
+    "rocky torso"
+  ],
+  "failure": [
+    "off their rocky hide",
+    "around their stone form",
+    "past their boulder body",
+    "beside their earthen mass",
+    "around their form",
+    "past their body"
+  ],
+  "criticalFailure": [
+    "nowhere near the elemental",
+    "harmlessly bouncing off",
+    "missing their form",
+    "wide of their body",
+    "off their stone hide",
+    "past their mass"
+  ]
+}

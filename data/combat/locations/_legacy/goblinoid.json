@@ -1,0 +1,42 @@
+{
+  "criticalSuccess": [
+    "exposed throat",
+    "left eye",
+    "right eye",
+    "heart",
+    "liver",
+    "kidney",
+    "base of skull",
+    "spine",
+    "solar plexus",
+    "neck"
+  ],
+  "success": [
+    "scrawny left shoulder",
+    "thin right shoulder",
+    "left arm",
+    "right arm",
+    "small chest",
+    "hunched back",
+    "left leg",
+    "right leg",
+    "goblinoid torso",
+    "small frame"
+  ],
+  "failure": [
+    "past their quick form",
+    "around their small body",
+    "over their hunched back",
+    "past their dodging form",
+    "around their goblinoid body",
+    "past their scrawny frame"
+  ],
+  "criticalFailure": [
+    "nowhere near the goblinoid",
+    "completely missing",
+    "far from their body",
+    "wildly off target",
+    "harmlessly past",
+    "wide of their form"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "criticalSuccess": [
+    "exposed throat",
+    "left eye",
+    "right eye",
+    "heart",
+    "brain",
+    "vital organs",
+    "spine",
+    "skull",
+    "neck",
+    "chest cavity",
+    "infernal core",
+    "essence center"
+  ],
+  "success": [
+    "left wing",
+    "right wing",
+    "clawed left hand",
+    "clawed right hand",
+    "barbed tail",
+    "scaled chest",
+    "armored back",
+    "left horn",
+    "right horn",
+    "left side",
+    "right side",
+    "infernal form",
+    "orderly body"
+  ],
+  "failure": [
+    "past their infernal form",
+    "around their ordered body",
+    "through their wings",
+    "past their tail",
+    "around their scales",
+    "past their armor"
+  ],
+  "criticalFailure": [
+    "nowhere near the devil",
+    "completely missing",
+    "far from their form",
+    "wildly off target",
+    "harmlessly past",
+    "wide of their body"
+  ]
+}

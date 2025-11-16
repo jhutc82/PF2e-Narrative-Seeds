@@ -1,0 +1,42 @@
+{
+  "criticalSuccess": [
+    "exposed heart",
+    "left eye",
+    "right eye",
+    "throat",
+    "skull",
+    "spine",
+    "neck",
+    "chest cavity",
+    "temple",
+    "base of skull"
+  ],
+  "success": [
+    "pale left shoulder",
+    "cold right shoulder",
+    "undead left arm",
+    "vampiric right arm",
+    "lifeless chest",
+    "cold back",
+    "left side",
+    "right side",
+    "vampire body",
+    "undead form"
+  ],
+  "failure": [
+    "past their vampiric form",
+    "around their undead body",
+    "past their pale form",
+    "around their cold body",
+    "past their vampire form",
+    "around their undead essence"
+  ],
+  "criticalFailure": [
+    "nowhere near the vampire",
+    "completely missing",
+    "far from their form",
+    "wildly off target",
+    "harmlessly past",
+    "wide of their body"
+  ]
+}
