@@ -83,9 +83,12 @@ export class CombatHooks {
         return;
       }
 
-      // Format and send chat card
-      await CombatFormatter.createChatCard(seed, {
-        actorId: attackData.actor?.id
+      // Format narrative HTML
+      const narrativeHTML = CombatFormatter.generateHTML(seed);
+
+      // Append narrative to existing attack roll message
+      await message.update({
+        content: message.content + narrativeHTML
       });
 
     } catch (error) {
