@@ -7,6 +7,8 @@ import { NarrativeSeedsSettings } from '../settings.js';
 import { PF2eUtils } from '../utils.js';
 import { CombatNarrativeGenerator } from './combat-generator.js';
 import { CombatFormatter } from './combat-formatter.js';
+import { EffectApplicator } from './effect-applicator.js';
+import { ComplicationManager } from './complication-manager.js';
 
 /**
  * Combat hooks manager
@@ -291,6 +293,15 @@ export class CombatHooks {
         }
       });
     }
+
+    // Add listener for apply complication button
+    const applyComplicationButton = html.find('.apply-complication-button');
+    if (applyComplicationButton.length > 0) {
+      applyComplicationButton.on('click', async (event) => {
+        event.preventDefault();
+        await this.applyComplication(message, event.currentTarget);
+      });
+    }
   }
 
   /**
@@ -396,6 +407,75 @@ export class CombatHooks {
     } catch (error) {
       console.error("PF2e Narrative Seeds | Error regenerating narrative:", error);
       ui.notifications.error("Failed to regenerate narrative");
+    }
+  }
+
+  /**
+   * Apply a complication effect to the appropriate actor
+   * @param {ChatMessage} message - The chat message containing attack data
+   * @param {HTMLElement} button - The clicked button element
+   */
+  static async applyComplication(message, button) {
+    try {
+      // Get complication data from button
+      const complicationData = button.dataset.complication;
+      const outcome = button.dataset.outcome;
+
+      if (!complicationData) {
+        ui.notifications.warn("No complication data found");
+        return;
+      }
+
+      // Parse complication data
+      let complication;
+      try {
+        complication = JSON.parse(complicationData);
+      } catch (e) {
+        console.error("Failed to parse complication data:", e);
+        ui.notifications.error("Failed to parse complication data");
+        return;
+      }
+
+      // Get stored attack data to determine target
+      const storedData = message.flags?.["pf2e-narrative-seeds"]?.attackData;
+      if (!storedData) {
+        ui.notifications.warn("Cannot apply complication: attack data not found");
+        return;
+      }
+
+      // Reconstruct attack data
+      const attackData = {
+        actor: storedData.actorId ? game.actors.get(storedData.actorId) : null,
+        target: storedData.targetId ? game.actors.get(storedData.targetId) : null
+      };
+
+      // Determine which actor to apply the complication to
+      const targetActor = ComplicationManager.getComplicationTarget(attackData, outcome);
+
+      if (!targetActor) {
+        ui.notifications.warn("Could not determine target for complication");
+        return;
+      }
+
+      // Check if user has permission to modify the target actor
+      if (!targetActor.testUserPermission(game.user, "OWNER") && !game.user.isGM) {
+        ui.notifications.warn(`You do not have permission to modify ${targetActor.name}`);
+        return;
+      }
+
+      // Apply the complication effect
+      const success = await EffectApplicator.applyComplication(targetActor, complication);
+
+      if (success) {
+        // Disable the button to prevent double-application
+        button.disabled = true;
+        button.textContent = "✓ Applied";
+        button.classList.add('applied');
+      }
+
+    } catch (error) {
+      console.error("PF2e Narrative Seeds | Error applying complication:", error);
+      ui.notifications.error("Failed to apply complication");
     }
   }
 

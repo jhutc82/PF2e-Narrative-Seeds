@@ -14,6 +14,7 @@ import { AnatomyDetector } from './combat/anatomy-detector.js';
 import { DamageDetector } from './combat/damage-detector.js';
 import { PerformanceMonitor } from './performance-monitor.js';
 import { DataLoader } from './data-loader.js';
+import { ComplicationManager } from './combat/complication-manager.js';
 
 /**
  * Main module class
@@ -180,6 +181,9 @@ Hooks.once("init", () => {
 
   // Register settings
   NarrativeSeedsSettings.registerSettings();
+
+  // Initialize ComplicationManager (load complication data)
+  ComplicationManager.initialize();
 
   // Expose API
   game.modules.get("pf2e-narrative-seeds").api = {

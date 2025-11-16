@@ -5,6 +5,7 @@
 
 import { ChatUtils, StringUtils } from '../utils.js';
 import { NarrativeSeedsSettings } from '../settings.js';
+import { ComplicationManager } from './complication-manager.js';
 
 /**
  * Combat narrative formatter
@@ -97,13 +98,16 @@ export class CombatFormatter {
       description,
       anatomyDisplay,
       targetName,
-      attackerName
+      attackerName,
+      complication,
+      outcome
     } = seed;
 
     const escapedDescription = StringUtils.escapeHTML(description);
     const escapedAnatomyDisplay = StringUtils.escapeHTML(anatomyDisplay);
     const escapedTargetName = StringUtils.escapeHTML(targetName);
     const escapedAttackerName = StringUtils.escapeHTML(attackerName);
+    const complicationHTML = this.generateComplicationHTML(complication, outcome);
 
     return `
       <div class="pf2e-narrative-seed combat-seed">
@@ -121,6 +125,7 @@ export class CombatFormatter {
           <div class="seed-description">
             <p>${escapedDescription}</p>
           </div>
+          ${complicationHTML}
           <div class="seed-actions">
             <button class="seed-button regenerate-button" data-action="regenerate" title="Generate a new narrative description">
               🔄 Regenerate
@@ -144,7 +149,9 @@ export class CombatFormatter {
       anatomyDisplay,
       damageType,
       targetName,
-      attackerName
+      attackerName,
+      complication,
+      outcome
     } = seed;
 
     const damageTypeDisplay = StringUtils.capitalizeFirst(damageType);
@@ -153,6 +160,7 @@ export class CombatFormatter {
     const escapedTargetName = StringUtils.escapeHTML(targetName);
     const escapedAttackerName = StringUtils.escapeHTML(attackerName);
     const escapedDamageTypeDisplay = StringUtils.escapeHTML(damageTypeDisplay);
+    const complicationHTML = this.generateComplicationHTML(complication, outcome);
 
     return `
       <div class="pf2e-narrative-seed combat-seed cinematic">
@@ -175,6 +183,7 @@ export class CombatFormatter {
           <div class="seed-description cinematic">
             <p>${escapedDescription}</p>
           </div>
+          ${complicationHTML}
           <div class="seed-actions">
             <button class="seed-button regenerate-button" data-action="regenerate" title="Generate a new narrative description">
               🔄 Regenerate
@@ -209,6 +218,50 @@ export class CombatFormatter {
       default:
         return "outcome-unknown";
     }
+  }
+
+  /**
+   * Generate HTML for complication display
+   * @param {Object} complication - Complication data
+   * @param {string} outcome - Outcome type to determine target
+   * @returns {string} HTML for complication or empty string
+   */
+  static generateComplicationHTML(complication, outcome) {
+    if (!complication) return '';
+
+    const escapedName = StringUtils.escapeHTML(complication.name);
+    const escapedDescription = StringUtils.escapeHTML(complication.description);
+    const targetDesc = ComplicationManager.getTargetDescription(outcome);
+    const durationText = complication.duration
+      ? `${complication.duration} round${complication.duration > 1 ? 's' : ''}`
+      : 'until recovered';
+
+    // Encode complication data for the button
+    const complicationData = JSON.stringify(complication);
+    const escapedData = StringUtils.escapeHTML(complicationData);
+
+    return `
+      <div class="seed-complication">
+        <div class="complication-header">
+          <span class="complication-icon">⚠️</span>
+          <span class="complication-name">${escapedName}</span>
+          <span class="complication-duration">(${durationText})</span>
+        </div>
+        <div class="complication-description">
+          ${escapedDescription}
+        </div>
+        <div class="complication-actions">
+          <button
+            class="seed-button apply-complication-button"
+            data-action="apply-complication"
+            data-complication='${escapedData}'
+            data-outcome="${outcome}"
+            title="Apply this effect to the ${targetDesc}">
+            ✨ Apply to ${StringUtils.capitalizeFirst(targetDesc)}
+          </button>
+        </div>
+      </div>
+    `;
   }
 
   /**

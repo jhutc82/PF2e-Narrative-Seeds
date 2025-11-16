@@ -1,0 +1,128 @@
+{
+  "complications": [
+    {
+      "id": "staggered",
+      "name": "Staggered",
+      "description": "The devastating blow leaves the target reeling and off-balance.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 20,
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning", "piercing", "slashing"],
+        "anatomyTypes": ["head", "torso", "vitals"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "off-guard",
+        "duration": 1
+      }
+    },
+    {
+      "id": "off-balance",
+      "name": "Off-Balance",
+      "description": "The target's defenses are compromised by the precise strike.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 15,
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning", "slashing"],
+        "anatomyTypes": ["legs", "arms", "torso"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "clumsy",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "winded",
+      "name": "Winded",
+      "description": "The brutal impact knocks the wind from the target.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 15,
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning"],
+        "anatomyTypes": ["torso", "vitals"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "sickened",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "dazed",
+      "name": "Dazed",
+      "description": "The crushing blow to the head leaves the target disoriented.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning"],
+        "anatomyTypes": ["head"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "stupefied",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "bleeding-wound",
+      "name": "Bleeding Wound",
+      "description": "The attack opens a grievous wound that continues to bleed.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["piercing", "slashing"],
+        "anatomyTypes": ["torso", "vitals", "limbs", "arms", "legs"]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "bleed",
+        "value": "1d4",
+        "dc": 15
+      }
+    },
+    {
+      "id": "exposed",
+      "name": "Exposed",
+      "description": "The target's armor is compromised, leaving them vulnerable.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": ["slashing", "piercing"],
+        "anatomyTypes": ["torso", "arms"]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "hampered-movement",
+      "name": "Hampered Movement",
+      "description": "The strike to the legs impairs movement.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["slashing", "piercing", "bludgeoning"],
+        "anatomyTypes": ["legs"]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -5,
+        "duration": 1
+      }
+    }
+  ]
+}
