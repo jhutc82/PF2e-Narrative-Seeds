@@ -207,8 +207,8 @@ export class CombatMemory {
    * @returns {boolean} True if dramatic
    */
   static isDramaticMoment(streakData, outcome) {
-    // Critical success after missing streak
-    if (outcome === 'criticalSuccess' && streakData.consecutiveMisses > 2) {
+    // Critical success after breaking a missing streak (3+ misses before)
+    if (outcome === 'criticalSuccess' && streakData.streakBroken && streakData.totalMisses >= 3) {
       return true;
     }
 
