@@ -38,6 +38,7 @@ This document consolidates all improvements discussed during the comprehensive p
 - ❌ No semantic filtering (skeletons bleed, fire "cuts", ghosts have flesh)
 - ❌ Weapon names ignored (shows "Your blade" for all weapons)
 - ❌ Cultural references still present in data files (30+ terms missed in cleanup)
+- ❌ **Massive phrase redundancy** (40%+ structural clones, can reduce by 78% without loss)
 - ❌ Significant code duplication (~80% in generator methods)
 - ❌ Sequential async operations (missed parallelization opportunities)
 - ❌ Silent failures (no user notification when data loads fail)
@@ -1105,7 +1106,14 @@ window.PF2eNarrativeSeeds.tests.runAllTests();
    - Cost-benefit analysis
    - Implementation priority
 
-5. **COMPREHENSIVE_IMPROVEMENTS_ROADMAP.md** (this document)
+5. **PHRASE_REDUCTION_ANALYSIS.md**
+   - Redundancy analysis (40%+ structural clones)
+   - 78% reduction possible without quality loss
+   - Template multiplication effect
+   - Quality over quantity approach
+   - 4-6 hour audit + reduction guide
+
+6. **COMPREHENSIVE_IMPROVEMENTS_ROADMAP.md** (this document)
    - Complete roadmap
    - All improvements consolidated
    - Effort estimates and timelines
@@ -1125,12 +1133,15 @@ This comprehensive review identified **~60-75 hours of high-impact improvements*
 
 **Total**: ~30-36 hours for **20-50x improvement** in narrative quality.
 
-**Key Insight**: The current system has excellent foundations (lazy loading, caching, modular architecture) but is held back by:
+**Key Insights**: The current system has excellent foundations (lazy loading, caching, modular architecture) but is held back by:
 - Fixed sentence templates (limits variety despite 1.6M combinations)
 - Missing weapon specificity (ignores actual weapon names)
 - No semantic filtering (creates nonsense)
+- Phrase redundancy (40%+ structural clones, quality over quantity needed)
 
-Addressing these three issues, plus code quality improvements, will transform the module completely while leveraging all the good work already done in v1.2.0 optimization.
+Addressing these four issues, plus code quality improvements, will transform the module completely while leveraging all the good work already done in v1.2.0 optimization.
+
+**Bonus Finding**: With template variety system, we can REDUCE phrase count by 78% (18,500 → 4,000) while INCREASING perceived variety by 10-20x. This improves quality AND performance simultaneously.
 
 **Recommendation**: Start with Phase 0 (critical fixes) and Phase 1 (foundational improvements), then Phase 2 (narrative transformation). This gives the biggest user-visible impact in the shortest time.
 
