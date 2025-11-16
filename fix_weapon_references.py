@@ -167,13 +167,51 @@ HAMMER_REPLACEMENTS = [
 ]
 
 SPEAR_REPLACEMENTS = [
+    # Specific polearm names
+    (r'\bthe lochaber point\b', 'the polearm point'),
+    (r'\bthe lochaber blade\b', 'the polearm blade'),
+    (r'\bthe lochaber\b', 'the polearm'),
+    (r'\blochaber point\b', 'polearm point'),
+    (r'\blochaber blade\b', 'polearm blade'),
+    (r'\blochaber\b', 'polearm'),
+    (r'\bthe partizan point\b', 'the polearm point'),
+    (r'\bthe partizan blade\b', 'the polearm blade'),
+    (r'\bthe partizan\b', 'the polearm'),
+    (r'\bpartizan point\b', 'polearm point'),
+    (r'\bpartizan blade\b', 'polearm blade'),
+    (r'\bpartizan\b', 'polearm'),
+    (r'\bthe pollspear\b', 'the polearm'),
+    (r'\bpollspear\b', 'polearm'),
+    (r'\bthe crescent spear\b', 'the curved polearm'),
+    (r'\bcrescent spear\b', 'curved polearm'),
+    (r'\bthe bardiche blade\b', 'the polearm blade'),
+    (r'\bthe bardiche\b', 'the polearm'),
+    (r'\bbardiche blade\b', 'polearm blade'),
+    (r'\bbardiche\b', 'polearm'),
+    (r'\bthe ji blade\b', 'the polearm blade'),
+    (r'\bji blade\b', 'polearm blade'),
+    # Remove axe cross-contamination from spear file
+    (r'\bAxe weight\b', 'Weapon weight'),
+    (r'\bAxe head\b', 'Spear head'),
+    (r'\bAxe momentum\b', 'Weapon momentum'),
+    # Remove thrown weapon cross-contamination
+    (r'\bThe dart rotates\b', 'The projectile flies'),
+    (r'\bthe dart\b', 'the projectile'),
     # Remove cultural/regional references
+    (r'\bItalian fury\b', 'fierce power'),
+    (r'\bEastern European fury\b', 'fierce power'),
+    (r'\bancient Chinese precision\b', 'ancient precision'),
+    (r'\bChinese precision\b', 'precise technique'),
+    (r'\bEastern arc\b', 'sweeping arc'),
     (r'\bPersian precision\b', 'precise technique'),
     (r'\bPersian cavalry precision\b', 'mounted precision'),
     (r'\bPersian finality\b', 'decisive force'),
     (r'\bScythian savagery\b', 'brutal force'),
     (r'\bKorean perfection\b', 'perfect technique'),
     (r'\bSwiss precision\b', 'precise technique'),
+    # Remove generic "savage" used as cultural descriptor
+    (r'\bperfect savage technique\b', 'perfect brutal technique'),
+    (r'\bsavage technique\b', 'brutal technique'),
     # Foreign compound weapon names that were already partially replaced
     (r'\bmulti-pronged spear-e-zin\b', 'multi-pronged spear'),
     (r'\bspear-e-zin\b', 'spear'),
@@ -204,10 +242,19 @@ SPEAR_REPLACEMENTS = [
 ]
 
 DAGGER_REPLACEMENTS = [
+    # Specific polearm names that ended up in dagger.json
+    (r'\bthe lochaber dagger\b', 'the blade'),
+    (r'\blochaber dagger\b', 'blade'),
+    (r'\bthe partizan dagger\b', 'the blade'),
+    (r'\bpartizan dagger\b', 'blade'),
     # Japanese dagger terms
     (r'\bthe wakizashi\b', 'the blade'),
     (r'\bwakizashi\b', 'blade'),
     # Remove cultural/regional references
+    (r'\bItalian fury\b', 'fierce power'),
+    (r'\bEastern European fury\b', 'fierce power'),
+    (r'\bChinese precision\b', 'precise technique'),
+    (r'\bEastern arc\b', 'sweeping arc'),
     (r'\bPersian precision\b', 'precise technique'),
     (r'\bPersian cavalry precision\b', 'mounted precision'),
     (r'\bPersian finality\b', 'decisive force'),
@@ -254,6 +301,23 @@ DAGGER_REPLACEMENTS = [
 ]
 
 AXE_REPLACEMENTS = [
+    # Specific polearm names that ended up in axe.json
+    (r'\bthe lochaber axe\b', 'the axe'),
+    (r'\blochaber axe\b', 'axe'),
+    (r'\bthe lochaber blade\b', 'the blade'),
+    (r'\blochaber blade\b', 'blade'),
+    (r'\bthe lochaber\b', 'the axe'),
+    (r'\blochaber\b', 'axe'),
+    (r'\bthe partizan blade\b', 'the blade'),
+    (r'\bpartizan blade\b', 'blade'),
+    (r'\bthe partizan\b', 'the polearm'),
+    (r'\bpartizan\b', 'polearm'),
+    (r'\bthe bardiche blade\b', 'the axe blade'),
+    (r'\bbardiche blade\b', 'axe blade'),
+    (r'\bthe bardiche\b', 'the axe'),
+    (r'\bbardiche\b', 'axe'),
+    (r'\bthe ji blade\b', 'the blade'),
+    (r'\bji blade\b', 'blade'),
     # Cultural/foreign axe names
     (r'\bthe tabar-e-zin\b', 'the axe'),
     (r'\btabar-e-zin\b', 'axe'),
@@ -264,6 +328,11 @@ AXE_REPLACEMENTS = [
     (r'\bthe chuk-do\b', 'the axe'),
     (r'\bchuk-do\b', 'axe'),
     # Remove cultural/regional references
+    (r'\bItalian fury\b', 'fierce power'),
+    (r'\bEastern European fury\b', 'fierce power'),
+    (r'\bancient Chinese precision\b', 'ancient precision'),
+    (r'\bChinese precision\b', 'precise technique'),
+    (r'\bEastern arc\b', 'sweeping arc'),
     (r'\bPersian precision\b', 'precise technique'),
     (r'\bPersian cavalry precision\b', 'mounted precision'),
     (r'\bPersian finality\b', 'decisive force'),
@@ -462,3 +531,34 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# Add these to existing replacements
+import sys
+
+# Monkey-patch to add more replacements
+AXE_REPLACEMENTS_EXTRA = [
+    (r'\bThe pollaxe head\b', 'The axe head'),
+    (r'\bthe pollaxe head\b', 'the axe head'),
+    (r'\bThe pollaxe\b', 'The polearm'),
+    (r'\bthe pollaxe\b', 'the polearm'),
+    (r'\bpollaxe\b', 'polearm'),
+    (r'\bthe battle axe head\b', 'the axe head'),
+    (r'\bbattle axe head\b', 'axe head'),
+    (r'\bperfect savage technique\b', 'perfect brutal technique'),
+    (r'\bsavage technique\b', 'brutal technique'),
+]
+
+DAGGER_REPLACEMENTS_EXTRA = [
+    (r'\bperfect savage technique\b', 'perfect brutal technique'),
+    (r'\bsavage technique\b', 'brutal technique'),
+]
+
+UNARMED_REPLACEMENTS_EXTRA = [
+    (r'\bperfect savage technique\b', 'perfect brutal technique'),
+    (r'\bsavage technique\b', 'brutal technique'),
+]
+
+# Insert these at the beginning of the existing replacement lists
+FILE_REPLACEMENTS['data/combat/openings/melee/axe.json'] = AXE_REPLACEMENTS_EXTRA + FILE_REPLACEMENTS['data/combat/openings/melee/axe.json']
+FILE_REPLACEMENTS['data/combat/openings/melee/dagger.json'] = DAGGER_REPLACEMENTS_EXTRA + FILE_REPLACEMENTS['data/combat/openings/melee/dagger.json']
+FILE_REPLACEMENTS['data/combat/openings/melee/unarmed.json'] = UNARMED_REPLACEMENTS_EXTRA + FILE_REPLACEMENTS['data/combat/openings/melee/unarmed.json']
