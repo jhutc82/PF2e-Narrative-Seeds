@@ -92,36 +92,24 @@ export class CombatFormatter {
   static generateStandardHTML(seed, outcomeFormatted, outcomeClass) {
     const {
       description,
-      anatomyDisplay,
-      targetName,
-      attackerName,
       complication,
       dismemberment,
       outcome
     } = seed;
 
     const escapedDescription = StringUtils.escapeHTML(description);
-    const escapedAnatomyDisplay = StringUtils.escapeHTML(anatomyDisplay);
-    const escapedTargetName = StringUtils.escapeHTML(targetName);
-    const escapedAttackerName = StringUtils.escapeHTML(attackerName);
     const complicationHTML = complication ? this.generateComplicationHTML(complication, outcome) : '';
     const dismembermentHTML = dismemberment ? this.generateDismembermentHTML(dismemberment) : '';
 
-    // Compact collapsible design
+    // Simple box design - narrative text with regenerate button
     return `
-      <div class="pf2e-narrative-seed compact-card">
-        <div class="narrative-summary">
-          <span class="narrative-icon">⚔️</span>
-          <span class="narrative-brief">${escapedDescription}</span>
-          <button class="regenerate-icon" data-action="regenerate" title="Generate new narrative">🔄</button>
-          ${complicationHTML || dismembermentHTML ? '<button class="toggle-details" data-action="toggle-details" title="Show details">▼</button>' : ''}
+      <div class="pf2e-narrative-seed simple-box">
+        <div class="narrative-box">
+          <span class="narrative-text">${escapedDescription}</span>
+          <button class="regenerate-btn" title="Regenerate narrative">♻️</button>
         </div>
-        ${complicationHTML || dismembermentHTML ? `
-        <div class="narrative-details" style="display: none;">
-          ${complicationHTML}
-          ${dismembermentHTML}
-        </div>
-        ` : ''}
+        ${complicationHTML}
+        ${dismembermentHTML}
       </div>
     `;
   }
@@ -229,11 +217,26 @@ export class CombatFormatter {
       ? `${complication.duration} round${complication.duration > 1 ? 's' : ''}`
       : 'until recovered';
 
-    // Complication data is stored in message flags, no need to encode in HTML
+    // Determine mechanical effect description
+    let mechanicalEffect = '';
+    if (complication.conditionSlug) {
+      mechanicalEffect = `Applies ${complication.conditionSlug}`;
+      if (complication.conditionValue) {
+        mechanicalEffect += ` ${complication.conditionValue}`;
+      }
+      mechanicalEffect += ` for ${durationText}`;
+    } else {
+      mechanicalEffect = `${escapedDescription} (${durationText})`;
+    }
+
+    // Simple effect box with apply button
     return `
-      <div class="seed-complication">
-        <strong>⚠️ ${escapedName}</strong> (${durationText}): ${escapedDescription}
-        <button class="apply-effect-btn" data-action="apply-complication" title="Apply this effect">✨</button>
+      <div class="effect-box">
+        <div class="effect-info">
+          <div class="effect-name">⚠️ ${escapedName}</div>
+          <div class="effect-mechanical">${mechanicalEffect}</div>
+        </div>
+        <button class="apply-btn" data-action="apply-complication" title="Apply effect">Apply</button>
       </div>
     `;
   }
@@ -249,11 +252,32 @@ export class CombatFormatter {
     const escapedName = StringUtils.escapeHTML(dismemberment.name);
     const escapedDescription = StringUtils.escapeHTML(dismemberment.description);
 
-    // Dismemberment data is stored in message flags, no need to encode in HTML
+    // Build mechanical effect description
+    let mechanicalEffect = 'PERMANENT INJURY: ';
+    const effects = [];
+
+    if (dismemberment.conditionSlug) {
+      effects.push(`${dismemberment.conditionSlug}`);
+    }
+    if (dismemberment.penalties && dismemberment.penalties.length > 0) {
+      dismemberment.penalties.forEach(penalty => {
+        effects.push(`${penalty.value} to ${penalty.stat}`);
+      });
+    }
+    if (effects.length > 0) {
+      mechanicalEffect += effects.join(', ');
+    } else {
+      mechanicalEffect += escapedDescription;
+    }
+
+    // Simple effect box with apply button (red theme for permanent)
     return `
-      <div class="seed-dismemberment">
-        <strong>💀 PERMANENT: ${escapedName}</strong> - ${escapedDescription}
-        <button class="apply-effect-btn danger" data-action="apply-dismemberment" title="Apply permanent injury">💀</button>
+      <div class="effect-box permanent">
+        <div class="effect-info">
+          <div class="effect-name">💀 ${escapedName}</div>
+          <div class="effect-mechanical">${mechanicalEffect}</div>
+        </div>
+        <button class="apply-btn danger" data-action="apply-dismemberment" title="Apply permanent injury">Apply</button>
       </div>
     `;
   }

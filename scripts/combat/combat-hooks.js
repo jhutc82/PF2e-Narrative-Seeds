@@ -264,7 +264,7 @@ export class CombatHooks {
     }
 
     // User can see narrative, so attach event listeners to buttons
-    const regenerateButton = html.find('.regenerate-button');
+    const regenerateButton = html.find('.regenerate-btn');
     if (regenerateButton.length > 0) {
       regenerateButton.on('click', async (event) => {
         event.preventDefault();
