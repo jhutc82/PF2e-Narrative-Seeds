@@ -6,12 +6,12 @@
       "grammar": "standard"
     },
     {
-      "pattern": "${effect}! ${opening} ${attackerName}'s ${weaponType} ${verb} ${targetName}'s ${location} perfectly!",
+      "pattern": "${effect}! ${opening} My ${weaponType} ${verb} ${targetName}'s ${location} perfectly!",
       "weight": 20,
       "grammar": "dramatic-effect-first"
     },
     {
-      "pattern": "In a masterful strike, ${attackerName}'s ${weaponType} ${verb} ${targetName}'s ${location}! ${opening} ${effect}!",
+      "pattern": "In a masterful strike, my ${weaponType} ${verb} ${targetName}'s ${location}! ${opening} ${effect}!",
       "weight": 20,
       "grammar": "masterful"
     },
@@ -21,7 +21,7 @@
       "grammar": "location-dramatic"
     },
     {
-      "pattern": "${opening} ${effect}! ${attackerName} ${verb} ${targetName}'s ${location} with ${weaponType}!",
+      "pattern": "${opening} ${effect}! I ${verb} ${targetName}'s ${location} with ${weaponType}!",
       "weight": 15,
       "grammar": "attacker-focus"
     },
@@ -36,7 +36,7 @@
       "grammar": "excellent"
     },
     {
-      "pattern": "${attackerName} lands a powerful blow! ${opening} ${weaponType} ${verb} ${location}! ${effect}!",
+      "pattern": "I land a powerful blow! ${opening} ${weaponType} ${verb} ${location}! ${effect}!",
       "weight": 16,
       "grammar": "powerful"
     },
@@ -51,7 +51,7 @@
       "grammar": "perfect"
     },
     {
-      "pattern": "${attackerName} strikes with precision! ${opening} ${weaponType} ${verb} ${location}! ${effect}!",
+      "pattern": "I strike with precision! ${opening} ${weaponType} ${verb} ${location}! ${effect}!",
       "weight": 12,
       "grammar": "precise"
     },
@@ -68,7 +68,7 @@
       "grammar": "standard"
     },
     {
-      "pattern": "${effect} ${opening} ${attackerName}'s ${weaponType} ${verb} ${targetName}'s ${location}.",
+      "pattern": "${effect} ${opening} ${weaponType} ${verb} ${targetName}'s ${location}.",
       "weight": 18,
       "grammar": "effect-first"
     },
@@ -78,12 +78,12 @@
       "grammar": "location-first"
     },
     {
-      "pattern": "${attackerName} targets ${targetName}'s ${location}. ${opening} ${weaponType} ${verb}. ${effect}",
+      "pattern": "I target ${targetName}'s ${location}. ${opening} ${weaponType} ${verb}. ${effect}",
       "weight": 12,
       "grammar": "tactical"
     },
     {
-      "pattern": "${opening} ${effect} ${attackerName}'s strike finds ${targetName}'s ${location}.",
+      "pattern": "${opening} ${effect} my strike finds ${targetName}'s ${location}.",
       "weight": 15,
       "grammar": "delayed-location"
     },
@@ -93,7 +93,7 @@
       "grammar": "action-first"
     },
     {
-      "pattern": "${opening} ${attackerName} strikes! ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
+      "pattern": "${opening} I strike! ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
       "weight": 16,
       "grammar": "strike-announcement"
     },
@@ -103,7 +103,7 @@
       "grammar": "good-hit"
     },
     {
-      "pattern": "${effect}! ${opening} ${attackerName}'s ${weaponType} connects with ${targetName}'s ${location}.",
+      "pattern": "${effect}! ${opening} ${weaponType} connects with ${targetName}'s ${location}.",
       "weight": 13,
       "grammar": "connection"
     },
@@ -118,7 +118,7 @@
       "grammar": "solid"
     },
     {
-      "pattern": "${attackerName}'s attack lands! ${opening} ${weaponType} ${verb} ${location}. ${effect}",
+      "pattern": "My attack lands! ${opening} ${weaponType} ${verb} ${location}. ${effect}",
       "weight": 10,
       "grammar": "lands"
     }
@@ -130,17 +130,17 @@
       "grammar": "standard"
     },
     {
-      "pattern": "${opening} ${attackerName}'s strike misses ${targetName}!",
+      "pattern": "${opening} My strike misses ${targetName}!",
       "weight": 25,
       "grammar": "simple"
     },
     {
-      "pattern": "Targeting ${targetName}'s ${location}, ${attackerName}'s attack goes wide. ${opening}",
+      "pattern": "Targeting ${targetName}'s ${location}, my attack goes wide. ${opening}",
       "weight": 20,
       "grammar": "tactical-miss"
     },
     {
-      "pattern": "${attackerName}'s ${weaponType} fails to connect with ${targetName}. ${opening}",
+      "pattern": "${weaponType} fails to connect with ${targetName}. ${opening}",
       "weight": 15,
       "grammar": "weapon-miss"
     },
@@ -155,7 +155,7 @@
       "grammar": "evasion"
     },
     {
-      "pattern": "No contact! ${opening} ${attackerName}'s attack misses ${targetName}.",
+      "pattern": "No contact! ${opening} My attack misses ${targetName}.",
       "weight": 20,
       "grammar": "no-contact"
     },
@@ -170,12 +170,12 @@
       "grammar": "avoided"
     },
     {
-      "pattern": "${opening} ${attackerName} misjudges! ${weaponType} fails to hit ${targetName}.",
+      "pattern": "${opening} I misjudge! ${weaponType} fails to hit ${targetName}.",
       "weight": 14,
       "grammar": "misjudged"
     },
     {
-      "pattern": "Miss! ${opening} ${attackerName}'s attack goes wide of ${targetName}.",
+      "pattern": "Miss! ${opening} My attack goes wide of ${targetName}.",
       "weight": 12,
       "grammar": "miss-announcement"
     },
@@ -187,32 +187,32 @@
   ],
   "criticalFailure": [
     {
-      "pattern": "${opening} but ${attackerName}'s attack against ${targetName} goes completely astray!",
+      "pattern": "${opening} but my attack against ${targetName} goes completely astray!",
       "weight": 30,
       "grammar": "standard"
     },
     {
-      "pattern": "${opening} ${attackerName}'s ${weaponType} misses ${targetName} badly!",
+      "pattern": "${opening} ${weaponType} misses ${targetName} badly!",
       "weight": 25,
       "grammar": "bad-miss"
     },
     {
-      "pattern": "Disaster! ${opening} ${attackerName}'s strike fails!",
+      "pattern": "Disaster! ${opening} My strike fails!",
       "weight": 20,
       "grammar": "disaster"
     },
     {
-      "pattern": "${targetName} easily avoids ${attackerName}'s clumsy attack! ${opening}",
+      "pattern": "${targetName} easily avoids my clumsy attack! ${opening}",
       "weight": 15,
       "grammar": "clumsy"
     },
     {
-      "pattern": "${opening} ${attackerName} loses control! ${weaponType} swings wildly!",
+      "pattern": "${opening} I lose control! ${weaponType} swings wildly!",
       "weight": 10,
       "grammar": "loss-control"
     },
     {
-      "pattern": "Complete miss! ${opening} ${attackerName}'s ${weaponType} misses ${targetName} by a wide margin!",
+      "pattern": "Complete miss! ${opening} ${weaponType} misses ${targetName} by a wide margin!",
       "weight": 22,
       "grammar": "complete-miss"
     },
@@ -222,7 +222,7 @@
       "grammar": "terrible"
     },
     {
-      "pattern": "${attackerName} fumbles the attack! ${opening} ${weaponType} misses ${targetName} badly!",
+      "pattern": "I fumble the attack! ${opening} ${weaponType} misses ${targetName} badly!",
       "weight": 16,
       "grammar": "fumble"
     },
@@ -232,17 +232,17 @@
       "grammar": "hopeless"
     },
     {
-      "pattern": "Epic failure! ${opening} ${attackerName}'s attack is nowhere close to ${targetName}!",
+      "pattern": "Epic failure! ${opening} My attack is nowhere close to ${targetName}!",
       "weight": 12,
       "grammar": "epic-fail"
     },
     {
-      "pattern": "${opening} ${attackerName} stumbles! ${weaponType} misses ${targetName} completely!",
+      "pattern": "${opening} I stumble! ${weaponType} misses ${targetName} completely!",
       "weight": 10,
       "grammar": "stumble"
     },
     {
-      "pattern": "${targetName} barely notices! ${opening} ${attackerName}'s ${weaponType} swings harmlessly past!",
+      "pattern": "${targetName} barely notices! ${opening} ${weaponType} swings harmlessly past!",
       "weight": 8,
       "grammar": "barely-notice"
     }
