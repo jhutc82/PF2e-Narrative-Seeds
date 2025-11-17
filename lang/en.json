@@ -55,17 +55,9 @@
         "name": "Show Detected Anatomy",
         "hint": "Display detected creature anatomy type in output"
       },
-      "enableSpells": {
-        "name": "Enable Spell Narration (Coming Soon)",
-        "hint": "Generate descriptions for spell effects - Phase 2 feature"
-      },
       "enableSkills": {
-        "name": "Enable Skill Check Narration (Coming Soon)",
-        "hint": "Generate descriptions for skill checks - Phase 3 feature"
-      },
-      "enableExploration": {
-        "name": "Enable Exploration Narration (Coming Soon)",
-        "hint": "Generate descriptions for exploration activities - Phase 4 feature"
+        "name": "Enable Skill Action Narration",
+        "hint": "Generate descriptions for skill actions in encounter mode"
       }
     },
 
