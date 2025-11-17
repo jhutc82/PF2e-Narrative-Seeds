@@ -133,6 +133,136 @@
           ]
         }
       }
+    },
+
+    "titan-wrestler": {
+      "displayName": "Grapple (Titan Wrestler)",
+      "feats": ["titan-wrestler"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You use leverage to lock down the larger foe!",
+            "Perfect technique overcomes their size!",
+            "You wrestle them despite the size difference!",
+            "Clever positioning secures the hold!",
+            "You grapple the giant!"
+          ],
+          "success": [
+            "You grab them using leverage.",
+            "Technique overcomes size.",
+            "You secure a clever hold.",
+            "You grapple the larger foe.",
+            "Your skill beats their size."
+          ],
+          "failure": [
+            "Their size defeats your technique.",
+            "You can't overcome the size difference.",
+            "They're too large to hold.",
+            "Your leverage isn't enough.",
+            "Their mass overwhelms you."
+          ],
+          "criticalFailure": [
+            "Their size overwhelms you completely!",
+            "You're tossed aside!",
+            "Their mass crushes your attempt!",
+            "You're overpowered!",
+            "Their size dominates!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You exploit leverage perfectly, locking down the larger foe with masterful technique!",
+            "Despite their size advantage, your skill finds the perfect hold!",
+            "You use their mass against them, securing a devastating lock!",
+            "Your clever positioning overcomes the size difference completely!",
+            "You wrestle the giant with expert leverage - they're immobilized!",
+            "Your technique triumphs over their size - they can't escape your hold!",
+            "You find the perfect angle, locking them despite their advantage!",
+            "Your leverage-based grapple renders their size irrelevant!",
+            "You secure a brilliant hold that overcomes the size mismatch!",
+            "Your wrestling expertise lets you dominate the larger foe!"
+          ],
+          "success": [
+            "You use clever technique to grapple the larger opponent.",
+            "Your leverage finds purchase despite their size advantage.",
+            "You manage to restrain them through skillful positioning.",
+            "Your wrestling expertise overcomes the size difference.",
+            "You secure a hold using leverage instead of raw strength.",
+            "Your technique allows you to grapple the bigger foe.",
+            "You find the right angle to control the larger opponent.",
+            "Your skill makes up for the size disadvantage.",
+            "You successfully grapple them with clever technique.",
+            "Your leverage-based hold works despite their mass."
+          ],
+          "failure": [
+            "Their size advantage proves too much for your technique.",
+            "You can't find the leverage needed to grapple them.",
+            "The size difference defeats your clever positioning.",
+            "Your technique can't overcome their sheer mass.",
+            "Their size makes it impossible to secure a hold.",
+            "You can't get the leverage you need.",
+            "The size mismatch is too great to overcome.",
+            "Your wrestling skill isn't enough against their bulk.",
+            "Their mass defeats your technical approach.",
+            "You can't secure a hold on the larger foe."
+          ],
+          "criticalFailure": [
+            "You try to use leverage but their size overwhelms you completely!",
+            "Their mass crushes your technique - you're thrown aside!",
+            "Your clever positioning fails and their size dominates!",
+            "You're overpowered by their sheer bulk!",
+            "Their advantage is too much - you're left vulnerable!",
+            "You lose all leverage and they overpower you!",
+            "Their size defeats you decisively!",
+            "You're tossed away like a ragdoll!",
+            "Your technique crumbles against their mass!",
+            "Their bulk crushes your grappling attempt!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Size doesn't matter - technique does. You dart in low, finding the perfect angle on the larger foe. Your hands lock onto a joint, and you use their own mass as leverage. With a sharp twist and expert positioning, you force them into a lock they can't escape despite their size advantage. Your wrestling mastery has overcome physics itself!",
+            "You demonstrate perfect grappling technique against a larger opponent. Instead of matching strength against strength, you use leverage and positioning. Your grip finds a weak point, and you apply pressure at exactly the right angle. Their size becomes irrelevant as your skill forces them into complete submission!",
+            "Like a legendary wrestler felling a giant, you use superior technique to overcome the size disadvantage. You find their center of gravity, manipulate their balance, and lock them in a hold that defies their mass advantage. They're completely restrained by pure skill!"
+          ],
+          "success": [
+            "You employ clever wrestling technique to grapple the larger foe. Using leverage instead of matching their strength, you manage to secure a hold. It takes skill and positioning, but you succeed in restraining them despite the size difference.",
+            "Your hands find purchase on the larger opponent, and you use precise leverage to control them. The size difference makes it challenging, but your technique is sound enough to maintain a restricting hold.",
+            "You wrestle the bigger foe with skillful positioning. By exploiting leverage points and using their mass against them, you manage to secure a grapple that overcomes the size disadvantage."
+          ],
+          "failure": [
+            "You try to use leverage and technique to overcome their size, but it's simply not enough. They're too large, too massive for your clever positioning to make a difference. Your grapple attempt fails against their sheer bulk.",
+            "Despite your best efforts at technical wrestling, the size difference is too great. You can't find the leverage you need, can't secure the right angle. Their mass defeats your skill.",
+            "You attempt to use positioning and leverage to grapple the larger foe, but physics works against you. Their size advantage is simply too much to overcome with technique alone."
+          ],
+          "criticalFailure": [
+            "Your attempt to wrestle the larger foe backfires catastrophically. You move in for a leverage-based hold, but their mass overwhelms your technique completely. They shrug off your attempt with ease, and the failed grapple leaves you badly positioned and vulnerable!",
+            "You try to use clever positioning against the size disadvantage, but it goes horribly wrong. Their bulk crushes your technique, and you find yourself overmatched and off-balance. Your wrestling skill has failed you completely!",
+            "Your technical approach is sound, but their sheer size defeats it utterly. Not only can't you secure a hold, but your attempt leaves you exposed and at their mercy. The size difference has overwhelmed your expertise!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is the moment where skill defeats raw size. You move with the precision of a master wrestler, reading the larger foe's balance and mass. You dart in low, under their reach, and your hands find the perfect leverage point - a joint, a limb, a position where physics bends to your will. With explosive technique, you twist and pull, using their own weight as the weapon. They try to resist, but you've positioned yourself perfectly. Their size becomes irrelevant, even disadvantageous. You wrench them into a lock that's simultaneously elegant and devastating. They can't move. They can barely breathe. And they're learning the hard lesson that in wrestling, technique trumps size every time. You've just grappled a giant!",
+            "Like David felling Goliath, you demonstrate the ultimate triumph of skill over size. You don't try to match their strength - that would be foolish. Instead, you use their mass against them. Your hands find weak points, joints that bend regardless of how big the creature is. You apply leverage at precise angles, using physics itself as your ally. With perfect positioning and expert technique, you force the larger foe into a submission hold. Their struggles only tighten your control - every movement you make is calculated to maximize mechanical advantage. They're bigger, stronger, more massive. But you're better. And your wrestling prowess has rendered their size advantage completely meaningless!"
+          ],
+          "success": [
+            "You employ solid wrestling technique against the size disadvantage. Moving with careful precision, you find leverage points that let you control the larger foe. It's not easy - their mass is a constant challenge - but your skill is enough to secure a restraining hold.",
+            "Your hands work with practiced efficiency, seeking and finding the angles that let technique overcome size. You manage to grapple the larger opponent through clever positioning and proper leverage application. The hold is functional, if not perfect."
+          ],
+          "failure": [
+            "You move in with sound technique, seeking the leverage points that should let you overcome the size disadvantage. But today, physics simply isn't cooperating. Their mass is too great, their bulk too overwhelming. Despite your best wrestling skills, you can't secure the hold. The size difference has defeated you.",
+            "Your technical approach is flawless in theory, but reality proves unkind. The larger foe's sheer size creates challenges your skill can't quite overcome. You can't find the right leverage, can't manipulate their mass effectively. Your grapple attempt fails despite your expertise."
+          ],
+          "criticalFailure": [
+            "You move in with confidence, certain your wrestling technique can overcome the size disadvantage. You're wrong. Catastrophically wrong. Your attempt to find leverage is met with overwhelming mass. They don't just resist - they overpower you completely. Your clever positioning becomes awkward vulnerability. Your technical precision becomes clumsy failure. You're not just failing to grapple them - you're being dominated by them. Their size advantage, which you thought to overcome with skill, instead crushes your technique entirely. You're left exposed, off-balance, and thoroughly defeated!",
+            "Your wrestling expertise betrays you in the worst possible way. You commit to a leverage-based hold that should work, that would work against a same-sized opponent. But against this larger foe, it's a disaster. Their mass overwhelms your positioning. Their bulk defeats your technique. Not only do you fail to secure a hold, but your attempt leaves you in a terrible position - off-balance, exposed, completely at their mercy. The size disadvantage has won decisively!"
+          ]
+        }
+      }
     }
   }
 }

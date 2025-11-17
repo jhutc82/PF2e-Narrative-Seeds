@@ -133,6 +133,136 @@
           ]
         }
       }
+    },
+
+    "titan-wrestler": {
+      "displayName": "Trip (Titan Wrestler)",
+      "feats": ["titan-wrestler"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You topple the giant with clever leverage!",
+            "Perfect technique fells the larger foe!",
+            "You trip them despite their size!",
+            "The giant crashes down!",
+            "Skill over size - they fall!"
+          ],
+          "success": [
+            "You trip the larger foe.",
+            "Technique overcomes their mass.",
+            "You knock down the giant.",
+            "They fall despite their size.",
+            "Your skill trips them."
+          ],
+          "failure": [
+            "Their size keeps them upright.",
+            "You can't topple their mass.",
+            "They're too large to trip.",
+            "Their bulk defeats your technique.",
+            "They stay standing."
+          ],
+          "criticalFailure": [
+            "Their mass overwhelms you!",
+            "You're knocked down instead!",
+            "Their size defeats you!",
+            "You stumble under their bulk!",
+            "They're immovable!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You use perfect leverage to topple the larger foe - they crash down hard!",
+            "Your technique finds their center of gravity - the giant falls!",
+            "Despite their size, your skillful trip sends them sprawling!",
+            "You exploit their mass perfectly - they go down with tremendous impact!",
+            "Your leverage-based trip fells the larger foe completely!",
+            "You use their own weight against them - they crash to the ground!",
+            "Perfect positioning lets you trip the giant with devastating effect!",
+            "Your expert technique overcomes their size - they fall hard!",
+            "You topple the larger foe with masterful leverage!",
+            "Your skillful trip sends the giant crashing down!"
+          ],
+          "success": [
+            "You use clever technique to trip the larger opponent.",
+            "Your leverage finds their center of gravity - they fall.",
+            "You manage to knock down the bigger foe with skilled positioning.",
+            "Your trip overcomes the size difference successfully.",
+            "You topple them using technique instead of strength.",
+            "Your leverage-based sweep brings down the larger foe.",
+            "You trip the giant through skillful execution.",
+            "Your technique makes up for the size disadvantage.",
+            "You successfully knock down the larger opponent.",
+            "Your clever positioning trips them despite their mass."
+          ],
+          "failure": [
+            "Their size advantage keeps them upright despite your technique.",
+            "You can't find the leverage to topple their mass.",
+            "The size difference defeats your trip attempt.",
+            "Their bulk resists your skillful sweep.",
+            "You can't overcome their size to trip them.",
+            "Their mass is too great for your leverage to work.",
+            "The larger foe maintains balance despite your effort.",
+            "Your technique can't topple their sheer bulk.",
+            "They're too large for your trip to work.",
+            "Their size defeats your positioning."
+          ],
+          "criticalFailure": [
+            "You try to trip them but their mass overwhelms you completely!",
+            "Their size advantage crushes your technique - you stumble!",
+            "You're thrown off balance by their immovable bulk!",
+            "Their mass defeats you and you nearly fall yourself!",
+            "You're overpowered by their size - you stumble badly!",
+            "Their bulk doesn't budge and you lose your footing!",
+            "You can't move their mass and you're left vulnerable!",
+            "Their size dominates - you're knocked off balance!",
+            "You stumble against their immovable form!",
+            "Their mass crushes your trip attempt and you falter!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You read the larger foe's balance with expert precision. Despite their size, you find their center of gravity - that crucial point where mass becomes liability. Your sweep targets their weight-bearing leg at the perfect moment. With a sharp pull and expert positioning, you use their own mass against them. Physics does the rest. The giant topples with tremendous force, their size making the fall even more devastating!",
+            "Size doesn't matter when you understand leverage. You dart in low, positioning yourself at the perfect angle. Your leg hooks behind theirs as you drive forward against their upper body. The combination exploits their high center of gravity beautifully. They try to resist, but their own weight betrays them. They crash to the ground with bone-jarring impact!",
+            "Like a master throwing a giant in martial arts, you use technique to overcome size. You find the weak point in their stance, the moment of weight transfer. Your trip is perfectly timed and positioned. Their mass, which should be an advantage, becomes their downfall. They topple with devastating force, utterly unable to stop the fall!"
+          ],
+          "success": [
+            "You employ skillful technique to trip the larger foe. Using leverage and timing instead of matching their mass, you manage to sweep their leg. They lose balance and fall to the ground despite the size difference.",
+            "Your trip targets their center of gravity with clever positioning. The size disadvantage makes it challenging, but your technique is sound. You manage to bring them down, proving skill can overcome size.",
+            "You use leverage-based technique to topple the bigger opponent. By exploiting their weight distribution and attacking at the right moment, you successfully trip them to the ground."
+          ],
+          "failure": [
+            "You attempt to trip the larger foe using proper technique, but their sheer mass defeats your effort. You find the right angle, execute properly, but they're simply too large to topple. Their size advantage proves insurmountable.",
+            "Despite clever positioning and good leverage, you can't overcome the size difference. The larger foe's bulk keeps them upright. Your trip, technically sound, simply lacks the force needed against their mass.",
+            "You try to use their weight against them, but physics doesn't cooperate today. Their size is too great, their balance too solid. Your skilled attempt to trip them fails."
+          ],
+          "criticalFailure": [
+            "You move in for a leverage-based trip, but their mass is far more than you anticipated. When you attempt to sweep their leg, it's like trying to move a mountain. Not only don't they budge, but the collision with their immovable bulk throws you completely off balance. You stumble badly, nearly falling yourself!",
+            "Your technical approach to tripping the larger foe backfires catastrophically. You position yourself to exploit their center of gravity, but you've miscalculated their weight distribution. When you execute the sweep, their mass simply overwhelms your technique. You're the one who ends up off-balance and vulnerable!",
+            "You attempt to use clever leverage to topple the giant, but their size defeats you utterly. Your sweep connects with their leg, but they don't even wobble. The failed attempt leaves you overextended and exposed, your technique crushed by raw physics!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is David versus Goliath played out in brutal physics. You study the larger foe with the calculating eye of a master, seeing not their intimidating size but their exploitable center of gravity. You move with sudden, explosive precision - darting in low, under their reach. Your leg sweeps behind theirs at the exact moment their weight shifts. Simultaneously, you drive upward against their chest. The leverage is perfect, the timing flawless. For one suspended moment, the giant teeters, their size suddenly becoming their enemy. Then gravity takes over with merciless authority. They don't just fall - they crash, their mass making the impact tremendous. The ground shakes. Dust rises. And they lie there prone and stunned, felled not by strength but by superior technique!",
+            "Like a legendary martial artist toppling a giant, you demonstrate the ultimate triumph of skill over size. You don't try to overpower them - that would be madness. Instead, you use physics as your weapon. You find the weakness in their stance, the moment of imbalance inherent in their size. Your sweep is perfectly positioned, targeting their weight-bearing leg with surgical precision. Your upper body push hits their high center of gravity at the exact right angle. The combination is inescapable. Their own mass betrays them. They topple with catastrophic force, arms windmilling uselessly, and slam into the ground hard enough to knock the breath from their lungs. You've just proven that in combat, technique beats size every time!"
+          ],
+          "success": [
+            "You employ solid technique to trip the larger opponent. Moving with careful precision, you find the angle that lets you exploit their weight distribution. It's not easy - their mass resists your efforts - but your skill prevails. They lose balance and fall to the ground, your leverage overcoming their size advantage.",
+            "Your trip uses proper positioning to overcome the size disadvantage. You target their center of gravity at the right moment, applying force where it matters. The larger foe topples to the ground, brought down by technique rather than brute strength."
+          ],
+          "failure": [
+            "You move in with sound technique, seeking the leverage point that should let you topple the larger foe. But today, size simply triumphs over skill. Their mass is too great, their balance too stable. Despite your best wrestling technique, they remain standing, immovable as a mountain. Your trip has failed.",
+            "Your technical approach is textbook perfect - positioning, timing, leverage all correct. But reality proves unkind. The larger foe's sheer bulk creates challenges your skill simply can't overcome. You can't generate enough force to move their mass. They stay upright while your trip attempt comes to nothing."
+          ],
+          "criticalFailure": [
+            "You commit to the trip with complete confidence in your technique. You've studied leverage, practiced positioning, and you're certain you can topple this larger foe. You're catastrophically wrong. You move in, execute your sweep with perfect form, and achieve... nothing. The larger foe doesn't just stay standing - they barely seem to notice your attempt. Their mass is so overwhelming that your technique might as well be a gentle breeze. Worse, your committed position leaves you off-balance. When they shift their weight - not even deliberately, just adjusting their stance - the movement knocks you completely off your footing. You stumble badly, nearly falling, your failed trip leaving you exposed and vulnerable. Size has defeated skill decisively!",
+            "Your attempt to trip the giant using leverage and technique becomes a masterclass in failure. You position yourself perfectly, timing your sweep with precision. But when you execute, reality intervenes brutally. Their mass is simply too great. Your sweep connects with their leg and stops dead, like you've tried to sweep a tree trunk. The jarring stop throws off your own balance. You stumble, overextended and awkward, while they remain standing and stable. Your wrestling expertise has been overwhelmed by simple physics, and you're left in a terrible position!"
+          ]
+        }
+      }
     }
   }
 }
