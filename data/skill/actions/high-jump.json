@@ -263,6 +263,136 @@
           ]
         }
       }
+    },
+
+    "powerful-leap": {
+      "displayName": "High Jump (Powerful Leap)",
+      "feats": ["powerful-leap"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You soar incredibly high!",
+            "You leap far beyond normal!",
+            "You vault skyward powerfully!",
+            "You jump much higher than expected!",
+            "You rocket upward!"
+          ],
+          "success": [
+            "You jump higher than normal.",
+            "You leap with extra height.",
+            "You vault up powerfully.",
+            "You clear it with power.",
+            "You jump exceptionally high."
+          ],
+          "failure": [
+            "Even your power isn't enough.",
+            "You still can't reach it.",
+            "The height defeats you.",
+            "You fall short.",
+            "Not high enough."
+          ],
+          "criticalFailure": [
+            "You overextend!",
+            "Too much power - you stumble!",
+            "You lose control!",
+            "Your power backfires!",
+            "You trip badly!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You launch yourself skyward with tremendous power, soaring far higher than normal!",
+            "Your powerful leap sends you vaulting upward to exceptional height!",
+            "You jump with such explosive force you fly well beyond the required height!",
+            "Your legs drive with incredible strength - you rocket upward impressively high!",
+            "You vault skyward with remarkable power, clearing the obstacle with meters to spare!",
+            "Your powerful jump propels you to exceptional altitude!",
+            "You leap with explosive strength, soaring higher than most could dream!",
+            "Your powerful technique sends you flying upward spectacularly!",
+            "You vault to impressive height with raw power!",
+            "Your leap is phenomenal - you soar far higher than necessary!"
+          ],
+          "success": [
+            "You jump higher than normal, clearing the obstacle with your powerful leap.",
+            "Your enhanced jumping strength lets you vault higher successfully.",
+            "You leap with impressive power, reaching greater height than usual.",
+            "Your powerful jump succeeds, vaulting you higher than standard.",
+            "You successfully use your enhanced leg power to jump higher.",
+            "Your powerful leap carries you to the needed height and beyond.",
+            "You vault upward with extra power, clearing the obstacle.",
+            "Your enhanced jumping clears the height successfully.",
+            "You leap with greater power than normal, succeeding.",
+            "Your powerful technique vaults you higher than usual."
+          ],
+          "failure": [
+            "Even with your powerful jumping ability, you can't reach that height.",
+            "Your enhanced leap falls short of the required height.",
+            "Despite your jumping power, you don't get high enough.",
+            "Your powerful jump isn't sufficient for this obstacle.",
+            "Even jumping higher than normal, you still can't make it.",
+            "Your powerful leap comes up short of the needed height.",
+            "Despite extra power, you fail to clear the obstacle.",
+            "Your enhanced jump isn't enough for this height.",
+            "Even your strong legs can't vault you that high.",
+            "Your powerful leap fails to reach the required height."
+          ],
+          "criticalFailure": [
+            "You put too much power into the jump and lose control on takeoff!",
+            "Your explosive leap is poorly timed - you stumble badly!",
+            "You overcommit to the powerful jump and nearly fall!",
+            "Your aggressive jumping technique backfires - you trip!",
+            "You launch too powerfully and lose your balance!",
+            "Your forceful takeoff goes wrong - you stumble!",
+            "You put excessive power into the jump and fail catastrophically!",
+            "Your powerful jump is mistimed - you nearly injure yourself!",
+            "You overextend with the power and stumble awkwardly!",
+            "Your aggressive leap fails - you lose your footing!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You channel tremendous power through your legs as you launch upward. This isn't a normal jump - you've trained to extract every ounce of explosive force from your muscles. Your legs drive like hydraulic pistons, propelling you skyward with exceptional force. You soar upward, easily clearing the obstacle with height to spare. Your powerful leap makes the difficult jump look trivial!",
+            "With explosive athletic power, you vault far higher than normal jumpers. Your technique amplifies your natural strength - the approach is perfect, the plant optimal, the drive upward phenomenal. You rocket into the air, reaching altitude that showcases your enhanced jumping ability!",
+            "Your powerful leap is a thing of beauty. Muscles that have been trained specifically for explosive jumping unleash their full potential. You don't just clear the height - you dominate it, soaring upward with power that leaves observers impressed!"
+          ],
+          "success": [
+            "You employ your enhanced jumping strength to vault higher than normal. The extra power in your legs allows you to reach greater altitude, clearing the obstacle successfully with your powerful technique.",
+            "Your powerful leap works well. You generate more upward force than standard jumping, vaulting to the required height with your enhanced leg strength.",
+            "You successfully use your trained jumping power to reach greater height. Your powerful technique carries you over the obstacle."
+          ],
+          "failure": [
+            "Despite your powerful jumping ability, the height proves beyond your reach. You vault higher than most people could, but it's still not enough for this particular obstacle. Your powerful leap falls short.",
+            "You unleash your full jumping power, driving upward with trained strength. But even your enhanced ability can't overcome this challenge. You jump impressively high, yet still fail to clear the obstacle.",
+            "Your powerful leap technique is sound, but the required height exceeds even your enhanced capabilities. You come up short despite jumping higher than normal."
+          ],
+          "criticalFailure": [
+            "You commit your full explosive power to the jump, but something goes catastrophically wrong. Maybe you misjudge the timing, maybe you plant wrong, but the tremendous force you generate works against you. Instead of controlled power, you get chaotic stumbling. Your powerful leap becomes a powerful failure!",
+            "Your attempt to channel maximum jumping power backfires. You drive so hard with your legs that your technique breaks down. Too much power, not enough control - you stumble badly on takeoff and barely avoid injury!",
+            "You overcommit to the powerful leap, generating more force than your technique can properly channel. The result is loss of control - you stumble, nearly fall, and end up looking foolish despite your strength!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is what trained explosive power looks like. You approach the jump with muscles that have been specifically conditioned for maximum vertical output. Every fiber in your legs has been trained to generate force. When you plant and drive, it's like a rocket launching. The power is phenomenal - your legs extend with such violence that you're catapulted skyward. You don't just jump - you fly. The height you achieve is spectacular, far beyond normal human jumping capability. You soar past the obstacle with multiple meters to spare, your powerful leap a demonstration of what dedicated athletic training can achieve. It's not just impressive - it's awe-inspiring!",
+            "Your legs are weapons of explosive power, trained through countless repetitions to maximize vertical output. When you unleash that training, the result is spectacular. You compress into your approach, every muscle coiling like a spring under tremendous tension. Then you release. The explosion is tremendous. Your legs drive with such force you can feel the impact reverberating through your entire body. You rocket skyward, propelled by power that most people simply don't possess. The height you achieve is phenomenal. You clear the obstacle with such ease that spectators might question whether you're even fully human. This is powerful leaping perfected!"
+          ],
+          "success": [
+            "You employ your trained jumping power to vault higher than standard technique allows. Your enhanced leg strength generates extra upward force, carrying you to the required height successfully through superior athletic capability.",
+            "Your powerful leap works efficiently. You generate more force than normal jumpers, translating that power into additional altitude. You clear the obstacle through enhanced strength."
+          ],
+          "failure": [
+            "You unleash your maximum jumping power, legs driving with trained explosive force. You vault higher than most people ever could. But sometimes, even exceptional athletic ability meets its limits. This height is beyond even your powerful jumping capability. You come up short despite your best effort and enhanced strength.",
+            "Your powerful leap is executed perfectly - technique sound, power maximum. But the required height simply exceeds what your muscles can achieve. You jump impressively high, far beyond normal capability, yet still fail to clear this particular obstacle. Your powerful leap has met an insurmountable challenge."
+          ],
+          "criticalFailure": [
+            "You commit to maximum power output, every trained muscle ready to explode upward with tremendous force. But in the execution, something fails catastrophically. Perhaps you misjudge timing by a fraction of a second. Perhaps your plant foot finds unexpected ground. Perhaps you simply overcommit. Whatever the specific failure, the result is spectacular in the worst way. All that explosive power, which should send you skyward, instead sends you stumbling. Your legs generate tremendous force but it's channeled wrong. You lurch, balance lost, power working against you instead of for you. You barely get airborne before control is lost completely. You have to scramble to avoid a dangerous fall, your powerful leap transformed into powerful failure!",
+            "Your powerful jumping technique requires perfect execution to channel all that explosive force correctly. You attempt it with confidence, ready to unleash maximum power. But the execution breaks down. Too much power, wrong timing, failed technique - the result is catastrophic. Instead of controlled explosion upward, you get chaotic stumbling. Your legs drive with tremendous force, but that force is misdirected. You stumble badly, nearly fall, and end up demonstrating that raw power without proper control is worse than useless. It's dangerous!"
+          ]
+        }
+      }
     }
   }
 }
