@@ -1,0 +1,138 @@
+{
+  "action": "disable-device",
+  "actionName": "Disable Device",
+  "skill": "thievery",
+  "traits": ["manipulate"],
+  "description": "You attempt to disable a trap, sabotage a mechanism, or otherwise render a device inoperative",
+
+  "variants": {
+    "default": {
+      "displayName": "Disable Device",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You disable it perfectly!",
+            "Expertly disarmed!",
+            "The device is neutralized!",
+            "Perfect sabotage!",
+            "You render it harmless!"
+          ],
+          "success": [
+            "You disable the device.",
+            "You disarm it successfully.",
+            "The device is disabled.",
+            "You neutralize it.",
+            "You render it inoperative."
+          ],
+          "failure": [
+            "The device resists.",
+            "You can't disable it.",
+            "Your attempt fails.",
+            "The device stays active.",
+            "You can't disarm it."
+          ],
+          "criticalFailure": [
+            "You trigger it!",
+            "The device activates!",
+            "You set it off!",
+            "It triggers immediately!",
+            "You accidentally activate it!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You disable the device with masterful precision - perfectly neutralized!",
+            "Your expert work renders the device completely harmless!",
+            "You disarm it flawlessly - the device is perfectly safe now!",
+            "Your technique is perfect - the device is thoroughly disabled!",
+            "You neutralize it expertly - not even a trace it was tampered with!",
+            "Your masterful sabotage renders the device completely inoperative!",
+            "You disable it so cleanly it can even be repaired later!",
+            "Your expert touch disarms the device perfectly!",
+            "You render the device harmless with flawless technique!",
+            "Your precise work neutralizes the device completely!"
+          ],
+          "success": [
+            "You successfully disable the device.",
+            "You manage to disarm it safely.",
+            "Your careful work renders the device inoperative.",
+            "You neutralize the device successfully.",
+            "You disable it after careful manipulation.",
+            "You successfully render the device harmless.",
+            "You disarm it with adequate technique.",
+            "Your work successfully disables the device.",
+            "You manage to neutralize the mechanism.",
+            "You successfully sabotage the device."
+          ],
+          "failure": [
+            "The device resists your attempts to disable it.",
+            "You can't figure out how to disarm it safely.",
+            "Your attempt to disable it fails.",
+            "The device's mechanism defeats your efforts.",
+            "You can't neutralize the device.",
+            "Your disabling attempt is unsuccessful.",
+            "The device remains active despite your efforts.",
+            "You fail to disable the mechanism.",
+            "Your sabotage attempt doesn't work.",
+            "You can't render the device inoperative."
+          ],
+          "criticalFailure": [
+            "Your clumsy work triggers the device immediately!",
+            "You accidentally set off the device!",
+            "Your fumbling activates the device prematurely!",
+            "You trigger it while trying to disable it!",
+            "Your failed attempt causes the device to activate!",
+            "You set off the device while trying to disarm it!",
+            "Your careless work triggers the mechanism!",
+            "You accidentally activate the device!",
+            "Your botched sabotage sets it off!",
+            "You trigger it in the worst possible way!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You examine the device with expert eyes, quickly identifying its key components and vulnerabilities. Your hands work with practiced precision, knowing exactly which parts to manipulate and in what order. You carefully disable the trigger mechanism, neutralize the active components, and render the device completely inoperative. Your work is so clean that the device could even be repaired later if needed. Perfect execution - the device is thoroughly disabled!",
+            "Your expertise with mechanisms shines through. You understand this device's design intuitively, seeing the relationships between components. Your tools work with surgical precision, disabling key elements in the perfect sequence. The device surrenders to your skill, becoming completely harmless. You've neutralized it so expertly that there's no risk of accidental activation!",
+            "You approach the device with confidence born of experience. Your analysis is quick and accurate, your technique flawless. Component by component, you safely disable the mechanism until it's rendered completely inoperative. Masterful work that leaves the device thoroughly neutralized!"
+          ],
+          "success": [
+            "You work carefully at the device, identifying the critical components and disabling them methodically. It takes concentration and careful manipulation, but you succeed in rendering the device inoperative. It's disabled, though perhaps not as cleanly as an expert would manage.",
+            "Your hands work carefully at the device's mechanism, disabling the key components. After focused effort, you successfully neutralize it. The device is no longer functional.",
+            "You manage to disable the device through careful, methodical work. Your technique is adequate to the task, and the device is successfully rendered harmless."
+          ],
+          "failure": [
+            "You examine the device and attempt to disable it, but you simply can't figure out the right approach. Maybe it's more complex than you anticipated, maybe you lack the right tools, or maybe you're just having bad luck. Whatever the reason, despite your efforts, the device remains active. You've failed to disable it.",
+            "Your attempts to disarm the device prove unsuccessful. You work at the mechanism, trying various approaches, but nothing works. The device resists all your efforts and remains functional. You can't disable it.",
+            "You try to neutralize the device, but you can't find the right method. The mechanism is too complex or too well-designed for your current skill level. Despite extended attempts, the device remains active."
+          ],
+          "criticalFailure": [
+            "Disaster! You're working at the device, trying to disable a component, when something goes catastrophically wrong. Maybe you cut the wrong wire, maybe you trigger a failsafe, or maybe you simply apply pressure in the wrong place. Whatever the cause, the result is immediate and undeniable - the device activates! Your attempt to disable it has instead triggered it. Complete failure!",
+            "Your disabling attempt goes horribly wrong. You're manipulating what you think is the right component when you feel or hear something that makes your blood run cold - the device is activating! Your clumsy sabotage has triggered the very mechanism you were trying to disable. It's the worst possible outcome!",
+            "Everything goes wrong at once. Your tools slip, or your understanding of the mechanism is flawed, or simple bad luck intervenes. Instead of disabling the device, you accidentally activate it! Your failed attempt has triggered the device prematurely. Catastrophic failure!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You crouch before the device, examining it with the practiced eye of an expert. Your mind catalogs components, traces connections, identifies the key vulnerabilities. This is a puzzle, and you speak the language of mechanisms fluently. Your tools emerge smoothly - precise instruments for delicate work. You begin with the trigger assembly, carefully isolating it from the active components. Each movement is deliberate and controlled, your hands steady as stone. You disconnect the power source next, ensuring no accidental activation. Component by component, connection by connection, you methodically dismantle the device's ability to function. The work is almost meditative - find the weakness, exploit it, move to the next. Finally, you remove the last critical element, and the device is rendered completely inoperative. You sit back with quiet satisfaction. The device that was once dangerous is now as harmless as a child's toy. You've disabled it so thoroughly and cleanly it could even be reassembled and repaired later. This is expertise at its finest - the kind of work that makes it look easy!",
+            "Like a bomb disposal expert in the final tense moments, you approach the device with focused calm. Your training takes over, your hands moving with practiced precision. You identify the critical components almost instantly - experience speaking through intuition. Your tools work with surgical accuracy, disabling elements in the perfect sequence to ensure safety. First the trigger, isolated and neutralized. Then the active components, carefully disconnected. Finally, the failsafes, bypassed with expert technique. Each step is executed flawlessly. Within minutes, what was once a functional - and potentially dangerous - device is now completely harmless. You've rendered it so thoroughly inoperative that it couldn't activate even if someone tried. Perfect work, executed with the confidence of a master!"
+          ],
+          "success": [
+            "You study the device carefully, trying to understand its construction and function. After analysis, you begin the delicate work of disabling it. Your technique is solid, your approach methodical. It takes time and concentration, but eventually you succeed in rendering the device inoperative. It's not the most elegant disabling you've ever performed, but it works. The device is neutralized.",
+            "You work at the device with careful attention, disabling components one by one. Your approach is cautious and systematic. After focused effort, you manage to render the device harmless. Mission accomplished, through patient and competent work."
+          ],
+          "failure": [
+            "You examine the device, trying to understand how to disable it safely. You probe the mechanism, test different approaches, attempt various techniques. But nothing works. Either the device is too sophisticated for your current skill level, or you're missing some critical understanding of its function. Despite your best efforts, the device remains active and functional. You've failed to disable it.",
+            "Your attempts to neutralize the device prove fruitless. You work at it with all the skill you possess, but the mechanism defeats you. Perhaps it's too complex, perhaps you lack the right tools, or perhaps you're just having an unlucky day. Whatever the reason, your efforts fail. The device remains active."
+          ],
+          "criticalFailure": [
+            "The moment replays in slow motion in your mind afterward, though at the time it happens in an instant. You're working carefully at the device - or so you think - manipulating what you believe is the right component. You apply pressure, or make a cut, or disconnect something. And then everything goes wrong. Maybe there was a pressure sensor you didn't notice. Maybe the component you thought was inert was actually part of the trigger assembly. Maybe it's just catastrophically bad luck. But the result is immediate and terrible - the device activates. The very thing you were trying to prevent has just happened, and it's your fault. Your attempt to disable the device has instead triggered it. There's a split second where you realize what's happened, and then you're dealing with the consequences of your catastrophic failure!",
+            "Disaster in its purest form. You're concentrating intensely on the device, certain you understand how to disable it. Your tools move to manipulate the mechanism, and then - catastrophe. A click, a whir, a sound that shouldn't be happening. Your blood turns to ice as you realize what you've done - you've triggered the device while trying to disarm it. Your failed sabotage has become accidental activation. It's the nightmare scenario, and it's happening right now because of your mistake. Complete and utter failure!"
+          ]
+        }
+      }
+    }
+  }
+}

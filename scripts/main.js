@@ -10,8 +10,11 @@
 import { NarrativeSeedsSettings } from './settings.js';
 import { PF2eUtils, RandomUtils } from './utils.js';
 import { CombatHooks } from './combat/combat-hooks.js';
+import { SkillHooks } from './skill/skill-hooks.js';
 import { AnatomyDetector } from './combat/anatomy-detector.js';
 import { DamageDetector } from './combat/damage-detector.js';
+import { ActionDetector } from './skill/action-detector.js';
+import { FeatDetector } from './skill/feat-detector.js';
 import { PerformanceMonitor } from './performance-monitor.js';
 import { DataLoader } from './data-loader.js';
 import { ComplicationManager } from './combat/complication-manager.js';
@@ -88,9 +91,11 @@ class PF2eNarrativeSeeds {
       console.log("PF2e Narrative Seeds | Spell narration coming soon!");
     }
 
-    // Phase 3: Skills (future)
-    if (NarrativeSeedsSettings.get("enableSkills")) {
-      console.log("PF2e Narrative Seeds | Skill narration coming soon!");
+    // Phase 3: Skill Actions
+    if (NarrativeSeedsSettings.isSkillEnabled()) {
+      console.log("PF2e Narrative Seeds | Initializing skill action narration...");
+      SkillHooks.initialize();
+      this.generators.set("skills", SkillHooks);
     }
 
     // Phase 4: Exploration (future)
@@ -240,6 +245,16 @@ Hooks.once("ready", () => {
     // Helper function to test damage detection
     testDamage: (item) => {
       DamageDetector.debugDetection(item);
+    },
+
+    // Helper function to test skill action detection
+    testSkillAction: (message) => {
+      ActionDetector.debugDetection(message);
+    },
+
+    // Helper function to test feat detection
+    testFeats: (actor, actionSlug) => {
+      FeatDetector.debugDetection(actor, actionSlug);
     },
 
     // Performance monitoring

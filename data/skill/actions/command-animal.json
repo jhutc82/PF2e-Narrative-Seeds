@@ -1,0 +1,138 @@
+{
+  "action": "command-animal",
+  "actionName": "Command an Animal",
+  "skill": "nature",
+  "traits": ["auditory", "concentrate"],
+  "description": "You issue an order to an animal, attempting to get it to perform a task",
+
+  "variants": {
+    "default": {
+      "displayName": "Command an Animal",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "The animal obeys perfectly!",
+            "It follows your command eagerly!",
+            "Perfect animal handling!",
+            "The animal responds enthusiastically!",
+            "It obeys immediately!"
+          ],
+          "success": [
+            "The animal obeys your command.",
+            "It follows your direction.",
+            "The animal complies.",
+            "It does what you ask.",
+            "The animal responds to you."
+          ],
+          "failure": [
+            "The animal ignores you.",
+            "It doesn't obey.",
+            "The animal won't comply.",
+            "It ignores your command.",
+            "The animal doesn't respond."
+          ],
+          "criticalFailure": [
+            "The animal misbehaves!",
+            "It does the opposite!",
+            "The animal rebels!",
+            "It reacts badly!",
+            "The animal disobeys aggressively!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "The animal responds perfectly to your command, obeying enthusiastically!",
+            "Your perfect handling gets the animal to follow your directions eagerly!",
+            "The animal obeys your command immediately and willingly!",
+            "Your expert command gets instant, enthusiastic cooperation!",
+            "The animal follows your direction with perfect obedience!",
+            "Your commanding presence earns immediate, willing compliance!",
+            "The animal responds to you with eager obedience!",
+            "Your expert handling makes the animal happy to obey!",
+            "The animal obeys perfectly, even performing better than expected!",
+            "Your masterful command earns enthusiastic cooperation!"
+          ],
+          "success": [
+            "The animal obeys your command.",
+            "Your direction is followed by the animal.",
+            "The animal complies with your command.",
+            "You successfully get the animal to follow your direction.",
+            "The animal responds to your command appropriately.",
+            "Your animal handling works - it obeys.",
+            "The animal follows your instructions.",
+            "You successfully command the animal.",
+            "The animal does what you've directed it to do.",
+            "Your command is obeyed."
+          ],
+          "failure": [
+            "The animal ignores your command.",
+            "Your direction doesn't get through - it won't obey.",
+            "The animal doesn't respond to your command.",
+            "You can't get the animal to follow your instructions.",
+            "The animal refuses to comply.",
+            "Your command fails to motivate the animal.",
+            "The animal won't obey you.",
+            "Your animal handling is unsuccessful.",
+            "The animal doesn't listen to your command.",
+            "You fail to get the animal to comply."
+          ],
+          "criticalFailure": [
+            "The animal not only disobeys but actively misbehaves!",
+            "Your poor handling makes the animal do the opposite!",
+            "The animal rebels against your command!",
+            "Your terrible command makes the animal uncooperative!",
+            "The animal reacts badly and misbehaves!",
+            "Your failed command provokes the animal to disobedience!",
+            "The animal actively defies you!",
+            "Your clumsy handling makes the animal worse!",
+            "The animal not only ignores you but acts out!",
+            "Your command backfires - the animal misbehaves!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Your understanding of animal behavior is excellent. You give the command with perfect tone, body language, and timing. The animal responds immediately and enthusiastically, understanding exactly what you want. It not only obeys but seems eager to please, performing the task willingly and well. Your expert animal handling has earned genuine cooperation!",
+            "You command the animal with expert technique. Your voice carries the right mixture of authority and encouragement, your body language reinforces your words, and your timing is perfect. The animal responds beautifully, obeying your command with what almost seems like enthusiasm. It performs exactly as you directed, maybe even exceeding expectations. Perfect animal handling!",
+            "Your command is delivered with masterful understanding of animal psychology. The animal reads your intent clearly and responds with immediate obedience. It follows your direction willingly, performing the requested task well. You've achieved excellent communication and cooperation!"
+          ],
+          "success": [
+            "You give the command clearly and with appropriate tone and body language. The animal processes your instruction and, after a moment, obeys. It performs the task you've commanded, though perhaps not with great enthusiasm. Still, your animal handling has succeeded - the command is followed.",
+            "Your animal handling skills are adequate to the task. You command the animal with reasonable technique, and it responds by obeying. The task is performed as directed. Success.",
+            "You successfully get the animal to follow your command. Your technique is functional, and the animal complies with what you've directed it to do."
+          ],
+          "failure": [
+            "You give the command, using what you hope is the right tone and body language, but the animal simply doesn't respond. Maybe it doesn't understand, maybe it's not properly trained for this task, or maybe your technique is insufficient. Whatever the reason, the animal ignores your command. You've failed to get it to obey.",
+            "Despite your efforts to command the animal properly, it won't comply. Your direction falls on deaf ears - or at least uncooperative ears. The animal doesn't follow your command. Your animal handling has been unsuccessful.",
+            "You try to get the animal to obey, but you can't make it happen. The animal either doesn't understand your command or simply refuses to comply. Your attempt to command it has failed."
+          ],
+          "criticalFailure": [
+            "Your attempt to command the animal goes terribly wrong. Maybe your tone is too harsh, maybe your body language is threatening, or maybe you've just badly mishandled the situation. Whatever the cause, not only does the animal refuse to obey, but it actively misbehaves! It might do the opposite of what you commanded, or simply act out in disobedience. Your poor animal handling has made the situation worse!",
+            "Your command backfires completely. The animal not only ignores your direction but reacts badly to your attempt. Maybe it becomes stubborn and uncooperative, maybe it does the exact opposite of what you wanted, or maybe it simply acts out. Whatever the specific result, your failed command has made the animal less obedient, not more. It's a complete failure of animal handling!",
+            "Disaster strikes your animal handling attempt. Your poorly delivered command confuses or upsets the animal. Instead of obeying, it misbehaves or rebels. You've not only failed to get compliance but actually provoked disobedience. Your command has backfired!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You are a natural with animals, and it shows in this moment. You've read this particular animal's personality and mood perfectly. You know what will motivate it, what tone will work, what body language will communicate clearly. When you give the command, everything aligns - your voice carries exactly the right mixture of authority and encouragement, your posture conveys confident leadership, your timing is impeccable. The animal's ears perk up, its attention locks onto you, and you can see the moment of understanding in its eyes. Then - compliance! Not reluctant obedience but willing cooperation. The animal follows your command eagerly, performing the task with what almost seems like pride. It's not just following orders - it's responding to a leader it trusts and respects. This is animal handling elevated to an art form - perfect communication between human and beast resulting in enthusiastic teamwork!",
+            "Like an expert trainer who speaks the unspoken language of animals, you command with masterful skill. You understand this animal's nature - what motivates it, what it responds to, how it thinks. Your command is delivered with perfect technique - the right vocal tone, the right body language, the right energy. The animal responds immediately and positively, ears forward, attention focused, and then - action! It obeys your command willingly, performing exactly as directed. There's no hesitation, no reluctance, just smooth cooperation. You've achieved the goal every animal handler seeks - genuine partnership where the animal wants to follow your lead. Beautiful work!"
+          ],
+          "success": [
+            "You command the animal with solid technique. Your voice is clear and authoritative, your body language reasonably confident. The animal takes a moment to process, then responds with obedience. It performs the commanded task adequately. Not the most enthusiastic response you could hope for, but functional compliance. Your animal handling has achieved its goal.",
+            "You give the command with competent animal handling skills. The animal hears you, considers briefly, and then obeys. The task is performed as directed. It's not perfect communication, but it works. Success through adequate technique."
+          ],
+          "failure": [
+            "You try to command the animal, putting effort into your tone and body language, but the connection just isn't there. Maybe the animal is distracted, maybe it's not well-trained for this particular task, or maybe your technique simply isn't compelling to this particular creature. Whatever the reason, your command fails to achieve compliance. The animal ignores you, continuing whatever it was doing or simply standing there unresponsive. Your animal handling has been insufficient.",
+            "Despite your efforts, you can't get through to the animal. You give the command, you use what you think is the right approach, but the animal won't obey. Maybe you're not speaking its language, so to speak. Maybe your authority isn't established. Whatever the issue, the result is clear - failed communication and no compliance."
+          ],
+          "criticalFailure": [
+            "Everything goes wrong with your animal handling. Maybe you misjudge the animal's temperament and use the wrong tone. Maybe your body language is inadvertently threatening. Maybe you're trying to command a task the animal isn't trained for and doing it poorly. Whatever the specific error, the result is disaster. Not only does the animal refuse to obey your command, but it actively rebels! It might do the opposite of what you directed, or simply act out in obvious disobedience. Your failed command has actually made the animal less cooperative, not more. Where before you might have had a neutral animal, you now have an actively uncooperative one. Your poor animal handling has backfired completely, making the situation significantly worse!",
+            "Your attempt to command the animal becomes a masterclass in poor animal handling. Your tone is wrong, or your body language is off, or your timing is terrible. The animal not only doesn't obey but reacts badly to your attempt. It might become stubborn and actively defiant, it might do the exact opposite of what you commanded, or it might simply act out in ways that make things worse. You've failed so badly at commanding the animal that you've actually provoked misbehavior. It's a spectacular failure that's made the situation worse than if you hadn't tried at all!"
+          ]
+        }
+      }
+    }
+  }
+}

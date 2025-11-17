@@ -1,0 +1,398 @@
+{
+  "action": "sneak",
+  "actionName": "Sneak",
+  "skill": "stealth",
+  "traits": ["move", "secret"],
+  "description": "You move while attempting to remain hidden or undetected",
+
+  "variants": {
+    "default": {
+      "displayName": "Sneak",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You move silently!",
+            "Perfect stealth!",
+            "You slip past undetected!",
+            "You move like a ghost!",
+            "Completely silent movement!"
+          ],
+          "success": [
+            "You sneak successfully.",
+            "You move quietly.",
+            "You remain undetected.",
+            "You slip by quietly.",
+            "You move stealthily."
+          ],
+          "failure": [
+            "You make noise.",
+            "You're detected.",
+            "Your stealth fails.",
+            "You're noticed.",
+            "You can't move quietly enough."
+          ],
+          "criticalFailure": [
+            "You make loud noise!",
+            "You're spotted immediately!",
+            "You stumble loudly!",
+            "You alert everyone!",
+            "You crash into something!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You move with perfect silence - completely undetected!",
+            "You slip past like a ghost, making absolutely no noise!",
+            "Your stealthy movement is flawless - no one notices you!",
+            "You move with expert stealth, remaining completely hidden!",
+            "You glide forward silently, perfectly undetected!",
+            "Your movement is soundless and invisible to observers!",
+            "You sneak with such skill you might as well be invisible!",
+            "You move past with perfect stealth - unheard and unseen!",
+            "Your silent movement is masterful - you're completely undetected!",
+            "You slip forward with expert stealth, remaining perfectly hidden!"
+          ],
+          "success": [
+            "You move quietly enough to remain undetected.",
+            "You successfully sneak forward without being noticed.",
+            "You manage to move stealthily without alerting anyone.",
+            "You slip forward quietly, maintaining your concealment.",
+            "You move carefully and remain hidden.",
+            "You successfully sneak without being detected.",
+            "You move forward quietly enough to stay unnoticed.",
+            "You manage to advance stealthily.",
+            "You move while maintaining stealth successfully.",
+            "You sneak forward without being spotted."
+          ],
+          "failure": [
+            "You make noise while moving and are detected!",
+            "Your stealthy movement fails - you're noticed!",
+            "You can't move quietly enough - you're spotted!",
+            "Your sneaking fails and you're detected!",
+            "You're noticed while trying to move stealthily!",
+            "You alert observers with your movement!",
+            "Your attempt at stealthy movement is unsuccessful!",
+            "You make too much noise - you're detected!",
+            "You fail to move quietly and are noticed!",
+            "Your stealth breaks - you're spotted!"
+          ],
+          "criticalFailure": [
+            "You stumble badly and make loud noise - everyone notices you!",
+            "You crash into something while sneaking - your position is revealed!",
+            "Your clumsy movement alerts everyone to your presence!",
+            "You knock something over loudly - you're immediately spotted!",
+            "You trip while sneaking and draw all attention to yourself!",
+            "Your failed stealth creates a loud disturbance!",
+            "You make a tremendous noise - everyone knows exactly where you are!",
+            "You stumble into something and alert everyone nearby!",
+            "Your catastrophically failed sneak gives away your position!",
+            "You make such loud noise that everyone is alerted to you!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You move with the silence of falling snow. Each footstep is carefully placed, testing surfaces before committing weight. You control your breathing, time your movements to ambient noise, and flow from concealment to concealment. Your stealthy advance is perfect - you could walk right past someone and they'd never know you were there!",
+            "Your stealth technique is masterful. You read the environment perfectly, knowing where to step, when to move, how to time each advancement. Your movements are fluid and silent, your positioning always optimal. You glide forward like a shadow, completely undetected!",
+            "You demonstrate expert stealth skills as you move forward. Every step is silent, every movement controlled. You blend with your surroundings and time your advancement perfectly. You remain completely undetected as you progress!"
+          ],
+          "success": [
+            "You move forward carefully, placing each step with conscious thought. You're not perfectly silent, but you're quiet enough to avoid detection. Your stealthy movement succeeds in keeping you hidden.",
+            "You manage to advance while maintaining adequate stealth. Your footfalls are soft, your movements controlled. You make it forward without being noticed.",
+            "You successfully sneak forward. Your technique is functional, your noise discipline adequate. You remain undetected as you move."
+          ],
+          "failure": [
+            "Despite your best efforts to move stealthily, you make too much noise or your movement is too obvious. You're detected as you try to advance. Your stealth has failed.",
+            "You attempt to move quietly, but something goes wrong - maybe a footfall is too heavy, maybe you brush against something. Whatever the cause, you're noticed. Your sneaking has failed.",
+            "Your stealthy movement isn't quiet or subtle enough. You're spotted or heard as you try to advance. You've been detected."
+          ],
+          "criticalFailure": [
+            "Your attempted stealth movement goes disastrously wrong. Maybe you step on something that makes a loud crack, maybe you lose your footing and stumble, or maybe you knock into something you didn't see. Whatever happens, the result is unmistakable noise and obvious movement. Everyone in the area knows exactly where you are!",
+            "Catastrophe strikes your sneaking attempt. Your foot finds the one creaky board, or the loose stone, or the hidden debris. The noise is loud and clear. Or perhaps you simply stumble and fall, making a tremendous crash. Whatever the specific failure, the result is the same - you're not just detected, you're the center of everyone's attention!",
+            "Your stealth fails in the worst possible way. Instead of silent movement, you create a disturbance that alerts everyone nearby. Your position is not only revealed but emphasized. It's a complete failure of stealth!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You become one with the shadows as you move. Each footfall is placed with microscopic precision, your weight distributed perfectly to eliminate sound. You read the environment like a book - that floorboard creaks, that patch of gravel would crunch, that shadow provides perfect concealment for the next three steps. You flow through space like water finding its path, silent and inevitable. Your breathing is controlled to near-silence, your movements timed to ambient noise, your positioning always optimal. You're not just moving stealthily - you're moving invisibly. You could walk within arm's reach of an alert guard and they'd never know you passed. This is stealth perfected!",
+            "Like a phantom, you drift forward through the environment. Your understanding of stealth is intuitive and complete. You know instinctively where to step, how to move, when to advance and when to freeze. Your footfalls are whisper-quiet, your silhouette blends with surroundings, your timing is impeccable. You navigate the space with absolute confidence, knowing that your stealth skills are more than equal to the challenge. You advance with perfect silence, a ghost moving through a world of the living, completely undetected!"
+          ],
+          "success": [
+            "You move forward with careful stealth. Each step is consciously controlled, each movement deliberate. You're not perfectly silent - true soundless movement is incredibly difficult - but you're quiet enough. Your discipline and technique are adequate to avoid detection as you advance.",
+            "You successfully employ stealth techniques to move forward undetected. Careful footwork, controlled breathing, smart use of concealment - the fundamentals of sneaking executed competently. You make it forward without being noticed."
+          ],
+          "failure": [
+            "Despite your best efforts at stealth, you're detected. Maybe a footfall is too heavy, maybe your timing is off, maybe you're just unlucky. Whatever the specific cause, the result is clear - someone notices you. Your stealth has failed and you've been spotted.",
+            "Your attempted stealth movement breaks down. You're trying to move quietly, consciously controlling each step, but something goes wrong. A sound, a movement, a silhouette - something gives you away. You're detected, your stealth compromised."
+          ],
+          "criticalFailure": [
+            "Disaster. You're moving carefully, every sense focused on remaining undetected, when catastrophe strikes. Maybe your foot comes down on something unexpected - a stick that snaps with a sound like a gunshot, a loose stone that clatters loudly. Maybe you misjudge a distance and bump into something, sending it crashing. Maybe you simply lose your footing and stumble loudly. Whatever the specific failure, the result is unmistakable and irreversible. Loud noise echoes through the area. Obvious movement draws every eye. You're not just detected - you're announced. Everyone in the vicinity knows exactly where you are. Your stealth hasn't just failed, it's transformed into its opposite - a beacon highlighting your precise location!",
+            "Your sneaking attempt becomes a spectacular failure. You're trying so hard to move quietly that you're not paying enough attention to your surroundings. Your foot catches on something you didn't see, or you step on something you didn't anticipate. The result is catastrophic - a loud crash, obvious stumbling, clear evidence of your presence. You might as well have announced yourself with a trumpet fanfare. Every observer, every guard, every potential threat now knows exactly where you are. Your failed stealth has actually made you more noticeable than if you'd just walked normally!"
+          ]
+        }
+      }
+    },
+
+    "swift-sneak": {
+      "displayName": "Sneak (Swift Sneak)",
+      "feats": ["swift-sneak"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You move swiftly and silently!",
+            "Full-speed stealth!",
+            "You race forward undetected!",
+            "Silent and fast!",
+            "You dash past unseen!"
+          ],
+          "success": [
+            "You sneak at full speed.",
+            "You move fast and quiet.",
+            "Swift stealth succeeds.",
+            "You race forward quietly.",
+            "Quick and undetected."
+          ],
+          "failure": [
+            "Speed breaks your stealth.",
+            "You're detected.",
+            "Too fast - you're noticed.",
+            "You can't maintain both.",
+            "Speed ruins stealth."
+          ],
+          "criticalFailure": [
+            "You crash loudly!",
+            "Speed destroys stealth!",
+            "You're spotted immediately!",
+            "Your rush alerts everyone!",
+            "You stumble noisily!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You move at full speed while remaining perfectly silent - undetected!",
+            "You dash forward with amazing stealth - fast and invisible!",
+            "Your swift movement is also perfectly stealthy - no one notices!",
+            "You race ahead while staying completely hidden - masterful!",
+            "You combine speed and stealth flawlessly - quick and silent!",
+            "You move rapidly without sacrificing stealth - completely undetected!",
+            "Your fast stealth is perfect - you're like a shadow in motion!",
+            "You sprint forward silently - speed doesn't break your stealth!",
+            "You move with both velocity and silence - expert sneaking!",
+            "You dash past at full speed, yet remain completely hidden!"
+          ],
+          "success": [
+            "You successfully sneak at full speed, remaining undetected.",
+            "You move swiftly while maintaining adequate stealth.",
+            "You manage to combine speed with silence successfully.",
+            "You advance rapidly without being noticed.",
+            "You sneak at normal speed instead of half, staying hidden.",
+            "You move fast enough while still remaining stealthy.",
+            "You successfully maintain stealth at full speed.",
+            "You advance quickly without alerting anyone.",
+            "You combine swift movement with functional stealth.",
+            "You sneak rapidly without being detected."
+          ],
+          "failure": [
+            "Your attempt to move fast and stealthy fails - you're detected!",
+            "You can't maintain both speed and silence - you're noticed!",
+            "Moving too quickly breaks your stealth - you're spotted!",
+            "Your rapid movement gives you away!",
+            "You're forced to choose speed over stealth and get detected!",
+            "Your swift sneak attempt fails - you're noticed!",
+            "You can't balance speed with silence - you're spotted!",
+            "Moving at full pace costs you your stealth!",
+            "Your rapid movement alerts observers!",
+            "Speed defeats stealth - you're detected!"
+          ],
+          "criticalFailure": [
+            "Your rapid movement creates tremendous noise - everyone spots you!",
+            "You stumble while moving fast and crash loudly!",
+            "Your swift sneak fails catastrophically - you're very obvious!",
+            "Speed destroys your stealth completely - you alert everyone!",
+            "You rush forward and knock into something loudly!",
+            "Your fast movement creates such noise you're immediately detected!",
+            "You trip while moving quickly and crash!",
+            "Your rapid pace makes you incredibly obvious!",
+            "You stumble at full speed and make a tremendous crash!",
+            "Your swift sneak becomes a loud, clumsy rush!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You demonstrate the rare ability to move at full speed while maintaining perfect stealth. Your footfalls are rapid but light, your movements quick but controlled. You flow forward at normal pace, yet somehow you're making no more noise than a careful creep. Your breathing is controlled despite the exertion, your positioning optimal despite the speed. You race ahead while remaining a ghost - fast, silent, and completely undetected!",
+            "Your swift sneak is masterful. You've trained to move quickly without sacrificing stealth, and it shows. You advance at full speed, yet every footfall is placed with precision, every movement is fluid, every sound minimized. You combine velocity with invisibility beautifully!",
+            "With expert technique, you move rapidly while staying hidden. Speed and stealth aren't opposites for you - they're complementary skills. You dash forward with perfect noise discipline, remaining completely undetected despite your pace!"
+          ],
+          "success": [
+            "You successfully employ swift sneak techniques to move at full speed while maintaining stealth. It's demanding - moving fast while staying quiet requires significant skill - but you manage it. You advance rapidly without being detected.",
+            "You combine speed with adequate stealth. Your movements are quick but controlled enough to avoid detection. You're making progress at normal pace while remaining hidden.",
+            "Your swift sneak works. You're not slowed to half speed like normal sneaking - you move at full pace while maintaining enough stealth to avoid detection."
+          ],
+          "failure": [
+            "You attempt to move at full speed while staying stealthy, but the combination proves too difficult. Moving fast creates noise and obvious movement. Despite your swift sneak training, you're detected. Speed and stealth prove incompatible this time.",
+            "Your swift sneak attempt fails. You try to maintain both velocity and silence, but you can't manage both. Your rapid movement gives you away and you're noticed.",
+            "Despite your best efforts, you can't maintain stealth at full speed. The faster pace creates too much noise or too obvious movement. You're detected."
+          ],
+          "criticalFailure": [
+            "Your attempt to move quickly while staying stealthy backfires catastrophically. You're moving at full pace, trying to maintain stealth discipline, when something goes terribly wrong. Maybe you step on something loud, maybe you lose your footing at speed, but the result is a tremendous crash. Your rapid movement transforms from attempted stealth into obvious noise and movement. Everyone knows exactly where you are!",
+            "Your swift sneak becomes swift failure. You're trying to balance speed with silence, and the juggling act collapses completely. You stumble at full pace, or crash into something you didn't have time to notice, or simply make too much noise moving quickly. The result is catastrophic - you're not just detected, you're announced!",
+            "Speed defeats you utterly. You try to maintain stealth while moving fast, but it's simply too much. Your rapid footfalls create noise, your quick movements are obvious, and when you inevitably stumble or knock into something at full pace, the crash is tremendous. You've failed spectacularly!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is stealth mastery in motion. You explode forward at full running speed, yet somehow you're still a ghost. Your feet find perfect purchase with each rapid stride, making no more sound than falling leaves. Your breathing is controlled even at this pace, your awareness total. You read the terrain at speed, flowing around obstacles with fluid grace. Normal sneaking is slow, careful work. But you've transcended that limitation. You combine velocity with invisibility, racing forward while remaining completely undetected. It's like watching a phantom sprint - movement without sound, speed without visibility. You cover ground at normal pace while maintaining perfect stealth. It's a masterful display of advanced infiltration skills!",
+            "Like an elite special operations soldier, you demonstrate the art of rapid stealth movement. You don't creep - you move at full tactical pace. Yet your noise discipline is perfect, your positioning flawless, your stealth complete. Each footfall is placed with microscopic precision despite the speed. Your breathing remains controlled even while moving fast. You flow through the environment like water - quick, silent, unstoppable. Observers would swear nobody could move that fast while staying hidden. But you're proving them wrong with every silent stride. This is swift sneaking perfected!"
+          ],
+          "success": [
+            "You employ solid swift sneak techniques to advance at full speed while maintaining stealth. It's challenging work - the faster pace makes silence harder - but your training carries you through. You move rapidly without being detected.",
+            "You successfully balance speed with adequate stealth. Your movements are quick but controlled enough to avoid giving you away. You advance at normal pace while staying hidden."
+          ],
+          "failure": [
+            "You attempt swift sneaking with confidence, trying to maintain both speed and silence. But the combination proves beyond your current ability. Moving at full pace creates too much noise, too much obvious movement. Despite your best efforts, you're detected. The rapid advancement has cost you your stealth.",
+            "Your swift sneak attempt breaks down under the conflicting demands. You're trying to move fast and stay hidden, but you can't maintain both. Speed wins out over stealth, and the result is detection. You're noticed despite your best efforts."
+          ],
+          "criticalFailure": [
+            "Your attempt at rapid stealth movement becomes a disaster in motion. You launch forward at full speed, trying desperately to maintain noise discipline and concealment. For a few steps it almost works. Then physics and probability catch up with you. Moving this fast while trying to stay stealthy creates impossible demands. Your foot finds something unexpected - a stick, a stone, uneven ground. At full pace, there's no time to recover. You stumble, arms windmilling. The noise is tremendous. Or perhaps you simply move too fast to notice an obstacle until you crash into it. Either way, the result is catastrophic failure. You're not just detected - you're the center of attention, marked by noise and obvious movement. Your swift sneak has become a loud, clumsy charge!",
+            "Speed and stealth prove utterly incompatible for you in this moment. You try to move at full pace while staying hidden, and the attempt collapses spectacularly. You're moving too fast to properly control each footfall, too rushed to properly read the environment. Something goes wrong - a loud step, a stumble, a collision. The noise echoes. Movement draws every eye. You've not just failed to sneak - you've announced your presence more effectively than if you'd simply run normally. Your advanced technique has betrayed you completely!"
+          ]
+        }
+      }
+    },
+
+    "terrain-stalker": {
+      "displayName": "Sneak (Terrain Stalker)",
+      "feats": ["terrain-stalker"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You move silently through nature!",
+            "Perfect terrain stealth!",
+            "You slip through the environment undetected!",
+            "You move like a ghost through nature!",
+            "Completely silent natural movement!"
+          ],
+          "success": [
+            "You sneak through terrain successfully.",
+            "You move quietly through nature.",
+            "You remain undetected in the environment.",
+            "You slip through terrain quietly.",
+            "You move stealthily through nature."
+          ],
+          "failure": [
+            "You make noise in the terrain.",
+            "The environment betrays you.",
+            "Your terrain stealth fails.",
+            "You're detected in nature.",
+            "You can't move quietly enough through terrain."
+          ],
+          "criticalFailure": [
+            "You crash through the terrain!",
+            "You're spotted in the environment!",
+            "You stumble through nature loudly!",
+            "You alert everyone in the terrain!",
+            "You disturb the environment badly!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You move through natural terrain with perfect silence - completely undetected!",
+            "You slip through the environment like a ghost, making no noise!",
+            "Your stealthy movement through terrain is flawless - no one notices!",
+            "You move through nature with expert stealth, remaining completely hidden!",
+            "You glide through the terrain silently, perfectly undetected!",
+            "Your movement through the environment is soundless and invisible!",
+            "You sneak through nature with such skill you might as well be invisible!",
+            "You move through terrain with perfect stealth - unheard and unseen!",
+            "Your silent movement through the environment is masterful!",
+            "You slip through natural terrain with expert stealth!"
+          ],
+          "success": [
+            "You move quietly through terrain enough to remain undetected.",
+            "You successfully sneak through the environment without being noticed.",
+            "You manage to move stealthily through nature without alerting anyone.",
+            "You slip through terrain quietly, maintaining your concealment.",
+            "You move carefully through the environment and remain hidden.",
+            "You successfully sneak through natural terrain without being detected.",
+            "You move through the environment quietly enough to stay unnoticed.",
+            "You manage to advance stealthily through terrain.",
+            "You move through nature while maintaining stealth successfully.",
+            "You sneak through the environment without being spotted."
+          ],
+          "failure": [
+            "You make noise moving through terrain and are detected!",
+            "Your stealthy movement through nature fails - you're noticed!",
+            "You can't move quietly enough through the environment - you're spotted!",
+            "Your sneaking through terrain fails and you're detected!",
+            "You're noticed while trying to move stealthily through nature!",
+            "You alert observers with your movement through terrain!",
+            "Your attempt at terrain stealth is unsuccessful!",
+            "You make too much noise in the environment - you're detected!",
+            "You fail to move quietly through terrain and are noticed!",
+            "Your stealth through nature breaks - you're spotted!"
+          ],
+          "criticalFailure": [
+            "You stumble badly in the terrain and make loud noise - everyone notices!",
+            "You crash through nature while sneaking - your position is revealed!",
+            "Your clumsy movement through terrain alerts everyone to your presence!",
+            "You disturb the environment loudly - you're immediately spotted!",
+            "You trip in terrain while sneaking and draw all attention to yourself!",
+            "Your failed terrain stealth creates a loud disturbance!",
+            "You make tremendous noise in nature - everyone knows where you are!",
+            "You stumble through the environment and alert everyone nearby!",
+            "Your catastrophically failed sneak through terrain gives away your position!",
+            "You make such loud noise in nature that everyone is alerted!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You move through natural terrain with the silence and grace of a predator. Each footstep finds soft ground or solid stone, testing surfaces before committing weight. You read the environment perfectly - avoiding dry twigs, stepping over rustling leaves, moving through vegetation without disturbing it. Your breathing is controlled, your movements timed to ambient nature sounds. You flow through terrain from concealed spot to concealed spot. Your stealthy advance through the environment is perfect!",
+            "Your terrain stalker technique is masterful. You read the natural environment perfectly, knowing where to step, when to move, how to use terrain features. Your movements are fluid and silent, your positioning always optimal within nature. You glide through the terrain like a shadow, completely undetected!",
+            "You demonstrate expert terrain stealth skills as you move through the environment. Every step is silent, every movement controlled. You blend with natural surroundings and advance through terrain perfectly. You remain completely undetected as you progress through nature!"
+          ],
+          "success": [
+            "You move through natural terrain carefully, placing each step with conscious thought. You're not perfectly silent, but you're quiet enough to avoid detection in the environment. Your stealthy movement through nature succeeds in keeping you hidden.",
+            "You manage to advance through terrain while maintaining adequate stealth. Your footfalls are soft, your movements controlled through the environment. You make it through nature without being noticed.",
+            "You successfully sneak through the terrain. Your technique is functional through natural environment, your noise discipline adequate. You remain undetected as you move through nature."
+          ],
+          "failure": [
+            "Despite your best efforts to move stealthily through terrain, you make too much noise or your movement through nature is too obvious. You're detected as you try to advance through the environment. Your terrain stealth has failed.",
+            "You attempt to move quietly through nature, but something goes wrong - maybe a footfall on dry leaves, maybe you disturb vegetation. Whatever the cause, you're noticed in the terrain. Your sneaking through the environment has failed.",
+            "Your stealthy movement through terrain isn't quiet or subtle enough. You're spotted or heard as you try to advance through nature. You've been detected in the environment."
+          ],
+          "criticalFailure": [
+            "Your attempted terrain stealth goes disastrously wrong. Maybe you step on something in nature that makes a loud crack, maybe you lose your footing on uneven ground and stumble, or maybe you crash through vegetation you didn't see. Whatever happens, the result is unmistakable noise and obvious movement through the environment. Everyone in the terrain knows exactly where you are!",
+            "Catastrophe strikes your sneaking attempt through nature. Your foot finds dry branches, loose rocks, or hidden obstacles in the terrain. The noise echoes through the environment. Or perhaps you simply stumble and crash through vegetation. Whatever the specific failure in the natural terrain, the result is the same - you're not just detected, you're the center of everyone's attention!",
+            "Your terrain stealth fails in the worst possible way. Instead of silent movement through nature, you create a disturbance that alerts everyone in the environment. Your position is not only revealed but emphasized by noise in the terrain. It's a complete failure of stealth through natural surroundings!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You become one with nature as you move. Each footfall is placed with microscopic precision on the terrain, your weight distributed perfectly to eliminate sound. You read the natural environment like a book - that dry leaf would crunch, that loose rock would shift, that patch of vegetation provides perfect concealment for the next few steps. You flow through the terrain like water finding its path, silent and inevitable through nature. Your breathing is controlled to near-silence, your movements timed to environmental sounds - rustling wind, bird calls, flowing water. You're not just moving stealthily through terrain - you're moving invisibly. You could pass within reach of an alert observer in the natural environment and they'd never know. This is terrain stealth perfected!",
+            "Like a wild predator, you drift through the natural environment with perfect understanding. Your terrain stalker mastery is intuitive and complete. You know instinctively where to step in nature, how to move through terrain, when to advance and when to freeze. Your footfalls find silent purchase in the environment, your silhouette blends with natural features, your timing is impeccable. You navigate the terrain with absolute confidence, knowing that your stealth skills are more than equal to the environment. You advance through nature with perfect silence, a ghost moving through the wilderness, completely undetected!"
+          ],
+          "success": [
+            "You move through natural terrain with careful stealth. Each step is consciously controlled through the environment, each movement deliberate. You're not perfectly silent through nature - true soundless movement through varied terrain is incredibly difficult - but you're quiet enough. Your discipline and technique are adequate to avoid detection as you advance through the environment.",
+            "You successfully employ terrain stealth techniques to move through nature undetected. Careful footwork through the environment, controlled breathing, smart use of natural concealment - the fundamentals of sneaking through terrain executed competently. You make it through the environment without being noticed."
+          ],
+          "failure": [
+            "Despite your best efforts at terrain stealth, you're detected in the environment. Maybe a footfall on dry ground, maybe disturbing vegetation, maybe you're just unlucky in nature. Whatever the specific cause in the terrain, the result is clear - someone notices you. Your stealth through the natural environment has failed and you've been spotted.",
+            "Your attempted stealthy movement through terrain breaks down. You're trying to move quietly through nature, consciously controlling each step in the environment, but something goes wrong. A sound in the terrain, a movement through vegetation, a silhouette against natural features - something gives you away in the environment. You're detected, your terrain stealth compromised."
+          ],
+          "criticalFailure": [
+            "Disaster. You're moving carefully through the terrain, every sense focused on remaining undetected in the natural environment, when catastrophe strikes. Maybe your foot comes down on something unexpected in nature - a branch that snaps with a sound like a gunshot, a loose stone that clatters loudly through the terrain. Maybe you misjudge a distance in the environment and crash through vegetation, sending birds scattering. Maybe you simply lose your footing on uneven terrain and stumble loudly through nature. Whatever the specific failure in the environment, the result is unmistakable and irreversible. Loud noise echoes through the terrain. Obvious movement disturbs the natural environment. You're not just detected - you're announced. Everyone in the vicinity knows exactly where you are in the terrain. Your stealth hasn't just failed, it's transformed into its opposite - a beacon highlighting your precise location in nature!",
+            "Your sneaking attempt through terrain becomes a spectacular failure. You're trying so hard to move quietly through nature that you're not paying enough attention to the environment. Your foot catches on something hidden in the terrain you didn't see, or you step on obstacles you didn't anticipate. The result is catastrophic - a loud crash through the environment, obvious stumbling through vegetation, clear evidence of your presence in nature. You might as well have announced yourself with a trumpet fanfare. Every observer, every potential threat now knows exactly where you are in the terrain. Your failed stealth through the natural environment has actually made you more noticeable than if you'd just walked normally!"
+          ]
+        }
+      }
+    }
+  }
+}

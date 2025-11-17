@@ -1,0 +1,138 @@
+{
+  "action": "recall-knowledge",
+  "actionName": "Recall Knowledge",
+  "skill": "lore",
+  "traits": ["concentrate", "secret"],
+  "description": "You attempt to recall knowledge about a creature, object, location, or other topic",
+
+  "variants": {
+    "default": {
+      "displayName": "Recall Knowledge",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "Perfect recall!",
+            "You remember everything!",
+            "Complete knowledge!",
+            "You know this well!",
+            "Total recall!"
+          ],
+          "success": [
+            "You remember useful information.",
+            "Knowledge comes to mind.",
+            "You recall something helpful.",
+            "You know about this.",
+            "Information surfaces."
+          ],
+          "failure": [
+            "You draw a blank.",
+            "Nothing comes to mind.",
+            "You can't recall anything.",
+            "Your memory fails you.",
+            "No knowledge surfaces."
+          ],
+          "criticalFailure": [
+            "You recall false information!",
+            "You misremember badly!",
+            "Your knowledge is wrong!",
+            "You're confident but incorrect!",
+            "You remember lies!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "Your knowledge is comprehensive - you recall extensive accurate information!",
+            "You remember everything relevant with perfect clarity!",
+            "Your training comes through - you know this subject well!",
+            "You recall detailed, accurate information about the subject!",
+            "Your memory provides complete and reliable knowledge!",
+            "You draw on deep understanding to recall valuable details!",
+            "Your expertise shines - you remember crucial information!",
+            "You recall exactly what you need to know with confidence!",
+            "Your knowledge is thorough and accurate!",
+            "You remember important details with perfect recall!"
+          ],
+          "success": [
+            "You successfully recall useful information about the subject.",
+            "Your memory provides helpful knowledge.",
+            "You remember relevant details that could prove valuable.",
+            "Knowledge surfaces in your mind - you know something useful.",
+            "You draw on your training to recall accurate information.",
+            "Your memory yields helpful insights about the subject.",
+            "You successfully remember pertinent facts.",
+            "You recall knowledge that provides useful context.",
+            "Information comes to mind that should help.",
+            "You remember enough to be helpful."
+          ],
+          "failure": [
+            "You search your memory but come up empty.",
+            "No relevant knowledge comes to mind.",
+            "You draw a blank - you don't know about this.",
+            "Your training doesn't cover this subject adequately.",
+            "You can't recall any useful information.",
+            "Your memory fails to provide helpful knowledge.",
+            "Nothing relevant surfaces in your mind.",
+            "You simply don't know enough about this.",
+            "You can't remember anything helpful.",
+            "Your knowledge of this subject is insufficient."
+          ],
+          "criticalFailure": [
+            "You recall false information and believe it's true!",
+            "Your memory provides incorrect details that seem accurate!",
+            "You misremember badly - your knowledge is actively wrong!",
+            "You're confident in your recall, but it's completely false!",
+            "You remember 'facts' that are actually fiction!",
+            "Your memory betrays you with convincing lies!",
+            "You recall misinformation with false certainty!",
+            "Your knowledge is not just wrong - it's dangerously misleading!",
+            "You remember confidently, but everything you recall is false!",
+            "Your memory provides plausible but entirely incorrect information!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Your mind immediately makes the right connections. Whether it's from formal training, personal experience, or dedicated study, you have solid knowledge of this subject. Details flood back to you - not just basic facts, but nuanced understanding. You remember strengths, weaknesses, behaviors, properties, or whatever information is most relevant to the current situation. Your recall is comprehensive and accurate, providing valuable insight!",
+            "You draw on your expertise with excellent results. Your training has prepared you well for exactly this type of knowledge challenge. You remember crucial details with confidence and clarity - information that could prove invaluable. Your understanding is thorough and your recall is reliable!",
+            "Your memory serves you perfectly. Knowledge surfaces from your education, experience, or research. You don't just remember disconnected facts - you understand the context and relationships. You can speak confidently about this subject with detailed, accurate information!"
+          ],
+          "success": [
+            "You successfully recall relevant information. While your knowledge might not be exhaustive, you remember enough useful details to provide helpful context. Your training or experience has given you at least basic familiarity with this subject, and that knowledge serves you adequately.",
+            "Your memory provides useful information. You draw on what you've learned from study, experience, or instruction to recall pertinent facts. It's not comprehensive knowledge, but it's accurate and helpful.",
+            "You manage to remember helpful details about the subject. Your recall isn't perfect or complete, but the information you do remember should prove valuable in the current situation."
+          ],
+          "failure": [
+            "You search your memory thoroughly, but nothing useful surfaces. Either your training never covered this subject, or you've simply forgotten what you once knew. You draw a complete blank - this is outside your area of expertise or beyond what you can currently recall.",
+            "Despite your best efforts to remember, no relevant knowledge comes to mind. You simply don't know enough about this subject to provide any useful information. Your education or experience didn't adequately prepare you for this particular knowledge challenge.",
+            "Your attempt to recall knowledge comes up empty. You rack your brain, trying to remember anything relevant, but nothing helpful surfaces. You just don't have the knowledge needed."
+          ],
+          "criticalFailure": [
+            "Your memory plays a cruel trick on you. You recall information that seems accurate - it has the ring of truth, it feels right, you remember it clearly. The only problem? It's completely wrong. Whether it's a misremembered lesson, confused details, or pure fabrication that your mind has accepted as fact, you now believe false information with complete confidence. This could be dangerous if you act on this 'knowledge'!",
+            "Worse than forgetting, you misremember. Your mind provides details that seem plausible and accurate, but they're actually false. You don't realize your recall is wrong - you're confident in this 'knowledge.' This false information could actively mislead you or others if you trust it!",
+            "Your memory betrays you with convincing lies. You recall 'facts' that feel absolutely true, supported by false certainty. Unfortunately, everything you remember is incorrect. You're not just uninformed - you're misinformed, and you don't know it!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "The moment you focus on the question, knowledge floods your mind like pages from a well-studied tome. Your training has prepared you perfectly for this. Whether it's formal education, hard-won experience, dedicated research, or natural aptitude, you have genuine expertise in this area. Details crystallize in your memory with perfect clarity. You don't just remember disconnected facts - you understand the complete picture. Strengths and weaknesses. Behaviors and patterns. Properties and relationships. Historical context and current implications. Your recall is comprehensive, nuanced, and absolutely reliable. You can speak with confidence and authority because your knowledge is thorough and accurate. This is exactly the kind of expertise that makes the difference between success and failure!",
+            "Like a scholar accessing a mental library, you draw on your extensive knowledge with perfect precision. Your mind makes immediate connections, pulling together information from multiple sources - lessons learned, texts studied, experiences lived. The knowledge that surfaces isn't just accurate, it's comprehensive. You understand not just what, but why and how. This is mastery of the subject matter, and it shows. You have the detailed, reliable information needed to make informed decisions!"
+          ],
+          "success": [
+            "You focus your mind on the question, and after a moment's concentration, relevant knowledge surfaces. Your training has touched on this subject, and you remember enough to be helpful. The information isn't exhaustive or perfectly detailed, but it's accurate and useful. You recall pertinent facts that provide valuable context and insight.",
+            "Your memory provides solid information. You draw on what you've learned through study or experience, and useful knowledge comes to mind. It's not comprehensive expertise, but it's reliable information that should prove helpful in understanding the current situation."
+          ],
+          "failure": [
+            "You concentrate, searching your memory for any relevant knowledge, but come up completely empty. You sift through lessons learned, experiences lived, texts read - but nothing connects to this particular subject. Either your education never covered this area, or you've forgotten what you once knew. You rack your brain, trying to force the information to surface, but there's nothing there. You simply don't know about this. Sometimes ignorance is the honest answer, and this is one of those times.",
+            "Despite your best mental efforts, no useful knowledge surfaces. You try to remember - focusing, concentrating, searching every corner of your education and experience - but nothing relevant appears. This subject is outside your area of expertise or beyond your current recall. You draw a frustrating blank."
+          ],
+          "criticalFailure": [
+            "Your mind provides information with absolute confidence - clear, detailed, seemingly accurate knowledge that feels completely true. There's just one catastrophic problem: it's all wrong. Whether it's a corrupted memory, confused facts from different subjects, or pure fabrication that your brain has accepted as truth, you now 'remember' false information with complete certainty. Your memory has presented lies as facts, and you have no reason to doubt them. This is worse than knowing nothing - you're misinformed and confident about it. If you act on this false 'knowledge,' the results could be disastrous. Your brain has betrayed you with convincing fiction!",
+            "Disaster strikes in the form of false certainty. You recall information that seems absolutely accurate - it has every quality of genuine knowledge except one: truth. Your memory has provided detailed, plausible, completely incorrect information, and you believe every word of it. This isn't a vague uncertainty - you're confident you know the facts. Unfortunately, everything you 'know' is wrong. This kind of confident misinformation is dangerous because you'll act on it without hesitation. Your memory has failed you in the worst possible way!"
+          ]
+        }
+      }
+    }
+  }
+}

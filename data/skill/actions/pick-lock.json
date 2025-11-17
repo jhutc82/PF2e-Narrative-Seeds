@@ -1,0 +1,138 @@
+{
+  "action": "pick-lock",
+  "actionName": "Pick a Lock",
+  "skill": "thievery",
+  "traits": ["manipulate"],
+  "description": "You attempt to pick a lock using thieves' tools",
+
+  "variants": {
+    "default": {
+      "displayName": "Pick a Lock",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "The lock opens perfectly!",
+            "You pick it flawlessly!",
+            "The lock clicks open!",
+            "Perfect lockpicking!",
+            "You unlock it expertly!"
+          ],
+          "success": [
+            "You pick the lock.",
+            "The lock opens.",
+            "You unlock it successfully.",
+            "You manage to pick it.",
+            "The lock yields."
+          ],
+          "failure": [
+            "The lock resists.",
+            "You can't pick it.",
+            "The lock stays shut.",
+            "Your attempt fails.",
+            "You can't unlock it."
+          ],
+          "criticalFailure": [
+            "You break your tools!",
+            "You jam the lock!",
+            "You break a pick in the lock!",
+            "You damage the mechanism!",
+            "Your tools snap!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "Your picks work with perfect precision - the lock opens smoothly!",
+            "You pick the lock with masterful skill - it opens effortlessly!",
+            "The mechanism yields to your expert touch - the lock clicks open!",
+            "Your lockpicking is flawless - the lock opens perfectly!",
+            "You unlock it with expert technique - smooth and quick!",
+            "The pins align perfectly under your skilled manipulation!",
+            "Your picks dance through the mechanism - the lock opens!",
+            "You feel each pin fall into place - perfect lockpicking!",
+            "The lock surrenders to your expert touch!",
+            "Your masterful technique opens the lock smoothly!"
+          ],
+          "success": [
+            "You successfully pick the lock after some careful work.",
+            "Your picks find the right pins and the lock opens.",
+            "You manage to unlock it with your thieves' tools.",
+            "After some effort, the lock clicks open.",
+            "You work the picks carefully and the lock yields.",
+            "Your lockpicking succeeds - the mechanism opens.",
+            "You manipulate the pins successfully and unlock it.",
+            "After careful work, you pick the lock open.",
+            "Your thieves' tools do their job - the lock opens.",
+            "You successfully work the mechanism open."
+          ],
+          "failure": [
+            "The lock resists your efforts - you can't pick it.",
+            "Your picks can't find the right combination.",
+            "The mechanism refuses to yield to your tools.",
+            "You work at it but the lock stays shut.",
+            "Your lockpicking attempt is unsuccessful.",
+            "The lock proves too difficult to pick.",
+            "You can't manipulate the pins correctly.",
+            "Your tools can't defeat this lock.",
+            "The mechanism resists all your efforts.",
+            "You fail to pick the lock open."
+          ],
+          "criticalFailure": [
+            "Your pick breaks off in the lock, jamming the mechanism!",
+            "You break a tool and damage the lock - it's harder to open now!",
+            "Your picks slip and jam the lock completely!",
+            "You snap a pick in the mechanism - the lock is jammed!",
+            "Your clumsy work damages the lock, making it harder to open!",
+            "You break your tools and jam the mechanism!",
+            "Your pick snaps inside the lock, fouling the mechanism!",
+            "You damage the lock badly - it's now harder to pick!",
+            "Your tools break and the lock jams shut!",
+            "You fumble badly and break a pick in the lock!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Your picks move through the lock with the precision of a surgeon's scalpel. You feel each pin through your tools, understanding the mechanism intuitively. One by one, the pins align perfectly under your expert manipulation. You maintain perfect tension on the cylinder while your pick dances through the pins. Click. Click. Click. Each pin falls into place with satisfying precision. The final pin sets, and the cylinder turns smoothly. The lock opens as if greeting an old friend. Perfect lockpicking!",
+            "You work with masterful technique. Your tension wrench applies exactly the right pressure while your pick explores the mechanism. You feel the pins through your tools as if they were extensions of your fingers. Each pin yields to your expert touch, setting into place with precision. The lock mechanism surrenders to your skill, opening smoothly and cleanly. Flawless work!",
+            "Your lockpicking is a display of expertise. You read the lock through tactile feedback, understanding its secrets. Your tools work in perfect harmony - tension held constant while picks manipulate pins. The mechanism opens under your skilled hands as smoothly as if you'd used the key. Expert lockpicking at its finest!"
+          ],
+          "success": [
+            "You work carefully at the lock, your picks exploring the mechanism. It takes some time and effort, but eventually you feel the pins aligning. One by one they set into place, and finally the cylinder turns. The lock opens. Not the smoothest pick you've ever performed, but successful.",
+            "Your picks work through the mechanism with adequate skill. You probe carefully, feeling for pins and working them into position. After some concentrated effort, you succeed - the lock clicks open. Mission accomplished.",
+            "You manipulate the lock with your thieves' tools, working the pins carefully. It's not quick or elegant, but your technique is sound. After patient work, the mechanism yields and the lock opens."
+          ],
+          "failure": [
+            "You work at the lock with your picks, trying to feel the pins and set them correctly. But something isn't working - maybe the lock is too complex, maybe your technique isn't quite right, or maybe you're just having bad luck. Despite your efforts, the pins won't align and the lock stays stubbornly shut.",
+            "Your picks probe the mechanism, searching for the right combination of pin positions. But the lock resists all your efforts. The pins won't set, the cylinder won't turn, and despite extended attempts, the lock remains closed. You've failed to pick it.",
+            "You try to manipulate the lock mechanism, but it's not working. Your picks can't find purchase, the pins won't cooperate, and the lock refuses to yield. Your lockpicking attempt has failed."
+          ],
+          "criticalFailure": [
+            "Disaster strikes your lockpicking attempt. You're working the picks carefully when you feel one catch badly on a pin. You try to adjust, but it's too late - the pick snaps with an audible crack. Part of it breaks off inside the lock, jamming the mechanism. Not only have you failed to open the lock, but you've actually made it harder! The broken pick will need to be removed before anyone can try again!",
+            "Your lockpicking goes catastrophically wrong. Maybe you apply too much tension, maybe your pick angles wrong, but whatever the cause, you feel the sickening snap of breaking metal. Your pick breaks in the lock, part of it lodging in the mechanism. The lock is now jammed, damaged by your failed attempt. You've made things significantly worse!",
+            "Your clumsy lockpicking attempt ends in complete failure. Your tools slip badly, the pick catches, and before you can react, it snaps. The broken piece jams in the mechanism, fouling the lock. You've not only failed to open it, but damaged it in the process!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You settle into position before the lock, thieves' tools in hand, and begin your work. This is where skill meets artistry. Your tension wrench slides into the keyway first, applying precisely calibrated pressure - enough to bind the pins, not so much as to prevent their movement. Your pick follows, a thin metal extension of your will. You close your eyes, focusing entirely on tactile feedback. Through the pick, you feel the lock's secrets. Five pins. The first one... there. A gentle lift, a subtle give, and it sets with a whisper-quiet click. The second needs more finesse - a false set tries to fool you, but you recognize the deception and adjust. Click. The third pin is stubborn, binding hard, but patient pressure overcomes resistance. Click. The fourth practically jumps into place, eager to cooperate. Click. The fifth and final pin requires delicate touch - too much pressure and the whole stack will drop. You breathe slowly, hands perfectly steady, and feel that final satisfying click. The cylinder turns smoothly, and the lock surrenders. You open your eyes and smile. Perfect lockpicking - the kind that looks like magic to anyone watching!",
+            "Like a safecracker in a heist film, you approach the lock with quiet confidence. Your tools emerge with practiced ease - tension wrench, pick, the instruments of your craft. You insert them smoothly, feeling the mechanism through metal extensions of your fingers. The lock speaks to you through tactile sensation - the binding of pins, the spring resistance, the subtle give of proper alignment. You work with focused precision, each movement deliberate and controlled. Pin by pin, the mechanism yields to your expertise. The final pin sets with that beautiful click that means success, and the cylinder rotates smoothly. The lock opens as if welcoming you home. This is lockpicking elevated to an art form - pure skill made manifest!"
+          ],
+          "success": [
+            "You work at the lock with focused determination. Your tools probe the mechanism, feeling for pins and testing resistance. It's not the fastest pick you've ever performed, and it's not the smoothest, but your technique is fundamentally sound. After some concentrated effort, you feel the pins aligning. One by one, they set into position until finally the cylinder turns. The lock opens. Job done.",
+            "You settle in for patient lockpicking work. Your picks explore the mechanism, manipulating pins, testing tension. It takes time and careful attention, but eventually your persistence pays off. The pins align, the cylinder turns, and the lock yields. Success, through solid technique and determination."
+          ],
+          "failure": [
+            "You work at the lock with all the skill you possess, but today it's simply not enough. Maybe this particular lock is too advanced for your current abilities, maybe the mechanism is damaged or unusual, or maybe you're just having an off day. Whatever the reason, despite extended effort, the lock defeats you. The pins won't set correctly, the cylinder refuses to turn, and the lock remains stubbornly closed. Sometimes skill isn't enough - this is one of those times.",
+            "Your picks explore the lock mechanism with careful attention, but success eludes you. You feel for pins, apply tension, work the picks with all your technique, but the lock simply won't yield. After extensive attempts, you must admit defeat. This lock has beaten you - at least for now."
+          ],
+          "criticalFailure": [
+            "Everything goes wrong at the worst possible moment. You're working carefully, picks probing the mechanism, when you feel one of your tools catch badly. You try to ease it free, but the angle is wrong or the force is too much. There's a sharp crack that sounds thunderously loud to your ears - your pick has broken. Worse, you can feel that part of it has snapped off inside the lock, jamming the mechanism. You withdraw your tools with a sinking feeling, seeing the broken tip still lodged in the keyway. Not only have you failed to open the lock, but you've actively damaged it. The broken pick will need to be extracted before anyone can attempt this lock again. You've made a bad situation worse - a catastrophic failure of lockpicking!",
+            "Your lockpicking attempt becomes a disaster. You're manipulating the pins when something goes horribly wrong. Maybe your tension is off, maybe the pick catches at a bad angle, but the result is undeniable - the sharp snap of breaking metal. Your pick has broken in the lock, part of it jamming in the mechanism. You stare at the broken tool in dismay. The lock is now fouled, damaged by your failed attempt. This is worse than simply failing to open it - you've actively made the problem harder to solve. It's a spectacular failure that will require significant work to undo!"
+          ]
+        }
+      }
+    }
+  }
+}

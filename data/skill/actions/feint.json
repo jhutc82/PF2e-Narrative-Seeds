@@ -1,0 +1,268 @@
+{
+  "action": "feint",
+  "actionName": "Feint",
+  "skill": "deception",
+  "traits": ["mental"],
+  "description": "You attempt to trick your opponent with misleading movements, feints, and false attacks",
+
+  "variants": {
+    "default": {
+      "displayName": "Feint",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You deceive {targetName} completely!",
+            "Perfect feint!",
+            "You utterly mislead them!",
+            "{targetName} falls for it entirely!",
+            "Brilliant deception!"
+          ],
+          "success": [
+            "You feint successfully.",
+            "{targetName} is fooled.",
+            "Your deception works.",
+            "They fall for your trick.",
+            "You mislead them."
+          ],
+          "failure": [
+            "{targetName} sees through it.",
+            "Your feint fails.",
+            "They aren't fooled.",
+            "{targetName} reads you.",
+            "Your deception doesn't work."
+          ],
+          "criticalFailure": [
+            "You telegraph your real intent!",
+            "{targetName} sees through you completely!",
+            "Your feint backfires!",
+            "They read you perfectly!",
+            "You give yourself away!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "Your feint is masterful - {targetName} completely falls for your deception!",
+            "You perfectly mislead {targetName} with your false movements!",
+            "{targetName} is utterly deceived by your brilliant feint!",
+            "Your deceptive movements completely fool {targetName}!",
+            "You trick {targetName} with a perfectly executed feint!",
+            "{targetName} falls completely for your deceptive attack!",
+            "Your misleading movements utterly fool {targetName}!",
+            "You perfectly deceive {targetName} with your feint!",
+            "{targetName} is thoroughly misled by your deception!",
+            "Your feint works perfectly - {targetName} is completely fooled!"
+          ],
+          "success": [
+            "You successfully feint, misleading {targetName} momentarily.",
+            "Your deceptive movements fool {targetName}.",
+            "{targetName} falls for your feint.",
+            "You trick {targetName} with your false attack.",
+            "Your misleading movements work - {targetName} is deceived.",
+            "You successfully deceive {targetName} with your feint.",
+            "{targetName} is fooled by your deceptive movements.",
+            "Your feint works - {targetName} doesn't see your real intent.",
+            "You mislead {targetName} successfully.",
+            "{targetName} falls for your trick."
+          ],
+          "failure": [
+            "{targetName} sees through your feint.",
+            "Your deceptive movements don't fool {targetName}.",
+            "{targetName} reads your true intentions.",
+            "Your feint fails to mislead {targetName}.",
+            "{targetName} isn't deceived by your false attack.",
+            "Your attempt to feint is unsuccessful.",
+            "{targetName} sees right through your deception.",
+            "Your misleading movements fail to trick {targetName}.",
+            "{targetName} anticipates your real move.",
+            "Your feint doesn't work on {targetName}."
+          ],
+          "criticalFailure": [
+            "Your feint completely backfires - {targetName} reads you perfectly!",
+            "{targetName} sees through your deception and predicts your real attack!",
+            "Your obvious feint telegraphs your true intentions to {targetName}!",
+            "{targetName} reads you like a book - your deception fails utterly!",
+            "Your failed feint actually reveals your strategy to {targetName}!",
+            "{targetName} anticipates your feint and your real move!",
+            "Your clumsy deception is obvious to {targetName}!",
+            "{targetName} sees right through you and prepares for your real attack!",
+            "Your feint is so obvious it helps {targetName} defend!",
+            "{targetName} reads your intentions perfectly - your feint backfires!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You execute a masterful feint, your body language and movements creating a perfect illusion of an impending attack from one angle while you prepare to strike from another. {targetName} falls for it completely, shifting their guard to defend against the false threat. Their defenses are wide open!",
+            "Your deceptive movements are a work of art. You fake an attack with such conviction that {targetName} commits fully to defending against it. When they realize it was a feint, it's too late - they're completely out of position and vulnerable!",
+            "You sell the false attack perfectly. Every movement, every shift of weight suggests an incoming strike. {targetName} reads the fake signals and reacts accordingly, leaving themselves thoroughly exposed when they realize you deceived them!"
+          ],
+          "success": [
+            "You make a convincing false attack, and {targetName} takes the bait. They shift their defenses to counter the feint, creating a brief opening you can exploit.",
+            "Your deceptive movements work. {targetName} falls for the feint and momentarily focuses on the wrong threat, giving you an advantage.",
+            "You successfully mislead {targetName} with your false attack. They're fooled enough to create an opening in their defenses."
+          ],
+          "failure": [
+            "You attempt the feint, but {targetName} isn't fooled. They maintain their defensive stance, having seen through your deception.",
+            "Your false attack doesn't deceive {targetName}. They keep their guard up, unaffected by your attempt to mislead them.",
+            "{targetName} reads your body language correctly and doesn't fall for the feint. Your deception fails to create an opening."
+          ],
+          "criticalFailure": [
+            "Your feint is clumsy and obvious. Not only does {targetName} see through it immediately, but your telegraphed movements actually reveal your real intentions. They read you perfectly and are now better prepared to defend against your actual attack!",
+            "Your attempt to deceive backfires spectacularly. {targetName} not only sees through the feint but uses your obvious deception to predict your true strategy. Your failed trick has actually given them an advantage!",
+            "You try to feint but your movements are too obvious. {targetName} reads the deception instantly and uses the information to better position their defenses. Your failed feint has made your job harder!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You become a dancer of deception, every movement calculated to mislead. Your eyes flick to one target area while your weight shifts subtly toward another. Your weapon begins a strike that looks utterly committed - the angle perfect, the timing right, the force building. {targetName} reads all these signals and reacts exactly as you intended, committing to defend against an attack that will never come. By the time they realize they've been deceived, their guard is in shambles and they're wide open. It's a masterpiece of misdirection - the perfect feint!",
+            "Like a stage magician directing attention away from the trick, you orchestrate a symphony of false tells. Your shoulders telegraph one direction, your eyes another, your weapon suggests a third. The conflicting signals resolve into one clear - and completely false - threat. {targetName} falls for it utterly, their experienced combat instincts turned against them as they defend against the phantom attack. When reality reasserts itself and they realize the deception, they're thoroughly out of position. You've weaponized their own skill against them!"
+          ],
+          "success": [
+            "You execute a solid feint, selling the false attack with enough conviction to mislead {targetName}. They bite on the deception and shift their defenses accordingly. It's not a complete devastation of their guard, but it creates a tangible opening.",
+            "Your deceptive movements work their magic. {targetName} reads the false signals you're broadcasting and reacts to defend against the feint. For a critical moment, their attention is focused on the wrong threat, creating an exploitable weakness in their defense."
+          ],
+          "failure": [
+            "You attempt the deception, broadcasting false signals about your intended attack, but {targetName} isn't buying what you're selling. Maybe they're too experienced, maybe your technique isn't quite polished enough, or maybe they're just having a moment of exceptional awareness. Whatever the reason, they don't fall for it. Their guard remains solid, unaffected by your attempted misdirection.",
+            "Your feint fails to deceive. {targetName} maintains their defensive focus, either seeing through your false movements or simply refusing to commit to defending against uncertain threats. Your deceptive attack generates no advantage."
+          ],
+          "criticalFailure": [
+            "Your attempted feint goes catastrophically wrong. Maybe you're too obvious, maybe your timing is off, or maybe {targetName} is just that good at reading opponents - but not only do they see through the deception instantly, they actually use your failed feint against you. Your obvious false attack telegraphs your real intentions like a neon sign. They read your true strategy from your clumsy deception and adjust their defenses accordingly. What should have created an opening instead strengthens their guard. Your feint has backfired completely!",
+            "Disaster strikes your deception. You commit to the feint, broadcasting false signals about an incoming attack, but every movement screams 'fake' to {targetName}. Not only do they not fall for it, but your obvious deception actually reveals your real plan. It's like showing them your playbook. They see through the feint, predict your actual attack, and position themselves perfectly to defend against it. Your failed deception has actively helped your opponent - the worst possible outcome!"
+          ]
+        }
+      }
+    },
+
+    "confabulator": {
+      "displayName": "Feint (Confabulator)",
+      "feats": ["confabulator"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "Your gestures completely deceive {targetName}!",
+            "Perfect non-verbal feint!",
+            "You mislead them wordlessly!",
+            "{targetName} falls for your body language!",
+            "Brilliant gestural deception!"
+          ],
+          "success": [
+            "Your gestures fool {targetName}.",
+            "Non-verbal feint works.",
+            "Body language deceives them.",
+            "They fall for your gestures.",
+            "You mislead without words."
+          ],
+          "failure": [
+            "{targetName} reads your gestures correctly.",
+            "Your body language fails.",
+            "They aren't fooled by gestures.",
+            "Non-verbal feint fails.",
+            "Your movements don't deceive."
+          ],
+          "criticalFailure": [
+            "Your gestures telegraph your intent!",
+            "{targetName} reads your body language perfectly!",
+            "Your non-verbal feint backfires!",
+            "They see through your gestures!",
+            "You give yourself away!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "Your gestural feint is masterful - {targetName} completely falls for your body language!",
+            "You perfectly mislead {targetName} with wordless deception!",
+            "{targetName} is utterly deceived by your non-verbal misdirection!",
+            "Your body language completely fools {targetName} without a word spoken!",
+            "You trick {targetName} with perfectly executed gestural deception!",
+            "{targetName} falls completely for your wordless feint!",
+            "Your non-verbal movements utterly fool {targetName}!",
+            "You perfectly deceive {targetName} through body language alone!",
+            "{targetName} is thoroughly misled by your gestural deception!",
+            "Your wordless feint works perfectly - {targetName} is completely fooled!"
+          ],
+          "success": [
+            "You successfully feint using gestures, misleading {targetName}.",
+            "Your wordless deception fools {targetName}.",
+            "{targetName} falls for your non-verbal feint.",
+            "You trick {targetName} with body language alone.",
+            "Your gestural movements work - {targetName} is deceived.",
+            "You successfully deceive {targetName} without speaking.",
+            "{targetName} is fooled by your non-verbal deception.",
+            "Your wordless feint works despite the language barrier.",
+            "You mislead {targetName} through gestures.",
+            "{targetName} falls for your body language."
+          ],
+          "failure": [
+            "{targetName} reads your gestural feint correctly.",
+            "Your wordless deception doesn't fool {targetName}.",
+            "{targetName} interprets your body language accurately.",
+            "Your non-verbal feint fails to mislead {targetName}.",
+            "{targetName} isn't deceived by your gestures.",
+            "Your attempt to feint wordlessly is unsuccessful.",
+            "{targetName} sees through your body language.",
+            "Your gestural movements fail to trick {targetName}.",
+            "{targetName} reads your non-verbal cues correctly.",
+            "Your wordless feint doesn't work on {targetName}."
+          ],
+          "criticalFailure": [
+            "Your gestural feint backfires - {targetName} reads your body language perfectly!",
+            "{targetName} sees through your wordless deception and predicts your real attack!",
+            "Your obvious non-verbal feint telegraphs your true intentions!",
+            "{targetName} reads you like a book despite the language barrier!",
+            "Your failed gestural feint actually reveals your strategy!",
+            "{targetName} anticipates both your feint and your real move!",
+            "Your clumsy body language is obvious to {targetName}!",
+            "{targetName} sees through your gestures and prepares for your real attack!",
+            "Your wordless feint is so obvious it helps {targetName} defend!",
+            "{targetName} reads your non-verbal intentions perfectly!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You employ masterful non-verbal deception. Without speaking a word, you create a perfect illusion through body language alone - a shift of weight suggesting one attack, a glance indicating another target, a gesture implying a third strategy. {targetName} reads these universal signals and falls for them completely, despite any language barrier. They commit to defending against the false threat, leaving themselves wide open!",
+            "Your gestural feint transcends language. Through body language that any fighter can read, you broadcast false intentions with such conviction that {targetName} believes them utterly. When they realize the deception, it's too late - they're out of position and vulnerable, all without you speaking a single word!",
+            "You prove that deception needs no words. Your non-verbal misdirection - the angle of your shoulders, the direction of your eyes, the positioning of your weapon - creates a complete and convincing lie that {targetName} falls for entirely. Universal body language makes the perfect feint!"
+          ],
+          "success": [
+            "Your wordless deception works. Through gestures and body language alone, you create a convincing false threat that {targetName} responds to, language barrier irrelevant. They shift their defenses against the feint, creating a brief opening.",
+            "You successfully employ non-verbal misdirection. Your body language communicates false intentions clearly enough that {targetName} falls for it, giving you an advantage despite not sharing a common language.",
+            "Your gestural feint succeeds. Without words, you mislead {targetName} through universal combat signals - and they buy it, creating an exploitable weakness."
+          ],
+          "failure": [
+            "Your gestural feint fails to deceive. {targetName} either reads your body language correctly or simply doesn't respond to your non-verbal misdirection. The lack of shared language doesn't help - they maintain their defensive stance unmoved.",
+            "Your wordless deception doesn't work. {targetName} interprets your body language accurately or ignores your gestural feint entirely. You fail to create any opening.",
+            "Despite your non-verbal misdirection, {targetName} isn't fooled. Your gestural feint generates no advantage - they see through or ignore your wordless deception."
+          ],
+          "criticalFailure": [
+            "Your non-verbal feint backfires catastrophically. Body language is universal in combat - and that includes the body language of clumsy deception. Not only does {targetName} see through your gestural misdirection, but your obvious wordless feint actually telegraphs your real intentions. They read your true strategy from your failed gestures and position themselves perfectly to defend!",
+            "Your gestural deception fails spectacularly. {targetName} reads your non-verbal cues all too well - they just read the truth beneath the lies. Your obvious body language reveals rather than conceals, giving them perfect insight into your actual attack. Your wordless feint has become a wordless confession!",
+            "Disaster strikes your non-verbal deception. Your gestural feint is so obvious, so clearly false, that {targetName} not only sees through it but uses it to predict your real move. Language barrier or not, your failed body language has given them an advantage!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is deception at its most universal. You need no words - body language transcends linguistic barriers. You orchestrate a symphony of false physical tells: weight shifting to suggest one attack vector, eyes tracking toward a false target, weapon positioning implying a specific strike. All of it is lies, but convincing lies broadcast through the universal language of combat. {targetName} reads these signals exactly as you intend. They don't need to understand your speech to understand your body - and your body is telling a complete and utterly false story. They commit to defending against the phantom attack, their guard shifting, their focus redirected. When they realize the deception, they're thoroughly out of position. You've proven that the best lies need no words!",
+            "You become a master of non-verbal misdirection. Combat has its own language - the positioning of feet, the angle of shoulders, the direction of eyes, the grip on weapons. This language is universal, understood by fighters of every culture and species. You speak it fluently, and right now you're speaking lies. Without uttering a sound, you broadcast false intentions through body language so convincing that {targetName} believes every word of it. They respond to defend against attacks that will never come, their experienced instincts turned against them by your wordless deception. The gestural feint works perfectly - no shared language required!"
+          ],
+          "success": [
+            "You employ solid non-verbal deception. Through body language alone, you create false signals that {targetName} responds to. It's not devastating, but it works - they shift their defense to counter the gestural feint, creating a tangible opening. Deception needs no words.",
+            "Your wordless feint is effective. You use universal combat body language to broadcast false intentions, and {targetName} reads them and reacts accordingly. For a critical moment, they're defending against the wrong threat - all without you speaking a word."
+          ],
+          "failure": [
+            "You attempt gestural deception, broadcasting false intentions through body language alone. But {targetName} either reads your true intent beneath the lies or simply doesn't respond to your non-verbal misdirection. Your wordless feint generates no advantage - they maintain their guard unaffected.",
+            "Your non-verbal feint fails to work. Despite using universal combat body language, {targetName} isn't fooled. Maybe they're too experienced to fall for gestural tricks, or maybe your technique needs refinement. Either way, your wordless deception creates no opening."
+          ],
+          "criticalFailure": [
+            "Your gestural feint becomes a spectacular failure. The problem with non-verbal deception is that body language cuts both ways - it can reveal truth as easily as lies. Your attempted wordless feint is too obvious, too clumsy. {targetName} doesn't just see through the gestural misdirection - they read your true intentions in your failed body language. Your eyes betray where you'll really strike. Your weight reveals your actual plan. Your weapon positioning telegraphs your genuine attack. All without you speaking a word, you've confessed your entire strategy. They adjust their defenses perfectly, your failed gestural feint having given them every advantage!",
+            "Disaster strikes your non-verbal deception. You broadcast false intentions through body language, but every gesture screams 'fake' to {targetName}. They read not just the obvious lie but the truth beneath it. Your shoulders reveal your real attack angle. Your footwork shows your actual timing. Your eyes betray your genuine target. The gestural feint has backfired completely - you've used universal combat language to tell {targetName} exactly what you're really planning. No shared speech required for this catastrophic failure!"
+          ]
+        }
+      }
+    }
+  }
+}

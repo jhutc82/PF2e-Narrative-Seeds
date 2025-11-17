@@ -1,0 +1,268 @@
+{
+  "action": "trip",
+  "actionName": "Trip",
+  "skill": "athletics",
+  "traits": ["attack"],
+  "description": "You attempt to knock a foe to the ground",
+
+  "variants": {
+    "default": {
+      "displayName": "Trip",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You send {targetName} sprawling!",
+            "{targetName} crashes to the ground!",
+            "You knock {targetName} flat!",
+            "{targetName} falls hard!",
+            "You sweep {targetName}'s legs completely!"
+          ],
+          "success": [
+            "You trip {targetName}.",
+            "{targetName} falls prone.",
+            "You knock {targetName} down.",
+            "{targetName} hits the ground.",
+            "You sweep {targetName}'s feet."
+          ],
+          "failure": [
+            "{targetName} keeps their footing.",
+            "You can't knock them down.",
+            "{targetName} stays upright.",
+            "They maintain balance.",
+            "Your trip attempt fails."
+          ],
+          "criticalFailure": [
+            "You lose your own balance!",
+            "You stumble instead!",
+            "{targetName} counters you!",
+            "You nearly fall yourself!",
+            "It backfires badly!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You sweep {targetName}'s legs out from under them with devastating force!",
+            "Your trip sends {targetName} crashing to the ground hard!",
+            "With perfect timing, you knock {targetName} completely off their feet!",
+            "You catch {targetName}'s leg and send them sprawling violently!",
+            "{targetName} goes down hard, hitting the ground with bone-jarring impact!",
+            "Your sweep is perfectly executed - {targetName} slams into the ground!",
+            "You knock {targetName} flat on their back with explosive force!",
+            "Your trip is devastating - {targetName} crashes prone with no control!",
+            "{targetName} falls hard, completely unprepared for the impact!",
+            "You send {targetName} tumbling to the ground in a heap!"
+          ],
+          "success": [
+            "You manage to trip {targetName}, sending them to the ground.",
+            "Your sweep catches {targetName}'s leg, knocking them prone.",
+            "You successfully knock {targetName} off balance - they fall.",
+            "{targetName} loses their footing and drops to the ground.",
+            "Your trip works - {targetName} ends up prone.",
+            "You catch {targetName}'s feet and bring them down.",
+            "{targetName} stumbles and falls at your feet.",
+            "You sweep {targetName}'s leg, dropping them prone.",
+            "Your trip succeeds in knocking {targetName} to the ground.",
+            "{targetName} goes down, though somewhat controlled."
+          ],
+          "failure": [
+            "You try to sweep {targetName}'s legs, but they keep their balance.",
+            "{targetName} sidesteps your trip attempt effortlessly.",
+            "You can't quite catch {targetName}'s foot to trip them.",
+            "Your sweep misses as {targetName} shifts their weight.",
+            "{targetName} maintains their footing despite your effort.",
+            "You attempt the trip, but {targetName} stays upright.",
+            "Your leg sweep fails to connect properly.",
+            "{targetName} easily avoids being tripped.",
+            "You can't knock {targetName} off balance.",
+            "Your trip attempt doesn't work."
+          ],
+          "criticalFailure": [
+            "Your poorly timed trip leaves you off-balance instead!",
+            "You overextend and nearly trip yourself!",
+            "{targetName} steps over your sweeping leg and you stumble!",
+            "Your trip attempt is so clumsy you almost fall!",
+            "You miss completely and lose your own footing!",
+            "{targetName} easily avoids you and you're left vulnerable!",
+            "Your wild sweep throws you off balance badly!",
+            "You trip yourself instead of {targetName}!",
+            "Your failed attempt leaves you prone to counterattack!",
+            "You stumble awkwardly, nearly falling yourself!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "With explosive timing, you drive your leg into {targetName}'s ankles with devastating effect. Their feet fly out from under them and they crash to the ground with bone-rattling force, landing hard on their back, the wind knocked completely from their lungs!",
+            "You hook {targetName}'s leg at the perfect moment, wrenching it backward as your shoulder drives into their chest. The combination is devastating - they flip backward and slam into the ground with a sickening thud, completely stunned by the violent fall!",
+            "Your sweep catches both of {targetName}'s legs in one smooth motion. Their eyes go wide as they realize they're falling with no way to catch themselves. They crash to the ground hard, sprawled and disoriented!"
+          ],
+          "success": [
+            "You sweep {targetName}'s leg out, causing them to lose balance and fall to the ground. They manage to control the fall somewhat, but they're still prone and vulnerable.",
+            "Your trip catches {targetName} off-guard. They stumble, arms windmilling, before dropping to one knee and then going fully prone.",
+            "You successfully knock {targetName}'s feet from under them. They hit the ground with a grunt, now prone but already working to recover."
+          ],
+          "failure": [
+            "You swing your leg to sweep {targetName}'s feet, but they shift their weight at the last second. Your sweep finds nothing but empty air as they maintain their balance.",
+            "Despite your best effort to trip {targetName}, they read your intention and lift their foot just enough to avoid it. Your technique was sound, but the timing was off.",
+            "You attempt to hook {targetName}'s leg, but they're too quick. They sidestep your sweep and remain standing, unfazed."
+          ],
+          "criticalFailure": [
+            "You commit fully to sweeping {targetName}'s legs, but they jump over your attempted trip with ease. Your own momentum carries you through the failed sweep, and you spin awkwardly, nearly falling yourself. You're left off-balance and exposed!",
+            "Your overly ambitious trip attempt is telegraphed and clumsy. {targetName} not only avoids it but uses your poor positioning against you. You stumble, one leg extended awkwardly, barely keeping yourself from hitting the ground!",
+            "You sweep your leg with too much force and not enough control. {targetName} steps back casually, and your wild swing throws you completely off balance. You have to catch yourself to avoid falling flat on your face!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "Like a seasoned warrior, you read {targetName}'s footwork perfectly. Your leg sweeps in with devastating precision, catching their ankle at the exact moment their weight shifts. The physics are inescapable - their feet fly out from under them with violent force. Time seems to slow as shock registers on their face. Then gravity reasserts itself with brutal authority. They crash to the ground with bone-jarring impact, the fall so hard it raises dust. They lie there, stunned and prone, while you stand over them in perfect balance!",
+            "Your trip is a masterclass in combat technique. With explosive power, you drive your shin into both of {targetName}'s legs while simultaneously pushing their upper body. The combination is devastating and inescapable. Their legs are swept clean out from under them, and they flip backward through the air before slamming into the ground with terrifying force. The impact echoes. They're not just prone - they're utterly rattled!"
+          ],
+          "success": [
+            "You execute a solid trip, your leg hooking {targetName}'s ankle at just the right moment. They lose balance and fall, hitting the ground with an audible thump. It's not the most spectacular takedown, but it's effective - they're prone and you're still standing.",
+            "With practiced technique, you sweep {targetName}'s leg. They try to catch themselves but fail, ending up on the ground. The trip works exactly as intended - nothing fancy, just good fundamentals."
+          ],
+          "failure": [
+            "You attempt to sweep {targetName}'s legs with textbook form, but they read it perfectly. A subtle shift of weight, a small step back, and your trip finds nothing but air. Your technique was flawless, but so was their counter.",
+            "Despite your best effort and proper execution, {targetName} simply has better footwork. They dance away from your sweeping leg with frustrating ease, maintaining perfect balance while you're left reaching."
+          ],
+          "criticalFailure": [
+            "In your aggressive attempt to trip {targetName}, you overcommit catastrophically. You swing your leg with too much power, too little control, telegraphing the move so obviously that {targetName} sees it coming from a mile away. They don't just avoid it - they practically step over your sweeping leg like it's not even there. Your momentum betrays you. You spin awkwardly, arms pinwheeling as you fight to stay upright. For one mortifying moment, it looks like you're going to trip yourself. You manage to stay standing, but barely, and you're left completely exposed!",
+            "Your attempted trip is executed with such poor timing and technique that it borders on comedy. You lunge forward, leg extended at an awkward angle, clearly telegraphing your intention. {targetName} doesn't even have to try hard to avoid it - they simply shift their weight slightly and watch as you sweep at empty air. Your wild swing throws you completely off balance. You stumble forward, nearly falling, arms flailing for equilibrium. What should have been {targetName} on the ground is instead you looking like a fool!"
+          ]
+        }
+      }
+    },
+
+    "titan-wrestler": {
+      "displayName": "Trip (Titan Wrestler)",
+      "feats": ["titan-wrestler"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You topple the giant with clever leverage!",
+            "Perfect technique fells the larger foe!",
+            "You trip them despite their size!",
+            "The giant crashes down!",
+            "Skill over size - they fall!"
+          ],
+          "success": [
+            "You trip the larger foe.",
+            "Technique overcomes their mass.",
+            "You knock down the giant.",
+            "They fall despite their size.",
+            "Your skill trips them."
+          ],
+          "failure": [
+            "Their size keeps them upright.",
+            "You can't topple their mass.",
+            "They're too large to trip.",
+            "Their bulk defeats your technique.",
+            "They stay standing."
+          ],
+          "criticalFailure": [
+            "Their mass overwhelms you!",
+            "You're knocked down instead!",
+            "Their size defeats you!",
+            "You stumble under their bulk!",
+            "They're immovable!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You use perfect leverage to topple the larger foe - they crash down hard!",
+            "Your technique finds their center of gravity - the giant falls!",
+            "Despite their size, your skillful trip sends them sprawling!",
+            "You exploit their mass perfectly - they go down with tremendous impact!",
+            "Your leverage-based trip fells the larger foe completely!",
+            "You use their own weight against them - they crash to the ground!",
+            "Perfect positioning lets you trip the giant with devastating effect!",
+            "Your expert technique overcomes their size - they fall hard!",
+            "You topple the larger foe with masterful leverage!",
+            "Your skillful trip sends the giant crashing down!"
+          ],
+          "success": [
+            "You use clever technique to trip the larger opponent.",
+            "Your leverage finds their center of gravity - they fall.",
+            "You manage to knock down the bigger foe with skilled positioning.",
+            "Your trip overcomes the size difference successfully.",
+            "You topple them using technique instead of strength.",
+            "Your leverage-based sweep brings down the larger foe.",
+            "You trip the giant through skillful execution.",
+            "Your technique makes up for the size disadvantage.",
+            "You successfully knock down the larger opponent.",
+            "Your clever positioning trips them despite their mass."
+          ],
+          "failure": [
+            "Their size advantage keeps them upright despite your technique.",
+            "You can't find the leverage to topple their mass.",
+            "The size difference defeats your trip attempt.",
+            "Their bulk resists your skillful sweep.",
+            "You can't overcome their size to trip them.",
+            "Their mass is too great for your leverage to work.",
+            "The larger foe maintains balance despite your effort.",
+            "Your technique can't topple their sheer bulk.",
+            "They're too large for your trip to work.",
+            "Their size defeats your positioning."
+          ],
+          "criticalFailure": [
+            "You try to trip them but their mass overwhelms you completely!",
+            "Their size advantage crushes your technique - you stumble!",
+            "You're thrown off balance by their immovable bulk!",
+            "Their mass defeats you and you nearly fall yourself!",
+            "You're overpowered by their size - you stumble badly!",
+            "Their bulk doesn't budge and you lose your footing!",
+            "You can't move their mass and you're left vulnerable!",
+            "Their size dominates - you're knocked off balance!",
+            "You stumble against their immovable form!",
+            "Their mass crushes your trip attempt and you falter!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You read the larger foe's balance with expert precision. Despite their size, you find their center of gravity - that crucial point where mass becomes liability. Your sweep targets their weight-bearing leg at the perfect moment. With a sharp pull and expert positioning, you use their own mass against them. Physics does the rest. The giant topples with tremendous force, their size making the fall even more devastating!",
+            "Size doesn't matter when you understand leverage. You dart in low, positioning yourself at the perfect angle. Your leg hooks behind theirs as you drive forward against their upper body. The combination exploits their high center of gravity beautifully. They try to resist, but their own weight betrays them. They crash to the ground with bone-jarring impact!",
+            "Like a master throwing a giant in martial arts, you use technique to overcome size. You find the weak point in their stance, the moment of weight transfer. Your trip is perfectly timed and positioned. Their mass, which should be an advantage, becomes their downfall. They topple with devastating force, utterly unable to stop the fall!"
+          ],
+          "success": [
+            "You employ skillful technique to trip the larger foe. Using leverage and timing instead of matching their mass, you manage to sweep their leg. They lose balance and fall to the ground despite the size difference.",
+            "Your trip targets their center of gravity with clever positioning. The size disadvantage makes it challenging, but your technique is sound. You manage to bring them down, proving skill can overcome size.",
+            "You use leverage-based technique to topple the bigger opponent. By exploiting their weight distribution and attacking at the right moment, you successfully trip them to the ground."
+          ],
+          "failure": [
+            "You attempt to trip the larger foe using proper technique, but their sheer mass defeats your effort. You find the right angle, execute properly, but they're simply too large to topple. Their size advantage proves insurmountable.",
+            "Despite clever positioning and good leverage, you can't overcome the size difference. The larger foe's bulk keeps them upright. Your trip, technically sound, simply lacks the force needed against their mass.",
+            "You try to use their weight against them, but physics doesn't cooperate today. Their size is too great, their balance too solid. Your skilled attempt to trip them fails."
+          ],
+          "criticalFailure": [
+            "You move in for a leverage-based trip, but their mass is far more than you anticipated. When you attempt to sweep their leg, it's like trying to move a mountain. Not only don't they budge, but the collision with their immovable bulk throws you completely off balance. You stumble badly, nearly falling yourself!",
+            "Your technical approach to tripping the larger foe backfires catastrophically. You position yourself to exploit their center of gravity, but you've miscalculated their weight distribution. When you execute the sweep, their mass simply overwhelms your technique. You're the one who ends up off-balance and vulnerable!",
+            "You attempt to use clever leverage to topple the giant, but their size defeats you utterly. Your sweep connects with their leg, but they don't even wobble. The failed attempt leaves you overextended and exposed, your technique crushed by raw physics!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is David versus Goliath played out in brutal physics. You study the larger foe with the calculating eye of a master, seeing not their intimidating size but their exploitable center of gravity. You move with sudden, explosive precision - darting in low, under their reach. Your leg sweeps behind theirs at the exact moment their weight shifts. Simultaneously, you drive upward against their chest. The leverage is perfect, the timing flawless. For one suspended moment, the giant teeters, their size suddenly becoming their enemy. Then gravity takes over with merciless authority. They don't just fall - they crash, their mass making the impact tremendous. The ground shakes. Dust rises. And they lie there prone and stunned, felled not by strength but by superior technique!",
+            "Like a legendary martial artist toppling a giant, you demonstrate the ultimate triumph of skill over size. You don't try to overpower them - that would be madness. Instead, you use physics as your weapon. You find the weakness in their stance, the moment of imbalance inherent in their size. Your sweep is perfectly positioned, targeting their weight-bearing leg with surgical precision. Your upper body push hits their high center of gravity at the exact right angle. The combination is inescapable. Their own mass betrays them. They topple with catastrophic force, arms windmilling uselessly, and slam into the ground hard enough to knock the breath from their lungs. You've just proven that in combat, technique beats size every time!"
+          ],
+          "success": [
+            "You employ solid technique to trip the larger opponent. Moving with careful precision, you find the angle that lets you exploit their weight distribution. It's not easy - their mass resists your efforts - but your skill prevails. They lose balance and fall to the ground, your leverage overcoming their size advantage.",
+            "Your trip uses proper positioning to overcome the size disadvantage. You target their center of gravity at the right moment, applying force where it matters. The larger foe topples to the ground, brought down by technique rather than brute strength."
+          ],
+          "failure": [
+            "You move in with sound technique, seeking the leverage point that should let you topple the larger foe. But today, size simply triumphs over skill. Their mass is too great, their balance too stable. Despite your best wrestling technique, they remain standing, immovable as a mountain. Your trip has failed.",
+            "Your technical approach is textbook perfect - positioning, timing, leverage all correct. But reality proves unkind. The larger foe's sheer bulk creates challenges your skill simply can't overcome. You can't generate enough force to move their mass. They stay upright while your trip attempt comes to nothing."
+          ],
+          "criticalFailure": [
+            "You commit to the trip with complete confidence in your technique. You've studied leverage, practiced positioning, and you're certain you can topple this larger foe. You're catastrophically wrong. You move in, execute your sweep with perfect form, and achieve... nothing. The larger foe doesn't just stay standing - they barely seem to notice your attempt. Their mass is so overwhelming that your technique might as well be a gentle breeze. Worse, your committed position leaves you off-balance. When they shift their weight - not even deliberately, just adjusting their stance - the movement knocks you completely off your footing. You stumble badly, nearly falling, your failed trip leaving you exposed and vulnerable. Size has defeated skill decisively!",
+            "Your attempt to trip the giant using leverage and technique becomes a masterclass in failure. You position yourself perfectly, timing your sweep with precision. But when you execute, reality intervenes brutally. Their mass is simply too great. Your sweep connects with their leg and stops dead, like you've tried to sweep a tree trunk. The jarring stop throws off your own balance. You stumble, overextended and awkward, while they remain standing and stable. Your wrestling expertise has been overwhelmed by simple physics, and you're left in a terrible position!"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,540 @@
+{
+  "action": "demoralize",
+  "actionName": "Demoralize",
+  "skill": "intimidation",
+  "traits": ["auditory", "concentrate", "emotion", "mental"],
+  "description": "You attempt to Frighten a foe using threats",
+
+  "variants": {
+    "default": {
+      "displayName": "Demoralize",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You terrify {targetName}!",
+            "You break {targetName}'s nerve!",
+            "{targetName} recoils in fear!",
+            "Your threat devastates {targetName}!",
+            "{targetName} is overwhelmed with terror!"
+          ],
+          "success": [
+            "You unnerve {targetName}.",
+            "You intimidate {targetName}.",
+            "{targetName} hesitates.",
+            "Your threat works.",
+            "{targetName} looks worried."
+          ],
+          "failure": [
+            "{targetName} isn't impressed.",
+            "Your threat falls flat.",
+            "{targetName} stands firm.",
+            "It has no effect.",
+            "{targetName} ignores you."
+          ],
+          "criticalFailure": [
+            "{targetName} laughs at you!",
+            "Your intimidation backfires!",
+            "You look foolish!",
+            "{targetName} seems amused!",
+            "It makes things worse!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You unleash a fearsome threat that breaks {targetName}'s nerve completely!",
+            "Your intimidating display sends {targetName} reeling backward in terror!",
+            "{targetName} staggers, face pale with fear at your menacing presence!",
+            "You bellow a war cry that shatters {targetName}'s composure entirely!",
+            "Your threatening words cut through {targetName} like a blade - they're terrified!",
+            "{targetName}'s hands tremble as your intimidation overwhelms them!",
+            "You lock eyes with {targetName}, and they freeze, utterly cowed!",
+            "Your menacing presence breaks {targetName}'s will to fight!",
+            "{targetName} stumbles backward, terror written across their face!",
+            "Your threat carries such weight that {targetName} goes pale!"
+          ],
+          "success": [
+            "You bellow a threatening warning that makes {targetName} hesitate.",
+            "Your menacing words catch {targetName}'s attention, making them nervous.",
+            "{targetName} flinches at your intimidating display.",
+            "You deliver a stern threat that clearly unsettles {targetName}.",
+            "Your aggressive posture makes {targetName} think twice.",
+            "{targetName} backs away slightly, unnerved by your threats.",
+            "You snarl a warning that gives {targetName} pause.",
+            "Your intimidating demeanor makes {targetName} wary.",
+            "{targetName}'s confidence wavers at your menacing words.",
+            "You project enough menace to rattle {targetName}."
+          ],
+          "failure": [
+            "You try to intimidate {targetName}, but they're unimpressed by your threats.",
+            "Your threatening words don't seem to affect {targetName}.",
+            "{targetName} stands firm against your intimidation attempt.",
+            "Your menacing display fails to land - {targetName} doesn't budge.",
+            "{targetName} meets your threats with steady resolve.",
+            "Your intimidation attempt doesn't produce the effect you hoped for.",
+            "{targetName} remains unfazed by your threatening demeanor.",
+            "Your words lack the bite needed to unsettle {targetName}.",
+            "{targetName} brushes off your intimidation with confidence.",
+            "Your attempt to seem threatening falls short."
+          ],
+          "criticalFailure": [
+            "Your clumsy intimidation attempt makes {targetName} laugh derisively!",
+            "{targetName} mocks your failed threat, emboldening them further!",
+            "Your intimidation backfires spectacularly - {targetName} seems amused!",
+            "You stumble over your threatening words, and {targetName} grins!",
+            "{targetName} actually laughs out loud at your poor attempt!",
+            "Your menacing display comes across as pathetic - {targetName} smirks!",
+            "{targetName} rolls their eyes at your failed intimidation!",
+            "You try to seem threatening, but {targetName} finds it funny!",
+            "Your bravado crumbles embarrassingly, boosting {targetName}'s confidence!",
+            "{targetName} responds with mocking laughter that stings!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Your voice thunders with raw menace as you lock eyes with {targetName}. They stumble backward, terror etched across their face, completely shaken by the primal fear you've invoked!",
+            "You unleash a fearsome war cry that resonates with pure dominance. {targetName}'s composure shatters entirely - they pale, hands trembling as the weight of your threat crashes over them!",
+            "Stepping forward with aggressive intent, you deliver a bone-chilling threat. {targetName}'s bravado crumbles instantly, replaced by wide-eyed panic as they realize the danger they face!",
+            "You channel pure menace through every word and gesture. {targetName} actually recoils, their weapon wavering as genuine terror takes hold. Your intimidation has broken something fundamental in them!",
+            "Your threatening words drip with such conviction that {targetName} can't help but believe them. They back away, breathing quickly, eyes darting for escape routes. You've truly terrified them!"
+          ],
+          "success": [
+            "You growl a menacing warning through gritted teeth. {targetName} takes an involuntary step back, their confidence clearly shaken by your display.",
+            "Your intimidating words carry undeniable weight. {targetName}'s eyes dart nervously as they reassess the situation, no longer quite so certain.",
+            "With a threatening gesture, you make your intentions crystal clear. {targetName} swallows hard, visibly unnerved by your aggressive posture.",
+            "You project raw menace through body language and tone. {targetName} tenses, clearly affected by your intimidating presence even if not fully cowed.",
+            "Your well-timed threat catches {targetName} off-guard. They hesitate, uncertainty creeping into their expression as your words sink in."
+          ],
+          "failure": [
+            "You try to project menace, but your words lack the conviction needed. {targetName} barely reacts, their confidence unshaken.",
+            "Your attempted intimidation comes across as forced and hollow. {targetName} meets your gaze steadily, unimpressed.",
+            "Despite your best efforts to seem threatening, {targetName} doesn't seem particularly concerned by your display.",
+            "You deliver your threats with gusto, but {targetName} stands their ground, apparently unmoved by your bluster.",
+            "Your intimidating stance and harsh words fail to produce the desired effect. {targetName} remains resolute."
+          ],
+          "criticalFailure": [
+            "Your attempt at intimidation is so poorly delivered that {targetName} actually laughs out loud! Their mocking response emboldens them, making them more confident than before!",
+            "You stumble over your threatening words, voice cracking embarrassingly. {targetName} grins wickedly, your failed intimidation only fueling their courage!",
+            "Your aggressive display backfires completely - you overcommit and nearly lose your balance. {targetName} smirks at your clumsiness, clearly not taking you seriously now!",
+            "In trying to project overwhelming menace, you instead come across as desperate. {targetName}'s expression shifts from caution to contemptuous amusement!",
+            "Your theatrical attempt at intimidation is so over-the-top that {targetName} can't help but chuckle. The sound of their laughter is mortifying!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "The very air seems to chill as you channel pure, predatory menace. Your eyes burn with lethal promise as your words drip with inevitable violence. {targetName}'s blood turns to ice - their hands shake uncontrollably, breath coming in ragged gasps as primal terror overrides all reason. They know, with absolute certainty, that they are prey before an apex predator.",
+            "Your battle cry tears through the chaos like the roar of an ancient dragon - raw, primal, absolutely dominant. The sound reverberates in {targetName}'s very bones. Their face drains of all color as their legs nearly give out beneath them. This isn't mere intimidation - it's the recognition of overwhelming, unstoppable force!",
+            "You become death incarnate in this moment. Each word falls like a hammer blow of doom. Each step forward radiates inexorable violence. {targetName}'s courage doesn't just falter - it shatters completely. Their weapon wavers as their nerve breaks, consumed by the terrible certainty that they face something far beyond their ability to resist!"
+          ],
+          "success": [
+            "Menace radiates from your every word and gesture like heat from a forge. {targetName}'s confidence visibly wavers - their stance shifts defensively, uncertainty creeping into their eyes. They're not broken, but they're definitely concerned now.",
+            "You unleash a threat laden with dark promise and undeniable conviction. The shift in {targetName}'s demeanor is immediate - jaw tightening, eyes narrowing, a slight backward step betraying their sudden unease. Your message has been received.",
+            "Your intimidating display combines aggressive body language with perfectly chosen words of menace. {targetName} tries to maintain composure, but you catch the telltale signs - the white knuckles, the tense shoulders, the quick glance assessing escape routes. They're rattled."
+          ],
+          "failure": [
+            "You attempt to project overwhelming menace, but something in your delivery rings hollow. {targetName}'s eyes remain steady, their stance unchanged. Your threat, for all its bluster, lacks the teeth to give them pause.",
+            "Despite drawing on every ounce of intimidating presence you can muster, {targetName} seems frustratingly unmoved. They meet your threatening gaze with calm indifference, secure in whatever reserves of courage or foolishness keep them fearless.",
+            "Your words of menace fall on surprisingly unimpressed ears. {targetName} doesn't even bother responding - their casual dismissal of your intimidation attempt stinging more than outright mockery would."
+          ],
+          "criticalFailure": [
+            "In trying to project overwhelming dominance, you instead reveal the desperation beneath your bravado. {targetName}'s eyes light up with predatory glee as they recognize your fear dressed up as aggression. Your voice cracks mid-threat, destroying any credibility. They actually smile - you've just shown them weakness!",
+            "Your attempted intimidation is so transparently overplayed that it has the opposite effect entirely. {targetName} bursts into genuine laughter at your theatrical display. Worse, their mocking sets your cheeks burning with humiliation, and everyone watching knows your threatening words were empty posturing!",
+            "You commit so hard to your menacing advance that you literally trip over your own feet! Stumbling awkwardly, you have to catch yourself to avoid falling. {targetName}'s expression shifts from caution to open amusement - any fear they might have felt is now replaced with the certainty that you're more danger to yourself than to them!"
+          ]
+        }
+      }
+    },
+
+    "intimidating-glare": {
+      "displayName": "Demoralize (Intimidating Glare)",
+      "feats": ["intimidating-glare"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "Your glare terrifies {targetName}!",
+            "Your stare breaks {targetName}!",
+            "{targetName} wilts under your gaze!",
+            "Your eyes paralyze {targetName} with fear!",
+            "Your look utterly unnerves them!"
+          ],
+          "success": [
+            "Your glare unnerves {targetName}.",
+            "Your stare intimidates them.",
+            "{targetName} flinches from your gaze.",
+            "Your look makes them hesitate.",
+            "Your eyes convey menace."
+          ],
+          "failure": [
+            "{targetName} meets your gaze unflinching.",
+            "Your glare has no effect.",
+            "{targetName} stares back defiantly.",
+            "Your look doesn't work.",
+            "{targetName} ignores your stare."
+          ],
+          "criticalFailure": [
+            "{targetName} stares you down!",
+            "Your glare backfires!",
+            "{targetName} smirks at you!",
+            "You blink first!",
+            "{targetName} wins the staring contest!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "Your ice-cold glare pierces through {targetName} - they freeze in terror!",
+            "You lock eyes with {targetName}, and your merciless stare breaks their courage!",
+            "Your predatory gaze pins {targetName} like a rabbit before a wolf!",
+            "You fix {targetName} with a death stare that sends them reeling!",
+            "Your eyes promise violence - {targetName} goes pale!",
+            "You level a glare of pure menace at {targetName}, shattering their nerve!",
+            "Your unblinking stare radiates such threat that {targetName} staggers!",
+            "You bore into {targetName} with a look that promises death!",
+            "Your penetrating glare strips away {targetName}'s courage!",
+            "You stare at {targetName} with eyes like a predator - they're terrified!"
+          ],
+          "success": [
+            "Your stern glare makes {targetName} visibly uncomfortable.",
+            "You fix {targetName} with an intimidating stare that unsettles them.",
+            "Your cold eyes lock onto {targetName}, making them nervous.",
+            "You give {targetName} a look that clearly threatens violence.",
+            "Your menacing gaze makes {targetName} hesitate.",
+            "You stare down {targetName} with clear hostile intent.",
+            "Your hard stare conveys unmistakable menace.",
+            "You pin {targetName} with an unsettling glare.",
+            "Your eyes promise consequences - {targetName} notices.",
+            "You level a threatening look at {targetName}."
+          ],
+          "failure": [
+            "Your intimidating glare doesn't affect {targetName}.",
+            "{targetName} meets your stare without flinching.",
+            "Your menacing look fails to unsettle {targetName}.",
+            "{targetName} stares back at you, unintimidated.",
+            "Your glare lacks the intensity needed to frighten {targetName}.",
+            "{targetName} brushes off your harsh stare.",
+            "Your attempt to stare them down fails.",
+            "{targetName} remains unfazed by your glare.",
+            "Your cold look doesn't produce the desired effect.",
+            "{targetName} doesn't seem bothered by your stare."
+          ],
+          "criticalFailure": [
+            "{targetName} stares right back and makes YOU uncomfortable!",
+            "Your glare wavers first - {targetName} grins victoriously!",
+            "{targetName} meets your eyes with such intensity you look away!",
+            "You try to stare them down but blink nervously!",
+            "{targetName}'s return stare is more intimidating than yours!",
+            "Your attempted death stare comes off as a squint!",
+            "{targetName} laughs at your fierce expression!",
+            "You accidentally make awkward eye contact!",
+            "{targetName} winks at you mockingly!",
+            "Your glare is more comical than menacing!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You lock eyes with {targetName} and let the mask slip, allowing them to see the ruthless violence lurking behind your gaze. Your eyes become chips of ice, devoid of mercy or hesitation. {targetName} visibly recoils, reading their potential death in your unflinching stare!",
+            "You fix {targetName} with a predator's stare - the kind of look that speaks of countless battles and zero mercy. Your gaze bores into them with laser focus, promising terrible consequences. They go pale, courage evaporating under the weight of your intimidating glare!",
+            "Without uttering a single word, you communicate volumes with your eyes alone. The intensity of your stare, the cold calculation, the utter lack of fear - all of it combines to utterly unnerve {targetName}. They stumble backward, unable to hold your gaze!"
+          ],
+          "success": [
+            "You level a hard stare at {targetName}, eyes narrowed and cold. The menace in your gaze is unmistakable, and they shift uncomfortably under your visual scrutiny.",
+            "You fix {targetName} with an unblinking glare that communicates clear hostile intent. Your eyes promise violence if provoked, and the message lands.",
+            "Your predatory gaze locks onto {targetName} like a targeting reticule. The intensity makes them nervous, uncertain under your unwavering attention."
+          ],
+          "failure": [
+            "You try to cow {targetName} with an intimidating stare, but they don't seem particularly affected. Your glare, intense as it is, fails to break their composure.",
+            "Your attempted death stare doesn't land as intended. {targetName} meets your eyes steadily, unimpressed by your visual intimidation.",
+            "You fix {targetName} with what you hope is a menacing glare, but they barely react. Your silent intimidation attempt has failed."
+          ],
+          "criticalFailure": [
+            "You lock eyes with {targetName} trying to project overwhelming menace, but something goes wrong. Maybe you blink at the wrong moment, maybe your expression isn't quite right, but instead of fear, you see amusement in their eyes. They're not intimidated - they're entertained!",
+            "Your attempt at a fierce, intimidating glare somehow comes across all wrong. {targetName} actually smirks at your expression. Worse, you can feel your face getting hot with embarrassment. Your wordless intimidation has backfired spectacularly!",
+            "You try to stare down {targetName} with cold menace, but your eyes water from not blinking, and you have to look away. {targetName}'s chuckle at your failed glare stings your pride!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You become perfectly still, and in that stillness, you are terrifying. Your eyes lock onto {targetName} with the focused intensity of an apex predator selecting prey. There's no anger in your gaze, no rage - just cold, calculating acknowledgment of their mortality. Your stare speaks of experience, of capability, of absolute ruthlessness held barely in check. {targetName} sees their own potential death reflected in your unwavering eyes, and something inside them breaks. Their hands shake, breath catches, courage evaporates. You've conquered them without speaking a single word!",
+            "Your gaze transforms into something inhuman and terrible - eyes like a shark's, empty of mercy, filled only with predatory intent. You don't blink. You don't waver. You simply stare at {targetName} with the kind of look that has made hardened warriors reconsider their life choices. The message is crystal clear: 'I have done terrible things, and I will do them to you.' {targetName}'s face drains of color as your wordless promise of violence penetrates their soul!"
+          ],
+          "success": [
+            "You fix {targetName} with a hard, uncompromising stare. Your eyes narrow slightly, jaw sets, and the intensity of your gaze communicates clear menace. {targetName} shifts uncomfortably, unable to hold your gaze, visibly unnerved by your silent intimidation.",
+            "You lock eyes with {targetName} and let them see the steel behind your gaze. Your stare is cold and measuring, like you're calculating exactly how to take them apart. The visual threat lands - {targetName} tenses, confidence wavering."
+          ],
+          "failure": [
+            "You attempt to intimidate {targetName} with pure visual menace, boring into them with your most intense stare. But they don't break. They meet your gaze steadily, either too brave or too foolish to be cowed by a look. Your wordless intimidation fails.",
+            "You try to project overwhelming threat through your eyes alone, but {targetName} simply isn't buying it. They stare right back, unflinching. Your glare, for all its intensity, lacks the power to shake them."
+          ],
+          "criticalFailure": [
+            "You lock eyes with {targetName}, trying to channel every ounce of menace into your gaze. But something goes catastrophically wrong. Maybe your expression is too forced, maybe you hold the stare too long and it gets weird, or maybe {targetName} is just immune to visual intimidation. Whatever the reason, instead of fear, you see amusement dancing in their eyes. They're not intimidated - they're trying not to laugh! Worse, you can feel the hot flush of embarrassment creeping up your neck. Your attempted death stare has made you look ridiculous!",
+            "Your eyes narrow to fierce slits as you try to stare down {targetName} with pure menace. But your timing is terrible - at the exact moment you're trying to look most fierce, something makes you blink rapidly, or your eye waters, completely destroying the effect. {targetName}'s face splits into a grin. Your intimidating glare has become a source of their amusement!"
+          ]
+        }
+      }
+    },
+
+    "battle-cry": {
+      "displayName": "Demoralize (Battle Cry)",
+      "feats": ["battle-cry"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "Your war cry devastates your foes!",
+            "Your battle cry breaks their spirits!",
+            "You rally yourself and terrify them!",
+            "Your roar shatters their courage!",
+            "Your cry dominates the battlefield!"
+          ],
+          "success": [
+            "Your battle cry unsettles them.",
+            "Your war cry makes them hesitate.",
+            "You roar with intimidating force.",
+            "Your cry rallies you and unnerves them.",
+            "Your battle cry has impact."
+          ],
+          "failure": [
+            "Your battle cry falls flat.",
+            "They ignore your war cry.",
+            "Your roar has no effect.",
+            "Your cry doesn't intimidate them.",
+            "They're unfazed by your shout."
+          ],
+          "criticalFailure": [
+            "Your battle cry sounds weak!",
+            "They laugh at your cry!",
+            "Your voice cracks!",
+            "Your war cry backfires!",
+            "You sound foolish!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You unleash a thunderous battle cry that echoes across the field, shattering enemy morale!",
+            "Your war cry resonates with primal dominance - foes quail before the sound!",
+            "You roar with such ferocity that enemies actually stumble back in terror!",
+            "Your battle cry cuts through the chaos, breaking enemy courage and steeling your own!",
+            "You bellow a war shout that sends ripples of fear through enemy ranks!",
+            "Your cry of challenge reverberates with raw power, devastating enemy resolve!",
+            "You unleash a roar that would make dragons proud - enemies reel!",
+            "Your battle cry announces your dominance - foes pale at the sound!",
+            "You thunder a war shout that crushes enemy morale!",
+            "Your ferocious cry tears through the battlefield, terrifying all who hear it!"
+          ],
+          "success": [
+            "Your battle cry rings out, clearly unsettling nearby foes.",
+            "You roar with impressive force, rattling enemy confidence.",
+            "Your war shout echoes menacingly, making enemies nervous.",
+            "You bellow a challenge that gives your foes pause.",
+            "Your battle cry announces your presence with intimidating volume.",
+            "You unleash a fierce shout that unnerves your enemies.",
+            "Your war cry carries clear threat, shaking enemy resolve.",
+            "You roar defiantly, your cry making enemies reconsider.",
+            "Your battle shout projects confidence and menace.",
+            "You cry out with enough ferocity to rattle foes."
+          ],
+          "failure": [
+            "Your battle cry doesn't carry the weight you hoped for.",
+            "Your war shout fails to intimidate - enemies stand firm.",
+            "You roar with vigor, but it doesn't affect enemy morale.",
+            "Your battle cry is drowned out or ignored.",
+            "Your attempt at a war cry doesn't land effectively.",
+            "Your shout lacks the intimidating quality you intended.",
+            "Enemies seem unimpressed by your battle cry.",
+            "Your war shout doesn't shake enemy resolve.",
+            "Your cry rings out, but foes don't react.",
+            "Your battle cry fails to produce the desired effect."
+          ],
+          "criticalFailure": [
+            "Your battle cry cracks embarrassingly - enemies laugh!",
+            "You try to roar but it comes out as a squeak!",
+            "Your voice breaks mid-cry, humiliating you!",
+            "Your battle cry is so weak it emboldens enemies!",
+            "You stumble over your words and sound foolish!",
+            "Your war cry is pathetic - foes smirk!",
+            "You accidentally inhale mid-shout and cough!",
+            "Your attempted roar sounds more like a yelp!",
+            "Enemies mock your feeble battle cry!",
+            "Your voice cracks spectacularly!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You draw breath deep into your lungs and unleash a battle cry that tears through the air like thunder. The sound carries primal aggression, dominance, challenge - everything that speaks to the lizard brain that fears predators. Enemies actually flinch at the raw ferocity in your voice. You see uncertainty flash across their faces, courage faltering. Your cry has done its work perfectly!",
+            "You channel every ounce of warrior spirit into one explosive roar. The sound reverberates across the battlefield with shocking intensity, announcing your presence and your intent to dominate. Enemies pale at the sheer force of will behind your cry. It's not just loud - it's deeply intimidating!",
+            "At the moment battle is joined, you unleash a war cry that seems to shake the very ground. The sound combines rage, confidence, and clear threat into one primal expression. Foes actually stumble at the psychological impact, their morale shattered by the force of your voice!"
+          ],
+          "success": [
+            "You bellow a fierce battle cry that cuts through the pre-combat tension. The sound is aggressive and confident, clearly announcing your readiness to fight. Enemies register the threat, uncertainty creeping into their expressions.",
+            "Your war shout rings out with impressive volume and unmistakable menace. The psychological impact is real - you can see foes tensing, reconsidering their choices.",
+            "You roar a challenge that echoes across the field. The raw aggression in your voice gives enemies pause, rattling their confidence even if it doesn't break them completely."
+          ],
+          "failure": [
+            "You attempt an intimidating battle cry, but it simply doesn't land with the impact you hoped. Maybe the acoustics are wrong, maybe your voice lacks resonance, or maybe enemies are just too determined. Your cry fails to shake them.",
+            "You unleash what you intend as a fearsome war shout, but enemies seem frustratingly unimpressed. They meet your cry with steady resolve, their courage intact.",
+            "Your battle cry rings out, but it doesn't produce the intimidating effect you wanted. Foes barely react, maintaining their composure despite your roar."
+          ],
+          "criticalFailure": [
+            "You draw breath for an intimidating battle cry, but disaster strikes. Maybe you inhale some dust and cough mid-roar, maybe your voice cracks embarrassingly, or maybe the sound that emerges is simply not as fierce as you intended. Whatever happens, the result is humiliating. Enemies don't flinch in fear - they grin or even laugh! Your failed battle cry has actually boosted their morale instead of dampening it!",
+            "You unleash what you hope is a terrifying war cry, but it all goes wrong. Your voice breaks, the pitch is all off, and what should sound like a predator's roar comes out more like a strangled yelp. Enemies actually laugh at the pathetic sound. Your battle cry has backfired spectacularly!",
+            "You roar with all your might, but you time it wrong and actually run out of breath mid-cry. The fierce battle shout devolves into weak coughing. Enemies smirk at your embarrassing failure!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You plant your feet and draw the deepest breath of your life. Then you UNLEASH. The battle cry that erupts from your lungs isn't just sound - it's concentrated aggression, weaponized fury, pure dominating will made audible. The roar echoes across the battlefield like rolling thunder, drowning out other noise, commanding absolute attention. There's something primal and terrible in that sound - the voice of warriors throughout history, the cry of predators announcing the hunt. Enemies actually stumble backward, faces draining of color. You can see their resolve crumbling, hands shaking, courage evaporating. Your battle cry has struck terror into their hearts before the first blow is even thrown!",
+            "At the perfect moment - that instant before chaos erupts - you let loose a war cry that seems to reverberate in the bones of everyone who hears it. It's not just loud. It's psychologically devastating. The sound carries absolute confidence, utter fearlessness, and the clear promise of overwhelming violence. Foes actually flinch at the primal power in your voice. This isn't the shout of someone hoping to win - it's the roar of someone who KNOWS they're the dominant force on this battlefield!"
+          ],
+          "success": [
+            "You unleash a powerful battle cry that cuts through the pre-combat tension like a blade. Your roar is fierce and confident, carrying clear menace. Enemies hear it and tense, uncertainty flickering across their faces. Your cry has landed - they're rattled.",
+            "Your war shout thunders across the field with impressive force. The sound announces your presence and your intent to dominate. Foes shift uncomfortably, clearly affected by the psychological impact of your fierce cry."
+          ],
+          "failure": [
+            "You draw breath and roar your battle cry with all the ferocity you can summon. But despite your best efforts, it doesn't produce the intimidating effect you hoped for. Maybe enemies are too determined, maybe your voice doesn't carry right, or maybe they're just immune to acoustic intimidation. Your cry fails to shake them.",
+            "Your war shout rings out across the battlefield, fierce and loud. But enemies seem frustratingly unimpressed. They don't flinch, don't hesitate, don't show any sign that your cry has affected them. Your battle cry has failed its purpose."
+          ],
+          "criticalFailure": [
+            "You fill your lungs for the most intimidating battle cry of your life. You open your mouth. You roar. And it all goes catastrophically wrong. Maybe your voice cracks at exactly the wrong moment, transforming your fearsome war cry into an embarrassing squeak. Maybe you inhale at the wrong time and end up coughing instead of roaring. Or maybe the sound that emerges is just... not intimidating. Whatever the specific failure, the result is mortifying. Enemies don't recoil in fear - they burst into laughter! Your battle cry has become a source of their amusement and confidence. You can feel your face burning with humiliation as mocking laughter rings in your ears!",
+            "You commit fully to the battle cry, putting everything into one dominating roar. But disaster strikes - your voice breaks spectacularly mid-cry, the fierce sound devolving into something between a yelp and a cough. Enemies actually stop their preparations to stare at you in amazement. Then someone starts laughing. Then they all are. Your catastrophic battle cry has actively helped their morale while destroying your own credibility!"
+          ]
+        }
+      }
+    },
+
+    "intimidating-prowess": {
+      "displayName": "Demoralize (Intimidating Prowess)",
+      "feats": ["intimidating-prowess"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "Your physical presence terrifies {targetName}!",
+            "You loom over {targetName} menacingly!",
+            "Your size and strength cow {targetName}!",
+            "You physically dominate {targetName}!",
+            "{targetName} shrinks before your might!"
+          ],
+          "success": [
+            "Your imposing presence unnerves {targetName}.",
+            "You intimidate {targetName} with your physicality.",
+            "Your strength makes {targetName} hesitate.",
+            "You use your size to menace {targetName}.",
+            "Your physical threat works."
+          ],
+          "failure": [
+            "{targetName} isn't cowed by your size.",
+            "Your physical presence doesn't intimidate them.",
+            "{targetName} stands firm.",
+            "Your strength doesn't faze them.",
+            "{targetName} isn't impressed."
+          ],
+          "criticalFailure": [
+            "You look clumsy and awkward!",
+            "{targetName} isn't threatened by you!",
+            "Your intimidation attempt looks foolish!",
+            "{targetName} laughs at your display!",
+            "You come off as a brute!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You step forward, muscles rippling with barely contained power - {targetName} goes pale!",
+            "You loom over {targetName} like a mountain - they cower before your physical dominance!",
+            "Your raw physical presence radiates threat - {targetName} shrinks back in terror!",
+            "You crack your knuckles menacingly and {targetName}'s nerve breaks!",
+            "You demonstrate your overwhelming strength - {targetName} quails!",
+            "Your imposing physicality makes {targetName} feel small and vulnerable!",
+            "You tower over {targetName} with clear hostile intent - they're terrified!",
+            "Your muscular frame promises violence - {targetName} recoils!",
+            "You project raw physical dominance that breaks {targetName}'s will!",
+            "Your sheer size and power utterly intimidate {targetName}!"
+          ],
+          "success": [
+            "You use your physical presence to intimidate {targetName} effectively.",
+            "Your imposing stature makes {targetName} visibly uncomfortable.",
+            "You loom threateningly, and {targetName} backs away slightly.",
+            "Your obvious strength gives {targetName} pause.",
+            "You flex intimidatingly, making your point clear to {targetName}.",
+            "Your physical dominance is apparent - {targetName} is unnerved.",
+            "You step closer, using your size advantage to menace {targetName}.",
+            "Your muscular frame serves as clear warning to {targetName}.",
+            "You tower over {targetName}, making them nervous.",
+            "Your physical threat registers with {targetName}."
+          ],
+          "failure": [
+            "Your physical presence doesn't intimidate {targetName} as hoped.",
+            "{targetName} isn't impressed by your size or strength.",
+            "You try to use your physicality to threaten, but {targetName} stands firm.",
+            "Your imposing stature doesn't shake {targetName}'s resolve.",
+            "{targetName} doesn't seem fazed by your physical dominance.",
+            "Your attempt to intimidate through sheer size fails.",
+            "{targetName} meets your physical presence with confidence.",
+            "Your strength doesn't translate to intimidation here.",
+            "{targetName} remains undaunted by your physicality.",
+            "Your muscular display fails to unsettle {targetName}."
+          ],
+          "criticalFailure": [
+            "Your attempt at physical intimidation comes off as clumsy!",
+            "{targetName} isn't threatened - they seem amused by your posturing!",
+            "You flex menacingly but nearly pull a muscle!",
+            "Your intimidating stance looks awkward and foolish!",
+            "{targetName} laughs at your brutish display!",
+            "You try to loom threateningly but lose your balance!",
+            "Your physical intimidation attempt is embarrassing!",
+            "{targetName} mocks your muscle-bound posturing!",
+            "You come across as a stupid brute rather than threatening!",
+            "Your attempt to physically dominate backfires badly!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You take a deliberate step forward, and the threat is unmistakable. Your physical presence dominates the space - broad shoulders, corded muscle, the casual confidence of someone who knows they're stronger. You let {targetName} really SEE you, understand the physical mismatch. Their eyes widen as they process just how outmatched they are physically. Terror dawns!",
+            "You crack your knuckles slowly, muscles rippling with the movement. The sound is somehow threatening all on its own. You don't need to say a word - your body speaks volumes about your capacity for violence. {targetName} actually backs away, intimidated by your sheer physical presence!",
+            "You square your shoulders and take up space like you own it. Your imposing physicality radiates clear menace - you're bigger, stronger, and you both know it. {targetName}'s bravado crumbles as they realize they're physically outmatched. Your prowess has thoroughly intimidated them!"
+          ],
+          "success": [
+            "You use your physical advantages to intimidating effect. Standing to your full height, you loom over {targetName}, making them acutely aware of the size and strength difference. The intimidation works - they shift uncomfortably.",
+            "You let your muscular frame do the talking, rolling your shoulders and stepping closer. The physical threat is clear and effective. {targetName} takes an involuntary step back.",
+            "You project raw physical power through your stance and bearing. {targetName} reads the message loud and clear - you're stronger, and you're willing to use it. They're visibly rattled."
+          ],
+          "failure": [
+            "You try to use your physical presence to intimidate, but {targetName} doesn't seem particularly impressed by your size or strength. Your imposing stature fails to shake them.",
+            "You attempt to physically dominate the interaction, but {targetName} doesn't buy it. They meet your intimidating posture with steady resolve.",
+            "Your muscular display doesn't translate to effective intimidation. {targetName} remains unfazed by your physical advantages."
+          ],
+          "criticalFailure": [
+            "You try to intimidate through sheer physical presence, but it all goes wrong. Maybe you flex and nearly cramp, maybe you step forward menacingly and trip slightly, or maybe your attempt at physically dominating the space just comes across as awkward. {targetName} doesn't see a threat - they see someone trying too hard. They actually smirk at your clumsy display!",
+            "Your attempt at physical intimidation backfires completely. You try to loom threateningly but your balance is off, or you flex your muscles and pull something, or you just come across as a dim brute rather than a real threat. {targetName} looks more amused than intimidated. Your physical prowess has failed to translate to psychological dominance!",
+            "You go for maximum physical intimidation - rolling shoulders, cracking knuckles, standing at full height. But something goes embarrassingly wrong. Maybe you crack your neck and it hurts, maybe you stumble trying to look imposing. {targetName} actually laughs at your clumsy attempt!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You become a physical monument to violence barely restrained. Drawing yourself to full height, you let {targetName} really comprehend what they're facing. Muscle shifts under skin as you move - not flexing, not posing, just existing in your powerful body with predatory casualness. You're not threatening with words - you're threatening with physics. The simple reality that you're bigger, stronger, more physically dangerous. You take one deliberate step forward, closing distance, and the movement carries inevitability. {targetName}'s eyes go wide as the lizard part of their brain screams warnings about predators and prey. Their hands actually shake as they confront the reality of your overwhelming physical advantage. You've conquered them through pure, undeniable prowess!",
+            "Like a prizefighter entering the ring, you radiate physical dominance. Every movement speaks of strength, training, capacity for violence. You don't need to shout or posture - your body does the talking. Broad shoulders, powerful arms, the kind of physicality that can't be faked. You let {targetName} see it all, understand what they're up against. Then you crack your knuckles - not as showmanship, but as simple preparation. The sound might as well be a thunderclap for the effect it has. {targetName}'s face drains of color as they realize they're physically outclassed. Your intimidating prowess has shattered their courage!"
+          ],
+          "success": [
+            "You use your considerable physical presence to intimidating effect. Standing tall, shoulders squared, you make {targetName} acutely aware that you're the bigger, stronger combatant here. The psychological impact is real - they shift defensively, clearly unsettled by your imposing physicality.",
+            "You let your muscular frame serve as silent threat. No words needed - just the physical reality that you're built for violence and they're in your reach. {targetName} registers the threat, tension visible in their posture."
+          ],
+          "failure": [
+            "You try to leverage your physical advantages for intimidation, but {targetName} simply isn't impressed. They meet your imposing presence with surprising confidence, apparently undaunted by your size or strength. Your physical prowess fails to translate to psychological dominance.",
+            "You project menace through your physical presence, but it doesn't land. {targetName} stands firm, either too brave or too foolish to be cowed by your muscular frame. Your intimidating prowess has failed to shake them."
+          ],
+          "criticalFailure": [
+            "You commit fully to physical intimidation - drawing up to full height, rolling your shoulders, letting your muscular frame radiate threat. But catastrophe strikes. Maybe you try to crack your knuckles and it doesn't make a sound. Maybe you flex and nearly cramp. Maybe you step forward menacingly and your foot catches, making you stumble. Whatever the specific failure, {targetName} sees it. And instead of fear, amusement lights their eyes. They're not intimidated - they're trying not to laugh! Your attempt to dominate through sheer physical prowess has made you look clumsy and foolish. The hot flush of embarrassment undermines any remaining威presence you might have had!",
+            "Your attempt at intimidation through physical prowess goes spectacularly wrong. You're trying to loom menacingly, showing off your strength, when something embarrassing happens - maybe you lose balance, maybe you flex and pull something, maybe you just look ridiculous trying so hard. {targetName} doesn't cower - they laugh! Your muscular posturing has backfired completely, making you look like an awkward brute rather than a real threat!"
+          ]
+        }
+      }
+    }
+  }
+}

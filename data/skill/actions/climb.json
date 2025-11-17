@@ -1,0 +1,268 @@
+{
+  "action": "climb",
+  "actionName": "Climb",
+  "skill": "athletics",
+  "traits": ["move"],
+  "description": "You move on a vertical surface or up or down an incline",
+
+  "variants": {
+    "default": {
+      "displayName": "Climb",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You scale it effortlessly!",
+            "You climb with ease!",
+            "You ascend quickly!",
+            "You move up smoothly!",
+            "You climb expertly!"
+          ],
+          "success": [
+            "You climb successfully.",
+            "You make progress upward.",
+            "You ascend steadily.",
+            "You scale the surface.",
+            "You climb higher."
+          ],
+          "failure": [
+            "You can't find handholds.",
+            "You make no progress.",
+            "You slip back down.",
+            "You can't climb further.",
+            "Your grip fails."
+          ],
+          "criticalFailure": [
+            "You slip and fall!",
+            "You lose your grip!",
+            "You start falling!",
+            "Your handhold breaks!",
+            "You plummet!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You find perfect handholds and ascend with impressive speed!",
+            "You climb the surface like a spider - quick and confident!",
+            "Your technique is flawless - you scale the wall effortlessly!",
+            "You pull yourself upward with practiced ease, making excellent progress!",
+            "You move up the surface with the confidence of an expert climber!",
+            "Your ascent is smooth and controlled - you're climbing beautifully!",
+            "You find the best route and climb it with remarkable efficiency!",
+            "Your powerful movements carry you upward rapidly!",
+            "You scale the surface with impressive skill and speed!",
+            "You climb with such ease it looks effortless!"
+          ],
+          "success": [
+            "You carefully find handholds and make steady progress upward.",
+            "You climb the surface successfully, moving higher bit by bit.",
+            "Your ascent is controlled and methodical - you're making progress.",
+            "You pull yourself upward, finding adequate purchase on the surface.",
+            "You manage to climb higher, though it takes effort.",
+            "You scale the wall steadily, maintaining your grip.",
+            "You work your way upward with determination.",
+            "Your climbing technique gets you higher, though it's challenging.",
+            "You successfully ascend, carefully testing each handhold.",
+            "You make progress climbing, moving upward steadily."
+          ],
+          "failure": [
+            "You search for handholds but can't find anything secure enough to climb.",
+            "Your attempts to scale the surface fail - you can't make progress.",
+            "You try to climb but keep slipping back to where you started.",
+            "The surface is too difficult - you can't find good purchase.",
+            "Your grip keeps failing - you make no upward progress.",
+            "You struggle to find handholds, unable to climb higher.",
+            "The wall defeats you - you can't ascend further.",
+            "You attempt to climb but slide back down repeatedly.",
+            "You can't get a good enough grip to make progress.",
+            "Your climbing attempt is unsuccessful."
+          ],
+          "criticalFailure": [
+            "Your handhold gives way and you slip, falling from the surface!",
+            "You lose your grip completely and start to fall!",
+            "Your foot slips and you tumble away from the wall!",
+            "You reach for a handhold that crumbles - you're falling!",
+            "Your grip fails catastrophically and you plummet!",
+            "You slip and fall, unable to catch yourself!",
+            "Your climbing attempt ends in a dangerous fall!",
+            "You lose contact with the surface and drop!",
+            "Your handhold breaks and you fall away!",
+            "You slip badly and tumble downward!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You move up the surface with the grace and confidence of a natural climber. Each handhold seems to present itself perfectly, each foothold solid and secure. Your muscles work in perfect harmony as you ascend rapidly, barely seeming to exert yourself. Within moments, you've covered significant height with impressive ease!",
+            "Your climbing technique is masterful. You read the surface like a map, seeing the optimal route instantly. Your hands and feet find purchase with unerring accuracy, and you flow upward smoothly, making the difficult ascent look trivial. It's a beautiful display of athleticism!",
+            "With practiced efficiency, you attack the climb. Your powerful arms pull you upward while your legs drive, and you ascend with remarkable speed. Every movement is controlled and confident - this is clearly not your first climb!"
+          ],
+          "success": [
+            "You carefully test each handhold before committing your weight, methodically working your way upward. It's not the fastest climb, but it's steady and safe. You're making good progress.",
+            "You pull yourself higher, muscles straining with the effort. The climb is challenging, but you have the strength and technique to manage it. Step by step, you ascend.",
+            "Your grip is firm and your footing secure as you work your way up the surface. It takes concentration and effort, but you're successfully climbing higher."
+          ],
+          "failure": [
+            "You search desperately for handholds, but the surface is too smooth or too crumbly. Every time you think you've found purchase, it proves inadequate. Despite your best efforts, you simply can't make upward progress.",
+            "You try repeatedly to climb, but each attempt ends with you sliding back to your starting point. The surface defeats you - your technique is sound, but the climb itself is beyond your current ability.",
+            "Your fingers scrape across the surface seeking holds, but nothing provides the security you need. You can't get high enough to reach better handholds, and you're stuck where you are."
+          ],
+          "criticalFailure": [
+            "You commit your full weight to what seemed like a solid handhold, but the moment you do, it crumbles beneath your fingers. Your eyes go wide as you realize you're falling. You scrabble desperately at the surface trying to catch yourself, but gravity has you now!",
+            "Your foot slips just as you're reaching for a higher hold. The sudden shift throws off your balance completely. You feel your grip failing, your body peeling away from the wall, and then you're in free fall!",
+            "You make a confident reach for the next handhold, but your hand closes on nothing. Your foot slips simultaneously, and suddenly you're not climbing anymore - you're falling!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You transform into pure fluid motion as you attack the climb. Your fingers find cracks and edges that others wouldn't even see. Your feet step precisely onto tiny ledges, bearing your full weight without hesitation. You don't just climb - you flow upward like water finding its path, each movement economical and perfect. Muscles ripple with controlled power as you ascend with breathtaking speed and grace. The difficult climb becomes easy under your expert hands. Within moments, you've covered impressive vertical distance, barely breathing hard, the surface conquered beneath your skill!",
+            "Like a spider blessed with human intelligence, you scale the surface with supernatural efficiency. Your route is optimal, your technique flawless. Each handhold is tested and trusted in a fraction of a second. Your powerful arms and legs work in perfect synchronization, pulling and pushing in a rhythm that carries you upward with remarkable speed. To watch you climb is to watch mastery in motion - this is what peak athletic performance looks like!"
+          ],
+          "success": [
+            "You grind your way upward through sheer determination and solid technique. Each handhold is earned through careful searching, each upward movement requires focused effort. It's not elegant, but it's effective. Your muscles burn, your grip tightens, and slowly but surely, you climb higher.",
+            "With methodical precision, you work the problem of the climb. Test this hold, shift weight carefully, reach for the next. It's challenging work, but you have the skills to manage it. Bit by bit, you ascend."
+          ],
+          "failure": [
+            "You attack the climb with confidence, but the surface simply won't cooperate. Your fingers search every crack and crevice, finding nothing that will hold your weight. You try different approaches, different techniques, but the result is always the same - you can't make progress. The wall has beaten you, at least for now.",
+            "Despite technical skill and determined effort, you cannot conquer this climb. The handholds are too sparse, too small, or too unreliable. Each attempt ends in frustration as you slip back to where you started. Sometimes strength and skill aren't enough."
+          ],
+          "criticalFailure": [
+            "Everything happens in a terrible instant. Your hand reaches for a hold that looks solid but proves to be anything but. As your fingers close on it, it disintegrates. Your foot, bearing most of your weight, immediately slips from its precarious perch. Suddenly you're not in contact with the surface anymore - you're in the air, falling. Your stomach lurches. Time seems to slow as your hands scrabble desperately at the wall, finding nothing. Then gravity reasserts itself with terrible certainty, and you plummet!",
+            "You make what seems like a routine reach for the next handhold, confident in your technique. But your fingers miss by mere inches - whether you misjudged the distance or your strength failed, the result is the same. With no handhold secured and your weight shifting, your tenuous grip with your other hand fails. Both feet lose contact with the wall simultaneously. In one stomach-dropping moment, you transition from controlled climb to uncontrolled fall. The ground rushes up toward you!"
+          ]
+        }
+      }
+    },
+
+    "combat-climber": {
+      "displayName": "Climb (Combat Climber)",
+      "feats": ["combat-climber"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You climb while staying combat-ready!",
+            "You ascend defensively!",
+            "You scale it while watching for threats!",
+            "You climb with tactical awareness!",
+            "You move up, ready for combat!"
+          ],
+          "success": [
+            "You climb while staying alert.",
+            "You ascend carefully, watching below.",
+            "You scale it defensively.",
+            "You climb without dropping your guard.",
+            "You move up, ready to fight."
+          ],
+          "failure": [
+            "You can't find safe handholds.",
+            "You're too exposed to climb safely.",
+            "You can't maintain combat awareness.",
+            "The climb is too risky.",
+            "You stay put, watching threats."
+          ],
+          "criticalFailure": [
+            "You slip while distracted!",
+            "A threat breaks your focus!",
+            "You lose your grip!",
+            "You're too exposed!",
+            "You fall!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You scale the surface rapidly while maintaining perfect combat awareness!",
+            "You climb with impressive speed, eyes scanning for threats the entire time!",
+            "You ascend defensively, keeping one hand free and ready!",
+            "You move up the wall like a trained soldier - fast, alert, and ready!",
+            "You climb expertly while staying completely aware of the battle around you!",
+            "Your combat training shows - you scale the surface without dropping your guard!",
+            "You move upward with tactical precision, ready to fight at any moment!",
+            "You climb rapidly while maintaining defensive positioning!",
+            "You ascend with warrior-like efficiency, alert to every threat!",
+            "You scale the wall with one eye on your enemies - masterful!"
+          ],
+          "success": [
+            "You carefully climb while keeping watch for threats below.",
+            "You ascend methodically, maintaining your combat readiness.",
+            "You scale the surface while staying alert to danger.",
+            "You climb with defensive caution, making steady progress.",
+            "You work your way upward without letting your guard down.",
+            "You manage to climb while keeping threats in view.",
+            "You ascend carefully, balancing climbing with vigilance.",
+            "You move upward while maintaining tactical awareness.",
+            "You climb successfully without losing combat focus.",
+            "You make progress while staying defensively positioned."
+          ],
+          "failure": [
+            "You can't find handholds that let you stay combat-ready.",
+            "The climb requires too much focus to maintain vigilance.",
+            "You're too exposed to continue climbing safely.",
+            "You can't ascend without becoming vulnerable.",
+            "The tactical situation makes climbing too risky.",
+            "You stay put rather than expose yourself.",
+            "You can't climb while maintaining defensive awareness.",
+            "The surface doesn't offer safe combat positions.",
+            "You hold position, unable to climb safely.",
+            "Maintaining vigilance prevents you from climbing."
+          ],
+          "criticalFailure": [
+            "A nearby threat distracts you and you lose your grip!",
+            "You try to dodge while climbing and slip badly!",
+            "Your combat awareness breaks your concentration - you fall!",
+            "You reach for a weapon while climbing and lose balance!",
+            "You're too focused on threats below and your handhold fails!",
+            "A sudden movement below breaks your focus - you slip!",
+            "You overextend trying to maintain tactical position!",
+            "Your defensive positioning costs you your grip!",
+            "You slip while trying to keep combat-ready!",
+            "Dividing focus between combat and climbing fails - you fall!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Your combat training serves you perfectly. You scale the surface with rapid efficiency, but unlike a normal climber, you never lose awareness of the battlefield. Your head constantly swivels, tracking threats. You keep one hand free when possible, ready to grab a weapon. Your body positioning is defensive even while climbing. You move upward like a soldier under fire - fast, alert, and ready to fight at a moment's notice!",
+            "You demonstrate the rare skill of climbing in combat. Your ascent is smooth and practiced, but you're not just climbing - you're maintaining tactical control. You pick positions with cover, you watch your enemies, you stay ready. This isn't recreation climbing - this is military-trained vertical movement!",
+            "With the practiced skill of someone who's climbed under pressure before, you work your way upward. Every handhold is chosen not just for security but for tactical positioning. You can see the entire battlefield from here, and you're ready to act at any moment while still ascending with impressive speed!"
+          ],
+          "success": [
+            "You carefully balance the dual demands of climbing and combat awareness. It's challenging - climbing normally requires full focus. But you manage, making steady progress upward while keeping peripheral vision on the threats below. It's slower than a pure climb, but much safer given the circumstances.",
+            "Your training helps you maintain vigilance even while ascending. You climb with one eye on your handholds and one eye on your enemies. It's demanding work, both mentally and physically, but you're managing it successfully.",
+            "You work your way upward with defensive caution. Each movement is calculated not just for climbing efficiency but for how exposed it leaves you. You're making progress while minimizing risk."
+          ],
+          "failure": [
+            "You search for handholds that would let you maintain combat awareness, but the surface doesn't cooperate. Every good climbing position leaves you vulnerable. Every tactically sound position lacks handholds. You can't resolve the conflict - you can't climb safely under these conditions.",
+            "The demands of climbing and staying combat-ready prove incompatible on this surface. You need both hands for the climb, but that leaves you defenseless. You hold position rather than risk exposure.",
+            "You try to balance climbing with tactical awareness, but it's not working. You're either focused on the climb and vulnerable, or focused on threats and unable to progress. You stay where you are."
+          ],
+          "criticalFailure": [
+            "You're making good progress when movement below catches your eye. It's a threat - your combat instincts scream at you to react. For just a moment, you shift your focus and weight. That's all it takes. Your handhold, which needed your full attention to maintain, fails. Your foot slips. Suddenly you're falling, your combat awareness ironically causing the very vulnerability you tried to avoid!",
+            "You try to maintain defensive positioning while climbing, but it puts you at an awkward angle. You reach for a handhold while keeping your eyes on a threat below. Your hand misses - just by inches, but that's enough. Your weight shifts wrong, your other grip fails, and you're falling!",
+            "The impossible task of staying combat-ready while climbing defeats you. You're watching threats, calculating positioning, and trying to climb all at once. Something has to give. What gives is your grip. You slip and fall, learning the hard way that even training has limits!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is what training for combat climbing looks like in action. You move up the surface with fluid efficiency, but your mind is split-second processing the entire tactical situation. Your eyes constantly scan the battlefield below. When you grip a hold, you're already planning your next defensive position. When you move upward, you're calculating angles of attack and cover. You're not just climbing - you're executing a tactical maneuver. Your ascent is rapid and controlled, and at any moment you could release a hand to grab a weapon or shift position to avoid an attack. You climb like a soldier in hostile territory - because that's exactly what you are. The combination of speed, awareness, and readiness is masterful!",
+            "You scale the vertical surface like an apex predator that's equally comfortable on walls as on ground. Your climbing is phenomenal - fast, controlled, efficient. But what sets you apart is the way you never, not for one second, stop being a combatant. Your peripheral vision tracks every movement below. Your body positioning is defensively sound even while ascending. You're ready to act, to fight, to defend at any instant. You reach your desired height having conquered both the climb and maintained complete tactical control. Impressive!"
+          ],
+          "success": [
+            "You grind your way upward with determined focus, splitting your concentration between the physical demands of climbing and the tactical necessity of staying alert. It's exhausting work - both mentally and physically. But your training carries you through. You make steady progress while maintaining enough awareness to not be caught completely off-guard.",
+            "You climb with deliberate caution, each movement calculated for both security and tactical positioning. It's slow, careful work, balancing the competing demands. But you're succeeding - you're getting higher while staying combat-ready enough to react if needed."
+          ],
+          "failure": [
+            "You analyze the surface and the tactical situation and come to an unavoidable conclusion: you can't safely do both. The good handholds leave you exposed to attack. The defensible positions lack climbing options. You're skilled, but you're not a miracle worker. You maintain your current position rather than risk a climb that would leave you vulnerable.",
+            "Despite your combat climbing training, this particular surface defeats you. The combination of difficult climbing and active threats is simply too much. You stay where you are, maintaining defensive awareness rather than attempting a climb that would require your complete focus and leave you exposed."
+          ],
+          "criticalFailure": [
+            "You're executing the climb well, staying aware, making progress. Then chaos. A threat below moves aggressively. Your combat instincts fire. For just a fraction of a second, your focus shifts from your handholds to the threat. That's all it takes to break the delicate balance. Your hand loses its grip. Your foot slips. Suddenly the careful control you'd maintained shatters. You're falling, arms reaching desperately for holds that aren't there. Your combat awareness, ironically, has caused the exact vulnerability you worked so hard to avoid!",
+            "The dual demands of combat awareness and climbing finally exceed your capacity. You're tracking threats, finding handholds, maintaining positioning - it's too much. Something breaks in the juggling act. What breaks is your grip. One hand slips, then the other. Your foot loses purchase. In one terrible moment, you transition from controlled climb to freefall. You're not falling because you can't climb - you're falling because you were trying to do two impossible things at once!"
+          ]
+        }
+      }
+    }
+  }
+}

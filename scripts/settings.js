@@ -119,6 +119,49 @@ export class NarrativeSeedsSettings {
     });
 
     // ========================================
+    // PHASE 3: SKILL ACTION SETTINGS
+    // ========================================
+
+    // Enable skill narration
+    game.settings.register("pf2e-narrative-seeds", "enableSkills", {
+      name: "Enable Skill Action Narration",
+      hint: "Generate descriptions for skill actions in encounter mode",
+      scope: "world",
+      config: true,
+      type: Boolean,
+      default: true,
+      onChange: value => {
+        ui.notifications.info("Skill action narration " + (value ? "enabled" : "disabled") + ". Reload required.");
+      }
+    });
+
+    // Skill detail level
+    game.settings.register("pf2e-narrative-seeds", "skillDetailLevel", {
+      name: "Skill Detail Level",
+      hint: "How much information to include in skill narratives",
+      scope: "world",
+      config: true,
+      type: String,
+      choices: {
+        "minimal": "Minimal (Quick description)",
+        "standard": "Standard (Balanced)",
+        "detailed": "Detailed (Full description)",
+        "cinematic": "Cinematic (Maximum drama)"
+      },
+      default: "standard"
+    });
+
+    // Show detected feats
+    game.settings.register("pf2e-narrative-seeds", "showDetectedFeats", {
+      name: "Show Detected Feats",
+      hint: "Display which feats were detected in skill narrative output",
+      scope: "world",
+      config: true,
+      type: Boolean,
+      default: false
+    });
+
+    // ========================================
     // COMPLICATIONS SYSTEM
     // ========================================
 
@@ -238,5 +281,13 @@ export class NarrativeSeedsSettings {
    */
   static isCombatEnabled() {
     return this.isEnabled() && this.get("enableCombat");
+  }
+
+  /**
+   * Check if skill action narration is enabled
+   * @returns {boolean}
+   */
+  static isSkillEnabled() {
+    return this.isEnabled() && this.get("enableSkills");
   }
 }

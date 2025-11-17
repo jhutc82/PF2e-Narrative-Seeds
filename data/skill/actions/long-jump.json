@@ -1,0 +1,528 @@
+{
+  "action": "long-jump",
+  "actionName": "Long Jump",
+  "skill": "athletics",
+  "traits": ["move"],
+  "description": "You Stride, then make a horizontal Leap",
+
+  "variants": {
+    "default": {
+      "displayName": "Long Jump",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You soar across!",
+            "You leap far!",
+            "You clear it easily!",
+            "You sail over!",
+            "You jump impressively far!"
+          ],
+          "success": [
+            "You make it across.",
+            "You clear the gap.",
+            "You jump far enough.",
+            "You make the leap.",
+            "You land safely across."
+          ],
+          "failure": [
+            "You don't jump far enough.",
+            "You fall short.",
+            "You can't clear the gap.",
+            "Your leap is too short.",
+            "You don't make it across."
+          ],
+          "criticalFailure": [
+            "You slip on takeoff!",
+            "You stumble!",
+            "You barely jump!",
+            "You trip!",
+            "You fall during the jump!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You launch yourself across the gap with tremendous force, sailing far beyond!",
+            "Your powerful leap carries you across easily with distance to spare!",
+            "You soar through the air, clearing the gap with impressive room!",
+            "Your explosive jump sends you flying across the distance!",
+            "You leap with such power you make it across effortlessly!",
+            "Your running jump carries you far across the gap!",
+            "You vault across the distance with athletic grace!",
+            "Your powerful legs propel you easily across!",
+            "You leap with explosive force, sailing across the gap!",
+            "You make the jump look easy, clearing it with meters to spare!"
+          ],
+          "success": [
+            "You successfully leap across the gap, landing on the other side.",
+            "Your jump carries you across the distance adequately.",
+            "You manage to clear the gap with your jump.",
+            "You make it across successfully, though just barely.",
+            "Your leap works - you land safely on the other side.",
+            "You successfully jump the distance needed.",
+            "You clear the gap with your running jump.",
+            "Your horizontal leap gets you across.",
+            "You make the distance, landing on the far side.",
+            "Your jump is sufficient to carry you across."
+          ],
+          "failure": [
+            "You leap with all your strength, but you don't clear the distance.",
+            "Your jump falls short - you don't make it across.",
+            "You can't generate enough forward momentum to clear the gap.",
+            "Your leap is too short to reach the other side.",
+            "You fail to jump far enough across.",
+            "You don't have the speed or strength to make the jump.",
+            "Your running leap comes up short of the far side.",
+            "You can't clear the horizontal distance needed.",
+            "Your jump fails to carry you across.",
+            "You fall short of reaching the other side."
+          ],
+          "criticalFailure": [
+            "You slip badly on your takeoff and barely get airborne!",
+            "Your approach is all wrong - you stumble instead of jumping!",
+            "You trip during your run-up and fail to launch properly!",
+            "Your timing is terrible - you barely leave the ground!",
+            "You lose your footing completely and nearly fall!",
+            "Your jump is a disaster - you barely make it off the ground!",
+            "You stumble during takeoff and ruin the jump!",
+            "Your approach falls apart and you fail to jump at all!",
+            "You slip on the takeoff and land poorly!",
+            "Your failed jump leaves you in a dangerous position!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You hit your approach at the perfect speed, every stride building momentum. At precisely the right spot, you plant your lead foot and explode forward. Your body extends fully as you fly through the air, covering an impressive horizontal distance. You sail across the gap with room to spare, landing smoothly in perfect balance on the far side. It's a magnificent display of running jump technique!",
+            "With explosive power and perfect form, you convert your running speed into horizontal flight. You soar across the distance, body stretched out for maximum extension, and clear the gap easily. Your landing is controlled and balanced - a textbook long jump!",
+            "Your running approach builds perfect momentum. Your takeoff is explosive and precisely timed. You arc through the air gracefully, easily clearing the required distance before landing with athletic poise. Excellent jumping!"
+          ],
+          "success": [
+            "You build up adequate speed and make a solid leap across the gap. It's not the longest jump ever made, but it's enough - you clear the distance and land safely on the other side.",
+            "Your running jump carries you across the gap successfully. Your technique is functional and your strength sufficient to make the distance.",
+            "You manage to jump far enough to reach the other side. Your landing is a bit rough, but you made it across."
+          ],
+          "failure": [
+            "Despite a good approach and committed effort, your jump just doesn't have enough distance. You leap as far as you can, but physics and your body's limitations mean you fall short of the far side.",
+            "You give it your all, but you simply can't generate enough horizontal momentum to clear the gap. Your jump comes up short, leaving you stranded.",
+            "Your running jump has decent technique but insufficient power. You don't reach the other side, falling short despite your best effort."
+          ],
+          "criticalFailure": [
+            "Your approach completely falls apart. Maybe you misjudge the distance or your speed, but when you plant for the jump, everything goes wrong. Your foot slips, your timing is off, and instead of a powerful leap you barely get off the ground. You land awkwardly, short of your target, and have to scramble to avoid injury!",
+            "Disaster strikes during your run-up. Your foot catches on something, or you mistime your plant, and your carefully planned jump becomes a stumbling mess. You barely become airborne, and when you land it's more of a controlled fall than an athletic landing!",
+            "The moment you plant to jump, you realize your approach was all wrong. But it's too late to abort. Your attempted leap is pathetic - you hardly leave the ground before gravity pulls you down. You land short, off-balance, looking foolish!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You build velocity like a sprinter, each stride eating up ground, building kinetic energy that will soon transform into flight. At the exact right moment - distance calculated perfectly by instinct and experience - you plant and drive. The transition from running to flying is instantaneous and beautiful. Your body extends horizontally, stretched for maximum distance, arms reaching for the far side. You soar across the gap with breathtaking distance, easily clearing the required span. Time seems to slow as you arc through space. Then your feet find solid ground on the far side and you touch down with cat-like grace, the difficult jump made to look trivial by your exceptional athletic ability!",
+            "Like an Olympian, you approach with perfect technique. Your strides are precisely measured, building to peak velocity at exactly the right moment. Your plant is explosive, converting horizontal speed into arcing flight. You sail across the distance with your body streamlined, covering impressive horizontal ground while airborne. The landing is equally perfect - balanced, controlled, powerful. This is world-class long jumping!"
+          ],
+          "success": [
+            "You execute a solid running jump. Decent approach, adequate takeoff, sufficient distance. You clear the gap without drama, landing safely on the other side. Competent, functional athletics.",
+            "Your jump works. You build enough speed, time your takeoff well enough, and generate enough distance to make it across. Not spectacular, but effective."
+          ],
+          "failure": [
+            "You do everything right - good approach, solid technique, maximum effort. But sometimes the gap is just too wide for your current abilities. You leap as far as your body can manage, and it's not quite enough. You fall short despite perfect execution.",
+            "Your jump has good form but insufficient power. You can see midway through your flight that you won't make it, and sure enough, you come up short of the far side. Sometimes skill isn't enough to overcome physical limitations."
+          ],
+          "criticalFailure": [
+            "Everything that can go wrong does go wrong. Your approach speed is inconsistent, throwing off your timing. When you reach the takeoff point, your plant foot finds an unexpected surface variation. Your carefully planned explosive leap becomes a stumbling lurch. You barely become airborne, and what little forward momentum you have bleeds away instantly. Gravity claims you far short of your target. You land awkwardly, off-balance, having to throw your hands out to avoid a full face-plant. It's a comprehensive jumping failure that would be funny if it weren't so embarrassing!",
+            "In the critical instant when everything needs to go right, it all goes catastrophically wrong. Your timing is off by a fraction of a second - enough to ruin everything. Your plant foot slips slightly at the moment of takeoff. Your drive leg doesn't engage properly. The result is a weak, pathetic excuse for a jump. You hardly get off the ground, and what little distance you do cover is laughable. You land badly, off-balance, far short of your goal. Any onlookers wince in sympathy at the spectacular failure!"
+          ]
+        }
+      }
+    },
+
+    "quick-jump": {
+      "displayName": "Long Jump (Quick Jump)",
+      "feats": ["quick-jump"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You spring forward instantly!",
+            "You leap far without running!",
+            "You jump across powerfully!",
+            "You vault forward from standstill!",
+            "You launch across instantly!"
+          ],
+          "success": [
+            "You jump across without a run.",
+            "You leap from a standstill.",
+            "You spring forward quickly.",
+            "You vault across instantly.",
+            "You make the quick jump."
+          ],
+          "failure": [
+            "You can't jump far enough.",
+            "The quick jump falls short.",
+            "You need more momentum.",
+            "Your standing jump is too short.",
+            "You can't reach it."
+          ],
+          "criticalFailure": [
+            "You slip on takeoff!",
+            "Your quick jump fails!",
+            "You stumble!",
+            "You lose balance!",
+            "You trip!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You spring straight forward with explosive force, clearing the distance easily!",
+            "From a standstill, you launch yourself across impressively!",
+            "You leap horizontally with tremendous power - no run needed!",
+            "Your explosive jump sends you soaring forward from standing position!",
+            "You vault straight across with such force you clear it with ease!",
+            "Your quick jump is phenomenal - you spring far without momentum!",
+            "You explode forward from standing, reaching impressive distance!",
+            "Your legs drive powerfully, launching you far without a running start!",
+            "You spring horizontally with such strength you make it look easy!",
+            "Your standing jump is outstanding - you soar across!"
+          ],
+          "success": [
+            "You jump forward from a standing position, clearing the distance.",
+            "Your quick jump succeeds - you reach the needed distance without running.",
+            "You manage to vault far enough from a standstill.",
+            "Your standing jump works - you clear the gap.",
+            "You successfully leap forward without needing momentum.",
+            "You spring across from standing position to the required distance.",
+            "Your quick horizontal leap is successful.",
+            "You vault across without running, clearing the distance.",
+            "You make the standing jump successfully.",
+            "Your instant leap carries you far enough."
+          ],
+          "failure": [
+            "You try to jump from standing, but don't get enough distance.",
+            "Your quick leap falls short without a running start.",
+            "You can't generate enough power from a standstill.",
+            "Your standing horizontal jump isn't far enough.",
+            "You fail to clear the distance from standing position.",
+            "Your quick jump is too weak without momentum.",
+            "You don't get far enough from a standstill.",
+            "Your instant leap comes up short.",
+            "You can't jump that far without running.",
+            "Your quick horizontal leap is insufficient."
+          ],
+          "criticalFailure": [
+            "You slip on your standing takeoff and barely get airborne!",
+            "Your quick jump is poorly executed - you nearly fall!",
+            "You stumble during the standing leap!",
+            "Your legs give way on the instant takeoff!",
+            "You lose balance trying to jump from a standstill!",
+            "Your standing takeoff is disastrous!",
+            "You misjudge the quick jump and stumble!",
+            "Your instant jump fails - you nearly fall!",
+            "You slip on the standing takeoff!",
+            "Your quick attempt ends in a stumble!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Without any running start, you simply coil your legs and explode forward with tremendous power. Your technique is perfect - knees bending to load the spring, then driving straight ahead with explosive force. You launch across from a standing position, easily clearing the gap. The quick jump makes it look effortless!",
+            "You demonstrate the rare ability to jump far from a standing position. Your legs compress like springs, then release with devastating power. You rocket forward, clearing the distance with impressive room to spare despite having no momentum to work with!",
+            "From a complete standstill, you generate enough forward force to clear the gap. It's all pure leg power and technique - no run-up needed. You spring horizontally with explosive strength!"
+          ],
+          "success": [
+            "You execute a solid standing jump, legs driving forward with focused power. Without a running start, you still generate enough force to clear the required distance.",
+            "Your quick jump technique works. You compress your legs and explode forward from standing position, reaching the needed distance despite lacking momentum.",
+            "You manage to jump far enough from a standstill. It takes significant leg strength, but you make it work."
+          ],
+          "failure": [
+            "You attempt to jump from standing position, but without a running start, you simply can't generate enough forward force. Your legs drive hard, but you fall short of the required distance.",
+            "Despite your quick jump training, you can't reach that far from a standstill. You need either more leg power or momentum - and you have neither.",
+            "You coil and drive forward, but the distance is beyond your standing jump capability. You come up short despite your best effort."
+          ],
+          "criticalFailure": [
+            "You try to explode forward from standing position, but your feet slip on the takeoff. Instead of launching across, you stumble awkwardly, barely leaving the ground. Your quick jump becomes a quick trip!",
+            "As you drive into your standing jump, something goes wrong - balance, timing, or footing. Your legs give way instead of driving forward, and you nearly fall instead of jumping!",
+            "Your attempt at a quick standing jump is a complete failure. You barely get six inches off the ground before your balance fails and you have to catch yourself to avoid falling!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is explosive power in its purest form. No run-up, no momentum, just raw athletic ability. You stand before the gap, coil your legs like compressed springs, and then unleash. The drive is phenomenal - every muscle in your legs firing in perfect synchronization. You rocket straight forward from standing position, defying the normal physics of jumping. Distance comes not from speed but from pure power. You sail past the far edge with room to spare, demonstrating that when you have this much explosive strength, momentum is optional!",
+            "Like a basketball player pulling off a standing broad jump, you demonstrate freakish athletic ability. From a complete standstill, you compress into a crouch, then explode forward with devastating force. Your legs drive like pistons, generating tremendous horizontal thrust despite having zero forward momentum. You launch across, clearing distances that most people couldn't reach with a running start. It's a showcase of pure explosive power!"
+          ],
+          "success": [
+            "You execute a competent standing jump. No approach, no momentum, just focused leg drive. You coil, explode forward, and clear the gap through pure strength and technique.",
+            "Your quick jump works efficiently. From standing position, you generate enough horizontal force to reach the required distance. It's functional explosive athletics."
+          ],
+          "failure": [
+            "You attempt the quick jump with confidence, legs coiling for the explosive drive forward. But standing jumps have hard limits. Without momentum to help, you're relying purely on leg strength. You drive forward with everything you have, but physics doesn't cooperate. You fall short, the distance just beyond your standing jump capability.",
+            "Despite proper technique and maximum effort, your standing horizontal leap simply isn't sufficient. You spring forward powerfully, but without a running start, you can't generate enough force to clear the distance. Gravity wins."
+          ],
+          "criticalFailure": [
+            "You commit to the standing jump with full confidence. Legs coil, muscles tense, ready to explode forward. Then everything breaks down. Maybe the floor is slicker than expected, maybe your balance is off, maybe you just miscalculate. Instead of explosive horizontal launch, you get stumbling failure. Your feet slip or your legs give way at the critical moment. You barely leave the ground before balance fails entirely. You have to scramble to avoid a complete fall, your quick jump becoming a quick embarrassment!",
+            "The standing jump requires perfect technique and explosive power applied in a split second. You attempt it, but something fails catastrophically. Your drive leg buckles. Your balance shifts wrong. Your feet slip. The result is disastrous - instead of soaring forward, you're falling downward. You barely get airborne before control is lost, and you land awkwardly, having to catch yourself to avoid injury!"
+          ]
+        }
+      }
+    },
+
+    "powerful-leap": {
+      "displayName": "Long Jump (Powerful Leap)",
+      "feats": ["powerful-leap"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You soar incredibly far!",
+            "You leap far beyond normal!",
+            "You vault forward powerfully!",
+            "You jump much farther than expected!",
+            "You rocket across!"
+          ],
+          "success": [
+            "You jump farther than normal.",
+            "You leap with extra distance.",
+            "You vault across powerfully.",
+            "You clear it with power.",
+            "You jump exceptionally far."
+          ],
+          "failure": [
+            "Even your power isn't enough.",
+            "You still can't reach it.",
+            "The distance defeats you.",
+            "You fall short.",
+            "Not far enough."
+          ],
+          "criticalFailure": [
+            "You overextend!",
+            "Too much power - you stumble!",
+            "You lose control!",
+            "Your power backfires!",
+            "You trip badly!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You launch yourself across with tremendous power, soaring far beyond normal!",
+            "Your powerful leap sends you vaulting forward to exceptional distance!",
+            "You jump with such explosive force you fly well beyond the required distance!",
+            "Your legs drive with incredible strength - you rocket forward impressively far!",
+            "You vault across with remarkable power, clearing the gap with meters to spare!",
+            "Your powerful jump propels you to exceptional distance!",
+            "You leap with explosive strength, soaring farther than most could dream!",
+            "Your powerful technique sends you flying forward spectacularly!",
+            "You vault to impressive distance with raw power!",
+            "Your leap is phenomenal - you soar far beyond necessary!"
+          ],
+          "success": [
+            "You jump farther than normal, clearing the gap with your powerful leap.",
+            "Your enhanced jumping strength lets you vault farther successfully.",
+            "You leap with impressive power, reaching greater distance than usual.",
+            "Your powerful jump succeeds, vaulting you farther than standard.",
+            "You successfully use your enhanced leg power to jump farther.",
+            "Your powerful leap carries you to the needed distance and beyond.",
+            "You vault forward with extra power, clearing the gap.",
+            "Your enhanced jumping clears the distance successfully.",
+            "You leap with greater power than normal, succeeding.",
+            "Your powerful technique vaults you farther than usual."
+          ],
+          "failure": [
+            "Even with your powerful jumping ability, you can't reach that distance.",
+            "Your enhanced leap falls short of the required distance.",
+            "Despite your jumping power, you don't get far enough.",
+            "Your powerful jump isn't sufficient for this gap.",
+            "Even jumping farther than normal, you still can't make it.",
+            "Your powerful leap comes up short of the needed distance.",
+            "Despite extra power, you fail to clear the gap.",
+            "Your enhanced jump isn't enough for this distance.",
+            "Even your strong legs can't vault you that far.",
+            "Your powerful leap fails to reach the required distance."
+          ],
+          "criticalFailure": [
+            "You put too much power into the jump and lose control on takeoff!",
+            "Your explosive leap is poorly timed - you stumble badly!",
+            "You overcommit to the powerful jump and nearly fall!",
+            "Your aggressive jumping technique backfires - you trip!",
+            "You launch too powerfully and lose your balance!",
+            "Your forceful takeoff goes wrong - you stumble!",
+            "You put excessive power into the jump and fail catastrophically!",
+            "Your powerful jump is mistimed - you nearly injure yourself!",
+            "You overextend with the power and stumble awkwardly!",
+            "Your aggressive leap fails - you lose your footing!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You channel tremendous power through your legs as you launch forward. This isn't a normal jump - you've trained to extract every ounce of explosive force from your muscles. Your legs drive like hydraulic pistons, propelling you across with exceptional force. You soar forward, easily clearing the gap with distance to spare. Your powerful leap makes the difficult jump look trivial!",
+            "With explosive athletic power, you vault far beyond normal jumpers. Your technique amplifies your natural strength - the approach is perfect, the plant optimal, the drive forward phenomenal. You rocket across, reaching distance that showcases your enhanced jumping ability!",
+            "Your powerful leap is a thing of beauty. Muscles that have been trained specifically for explosive jumping unleash their full potential. You don't just clear the distance - you dominate it, soaring forward with power that leaves observers impressed!"
+          ],
+          "success": [
+            "You employ your enhanced jumping strength to vault farther than normal. The extra power in your legs allows you to reach greater distance, clearing the gap successfully with your powerful technique.",
+            "Your powerful leap works well. You generate more forward force than standard jumping, vaulting to the required distance with your enhanced leg strength.",
+            "You successfully use your trained jumping power to reach greater distance. Your powerful technique carries you over the gap."
+          ],
+          "failure": [
+            "Despite your powerful jumping ability, the distance proves beyond your reach. You vault farther than most people could, but it's still not enough for this particular gap. Your powerful leap falls short.",
+            "You unleash your full jumping power, driving forward with trained strength. But even your enhanced ability can't overcome this challenge. You jump impressively far, yet still fail to clear the gap.",
+            "Your powerful leap technique is sound, but the required distance exceeds even your enhanced capabilities. You come up short despite jumping farther than normal."
+          ],
+          "criticalFailure": [
+            "You commit your full explosive power to the jump, but something goes catastrophically wrong. Maybe you misjudge the timing, maybe you plant wrong, but the tremendous force you generate works against you. Instead of controlled power, you get chaotic stumbling. Your powerful leap becomes a powerful failure!",
+            "Your attempt to channel maximum jumping power backfires. You drive so hard with your legs that your technique breaks down. Too much power, not enough control - you stumble badly on takeoff and barely avoid injury!",
+            "You overcommit to the powerful leap, generating more force than your technique can properly channel. The result is loss of control - you stumble, nearly fall, and end up looking foolish despite your strength!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is what trained explosive power looks like. You approach the jump with muscles that have been specifically conditioned for maximum horizontal output. Every fiber in your legs has been trained to generate force. When you plant and drive, it's like a rocket launching. The power is phenomenal - your legs extend with such violence that you're catapulted forward. You don't just jump - you fly. The distance you achieve is spectacular, far beyond normal human jumping capability. You soar past the far edge with multiple meters to spare, your powerful leap a demonstration of what dedicated athletic training can achieve. It's not just impressive - it's awe-inspiring!",
+            "Your legs are weapons of explosive power, trained through countless repetitions to maximize horizontal output. When you unleash that training, the result is spectacular. You compress into your approach, every muscle coiling like a spring under tremendous tension. Then you release. The explosion is tremendous. Your legs drive with such force you can feel the impact reverberating through your entire body. You rocket across, propelled by power that most people simply don't possess. The distance you achieve is phenomenal. You clear the gap with such ease that spectators might question whether you're even fully human. This is powerful leaping perfected!"
+          ],
+          "success": [
+            "You employ your trained jumping power to vault farther than standard technique allows. Your enhanced leg strength generates extra forward force, carrying you to the required distance successfully through superior athletic capability.",
+            "Your powerful leap works efficiently. You generate more force than normal jumpers, translating that power into additional distance. You clear the gap through enhanced strength."
+          ],
+          "failure": [
+            "You unleash your maximum jumping power, legs driving with trained explosive force. You vault farther than most people ever could. But sometimes, even exceptional athletic ability meets its limits. This distance is beyond even your powerful jumping capability. You come up short despite your best effort and enhanced strength.",
+            "Your powerful leap is executed perfectly - technique sound, power maximum. But the required distance simply exceeds what your muscles can achieve. You jump impressively far, far beyond normal capability, yet still fail to clear this particular gap. Your powerful leap has met an insurmountable challenge."
+          ],
+          "criticalFailure": [
+            "You commit to maximum power output, every trained muscle ready to explode forward with tremendous force. But in the execution, something fails catastrophically. Perhaps you misjudge timing by a fraction of a second. Perhaps your plant foot finds unexpected ground. Perhaps you simply overcommit. Whatever the specific failure, the result is spectacular in the worst way. All that explosive power, which should send you soaring across, instead sends you stumbling. Your legs generate tremendous force but it's channeled wrong. You lurch, balance lost, power working against you instead of for you. You barely get airborne before control is lost completely. You have to scramble to avoid a dangerous fall, your powerful leap transformed into powerful failure!",
+            "Your powerful jumping technique requires perfect execution to channel all that explosive force correctly. You attempt it with confidence, ready to unleash maximum power. But the execution breaks down. Too much power, wrong timing, failed technique - the result is catastrophic. Instead of controlled explosion forward, you get chaotic stumbling. Your legs drive with tremendous force, but that force is misdirected. You stumble badly, nearly fall, and end up demonstrating that raw power without proper control is worse than useless. It's dangerous!"
+          ]
+        }
+      }
+    },
+
+    "cloud-jump": {
+      "displayName": "Long Jump (Cloud Jump)",
+      "feats": ["cloud-jump"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You soar impossibly far!",
+            "You fly forward like magic!",
+            "You vault to incredible distances!",
+            "You jump beyond belief!",
+            "You rocket across fantastically!"
+          ],
+          "success": [
+            "You jump extraordinarily far.",
+            "You vault to amazing distance.",
+            "You leap far beyond normal.",
+            "You soar impressively forward.",
+            "You clear it spectacularly."
+          ],
+          "failure": [
+            "Even cloud jump can't reach it.",
+            "The distance is too extreme.",
+            "You still fall short.",
+            "Not quite far enough.",
+            "You can't make it."
+          ],
+          "criticalFailure": [
+            "You overreach badly!",
+            "Your jump fails!",
+            "You stumble!",
+            "Control fails!",
+            "You trip!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You launch forward with almost superhuman power - you soar incredibly far!",
+            "You vault across with breathtaking force, reaching spectacular distance!",
+            "You jump with such explosive power you seem to defy gravity!",
+            "Your legs propel you forward to distances that seem impossible!",
+            "You rocket across spectacularly, vaulting far beyond normal limits!",
+            "Your cloud jump sends you flying to extraordinary distances!",
+            "You soar forward with power that borders on the supernatural!",
+            "You vault across dramatically, clearing distances most couldn't dream of!",
+            "Your jump is phenomenal - you fly forward to spectacular distance!",
+            "You launch yourself across with nearly magical force!"
+          ],
+          "success": [
+            "You jump extraordinarily far with your cloud jump ability.",
+            "You vault to impressive distance far beyond normal jumping.",
+            "You leap to distances that amaze observers.",
+            "Your cloud jump carries you to remarkable distance.",
+            "You successfully jump far beyond what should be possible.",
+            "You soar forward to extraordinary distance.",
+            "Your enhanced jumping reaches spectacular distances.",
+            "You vault dramatically far with cloud jump power.",
+            "You jump to distances that defy normal physics.",
+            "Your cloud jump succeeds spectacularly."
+          ],
+          "failure": [
+            "Even with cloud jump, you can't reach that extreme distance.",
+            "Your spectacular jumping ability still falls short.",
+            "Despite jumping far beyond normal, you don't make it.",
+            "Your cloud jump isn't enough for this distance.",
+            "Even your extraordinary ability can't clear this.",
+            "Your amazing leap comes up short.",
+            "Despite remarkable distance, you fail to clear it.",
+            "Your cloud jump fails to reach the target.",
+            "Even jumping beyond normal limits, you fall short.",
+            "Your spectacular jump isn't quite enough."
+          ],
+          "criticalFailure": [
+            "Your ambitious cloud jump goes catastrophically wrong!",
+            "You overreach with the dramatic leap and stumble badly!",
+            "Your spectacular jump fails - you nearly injure yourself!",
+            "You lose control of the powerful jump!",
+            "Your cloud jump technique fails catastrophically!",
+            "You stumble badly on the ambitious takeoff!",
+            "Your dramatic leap backfires!",
+            "You overextend with cloud jump and trip!",
+            "Your spectacular jump becomes a spectacular failure!",
+            "You lose your footing on the powerful takeoff!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You channel power that seems almost beyond human capability. This is cloud jump - a technique that pushes jumping to its absolute limits. Your approach builds tremendous momentum, your plant is perfect, and when you drive forward, the force is staggering. You rocket across with such power it almost looks like you're flying. You soar to distances that defy normal understanding of jumping, easily clearing the gap with spectacular room to spare. It's breathtaking to watch!",
+            "Your cloud jump is spectacular. You've mastered the art of extracting maximum horizontal distance from human muscles and technique. When you launch, you don't just jump - you soar. Your body flies forward to distances that seem impossible, defying the normal limits of jumping. You clear the gap with dramatic flair!",
+            "With cloud jump technique, you achieve distances that border on the superhuman. Your legs generate tremendous forward force, your body positioning is optimal for maximum distance, and you vault across spectacularly. It's a jump that has to be seen to be believed!"
+          ],
+          "success": [
+            "You employ cloud jump technique to vault to extraordinary distances. Your jumping ability far exceeds normal human limits, allowing you to reach distances that amaze observers. You clear the gap with your spectacular jumping.",
+            "Your cloud jump works beautifully. You launch forward with dramatic force, soaring to distances beyond normal jumping capability. You successfully clear the gap with your enhanced technique.",
+            "You successfully use cloud jump to reach impressive distance. Your enhanced jumping carries you far beyond what normal technique would allow."
+          ],
+          "failure": [
+            "Despite the spectacular distances your cloud jump can achieve, this particular gap proves too much. You vault far beyond normal jumping capability, reaching impressive distance, but still fall short of clearing it.",
+            "Your cloud jump technique is executed perfectly, sending you soaring to distances most people couldn't imagine. But even this extraordinary ability has limits, and this distance exceeds them. You come up short.",
+            "You launch with full cloud jump power, vaulting to dramatic distances. But the required span is simply beyond even your enhanced capabilities. Your spectacular jump fails."
+          ],
+          "criticalFailure": [
+            "You attempt cloud jump with full confidence in your spectacular jumping ability. But something goes catastrophically wrong in the execution. The tremendous power you generate becomes uncontrolled force. Your spectacular technique breaks down into chaotic stumbling. You barely get airborne before losing control completely!",
+            "Your cloud jump requires perfect execution to handle the extreme forces involved. You attempt it, but fail catastrophically. Too much power, wrong timing, failed control - you stumble badly instead of soaring forward!",
+            "You commit to the cloud jump with absolute confidence, but the execution fails utterly. The dramatic power you try to generate works against you. You stumble, nearly fall, your spectacular technique transformed into spectacular failure!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is cloud jump - jumping elevated to an art form that borders on the supernatural. You've trained your body to achieve the seemingly impossible. As you approach, every muscle is primed for maximum output. Your plant is perfect, your timing flawless. Then you explode forward with such devastating force that gravity seems optional. You don't just jump - you fly. Your body rockets across with power that defies normal human capability. The distance you achieve is staggering - you soar forward like a launched missile, clearing gaps that would stop anyone else. At the peak of your arc, you seem to hang in the air for an impossible moment, suspended at a distance that makes observers question reality. Then descent begins, controlled and graceful. You land with perfect balance, having just demonstrated jumping ability that borders on the superhuman. This is cloud jump mastered - the ultimate expression of horizontal athleticism!",
+            "Your legs have been trained through dedicated practice to achieve the impossible. Cloud jump isn't just enhanced jumping - it's transcendent jumping. When you unleash it, the result is breathtaking. You compress into your approach with every fiber ready. Your plant generates tremendous force. Then you drive. The explosion is phenomenal. Your legs extend with such violence, such perfect technique, that you're catapulted forward like a human rocket. You soar. There's no other word for it. You fly across to distances that seem to mock gravity, clearing the gap with so much room to spare that it's almost comical. The sheer distance you achieve is so dramatic that observers might suspect magic rather than mere athletic training. You've just demonstrated that with perfect technique and trained power, human jumping capability can approach the superhuman!"
+          ],
+          "success": [
+            "You employ cloud jump technique to achieve spectacular distance. Your jumping ability exceeds normal human limits dramatically, allowing you to vault to distances most people couldn't dream of. You clear the gap through extraordinary athletic capability.",
+            "Your cloud jump works magnificently. You generate tremendous forward force through perfected technique, soaring to impressive distances. You clear the gap with dramatic flair."
+          ],
+          "failure": [
+            "You launch with full cloud jump power, achieving distances that would amaze most observers. You vault far beyond normal human jumping capability, soaring forward dramatically. But even cloud jump has limits. This particular distance exceeds even your extraordinary ability. You reach impressive span but still fall short of clearing the gap. Your spectacular jump has met an insurmountable challenge.",
+            "Your cloud jump technique is executed flawlessly, generating tremendous forward force that sends you soaring to dramatic distances. But the required span is simply beyond what even this advanced technique can achieve. You jump spectacularly far, far beyond normal capability, yet still fail to clear this extreme gap."
+          ],
+          "criticalFailure": [
+            "You commit to cloud jump with absolute confidence in your ability to achieve spectacular distances. You approach with perfect momentum, plant with maximum force, and drive forward with everything you have. But in that critical moment of execution, something fails catastrophically. Perhaps your timing is off by a fraction. Perhaps your plant finds unexpected ground. Perhaps you simply overreach. Whatever the cause, the result is disaster. All that tremendous power, which should send you soaring across, instead becomes chaotic force. Your technique, which should be perfect, breaks down completely. Your legs generate tremendous force but it's misdirected. You stumble violently, balance completely lost. You barely get off the ground before control fails entirely. You have to scramble desperately to avoid a dangerous fall. Your attempt at spectacular cloud jumping has become a spectacular failure - dangerous, embarrassing, and total!",
+            "Cloud jump requires absolute precision to channel the extreme forces involved. You attempt it with confidence earned through training, ready to soar to dramatic distances. But the execution collapses. The tremendous power you generate becomes uncontrolled chaos. Too much force, wrong angle, failed timing - everything goes wrong simultaneously. Instead of flying forward, you're stumbling downward. Your legs, which should propel you across, instead betray you. Balance fails. Technique shatters. You stumble badly, nearly fall, and end up demonstrating that even the most advanced athletic techniques can fail catastrophically when execution breaks down. Your cloud jump has become a crash landing!"
+          ]
+        }
+      }
+    }
+  }
+}

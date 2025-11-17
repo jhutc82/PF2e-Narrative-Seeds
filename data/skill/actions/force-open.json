@@ -1,0 +1,138 @@
+{
+  "action": "force-open",
+  "actionName": "Force Open",
+  "skill": "athletics",
+  "traits": ["attack"],
+  "description": "You attempt to break or force open a door, window, container, or heavy gate",
+
+  "variants": {
+    "default": {
+      "displayName": "Force Open",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You smash it open!",
+            "You break it apart!",
+            "It bursts open!",
+            "You force it wide!",
+            "You tear it open!"
+          ],
+          "success": [
+            "You force it open.",
+            "It opens under your strength.",
+            "You break it open.",
+            "You pry it apart.",
+            "It gives way."
+          ],
+          "failure": [
+            "It won't budge.",
+            "You can't force it.",
+            "It holds firm.",
+            "You can't break it.",
+            "It stays shut."
+          ],
+          "criticalFailure": [
+            "You hurt yourself!",
+            "You strain something!",
+            "You injure your shoulder!",
+            "You pull a muscle!",
+            "You damage yourself trying!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You smash through with overwhelming force - it explodes open!",
+            "Your powerful strike shatters the obstruction completely!",
+            "You force it open so violently it breaks apart!",
+            "With explosive strength, you tear it wide open!",
+            "You burst through with devastating force!",
+            "Your strength overwhelms it - the obstacle breaks apart!",
+            "You smash through like it's made of paper!",
+            "Your forceful blow reduces it to splinters!",
+            "You force it open with such power it shatters!",
+            "Your overwhelming strength tears it apart!"
+          ],
+          "success": [
+            "You manage to force it open with sustained effort.",
+            "You successfully break it open through sheer strength.",
+            "Your strength prevails - it opens reluctantly.",
+            "You pry it open with determined force.",
+            "You force your way through successfully.",
+            "It gives way under your persistent effort.",
+            "You successfully break through the obstacle.",
+            "Your strength is enough to force it open.",
+            "You manage to pry it apart.",
+            "You successfully force it to yield."
+          ],
+          "failure": [
+            "Despite your best efforts, you can't force it open.",
+            "You strain against it, but it refuses to budge.",
+            "Your strength isn't enough to break through.",
+            "It holds firm against your attempts.",
+            "You can't generate enough force to open it.",
+            "The obstacle resists all your efforts.",
+            "You try repeatedly but can't force it.",
+            "It stays stubbornly closed.",
+            "Your attempts to force it fail.",
+            "You can't break through it."
+          ],
+          "criticalFailure": [
+            "You wrench your shoulder badly trying to force it!",
+            "You pull something and take damage from the strain!",
+            "Your forceful attempt injures you - you hurt yourself!",
+            "You strain yourself badly in the attempt!",
+            "Your failed attempt leaves you injured!",
+            "You damage yourself with the excessive force!",
+            "You hurt your back trying to force it!",
+            "Your shoulder gives way painfully!",
+            "You pull a muscle severely in your effort!",
+            "The attempt leaves you injured and in pain!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You plant your feet, set your shoulder, and drive forward with explosive power. The obstacle - whether door, container, or gate - simply cannot withstand the overwhelming force you bring to bear. With a tremendous crack, it breaks apart, splinters or pieces flying as you smash through. The way is open!",
+            "You apply maximum force with perfect technique. Your strength is channeled efficiently, and the obstacle gives way catastrophically. It doesn't just open - it shatters, the wood splintering or metal buckling under your assault. You've forced it open and then some!",
+            "With a mighty heave that engages every major muscle group, you force the obstacle past its breaking point. The sound of destruction is loud and satisfying as it breaks apart under your strength. Whatever was blocking your way is now kindling!"
+          ],
+          "success": [
+            "You brace yourself and apply steady, powerful force. The obstacle resists at first, but under your sustained effort it begins to give. With a final surge of strength, you force it open. It wasn't easy, but you got through.",
+            "You work the obstacle systematically, applying force at the weak points. Your strength prevails over the resistance, and eventually it yields. You successfully force it open.",
+            "Through sheer determination and physical power, you manage to force the obstacle open. It fights you every inch, but your strength wins out in the end."
+          ],
+          "failure": [
+            "You throw your weight against the obstacle repeatedly, but it simply won't give. Whether the construction is too solid or you can't find the right leverage, your attempts to force it open prove fruitless. It remains stubbornly shut.",
+            "Despite straining with maximum effort, the obstacle holds firm. You try different approaches and angles, but nothing works. Your strength isn't sufficient to break through this barrier.",
+            "You push and pull, kick and shove, but the obstacle refuses to budge. It's too solid, too well-made, or too well-secured for you to force open."
+          ],
+          "criticalFailure": [
+            "You wind up for maximum force and throw yourself at the obstacle with reckless abandon. But instead of the satisfying sound of breaking wood or yielding metal, you hear something worse - a pop from your shoulder followed by sharp pain. In your overeager attempt, you've injured yourself! The obstacle remains intact while you clutch your damaged shoulder in agony!",
+            "You try to force it with maximum strength, but your technique is all wrong. As you strain against the immovable obstacle, something in your back gives way with a painful twinge. You cry out, the attempt abandoned as you deal with the self-inflicted injury. The door is fine; you, however, are not!",
+            "Your forceful attempt goes horribly wrong. Whether from poor form, bad luck, or overexertion, you hurt yourself in the attempt. Pain shoots through your strained muscles or wrenched joints. The obstacle stands unmoved while you suffer the consequences of your failed effort!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You become a human battering ram. Every ounce of strength in your powerful frame focuses on this single point of resistance. You set your stance, lower your shoulder, and drive forward with the force of a charging bull. The impact is tremendous. For an instant, physics hangs in the balance - will the obstacle hold or will it yield? Then reality reasserts itself with a tremendous CRACK that echoes like a gunshot. The obstacle doesn't just open - it explodes, splinters and fragments flying in all directions. You stride through the destruction, the path cleared by your overwhelming power. Whatever was in your way is now scattered debris!",
+            "You channel every bit of athletic ability into this one act of destruction. Your muscles bunch and flex as you apply force with perfect technique and maximum effort. The obstacle - door, gate, chest - has no chance. Under the onslaught of your strength, it fails catastrophically. Wood splinters, metal buckles, hinges tear free. The sound of total structural failure is loud and satisfying. You've not just opened it - you've demolished it!"
+          ],
+          "success": [
+            "You apply steady, powerful force to the obstacle. It resists, creaking and groaning under the pressure, but slowly it begins to yield. With a final surge of effort, you force it open. Sweat beads on your forehead, muscles burn from the exertion, but you've succeeded. The way is open.",
+            "Through pure physical strength and determined effort, you force the obstacle to give way. It's not instantaneous or easy, but your power prevails. The obstacle opens reluctantly under your sustained force."
+          ],
+          "failure": [
+            "You throw everything you have at the obstacle. Your muscles strain to their limits, veins standing out on your neck and arms. But despite maximum effort and solid technique, it simply won't yield. The obstacle holds firm against your best attempts, unmoved by your strength. Sometimes the barrier is just too strong.",
+            "You try every approach you can think of - shoulder, kick, prying with leverage - but nothing works. The obstacle remains stubbornly, frustratingly intact. Your strength, impressive as it may be, is insufficient for this particular challenge."
+          ],
+          "criticalFailure": [
+            "In your determination to force the obstacle, you abandon technique in favor of pure aggression. It's a critical mistake. You throw your full weight and strength against it with reckless force, and when the obstacle doesn't budge, all that energy has nowhere to go except into your own body. You feel something give - a muscle tears, a joint wrenches, ligaments strain past their limits. White-hot pain shoots through you, forcing a gasp. The obstacle stands unharmed. You, however, are decidedly not. You've hurt yourself badly, and whatever you were trying to accomplish will have to wait while you deal with your self-inflicted injury!",
+            "Your attempt to force it goes catastrophically wrong. Maybe your footing slips at the critical moment, maybe your angle is wrong, maybe you just use too much force - but the result is the same. Instead of the obstacle breaking, your body does. A sharp, intense pain announces that something has given way - shoulder, back, knee, something important. You cry out, the attempt completely abandoned as waves of pain wash over you. The door, chest, or gate that was your target remains perfectly intact while you suffer the consequences of excessive force meeting immovable object!"
+          ]
+        }
+      }
+    }
+  }
+}
