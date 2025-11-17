@@ -201,6 +201,19 @@ export class NarrativeSeedsSettings {
       }
     });
 
+    // Auto-apply complications
+    game.settings.register("pf2e-narrative-seeds", "autoApplyComplications", {
+      name: "Auto-Apply Complications",
+      hint: "Automatically apply complications without requiring the GM to click the apply button. Effects will be applied immediately when a complication is triggered.",
+      scope: "world",
+      config: true,
+      type: Boolean,
+      default: false,
+      onChange: value => {
+        ui.notifications.info("Auto-apply complications " + (value ? "enabled" : "disabled"));
+      }
+    });
+
     // ========================================
     // DISMEMBERMENT SYSTEM
     // ========================================

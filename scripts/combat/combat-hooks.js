@@ -118,6 +118,11 @@ export class CombatHooks {
         }
       });
 
+      // Auto-apply complication if setting is enabled
+      if (game.settings.get("pf2e-narrative-seeds", "autoApplyComplications")) {
+        await this.autoApplyComplication(message, seed);
+      }
+
     } catch (error) {
       console.error("PF2e Narrative Seeds | Error processing combat message:", error);
     }
@@ -473,7 +478,7 @@ export class CombatHooks {
       // Apply the complication effect
       const success = await EffectApplicator.applyComplication(targetActor, complication);
 
-      if (success) {
+      if (success && button) {
         // Disable the button to prevent double-application
         button.disabled = true;
         button.textContent = "✓ Applied";
@@ -483,6 +488,54 @@ export class CombatHooks {
     } catch (error) {
       console.error("PF2e Narrative Seeds | Error applying complication:", error);
       ui.notifications.error("Failed to apply complication");
+    }
+  }
+
+  /**
+   * Automatically apply a complication without user interaction
+   * @param {ChatMessage} message - The chat message containing attack data
+   * @param {Object} seed - The narrative seed containing complication data
+   */
+  static async autoApplyComplication(message, seed) {
+    try {
+      // Check if there's a complication to apply
+      if (!seed || !seed.complication) {
+        return; // No complication, silently return
+      }
+
+      const complication = seed.complication;
+      const outcome = seed.outcome;
+
+      // Get stored attack data to determine target
+      const storedData = message.flags?.["pf2e-narrative-seeds"]?.attackData;
+      if (!storedData) {
+        console.warn("PF2e Narrative Seeds | Cannot auto-apply complication: attack data not found");
+        return;
+      }
+
+      // Reconstruct attack data
+      const attackData = {
+        actor: storedData.actorId ? game.actors.get(storedData.actorId) : null,
+        target: storedData.targetId ? game.actors.get(storedData.targetId) : null
+      };
+
+      // Determine which actor to apply the complication to
+      const targetActor = ComplicationManager.getComplicationTarget(attackData, outcome);
+
+      if (!targetActor) {
+        console.warn("PF2e Narrative Seeds | Could not determine target for auto-apply complication");
+        return;
+      }
+
+      // Apply the complication effect automatically
+      const success = await EffectApplicator.applyComplication(targetActor, complication);
+
+      if (success) {
+        console.log(`PF2e Narrative Seeds | Auto-applied complication "${complication.name}" to ${targetActor.name}`);
+      }
+
+    } catch (error) {
+      console.error("PF2e Narrative Seeds | Error auto-applying complication:", error);
     }
   }
 
