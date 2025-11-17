@@ -302,13 +302,64 @@ export class RandomUtils {
  */
 export class StringUtils {
   /**
-   * Format actor name for display
+   * Check if a name appears to be a proper name vs creature type
    * @param {string} name
+   * @param {Object} actor - Optional actor object for type checking
+   * @returns {boolean} True if proper name, false if creature type
+   */
+  static isProperName(name, actor = null) {
+    if (!name) return false;
+
+    // If we have actor data, use it
+    if (actor) {
+      // PCs (characters) always have proper names
+      if (actor.type === 'character') return true;
+
+      // Check if actor has a specific identifier that suggests it's a unique NPC
+      // Unique NPCs often have isUnique flag or specific traits
+      if (actor.system?.traits?.rarity === 'unique') return true;
+    }
+
+    // Heuristics for name-only detection:
+    // Check if name contains multiple words with mixed case (likely a name)
+    const words = name.trim().split(/\s+/);
+    if (words.length > 1) {
+      // Multi-word names like "Bandit Leader" or "Orc Warrior" are creature types
+      // But "John Smith" or "Valeros the Brave" are proper names
+      // Check if all words are capitalized title-case (creature type pattern)
+      const allTitleCase = words.every(word =>
+        word.length > 0 && word[0] === word[0].toUpperCase() && word.slice(1) === word.slice(1).toLowerCase()
+      );
+      // If it has numbers or parentheses, it's likely a proper name "Valeros (Beginner Box)"
+      if (name.match(/\d|\(|\)/)) return true;
+      // If all words are simple title case with no special chars, likely creature type
+      if (allTitleCase && !name.match(/[^a-zA-Z\s]/)) return false;
+    }
+
+    // Single capitalized words are ambiguous, default to creature type for safety
+    // This covers cases like "Bandit", "Owlbear", "Dragon"
+    // But proper names like "Valeros" will need actor type to distinguish
+    return false;
+  }
+
+  /**
+   * Format actor name for display, adding "the" before creature types
+   * @param {string} name
+   * @param {Object} actor - Optional actor object for type checking
    * @returns {string}
    */
-  static formatActorName(name) {
+  static formatActorName(name, actor = null) {
     if (!name) return "Unknown";
-    return name.trim();
+    const trimmed = name.trim();
+
+    // Check if this is a proper name or creature type
+    if (this.isProperName(trimmed, actor)) {
+      return trimmed;
+    } else {
+      // It's a creature type, add "the" and lowercase first letter
+      const lower = trimmed.charAt(0).toLowerCase() + trimmed.slice(1);
+      return `the ${lower}`;
+    }
   }
 
   /**
