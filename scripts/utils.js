@@ -363,13 +363,61 @@ export class StringUtils {
   }
 
   /**
-   * Capitalize first letter of sentence
+   * Capitalize first letter of string
    * @param {string} str
    * @returns {string}
    */
   static capitalizeFirst(str) {
     if (!str) return "";
     return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  /**
+   * Capitalize the first letter of each sentence and ensure proper punctuation
+   * @param {string} text - Text to process
+   * @returns {string} Text with capitalized sentences and proper punctuation
+   */
+  static capitalizeSentences(text) {
+    if (!text) return "";
+
+    // First, clean up spacing and punctuation
+    let cleaned = text
+      .replace(/\s+/g, ' ') // Remove double spaces
+      .replace(/\s+([.,!?])/g, '$1') // Fix space before punctuation
+      .replace(/([.!?])\1+/g, '$1') // Fix double punctuation
+      .replace(/([.!?])([A-Za-z])/g, '$1 $2') // Ensure space after sentence punctuation
+      .trim();
+
+    // Split on sentence boundaries while keeping the delimiter
+    const sentences = cleaned.split(/([.!?]\s*)/);
+    let result = '';
+    let shouldCapitalize = true;
+
+    for (let i = 0; i < sentences.length; i++) {
+      const part = sentences[i];
+      if (!part) continue;
+
+      // If this is punctuation, add it and flag next for capitalization
+      if (part.match(/^[.!?]\s*$/)) {
+        result += part;
+        shouldCapitalize = true;
+      } else {
+        // This is text content
+        if (shouldCapitalize && part.length > 0) {
+          result += part.charAt(0).toUpperCase() + part.slice(1);
+          shouldCapitalize = false;
+        } else {
+          result += part;
+        }
+      }
+    }
+
+    // Ensure text ends with punctuation
+    if (result && !result.match(/[.!?]$/)) {
+      result += '.';
+    }
+
+    return result;
   }
 
   /**

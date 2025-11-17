@@ -149,8 +149,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           // Apply tone filter
           description = ToneFilter.apply(description, tone);
 
-          // Capitalize first letter
-          description = StringUtils.capitalizeFirst(description);
+          // Capitalize all sentences and ensure proper punctuation
+          description = StringUtils.capitalizeSentences(description);
 
           attempts++;
 
@@ -310,7 +310,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     };
 
     const result = fallbacks[outcome] || "Attack resolves.";
-    return StringUtils.capitalizeFirst(result);
+    return StringUtils.capitalizeSentences(result);
   }
 
   /**
