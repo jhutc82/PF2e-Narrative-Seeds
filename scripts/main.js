@@ -15,6 +15,7 @@ import { DamageDetector } from './combat/damage-detector.js';
 import { PerformanceMonitor } from './performance-monitor.js';
 import { DataLoader } from './data-loader.js';
 import { ComplicationManager } from './combat/complication-manager.js';
+import { DismembermentManager } from './combat/dismemberment-manager.js';
 
 /**
  * Main module class
@@ -184,6 +185,9 @@ Hooks.once("init", () => {
 
   // Initialize ComplicationManager (load complication data)
   ComplicationManager.initialize();
+
+  // Initialize DismembermentManager (load dismemberment data)
+  DismembermentManager.initialize();
 
   // Expose API
   game.modules.get("pf2e-narrative-seeds").api = {

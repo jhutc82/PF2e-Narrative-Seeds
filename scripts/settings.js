@@ -150,6 +150,68 @@ export class NarrativeSeedsSettings {
       default: 60
     });
 
+    // ========================================
+    // DISMEMBERMENT SYSTEM
+    // ========================================
+
+    // Enable dismemberment
+    game.settings.register("pf2e-narrative-seeds", "enableDismemberment", {
+      name: "Enable Dismemberment System",
+      hint: "PERMANENT INJURIES: Generate dismemberment effects for devastating critical hits (>50% HP or on unconscious targets)",
+      scope: "world",
+      config: true,
+      type: Boolean,
+      default: false,
+      onChange: value => {
+        ui.notifications.warn("Dismemberment system " + (value ? "ENABLED - Permanent injuries are now possible!" : "disabled"));
+      }
+    });
+
+    // Dismemberment base chance
+    game.settings.register("pf2e-narrative-seeds", "dismembermentBaseChance", {
+      name: "Dismemberment Base Chance",
+      hint: "Base percentage chance for dismemberment when conditions are met (before level scaling)",
+      scope: "world",
+      config: true,
+      type: Number,
+      range: {
+        min: 0,
+        max: 50,
+        step: 1
+      },
+      default: 5
+    });
+
+    // Dismemberment level scaling
+    game.settings.register("pf2e-narrative-seeds", "dismembermentLevelScaling", {
+      name: "Dismemberment Level Scaling",
+      hint: "Additional percentage chance per target level (e.g., 0.5 = +0.5% per level)",
+      scope: "world",
+      config: true,
+      type: Number,
+      range: {
+        min: 0,
+        max: 2,
+        step: 0.1
+      },
+      default: 0.5
+    });
+
+    // Dismemberment max chance
+    game.settings.register("pf2e-narrative-seeds", "dismembermentMaxChance", {
+      name: "Dismemberment Maximum Chance",
+      hint: "Maximum percentage chance for dismemberment (caps total chance including level scaling)",
+      scope: "world",
+      config: true,
+      type: Number,
+      range: {
+        min: 5,
+        max: 100,
+        step: 5
+      },
+      default: 30
+    });
+
     console.log("PF2e Narrative Seeds | Settings registered successfully");
   }
 

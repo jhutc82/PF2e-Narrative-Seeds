@@ -14,6 +14,7 @@ import { TemplateEngine } from './template-engine.js';
 import { ErrorNotifications } from '../error-notifications.js';
 import { CombatMemory } from './combat-memory.js';
 import { ComplicationManager } from './complication-manager.js';
+import { DismembermentManager } from './dismemberment-manager.js';
 import {
   getLocation,
   getDamageVerb,
@@ -189,6 +190,16 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           anatomy: typeof anatomy === 'string' ? anatomy : anatomy?.base || 'torso'
         });
 
+        // Check for dismemberment (more severe than complications)
+        const dismemberment = DismembermentManager.selectDismemberment(
+          { message, target, actor: attacker, item },
+          {
+            outcome,
+            damageType,
+            anatomy: typeof anatomy === 'string' ? anatomy : anatomy?.base || 'torso'
+          }
+        );
+
         return {
           description,
           anatomy,
@@ -199,7 +210,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           attackerName: attacker ? attacker.name : "Unknown",
           detailLevel,
           tone,
-          complication
+          complication,
+          dismemberment
         };
       } catch (error) {
         ErrorNotifications.handleCriticalError('combat narrative generation', error);

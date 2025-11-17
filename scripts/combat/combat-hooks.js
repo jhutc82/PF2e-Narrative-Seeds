@@ -9,6 +9,7 @@ import { CombatNarrativeGenerator } from './combat-generator.js';
 import { CombatFormatter } from './combat-formatter.js';
 import { EffectApplicator } from './effect-applicator.js';
 import { ComplicationManager } from './complication-manager.js';
+import { DismembermentManager } from './dismemberment-manager.js';
 
 /**
  * Combat hooks manager
@@ -302,6 +303,15 @@ export class CombatHooks {
         await this.applyComplication(message, event.currentTarget);
       });
     }
+
+    // Add listener for apply dismemberment button
+    const applyDismembermentButton = html.find('.apply-dismemberment-button');
+    if (applyDismembermentButton.length > 0) {
+      applyDismembermentButton.on('click', async (event) => {
+        event.preventDefault();
+        await this.applyDismemberment(message, event.currentTarget);
+      });
+    }
   }
 
   /**
@@ -476,6 +486,93 @@ export class CombatHooks {
     } catch (error) {
       console.error("PF2e Narrative Seeds | Error applying complication:", error);
       ui.notifications.error("Failed to apply complication");
+    }
+  }
+
+  /**
+   * Apply a dismemberment effect to the appropriate actor
+   * @param {ChatMessage} message - The chat message containing attack data
+   * @param {HTMLElement} button - The clicked button element
+   */
+  static async applyDismemberment(message, button) {
+    try {
+      // Get dismemberment data from button
+      const dismembermentData = button.dataset.dismemberment;
+
+      if (!dismembermentData) {
+        ui.notifications.warn("No dismemberment data found");
+        return;
+      }
+
+      // Parse dismemberment data
+      let dismemberment;
+      try {
+        dismemberment = JSON.parse(dismembermentData);
+      } catch (e) {
+        console.error("Failed to parse dismemberment data:", e);
+        ui.notifications.error("Failed to parse dismemberment data");
+        return;
+      }
+
+      // Get stored attack data to determine target
+      const storedData = message.flags?.["pf2e-narrative-seeds"]?.attackData;
+      if (!storedData) {
+        ui.notifications.warn("Cannot apply dismemberment: attack data not found");
+        return;
+      }
+
+      // Get the target actor (dismemberment always applies to target)
+      const targetActor = storedData.targetId ? game.actors.get(storedData.targetId) : null;
+
+      if (!targetActor) {
+        ui.notifications.warn("Could not find target for dismemberment");
+        return;
+      }
+
+      // CRITICAL WARNING: Dismemberment is permanent!
+      const confirmed = await Dialog.confirm({
+        title: "💀 PERMANENT INJURY WARNING 💀",
+        content: `<div style="background: #8b0000; border: 2px solid #ff0000; padding: 15px; border-radius: 5px; color: #fff;">
+          <h2 style="color: #ff0000; margin-top: 0;">⚠️ PERMANENT INJURY ⚠️</h2>
+          <p><strong>You are about to apply:</strong></p>
+          <p style="font-size: 1.2em; color: #ffd700;">${dismemberment.name}</p>
+          <p><strong>To:</strong> ${targetActor.name}</p>
+          <hr style="border-color: #ff0000;">
+          <p>${dismemberment.description}</p>
+          <hr style="border-color: #ff0000;">
+          <p style="color: #ff6666;"><strong>THIS IS A PERMANENT EFFECT!</strong></p>
+          <p>This effect cannot be easily removed and will have lasting consequences.</p>
+          <p>Are you absolutely sure you want to proceed?</p>
+        </div>`,
+        yes: () => true,
+        no: () => false,
+        defaultYes: false
+      });
+
+      if (!confirmed) {
+        ui.notifications.info("Dismemberment application cancelled");
+        return;
+      }
+
+      // Check if user has permission to modify the target actor
+      if (!targetActor.testUserPermission(game.user, "OWNER") && !game.user.isGM) {
+        ui.notifications.warn(`You do not have permission to modify ${targetActor.name}`);
+        return;
+      }
+
+      // Apply the dismemberment effect
+      const success = await EffectApplicator.applyDismemberment(targetActor, dismemberment);
+
+      if (success) {
+        // Disable the button to prevent double-application
+        button.disabled = true;
+        button.textContent = "💀 Applied";
+        button.classList.add('applied');
+      }
+
+    } catch (error) {
+      console.error("PF2e Narrative Seeds | Error applying dismemberment:", error);
+      ui.notifications.error("Failed to apply dismemberment");
     }
   }
 
