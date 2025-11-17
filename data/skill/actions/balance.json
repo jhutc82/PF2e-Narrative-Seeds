@@ -133,6 +133,136 @@
           ]
         }
       }
+    },
+
+    "steady-balance": {
+      "displayName": "Balance (Steady Balance)",
+      "feats": ["steady-balance"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You race across at full speed!",
+            "You sprint across perfectly!",
+            "You run across without slowing!",
+            "You dash across with perfect balance!",
+            "You cross at top speed!"
+          ],
+          "success": [
+            "You balance at full speed.",
+            "You cross quickly.",
+            "You move fast without slowing.",
+            "You maintain speed and balance.",
+            "You cross rapidly."
+          ],
+          "failure": [
+            "Speed breaks your balance.",
+            "You can't maintain both.",
+            "Too fast - you wobble.",
+            "You must slow down.",
+            "Speed defeats you."
+          ],
+          "criticalFailure": [
+            "Your speed causes you to fall!",
+            "You rush and slip off!",
+            "Too fast - you lose control!",
+            "Your pace costs you!",
+            "Speed makes you fall!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You race across the narrow surface at full speed with perfect balance!",
+            "You sprint across without slowing, maintaining flawless equilibrium!",
+            "You dash across at top speed, your balance never wavering!",
+            "You cross at full pace with the confidence of a master acrobat!",
+            "You run across the precarious surface like it's solid ground!",
+            "Your steady balance lets you move at full speed without hesitation!",
+            "You race forward, speed and balance perfectly combined!",
+            "You sprint across with such poise you make it look easy!",
+            "You cross at maximum speed with perfect stability!",
+            "You dash across rapidly, your balance impeccable!"
+          ],
+          "success": [
+            "You successfully balance while moving at full speed across.",
+            "You cross rapidly, maintaining adequate balance despite your pace.",
+            "You manage to move quickly without losing your footing.",
+            "You balance at full speed successfully.",
+            "You cross at normal pace instead of half, staying balanced.",
+            "You move swiftly across while maintaining your equilibrium.",
+            "You successfully combine speed with balance.",
+            "You cross quickly without falling.",
+            "You maintain balance at full speed successfully.",
+            "You move rapidly while staying on the narrow surface."
+          ],
+          "failure": [
+            "You try to move at full speed but your balance can't keep up!",
+            "Your rapid pace breaks your balance - you wobble dangerously!",
+            "You can't maintain both speed and stability!",
+            "Moving too fast costs you your balance!",
+            "Your steady balance fails - you must slow down or stop!",
+            "Speed defeats your equilibrium - you can't proceed!",
+            "You wobble badly when trying to move quickly!",
+            "Your rapid movement breaks your balance!",
+            "You can't cross that fast - you lose your footing!",
+            "Speed and balance prove incompatible!"
+          ],
+          "criticalFailure": [
+            "Your speed sends you careening off balance - you fall!",
+            "Moving too fast destroys your equilibrium - you plunge off!",
+            "Your rapid pace causes catastrophic balance failure!",
+            "You rush across and slip off the narrow surface!",
+            "Speed breaks your balance completely - you're falling!",
+            "Your fast movement sends you tumbling off!",
+            "You lose control at high speed and fall!",
+            "Your rapid crossing ends in a fall!",
+            "Speed costs you everything - you plummet off!",
+            "Your steady balance fails catastrophically at speed!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You demonstrate the remarkable ability to maintain perfect balance while moving at full speed. Most people have to creep across narrow surfaces, but you've trained to move quickly. You race across the precarious path with complete confidence, your body making constant micro-adjustments to keep you stable even at speed. Your steady balance makes the difficult crossing look trivial!",
+            "With expert technique, you combine speed with stability. You don't slow down for the narrow surface - you trust your trained balance to handle the pace. You dash across rapidly, your equilibrium perfect despite the velocity. It's an impressive display of acrobatic skill!",
+            "Your steady balance training shines. You move across the narrow surface at full speed, never hesitating, never wobbling. Your body has learned to maintain equilibrium even while moving quickly. You cross rapidly and safely!"
+          ],
+          "success": [
+            "You employ steady balance techniques to cross at full speed. It's more demanding than moving slowly - your balance has to react much faster to maintain stability. But you manage it successfully, crossing at normal pace instead of the usual cautious creep.",
+            "You move across at full speed while maintaining adequate balance. It takes significant skill to combine velocity with stability, but your training carries you through. You cross quickly without falling.",
+            "Your steady balance works. You don't have to slow to half speed like normal - you cross at full pace while keeping your footing through practiced technique."
+          ],
+          "failure": [
+            "You attempt to cross at full speed, but the combination of pace and balance proves too difficult. Moving quickly on such a narrow surface creates instability your balance can't compensate for. You wobble dangerously and are forced to slow down or stop.",
+            "Despite your steady balance training, you can't maintain equilibrium at full speed on this surface. Your rapid movement breaks your balance. You must slow to a safer pace or abandon the attempt.",
+            "Speed and balance prove incompatible on this narrow surface. You try to move at full pace, but your balance can't keep up. You wobble badly and have to slow down."
+          ],
+          "criticalFailure": [
+            "You try to cross at full speed with confidence in your steady balance, but it backfires catastrophically. Moving quickly on the narrow surface proves too much. Your balance fails at speed, and momentum works against you. You can't recover - you're falling off the narrow surface!",
+            "Your attempt to combine speed with balance goes disastrously wrong. You're moving too fast when your footing slips. Unlike a slow, careful crossing where you might catch yourself, at this speed there's no time to recover. You plunge off the narrow surface!",
+            "Speed destroys your balance completely. You rush across confidently, but the rapid pace proves your undoing. Your balance fails, and at full speed, the failure is catastrophic. You tumble off, unable to catch yourself!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is steady balance mastered. Most people creep across narrow surfaces, inching forward with arms outstretched, every step a deliberate test of equilibrium. Not you. You've trained your body to maintain perfect balance even at speed. You approach the narrow surface and simply run across it. Your feet move with rapid precision, placing themselves perfectly even at full pace. Your body makes constant micro-adjustments - a slight shift here, a lean there - maintaining equilibrium through speed rather than despite it. You race across the precarious path like it's a wide road, your steady balance making the impossible look routine. It's breathtaking to watch!",
+            "Like a parkour athlete, you demonstrate that balance and speed aren't opposites - they're complementary skills. You sprint across the narrow surface with absolute confidence, your trained equilibrium handling the challenge effortlessly. Your footfalls are rapid but precise, your balance perfect despite the velocity. You cover the distance in seconds, making the difficult crossing look trivial through superior technique. This is steady balance perfected!"
+          ],
+          "success": [
+            "You successfully employ steady balance techniques to cross at full speed. It's demanding work - balance is much harder when you're moving quickly. But your training carries you through. You cross rapidly without falling, combining speed with adequate stability.",
+            "You balance at full pace successfully. Most people would slow to a careful creep, but you trust your trained equilibrium. You move across quickly, maintaining enough balance to complete the crossing safely."
+          ],
+          "failure": [
+            "You attempt to cross at full speed with confidence, but the narrow surface proves more challenging than expected. Moving quickly destabilizes you - your rapid footfalls can't find reliable purchase. Your balance begins to fail, wobbling becoming dangerous. You're forced to slow to a safer pace or abandon the attempt entirely.",
+            "Despite your steady balance training, speed and stability prove incompatible on this particular surface. You try to move at full pace, but your balance can't keep up with the demands. Wobbling becomes severe, forcing you to slow down or stop."
+          ],
+          "criticalFailure": [
+            "You launch across the narrow surface at full speed, confident in your steady balance training. For a few steps it works beautifully - you're racing across with perfect poise. Then physics and probability catch up with you. At this velocity, even a tiny misstep becomes catastrophic. Your foot placement is off by mere centimeters, but at full speed that's enough. Your balance fails in an instant. Momentum carries you forward even as equilibrium disappears. Your arms windmill desperately, your body contorts trying to compensate, but it's futile. You're moving too fast to recover. You tumble off the narrow surface, your steady balance training transformed into dangerous overconfidence. The fall is unavoidable and terrifying!",
+            "Speed and balance form a perfect partnership when executed correctly. But when they fail, the failure is spectacular. You're racing across the narrow surface, trusting your trained equilibrium to handle the pace. Then something goes wrong - a slip, a wobble, an unexpected variation in the surface. At a slow, careful pace, you might recover. But you're moving at full speed. There's no time to correct, no opportunity to catch yourself. Your balance fails catastrophically. Momentum works against you. You careen off the narrow surface, falling, your attempt at steady balance becoming a lesson in the dangers of excessive speed!"
+          ]
+        }
+      }
     }
   }
 }
