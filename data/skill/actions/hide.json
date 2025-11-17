@@ -1,0 +1,138 @@
+{
+  "action": "hide",
+  "actionName": "Hide",
+  "skill": "stealth",
+  "traits": ["secret"],
+  "description": "You attempt to become hidden from creatures that could detect you",
+
+  "variants": {
+    "default": {
+      "displayName": "Hide",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You vanish from sight!",
+            "You're completely hidden!",
+            "Perfect concealment!",
+            "You disappear!",
+            "You blend into the shadows!"
+          ],
+          "success": [
+            "You hide successfully.",
+            "You're now hidden.",
+            "You conceal yourself.",
+            "You slip out of sight.",
+            "You become hidden."
+          ],
+          "failure": [
+            "You remain visible.",
+            "You can't hide effectively.",
+            "You stay exposed.",
+            "Your hiding fails.",
+            "You're still seen."
+          ],
+          "criticalFailure": [
+            "You give away your position!",
+            "You draw attention!",
+            "Your hiding attempt is obvious!",
+            "You make noise!",
+            "You reveal yourself!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You vanish completely - you're perfectly hidden and undetected!",
+            "You find ideal concealment and disappear from view entirely!",
+            "You blend into your surroundings so well you're virtually invisible!",
+            "You conceal yourself expertly - no one can see you!",
+            "You slip into the shadows and become completely hidden!",
+            "You find perfect cover and disappear from sight!",
+            "You hide so effectively you're completely undetectable!",
+            "You melt into your surroundings with expert precision!",
+            "You conceal yourself flawlessly - you're invisible to observers!",
+            "You find ideal concealment and vanish from view!"
+          ],
+          "success": [
+            "You successfully hide from view.",
+            "You find adequate cover and conceal yourself.",
+            "You slip out of sight successfully.",
+            "You hide effectively behind available cover.",
+            "You manage to conceal yourself adequately.",
+            "You successfully become hidden.",
+            "You find concealment and hide from observers.",
+            "You slip into cover successfully.",
+            "You hide well enough to avoid detection.",
+            "You conceal yourself behind available cover."
+          ],
+          "failure": [
+            "You can't find adequate concealment to hide.",
+            "Your attempt to hide fails - you remain visible.",
+            "You're unable to conceal yourself effectively.",
+            "You stay exposed despite your efforts to hide.",
+            "You can't find sufficient cover to hide.",
+            "Your hiding attempt is unsuccessful.",
+            "You remain in view despite trying to hide.",
+            "You're unable to slip out of sight.",
+            "You can't conceal yourself adequately.",
+            "Your attempt to hide doesn't work."
+          ],
+          "criticalFailure": [
+            "Your clumsy hiding attempt actually draws attention to your position!",
+            "You knock something over trying to hide - everyone notices!",
+            "Your obvious attempt to conceal yourself makes you more noticeable!",
+            "You make noise while trying to hide and give away your location!",
+            "Your failed hiding attempt reveals exactly where you are!",
+            "You stumble while trying to hide and draw all eyes to you!",
+            "Your obvious movements while hiding make you more visible!",
+            "You accidentally alert everyone to your exact position!",
+            "Your clumsy concealment attempt highlights your location!",
+            "You make yourself MORE obvious trying to hide!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You find the perfect spot and use it with expert skill. Whether it's shadows, physical cover, or environmental concealment, you exploit it masterfully. You control your breathing, minimize movement, and position yourself ideally. Within moments, you've vanished from view completely. Anyone looking for you would have no idea where you are!",
+            "Your concealment technique is flawless. You blend into your surroundings with practiced ease, using every available advantage - light, shadow, cover, camouflage. You become part of the environment, invisible to casual and even careful observation. You're completely hidden!",
+            "You slip into concealment with the skill of a professional. Your movements are silent, your positioning perfect, your use of available cover expert. You disappear so completely that you might as well be invisible!"
+          ],
+          "success": [
+            "You find adequate cover and conceal yourself behind it. You're not invisible, but you're successfully hidden from view. As long as you stay still and quiet, you should remain undetected.",
+            "You successfully hide yourself from observers. You position yourself behind available concealment and minimize your profile. You're hidden, though not perfectly - but it should be enough.",
+            "You manage to conceal yourself adequately. Using available cover, you slip out of direct sight. You're now hidden from view."
+          ],
+          "failure": [
+            "You try to hide, but there simply isn't adequate concealment available, or you can't position yourself well enough to use it. Despite your best efforts, you remain visible to observers.",
+            "Your attempt to hide doesn't work. Maybe the cover isn't sufficient, maybe your positioning is wrong, or maybe you're just in too exposed a location. Whatever the reason, you can't successfully conceal yourself.",
+            "You can't find a way to hide effectively. The available concealment is inadequate or your technique is insufficient. You remain exposed and visible."
+          ],
+          "criticalFailure": [
+            "Your attempt to hide goes catastrophically wrong. Maybe you knock something over, maybe you step on something that makes noise, or maybe your movements are just too obvious. Whatever the cause, instead of concealing yourself, you've actually drawn attention to your exact location. Everyone knows exactly where you are!",
+            "Disaster strikes your hiding attempt. In your hurry or nervousness to conceal yourself, you make a critical error - a loud noise, an obvious movement, something that completely defeats the purpose. Not only have you failed to hide, but you've actively revealed your position to anyone who might be looking!",
+            "Your clumsy hiding attempt backfires completely. Instead of slipping quietly into concealment, you make yourself the center of attention. Your obvious movements, noise, or poor positioning have actually made you more noticeable than if you'd just stood still!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You move with the fluid grace of a shadow dancer, reading the environment with perfect understanding. There - that patch of darkness between the crates. You slip into it with practiced ease, your movements controlled and silent. Your body settles into perfect stillness, breathing shallow and quiet. You become part of the shadows themselves, indistinguishable from the environment around you. To any observer, you've simply vanished. You've achieved perfect concealment - the kind of hiding that borders on invisibility!",
+            "Like smoke dissipating in a breeze, you seem to fade from view. You understand concealment instinctively, reading the play of light and shadow, the gaps in vision, the blind spots in attention. You flow into the perfect position and become absolutely still. Your silhouette blends with your surroundings, your minimal movements masked by environmental motion. Within seconds, you've transformed from visible presence to invisible watcher. Anyone looking for you would swear you'd vanished into thin air!"
+          ],
+          "success": [
+            "You find workable cover and slip behind it. Your movements are controlled, your positioning adequate. You're not perfectly invisible, but you're successfully hidden from casual observation. As long as you remain still and quiet, you should stay undetected.",
+            "You successfully conceal yourself using available cover. It's not the most perfect hiding spot ever used, but it works. You're out of direct sight, hidden well enough to avoid detection unless someone specifically searches for you."
+          ],
+          "failure": [
+            "You search for concealment but come up empty. The available cover is inadequate, the shadows too thin, the concealment insufficient. Despite your best efforts to position yourself optimally, you remain visible. You simply can't hide effectively in this situation.",
+            "Your hiding attempt fails to achieve concealment. Whether it's poor cover, bad positioning, or just unfortunate circumstances, you can't slip out of sight. You remain exposed and visible despite your efforts."
+          ],
+          "criticalFailure": [
+            "Everything goes wrong at once. You're moving toward concealment when your foot catches on something - maybe debris, maybe uneven ground. The sound is loud in the relative quiet. You stumble, arms windmilling for balance, and knock into your intended hiding place. The noise is unmistakable, the motion obvious. Instead of disappearing from view, you've just announced your exact position to everyone in earshot. Your hiding attempt hasn't just failed - it's backfired spectacularly, making you far more noticeable than if you'd just stood in plain sight!",
+            "Your attempt to hide becomes a disaster. Maybe you misjudge the concealment, maybe you move too quickly, or maybe you're just having the worst luck imaginable, but instead of slipping quietly out of sight, you create a spectacle. Noise, obvious movement, disturbed environment - you might as well have set off a flare announcing your location. Not only have you failed to hide, but you've actively drawn attention to yourself. Every eye in the area knows exactly where you are!"
+          ]
+        }
+      }
+    }
+  }
+}

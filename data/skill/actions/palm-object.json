@@ -1,0 +1,138 @@
+{
+  "action": "palm-object",
+  "actionName": "Palm an Object",
+  "skill": "thievery",
+  "traits": ["manipulate"],
+  "description": "You hide a small object in your hand using sleight of hand",
+
+  "variants": {
+    "default": {
+      "displayName": "Palm an Object",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You palm it perfectly!",
+            "Flawless concealment!",
+            "You hide it expertly!",
+            "Perfect sleight of hand!",
+            "You conceal it masterfully!"
+          ],
+          "success": [
+            "You palm the object.",
+            "You hide it in your hand.",
+            "You conceal it successfully.",
+            "You palm it adequately.",
+            "You hide it from view."
+          ],
+          "failure": [
+            "You can't conceal it.",
+            "The object is visible.",
+            "You fail to palm it.",
+            "You can't hide it well.",
+            "It remains obvious."
+          ],
+          "criticalFailure": [
+            "You drop it!",
+            "You fumble it obviously!",
+            "It falls from your hand!",
+            "You draw attention to it!",
+            "Your attempt is blatant!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You palm the object with masterful sleight of hand - it's completely hidden!",
+            "Your concealment is perfect - no one could tell you're holding anything!",
+            "You hide the object so expertly it's virtually invisible!",
+            "Your sleight of hand is flawless - the object is perfectly concealed!",
+            "You palm it with such skill it might as well have vanished!",
+            "Your expert fingers hide the object completely from view!",
+            "You conceal the object with masterful technique!",
+            "Your palming is so smooth no one would know you're holding anything!",
+            "You hide the object with perfect sleight of hand!",
+            "Your concealment technique is impeccable - completely hidden!"
+          ],
+          "success": [
+            "You successfully palm the object, hiding it from casual observation.",
+            "You conceal the object in your hand adequately.",
+            "You manage to hide the object using sleight of hand.",
+            "You palm the object successfully.",
+            "You hide the object well enough to avoid detection.",
+            "You successfully conceal the object in your palm.",
+            "You manage to palm the object without it being obvious.",
+            "You hide the object from view successfully.",
+            "You conceal the object with adequate technique.",
+            "You successfully palm it, keeping it hidden."
+          ],
+          "failure": [
+            "You can't hide the object well enough - it's visible.",
+            "Your attempt to palm it fails - the object remains obvious.",
+            "You can't conceal the object adequately.",
+            "Your sleight of hand fails - the object is still visible.",
+            "You can't hide the object from view.",
+            "Your palming attempt is unsuccessful.",
+            "The object remains visible despite your efforts.",
+            "You fail to conceal it properly.",
+            "Your attempt to hide it doesn't work.",
+            "You can't palm the object successfully."
+          ],
+          "criticalFailure": [
+            "You fumble the object and drop it obviously!",
+            "Your clumsy palming actually draws attention to the object!",
+            "The object slips from your hand and falls!",
+            "Your obvious attempt to hide it makes it more noticeable!",
+            "You drop the object while trying to palm it!",
+            "Your fumbling actually highlights the object!",
+            "You make the object more obvious with your clumsy concealment!",
+            "The object falls from your hand for everyone to see!",
+            "Your failed palming draws all eyes to the object!",
+            "You drop it in the most obvious way possible!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Your sleight of hand is masterful. The object moves smoothly into your palm, positioned perfectly to remain hidden while still being easily accessible. Your hand appears natural and relaxed, giving no indication that you're holding anything. Your fingers curve just right, the object's weight distributed so it doesn't affect your hand's movement. Even someone watching you carefully would swear your hand is empty. Perfect concealment!",
+            "You palm the object with expert precision. Your fingers work with practiced ease, tucking the object into perfect concealment. Your hand looks completely natural - the right shape, the right position, the right relaxation. The object is hidden so well it might as well be invisible. Your sleight of hand is flawless!",
+            "You execute the palm perfectly. The object slides into concealment so smoothly it seems to disappear. Your hand maintains a natural appearance that gives away nothing. Your technique is so polished that the object is completely hidden from any observer!"
+          ],
+          "success": [
+            "You manage to palm the object adequately. It's concealed in your hand, though perhaps not perfectly. Your sleight of hand is good enough to hide it from casual observation.",
+            "You successfully hide the object in your palm. Your technique is functional, and while it's not the most polished concealment, it works well enough to keep the object hidden.",
+            "You palm the object with decent technique. It's hidden from view, though someone looking very carefully might notice something. Still, it's successfully concealed."
+          ],
+          "failure": [
+            "You try to palm the object, but you simply can't hide it well enough. Maybe your hand isn't positioned right, maybe the object is too large or awkward, but whatever the reason, it remains visible. Your attempted concealment has failed.",
+            "Your sleight of hand isn't quite good enough to hide the object. Despite your efforts, it remains obvious that you're holding something. The palm has failed.",
+            "You attempt to conceal the object in your hand, but you can't do it effectively. The object is still visible, your concealment inadequate."
+          ],
+          "criticalFailure": [
+            "Your palming attempt goes terribly wrong. Maybe the object is more slippery than you anticipated, maybe your fingers position it wrong, or maybe you're just having terrible luck. Whatever the cause, instead of smoothly concealing the object, you fumble it. It slips from your grasp and falls, drawing attention to exactly what you were trying to hide!",
+            "Disaster strikes your sleight of hand. You attempt to palm the object, but your fingers betray you. You fumble it badly, and instead of hiding in your palm, it drops from your hand. Everyone nearby can see exactly what you were trying to conceal!",
+            "Your clumsy palming actually makes things worse. Instead of smoothly hiding the object, your obvious fumbling draws attention to it. You might even drop it. Your failed concealment has highlighted exactly what you were trying to hide!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "Your fingers are instruments of deception, trained by countless hours of practice. The object moves from sight to concealment so smoothly it might be magic. One moment it's visible, the next it's simply gone - hidden in your palm with such perfect technique that it leaves no trace. Your hand maintains a completely natural appearance. The fingers curve just right, the palm holds just so, the weight distributes perfectly. Any observer - even one watching carefully - would swear your hand is empty. The object has vanished into the space between your fingers and palm, concealed by pure skill. This is sleight of hand elevated to an art form!",
+            "Like a master magician, you make the object disappear. Your movement is fluid and natural, drawing no attention. Your fingers position the object with microscopic precision, tucking it into perfect concealment. Your hand looks completely normal - the right shape, the right relaxation, the right naturalness. There's no tell, no give-away, no hint that you're holding anything at all. The object is hidden so completely that even someone touching your hand might not realize it's there. This is expert-level palming!"
+          ],
+          "success": [
+            "You execute a functional palm. The object moves into concealment in your hand with adequate smoothness. Your hand doesn't look completely natural - someone studying it carefully might suspect you're holding something - but for casual observation, the object is successfully hidden.",
+            "You manage to palm the object using decent sleight of hand technique. It's concealed from casual view, though not perfectly. Your hand position gives slight hints that you're holding something, but the object itself is hidden."
+          ],
+          "failure": [
+            "You attempt to palm the object, but your sleight of hand simply isn't up to the task. Maybe the object is too large, maybe your hand position is wrong, or maybe your technique needs more practice. Whatever the reason, the object remains visible. You can't successfully conceal it in your palm.",
+            "Your palming attempt fails. Despite conscious effort to position your fingers correctly and hide the object, it simply doesn't work. The object is still visible, your hand's unnatural position giving away that you're trying to conceal something."
+          ],
+          "criticalFailure": [
+            "Everything goes wrong at once. You're trying to smoothly palm the object, fingers moving to position it in concealment, when disaster strikes. Maybe the object is more slippery than you thought, maybe your fingers betray you at the critical moment, or maybe you're just having the worst luck imaginable. The object doesn't slide smoothly into concealment - it fumbles, slips, and falls. Your attempt to hide it has instead highlighted it for everyone to see. The clumsy, obvious failure draws attention to exactly what you were trying to conceal. It's a spectacular fumble!",
+            "Your sleight of hand fails catastrophically. You reach for the smooth, practiced motion that should hide the object, but something goes horribly wrong. Your fingers don't cooperate, your palm position is wrong, and instead of concealing the object, you actually make it more obvious. You might even drop it, the object falling to draw every eye. Your failed palming has transformed from attempted concealment into accidental reveal. It's the exact opposite of what you intended!"
+          ]
+        }
+      }
+    }
+  }
+}

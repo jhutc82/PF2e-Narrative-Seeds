@@ -1,0 +1,138 @@
+{
+  "action": "create-diversion",
+  "actionName": "Create a Diversion",
+  "skill": "deception",
+  "traits": ["mental"],
+  "description": "You create a distraction to allow you to Hide or Sneak",
+
+  "variants": {
+    "default": {
+      "displayName": "Create a Diversion",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "Perfect distraction!",
+            "They're completely diverted!",
+            "Total misdirection!",
+            "You capture their attention perfectly!",
+            "Brilliant diversion!"
+          ],
+          "success": [
+            "You create a distraction.",
+            "They're diverted.",
+            "You draw their attention.",
+            "Your diversion works.",
+            "They look away."
+          ],
+          "failure": [
+            "They ignore the distraction.",
+            "Your diversion fails.",
+            "They stay focused on you.",
+            "The distraction doesn't work.",
+            "They aren't fooled."
+          ],
+          "criticalFailure": [
+            "You draw more attention to yourself!",
+            "Your diversion backfires!",
+            "They focus even more on you!",
+            "You make yourself more obvious!",
+            "The distraction fails spectacularly!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "Your diversion is masterful - all attention shifts away from you completely!",
+            "You create the perfect distraction - they're utterly focused elsewhere!",
+            "Your misdirection works brilliantly - no one is watching you!",
+            "You draw all attention away from yourself with expert precision!",
+            "Your diversion captivates their attention entirely!",
+            "You perfectly redirect their focus away from you!",
+            "Your distraction is so effective you could vanish right in front of them!",
+            "You create ideal misdirection - all eyes are elsewhere!",
+            "Your diversion draws complete attention away from you!",
+            "You masterfully manipulate their focus away from yourself!"
+          ],
+          "success": [
+            "You successfully create a distraction - attention shifts away from you.",
+            "Your diversion works - they look away momentarily.",
+            "You draw their attention elsewhere successfully.",
+            "Your distraction creates an opportunity to move unseen.",
+            "You redirect their focus away from yourself.",
+            "Your misdirection works - they're momentarily diverted.",
+            "You successfully draw attention away from you.",
+            "Your diversion creates a brief window of opportunity.",
+            "You manage to divert their attention.",
+            "Your distraction is effective enough to act."
+          ],
+          "failure": [
+            "Your attempted distraction fails to draw their attention.",
+            "They ignore your diversion and keep watching you.",
+            "Your misdirection doesn't work - they stay focused.",
+            "The distraction fails to divert their attention.",
+            "They aren't fooled by your diversion attempt.",
+            "Your distraction is unsuccessful.",
+            "They maintain their focus on you despite your efforts.",
+            "Your diversion fails to create an opening.",
+            "They see through your attempt at misdirection.",
+            "Your distraction doesn't work as planned."
+          ],
+          "criticalFailure": [
+            "Your diversion backfires - you actually draw MORE attention to yourself!",
+            "Your obvious distraction attempt makes everyone focus on you!",
+            "Your failed diversion highlights your presence instead!",
+            "Your clumsy distraction draws all eyes directly to you!",
+            "Your diversion spectacularly fails - you're even more noticed!",
+            "Your attempt to divert attention makes you more conspicuous!",
+            "Your obvious misdirection actually emphasizes your presence!",
+            "Your failed distraction makes you the center of attention!",
+            "Your diversion backfires - everyone is now watching you closely!",
+            "Your clumsy attempt draws unwanted attention to yourself!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You create the perfect distraction. Maybe it's a noise from the opposite direction, a gesture that draws every eye, or a perfectly timed event. Whatever method you use, it works brilliantly. All attention shifts completely away from you, giving you the perfect opportunity to slip away unnoticed!",
+            "Your misdirection is masterful. You manipulate their attention with expert precision, drawing their focus entirely away from yourself. For a crucial moment, you could be completely invisible for all the notice anyone is paying you. The diversion creates a perfect window of opportunity!",
+            "You execute the distraction flawlessly. Every eye that was watching you is now focused elsewhere, captivated by the diversion you've created. You have complete freedom to move unseen!"
+          ],
+          "success": [
+            "You successfully create a distraction. It's not the most elaborate diversion, but it works - attention shifts away from you for a moment, giving you an opportunity to act.",
+            "Your distraction draws enough attention away from you to create an opening. They look away, focus diverted, giving you a chance to move.",
+            "You manage to divert their attention with your distraction. It's brief, but sufficient to give you an opportunity to slip away or reposition."
+          ],
+          "failure": [
+            "You attempt to create a distraction, but it fails to capture attention. Whatever method you use - noise, gesture, or misdirection - it's simply not compelling enough. Their focus remains on you.",
+            "Your diversion doesn't work. They glance briefly at your distraction but immediately return their attention to you. You haven't created any real opportunity to move unseen.",
+            "Your attempted distraction falls flat. It's ignored or dismissed as unimportant, and their attention stays firmly focused on you."
+          ],
+          "criticalFailure": [
+            "Your distraction attempt goes horribly wrong. Maybe your timing is off, maybe the method is too obvious, but instead of drawing attention away from yourself, your clumsy diversion actually highlights your presence. Everyone who might have been casually observing you is now actively focused on you, wondering what you're up to!",
+            "Your failed diversion backfires spectacularly. Not only does your distraction fail to work, but your obvious attempt at misdirection draws suspicious attention. Now everyone is watching you closely, alert to your intentions!",
+            "Your diversion is so poorly executed it has the opposite effect. Instead of becoming less noticeable, you've made yourself the center of attention. Your clumsy attempt has made your situation significantly worse!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You orchestrate a perfect moment of misdirection. Maybe it's a sound at exactly the right time, a movement in peripheral vision, or a perfectly placed visual distraction - whatever the method, the execution is flawless. Like a master magician directing audience attention away from the trick, you manipulate focus with expert precision. Every eye that was watching you swivels away, captivated by the diversion. For a beautiful moment, you could be doing anything and no one would notice. You've created perfect invisibility through pure misdirection!",
+            "Your diversion is a work of art. You read the room perfectly, understanding what will capture attention, and deliver it with impeccable timing. The result is total misdirection - attention flows away from you like water down a drain. Everyone is looking elsewhere, thinking about something else, completely unaware of your presence. It's the perfect distraction!"
+          ],
+          "success": [
+            "You create a functional distraction. It's not the most elaborate or sophisticated misdirection ever attempted, but it works. Attention shifts away from you, focus diverted to your distraction. The window of opportunity is brief but real.",
+            "Your diversion succeeds in drawing attention elsewhere. Eyes that were watching you look away, focus redirected. You've created a moment of reduced scrutiny - enough to act if you move quickly."
+          ],
+          "failure": [
+            "You attempt the distraction, but it simply doesn't take. Maybe your timing is slightly off, maybe the distraction isn't compelling enough, or maybe your audience is too focused or too disciplined to be easily diverted. Whatever the reason, attention remains firmly on you. Your diversion has failed to create any real opportunity.",
+            "Your attempted misdirection falls flat. The distraction you create is noticed but immediately dismissed as unimportant or irrelevant. No one takes the bait. Focus remains on you, unshifted by your failed diversion."
+          ],
+          "criticalFailure": [
+            "Disaster. Your attempted diversion doesn't just fail - it spectacularly backfires. Maybe your distraction is too obvious, too poorly timed, or just suspicious in context, but instead of drawing attention away from yourself, it draws attention TO yourself. Everyone who might have been casually ignoring you is now actively watching, alert and suspicious. 'What is that person up to?' they wonder, eyes locked on you. Your clumsy diversion has transformed casual observation into active scrutiny. You've made yourself more visible, more noticeable, more suspicious. It's the exact opposite of what you intended!",
+            "Your diversion fails catastrophically. The distraction you create is so obviously intentional, so clearly an attempt at misdirection, that it has the opposite effect. Instead of slipping into the background, you've highlighted yourself. Every eye that wasn't paying attention before is now focused directly on you, wondering what you're trying to hide. Your failed diversion has turned you into the most interesting thing in the room - and not in a good way!"
+          ]
+        }
+      }
+    }
+  }
+}

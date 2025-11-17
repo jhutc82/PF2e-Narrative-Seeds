@@ -1,0 +1,138 @@
+{
+  "action": "request",
+  "actionName": "Request",
+  "skill": "diplomacy",
+  "traits": ["auditory", "concentrate", "linguistic", "mental"],
+  "description": "You ask someone for a favor or information",
+
+  "variants": {
+    "default": {
+      "displayName": "Request",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "They agree enthusiastically!",
+            "They're happy to help!",
+            "Perfect persuasion!",
+            "They readily agree!",
+            "They're eager to comply!"
+          ],
+          "success": [
+            "They agree to your request.",
+            "They'll help you.",
+            "They accept.",
+            "They agree.",
+            "They comply with your request."
+          ],
+          "failure": [
+            "They refuse.",
+            "They decline.",
+            "They won't help.",
+            "They say no.",
+            "They reject your request."
+          ],
+          "criticalFailure": [
+            "They're offended!",
+            "They refuse angrily!",
+            "You've insulted them!",
+            "They're hostile now!",
+            "They react badly!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "Your request is perfectly pitched - they agree enthusiastically!",
+            "You make such a compelling case they're happy to help!",
+            "Your diplomatic approach works wonderfully - they readily agree!",
+            "You persuade them completely - they'll go out of their way to help!",
+            "Your request resonates perfectly - they agree without hesitation!",
+            "You phrase it so well they're eager to comply!",
+            "Your diplomatic skills shine - they're delighted to help!",
+            "You make the perfect appeal - they agree wholeheartedly!",
+            "Your persuasive words work brilliantly - they're happy to assist!",
+            "You present your request so well they enthusiastically agree!"
+          ],
+          "success": [
+            "Your request is accepted - they agree to help.",
+            "You make a reasonable case and they agree.",
+            "Your diplomatic approach works - they'll comply.",
+            "They agree to your request.",
+            "You persuade them successfully.",
+            "Your request is granted.",
+            "They accept your proposal.",
+            "You successfully convince them to help.",
+            "They agree to what you're asking.",
+            "Your diplomatic request succeeds."
+          ],
+          "failure": [
+            "They decline your request politely.",
+            "Your appeal doesn't persuade them - they refuse.",
+            "They're not convinced - they say no.",
+            "Your request is denied.",
+            "They won't agree to what you're asking.",
+            "Your diplomatic attempt fails - they decline.",
+            "They refuse your request.",
+            "You can't persuade them to help.",
+            "They're not interested in complying.",
+            "Your request doesn't sway them."
+          ],
+          "criticalFailure": [
+            "Your request offends them - they refuse angrily!",
+            "You've completely misjudged the situation - they're insulted!",
+            "Your clumsy appeal makes them hostile!",
+            "They take your request as an insult and react badly!",
+            "Your diplomatic blunder has made things worse!",
+            "They're offended by your request and attitude worsens!",
+            "You've angered them with your poorly worded request!",
+            "Your terrible approach makes them actively opposed!",
+            "They're insulted and now hostile toward you!",
+            "Your request backfires - they're now antagonistic!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Your diplomatic skills are on full display. You read the situation perfectly, understanding exactly what will appeal to them. Your words are chosen carefully, your tone pitch-perfect. You frame your request in a way that aligns with their interests and values. The result is beautiful - not only do they agree, but they're genuinely pleased to help! They might even offer more assistance than you requested. Your diplomacy has created a willing ally!",
+            "You make your request with expert persuasive technique. You've correctly assessed what motivates them, and you present your case accordingly. Your approach is respectful, your reasoning sound, your appeal compelling. They respond enthusiastically, agreeing readily to help you. Perfect diplomacy!",
+            "Your request is masterfully delivered. You combine respect, reason, and appeal in perfect proportion. They not only agree but seem happy about it, pleased to be of assistance. You've turned a simple request into a opportunity to strengthen relations!"
+          ],
+          "success": [
+            "You make your request diplomatically, framing it reasonably and respectfully. After brief consideration, they agree to help. It's not the most enthusiastic agreement, but it's genuine. Your diplomacy has succeeded.",
+            "Your diplomatic approach works. You present your request clearly and make a solid case for it. They agree to comply, willing to provide the help or information you seek.",
+            "You successfully persuade them to agree to your request. Your approach is adequately diplomatic and your appeal reasonable enough to gain their cooperation."
+          ],
+          "failure": [
+            "You make your request as diplomatically as you can, but it simply doesn't work. Maybe they're not in a position to help, maybe they don't want to, or maybe your appeal just isn't compelling enough. Whatever the reason, they politely but firmly decline. Your request has been denied.",
+            "Despite your diplomatic efforts, you can't persuade them to agree. They listen to your request, consider it, and refuse. Your diplomacy hasn't been enough to gain their cooperation.",
+            "Your request fails to convince them. Whether your approach is wrong or they're simply unwilling, they decline to help. Your diplomatic attempt has been unsuccessful."
+          ],
+          "criticalFailure": [
+            "Your request goes horribly wrong. Maybe you completely misjudge what they'd find acceptable, maybe your phrasing is accidentally insulting, or maybe you've just picked the worst possible moment. Whatever the cause, they don't just refuse - they take offense! Your clumsy diplomacy has actively damaged relations. They're now hostile or upset, and you've made the situation significantly worse!",
+            "Disaster strikes your diplomatic attempt. Your request is so poorly judged or so clumsily delivered that it insults them. They react with anger or hostility, their attitude toward you souring dramatically. Not only have you failed to get what you wanted, but you've actively harmed your relationship with them!",
+            "Your terrible diplomatic blunder offends them deeply. Your request or the way you've presented it crosses a line. They respond with clear hostility, and their willingness to deal with you at all has evaporated. Your failed request has made an enemy or at least a firm opponent!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You are diplomacy personified in this moment. You've read the situation with perfect clarity - understanding not just what you need, but what will resonate with them. When you speak, your words are chosen with the precision of a master craftsman. Your tone conveys respect and genuine appeal. You frame your request in terms they can relate to, aligning it with their values, their interests, their worldview. You're not manipulating - you're connecting. You're finding the genuine common ground where your need and their willingness intersect. As you present your case, you can see the shift in their expression - from neutral consideration to genuine interest, even enthusiasm. When they agree, it's not reluctant compliance but willing partnership. They're not just saying yes - they're happy to say yes. You've turned a simple request into an opportunity for positive cooperation. This is diplomacy at its finest - the art of persuasion wielded with expert skill!",
+            "Like a skilled negotiator who understands human nature intuitively, you approach this request with perfect technique. You've assessed them accurately - their motivations, their concerns, their receptiveness. You begin with rapport building, establishing connection and mutual respect. Then you present your request, framing it perfectly. Your words are respectful but confident, your reasoning clear but not pushy. You make them want to help, not because you're forcing them but because you've shown them why it's in everyone's interest. The result is beautiful - enthusiastic agreement! They're genuinely pleased to assist you. You've practiced diplomacy so skillfully it looks effortless!"
+          ],
+          "success": [
+            "You present your request with solid diplomatic technique. You're respectful, reasonable, and clear about what you need. You make a decent case for why they should help. After consideration, they agree. It's not wildly enthusiastic, but it's genuine agreement. Your diplomacy has achieved its goal.",
+            "You employ competent diplomatic skills to make your request. You frame it reasonably, present it respectfully, and give them good reasons to agree. After thinking it over, they decide to help you. Success through solid technique."
+          ],
+          "failure": [
+            "You try your best diplomatic approach, making your request as reasonably and respectfully as you can manage. But sometimes skill isn't enough. Maybe they're simply unable to help, maybe they're unwilling regardless of how you ask, or maybe your approach just isn't compelling to them specifically. Whatever the reason, despite your efforts, they decline. You've failed to persuade them, but at least you haven't made things worse.",
+            "Your diplomatic request doesn't land. You present your case, you make your appeal, but it simply doesn't convince them. They listen, they consider, and they refuse. Your diplomacy has been inadequate to the task - the request is denied."
+          ],
+          "criticalFailure": [
+            "The moment you start speaking, you can tell something is wrong, but you're already committed. Maybe you've completely misread what they'd find acceptable. Maybe your phrasing accidentally implies something offensive. Maybe your tone conveys disrespect you don't intend. Or maybe you've just chosen the absolute worst possible moment to make this particular request. Whatever the specific error, the result is unmistakable and immediate. Their expression shifts from neutral to negative - surprise, offense, anger. They don't just refuse your request - they take active offense at it! Your clumsy diplomacy has backfired spectacularly. Not only have you failed to get what you wanted, but you've actually damaged your relationship with them. They're now hostile or at minimum significantly less friendly. Where before you might have had a neutral or even positive relationship, you now have an actively negative one. Your diplomatic blunder has made things dramatically worse!",
+            "Your attempt at diplomacy becomes a masterclass in what NOT to do. Everything goes wrong - your approach is misjudged, your words poorly chosen, your timing terrible. The result is catastrophic. They don't merely decline your request - they're actively offended by it. Your terrible diplomatic skills have transformed what could have been a simple refusal into genuine hostility. They're upset, possibly angry, and definitely unwilling to deal with you favorably. You've failed so badly at diplomacy that you've actually created an opponent. It's a spectacular failure that will have lasting negative consequences!"
+          ]
+        }
+      }
+    }
+  }
+}

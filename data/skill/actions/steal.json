@@ -1,0 +1,138 @@
+{
+  "action": "steal",
+  "actionName": "Steal",
+  "skill": "thievery",
+  "traits": ["manipulate"],
+  "description": "You attempt to take an object from another creature without them noticing",
+
+  "variants": {
+    "default": {
+      "displayName": "Steal",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You steal it perfectly!",
+            "You lift it unnoticed!",
+            "Perfect pickpocket!",
+            "You take it smoothly!",
+            "Flawless theft!"
+          ],
+          "success": [
+            "You steal the item.",
+            "You take it successfully.",
+            "You lift it unnoticed.",
+            "You pocket it.",
+            "You successfully steal it."
+          ],
+          "failure": [
+            "You can't take it.",
+            "The theft fails.",
+            "You're noticed!",
+            "You can't steal it.",
+            "They notice your attempt."
+          ],
+          "criticalFailure": [
+            "You're caught red-handed!",
+            "They catch you stealing!",
+            "You're noticed immediately!",
+            "You fumble badly!",
+            "You're caught in the act!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "Your fingers work with incredible precision - you steal it without them noticing at all!",
+            "You lift the item so smoothly they never realize it's gone!",
+            "Your pickpocketing is flawless - the item is yours and they're clueless!",
+            "You steal the item with masterful sleight of hand!",
+            "Your theft is perfect - they don't notice a thing!",
+            "You take the item so smoothly they'll never know it's missing!",
+            "Your expert fingers make the item disappear into your possession!",
+            "You pocket the item with such skill they're completely unaware!",
+            "Your pickpocketing technique is masterful - a perfect theft!",
+            "You steal it so smoothly they won't realize for hours!"
+          ],
+          "success": [
+            "You successfully steal the item without being noticed.",
+            "Your quick fingers lift the item undetected.",
+            "You manage to take the item without them realizing.",
+            "You successfully pocket the item.",
+            "You steal the item, though they might notice soon.",
+            "Your theft is successful - you've got the item.",
+            "You manage to take it without immediate detection.",
+            "You successfully lift the item from them.",
+            "You steal the item with adequate sleight of hand.",
+            "You take the item successfully, though not perfectly."
+          ],
+          "failure": [
+            "You can't get the item without being noticed.",
+            "They notice your hand reaching for their belongings!",
+            "Your theft attempt is detected before you can take it!",
+            "You're spotted trying to steal - you don't get the item!",
+            "Your attempt to pickpocket fails - they notice!",
+            "You can't take the item without being seen!",
+            "Your theft fails - they catch your hand!",
+            "They notice your attempted theft!",
+            "You're spotted before you can take the item!",
+            "Your pickpocketing attempt is noticed!"
+          ],
+          "criticalFailure": [
+            "You're caught red-handed in the act of stealing!",
+            "They catch your hand in their pocket - you're caught!",
+            "Your clumsy theft attempt is immediately obvious!",
+            "You fumble badly and they catch you stealing!",
+            "You're caught in the act - they grab your wrist!",
+            "Your obvious theft is immediately noticed!",
+            "You're caught stealing and they know exactly what you tried!",
+            "They catch you with your hand literally in their pocket!",
+            "Your failed theft is blatant - you're caught!",
+            "You're caught in the most obvious way possible!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Your fingers move with the practiced precision of a master thief. You time your approach perfectly, waiting for the exact moment of distraction. Your hand moves smoothly and naturally, fingers finding the item with unerring accuracy. The transfer is seamless - one moment it's theirs, the next it's yours. They notice nothing. Your technique is so polished they won't realize it's missing until much later, if ever. Perfect theft!",
+            "You execute the pickpocket with masterful skill. Your movements are natural and unremarkable, your fingers quick and precise. You lift the item so smoothly that there's no way they could notice. The theft is flawless - the item is now yours and they're completely unaware!",
+            "Your sleight of hand is impeccable. You approach with perfect casualness, your hand moving with practiced ease. The item transfers from their possession to yours in one fluid motion they never even notice. Textbook perfect theft!"
+          ],
+          "success": [
+            "You manage to steal the item successfully. Your technique is good enough to avoid immediate detection, though perhaps not perfect. The item is now in your possession.",
+            "Your fingers work quickly and you successfully take the item. They don't notice the theft, though your technique wasn't quite perfect. Still, you got what you wanted.",
+            "You successfully lift the item from them. It's not the smoothest theft ever executed, but it works - you have the item and they're unaware."
+          ],
+          "failure": [
+            "You reach for the item, but they notice your hand moving toward their belongings. Your theft attempt is detected before you can complete it. You don't get the item.",
+            "Your attempted pickpocket fails. Whether from poor timing, clumsy technique, or bad luck, they notice your attempt to steal. You're caught before you can take the item.",
+            "You try to take the item, but they spot your reaching hand. Your theft is foiled and they're aware you tried to steal from them."
+          ],
+          "criticalFailure": [
+            "Your theft attempt goes catastrophically wrong. Maybe your timing is terrible, maybe your fingers fumble, or maybe you're just unlucky. Whatever the cause, they catch you red-handed. Your hand is literally on or in their belongings when they notice. There's no talking your way out of this - you've been caught stealing!",
+            "Disaster strikes your pickpocket attempt. Your approach is too obvious, your hand movements too noticeable, or your timing completely wrong. They catch you in the act of stealing, your hand on their property. You're caught, and they know exactly what you were trying to do!",
+            "Your theft fails in the most blatant way possible. They notice your hand moving toward their belongings and catch your wrist before you can even touch the item. You're caught attempting theft, and there's no denying it!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You are an artist, and theft is your canvas. You read their body language, understanding their attention and awareness. You see the perfect moment - that instant of distraction, that gap in focus. Your hand moves with practiced fluidity, fingers trained by hundreds of successful thefts. The movement is natural, unremarkable, completely innocent to any observer. Your fingers find the item with tactile precision, lifting it with the gentlest touch. The transfer is seamless, the weight redistributed so gradually they don't even feel the difference. One moment the item is theirs, the next it's yours, and the transition is so smooth it might as well be magic. They'll never know it's gone until they look for it, and by then you'll be long gone. This is theft elevated to an art form!",
+            "Like a magician performing sleight of hand, you manipulate perception and reality. Your approach is perfectly timed, your demeanor completely innocent. Your hand moves with such natural fluidity that any observer would swear you were doing nothing suspicious. Your fingers are quick and precise, trained to perfection. The item leaves their possession so smoothly it might as well have teleported. There's no fumbling, no hesitation, no tell-tale signs. Just smooth, professional, perfect theft. The item is now yours, and they're completely clueless. You've stolen something right from under their nose, and they'll never know!"
+          ],
+          "success": [
+            "You execute a functional theft. Your technique is competent, your timing adequate. You take the item without immediate detection. It's not the smoothest pickpocket ever performed, but it works. You have what you wanted.",
+            "You successfully steal the item using solid technique and decent timing. Your sleight of hand is good enough to avoid detection. The theft succeeds, though it's not perfect art."
+          ],
+          "failure": [
+            "You attempt the theft, but it fails. Maybe they're more alert than you anticipated, maybe your technique isn't quite smooth enough, or maybe you're just unlucky. Whatever the reason, they notice your attempt before you can complete it. Your hand reaching for their belongings is spotted, and the theft is foiled.",
+            "Your pickpocket attempt is detected. You thought you had the perfect moment, the right approach, but something goes wrong. They notice your hand, your movement, your intent. You're caught attempting to steal, and you don't get the item."
+          ],
+          "criticalFailure": [
+            "Everything goes wrong in the worst possible way. Maybe you misjudge their awareness, maybe your hand fumbles at the critical moment, maybe simple bad luck intervenes. But the result is undeniable and embarrassing. They catch you red-handed in the act of theft. Your hand is on their belongings, or in their pocket, or holding their item when they notice. There's no plausible deniability, no innocent explanation. You've been caught stealing, caught so obviously that there's no talking your way out of it. It's a complete and total failure!",
+            "Your theft attempt becomes a disaster. You thought you were being smooth and subtle, but apparently you were neither. They notice immediately - catching your hand in the act, seeing the theft in progress. You're caught so blatantly that everyone nearby knows exactly what you were trying to do. It's not just a failed theft, it's a spectacular fumble that's caught you red-handed!"
+          ]
+        }
+      }
+    }
+  }
+}

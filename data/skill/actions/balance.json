@@ -1,0 +1,138 @@
+{
+  "action": "balance",
+  "actionName": "Balance",
+  "skill": "acrobatics",
+  "traits": ["move"],
+  "description": "You move across a narrow surface or uneven ground, attempting an Acrobatics check",
+
+  "variants": {
+    "default": {
+      "displayName": "Balance",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You balance perfectly!",
+            "You walk across easily!",
+            "You glide across smoothly!",
+            "You cross with perfect poise!",
+            "You balance expertly!"
+          ],
+          "success": [
+            "You balance successfully.",
+            "You make it across.",
+            "You keep your footing.",
+            "You cross carefully.",
+            "You balance adequately."
+          ],
+          "failure": [
+            "You wobble dangerously.",
+            "You can't keep balanced.",
+            "You lose your footing.",
+            "You slip.",
+            "You can't stay balanced."
+          ],
+          "criticalFailure": [
+            "You fall off!",
+            "You lose your balance completely!",
+            "You plunge down!",
+            "You slip and fall!",
+            "You tumble off!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You walk across the narrow surface with perfect balance and confidence!",
+            "You glide across smoothly, barely seeming to notice the precarious footing!",
+            "Your balance is impeccable - you cross with poise and grace!",
+            "You navigate the narrow path with the confidence of a tightrope walker!",
+            "You maintain perfect balance, crossing easily!",
+            "You walk across like it's a wide path - your balance is flawless!",
+            "You move across with such grace you make it look trivial!",
+            "Your balance is superb - you cross without hesitation!",
+            "You glide across the narrow surface effortlessly!",
+            "You maintain perfect equilibrium across the precarious path!"
+          ],
+          "success": [
+            "You carefully balance your way across the narrow surface.",
+            "You manage to keep your balance, crossing successfully.",
+            "You make it across, arms outstretched for stability.",
+            "You successfully navigate the narrow path.",
+            "You maintain adequate balance to cross.",
+            "You carefully walk across, staying balanced.",
+            "You make it across without falling.",
+            "You successfully keep your footing.",
+            "You cross the narrow surface safely.",
+            "You balance well enough to make it across."
+          ],
+          "failure": [
+            "You wobble dangerously, arms windmilling as you struggle to stay up!",
+            "You can't maintain your balance - you're forced to stop!",
+            "You lose your footing and have to catch yourself!",
+            "You sway dangerously, unable to proceed safely!",
+            "Your balance fails - you can't continue!",
+            "You teeter precariously, unable to move forward!",
+            "You struggle to stay upright on the narrow surface!",
+            "Your footing falters - you can't keep balanced!",
+            "You wobble badly, unable to cross!",
+            "You lose your balance and must stop!"
+          ],
+          "criticalFailure": [
+            "You lose your balance completely and fall!",
+            "You slip off the narrow surface and plunge down!",
+            "Your footing fails catastrophically - you're falling!",
+            "You tumble off the narrow path!",
+            "You lose your balance entirely and fall off!",
+            "You slip and fall from the precarious surface!",
+            "Your balance fails completely - you're dropping!",
+            "You fall off, unable to catch yourself!",
+            "You plummet off the narrow surface!",
+            "You tumble off in a failed balancing attempt!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You step onto the narrow surface with complete confidence, and your poise is justified. Your balance is perfect, each foot finding exactly the right placement. You walk across as if it were a wide boulevard, your equilibrium never wavering. Your crossed arms and relaxed posture make it clear this is well within your abilities!",
+            "With the grace of an acrobat, you glide across the narrow surface. Your center of gravity stays perfectly aligned over your feet, and you adjust to tiny variations in the surface without conscious thought. You make the difficult crossing look easy!",
+            "You navigate the precarious path with masterful balance. Every muscle makes tiny adjustments to keep you perfectly stable, and you cross with the confidence of someone who's done this a thousand times. Excellent form!"
+          ],
+          "success": [
+            "You carefully place each foot, testing your balance with every step. Your arms stretch out for stability, and you move slowly but surely across the narrow surface. It's not graceful, but it works - you make it across safely.",
+            "You maintain your balance through concentration and careful movement. Each step is deliberate as you work your way across the precarious surface. You succeed, though it takes effort.",
+            "You manage to keep your footing as you cross the narrow path. Your balance isn't perfect, and you wobble a few times, but you make it across without falling."
+          ],
+          "failure": [
+            "You step onto the narrow surface and immediately feel your balance failing. Your arms windmill desperately as you sway back and forth, but you can't find stable footing. You're forced to retreat or stop, unable to proceed safely.",
+            "Try as you might, you simply can't maintain your balance well enough to cross. You wobble dangerously, and common sense forces you to abandon the attempt before you fall.",
+            "Your balance proves inadequate for this challenge. You teeter on the narrow surface, arms flailing, but you can't stabilize enough to move forward."
+          ],
+          "criticalFailure": [
+            "You step confidently onto the narrow surface, but your balance immediately betrays you. Your foot slips, your center of gravity shifts wrong, and suddenly you're not balanced anymore - you're falling! You drop from the precarious perch, unable to catch yourself!",
+            "Your attempt to cross goes catastrophically wrong. One moment you're trying to balance, the next your footing fails completely. You tumble off the narrow surface, arms grasping futilely at air as you fall!",
+            "Your balance fails in the worst possible way. Without warning, your footing gives out and you plunge off the narrow surface, the sickening sensation of freefall gripping you!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You step onto the narrow surface with the casual confidence of a tightrope walker. Your body becomes a perfect instrument of balance - every muscle, every subtle shift of weight working in flawless harmony to maintain equilibrium. You don't walk across the precarious path so much as flow across it. Your footfalls are precise, your posture relaxed yet controlled. To watch you is to see the art of balance perfected. You cross the narrow surface as if it were a wide road, making the difficult look effortless!",
+            "Like a cat walking a fence, you navigate the narrow surface with supreme grace and confidence. Your balance is intuitive and perfect. You barely glance down, trusting your body's innate sense of equilibrium. Your crossed arms and easy pace make it abundantly clear that this challenge is well within your considerable abilities. You glide across with such poise that spectators might forget how difficult this actually is!"
+          ],
+          "success": [
+            "You manage the crossing through careful attention and deliberate movement. Arms extended for balance, you inch your way across the narrow surface. It's not elegant, but it's effective. You maintain your footing and complete the crossing successfully.",
+            "Through concentration and cautious footwork, you keep your balance well enough to cross. You wobble a few times, requiring quick corrections, but you make it across safely."
+          ],
+          "failure": [
+            "Despite your best efforts and careful technique, you simply cannot maintain adequate balance. You step onto the narrow surface, arms extending for stability, but you immediately begin to wobble. Your corrections overcorrect, your attempts to stabilize only making things worse. You're forced to retreat before you fall.",
+            "Your balance proves unequal to this particular challenge. You try - arms out, weight shifting carefully - but you can't find stable equilibrium. The wobbling becomes too severe, and you must abandon the attempt."
+          ],
+          "criticalFailure": [
+            "Everything goes wrong in an instant. You step onto the narrow surface with reasonable confidence, but that confidence is immediately betrayed by reality. Maybe the surface is more unstable than you thought, maybe your weight distribution is off, maybe simple bad luck intervenes - but the result is undeniable. Your balance fails catastrophically. You feel the sickening shift as your center of gravity moves beyond recovery. Your arms windmill desperately, your body contorts trying to compensate, but physics is unforgiving. You fall, dropping from the narrow surface, the ground rushing up toward you with terrifying speed!",
+            "Your attempted crossing becomes a plummet. One moment you're trying to balance, focused and careful. The next moment everything falls apart - literally. Your footing fails, your balance evaporates, and suddenly you're not on the narrow surface anymore. You're in the air, falling, with that horrible dropping sensation in your stomach. The narrow path above you gets farther away as you plunge down, your failed balancing act ending in disaster!"
+          ]
+        }
+      }
+    }
+  }
+}

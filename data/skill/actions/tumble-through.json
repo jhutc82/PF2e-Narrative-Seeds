@@ -1,0 +1,138 @@
+{
+  "action": "tumble-through",
+  "actionName": "Tumble Through",
+  "skill": "acrobatics",
+  "traits": ["move"],
+  "description": "You Stride up to your Speed. During this movement, you can try to move through the space of one enemy",
+
+  "variants": {
+    "default": {
+      "displayName": "Tumble Through",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You tumble past {targetName} smoothly!",
+            "You roll through their space effortlessly!",
+            "You slip past {targetName} with ease!",
+            "You flow past them gracefully!",
+            "You glide through perfectly!"
+          ],
+          "success": [
+            "You tumble past {targetName}.",
+            "You roll through their space.",
+            "You slip past them.",
+            "You move through successfully.",
+            "You tumble through."
+          ],
+          "failure": [
+            "{targetName} blocks you.",
+            "You can't get through.",
+            "They stop your movement.",
+            "You're blocked.",
+            "You can't tumble past."
+          ],
+          "criticalFailure": [
+            "You fall prone!",
+            "You tumble badly!",
+            "You trip and fall!",
+            "You lose your balance!",
+            "You sprawl on the ground!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You tumble through {targetName}'s space with acrobatic grace - they can't touch you!",
+            "You flow past {targetName} like water, completely untouchable!",
+            "Your roll through their space is flawless - {targetName} can't even react!",
+            "You slip past {targetName} with such speed they barely register your movement!",
+            "Your tumble is perfect - you glide through their space effortlessly!",
+            "You execute a beautiful tumble past {targetName}, impossible to stop!",
+            "Your acrobatic movement flows past {targetName} without hesitation!",
+            "You roll through their space so smoothly {targetName} can't interfere!",
+            "Your tumble is masterful - {targetName} has no chance to block you!",
+            "You slip past {targetName} with incredible acrobatic skill!"
+          ],
+          "success": [
+            "You manage to tumble through {targetName}'s space successfully.",
+            "You roll past {targetName}, moving through their area.",
+            "Your tumble works - you slip past {targetName}.",
+            "You successfully move through {targetName}'s space.",
+            "You tumble past {targetName} adequately.",
+            "You get through {targetName}'s space with your tumble.",
+            "Your acrobatic movement carries you past {targetName}.",
+            "You successfully execute the tumble past {targetName}.",
+            "You slip through {targetName}'s space.",
+            "Your tumble gets you past {targetName}."
+          ],
+          "failure": [
+            "You try to tumble past {targetName}, but they block your movement.",
+            "{targetName} stops you from moving through their space.",
+            "You can't get past {targetName} - they block your tumble.",
+            "Your tumble is interrupted by {targetName}.",
+            "{targetName} prevents you from tumbling through.",
+            "You fail to slip past {targetName}.",
+            "{targetName} effectively blocks your acrobatic movement.",
+            "You can't tumble through - {targetName} stops you.",
+            "Your tumble fails - {targetName} is in your way.",
+            "{targetName} denies your attempt to move through."
+          ],
+          "criticalFailure": [
+            "Your tumble goes wrong and you fall prone at {targetName}'s feet!",
+            "You trip during the tumble and sprawl on the ground!",
+            "Your acrobatic attempt fails spectacularly - you're now prone!",
+            "You lose your balance completely and hit the ground!",
+            "Your tumble becomes a fall - you end up prone!",
+            "You botch the tumble badly and fall flat!",
+            "Your movement fails and you tumble to the ground prone!",
+            "You slip and fall during the attempt!",
+            "Your tumble ends with you on the ground!",
+            "You crash to the floor in a failed tumble!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You approach {targetName} at full speed and execute a perfect acrobatic maneuver. Your body flows like liquid, ducking under their reach, rolling smoothly through the gap in their stance. They try to grab or block you, but you're already past, moving with such fluid grace they couldn't touch you if they tried. It's a masterclass in agility!",
+            "Your tumble through {targetName}'s space is absolutely flawless. You read their positioning perfectly, spot the opening, and exploit it with acrobatic brilliance. You roll, twist, and flow past them so smoothly it looks choreographed. By the time they realize what happened, you're already through!",
+            "With practiced precision, you tumble through {targetName}'s defensive space. Your movement is controlled and lightning-fast, each motion calculated to avoid their attempts to stop you. You slip through like smoke, untouchable and graceful!"
+          ],
+          "success": [
+            "You tumble toward {targetName}'s space and manage to slip through. It's not the smoothest maneuver, and they almost catch you, but you make it past. Your acrobatics get the job done.",
+            "You execute a functional tumble past {targetName}. They try to block you, but you're able to find enough space to squeeze through with your acrobatic movement.",
+            "Your tumble works adequately. You move through {targetName}'s space successfully, though it takes more effort than you'd like. You're through, which is what matters."
+          ],
+          "failure": [
+            "You attempt to tumble past {targetName}, but they're positioned too well. As you try to roll through their space, they shift to block you effectively. You can't find an opening to exploit.",
+            "You duck and roll toward {targetName}'s space, but they read your movement and cut off your path. Your tumble is stopped short - you can't get through.",
+            "Despite your acrobatic attempt, {targetName} simply won't let you pass. They move to block every angle you try, and your tumble fails to get you through their space."
+          ],
+          "criticalFailure": [
+            "You commit to the tumble with confidence, but something goes terribly wrong. Maybe {targetName} shifts unexpectedly, maybe your footing is bad, but mid-roll you lose control. Your graceful tumble becomes an ungainly sprawl. You hit the ground hard, ending up prone at {targetName}'s feet in the worst possible position!",
+            "Your acrobatic attempt fails catastrophically. As you try to roll through {targetName}'s space, you clip their leg or misjudge the gap. Your momentum carries you into a tumbling fall instead of a controlled roll. You crash to the ground prone, vulnerable and embarrassed!",
+            "What should have been a smooth tumble becomes a disaster. Your balance fails mid-maneuver, and you go from acrobatic to prone in an instant. You land hard on the ground, completely exposed!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You approach {targetName} at a dead sprint and transform into pure fluid motion. Your body reads the geometry of the situation in an instant - their stance, reach, positioning - and finds the perfect path through. You drop into a roll with perfect timing, your body compact and streamlined. {targetName} reaches for you but grasps only air. You flow through the gap in their defense like water finding a crack, impossibly smooth and utterly untouchable. You emerge on the other side without breaking stride, your momentum undiminished. It's not just successful movement - it's acrobatic artistry!",
+            "Like a parkour master navigating urban terrain, you turn {targetName} into nothing more than an obstacle to overcome with style. Your tumble is perfectly executed - the approach angle optimal, the roll smooth, the recovery instant. You slip through their space with such fluid grace that to watch it is to watch athletic perfection. {targetName} might as well be a statue for all the chance they have of stopping you!"
+          ],
+          "success": [
+            "You tuck into a roll and manage to tumble through {targetName}'s space. It's not the most elegant maneuver - they almost catch you, and your landing is a bit rough - but you make it through. Functional acrobatics.",
+            "Your tumble works. You slip past {targetName} with adequate acrobatic technique, moving through their space successfully despite their attempts to block you."
+          ],
+          "failure": [
+            "You attempt to tumble through {targetName}'s space with confidence, but they're having none of it. They shift their stance, close the gap, and your acrobatic attempt finds no opening. Despite your agility, you simply cannot get past their effective blocking.",
+            "{targetName} reads your tumbling attempt perfectly and denies it completely. Every angle you try to exploit, they cover. Your acrobatics, good as they may be, cannot overcome their superior positioning."
+          ],
+          "criticalFailure": [
+            "Everything goes catastrophically wrong. You commit to the tumble with full confidence, already visualizing yourself emerging gracefully on the other side. But reality has other plans. Maybe you misjudge the distance, maybe {targetName} shifts at the worst moment, maybe the ground betrays you - but the result is undeniable. Your controlled roll becomes an uncontrolled tumble. Your acrobatic grace transforms into awkward sprawling. You hit the ground hard, momentum lost, balance gone, dignity shattered. You're prone at {targetName}'s feet in the worst possible tactical position. What should have been your finest moment has become your most embarrassing!",
+            "Your attempted tumble is a masterclass in how not to perform acrobatics. Your timing is off, your angle wrong, your execution poor. As you try to roll through {targetName}'s space, your body simply doesn't cooperate. You clip something - their leg, the ground, your own foot - and suddenly you're not tumbling through, you're tumbling down. You crash to the ground in a graceless heap, prone and vulnerable. {targetName} doesn't even have to try to stop you - you've stopped yourself!"
+          ]
+        }
+      }
+    }
+  }
+}
