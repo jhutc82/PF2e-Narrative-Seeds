@@ -133,6 +133,136 @@
           ]
         }
       }
+    },
+
+    "titan-wrestler": {
+      "displayName": "Disarm (Titan Wrestler)",
+      "feats": ["titan-wrestler"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You wrench their huge weapon free!",
+            "Leverage beats their strong grip!",
+            "You disarm the giant!",
+            "Perfect technique knocks it away!",
+            "Their massive weapon flies free!"
+          ],
+          "success": [
+            "You disarm the larger foe.",
+            "Technique overcomes their grip.",
+            "You knock their weapon loose.",
+            "Leverage beats strength.",
+            "You wrench it from them."
+          ],
+          "failure": [
+            "Their grip is too strong.",
+            "You can't overcome their size.",
+            "Their strength defeats you.",
+            "You can't budge it.",
+            "Their mass keeps it firm."
+          ],
+          "criticalFailure": [
+            "Their strength overwhelms you!",
+            "You nearly lose your own weapon!",
+            "Their power defeats you!",
+            "You stumble against their might!",
+            "Their grip crushes your attempt!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You use perfect leverage to wrench the weapon from the larger foe's grip!",
+            "Your technique exploits the weapon's weight - it flies from their hand!",
+            "Despite their strength, your leverage tears the weapon free!",
+            "You disarm the giant with masterful technique!",
+            "Your clever positioning wrenches their massive weapon away!",
+            "You exploit leverage perfectly - their weapon flies free!",
+            "Your expert disarm overcomes their powerful grip!",
+            "You wrench their weapon free using physics over strength!",
+            "Your leverage-based technique sends their weapon flying!",
+            "You disarm them completely with superior technique!"
+          ],
+          "success": [
+            "You use clever leverage to disarm the larger foe.",
+            "Your technique overcomes their stronger grip.",
+            "You manage to knock their weapon free using leverage.",
+            "Your skillful disarm works despite the size difference.",
+            "You wrench it loose through expert positioning.",
+            "Your technique beats their strength - the weapon falls.",
+            "You leverage their weapon's weight to disarm them.",
+            "Your positioning lets you overcome their grip.",
+            "You successfully disarm the larger opponent.",
+            "Your leverage breaks their hold on the weapon."
+          ],
+          "failure": [
+            "Their powerful grip resists your leverage.",
+            "You can't overcome their strength advantage.",
+            "The size difference defeats your technique.",
+            "Their grip is too strong for your leverage to break.",
+            "You can't wrench the weapon from their powerful grasp.",
+            "Their strength keeps the weapon firmly in hand.",
+            "Your leverage isn't enough against their might.",
+            "They're too strong for your technique to work.",
+            "Their grip defeats your positioning.",
+            "You can't disarm the larger foe."
+          ],
+          "criticalFailure": [
+            "Their powerful grip resists and you lose your balance!",
+            "Their strength overwhelms your technique completely!",
+            "You nearly disarm yourself against their might!",
+            "Their grip crushes your disarm attempt!",
+            "You're overpowered - you stumble badly!",
+            "Their strength defeats you and you fumble!",
+            "You can't budge it and nearly drop your own weapon!",
+            "Their power overwhelms your leverage!",
+            "You stumble against their immovable grip!",
+            "Their might crushes your technique!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You don't try to match their strength - that would be futile. Instead, you use physics. You target the weapon itself, striking at the perfect point to create maximum leverage. Your blow exploits the weapon's weight and mass, using it against them. With expert timing, you wrench it at an angle their grip simply can't resist. Despite their superior strength, physics wins. The weapon tears from their grasp and flies free!",
+            "Like a master using leverage to move the world, you demonstrate perfect technique. You strike their weapon at exactly the right spot, creating a fulcrum point. Their strength, which should be an advantage, actually works against them as the weapon's weight becomes the lever. With a sharp twist, you exploit the mechanics perfectly. Their fingers can't maintain the grip - the weapon is wrenched free!",
+            "You read the weapon's balance and their grip with expert precision. Your strike targets the weak point in their hold, the place where leverage overcomes strength. With perfect timing and positioning, you twist the weapon against their grip. Physics does the rest. The massive weapon flies from their hands, leaving them disarmed by pure technique!"
+          ],
+          "success": [
+            "You employ clever leverage to disarm the larger foe. Using the weapon's own weight and careful positioning instead of matching their strength, you manage to wrench it free. Their grip breaks despite their size advantage, and the weapon falls to the ground.",
+            "Your disarm targets the mechanical weak point in their grip. The size disadvantage makes it challenging, but your technique is sound. You exploit leverage effectively enough to break their hold and send the weapon to the ground.",
+            "You use leverage-based disarming to overcome the bigger opponent's strength. By striking at the right angle and exploiting the weapon's balance, you successfully knock it from their grasp."
+          ],
+          "failure": [
+            "You attempt to disarm the larger foe using proper leverage technique, but their sheer strength defeats your effort. You find the right angle, strike correctly, but their grip is simply too powerful. Their strength advantage proves insurmountable.",
+            "Despite clever positioning and good leverage, you can't overcome their superior grip strength. The larger foe's power keeps the weapon firmly in hand. Your disarm, technically sound, simply lacks the force needed against their might.",
+            "You try to use mechanics against their strength, but it doesn't work today. Their grip is too strong, their size too great. Your skilled disarm attempt fails to wrench the weapon free."
+          ],
+          "criticalFailure": [
+            "You move in for a leverage-based disarm, but their strength is far greater than you anticipated. When you try to wrench the weapon, their grip doesn't just hold - it's like trying to move something bolted in place. The resistance throws you off-balance, and you stumble badly, nearly dropping your own weapon!",
+            "Your technical approach to disarming the larger foe backfires catastrophically. You strike for maximum leverage, but their powerful grip simply doesn't break. The jarring impact of hitting their immovable hold reverberates through your weapon. Your own grip loosens while theirs stays firm!",
+            "You attempt to use clever mechanics to overcome their strength, but their size defeats you utterly. Your technique is perfect, but their grip is unbreakable. The failed attempt leaves you overextended and vulnerable, your leverage crushed by raw power!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is where technique transcends strength. You study the larger foe's weapon with calculating precision - reading its balance, its weight distribution, its leverage points. You see not an impossible challenge but exploitable physics. You strike with perfect accuracy, hitting the weapon at the exact point where a small force creates maximum effect. It's all about the fulcrum. Your blow lands with explosive precision, creating a lever arm that multiplies your force exponentially. Their grip, however strong, is positioned wrong to resist this kind of mechanical advantage. For one frozen moment, their fingers strain to maintain hold. Then physics wins. The weapon is torn from their grasp with such force it spins through the air like a thrown javelin. It clatters away meters distant while they stare at their empty hands in shock. You've disarmed a giant through pure technique!",
+            "Like an ancient Greek mathematician using levers to move the world, you demonstrate the ultimate triumph of knowledge over strength. You don't try to overpower their grip - that's impossible. Instead, you weaponize physics itself. You identify the precise point on their massive weapon where striking will create maximum leverage. Your blow lands with surgical precision. The weapon's own weight becomes your ally as you twist it at an angle their grip simply cannot resist. The mechanics are inescapable. Their powerful fingers, positioned for strength but not for this kind of torque, simply can't maintain their hold. The weapon is wrenched from their grasp with irresistible force, flying free to land far away. They're bigger, stronger, but you're smarter. And that's made all the difference!"
+          ],
+          "success": [
+            "You employ solid technique to disarm the larger opponent. Using leverage and proper positioning instead of matching their strength, you strike their weapon at an effective point. It's not easy - their powerful grip resists - but your skill prevails. The weapon breaks free and falls, leaving them temporarily unarmed.",
+            "Your disarm uses proper mechanics to overcome the strength disadvantage. You target the weapon's balance point with a well-placed strike, exploiting leverage. The larger foe's grip, however strong, can't resist the physics involved. The weapon falls free."
+          ],
+          "failure": [
+            "You move in with sound technique, striking at the leverage point that should let you disarm the larger foe. But today, strength simply triumphs over mechanics. Their grip is too powerful, their hold too firm. Despite perfect positioning and proper technique, the weapon stays locked in their grasp. Your disarm has failed.",
+            "Your technical approach is flawless - angle, timing, leverage all correct. But reality proves unkind. The larger foe's sheer strength creates challenges your technique simply can't overcome. You can't generate enough effective force to break their grip. The weapon remains firmly in their hand despite your best efforts."
+          ],
+          "criticalFailure": [
+            "You commit to the disarm with complete confidence in your technique. You've studied leverage, understand mechanics, and you're certain you can wrench this weapon free. You're catastrophically wrong. You strike at what you believe is the perfect point, using what you think is the right angle. And achieve... nothing. The larger foe's grip doesn't just resist - it's utterly immovable. Their strength is so overwhelming that your leverage might as well not exist. Worse, the jarring impact of your strike against their unbreakable hold reverberates back through your own weapon. Your fingers go numb from the shock. You nearly lose your own grip while theirs stays iron-firm. What should have left them disarmed instead leaves you fumbling. Strength has defeated skill decisively!",
+            "Your attempt to disarm the giant using leverage and technique becomes a masterclass in failure. You position yourself with what you believe is perfect precision, ready to exploit mechanical advantage. But when you execute the disarm, reality intervenes brutally. Their strength is simply too overwhelming. Your strike doesn't just fail to break their grip - the resistance is so solid it jars your entire arm. The shock travels up through your weapon, loosening your own hold while theirs remains firm as stone. You stumble backward, weapon wavering in your numbed fingers, while they stand there completely unaffected, their grip on their weapon unshaken. Your expertise has been utterly overwhelmed by raw power!"
+          ]
+        }
+      }
     }
   }
 }

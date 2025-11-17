@@ -133,6 +133,136 @@
           ]
         }
       }
+    },
+
+    "titan-wrestler": {
+      "displayName": "Shove (Titan Wrestler)",
+      "feats": ["titan-wrestler"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You shove the giant back with leverage!",
+            "Perfect positioning moves them!",
+            "You push the larger foe backward!",
+            "Technique overcomes their mass!",
+            "The giant stumbles back!"
+          ],
+          "success": [
+            "You push back the larger foe.",
+            "Leverage moves them backward.",
+            "You shove the giant.",
+            "Technique beats size.",
+            "You drive them back."
+          ],
+          "failure": [
+            "Their mass resists you.",
+            "You can't budge their bulk.",
+            "They're too large to move.",
+            "Their size defeats your push.",
+            "They don't budge."
+          ],
+          "criticalFailure": [
+            "Their mass overwhelms you!",
+            "You bounce off them!",
+            "Their bulk dominates!",
+            "You're thrown back!",
+            "Their size crushes your attempt!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You use perfect leverage to drive the larger foe backward!",
+            "Your technique exploits their high center of gravity - they stumble back!",
+            "Despite their size, your positioning sends them reeling backward!",
+            "You push the giant back using expert leverage!",
+            "Your clever technique overcomes their mass - they fly backward!",
+            "You drive the larger foe back with skillful positioning!",
+            "Your leverage-based shove sends them stumbling!",
+            "You exploit their balance perfectly - they stagger back!",
+            "Your expert push overcomes the size difference!",
+            "You send the giant reeling with masterful technique!"
+          ],
+          "success": [
+            "You use clever positioning to push the larger foe back.",
+            "Your leverage works - they stumble backward.",
+            "You manage to shove the bigger opponent away.",
+            "Your technique overcomes the size difference.",
+            "You push them back using leverage instead of strength.",
+            "Your skillful shove moves the larger foe.",
+            "You drive them back with expert positioning.",
+            "Your leverage creates distance from the giant.",
+            "You successfully push back the larger opponent.",
+            "Your technique forces them to give ground."
+          ],
+          "failure": [
+            "Their size makes them immovable despite your technique.",
+            "You can't generate enough leverage to budge their mass.",
+            "The size difference defeats your positioning.",
+            "Their bulk resists your skillful push.",
+            "You can't overcome their mass.",
+            "Their size advantage keeps them planted.",
+            "Your leverage isn't enough against their bulk.",
+            "They're too large for your technique to move.",
+            "Their mass defeats your push.",
+            "You can't budge the larger foe."
+          ],
+          "criticalFailure": [
+            "You try to push them but bounce off their mass!",
+            "Their bulk doesn't budge and you stumble!",
+            "You're overpowered by their sheer size!",
+            "Their mass throws you back!",
+            "You overextend against their immovable bulk!",
+            "Their size dominates - you're off-balance!",
+            "You can't move them and stumble!",
+            "Their mass crushes your technique!",
+            "You bounce off and nearly fall!",
+            "Their size defeats you completely!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You don't try to match strength against strength - that would be futile. Instead, you target their balance. You dart in low, positioning yourself at their center of mass. Your push isn't just forward force - it's angled precisely to exploit their high center of gravity. With expert technique, you drive upward and forward. Their size becomes their enemy. They can't help but stumble backward, their mass making the momentum impossible to stop!",
+            "Like a master judoka throwing a giant, you use physics instead of strength. You position yourself perfectly, finding the angle where even small force creates large effect. Your shove targets their balance point with surgical precision. Despite their size advantage, they stumble backward, unable to resist your perfectly applied leverage!",
+            "You read their stance and exploit the weakness inherent in their size. Your hands find the perfect position, your legs drive at the right angle. It's not about raw power - it's about leverage and timing. You push at exactly the moment they shift their weight, and their own mass betrays them. They reel backward, completely unable to stop the momentum!"
+          ],
+          "success": [
+            "You employ skillful technique to push the larger foe. Using leverage and precise positioning instead of matching their strength, you manage to drive them backward. It takes expert application of force, but you succeed in moving them despite the size difference.",
+            "Your shove targets their center of gravity with clever positioning. The size disadvantage makes it challenging, but your technique is sound enough. You manage to force them back, proving leverage can overcome mass.",
+            "You use physics-based pushing to move the bigger opponent. By exploiting their balance and applying force at the right angle, you successfully shove them backward."
+          ],
+          "failure": [
+            "You attempt to push the larger foe using proper leverage technique, but their sheer mass defeats your effort. You find the right angle, position correctly, but they're simply too large and too solid. Their size advantage proves insurmountable.",
+            "Despite clever positioning and good leverage application, you can't overcome the size difference. The larger foe's bulk keeps them planted. Your shove, technically sound, simply lacks the force needed against their mass.",
+            "You try to use their balance against them, but physics doesn't cooperate today. Their size is too great, their stance too stable. Your skilled shove attempt fails to move them."
+          ],
+          "criticalFailure": [
+            "You move in for a leverage-based shove, but their mass is far greater than you anticipated. When you push, it's like trying to move a boulder. Not only don't they budge, but the resistance throws you off balance. You stumble backward, your technique completely overwhelmed by their bulk!",
+            "Your technical approach to shoving the larger foe backfires catastrophically. You position yourself to exploit their center of gravity, but you've miscalculated badly. When you push, their immovable mass simply absorbs the force. The impact jars you, throwing you off-balance while they don't even rock!",
+            "You attempt to use clever leverage to push the giant, but their size defeats you utterly. Your shove connects perfectly, but they don't even sway. The failed attempt leaves you overextended and vulnerable, your technique crushed by simple physics!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is the art of using size against itself. You study the larger foe with calculating precision, seeing not intimidating bulk but exploitable physics. They're tall - high center of gravity. They're massive - lots of momentum once moving. You position yourself with absolute precision, hands finding the exact placement that maximizes leverage. Then you explode upward and forward, pushing not just with arms but with legs, core, your entire body working in biomechanical harmony. The force is perfectly angled, timed to the microsecond of their weight shift. For one suspended moment, the giant teeters. Then physics takes over with merciless authority. Their own mass becomes the weapon. They stumble backward, feet scrambling desperately, arms windmilling for balance they can't find. They reel back several feet before regaining control. You've moved a giant through pure technique!",
+            "Like a legendary martial artist demonstrating the triumph of skill over size, you execute the perfect shove. You don't try to overpower them - that's impossible. Instead, you use leverage as your ally. You dart in close, under their reach, and position yourself at their center of mass. Your hands find purchase at exactly the right points. Then you drive forward with explosive precision, every ounce of force applied at the perfect angle to exploit their high center of gravity. The combination is inescapable. Their size, which should be an advantage, instead magnifies the effect. They lurch backward, unable to stop the momentum your technique has created. By the time they regain their balance, you've created significant distance. Proof positive that in combat, physics beats mass!"
+          ],
+          "success": [
+            "You employ solid technique to push the larger opponent. Moving with careful precision and proper body mechanics, you manage to generate enough leverage to move them. It's not easy - their mass resists every inch - but your skill prevails. They stumble backward, forced to yield ground to your superior technique.",
+            "Your shove uses proper positioning and leverage to overcome the size disadvantage. You target their balance point at the right moment, applying force where it matters most. The larger foe stumbles back despite their mass, moved by technique rather than brute strength."
+          ],
+          "failure": [
+            "You move in with sound technique, seeking the leverage point that should let you push the larger foe. But today, size simply triumphs over skill. Their mass is too great, their stance too stable. Despite textbook-perfect positioning and proper force application, they don't budge. You might as well be pushing a wall. Your shove has failed.",
+            "Your technical approach is flawless - positioning, angle, timing all correct. But reality proves unkind. The larger foe's sheer bulk creates challenges your skill simply can't overcome. You can't generate enough effective force to move their mass. They remain planted while your pushing accomplishes nothing."
+          ],
+          "criticalFailure": [
+            "You commit to the shove with complete confidence in your technique. You've studied leverage, practiced positioning, and you're certain you can move this larger foe. You're catastrophically wrong. You set yourself, find what you think is the perfect angle, and push with explosive force. And achieve... nothing. The larger foe doesn't just resist - they might as well be a stone pillar for all the effect your shove has. Worse, pushing against their immovable bulk throws you off balance. The jarring stop of your momentum sends you stumbling backward, arms flailing. What should have been them moving is instead you looking foolish and exposed. Size has defeated skill decisively!",
+            "Your attempt to shove the giant using leverage and technique becomes a masterclass in failure. You position yourself with what you believe is perfect precision, ready to exploit their balance. But when you execute the shove, reality intervenes brutally. Their mass is simply too overwhelming. Your push doesn't just fail - it rebounds. The force of hitting their immovable bulk throws you backward. You stumble, overextended and off-balance, while they stand there completely unaffected, perhaps not even aware you tried to move them. Your expertise has been utterly overwhelmed by simple physics!"
+          ]
+        }
+      }
     }
   }
 }
