@@ -115,70 +115,15 @@ export class CombatFormatter {
   }
 
   /**
-   * Generate cinematic HTML
+   * Generate cinematic HTML - now simplified to match standard
    * @param {Object} seed
    * @param {string} outcomeFormatted
    * @param {string} outcomeClass
    * @returns {string}
    */
   static generateCinematicHTML(seed, outcomeFormatted, outcomeClass) {
-    const {
-      description,
-      anatomyDisplay,
-      damageType,
-      targetName,
-      attackerName,
-      complication,
-      dismemberment,
-      outcome
-    } = seed;
-
-    const damageTypeDisplay = StringUtils.capitalizeFirst(damageType);
-    const escapedDescription = StringUtils.escapeHTML(description);
-    const escapedAnatomyDisplay = StringUtils.escapeHTML(anatomyDisplay);
-    const escapedTargetName = StringUtils.escapeHTML(targetName);
-    const escapedAttackerName = StringUtils.escapeHTML(attackerName);
-    const escapedDamageTypeDisplay = StringUtils.escapeHTML(damageTypeDisplay);
-    const complicationHTML = this.generateComplicationHTML(complication, outcome);
-    const dismembermentHTML = this.generateDismembermentHTML(dismemberment);
-
-    return `
-      <div class="pf2e-narrative-seed combat-seed cinematic">
-        <header class="seed-header cinematic">
-          <h3>⚔️ Combat Narrative Seed 🎬</h3>
-          ${anatomyDisplay ? `<span class="anatomy-tag">[${escapedAnatomyDisplay}]</span>` : ''}
-        </header>
-        <div class="seed-content">
-          <div class="seed-metadata cinematic">
-            <div class="metadata-row">
-              <span class="attacker"><strong>Attacker:</strong> ${escapedAttackerName}</span>
-              <span class="target"><strong>Target:</strong> ${escapedTargetName}</span>
-            </div>
-            <div class="metadata-row">
-              <span class="damage-type"><strong>Damage:</strong> ${escapedDamageTypeDisplay}</span>
-              <span class="outcome ${outcomeClass}"><strong>Outcome:</strong> ${outcomeFormatted}</span>
-            </div>
-          </div>
-          <hr>
-          <div class="seed-description cinematic">
-            <p>${escapedDescription}</p>
-          </div>
-          ${complicationHTML}
-          ${dismembermentHTML}
-          <div class="seed-actions">
-            <button class="seed-button regenerate-button" data-action="regenerate" title="Generate a new narrative description">
-              🔄 Regenerate
-            </button>
-            <button class="seed-button narrate-button" data-action="narrate" title="Send description as in-character message">
-              💡 Narrate Now
-            </button>
-            <button class="seed-button copy-button" data-action="copy" title="Copy description to clipboard">
-              📋 Copy
-            </button>
-          </div>
-        </div>
-      </div>
-    `;
+    // Use the same simple output for all detail levels
+    return this.generateStandardHTML(seed, outcomeFormatted, outcomeClass);
   }
 
   /**
@@ -202,6 +147,39 @@ export class CombatFormatter {
   }
 
   /**
+   * Get mechanical description for a PF2e condition
+   * @param {string} condition - Condition slug
+   * @param {number} value - Condition value
+   * @returns {string} Mechanical description
+   */
+  static getConditionMechanics(condition, value) {
+    const val = value || '';
+    const conditions = {
+      'sickened': `${val} penalty to all checks and DCs`,
+      'clumsy': `${val} penalty to AC, Reflex, and Dex-based checks`,
+      'enfeebled': `${val} penalty to Str-based checks and DCs`,
+      'stupefied': `${val} penalty to Int/Wis/Cha checks and DCs`,
+      'drained': `${val} penalty to Constitution-based checks; max HP reduced`,
+      'off-guard': `-2 circumstance penalty to AC`,
+      'flat-footed': `-2 circumstance penalty to AC`,
+      'frightened': `${val} penalty to all checks and DCs`,
+      'stunned': `Lose ${val} action${val > 1 ? 's' : ''}`,
+      'slowed': `Lose ${val} action${val > 1 ? 's' : ''} each turn`,
+      'blinded': `All targets are hidden; -4 to Perception`,
+      'deafened': `-2 to Perception; can't use auditory abilities`,
+      'confused': `Attack random target or babble`,
+      'fascinated': `-2 to Perception and can't use reactions`,
+      'prone': `-2 to attack; melee attacks get +2; ranged get -2`,
+      'grabbed': `Immobilized and flat-footed`,
+      'immobilized': `Cannot move; flat-footed (-2 AC)`,
+      'paralyzed': `Helpless and flat-footed`,
+      'restrained': `Immobilized and flat-footed; -2 to attacks`,
+      'persistent-damage': `Take ${val} damage at end of turn`
+    };
+    return conditions[condition] || condition;
+  }
+
+  /**
    * Generate HTML for complication display
    * @param {Object} complication - Complication data
    * @param {string} outcome - Outcome type to determine target
@@ -211,32 +189,37 @@ export class CombatFormatter {
     if (!complication) return '';
 
     const escapedName = StringUtils.escapeHTML(complication.name);
-    const escapedDescription = StringUtils.escapeHTML(complication.description);
-    const targetDesc = ComplicationManager.getTargetDescription(outcome);
     const durationText = complication.duration
-      ? `${complication.duration} round${complication.duration > 1 ? 's' : ''}`
-      : 'until recovered';
+      ? `${complication.duration}r`
+      : '';
 
-    // Determine mechanical effect description
+    // Get mechanical effect from effect object
     let mechanicalEffect = '';
-    if (complication.conditionSlug) {
-      mechanicalEffect = `Applies ${complication.conditionSlug}`;
-      if (complication.conditionValue) {
-        mechanicalEffect += ` ${complication.conditionValue}`;
-      }
-      mechanicalEffect += ` for ${durationText}`;
+    if (complication.effect?.condition) {
+      const condition = complication.effect.condition;
+      const value = complication.effect.value || '';
+      const mechanics = this.getConditionMechanics(condition, value);
+      mechanicalEffect = `${StringUtils.capitalizeFirst(condition)} ${value}`.trim();
+      if (durationText) mechanicalEffect += ` (${durationText})`;
+      mechanicalEffect += `: ${mechanics}`;
+    } else if (complication.conditionSlug) {
+      // Fallback to old format
+      const value = complication.conditionValue || '';
+      const mechanics = this.getConditionMechanics(complication.conditionSlug, value);
+      mechanicalEffect = `${StringUtils.capitalizeFirst(complication.conditionSlug)} ${value}`.trim();
+      if (durationText) mechanicalEffect += ` (${durationText})`;
+      mechanicalEffect += `: ${mechanics}`;
     } else {
-      mechanicalEffect = `${escapedDescription} (${durationText})`;
+      mechanicalEffect = escapedName;
     }
 
-    // Simple effect box with apply button
+    // Simple effect box with icon-only apply button
     return `
       <div class="effect-box">
         <div class="effect-info">
-          <div class="effect-name">⚠️ ${escapedName}</div>
-          <div class="effect-mechanical">${mechanicalEffect}</div>
+          <span class="effect-text">${mechanicalEffect}</span>
         </div>
-        <button class="apply-btn" data-action="apply-complication" title="Apply effect">Apply</button>
+        <button class="apply-btn" data-action="apply-complication" title="Apply ${escapedName}">✓</button>
       </div>
     `;
   }
@@ -253,31 +236,36 @@ export class CombatFormatter {
     const escapedDescription = StringUtils.escapeHTML(dismemberment.description);
 
     // Build mechanical effect description
-    let mechanicalEffect = 'PERMANENT INJURY: ';
+    let mechanicalEffect = 'PERMANENT: ';
     const effects = [];
 
-    if (dismemberment.conditionSlug) {
+    if (dismemberment.effect?.condition) {
+      const condition = dismemberment.effect.condition;
+      const value = dismemberment.effect.value || '';
+      effects.push(`${StringUtils.capitalizeFirst(condition)} ${value}`.trim());
+    } else if (dismemberment.conditionSlug) {
       effects.push(`${dismemberment.conditionSlug}`);
     }
+
     if (dismemberment.penalties && dismemberment.penalties.length > 0) {
       dismemberment.penalties.forEach(penalty => {
-        effects.push(`${penalty.value} to ${penalty.stat}`);
+        effects.push(`${penalty.value} ${penalty.stat}`);
       });
     }
+
     if (effects.length > 0) {
       mechanicalEffect += effects.join(', ');
     } else {
       mechanicalEffect += escapedDescription;
     }
 
-    // Simple effect box with apply button (red theme for permanent)
+    // Simple effect box with icon-only apply button (red theme for permanent)
     return `
       <div class="effect-box permanent">
         <div class="effect-info">
-          <div class="effect-name">💀 ${escapedName}</div>
-          <div class="effect-mechanical">${mechanicalEffect}</div>
+          <span class="effect-text">${mechanicalEffect}</span>
         </div>
-        <button class="apply-btn danger" data-action="apply-dismemberment" title="Apply permanent injury">Apply</button>
+        <button class="apply-btn danger" data-action="apply-dismemberment" title="Apply ${escapedName} (PERMANENT)">💀</button>
       </div>
     `;
   }
