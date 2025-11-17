@@ -135,8 +135,8 @@
       "poison": "Poison",
       "force": "Force",
       "mental": "Mental",
-      "positive": "Positive",
-      "negative": "Negative"
+      "vitality": "Vitality",
+      "void": "Void"
     }
   }
 }

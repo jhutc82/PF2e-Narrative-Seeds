@@ -4,7 +4,7 @@
  */
 
 import { NarrativeSeedsSettings } from '../settings.js';
-import { PF2eUtils } from '../utils.js';
+import { PF2eUtils, StringUtils } from '../utils.js';
 import { CombatNarrativeGenerator } from './combat-generator.js';
 import { CombatFormatter } from './combat-formatter.js';
 import { EffectApplicator } from './effect-applicator.js';
@@ -428,17 +428,18 @@ export class CombatHooks {
   static async applyComplication(message, button) {
     try {
       // Get complication data from button
-      const complicationData = button.dataset.complication;
+      const encodedData = button.dataset.complication;
       const outcome = button.dataset.outcome;
 
-      if (!complicationData) {
+      if (!encodedData) {
         ui.notifications.warn("No complication data found");
         return;
       }
 
-      // Parse complication data
+      // Decode and parse complication data (Base64 encoded for security)
       let complication;
       try {
+        const complicationData = decodeURIComponent(atob(encodedData));
         complication = JSON.parse(complicationData);
       } catch (e) {
         console.error("Failed to parse complication data:", e);
@@ -530,15 +531,20 @@ export class CombatHooks {
       }
 
       // CRITICAL WARNING: Dismemberment is permanent!
+      // Escape all dynamic content to prevent XSS
+      const escapedName = StringUtils.escapeHTML(dismemberment.name);
+      const escapedTarget = StringUtils.escapeHTML(targetActor.name);
+      const escapedDescription = StringUtils.escapeHTML(dismemberment.description);
+
       const confirmed = await Dialog.confirm({
         title: "💀 PERMANENT INJURY WARNING 💀",
         content: `<div style="background: #8b0000; border: 2px solid #ff0000; padding: 15px; border-radius: 5px; color: #fff;">
           <h2 style="color: #ff0000; margin-top: 0;">⚠️ PERMANENT INJURY ⚠️</h2>
           <p><strong>You are about to apply:</strong></p>
-          <p style="font-size: 1.2em; color: #ffd700;">${dismemberment.name}</p>
-          <p><strong>To:</strong> ${targetActor.name}</p>
+          <p style="font-size: 1.2em; color: #ffd700;">${escapedName}</p>
+          <p><strong>To:</strong> ${escapedTarget}</p>
           <hr style="border-color: #ff0000;">
-          <p>${dismemberment.description}</p>
+          <p>${escapedDescription}</p>
           <hr style="border-color: #ff0000;">
           <p style="color: #ff6666;"><strong>THIS IS A PERMANENT EFFECT!</strong></p>
           <p>This effect cannot be easily removed and will have lasting consequences.</p>

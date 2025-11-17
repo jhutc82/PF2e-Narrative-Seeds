@@ -243,9 +243,9 @@ export class CombatFormatter {
       ? `${complication.duration} round${complication.duration > 1 ? 's' : ''}`
       : 'until recovered';
 
-    // Encode complication data for the button
+    // Encode complication data for the button (Base64 to prevent XSS)
     const complicationData = JSON.stringify(complication);
-    const escapedData = StringUtils.escapeHTML(complicationData);
+    const encodedData = btoa(encodeURIComponent(complicationData));
 
     return `
       <div class="seed-complication">
@@ -261,7 +261,7 @@ export class CombatFormatter {
           <button
             class="seed-button apply-complication-button"
             data-action="apply-complication"
-            data-complication='${escapedData}'
+            data-complication="${encodedData}"
             data-outcome="${outcome}"
             title="Apply this effect to the ${targetDesc}">
             ✨ Apply to ${StringUtils.capitalizeFirst(targetDesc)}

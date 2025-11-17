@@ -27,7 +27,7 @@ class PF2eNarrativeSeeds {
 
   static MODULE_ID = "pf2e-narrative-seeds";
   static MODULE_TITLE = "PF2e Narrative Seeds";
-  static VERSION = "1.1.2";
+  static VERSION = "1.2.0";
 
   static generators = new Map();
   static initialized = false;
