@@ -1,0 +1,138 @@
+{
+  "action": "perform",
+  "actionName": "Perform",
+  "skill": "performance",
+  "traits": [],
+  "description": "You perform for an audience to make an impression",
+
+  "variants": {
+    "default": {
+      "displayName": "Perform",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "Outstanding performance!",
+            "The crowd loves it!",
+            "Brilliant show!",
+            "You captivate everyone!",
+            "Perfect execution!"
+          ],
+          "success": [
+            "Good performance.",
+            "The audience enjoys it.",
+            "You perform well.",
+            "Solid showing.",
+            "You entertain adequately."
+          ],
+          "failure": [
+            "The performance falls flat.",
+            "The audience is unimpressed.",
+            "You struggle.",
+            "Your act doesn't land.",
+            "Mediocre showing."
+          ],
+          "criticalFailure": [
+            "You embarrass yourself!",
+            "The crowd jeers!",
+            "Terrible performance!",
+            "You're booed off stage!",
+            "Complete disaster!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "Your performance is absolutely captivating - the audience is enthralled!",
+            "You deliver a masterful show that earns thunderous applause!",
+            "Your act is brilliant - the crowd loves every moment!",
+            "You perform with such skill that you earn a standing ovation!",
+            "Your performance is outstanding - you've won over the entire audience!",
+            "You captivate everyone with your exceptional talent!",
+            "Your show is magnificent - the audience is thoroughly impressed!",
+            "You perform brilliantly, earning enthusiastic appreciation!",
+            "Your act is superb - the crowd is completely engaged!",
+            "You deliver an unforgettable performance that delights everyone!"
+          ],
+          "success": [
+            "You deliver a solid performance that the audience enjoys.",
+            "Your act is well-received by the crowd.",
+            "You perform competently, earning polite applause.",
+            "Your show entertains the audience adequately.",
+            "You give a good performance that pleases the crowd.",
+            "Your act succeeds in entertaining the audience.",
+            "You perform well, earning the audience's appreciation.",
+            "Your show is enjoyable and well-executed.",
+            "You deliver a satisfying performance.",
+            "Your act earns positive reception from the crowd."
+          ],
+          "failure": [
+            "Your performance fails to impress the audience.",
+            "Your act falls flat - the crowd seems bored.",
+            "You struggle through your performance unconvincingly.",
+            "Your show fails to engage the audience.",
+            "Your performance is mediocre at best.",
+            "The audience is unimpressed by your act.",
+            "You can't seem to connect with the crowd.",
+            "Your performance lacks the spark needed to entertain.",
+            "Your act doesn't land - the audience is indifferent.",
+            "You fail to capture the audience's interest."
+          ],
+          "criticalFailure": [
+            "Your performance is a disaster - the audience openly mocks you!",
+            "You embarrass yourself completely - the crowd jeers and boos!",
+            "Your act goes terribly wrong, earning ridicule from onlookers!",
+            "You fail spectacularly, and the audience lets you know it!",
+            "Your performance is so bad you're booed off the stage!",
+            "You completely humiliate yourself - the crowd turns hostile!",
+            "Your act is a catastrophe that earns open derision!",
+            "You fail miserably and become the subject of mockery!",
+            "Your performance backfires, making you look foolish!",
+            "You bomb completely - the audience actively hates it!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You deliver a performance for the ages. Whether it's music, dance, oratory, or comedy, you execute it with masterful skill and perfect timing. The audience is captivated from the first moment to the last. You read the crowd perfectly, adjusting your delivery to maximize impact. Every note hits perfectly, every movement flows with grace, every joke lands with precision. When you finish, the audience erupts in thunderous applause and enthusiastic cheers. You've not just entertained them - you've moved them!",
+            "Your performance is absolutely brilliant. You demonstrate exceptional talent and showmanship, commanding the audience's complete attention. Your technical skill is flawless, but more importantly, you connect emotionally with the crowd. They laugh when you want laughter, gasp when you want surprise, sit in rapt silence when you want tension. You control the room completely. The standing ovation you receive is well-earned!",
+            "You put on a show that people will talk about for days. Your performance combines technical excellence with genuine artistry and emotional resonance. The audience is thoroughly engaged, hanging on your every word, note, or movement. You've created a memorable experience that far exceeds mere entertainment!"
+          ],
+          "success": [
+            "You deliver a competent performance that successfully entertains your audience. While it may not be the best show they've ever seen, it's certainly enjoyable. Your technical execution is solid, your timing is good, and you manage to engage the crowd adequately. You earn genuine applause and appreciation.",
+            "Your performance is satisfying and well-received. You execute your act with reasonable skill and connect with the audience enough to keep them entertained. It's a good showing that earns positive reception.",
+            "You successfully perform for the audience, delivering entertainment that meets expectations. Your act is competent and engaging enough to earn the crowd's approval and polite applause."
+          ],
+          "failure": [
+            "Despite your efforts, your performance fails to connect with the audience. Maybe your timing is off, maybe your technical execution is lacking, or maybe you just can't read the room. Whatever the reason, your act falls flat. The audience seems bored or distracted, and the polite applause at the end feels perfunctory at best.",
+            "Your performance struggles to engage the audience. You can feel them losing interest as you go. Your delivery lacks confidence, your technique shows flaws, or your material simply doesn't resonate. It's not a complete disaster, but it's clearly unsuccessful.",
+            "You fail to entertain the audience effectively. Your performance is mediocre, failing to capture interest or earn appreciation. The crowd's indifference is painfully clear."
+          ],
+          "criticalFailure": [
+            "Your performance goes catastrophically wrong. Maybe you forget your lines, miss crucial notes, stumble during a dance, or completely botch your delivery. Whatever the specific failure, the result is undeniable - you've embarrassed yourself in front of the entire audience. They don't just ignore you, they actively react negatively. Jeers, boos, mocking laughter - the crowd turns hostile. Some people start leaving. You've not just failed to entertain - you've become the entertainment, and not in a good way!",
+            "Disaster strikes your performance. Everything that can go wrong does go wrong. Your technical execution fails, your timing is terrible, and you completely misjudge the audience. The crowd's reaction is brutal - open mockery, derisive laughter, calls for you to get off the stage. This is the kind of failure that makes you want to never perform again!",
+            "Your act becomes a humiliating catastrophe. The audience doesn't just dislike it - they actively hate it. You're booed, jeered at, and possibly even pelted with rotten vegetables if any are available. This is a performance you'll want to forget, but the audience certainly won't!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is the moment every performer dreams of. You step into the spotlight, and from the very first moment, you command the room. Your voice carries with perfect clarity and emotion. Your movements flow with practiced grace. Your timing is absolutely impeccable. You read the audience like a book, sensing exactly when to pause for effect, when to build tension, when to deliver the payoff. The crowd is utterly captivated, their attention focused solely on you. You take them on a journey - making them laugh, gasp, feel wonder, experience the full spectrum of emotion. Every technical element of your performance is flawless, but that's almost secondary to the raw charisma and genuine artistry you bring. This isn't just entertainment - it's art. When you finish with a flourish, there's a moment of stunned silence as the audience processes what they've just witnessed. Then the room explodes with applause, cheers, and enthusiastic acclaim. People are on their feet, shouting approval. This is a performance people will remember and talk about for weeks!",
+            "You become the consummate entertainer, demonstrating why performance is an art form. From your opening to your finale, you weave magic with your chosen medium - whether music, dance, oratory, comedy, or any other form. Your technical skill is beyond reproach, but it's your showmanship that truly shines. You work the crowd masterfully, building rapport, creating anticipation, delivering satisfaction. You read every reaction and adjust seamlessly. The audience is eating out of your hand, completely engaged in the experience you're creating. When you take your final bow, the thunderous standing ovation is well-deserved. You've created something special!"
+          ],
+          "success": [
+            "You deliver a solid, professional performance that earns the audience's genuine appreciation. You demonstrate good technical skill and adequate stage presence. The crowd is entertained, engaged enough to give you their attention throughout. Your timing is decent, your execution competent. It's not going to win any major awards, but it's a respectable showing that leaves the audience satisfied. The applause is sincere, if not thunderous.",
+            "Your performance succeeds in its goal of entertaining the audience. You execute your act with reasonable skill, maintain adequate energy and presence, and manage to connect with the crowd well enough to keep them engaged. It's a good performance that meets expectations and earns polite but genuine appreciation."
+          ],
+          "failure": [
+            "Despite your preparation and effort, your performance simply doesn't connect. You step up to perform with confidence, but it quickly becomes clear that something isn't working. Maybe the material is wrong for this crowd. Maybe your delivery is off. Maybe you're just having a bad day. Whatever the cause, you can feel the audience's attention drifting. People are looking at their drinks, whispering to neighbors, checking the exits. Your timing feels wrong, your delivery lacks conviction, your presence doesn't command attention. You struggle through to the end, but the sparse, polite applause that follows is more about social courtesy than genuine appreciation. It's a disappointing performance that leaves you feeling deflated.",
+            "Your act fails to land with the audience. You can sense their boredom and indifference. Your performance lacks the spark needed to engage them, and despite your best efforts, you simply can't capture their interest. The lukewarm reaction at the end says it all."
+          ],
+          "criticalFailure": [
+            "Everything falls apart spectacularly. You begin your performance with hope, but within moments it becomes clear this is going to be a disaster. Maybe you completely misjudge the audience's taste. Maybe your nerves get the better of you and you make critical mistakes. Maybe equipment fails at the worst possible moment. Whatever the specific cause, the result is undeniable catastrophe. Your voice cracks. You forget your lines. You stumble. The audience's attention shifts from polite interest to uncomfortable pity to active mockery. Someone laughs - not with you, but at you. Others join in. The jeering begins. Calls to get off the stage. Some people start booing. Others simply leave. This isn't just a failed performance - it's a humiliating public disaster. You've become a cautionary tale, the kind of story other performers tell to make themselves feel better about their own worst shows. The only consolation is that it can't possibly get worse than this!",
+            "Your performance becomes the stuff of nightmares - the kind of catastrophic failure that makes you question why you ever thought you could entertain people. From the moment you start, things go wrong and keep getting worse. The audience doesn't just fail to appreciate your act - they actively hate it. Mockery, jeers, laughter at your expense, and possibly thrown objects follow you off the stage. This is a disaster you'll be trying to forget for a very long time, though the audience certainly won't let you!"
+          ]
+        }
+      }
+    }
+  }
+}
