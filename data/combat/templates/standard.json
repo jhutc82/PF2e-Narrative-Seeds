@@ -1,17 +1,17 @@
 {
   "criticalSuccess": [
     {
-      "pattern": "${opening} ${weaponType} ${verb} ${targetName}'s ${location}! ${effect}!",
+      "pattern": "${opening} ${weaponType} ${verb} ${targetName}'s ${location}! ${effect}",
       "weight": 30,
       "grammar": "standard"
     },
     {
-      "pattern": "${effect}! ${opening} ${attackerName} ${verb} ${targetName}'s ${location}!",
+      "pattern": "${effect}! ${opening} ${attackerName} ${verb} ${targetName}'s ${location}.",
       "weight": 25,
       "grammar": "effect-first"
     },
     {
-      "pattern": "${attackerName} lands a devastating blow! ${opening} ${effect}!",
+      "pattern": "${attackerName} lands a devastating blow! ${opening} ${effect}",
       "weight": 20,
       "grammar": "devastating"
     },
@@ -21,17 +21,17 @@
       "grammar": "massive-damage"
     },
     {
-      "pattern": "Critical hit! ${opening} ${effect}!",
+      "pattern": "Critical hit! ${opening} ${effect}",
       "weight": 10,
       "grammar": "critical-announce"
     },
     {
-      "pattern": "${opening} Perfect strike! ${weaponType} ${verb} ${location}! ${effect}!",
+      "pattern": "${opening} Perfect strike! ${weaponType} ${verb} ${location}! ${effect}",
       "weight": 22,
       "grammar": "perfect"
     },
     {
-      "pattern": "${attackerName} strikes brutally! ${opening} ${weaponType} ${verb} ${location}! ${effect}!",
+      "pattern": "${attackerName} strikes brutally! ${opening} ${weaponType} ${verb} ${location}! ${effect}",
       "weight": 20,
       "grammar": "brutal"
     },
@@ -41,22 +41,22 @@
       "grammar": "devastated"
     },
     {
-      "pattern": "Powerful blow! ${opening} ${weaponType} ${verb} ${location}! ${effect}!",
+      "pattern": "Powerful blow! ${opening} ${weaponType} ${verb} ${location}! ${effect}",
       "weight": 16,
       "grammar": "powerful"
     },
     {
-      "pattern": "${opening} Excellent hit! ${weaponType} ${verb} ${targetName}'s ${location}! ${effect}!",
+      "pattern": "${opening} Excellent hit! ${weaponType} ${verb} ${targetName}'s ${location}! ${effect}",
       "weight": 14,
       "grammar": "excellent"
     },
     {
-      "pattern": "${attackerName} delivers a crushing strike! ${opening} ${effect}!",
+      "pattern": "${attackerName} delivers a crushing strike! ${opening} ${effect}",
       "weight": 12,
       "grammar": "crushing"
     },
     {
-      "pattern": "Devastating impact! ${opening} ${weaponType} ${verb} ${location}! ${effect}!",
+      "pattern": "Devastating impact! ${opening} ${weaponType} ${verb} ${location}! ${effect}",
       "weight": 10,
       "grammar": "impact"
     }
@@ -88,7 +88,7 @@
       "grammar": "simple-hit"
     },
     {
-      "pattern": "${verb} ${targetName}'s ${location}! ${opening} ${effect}",
+      "pattern": "${weaponType} ${verb} ${targetName}'s ${location}! ${opening} ${effect}",
       "weight": 5,
       "grammar": "action-first"
     },
