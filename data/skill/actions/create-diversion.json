@@ -263,6 +263,136 @@
           ]
         }
       }
+    },
+
+    "confabulator": {
+      "displayName": "Create a Diversion (Confabulator)",
+      "feats": ["confabulator"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "Your gestures perfectly distract!",
+            "Wordless misdirection works!",
+            "Non-verbal diversion succeeds!",
+            "Your body language diverts them!",
+            "Perfect gestural distraction!"
+          ],
+          "success": [
+            "Your gestures create a diversion.",
+            "Wordless distraction works.",
+            "Body language diverts them.",
+            "Non-verbal misdirection succeeds.",
+            "They fall for your gestures."
+          ],
+          "failure": [
+            "Your gestures don't distract.",
+            "Wordless diversion fails.",
+            "They ignore your body language.",
+            "Non-verbal misdirection fails.",
+            "Your gestures don't work."
+          ],
+          "criticalFailure": [
+            "Your gestures draw attention to you!",
+            "Wordless diversion backfires!",
+            "Body language makes you obvious!",
+            "Non-verbal attempt fails!",
+            "Your gestures betray you!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "Your gestural diversion is masterful - all attention shifts away wordlessly!",
+            "You create perfect distraction through body language alone!",
+            "Your non-verbal misdirection works brilliantly - no one watches you!",
+            "You draw all attention away with gestures - no words needed!",
+            "Your wordless diversion captivates their attention entirely!",
+            "You perfectly redirect their focus through body language!",
+            "Your gestural distraction is so effective you could vanish!",
+            "You create ideal misdirection without speaking a word!",
+            "Your non-verbal diversion draws complete attention away!",
+            "You masterfully manipulate their focus through gestures!"
+          ],
+          "success": [
+            "You successfully create a wordless distraction - attention shifts away.",
+            "Your gestural diversion works - they look away momentarily.",
+            "You draw their attention elsewhere through body language.",
+            "Your non-verbal distraction creates an opportunity.",
+            "You redirect their focus with gestures alone.",
+            "Your wordless misdirection works - they're momentarily diverted.",
+            "You successfully draw attention away without speaking.",
+            "Your gestural diversion creates a brief window.",
+            "You manage to divert attention through body language.",
+            "Your non-verbal distraction is effective enough to act."
+          ],
+          "failure": [
+            "Your gestural distraction fails to draw their attention.",
+            "They ignore your wordless diversion and keep watching you.",
+            "Your non-verbal misdirection doesn't work - they stay focused.",
+            "The gestural distraction fails to divert their attention.",
+            "They aren't fooled by your body language.",
+            "Your wordless distraction is unsuccessful.",
+            "They maintain their focus on you despite your gestures.",
+            "Your non-verbal diversion fails to create an opening.",
+            "They see through your gestural misdirection.",
+            "Your body language doesn't distract them."
+          ],
+          "criticalFailure": [
+            "Your gestural diversion backfires - you draw MORE attention to yourself!",
+            "Your obvious body language makes everyone focus on you!",
+            "Your failed wordless diversion highlights your presence instead!",
+            "Your clumsy gestures draw all eyes directly to you!",
+            "Your non-verbal diversion spectacularly fails - you're even more noticed!",
+            "Your attempt to divert through gestures makes you more conspicuous!",
+            "Your obvious wordless misdirection actually emphasizes your presence!",
+            "Your failed gestural distraction makes you the center of attention!",
+            "Your body language backfires - everyone is now watching you closely!",
+            "Your clumsy gestures draw unwanted attention to yourself!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You create the perfect distraction without uttering a word. Through body language alone - a gesture, a dramatic movement, a series of non-verbal signals - you draw all attention completely away from yourself. Language barrier is irrelevant when your wordless diversion works this brilliantly. You have the perfect opportunity to slip away unnoticed!",
+            "Your gestural misdirection is masterful. You manipulate their attention with expert precision using only body language and movement, drawing their focus entirely away from yourself. For a crucial moment, you could be invisible for all the notice anyone is paying you. The wordless diversion creates a perfect window!",
+            "You execute the distraction flawlessly through gestures alone. Every eye that was watching you is now focused elsewhere, captivated by the non-verbal diversion you've created. No words needed - you have complete freedom to move unseen!"
+          ],
+          "success": [
+            "You successfully create a wordless distraction. It's not elaborate, but it works through body language alone - attention shifts away from you for a moment, giving you an opportunity to act despite any language barrier.",
+            "Your gestural distraction draws enough attention away from you to create an opening. They look away, focus diverted by your non-verbal signals, giving you a chance to move.",
+            "You manage to divert their attention with wordless distraction. It's brief, but sufficient to give you an opportunity to slip away without speaking."
+          ],
+          "failure": [
+            "You attempt to create a gestural distraction, but it fails to capture attention. Your body language and non-verbal signals simply aren't compelling enough. Their focus remains on you despite your wordless efforts.",
+            "Your wordless diversion doesn't work. They glance briefly at your gestures but immediately return their attention to you. You haven't created any real opportunity through body language.",
+            "Your attempted gestural distraction falls flat. It's ignored or dismissed as unimportant, and their attention stays firmly focused on you. Your non-verbal misdirection fails."
+          ],
+          "criticalFailure": [
+            "Your wordless distraction attempt goes horribly wrong. Maybe your gestures are too obvious, maybe the body language is too theatrical, but instead of drawing attention away from yourself, your clumsy non-verbal diversion actually highlights your presence. Everyone who might have been casually observing you is now actively focused on you, wondering what you're up to with those strange gestures!",
+            "Your failed gestural diversion backfires spectacularly. Not only does your body language fail to distract, but your obvious attempt at wordless misdirection draws suspicious attention. Now everyone is watching you closely, alert to your intentions despite the language barrier!",
+            "Your non-verbal diversion is so poorly executed it has the opposite effect. Instead of becoming less noticeable, you've made yourself the center of attention through your bizarre gestures. Your clumsy attempt has made your situation significantly worse!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You orchestrate a perfect moment of wordless misdirection. Through body language alone - a dramatic gesture at exactly the right time, a movement that catches peripheral vision, a perfectly placed non-verbal signal - you manipulate focus with expert precision. Like a mime directing an audience's gaze, you control attention through pure gesture. Every eye that was watching you swivels away, captivated by the wordless diversion. For a beautiful moment, you could be doing anything and no one would notice. You've created perfect invisibility through gestural misdirection - no words required!",
+            "Your wordless diversion is a work of art. You read the room perfectly, understanding what gestures will capture attention, and deliver them with impeccable timing. The result is total non-verbal misdirection - attention flows away from you like water down a drain. Everyone is looking elsewhere, thinking about something else, completely unaware of your presence. It's the perfect distraction accomplished through body language alone!"
+          ],
+          "success": [
+            "You create a functional wordless distraction. It's not the most elaborate or sophisticated gestural misdirection ever attempted, but it works. Attention shifts away from you through body language alone, focus diverted to your non-verbal signals. The window is brief but real.",
+            "Your gestural diversion succeeds in drawing attention elsewhere. Eyes that were watching you look away, focus redirected by your wordless cues. You've created a moment of reduced scrutiny through body language - enough to act if you move quickly."
+          ],
+          "failure": [
+            "You attempt the wordless distraction, but it simply doesn't take. Maybe your gestures are slightly off, maybe the body language isn't compelling enough, or maybe your audience is too focused to be easily diverted by non-verbal signals. Whatever the reason, attention remains firmly on you. Your gestural diversion has failed to create any real opportunity.",
+            "Your attempted non-verbal misdirection falls flat. The gestural distraction you create is noticed but immediately dismissed as unimportant or irrelevant. No one takes the bait. Focus remains on you, unshifted by your failed body language."
+          ],
+          "criticalFailure": [
+            "Disaster. Your attempted wordless diversion doesn't just fail - it spectacularly backfires. Maybe your gestures are too obvious, too poorly timed, or just suspicious in context, but instead of drawing attention away from yourself, they draw attention TO yourself. Everyone who might have been casually ignoring you is now actively watching, alert and suspicious. 'What is that person doing with those strange gestures?' they wonder, eyes locked on you. Your clumsy non-verbal diversion has transformed casual observation into active scrutiny. You've made yourself more visible, more noticeable, more suspicious through body language alone. It's the exact opposite of what you intended!",
+            "Your gestural diversion fails catastrophically. The wordless distraction you create through body language is so obviously intentional, so clearly an attempt at non-verbal misdirection, that it has the opposite effect. Instead of slipping into the background, you've highlighted yourself through bizarre gestures. Every eye that wasn't paying attention before is now focused directly on you, wondering what you're trying to hide with those strange movements. Your failed wordless diversion has turned you into the most interesting thing in the room - and not in a good way!"
+          ]
+        }
+      }
     }
   }
 }
