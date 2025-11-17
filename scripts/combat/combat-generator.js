@@ -190,7 +190,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
         const complication = ComplicationManager.selectComplication({
           outcome,
           damageType,
-          anatomy: typeof anatomy === 'string' ? anatomy : anatomy?.base || 'torso'
+          anatomy: typeof anatomy === 'string' ? anatomy : anatomy?.base || 'torso',
+          attackerLevel: attacker?.level || attacker?.system?.details?.level?.value || 1
         });
 
         // Check for dismemberment (more severe than complications)
