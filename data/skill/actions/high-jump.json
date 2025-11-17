@@ -393,6 +393,136 @@
           ]
         }
       }
+    },
+
+    "cloud-jump": {
+      "displayName": "High Jump (Cloud Jump)",
+      "feats": ["cloud-jump"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You soar impossibly high!",
+            "You fly upward like magic!",
+            "You vault to incredible heights!",
+            "You jump beyond belief!",
+            "You rocket skyward fantastically!"
+          ],
+          "success": [
+            "You jump extraordinarily high.",
+            "You vault to amazing height.",
+            "You leap far beyond normal.",
+            "You soar impressively upward.",
+            "You clear it spectacularly."
+          ],
+          "failure": [
+            "Even cloud jump can't reach it.",
+            "The height is too extreme.",
+            "You still fall short.",
+            "Not quite high enough.",
+            "You can't make it."
+          ],
+          "criticalFailure": [
+            "You overreach badly!",
+            "Your jump fails!",
+            "You stumble!",
+            "Control fails!",
+            "You trip!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You launch skyward with almost superhuman power - you soar incredibly high!",
+            "You vault upward with breathtaking force, reaching spectacular altitude!",
+            "You jump with such explosive power you seem to defy gravity!",
+            "Your legs propel you skyward to heights that seem impossible!",
+            "You rocket upward spectacularly, vaulting far beyond normal limits!",
+            "Your cloud jump sends you flying to extraordinary heights!",
+            "You soar upward with power that borders on the supernatural!",
+            "You vault skyward dramatically, clearing heights most couldn't dream of!",
+            "Your jump is phenomenal - you fly upward to spectacular altitude!",
+            "You launch yourself skyward with nearly magical force!"
+          ],
+          "success": [
+            "You jump extraordinarily high with your cloud jump ability.",
+            "You vault to impressive altitude far beyond normal jumping.",
+            "You leap to heights that amaze observers.",
+            "Your cloud jump carries you to remarkable height.",
+            "You successfully jump far higher than should be possible.",
+            "You soar upward to extraordinary altitude.",
+            "Your enhanced jumping reaches spectacular heights.",
+            "You vault dramatically high with cloud jump power.",
+            "You jump to heights that defy normal physics.",
+            "Your cloud jump succeeds spectacularly."
+          ],
+          "failure": [
+            "Even with cloud jump, you can't reach that extreme height.",
+            "Your spectacular jumping ability still falls short.",
+            "Despite jumping far beyond normal, you don't make it.",
+            "Your cloud jump isn't enough for this height.",
+            "Even your extraordinary ability can't clear this.",
+            "Your amazing leap comes up short.",
+            "Despite remarkable height, you fail to clear it.",
+            "Your cloud jump fails to reach the target.",
+            "Even jumping beyond normal limits, you fall short.",
+            "Your spectacular jump isn't quite enough."
+          ],
+          "criticalFailure": [
+            "Your ambitious cloud jump goes catastrophically wrong!",
+            "You overreach with the dramatic leap and stumble badly!",
+            "Your spectacular jump fails - you nearly injure yourself!",
+            "You lose control of the powerful jump!",
+            "Your cloud jump technique fails catastrophically!",
+            "You stumble badly on the ambitious takeoff!",
+            "Your dramatic leap backfires!",
+            "You overextend with cloud jump and trip!",
+            "Your spectacular jump becomes a spectacular failure!",
+            "You lose your footing on the powerful takeoff!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You channel power that seems almost beyond human capability. This is cloud jump - a technique that pushes jumping to its absolute limits. Your approach builds tremendous momentum, your plant is perfect, and when you drive upward, the force is staggering. You rocket skyward with such power it almost looks like you're flying. You soar to heights that defy normal understanding of jumping, easily clearing the obstacle with spectacular altitude to spare. It's breathtaking to watch!",
+            "Your cloud jump is spectacular. You've mastered the art of extracting maximum vertical distance from human muscles and technique. When you launch, you don't just jump - you soar. Your body flies upward to heights that seem impossible, defying the normal limits of jumping. You clear the obstacle with dramatic flair!",
+            "With cloud jump technique, you achieve heights that border on the superhuman. Your legs generate tremendous upward force, your body positioning is optimal for maximum altitude, and you vault skyward spectacularly. It's a jump that has to be seen to be believed!"
+          ],
+          "success": [
+            "You employ cloud jump technique to vault to extraordinary heights. Your jumping ability far exceeds normal human limits, allowing you to reach altitudes that amaze observers. You clear the obstacle with your spectacular jumping.",
+            "Your cloud jump works beautifully. You launch upward with dramatic force, soaring to heights beyond normal jumping capability. You successfully clear the obstacle with your enhanced technique.",
+            "You successfully use cloud jump to reach impressive altitude. Your enhanced jumping carries you far higher than normal technique would allow."
+          ],
+          "failure": [
+            "Despite the spectacular heights your cloud jump can achieve, this particular obstacle proves too much. You vault far beyond normal jumping capability, reaching impressive altitude, but still fall short of clearing it.",
+            "Your cloud jump technique is executed perfectly, sending you soaring to heights most people couldn't imagine. But even this extraordinary ability has limits, and this height exceeds them. You come up short.",
+            "You launch with full cloud jump power, vaulting to dramatic heights. But the required altitude is simply beyond even your enhanced capabilities. Your spectacular jump fails."
+          ],
+          "criticalFailure": [
+            "You attempt cloud jump with full confidence in your spectacular jumping ability. But something goes catastrophically wrong in the execution. The tremendous power you generate becomes uncontrolled force. Your spectacular technique breaks down into chaotic stumbling. You barely get airborne before losing control completely!",
+            "Your cloud jump requires perfect execution to handle the extreme forces involved. You attempt it, but fail catastrophically. Too much power, wrong timing, failed control - you stumble badly instead of soaring upward!",
+            "You commit to the cloud jump with absolute confidence, but the execution fails utterly. The dramatic power you try to generate works against you. You stumble, nearly fall, your spectacular technique transformed into spectacular failure!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is cloud jump - jumping elevated to an art form that borders on the supernatural. You've trained your body to achieve the seemingly impossible. As you approach, every muscle is primed for maximum output. Your plant is perfect, your timing flawless. Then you explode upward with such devastating force that gravity seems optional. You don't just jump - you fly. Your body rockets skyward with power that defies normal human capability. The height you achieve is staggering - you soar upward like a launched missile, clearing obstacles that would stop anyone else. At the apex of your jump, you seem to hang in the air for an impossible moment, suspended at an altitude that makes observers question reality. Then descent begins, controlled and graceful. You land with perfect balance, having just demonstrated jumping ability that borders on the superhuman. This is cloud jump mastered - the ultimate expression of vertical athleticism!",
+            "Your legs have been trained through dedicated practice to achieve the impossible. Cloud jump isn't just enhanced jumping - it's transcendent jumping. When you unleash it, the result is breathtaking. You compress into your approach with every fiber ready. Your plant generates tremendous force. Then you drive. The explosion is phenomenal. Your legs extend with such violence, such perfect technique, that you're catapulted skyward like a human rocket. You soar. There's no other word for it. You fly upward to heights that seem to mock gravity, clearing the obstacle with so much altitude to spare that it's almost comical. The sheer height you achieve is so dramatic that observers might suspect magic rather than mere athletic training. You've just demonstrated that with perfect technique and trained power, human jumping capability can approach the superhuman!"
+          ],
+          "success": [
+            "You employ cloud jump technique to achieve spectacular height. Your jumping ability exceeds normal human limits dramatically, allowing you to vault to altitudes most people couldn't dream of. You clear the obstacle through extraordinary athletic capability.",
+            "Your cloud jump works magnificently. You generate tremendous upward force through perfected technique, soaring to impressive heights. You clear the obstacle with dramatic flair."
+          ],
+          "failure": [
+            "You launch with full cloud jump power, achieving heights that would amaze most observers. You vault far beyond normal human jumping capability, soaring upward dramatically. But even cloud jump has limits. This particular height exceeds even your extraordinary ability. You reach impressive altitude but still fall short of clearing the obstacle. Your spectacular jump has met an insurmountable challenge.",
+            "Your cloud jump technique is executed flawlessly, generating tremendous upward force that sends you soaring to dramatic heights. But the required altitude is simply beyond what even this advanced technique can achieve. You jump spectacularly high, far beyond normal capability, yet still fail to clear this extreme obstacle."
+          ],
+          "criticalFailure": [
+            "You commit to cloud jump with absolute confidence in your ability to achieve spectacular heights. You approach with perfect momentum, plant with maximum force, and drive upward with everything you have. But in that critical moment of execution, something fails catastrophically. Perhaps your timing is off by a fraction. Perhaps your plant finds unexpected ground. Perhaps you simply overreach. Whatever the cause, the result is disaster. All that tremendous power, which should send you soaring skyward, instead becomes chaotic force. Your technique, which should be perfect, breaks down completely. Your legs generate tremendous force but it's misdirected. You stumble violently, balance completely lost. You barely get off the ground before control fails entirely. You have to scramble desperately to avoid a dangerous fall. Your attempt at spectacular cloud jumping has become a spectacular failure - dangerous, embarrassing, and total!",
+            "Cloud jump requires absolute precision to channel the extreme forces involved. You attempt it with confidence earned through training, ready to soar to dramatic heights. But the execution collapses. The tremendous power you generate becomes uncontrolled chaos. Too much force, wrong angle, failed timing - everything goes wrong simultaneously. Instead of flying upward, you're stumbling downward. Your legs, which should propel you skyward, instead betray you. Balance fails. Technique shatters. You stumble badly, nearly fall, and end up demonstrating that even the most advanced athletic techniques can fail catastrophically when execution breaks down. Your cloud jump has become a crash landing!"
+          ]
+        }
+      }
     }
   }
 }
