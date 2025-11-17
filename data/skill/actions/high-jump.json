@@ -133,6 +133,136 @@
           ]
         }
       }
+    },
+
+    "quick-jump": {
+      "displayName": "High Jump (Quick Jump)",
+      "feats": ["quick-jump"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You spring upward instantly!",
+            "You leap high without running!",
+            "You jump straight up powerfully!",
+            "You vault upward from standstill!",
+            "You launch skyward instantly!"
+          ],
+          "success": [
+            "You jump up without a run.",
+            "You leap from a standstill.",
+            "You spring upward quickly.",
+            "You vault up instantly.",
+            "You make the quick jump."
+          ],
+          "failure": [
+            "You can't jump high enough.",
+            "The quick jump falls short.",
+            "You need more momentum.",
+            "Your standing jump is too low.",
+            "You can't reach it."
+          ],
+          "criticalFailure": [
+            "You slip on takeoff!",
+            "Your quick jump fails!",
+            "You stumble!",
+            "You lose balance!",
+            "You trip!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You spring straight upward with explosive force, clearing the height easily!",
+            "From a standstill, you launch yourself skyward impressively!",
+            "You leap vertically with tremendous power - no run needed!",
+            "Your explosive jump sends you soaring upward from standing position!",
+            "You vault straight up with such force you clear it with ease!",
+            "Your quick jump is phenomenal - you spring high without momentum!",
+            "You explode upward from standing, reaching impressive height!",
+            "Your legs drive powerfully, launching you high without a running start!",
+            "You spring vertically with such strength you make it look easy!",
+            "Your standing jump is outstanding - you soar upward!"
+          ],
+          "success": [
+            "You jump upward from a standing position, clearing the height.",
+            "Your quick jump succeeds - you reach the needed height without running.",
+            "You manage to vault high enough from a standstill.",
+            "Your standing jump works - you clear the obstacle.",
+            "You successfully leap upward without needing momentum.",
+            "You spring up from standing position to the required height.",
+            "Your quick vertical leap is successful.",
+            "You vault up without running, clearing the height.",
+            "You make the standing jump successfully.",
+            "Your instant leap carries you high enough."
+          ],
+          "failure": [
+            "You try to jump from standing, but don't get enough height.",
+            "Your quick leap falls short without a running start.",
+            "You can't generate enough power from a standstill.",
+            "Your standing vertical jump isn't high enough.",
+            "You fail to clear the height from standing position.",
+            "Your quick jump is too weak without momentum.",
+            "You don't get high enough from a standstill.",
+            "Your instant leap comes up short.",
+            "You can't jump that high without running.",
+            "Your quick vertical leap is insufficient."
+          ],
+          "criticalFailure": [
+            "You slip on your standing takeoff and barely get airborne!",
+            "Your quick jump is poorly executed - you nearly fall!",
+            "You stumble during the standing leap!",
+            "Your legs give way on the instant takeoff!",
+            "You lose balance trying to jump from a standstill!",
+            "Your standing takeoff is disastrous!",
+            "You misjudge the quick jump and stumble!",
+            "Your instant jump fails - you nearly fall!",
+            "You slip on the standing takeoff!",
+            "Your quick attempt ends in a stumble!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Without any running start, you simply coil your legs and explode upward with tremendous power. Your technique is perfect - knees bending to load the spring, then driving straight up with explosive force. You launch into the air from a standing position, easily clearing the obstacle. The quick jump makes it look effortless!",
+            "You demonstrate the rare ability to jump high from a standing position. Your legs compress like springs, then release with devastating power. You rocket upward, clearing the height with impressive room to spare despite having no momentum to work with!",
+            "From a complete standstill, you generate enough upward force to clear the obstacle. It's all pure leg power and technique - no run-up needed. You spring vertically with explosive strength!"
+          ],
+          "success": [
+            "You execute a solid standing jump, legs driving upward with focused power. Without a running start, you still generate enough force to clear the required height.",
+            "Your quick jump technique works. You compress your legs and explode upward from standing position, reaching the needed height despite lacking momentum.",
+            "You manage to jump high enough from a standstill. It takes significant leg strength, but you make it work."
+          ],
+          "failure": [
+            "You attempt to jump from standing position, but without a running start, you simply can't generate enough upward force. Your legs drive hard, but you fall short of the required height.",
+            "Despite your quick jump training, you can't reach that high from a standstill. You need either more leg power or momentum - and you have neither.",
+            "You coil and drive upward, but the height is beyond your standing jump capability. You come up short despite your best effort."
+          ],
+          "criticalFailure": [
+            "You try to explode upward from standing position, but your feet slip on the takeoff. Instead of launching skyward, you stumble awkwardly, barely leaving the ground. Your quick jump becomes a quick trip!",
+            "As you drive into your standing jump, something goes wrong - balance, timing, or footing. Your legs give way instead of driving up, and you nearly fall instead of jumping!",
+            "Your attempt at a quick standing jump is a complete failure. You barely get six inches off the ground before your balance fails and you have to catch yourself to avoid falling!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is explosive power in its purest form. No run-up, no momentum, just raw athletic ability. You stand before the obstacle, coil your legs like compressed springs, and then unleash. The drive is phenomenal - every muscle in your legs firing in perfect synchronization. You rocket straight upward from standing position, defying the normal physics of jumping. Height comes not from speed but from pure power. You soar past the obstacle with room to spare, demonstrating that when you have this much explosive strength, momentum is optional!",
+            "Like a basketball player pulling off a standing vertical leap, you demonstrate freakish athletic ability. From a complete standstill, you compress into a crouch, then explode upward with devastating force. Your legs drive like pistons, generating tremendous vertical thrust despite having zero forward momentum. You launch skyward, clearing heights that most people couldn't reach with a running start. It's a showcase of pure explosive power!"
+          ],
+          "success": [
+            "You execute a competent standing jump. No approach, no momentum, just focused leg drive. You coil, explode upward, and clear the obstacle through pure strength and technique.",
+            "Your quick jump works efficiently. From standing position, you generate enough vertical force to reach the required height. It's functional explosive athletics."
+          ],
+          "failure": [
+            "You attempt the quick jump with confidence, legs coiling for the explosive drive upward. But standing jumps have hard limits. Without momentum to help, you're relying purely on leg strength. You drive upward with everything you have, but physics doesn't cooperate. You fall short, the height just beyond your standing jump capability.",
+            "Despite proper technique and maximum effort, your standing vertical leap simply isn't sufficient. You spring upward powerfully, but without a running start, you can't generate enough force to clear the height. Gravity wins."
+          ],
+          "criticalFailure": [
+            "You commit to the standing jump with full confidence. Legs coil, muscles tense, ready to explode upward. Then everything breaks down. Maybe the floor is slicker than expected, maybe your balance is off, maybe you just miscalculate. Instead of explosive vertical launch, you get stumbling failure. Your feet slip or your legs give way at the critical moment. You barely leave the ground before balance fails entirely. You have to scramble to avoid a complete fall, your quick jump becoming a quick embarrassment!",
+            "The standing jump requires perfect technique and explosive power applied in a split second. You attempt it, but something fails catastrophically. Your drive leg buckles. Your balance shifts wrong. Your feet slip. The result is disastrous - instead of soaring upward, you're falling downward. You barely get airborne before control is lost, and you land awkwardly, having to catch yourself to avoid injury!"
+          ]
+        }
+      }
     }
   }
 }
