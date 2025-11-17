@@ -263,6 +263,136 @@
           ]
         }
       }
+    },
+
+    "terrain-stalker": {
+      "displayName": "Sneak (Terrain Stalker)",
+      "feats": ["terrain-stalker"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You move silently through nature!",
+            "Perfect terrain stealth!",
+            "You slip through the environment undetected!",
+            "You move like a ghost through nature!",
+            "Completely silent natural movement!"
+          ],
+          "success": [
+            "You sneak through terrain successfully.",
+            "You move quietly through nature.",
+            "You remain undetected in the environment.",
+            "You slip through terrain quietly.",
+            "You move stealthily through nature."
+          ],
+          "failure": [
+            "You make noise in the terrain.",
+            "The environment betrays you.",
+            "Your terrain stealth fails.",
+            "You're detected in nature.",
+            "You can't move quietly enough through terrain."
+          ],
+          "criticalFailure": [
+            "You crash through the terrain!",
+            "You're spotted in the environment!",
+            "You stumble through nature loudly!",
+            "You alert everyone in the terrain!",
+            "You disturb the environment badly!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You move through natural terrain with perfect silence - completely undetected!",
+            "You slip through the environment like a ghost, making no noise!",
+            "Your stealthy movement through terrain is flawless - no one notices!",
+            "You move through nature with expert stealth, remaining completely hidden!",
+            "You glide through the terrain silently, perfectly undetected!",
+            "Your movement through the environment is soundless and invisible!",
+            "You sneak through nature with such skill you might as well be invisible!",
+            "You move through terrain with perfect stealth - unheard and unseen!",
+            "Your silent movement through the environment is masterful!",
+            "You slip through natural terrain with expert stealth!"
+          ],
+          "success": [
+            "You move quietly through terrain enough to remain undetected.",
+            "You successfully sneak through the environment without being noticed.",
+            "You manage to move stealthily through nature without alerting anyone.",
+            "You slip through terrain quietly, maintaining your concealment.",
+            "You move carefully through the environment and remain hidden.",
+            "You successfully sneak through natural terrain without being detected.",
+            "You move through the environment quietly enough to stay unnoticed.",
+            "You manage to advance stealthily through terrain.",
+            "You move through nature while maintaining stealth successfully.",
+            "You sneak through the environment without being spotted."
+          ],
+          "failure": [
+            "You make noise moving through terrain and are detected!",
+            "Your stealthy movement through nature fails - you're noticed!",
+            "You can't move quietly enough through the environment - you're spotted!",
+            "Your sneaking through terrain fails and you're detected!",
+            "You're noticed while trying to move stealthily through nature!",
+            "You alert observers with your movement through terrain!",
+            "Your attempt at terrain stealth is unsuccessful!",
+            "You make too much noise in the environment - you're detected!",
+            "You fail to move quietly through terrain and are noticed!",
+            "Your stealth through nature breaks - you're spotted!"
+          ],
+          "criticalFailure": [
+            "You stumble badly in the terrain and make loud noise - everyone notices!",
+            "You crash through nature while sneaking - your position is revealed!",
+            "Your clumsy movement through terrain alerts everyone to your presence!",
+            "You disturb the environment loudly - you're immediately spotted!",
+            "You trip in terrain while sneaking and draw all attention to yourself!",
+            "Your failed terrain stealth creates a loud disturbance!",
+            "You make tremendous noise in nature - everyone knows where you are!",
+            "You stumble through the environment and alert everyone nearby!",
+            "Your catastrophically failed sneak through terrain gives away your position!",
+            "You make such loud noise in nature that everyone is alerted!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You move through natural terrain with the silence and grace of a predator. Each footstep finds soft ground or solid stone, testing surfaces before committing weight. You read the environment perfectly - avoiding dry twigs, stepping over rustling leaves, moving through vegetation without disturbing it. Your breathing is controlled, your movements timed to ambient nature sounds. You flow through terrain from concealed spot to concealed spot. Your stealthy advance through the environment is perfect!",
+            "Your terrain stalker technique is masterful. You read the natural environment perfectly, knowing where to step, when to move, how to use terrain features. Your movements are fluid and silent, your positioning always optimal within nature. You glide through the terrain like a shadow, completely undetected!",
+            "You demonstrate expert terrain stealth skills as you move through the environment. Every step is silent, every movement controlled. You blend with natural surroundings and advance through terrain perfectly. You remain completely undetected as you progress through nature!"
+          ],
+          "success": [
+            "You move through natural terrain carefully, placing each step with conscious thought. You're not perfectly silent, but you're quiet enough to avoid detection in the environment. Your stealthy movement through nature succeeds in keeping you hidden.",
+            "You manage to advance through terrain while maintaining adequate stealth. Your footfalls are soft, your movements controlled through the environment. You make it through nature without being noticed.",
+            "You successfully sneak through the terrain. Your technique is functional through natural environment, your noise discipline adequate. You remain undetected as you move through nature."
+          ],
+          "failure": [
+            "Despite your best efforts to move stealthily through terrain, you make too much noise or your movement through nature is too obvious. You're detected as you try to advance through the environment. Your terrain stealth has failed.",
+            "You attempt to move quietly through nature, but something goes wrong - maybe a footfall on dry leaves, maybe you disturb vegetation. Whatever the cause, you're noticed in the terrain. Your sneaking through the environment has failed.",
+            "Your stealthy movement through terrain isn't quiet or subtle enough. You're spotted or heard as you try to advance through nature. You've been detected in the environment."
+          ],
+          "criticalFailure": [
+            "Your attempted terrain stealth goes disastrously wrong. Maybe you step on something in nature that makes a loud crack, maybe you lose your footing on uneven ground and stumble, or maybe you crash through vegetation you didn't see. Whatever happens, the result is unmistakable noise and obvious movement through the environment. Everyone in the terrain knows exactly where you are!",
+            "Catastrophe strikes your sneaking attempt through nature. Your foot finds dry branches, loose rocks, or hidden obstacles in the terrain. The noise echoes through the environment. Or perhaps you simply stumble and crash through vegetation. Whatever the specific failure in the natural terrain, the result is the same - you're not just detected, you're the center of everyone's attention!",
+            "Your terrain stealth fails in the worst possible way. Instead of silent movement through nature, you create a disturbance that alerts everyone in the environment. Your position is not only revealed but emphasized by noise in the terrain. It's a complete failure of stealth through natural surroundings!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You become one with nature as you move. Each footfall is placed with microscopic precision on the terrain, your weight distributed perfectly to eliminate sound. You read the natural environment like a book - that dry leaf would crunch, that loose rock would shift, that patch of vegetation provides perfect concealment for the next few steps. You flow through the terrain like water finding its path, silent and inevitable through nature. Your breathing is controlled to near-silence, your movements timed to environmental sounds - rustling wind, bird calls, flowing water. You're not just moving stealthily through terrain - you're moving invisibly. You could pass within reach of an alert observer in the natural environment and they'd never know. This is terrain stealth perfected!",
+            "Like a wild predator, you drift through the natural environment with perfect understanding. Your terrain stalker mastery is intuitive and complete. You know instinctively where to step in nature, how to move through terrain, when to advance and when to freeze. Your footfalls find silent purchase in the environment, your silhouette blends with natural features, your timing is impeccable. You navigate the terrain with absolute confidence, knowing that your stealth skills are more than equal to the environment. You advance through nature with perfect silence, a ghost moving through the wilderness, completely undetected!"
+          ],
+          "success": [
+            "You move through natural terrain with careful stealth. Each step is consciously controlled through the environment, each movement deliberate. You're not perfectly silent through nature - true soundless movement through varied terrain is incredibly difficult - but you're quiet enough. Your discipline and technique are adequate to avoid detection as you advance through the environment.",
+            "You successfully employ terrain stealth techniques to move through nature undetected. Careful footwork through the environment, controlled breathing, smart use of natural concealment - the fundamentals of sneaking through terrain executed competently. You make it through the environment without being noticed."
+          ],
+          "failure": [
+            "Despite your best efforts at terrain stealth, you're detected in the environment. Maybe a footfall on dry ground, maybe disturbing vegetation, maybe you're just unlucky in nature. Whatever the specific cause in the terrain, the result is clear - someone notices you. Your stealth through the natural environment has failed and you've been spotted.",
+            "Your attempted stealthy movement through terrain breaks down. You're trying to move quietly through nature, consciously controlling each step in the environment, but something goes wrong. A sound in the terrain, a movement through vegetation, a silhouette against natural features - something gives you away in the environment. You're detected, your terrain stealth compromised."
+          ],
+          "criticalFailure": [
+            "Disaster. You're moving carefully through the terrain, every sense focused on remaining undetected in the natural environment, when catastrophe strikes. Maybe your foot comes down on something unexpected in nature - a branch that snaps with a sound like a gunshot, a loose stone that clatters loudly through the terrain. Maybe you misjudge a distance in the environment and crash through vegetation, sending birds scattering. Maybe you simply lose your footing on uneven terrain and stumble loudly through nature. Whatever the specific failure in the environment, the result is unmistakable and irreversible. Loud noise echoes through the terrain. Obvious movement disturbs the natural environment. You're not just detected - you're announced. Everyone in the vicinity knows exactly where you are in the terrain. Your stealth hasn't just failed, it's transformed into its opposite - a beacon highlighting your precise location in nature!",
+            "Your sneaking attempt through terrain becomes a spectacular failure. You're trying so hard to move quietly through nature that you're not paying enough attention to the environment. Your foot catches on something hidden in the terrain you didn't see, or you step on obstacles you didn't anticipate. The result is catastrophic - a loud crash through the environment, obvious stumbling through vegetation, clear evidence of your presence in nature. You might as well have announced yourself with a trumpet fanfare. Every observer, every potential threat now knows exactly where you are in the terrain. Your failed stealth through the natural environment has actually made you more noticeable than if you'd just walked normally!"
+          ]
+        }
+      }
     }
   }
 }
