@@ -1,0 +1,138 @@
+{
+  "action": "escape",
+  "actionName": "Escape",
+  "skill": "athletics",
+  "traits": ["attack"],
+  "description": "You attempt to escape from being grabbed, immobilized, or restrained",
+
+  "variants": {
+    "default": {
+      "displayName": "Escape",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You break free completely!",
+            "You escape their grip!",
+            "You wrench yourself free!",
+            "You slip out easily!",
+            "You break the hold!"
+          ],
+          "success": [
+            "You escape.",
+            "You break free.",
+            "You slip out.",
+            "You get free.",
+            "You escape the hold."
+          ],
+          "failure": [
+            "You can't get free.",
+            "You remain held.",
+            "You stay trapped.",
+            "You can't escape.",
+            "The grip holds."
+          ],
+          "criticalFailure": [
+            "You're held even tighter!",
+            "Your escape makes it worse!",
+            "You're more restrained!",
+            "You worsen your situation!",
+            "You become more trapped!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You wrench yourself free with explosive force and maneuver behind them!",
+            "You break their grip completely and position yourself advantageously!",
+            "You escape powerfully, turning the tables on your captor!",
+            "You tear yourself free and immediately gain the upper hand!",
+            "Your escape is so effective you reverse the situation!",
+            "You break free entirely and put yourself in a better position!",
+            "You slip their grasp and maneuver to advantage!",
+            "Your powerful escape leaves you in control!",
+            "You break the restraint and gain tactical superiority!",
+            "You escape completely and turn the situation in your favor!"
+          ],
+          "success": [
+            "You manage to break free from the restraint.",
+            "You successfully escape their grip.",
+            "You wrench yourself out of their hold.",
+            "You slip free from the restraint.",
+            "You successfully break the hold on you.",
+            "You manage to get free.",
+            "You escape from their grasp.",
+            "You break loose successfully.",
+            "You get yourself out of the restraint.",
+            "You successfully escape."
+          ],
+          "failure": [
+            "Despite your efforts, you can't break free.",
+            "You struggle against the restraint but remain held.",
+            "You can't escape - the grip is too strong.",
+            "Your attempts to break free fail.",
+            "You remain restrained despite your efforts.",
+            "You can't slip out of the hold.",
+            "The restraint holds firm against your escape attempts.",
+            "You fail to break free.",
+            "You remain trapped despite struggling.",
+            "Your escape attempt is unsuccessful."
+          ],
+          "criticalFailure": [
+            "Your struggles make your captor tighten their grip!",
+            "Your escape attempt only makes your situation worse!",
+            "You become even more securely restrained!",
+            "Your efforts to escape actually help them hold you better!",
+            "You make it worse - they adjust their grip!",
+            "Your failed escape allows them to restrain you more effectively!",
+            "You end up more trapped than before!",
+            "Your struggles result in being held even tighter!",
+            "Your escape attempt backfires - you're more restrained!",
+            "You make your situation significantly worse!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You explosively twist your body, using leverage and strength to break their grip completely. Not only do you escape, but you use your momentum to spin behind them, reversing the tactical situation. They're left grasping at empty air while you're now in an advantageous position!",
+            "With perfect technique and explosive power, you wrench yourself free from their hold. Your escape is so effective that you're able to maneuver yourself into a better position, turning the tables on whoever was restraining you!",
+            "You time your escape perfectly, exploiting a momentary weakness in their grip. With a powerful twist and surge of strength, you break completely free and immediately position yourself advantageously. The restraint is broken, and you're in control!"
+          ],
+          "success": [
+            "You struggle against the restraint, twisting and pulling until you feel the grip weaken. With a final surge of effort, you wrench yourself free. You're no longer restrained.",
+            "Through sheer determination and physical strength, you manage to break free from the hold. It takes effort and leaves you slightly off-balance, but you've escaped.",
+            "You work systematically to break the restraint, testing for weaknesses and applying force at the right points. Your technique pays off - you successfully escape."
+          ],
+          "failure": [
+            "You twist and pull, trying every technique you know to break free, but the restraint holds firm. Despite your best efforts, you remain trapped.",
+            "Your attempts to escape are met with resistance. The grip on you is too strong, or the restraints too secure. You can't break free.",
+            "You struggle against your captor, but they maintain their hold. Your efforts to escape prove futile - you remain restrained."
+          ],
+          "criticalFailure": [
+            "Your wild attempts to escape actually work against you. Your captor, feeling you struggle, adjusts their grip to be even more secure. Your movements have given them better purchase, and now you're held even more tightly than before!",
+            "In your desperate attempt to break free, you inadvertently give your captor the opportunity to improve their hold. They shift their grip in response to your struggles, and now you're even more thoroughly restrained than you were a moment ago!",
+            "Your escape attempt backfires spectacularly. Your thrashing actually helps whoever is restraining you to find a better, more secure grip. You've made your situation significantly worse!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "In one explosive burst of controlled violence, you shatter the restraint. Your body becomes a whirlwind of leverage and force, every muscle engaged in the singular purpose of breaking free. You feel the grip falter, find the weakness, and exploit it with ruthless efficiency. With a final powerful wrench, you tear yourself completely free. But you don't just escape - you capitalize. Your momentum carries you into a superior position, and suddenly you're the one with the advantage. The tables have turned completely. You're free, positioned perfectly, and ready to dominate!",
+            "Like a trapped predator exploding from confinement, you unleash every ounce of strength and technique in a devastating escape. You twist with perfect timing, apply force at exactly the right points, and the restraint simply cannot hold you. You break free with such explosive power that you actually maneuver yourself into an advantageous position. Your captor is left stunned, empty-handed, while you're free and dangerous!"
+          ],
+          "success": [
+            "You work the restraint systematically, testing for weaknesses, applying pressure where it's most effective. It's not instant or dramatic, but it works. You feel the grip start to give. With one final surge of effort, you wrench yourself free. You're breathing hard, but you're loose.",
+            "Through pure determination and solid technique, you manage to break free. It takes sustained effort and leaves you slightly worse for wear, but you've escaped the restraint. Mission accomplished."
+          ],
+          "failure": [
+            "You throw everything you have into trying to escape. You twist, you pull, you strain with maximum effort. But the restraint holds. Whether it's superior strength, better positioning, or just bad luck, you cannot break free. You remain trapped despite your best efforts.",
+            "Your attempts to escape are met with unyielding resistance. You try every technique you know, every trick you've learned, but nothing works. The grip on you is simply too strong, the restraint too secure. You remain held."
+          ],
+          "criticalFailure": [
+            "In your desperate bid for freedom, you make a critical error. Your thrashing and twisting, meant to help you escape, instead gives your captor information and opportunity. They feel your movements, predict your intentions, and adjust accordingly. Before you realize what's happening, their grip has shifted and improved. Where moments ago you might have had a chance to break free, now you're held even more securely. Your frantic escape attempt has actually made your situation significantly worse. The restraint is tighter, your position more compromised, your options more limited. You've played directly into their hands!",
+            "Your escape attempt goes catastrophically wrong. In your struggle to break free, you inadvertently create the perfect opening for your captor to improve their hold. They capitalize instantly, shifting their grip or adjusting the restraint. What was merely uncomfortable becomes nearly inescapable. Your wild movements have been turned against you. Not only have you failed to escape, you've actually helped trap yourself more thoroughly. It's a spectacular backfire that leaves you in a far worse position than when you started!"
+          ]
+        }
+      }
+    }
+  }
+}

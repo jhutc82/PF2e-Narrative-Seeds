@@ -1,0 +1,138 @@
+{
+  "action": "disarm",
+  "actionName": "Disarm",
+  "skill": "athletics",
+  "traits": ["attack"],
+  "description": "You attempt to knock an item out of a foe's grasp",
+
+  "variants": {
+    "default": {
+      "displayName": "Disarm",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You send their weapon flying!",
+            "You knock it from their grip!",
+            "Their weapon clatters away!",
+            "You disarm {targetName} completely!",
+            "It flies from their hand!"
+          ],
+          "success": [
+            "You knock it loose.",
+            "Their grip falters.",
+            "You disarm {targetName}.",
+            "It drops to the ground.",
+            "You wrench it free."
+          ],
+          "failure": [
+            "They keep their grip.",
+            "You can't dislodge it.",
+            "Their hold is too strong.",
+            "It stays in their hand.",
+            "Your attempt fails."
+          ],
+          "criticalFailure": [
+            "You overextend badly!",
+            "You drop your own weapon!",
+            "You lose your grip!",
+            "It backfires!",
+            "You stumble!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You strike {targetName}'s weapon with perfect precision, sending it flying from their grasp!",
+            "With a masterful twist, you wrench the weapon completely out of {targetName}'s hand!",
+            "Your disarm is flawless - {targetName}'s weapon goes clattering across the ground!",
+            "You knock the weapon from {targetName}'s grip so hard it flies through the air!",
+            "Your strike hits {targetName}'s wrist perfectly - their weapon flies free!",
+            "With expert timing, you send {targetName}'s weapon spinning away!",
+            "You disarm {targetName} completely - their weapon lands several feet away!",
+            "Your precise strike forces {targetName} to release their weapon entirely!",
+            "{targetName}'s weapon tumbles from their grasp and clatters out of reach!",
+            "You wrench the weapon from {targetName} with devastating effectiveness!"
+          ],
+          "success": [
+            "You manage to knock the weapon from {targetName}'s grasp - it falls at their feet.",
+            "Your disarm succeeds - {targetName}'s weapon drops to the ground.",
+            "You strike {targetName}'s weapon, forcing them to release it.",
+            "{targetName} loses their grip and their weapon falls.",
+            "You successfully disarm {targetName}, though the weapon lands nearby.",
+            "Your strike causes {targetName} to drop their weapon.",
+            "You force {targetName}'s weapon from their hand.",
+            "{targetName}'s weapon clatters to the ground from your strike.",
+            "You successfully knock the weapon loose from {targetName}.",
+            "Your disarm works - {targetName} is now unarmed."
+          ],
+          "failure": [
+            "You try to knock {targetName}'s weapon free, but their grip is too strong.",
+            "Your disarm attempt fails - {targetName} keeps hold of their weapon.",
+            "{targetName} maintains their grip despite your effort.",
+            "You can't dislodge {targetName}'s weapon from their hand.",
+            "Your strike against their weapon doesn't work.",
+            "{targetName}'s grip remains firm despite your attempt.",
+            "You fail to knock the weapon from {targetName}'s grasp.",
+            "{targetName} holds on to their weapon easily.",
+            "Your disarm attempt is unsuccessful.",
+            "You can't break {targetName}'s grip on their weapon."
+          ],
+          "criticalFailure": [
+            "Your wild disarm attempt leaves you completely off-balance!",
+            "You overextend and nearly drop your own weapon!",
+            "Your clumsy attempt at disarming makes you vulnerable!",
+            "{targetName} easily avoids your disarm and you stumble!",
+            "You lose your own grip while trying to disarm {targetName}!",
+            "Your failed disarm puts you in a terrible position!",
+            "You swing too hard and miss completely, spinning awkwardly!",
+            "Your disarm backfires - you're now at a disadvantage!",
+            "{targetName} counters your disarm attempt perfectly!",
+            "You fumble badly, nearly disarming yourself!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Your strike hits {targetName}'s weapon at the perfect angle with devastating force. The impact travels up their arm, numbing their hand, and their fingers involuntarily open. The weapon flies from their grasp, spinning through the air before clattering to the ground several feet away. {targetName} stares at their empty hand in shock!",
+            "With the precision of a master, you twist your weapon against theirs in a technique that's impossible to resist. Leverage and timing combine perfectly, and {targetName}'s weapon is wrenched from their grip with such force it goes sailing away. They're left completely disarmed!",
+            "You strike {targetName}'s wrist with perfect accuracy. The blow sends a shock of pain through their arm, and their weapon simply falls from nerveless fingers. It tumbles away, leaving them defenseless!"
+          ],
+          "success": [
+            "You strike at {targetName}'s weapon, hitting it solidly. The impact loosens their grip enough that it falls from their hand, landing at their feet. They're disarmed, though they could potentially retrieve it.",
+            "Your disarm catches {targetName} off-guard. Their weapon slips from their grasp and drops to the ground with a clatter. It's not far, but they're unarmed for now.",
+            "You manage to knock {targetName}'s weapon free with a well-placed strike. It falls nearby, within their reach but still out of hand."
+          ],
+          "failure": [
+            "You swing to disarm {targetName}, but they see it coming. They adjust their grip at the last moment, and your strike glances off harmlessly. Their weapon stays firmly in hand.",
+            "Despite your best effort to knock the weapon free, {targetName}'s grip is too strong. Your disarm attempt accomplishes nothing.",
+            "You try to wrench {targetName}'s weapon away, but they hold fast. Your technique is sound, but their strength prevails."
+          ],
+          "criticalFailure": [
+            "You commit everything to the disarm attempt, swinging wildly at {targetName}'s weapon. They simply pull it back, and your wild swing throws you completely off-balance. You stumble, nearly falling, your own weapon wavering in your grip!",
+            "Your overzealous disarm attempt is so poorly executed that you nearly disarm yourself! Your weapon twists in your hand, and you have to scramble to maintain your own grip while {targetName} watches with evident amusement!",
+            "You lunge for {targetName}'s weapon with terrible technique. Not only do you miss, but the awkward motion leaves you overextended and vulnerable, your own weapon held out of position!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "Like a duelist of old, you read {targetName}'s weapon placement perfectly. Your strike comes in with surgical precision, hitting their blade at the exact point where leverage is maximized. The physics are inescapable - their weapon is torn from their grasp with such force it becomes a projectile. It spins through the air in a graceful arc, catching light as it tumbles, before clattering to the ground meters away. {targetName} stares at their empty hand, stunned by the mastery they just witnessed. They are utterly, completely disarmed!",
+            "In one explosive motion combining strength, technique, and perfect timing, you execute the textbook-perfect disarm. Your weapon meets theirs with a resonant clang, the vibration traveling up {targetName}'s arm and numbing their fingers. Before they can even think to tighten their grip, their weapon is already flying free. It arcs away through space, end over end, before embedding point-first in the ground several feet distant. {targetName} is left staring at their trembling, empty hand!"
+          ],
+          "success": [
+            "Your disarm is efficient and effective. A quick strike to {targetName}'s weapon, a twist of leverage, and their grip breaks. The weapon falls from their hand, clattering to the ground at their feet. Not the most spectacular disarm, but perfectly functional.",
+            "You knock solidly against {targetName}'s weapon with yours. The impact is enough - their grip loosens and the weapon drops. It lands nearby, still within their reach, but for this moment they're unarmed."
+          ],
+          "failure": [
+            "You attempt a textbook disarm, striking at {targetName}'s weapon with proper technique and good timing. But {targetName}'s grip is iron-strong, their stance perfect. Your strike connects but accomplishes nothing - the weapon stays firmly in their hand, unmoved.",
+            "Despite flawless form and committed effort, you can't dislodge {targetName}'s weapon. They've anticipated the disarm, adjusted their grip, and your strike simply glances off. Frustrating, but sometimes superior preparation beats superior technique."
+          ],
+          "criticalFailure": [
+            "In your zealous attempt to disarm {targetName}, you swing with more enthusiasm than skill. Your strike aimed at their weapon is telegraphed so obviously that they simply move it aside. Your own weapon, finding no resistance where you expected it, continues its arc unchecked. The wild swing spins you around, throwing you completely off-balance. You stumble, your own weapon waving uselessly, and {targetName} has a perfect opening to strike. What should have left them disarmed instead leaves you defenseless!",
+            "Your attempted disarm is catastrophically executed. You lunge for {targetName}'s weapon with such poor technique that you nearly lose your own in the process! Your grip fumbles, your weapon twists awkwardly in your hand, and you have to waste precious moments securing your own hold while {targetName} stands there, weapon firmly in hand, clearly wondering what you were thinking!"
+          ]
+        }
+      }
+    }
+  }
+}

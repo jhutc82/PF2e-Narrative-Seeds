@@ -1,0 +1,138 @@
+{
+  "action": "long-jump",
+  "actionName": "Long Jump",
+  "skill": "athletics",
+  "traits": ["move"],
+  "description": "You Stride, then make a horizontal Leap",
+
+  "variants": {
+    "default": {
+      "displayName": "Long Jump",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You soar across!",
+            "You leap far!",
+            "You clear it easily!",
+            "You sail over!",
+            "You jump impressively far!"
+          ],
+          "success": [
+            "You make it across.",
+            "You clear the gap.",
+            "You jump far enough.",
+            "You make the leap.",
+            "You land safely across."
+          ],
+          "failure": [
+            "You don't jump far enough.",
+            "You fall short.",
+            "You can't clear the gap.",
+            "Your leap is too short.",
+            "You don't make it across."
+          ],
+          "criticalFailure": [
+            "You slip on takeoff!",
+            "You stumble!",
+            "You barely jump!",
+            "You trip!",
+            "You fall during the jump!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You launch yourself across the gap with tremendous force, sailing far beyond!",
+            "Your powerful leap carries you across easily with distance to spare!",
+            "You soar through the air, clearing the gap with impressive room!",
+            "Your explosive jump sends you flying across the distance!",
+            "You leap with such power you make it across effortlessly!",
+            "Your running jump carries you far across the gap!",
+            "You vault across the distance with athletic grace!",
+            "Your powerful legs propel you easily across!",
+            "You leap with explosive force, sailing across the gap!",
+            "You make the jump look easy, clearing it with meters to spare!"
+          ],
+          "success": [
+            "You successfully leap across the gap, landing on the other side.",
+            "Your jump carries you across the distance adequately.",
+            "You manage to clear the gap with your jump.",
+            "You make it across successfully, though just barely.",
+            "Your leap works - you land safely on the other side.",
+            "You successfully jump the distance needed.",
+            "You clear the gap with your running jump.",
+            "Your horizontal leap gets you across.",
+            "You make the distance, landing on the far side.",
+            "Your jump is sufficient to carry you across."
+          ],
+          "failure": [
+            "You leap with all your strength, but you don't clear the distance.",
+            "Your jump falls short - you don't make it across.",
+            "You can't generate enough forward momentum to clear the gap.",
+            "Your leap is too short to reach the other side.",
+            "You fail to jump far enough across.",
+            "You don't have the speed or strength to make the jump.",
+            "Your running leap comes up short of the far side.",
+            "You can't clear the horizontal distance needed.",
+            "Your jump fails to carry you across.",
+            "You fall short of reaching the other side."
+          ],
+          "criticalFailure": [
+            "You slip badly on your takeoff and barely get airborne!",
+            "Your approach is all wrong - you stumble instead of jumping!",
+            "You trip during your run-up and fail to launch properly!",
+            "Your timing is terrible - you barely leave the ground!",
+            "You lose your footing completely and nearly fall!",
+            "Your jump is a disaster - you barely make it off the ground!",
+            "You stumble during takeoff and ruin the jump!",
+            "Your approach falls apart and you fail to jump at all!",
+            "You slip on the takeoff and land poorly!",
+            "Your failed jump leaves you in a dangerous position!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You hit your approach at the perfect speed, every stride building momentum. At precisely the right spot, you plant your lead foot and explode forward. Your body extends fully as you fly through the air, covering an impressive horizontal distance. You sail across the gap with room to spare, landing smoothly in perfect balance on the far side. It's a magnificent display of running jump technique!",
+            "With explosive power and perfect form, you convert your running speed into horizontal flight. You soar across the distance, body stretched out for maximum extension, and clear the gap easily. Your landing is controlled and balanced - a textbook long jump!",
+            "Your running approach builds perfect momentum. Your takeoff is explosive and precisely timed. You arc through the air gracefully, easily clearing the required distance before landing with athletic poise. Excellent jumping!"
+          ],
+          "success": [
+            "You build up adequate speed and make a solid leap across the gap. It's not the longest jump ever made, but it's enough - you clear the distance and land safely on the other side.",
+            "Your running jump carries you across the gap successfully. Your technique is functional and your strength sufficient to make the distance.",
+            "You manage to jump far enough to reach the other side. Your landing is a bit rough, but you made it across."
+          ],
+          "failure": [
+            "Despite a good approach and committed effort, your jump just doesn't have enough distance. You leap as far as you can, but physics and your body's limitations mean you fall short of the far side.",
+            "You give it your all, but you simply can't generate enough horizontal momentum to clear the gap. Your jump comes up short, leaving you stranded.",
+            "Your running jump has decent technique but insufficient power. You don't reach the other side, falling short despite your best effort."
+          ],
+          "criticalFailure": [
+            "Your approach completely falls apart. Maybe you misjudge the distance or your speed, but when you plant for the jump, everything goes wrong. Your foot slips, your timing is off, and instead of a powerful leap you barely get off the ground. You land awkwardly, short of your target, and have to scramble to avoid injury!",
+            "Disaster strikes during your run-up. Your foot catches on something, or you mistime your plant, and your carefully planned jump becomes a stumbling mess. You barely become airborne, and when you land it's more of a controlled fall than an athletic landing!",
+            "The moment you plant to jump, you realize your approach was all wrong. But it's too late to abort. Your attempted leap is pathetic - you hardly leave the ground before gravity pulls you down. You land short, off-balance, looking foolish!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You build velocity like a sprinter, each stride eating up ground, building kinetic energy that will soon transform into flight. At the exact right moment - distance calculated perfectly by instinct and experience - you plant and drive. The transition from running to flying is instantaneous and beautiful. Your body extends horizontally, stretched for maximum distance, arms reaching for the far side. You soar across the gap with breathtaking distance, easily clearing the required span. Time seems to slow as you arc through space. Then your feet find solid ground on the far side and you touch down with cat-like grace, the difficult jump made to look trivial by your exceptional athletic ability!",
+            "Like an Olympian, you approach with perfect technique. Your strides are precisely measured, building to peak velocity at exactly the right moment. Your plant is explosive, converting horizontal speed into arcing flight. You sail across the distance with your body streamlined, covering impressive horizontal ground while airborne. The landing is equally perfect - balanced, controlled, powerful. This is world-class long jumping!"
+          ],
+          "success": [
+            "You execute a solid running jump. Decent approach, adequate takeoff, sufficient distance. You clear the gap without drama, landing safely on the other side. Competent, functional athletics.",
+            "Your jump works. You build enough speed, time your takeoff well enough, and generate enough distance to make it across. Not spectacular, but effective."
+          ],
+          "failure": [
+            "You do everything right - good approach, solid technique, maximum effort. But sometimes the gap is just too wide for your current abilities. You leap as far as your body can manage, and it's not quite enough. You fall short despite perfect execution.",
+            "Your jump has good form but insufficient power. You can see midway through your flight that you won't make it, and sure enough, you come up short of the far side. Sometimes skill isn't enough to overcome physical limitations."
+          ],
+          "criticalFailure": [
+            "Everything that can go wrong does go wrong. Your approach speed is inconsistent, throwing off your timing. When you reach the takeoff point, your plant foot finds an unexpected surface variation. Your carefully planned explosive leap becomes a stumbling lurch. You barely become airborne, and what little forward momentum you have bleeds away instantly. Gravity claims you far short of your target. You land awkwardly, off-balance, having to throw your hands out to avoid a full face-plant. It's a comprehensive jumping failure that would be funny if it weren't so embarrassing!",
+            "In the critical instant when everything needs to go right, it all goes catastrophically wrong. Your timing is off by a fraction of a second - enough to ruin everything. Your plant foot slips slightly at the moment of takeoff. Your drive leg doesn't engage properly. The result is a weak, pathetic excuse for a jump. You hardly get off the ground, and what little distance you do cover is laughable. You land badly, off-balance, far short of your goal. Any onlookers wince in sympathy at the spectacular failure!"
+          ]
+        }
+      }
+    }
+  }
+}

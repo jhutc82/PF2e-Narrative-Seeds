@@ -1,0 +1,138 @@
+{
+  "action": "high-jump",
+  "actionName": "High Jump",
+  "skill": "athletics",
+  "traits": ["move"],
+  "description": "You Stride, then attempt a vertical Leap",
+
+  "variants": {
+    "default": {
+      "displayName": "High Jump",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You soar high!",
+            "You leap impressively upward!",
+            "You jump much higher!",
+            "You vault upward!",
+            "You clear it easily!"
+          ],
+          "success": [
+            "You jump upward successfully.",
+            "You leap high enough.",
+            "You clear the height.",
+            "You vault up.",
+            "You make the jump."
+          ],
+          "failure": [
+            "You don't jump high enough.",
+            "You can't reach that height.",
+            "Your leap falls short.",
+            "You don't clear it.",
+            "Your jump is too low."
+          ],
+          "criticalFailure": [
+            "You stumble on takeoff!",
+            "You lose your footing!",
+            "You miss completely!",
+            "You fall awkwardly!",
+            "You trip!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You launch yourself skyward with explosive power, soaring high above!",
+            "Your legs drive with tremendous force - you vault upward impressively!",
+            "You leap with such strength that you clear the height easily!",
+            "Your powerful jump sends you soaring upward with room to spare!",
+            "You spring into the air with athletic grace, reaching impressive height!",
+            "Your vertical leap is outstanding - you fly upward powerfully!",
+            "You jump with explosive force, vaulting high into the air!",
+            "Your legs propel you skyward with remarkable power!",
+            "You launch upward with such strength you make it look easy!",
+            "Your jump is impressive - you clear the obstacle with height to spare!"
+          ],
+          "success": [
+            "You jump upward with enough force to clear the height.",
+            "Your vertical leap succeeds - you reach the required height.",
+            "You manage to vault high enough to clear the obstacle.",
+            "Your jump works - you make it over.",
+            "You successfully leap upward to the needed height.",
+            "You clear the vertical distance with your jump.",
+            "Your upward leap is successful.",
+            "You vault up to the required height.",
+            "You make the vertical jump successfully.",
+            "Your leap carries you high enough."
+          ],
+          "failure": [
+            "You try to jump, but you don't get enough height.",
+            "Your leap falls short of the required height.",
+            "You can't generate enough power to reach that high.",
+            "Your vertical jump isn't high enough.",
+            "You fail to clear the height needed.",
+            "Your jump is too weak to reach the obstacle.",
+            "You don't get high enough off the ground.",
+            "Your upward leap comes up short.",
+            "You can't jump that high.",
+            "Your vertical leap is insufficient."
+          ],
+          "criticalFailure": [
+            "You slip on your takeoff and barely get airborne!",
+            "Your jump is so poorly executed you nearly fall!",
+            "You stumble during the leap and land awkwardly!",
+            "Your legs give way on takeoff - you barely leave the ground!",
+            "You trip during your approach and fail completely!",
+            "Your takeoff is disastrous - you lose your balance!",
+            "You misjudge completely and nearly injure yourself!",
+            "Your jump fails catastrophically - you stumble!",
+            "You slip on the takeoff and land poorly!",
+            "Your attempt to jump ends in an embarrassing stumble!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You approach with perfect speed, plant your feet at exactly the right spot, and explode upward with tremendous power. Your legs drive like pistons, launching you high into the air. You soar upward, easily clearing the obstacle with height to spare, before landing in perfect balance on the other side. It's a textbook vertical leap!",
+            "With explosive athleticism, you convert your momentum into vertical lift. Your powerful legs propel you skyward, and for a moment you seem to hang in the air. You clear the height with impressive room to spare, demonstrating remarkable jumping ability!",
+            "Your technique is flawless - the approach, the plant, the drive upward all combine perfectly. You vault high into the air with the grace and power of a professional athlete, making the difficult jump look effortless!"
+          ],
+          "success": [
+            "You time your jump well, driving upward with solid force. Your leap carries you to the required height, though just barely. You clear the obstacle successfully.",
+            "You manage to generate enough upward power to make the jump. It's not spectacular, but it works - you reach the needed height.",
+            "Your vertical leap gets you over the obstacle. Your technique is functional and your strength sufficient for the task."
+          ],
+          "failure": [
+            "You give it your all, legs driving as hard as they can, but you simply don't get high enough. Your jump falls short of the required height, and you can't clear the obstacle.",
+            "Despite your best effort, your vertical leap is insufficient. You don't have the power or technique to reach that high. You come up short.",
+            "You jump as high as you can, but it's not enough. The obstacle remains just out of reach, your upward momentum petering out before you clear it."
+          ],
+          "criticalFailure": [
+            "Your approach is too fast or your plant is off - either way, your takeoff goes terribly wrong. Instead of launching upward, you stumble awkwardly, barely getting airborne before landing in an ungainly heap. It's more of a trip than a jump!",
+            "As you drive into your jump, your lead foot slips. Your carefully timed leap becomes a flail, and you barely leave the ground before stumbling back down, off-balance and embarrassed!",
+            "You miscalculate everything - speed, angle, timing. Your attempted jump is a disaster. You barely get six inches off the ground before your legs give way and you nearly fall flat!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "Like a coiled spring suddenly released, you explode upward with breathtaking power. Your legs drive into the ground with such force you can feel the impact reverb ate up your spine. Then you're airborne, rising swiftly, the obstacle shrinking beneath you. At the apex of your jump, you seem to hang suspended for a heartbeat, defying gravity. Then descent begins, controlled and graceful. You clear the obstacle with meters to spare, landing with cat-like balance. The jump is magnificent - a perfect demonstration of explosive athletic power!",
+            "Your approach is poetry in motion - each stride building momentum, muscles coiling like springs ready to unleash. At the perfect moment, you plant and drive. The force of your takeoff is explosive. You rocket skyward, body perfectly positioned for maximum vertical lift. Time seems to slow as you soar upward, easily clearing heights that would stop others. Your landing is equally perfect - balanced, controlled, effortless. This is how high jumping is meant to be done!"
+          ],
+          "success": [
+            "You execute a competent vertical leap. Good approach, solid plant, adequate drive upward. You reach the required height with no wasted motion, clearing the obstacle efficiently if not spectacularly.",
+            "Your jump works. You generate enough upward power to reach the necessary height, clear the obstacle, and land safely. Textbook functional athletics."
+          ],
+          "failure": [
+            "You give it everything you have. Your approach is good, your form decent, your effort maximum. But sometimes physics and biology impose hard limits. You jump as high as your body can manage, and it's simply not enough. You come up short despite your best effort.",
+            "Gravity defeats you this time. You launch upward with committed effort, but you can feel midway through the jump that you won't make it. Your upward momentum bleeds away too quickly, and you fall short of the height needed."
+          ],
+          "criticalFailure": [
+            "Everything goes catastrophically wrong from the very start. Your approach speed is off, throwing your timing. When you plant for the jump, your foot finds an unexpected divot or slick patch. The carefully choreographed sequence of movements that should result in a powerful vertical leap instead becomes a stumbling, flailing disaster. You barely leave the ground, legs tangling, balance lost. You come down awkwardly, having to scramble to avoid a complete fall. It's not just a failed jump - it's a comprehensive athletic failure!",
+            "In the critical moment when muscle, timing, and technique must align perfectly, they instead conspire against you. Your plant foot slips at the worst possible instant. Your drive leg buckles instead of driving. Your arms swing wrong. The result isn't a jump but a collapse. You hardly get airborne before gravity reasserts itself with cruel efficiency. You land badly, off-balance, having to catch yourself to avoid eating dirt. Any spectators would wince at the spectacular failure!"
+          ]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "action": "shove",
+  "actionName": "Shove",
+  "skill": "athletics",
+  "traits": ["attack"],
+  "description": "You push a foe away from you",
+
+  "variants": {
+    "default": {
+      "displayName": "Shove",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You send {targetName} flying!",
+            "You shove {targetName} backward hard!",
+            "{targetName} stumbles back far!",
+            "You push {targetName} away forcefully!",
+            "You drive {targetName} backward!"
+          ],
+          "success": [
+            "You push {targetName} back.",
+            "You shove {targetName} away.",
+            "{targetName} stumbles backward.",
+            "You drive {targetName} back.",
+            "You force {targetName} away."
+          ],
+          "failure": [
+            "{targetName} holds their ground.",
+            "You can't budge them.",
+            "{targetName} resists the push.",
+            "They don't move.",
+            "Your shove fails."
+          ],
+          "criticalFailure": [
+            "You overextend!",
+            "You lose your balance!",
+            "{targetName} counters!",
+            "You stumble forward!",
+            "It backfires!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You slam both hands into {targetName} with explosive force, sending them flying backward!",
+            "Your powerful shove drives {targetName} back several feet - they nearly fall!",
+            "With overwhelming strength, you push {targetName} far out of reach!",
+            "You barrel into {targetName}, sending them stumbling backward helplessly!",
+            "Your shove is devastating - {targetName} staggers back, arms windmilling!",
+            "You drive {targetName} backward with such force they can barely keep their feet!",
+            "{targetName} flies backward from the impact of your powerful shove!",
+            "You send {targetName} reeling away from you with brutal force!",
+            "Your push sends {targetName} stumbling back, completely off-balance!",
+            "With explosive power, you drive {targetName} far backward!"
+          ],
+          "success": [
+            "You successfully push {targetName} backward, creating distance.",
+            "Your shove forces {targetName} back a few feet.",
+            "You manage to drive {targetName} away from you.",
+            "{targetName} stumbles backward from your push.",
+            "Your shove works - {targetName} is pushed back.",
+            "You force {targetName} to give ground.",
+            "{targetName} retreats a step from your shove.",
+            "You successfully create space between you and {targetName}.",
+            "Your push moves {targetName} backward.",
+            "You manage to shove {targetName} away."
+          ],
+          "failure": [
+            "You push against {targetName}, but they hold their ground firmly.",
+            "Your shove doesn't budge {targetName} at all.",
+            "{targetName} plants their feet and resists your push completely.",
+            "You can't move {targetName} - they're too solid.",
+            "Your attempt to shove {targetName} fails to move them.",
+            "{targetName} stands firm against your push.",
+            "You push, but {targetName} doesn't give an inch.",
+            "Your shove lacks the force to move {targetName}.",
+            "{targetName} easily withstands your push.",
+            "You can't force {targetName} backward."
+          ],
+          "criticalFailure": [
+            "You overcommit to the shove and stumble forward awkwardly!",
+            "Your poorly executed push leaves you off-balance!",
+            "{targetName} sidesteps and you nearly fall!",
+            "You miss completely and lurch forward!",
+            "Your shove backfires - you're the one who's off-balance!",
+            "{targetName} braces perfectly and you stumble past them!",
+            "You push too hard and lose your footing!",
+            "Your failed shove leaves you vulnerable!",
+            "{targetName} easily avoids you and you overextend!",
+            "You stumble forward when {targetName} doesn't budge!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You plant your feet and drive forward with explosive power, slamming both palms into {targetName}'s chest. The impact is devastating - they fly backward several feet, arms windmilling desperately as they struggle to stay upright. They barely manage to keep from falling, but they're now far out of position!",
+            "With perfect technique and overwhelming strength, you barrel into {targetName}. Your shoulder hits them square in the torso and they're launched backward like they were hit by a charging bull. They stumble back multiple steps, totally disrupted!",
+            "You execute a powerful two-handed shove that catches {targetName} completely unprepared. The force sends them reeling backward, feet scrambling to keep up with their momentum. By the time they regain balance, you've created significant distance!"
+          ],
+          "success": [
+            "You push hard against {targetName}, managing to force them back a few feet. They resist, but your strength prevails and they give ground reluctantly.",
+            "Your shove connects solidly with {targetName}. They stumble backward a step or two, enough to create the space you needed.",
+            "You successfully drive {targetName} backward with a firm push. It's not spectacular, but it works - they're now at a distance."
+          ],
+          "failure": [
+            "You push against {targetName} with all your strength, but they've planted their feet well. Despite your effort, they don't budge an inch.",
+            "Your shove meets solid resistance. {targetName} braces against your push and holds their ground completely.",
+            "You try to force {targetName} backward, but they're simply too solid. Your push accomplishes nothing."
+          ],
+          "criticalFailure": [
+            "You commit fully to shoving {targetName}, but they read it perfectly and sidestep. Your momentum carries you forward, stumbling, nearly falling. You end up more off-balance than they are!",
+            "Your overeager shove is poorly timed and executed. {targetName} braces at just the right moment, and when they don't move, you stumble forward awkwardly, completely exposed!",
+            "You push with too much force and not enough control. {targetName} simply isn't where you thought they'd be, and you lurch forward, arms extended, barely keeping your feet!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You explode forward with devastating power, every muscle in your body contributing to the shove. Your hands slam into {targetName} like battering rams, and the laws of physics take over. They're not just pushed - they're launched. Their feet leave the ground for a split second as they fly backward, then they crash down several feet away, stumbling desperately to stay upright. The sheer force of your push has completely disrupted their position and balance. They're reeling, disoriented, utterly dominated by your raw power!",
+            "With the precision of a master wrestler and the force of a charging bull, you drive into {targetName}. It's not just a push - it's controlled violence. Your shoulder connects with perfect placement, your legs drive with explosive power, and {targetName} has no choice but to yield. They fly backward, arms flailing, feet scrambling for purchase on ground that seems to slip away beneath them. By the time they regain any semblance of control, you've created a gulf between you!"
+          ],
+          "success": [
+            "You plant your feet and shove hard against {targetName}. They resist, digging in, but your strength is greater. Step by reluctant step, you drive them backward until you've created the distance you need. It's not pretty, but it's effective.",
+            "Your push connects solidly with {targetName}. The force isn't overwhelming, but it's enough. They stumble back a few feet, off-balance for a moment, giving you the tactical advantage."
+          ],
+          "failure": [
+            "You push against {targetName} with determined strength, but they've anticipated it. Their stance is perfect, their center of gravity low and stable. Despite your best effort, they don't move. Your hands press against them, muscles straining, but you might as well be pushing a wall.",
+            "Your shove meets immovable resistance. {targetName} has planted themselves so solidly that your push accomplishes nothing except demonstrating their superior positioning. Frustrating."
+          ],
+          "criticalFailure": [
+            "In your aggressive attempt to shove {targetName}, you telegraph your intention so obviously that they're ready for it. As you commit to the push, they simply step aside with casual ease. Your momentum, with nothing to stop it, carries you stumbling forward. You have to scramble to regain your footing, and in that moment of vulnerability, you're completely exposed to counterattack!",
+            "You throw yourself into the shove with reckless abandon, all power and no technique. {targetName} reads it like a book. They brace at the perfect moment, and when your push connects with their immovable stance, it's you who stumbles. The impact of hitting their solid resistance throws you off-balance. You reel backward, arms pinwheeling, looking foolish while they stand firm and untroubled!"
+          ]
+        }
+      }
+    }
+  }
+}
