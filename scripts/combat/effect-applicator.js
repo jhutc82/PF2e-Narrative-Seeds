@@ -88,15 +88,13 @@ export class EffectApplicator {
         const { damageType, value, dc } = effect;
 
         try {
-            // Use PF2e's persistent damage condition
-            const condition = await game.pf2e.ConditionManager.addConditionToActor('persistent-damage', actor);
+            // Use PF2e's persistent damage condition (updated API)
+            await actor.increaseCondition('persistent-damage');
 
-            if (condition) {
-                // Update with specific damage values
-                // Note: PF2e handles persistent damage through its condition system
-                ui.notifications.info(`Applied ${name} to ${actor.name}`);
-                return true;
-            }
+            // Note: PF2e handles persistent damage through its condition system
+            // The damage type and value can be configured through the condition's dialog
+            ui.notifications.info(`Applied ${name} to ${actor.name}`);
+            return true;
         } catch (error) {
             console.error('Failed to apply persistent damage:', error);
         }
@@ -271,7 +269,7 @@ export class EffectApplicator {
                         // Apply PF2e condition if it's a standard one
                         if (['blinded', 'deafened'].includes(condition)) {
                             try {
-                                await game.pf2e.ConditionManager.addConditionToActor(condition, actor);
+                                await actor.increaseCondition(condition);
                             } catch (error) {
                                 console.warn(`Could not apply condition ${condition}:`, error);
                             }
