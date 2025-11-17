@@ -146,9 +146,60 @@ export class TemplateEngine {
     if (!template) return "";
     if (!components || typeof components !== 'object') return template;
 
-    return template.replace(/\$\{(\w+)\}/g, (match, key) => {
+    // First pass: replace all variables
+    let result = template.replace(/\$\{(\w+)\}/g, (match, key) => {
       return components[key] !== undefined && components[key] !== null ? components[key] : '';
     });
+
+    // Second pass: fix weaponType when it needs "the"
+    result = this.addArticleToWeaponType(result, components.weaponType);
+
+    return result;
+  }
+
+  /**
+   * Add "the" before weapon types when they start a sentence without a possessive
+   * @param {string} text - Interpolated text
+   * @param {string} weaponType - The weapon type that was interpolated
+   * @returns {string} Text with "the" added where needed
+   */
+  static addArticleToWeaponType(text, weaponType) {
+    if (!text || !weaponType) return text;
+
+    // Check if weaponType already has a possessive (your, my, their, his, her, etc.)
+    if (weaponType.match(/^(your|my|their|his|her|its|our)\s/i)) {
+      return text; // Already has possessive, no article needed
+    }
+
+    // Check if weaponType includes a name's possessive (e.g., "Valeros's longsword")
+    if (weaponType.match(/\w+'s\s/i)) {
+      return text; // Has named possessive, no article needed
+    }
+
+    let result = text;
+
+    // Pattern 1: At the very start of the text
+    const startPattern = new RegExp(`^(${this.escapeRegex(weaponType)})\\b`, 'i');
+    result = result.replace(startPattern, (match, weapon) => {
+      return 'The ' + weapon;
+    });
+
+    // Pattern 2: After sentence-ending punctuation (. ! ?) and space
+    const sentencePattern = new RegExp(`([.!?]\\s+)(${this.escapeRegex(weaponType)})\\b`, 'gi');
+    result = result.replace(sentencePattern, (match, punctuation, weapon) => {
+      return punctuation + 'The ' + weapon;
+    });
+
+    return result;
+  }
+
+  /**
+   * Escape special regex characters in a string
+   * @param {string} str - String to escape
+   * @returns {string} Escaped string
+   */
+  static escapeRegex(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   }
 
   /**
