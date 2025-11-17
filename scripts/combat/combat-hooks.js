@@ -295,23 +295,29 @@ export class CombatHooks {
       });
     }
 
-    // Add listener for apply complication button
-    const applyComplicationButton = html.find('.apply-complication-button');
-    if (applyComplicationButton.length > 0) {
-      applyComplicationButton.on('click', async (event) => {
-        event.preventDefault();
-        await this.applyComplication(message, event.currentTarget);
-      });
-    }
+    // Handle button clicks with data-action attribute
+    html.find('[data-action]').on('click', async (event) => {
+      event.preventDefault();
+      const button = event.currentTarget;
+      const action = button.dataset.action;
 
-    // Add listener for apply dismemberment button
-    const applyDismembermentButton = html.find('.apply-dismemberment-button');
-    if (applyDismembermentButton.length > 0) {
-      applyDismembermentButton.on('click', async (event) => {
-        event.preventDefault();
-        await this.applyDismemberment(message, event.currentTarget);
-      });
-    }
+      switch (action) {
+        case 'apply-complication':
+          await this.applyComplication(message, button);
+          break;
+        case 'apply-dismemberment':
+          await this.applyDismemberment(message, button);
+          break;
+        case 'toggle-details':
+          const details = button.closest('.pf2e-narrative-seed').querySelector('.narrative-details');
+          if (details) {
+            const isHidden = details.style.display === 'none';
+            details.style.display = isHidden ? 'block' : 'none';
+            button.textContent = isHidden ? '▲' : '▼';
+          }
+          break;
+      }
+    });
   }
 
   /**
@@ -427,25 +433,15 @@ export class CombatHooks {
    */
   static async applyComplication(message, button) {
     try {
-      // Get complication data from button
-      const encodedData = button.dataset.complication;
-      const outcome = button.dataset.outcome;
-
-      if (!encodedData) {
-        ui.notifications.warn("No complication data found");
+      // Get complication data from message flags (no encoding needed)
+      const seed = message.flags?.["pf2e-narrative-seeds"]?.seed;
+      if (!seed || !seed.complication) {
+        ui.notifications.warn("No complication data found in message");
         return;
       }
 
-      // Decode and parse complication data (Base64 encoded for security)
-      let complication;
-      try {
-        const complicationData = decodeURIComponent(atob(encodedData));
-        complication = JSON.parse(complicationData);
-      } catch (e) {
-        console.error("Failed to parse complication data:", e);
-        ui.notifications.error("Failed to parse complication data");
-        return;
-      }
+      const complication = seed.complication;
+      const outcome = seed.outcome;
 
       // Get stored attack data to determine target
       const storedData = message.flags?.["pf2e-narrative-seeds"]?.attackData;
@@ -497,23 +493,14 @@ export class CombatHooks {
    */
   static async applyDismemberment(message, button) {
     try {
-      // Get dismemberment data from button
-      const dismembermentData = button.dataset.dismemberment;
-
-      if (!dismembermentData) {
-        ui.notifications.warn("No dismemberment data found");
+      // Get dismemberment data from message flags
+      const seed = message.flags?.["pf2e-narrative-seeds"]?.seed;
+      if (!seed || !seed.dismemberment) {
+        ui.notifications.warn("No dismemberment data found in message");
         return;
       }
 
-      // Parse dismemberment data
-      let dismemberment;
-      try {
-        dismemberment = JSON.parse(dismembermentData);
-      } catch (e) {
-        console.error("Failed to parse dismemberment data:", e);
-        ui.notifications.error("Failed to parse dismemberment data");
-        return;
-      }
+      const dismemberment = seed.dismemberment;
 
       // Get stored attack data to determine target
       const storedData = message.flags?.["pf2e-narrative-seeds"]?.attackData;
