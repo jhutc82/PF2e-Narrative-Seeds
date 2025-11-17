@@ -133,6 +133,136 @@
           ]
         }
       }
+    },
+
+    "combat-climber": {
+      "displayName": "Climb (Combat Climber)",
+      "feats": ["combat-climber"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You climb while staying combat-ready!",
+            "You ascend defensively!",
+            "You scale it while watching for threats!",
+            "You climb with tactical awareness!",
+            "You move up, ready for combat!"
+          ],
+          "success": [
+            "You climb while staying alert.",
+            "You ascend carefully, watching below.",
+            "You scale it defensively.",
+            "You climb without dropping your guard.",
+            "You move up, ready to fight."
+          ],
+          "failure": [
+            "You can't find safe handholds.",
+            "You're too exposed to climb safely.",
+            "You can't maintain combat awareness.",
+            "The climb is too risky.",
+            "You stay put, watching threats."
+          ],
+          "criticalFailure": [
+            "You slip while distracted!",
+            "A threat breaks your focus!",
+            "You lose your grip!",
+            "You're too exposed!",
+            "You fall!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You scale the surface rapidly while maintaining perfect combat awareness!",
+            "You climb with impressive speed, eyes scanning for threats the entire time!",
+            "You ascend defensively, keeping one hand free and ready!",
+            "You move up the wall like a trained soldier - fast, alert, and ready!",
+            "You climb expertly while staying completely aware of the battle around you!",
+            "Your combat training shows - you scale the surface without dropping your guard!",
+            "You move upward with tactical precision, ready to fight at any moment!",
+            "You climb rapidly while maintaining defensive positioning!",
+            "You ascend with warrior-like efficiency, alert to every threat!",
+            "You scale the wall with one eye on your enemies - masterful!"
+          ],
+          "success": [
+            "You carefully climb while keeping watch for threats below.",
+            "You ascend methodically, maintaining your combat readiness.",
+            "You scale the surface while staying alert to danger.",
+            "You climb with defensive caution, making steady progress.",
+            "You work your way upward without letting your guard down.",
+            "You manage to climb while keeping threats in view.",
+            "You ascend carefully, balancing climbing with vigilance.",
+            "You move upward while maintaining tactical awareness.",
+            "You climb successfully without losing combat focus.",
+            "You make progress while staying defensively positioned."
+          ],
+          "failure": [
+            "You can't find handholds that let you stay combat-ready.",
+            "The climb requires too much focus to maintain vigilance.",
+            "You're too exposed to continue climbing safely.",
+            "You can't ascend without becoming vulnerable.",
+            "The tactical situation makes climbing too risky.",
+            "You stay put rather than expose yourself.",
+            "You can't climb while maintaining defensive awareness.",
+            "The surface doesn't offer safe combat positions.",
+            "You hold position, unable to climb safely.",
+            "Maintaining vigilance prevents you from climbing."
+          ],
+          "criticalFailure": [
+            "A nearby threat distracts you and you lose your grip!",
+            "You try to dodge while climbing and slip badly!",
+            "Your combat awareness breaks your concentration - you fall!",
+            "You reach for a weapon while climbing and lose balance!",
+            "You're too focused on threats below and your handhold fails!",
+            "A sudden movement below breaks your focus - you slip!",
+            "You overextend trying to maintain tactical position!",
+            "Your defensive positioning costs you your grip!",
+            "You slip while trying to keep combat-ready!",
+            "Dividing focus between combat and climbing fails - you fall!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Your combat training serves you perfectly. You scale the surface with rapid efficiency, but unlike a normal climber, you never lose awareness of the battlefield. Your head constantly swivels, tracking threats. You keep one hand free when possible, ready to grab a weapon. Your body positioning is defensive even while climbing. You move upward like a soldier under fire - fast, alert, and ready to fight at a moment's notice!",
+            "You demonstrate the rare skill of climbing in combat. Your ascent is smooth and practiced, but you're not just climbing - you're maintaining tactical control. You pick positions with cover, you watch your enemies, you stay ready. This isn't recreation climbing - this is military-trained vertical movement!",
+            "With the practiced skill of someone who's climbed under pressure before, you work your way upward. Every handhold is chosen not just for security but for tactical positioning. You can see the entire battlefield from here, and you're ready to act at any moment while still ascending with impressive speed!"
+          ],
+          "success": [
+            "You carefully balance the dual demands of climbing and combat awareness. It's challenging - climbing normally requires full focus. But you manage, making steady progress upward while keeping peripheral vision on the threats below. It's slower than a pure climb, but much safer given the circumstances.",
+            "Your training helps you maintain vigilance even while ascending. You climb with one eye on your handholds and one eye on your enemies. It's demanding work, both mentally and physically, but you're managing it successfully.",
+            "You work your way upward with defensive caution. Each movement is calculated not just for climbing efficiency but for how exposed it leaves you. You're making progress while minimizing risk."
+          ],
+          "failure": [
+            "You search for handholds that would let you maintain combat awareness, but the surface doesn't cooperate. Every good climbing position leaves you vulnerable. Every tactically sound position lacks handholds. You can't resolve the conflict - you can't climb safely under these conditions.",
+            "The demands of climbing and staying combat-ready prove incompatible on this surface. You need both hands for the climb, but that leaves you defenseless. You hold position rather than risk exposure.",
+            "You try to balance climbing with tactical awareness, but it's not working. You're either focused on the climb and vulnerable, or focused on threats and unable to progress. You stay where you are."
+          ],
+          "criticalFailure": [
+            "You're making good progress when movement below catches your eye. It's a threat - your combat instincts scream at you to react. For just a moment, you shift your focus and weight. That's all it takes. Your handhold, which needed your full attention to maintain, fails. Your foot slips. Suddenly you're falling, your combat awareness ironically causing the very vulnerability you tried to avoid!",
+            "You try to maintain defensive positioning while climbing, but it puts you at an awkward angle. You reach for a handhold while keeping your eyes on a threat below. Your hand misses - just by inches, but that's enough. Your weight shifts wrong, your other grip fails, and you're falling!",
+            "The impossible task of staying combat-ready while climbing defeats you. You're watching threats, calculating positioning, and trying to climb all at once. Something has to give. What gives is your grip. You slip and fall, learning the hard way that even training has limits!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is what training for combat climbing looks like in action. You move up the surface with fluid efficiency, but your mind is split-second processing the entire tactical situation. Your eyes constantly scan the battlefield below. When you grip a hold, you're already planning your next defensive position. When you move upward, you're calculating angles of attack and cover. You're not just climbing - you're executing a tactical maneuver. Your ascent is rapid and controlled, and at any moment you could release a hand to grab a weapon or shift position to avoid an attack. You climb like a soldier in hostile territory - because that's exactly what you are. The combination of speed, awareness, and readiness is masterful!",
+            "You scale the vertical surface like an apex predator that's equally comfortable on walls as on ground. Your climbing is phenomenal - fast, controlled, efficient. But what sets you apart is the way you never, not for one second, stop being a combatant. Your peripheral vision tracks every movement below. Your body positioning is defensively sound even while ascending. You're ready to act, to fight, to defend at any instant. You reach your desired height having conquered both the climb and maintained complete tactical control. Impressive!"
+          ],
+          "success": [
+            "You grind your way upward with determined focus, splitting your concentration between the physical demands of climbing and the tactical necessity of staying alert. It's exhausting work - both mentally and physically. But your training carries you through. You make steady progress while maintaining enough awareness to not be caught completely off-guard.",
+            "You climb with deliberate caution, each movement calculated for both security and tactical positioning. It's slow, careful work, balancing the competing demands. But you're succeeding - you're getting higher while staying combat-ready enough to react if needed."
+          ],
+          "failure": [
+            "You analyze the surface and the tactical situation and come to an unavoidable conclusion: you can't safely do both. The good handholds leave you exposed to attack. The defensible positions lack climbing options. You're skilled, but you're not a miracle worker. You maintain your current position rather than risk a climb that would leave you vulnerable.",
+            "Despite your combat climbing training, this particular surface defeats you. The combination of difficult climbing and active threats is simply too much. You stay where you are, maintaining defensive awareness rather than attempting a climb that would require your complete focus and leave you exposed."
+          ],
+          "criticalFailure": [
+            "You're executing the climb well, staying aware, making progress. Then chaos. A threat below moves aggressively. Your combat instincts fire. For just a fraction of a second, your focus shifts from your handholds to the threat. That's all it takes to break the delicate balance. Your hand loses its grip. Your foot slips. Suddenly the careful control you'd maintained shatters. You're falling, arms reaching desperately for holds that aren't there. Your combat awareness, ironically, has caused the exact vulnerability you worked so hard to avoid!",
+            "The dual demands of combat awareness and climbing finally exceed your capacity. You're tracking threats, finding handholds, maintaining positioning - it's too much. Something breaks in the juggling act. What breaks is your grip. One hand slips, then the other. Your foot loses purchase. In one terrible moment, you transition from controlled climb to freefall. You're not falling because you can't climb - you're falling because you were trying to do two impossible things at once!"
+          ]
+        }
+      }
     }
   }
 }

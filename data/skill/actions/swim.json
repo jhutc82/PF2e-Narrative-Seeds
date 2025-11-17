@@ -133,6 +133,136 @@
           ]
         }
       }
+    },
+
+    "quick-swim": {
+      "displayName": "Swim (Quick Swim)",
+      "feats": ["quick-swim"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You race through the water!",
+            "You swim at incredible speed!",
+            "You torpedo forward!",
+            "You streak through the waves!",
+            "You swim like a fish!"
+          ],
+          "success": [
+            "You swim at full speed.",
+            "You move swiftly through the water.",
+            "You race forward.",
+            "You swim rapidly.",
+            "You speed through the waves."
+          ],
+          "failure": [
+            "You can't maintain speed.",
+            "The pace defeats you.",
+            "You slow down.",
+            "You can't swim that fast.",
+            "Speed fails you."
+          ],
+          "criticalFailure": [
+            "You overextend and sink!",
+            "Speed overwhelms you!",
+            "You go under!",
+            "Too fast - you fail!",
+            "You drown trying!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You power through the water at amazing speed, swimming at your full pace!",
+            "Your strokes are rapid and powerful - you race forward like a torpedo!",
+            "You swim with incredible velocity, cutting through the water at top speed!",
+            "You blast through the waves at maximum speed - it's breathtaking!",
+            "Your athletic swimming carries you forward at an incredible pace!",
+            "You streak through the water like a competition swimmer!",
+            "Your rapid strokes propel you at astonishing speed!",
+            "You swim at full velocity, barely slowed by the water!",
+            "Your speed through the water is phenomenal!",
+            "You race forward with the speed of a predatory fish!"
+          ],
+          "success": [
+            "You swim at full speed, making rapid progress through the water.",
+            "Your powerful strokes carry you forward swiftly.",
+            "You successfully maintain a fast swimming pace.",
+            "You race through the water at your normal land speed.",
+            "You swim rapidly, covering distance quickly.",
+            "Your quick swimming technique works - you're moving fast.",
+            "You power through the water at impressive speed.",
+            "You maintain high velocity as you swim.",
+            "Your athletic swimming keeps you moving at full pace.",
+            "You successfully swim at maximum speed."
+          ],
+          "failure": [
+            "You try to swim at full speed but can't maintain the pace.",
+            "Your rapid stroke rate overwhelms your technique - you slow down.",
+            "You can't keep up the speed necessary for quick swimming.",
+            "The fast pace defeats you - you have to slow to normal speed.",
+            "Your quick swim attempt fails - you revert to regular pace.",
+            "You can't maintain the velocity - you slow down.",
+            "Speed swimming proves too difficult - you slow to normal.",
+            "Your attempts at rapid swimming fail.",
+            "You can't keep up the quick swimming pace.",
+            "The speed is beyond you - you slow down."
+          ],
+          "criticalFailure": [
+            "You push too hard and your technique collapses - you start sinking!",
+            "Your aggressive pace exhausts you instantly - you go under!",
+            "You overextend trying to swim fast and begin to drown!",
+            "Your speed swimming fails catastrophically - you sink!",
+            "Pushing for speed destroys your form - water closes over you!",
+            "You exhaust yourself trying for speed and start drowning!",
+            "Your rapid strokes fail and you slip beneath the surface!",
+            "Speed overwhelms technique - you go under!",
+            "You burn out instantly and begin to sink!",
+            "Too much speed, not enough control - you're drowning!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Your body becomes a perfect swimming machine. Your arms pull with explosive power, driving you forward with each stroke. Your legs kick in rapid rhythm, adding thrust to your already impressive speed. Your breathing is perfectly controlled despite the high tempo. You're not just swimming - you're racing through the water at full land speed, barely slowed by the aquatic medium. Every muscle works in perfect harmony to generate maximum velocity!",
+            "You attack the water with athletic ferocity. Your strokes are rapid fire, one after another with barely a pause. Each pull generates tremendous forward momentum. You streamline your body to cut through the water with minimal resistance. The result is spectacular - you swim at the kind of speed normally reserved for creatures born to the water!",
+            "With phenomenal technique and raw athletic power, you transform swimming into something approaching flight. Your arms windmill with controlled fury, your legs drive like pistons, and you rocket through the water at breathtaking velocity!"
+          ],
+          "success": [
+            "You employ advanced swimming technique to maintain high speed through the water. Your strokes are rapid but controlled, generating enough thrust to push you forward at close to your normal running pace. It's demanding work - swimming this fast requires both skill and stamina - but you're managing it successfully.",
+            "You power through the water with determined speed. Your athletic training allows you to maintain a fast swimming pace that would exhaust most swimmers. You're covering distance rapidly, your quick stroke rate carrying you forward at impressive velocity.",
+            "Your quick swim technique is working. Through a combination of powerful strokes and efficient form, you're swimming at full speed. It's tiring, but you're making rapid progress."
+          ],
+          "failure": [
+            "You attempt to employ quick swim technique, but the pace proves too demanding. Your strokes start out rapid and powerful, but within moments your form begins to break down. You can't maintain the necessary speed and have to slow to a more sustainable pace. The water has defeated your attempt at high velocity.",
+            "Despite your best efforts, you can't keep up the rapid stroke rate necessary for quick swimming. The combination of speed and technique proves beyond your current capacity. You slow down to normal swimming speed, frustrated but still moving.",
+            "You try to swim fast, but your body won't cooperate. Either your stamina isn't sufficient or your technique needs work, but the result is the same - you can't maintain quick swim speed. You revert to regular swimming pace."
+          ],
+          "criticalFailure": [
+            "You commit to swimming at maximum speed, strokes coming rapid-fire, legs pumping furiously. For a few strokes it works. Then everything collapses. Your arms suddenly feel like lead. Your breathing rhythm breaks. Your legs cramp or stop responding. Before you realize what's happening, your head goes under water. You've pushed too hard, burned out too fast, and now you're sinking!",
+            "Your aggressive pursuit of speed proves catastrophic. You're swimming hard, maybe too hard. Your technique degrades under the strain. A stroke mistimes. You breathe when you should be exhaling. Water floods your mouth. Panic spikes. Suddenly you're not swimming anymore - you're floundering, sinking, drowning. Speed has betrayed you!",
+            "You overestimate your quick swim capability and push beyond your limits. Your body simply can't maintain the pace. Your arms give out mid-stroke. Your legs stop kicking. The transition from controlled swim to uncontrolled sink happens in an instant. Water closes over your head as you plunge downward!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "You explode through the water like a human torpedo. This isn't normal swimming - this is aquatic athleticism at its absolute peak. Your arms pull with such power and speed that they're almost a blur. Each stroke generates tremendous forward thrust. Your legs kick with machine-like precision, adding their driving force to your momentum. Your body cuts through the water with hydrodynamic efficiency that would make an engineer weep. You're barely slowed by the aquatic medium. Water resistance? Negligible. You maintain a speed through the water that rivals your speed on land. People don't swim this fast. But you're not people - you're a trained athlete exploiting every ounce of technique and power to achieve what seems impossible. You race through the water leaving a wake like a speedboat!",
+            "This is what a master swimmer looks like when they stop holding back. You attack the water with explosive power, your entire body engaged in generating maximum velocity. Shoulders roll with perfect timing. Arms pull with devastating force. Legs drive like turbines. Your breathing is precisely controlled even at this breakneck pace. You slice through the waves with such speed that you're barely swimming - you're hydroplaning, using the water's surface to your advantage. The distance evaporates beneath your athletic prowess. You swim at the kind of speed that makes observers question whether you're fully human!"
+          ],
+          "success": [
+            "You employ advanced swimming technique to maintain impressive speed through the water. It's demanding work - every muscle engaged, technique pushed to its limits. But you're doing it. You're swimming fast enough that the water barely slows you down compared to land movement. It's not effortless, but it's effective.",
+            "You power through the water with determined velocity. Your stroke rate is high, your technique solid, and the combination generates significant speed. You're covering distance rapidly, swimming at a pace most people couldn't hope to match."
+          ],
+          "failure": [
+            "You launch into quick swim mode with confidence, arms pulling rapidly, legs driving hard. For a few strokes it works beautifully. Then reality intervenes. The pace is simply too demanding. Your form begins to deteriorate. Your breathing rhythm breaks. Your stroke rate drops involuntarily. Within moments you realize you can't maintain this speed. You have to throttle back to normal swimming pace, the quick swim attempt defeated by your limitations.",
+            "Despite technical knowledge of quick swimming and genuine athletic effort, you simply can't maintain the velocity. The water seems to actively resist your attempts at speed. Your rapid strokes generate less thrust than they should. Your streamlined form somehow isn't enough. You slow down, forced to accept a more sustainable pace."
+          ],
+          "criticalFailure": [
+            "You commit to maximum speed with absolute confidence. Your arms pull with explosive force. Your legs kick with furious rhythm. You surge forward at impressive velocity. Then, catastrophically, your body hits its limit. It happens without warning. One moment you're swimming at speed, the next your muscles simply quit. Your arms feel like dead weight. Your legs stop responding. Your carefully controlled breathing rhythm shatters. You gasp at the wrong moment and inhale water. Panic floods through you as you realize you're not swimming anymore - you're sinking. The speed that felt so exhilarating has left you exhausted and drowning!",
+            "You push for maximum swimming speed with reckless confidence. Your technique is good, your power is there, but you've overestimated your capacity. You're swimming hard - maybe too hard. The pace is unsustainable but you don't realize it until it's too late. Your form breaks down all at once. A stroke mistimes. Your breathing fails. Water floods into your mouth and nose. Suddenly everything is chaos. You're not swimming - you're thrashing, panicking, sinking. The quick swim has become a fight for survival as water closes over your head!"
+          ]
+        }
+      }
     }
   }
 }
