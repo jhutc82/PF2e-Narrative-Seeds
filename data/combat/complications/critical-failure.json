@@ -104,6 +104,541 @@
         "value": -1,
         "duration": 1
       }
+    },
+    {
+      "id": "fell-prone",
+      "name": "Fell Prone",
+      "description": "The attacker's wild miss sends them sprawling to the ground.",
+      "outcome": "criticalFailure",
+      "duration": null,
+      "weight": 15,
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning", "slashing"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "prone",
+        "duration": null
+      }
+    },
+    {
+      "id": "jarred-shoulder",
+      "name": "Jarred Shoulder",
+      "description": "The heavy swing jars the attacker's shoulder painfully.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning", "slashing"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "enfeebled",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "twisted-ankle",
+      "name": "Twisted Ankle",
+      "description": "The attacker twists their ankle during the failed strike.",
+      "outcome": "criticalFailure",
+      "duration": 2,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["any"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -10,
+        "duration": 2
+      }
+    },
+    {
+      "id": "pulled-muscle",
+      "name": "Pulled Muscle",
+      "description": "The awkward motion pulls a muscle in the attacker's body.",
+      "outcome": "criticalFailure",
+      "duration": 2,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning", "slashing", "piercing"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "enfeebled",
+        "value": 1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "self-prick",
+      "name": "Self-Prick",
+      "description": "The attacker's weapon nicks their own flesh.",
+      "outcome": "criticalFailure",
+      "duration": null,
+      "weight": 8,
+      "applicableContexts": {
+        "damageTypes": ["piercing", "slashing"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "bleed",
+        "value": "1",
+        "dc": 10
+      }
+    },
+    {
+      "id": "strained-wrist",
+      "name": "Strained Wrist",
+      "description": "The failed attack strains the attacker's wrist.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning", "slashing", "piercing"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -2,
+        "duration": 1
+      }
+    },
+    {
+      "id": "burned-self",
+      "name": "Burned Self",
+      "description": "Flames from the attack backfire onto the attacker.",
+      "outcome": "criticalFailure",
+      "duration": null,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["fire"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "fire",
+        "value": "1",
+        "dc": 12
+      }
+    },
+    {
+      "id": "singed",
+      "name": "Singed",
+      "description": "The misfired flames singe the attacker, leaving them nauseated.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": ["fire"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "sickened",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "chilled",
+      "name": "Chilled",
+      "description": "Cold energy backlashes onto the attacker, slowing them.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["cold"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "slowed",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "frostbitten",
+      "name": "Frostbitten",
+      "description": "Freezing energy affects the attacker's extremities.",
+      "outcome": "criticalFailure",
+      "duration": null,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["cold"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "cold",
+        "value": "1",
+        "dc": 12
+      }
+    },
+    {
+      "id": "numbed-by-cold",
+      "name": "Numbed by Cold",
+      "description": "The cold weakens the attacker's muscles.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": ["cold"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "enfeebled",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "self-shock",
+      "name": "Self-Shock",
+      "description": "Electricity arcs back to shock the attacker.",
+      "outcome": "criticalFailure",
+      "duration": null,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": ["electricity"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "stunned",
+        "value": 1,
+        "duration": null
+      }
+    },
+    {
+      "id": "electric-spasm",
+      "name": "Electric Spasm",
+      "description": "Electric feedback causes muscle spasms in the attacker.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["electricity"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "clumsy",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "splashed-by-acid",
+      "name": "Splashed by Acid",
+      "description": "Acid splashes back onto the attacker.",
+      "outcome": "criticalFailure",
+      "duration": null,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["acid"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "acid",
+        "value": "1",
+        "dc": 12
+      }
+    },
+    {
+      "id": "acid-spray",
+      "name": "Acid Spray",
+      "description": "Acid spray damages the attacker's armor.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["acid"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "corroded-weapon",
+      "name": "Corroded Weapon",
+      "description": "Acid eats at the attacker's weapon grip.",
+      "outcome": "criticalFailure",
+      "duration": 2,
+      "weight": 9,
+      "applicableContexts": {
+        "damageTypes": ["acid"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "ears-ringing",
+      "name": "Ears Ringing",
+      "description": "The sonic blast rings in the attacker's own ears.",
+      "outcome": "criticalFailure",
+      "duration": 2,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["sonic"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "perception",
+        "value": -2,
+        "duration": 2
+      }
+    },
+    {
+      "id": "sonic-backlash",
+      "name": "Sonic Backlash",
+      "description": "Sound waves disorient the attacker.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": ["sonic"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "off-guard",
+        "duration": 1
+      }
+    },
+    {
+      "id": "sonic-nausea",
+      "name": "Sonic Nausea",
+      "description": "Reverberating sound makes the attacker ill.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["sonic"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "sickened",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "self-poisoned",
+      "name": "Self-Poisoned",
+      "description": "The attacker is exposed to their own poison.",
+      "outcome": "criticalFailure",
+      "duration": null,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": ["poison"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "poison",
+        "value": "1",
+        "dc": 12
+      }
+    },
+    {
+      "id": "toxin-exposure",
+      "name": "Toxin Exposure",
+      "description": "Poison exposure makes the attacker violently ill.",
+      "outcome": "criticalFailure",
+      "duration": 2,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["poison"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "sickened",
+        "value": 1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "mental-backlash",
+      "name": "Mental Backlash",
+      "description": "The psychic attack rebounds onto the attacker's mind.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": ["mental"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "stupefied",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "psychic-feedback",
+      "name": "Psychic Feedback",
+      "description": "Mental energy backfires, filling the attacker with fear.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["mental"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "frightened",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "void-backlash",
+      "name": "Void Backlash",
+      "description": "Negative energy drains the attacker's vitality.",
+      "outcome": "criticalFailure",
+      "duration": 2,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["void", "negative"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "drained",
+        "value": 1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "life-sapped",
+      "name": "Life Sapped",
+      "description": "Void energy weakens the attacker's body.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 9,
+      "applicableContexts": {
+        "damageTypes": ["void", "negative"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "enfeebled",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "vitality-burn",
+      "name": "Vitality Burn",
+      "description": "Positive energy burns through the attacker unnaturally.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 9,
+      "applicableContexts": {
+        "damageTypes": ["vitality", "positive"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "sickened",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "force-recoil",
+      "name": "Force Recoil",
+      "description": "The force blast knocks the attacker off balance.",
+      "outcome": "criticalFailure",
+      "duration": null,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": ["force"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "prone",
+        "duration": null
+      }
+    },
+    {
+      "id": "kinetic-feedback",
+      "name": "Kinetic Feedback",
+      "description": "Force energy rebounds, leaving the attacker vulnerable.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": ["force"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "off-guard",
+        "duration": 1
+      }
+    },
+    {
+      "id": "spirit-drain",
+      "name": "Spirit Drain",
+      "description": "Spiritual energy rebounds, shaking the attacker's resolve.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["spirit"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "frightened",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "soul-touched",
+      "name": "Soul-Touched",
+      "description": "The spirit attack rebounds, clouding the attacker's mind.",
+      "outcome": "criticalFailure",
+      "duration": 1,
+      "weight": 9,
+      "applicableContexts": {
+        "damageTypes": ["spirit"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "stupefied",
+        "value": 1,
+        "duration": 1
+      }
     }
   ]
 }

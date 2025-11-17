@@ -123,6 +123,595 @@
         "value": -5,
         "duration": 1
       }
+    },
+    {
+      "id": "ringing-ears",
+      "name": "Ringing Ears",
+      "description": "The blow to the head causes the target's ears to ring painfully.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning", "sonic"],
+        "anatomyTypes": ["head"]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "perception",
+        "value": -2,
+        "duration": 1
+      }
+    },
+    {
+      "id": "numbed-limbs",
+      "name": "Numbed Limbs",
+      "description": "The crushing impact numbs the target's limbs.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning"],
+        "anatomyTypes": ["arms", "legs", "limbs"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "enfeebled",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "knocked-down",
+      "name": "Knocked Down",
+      "description": "The powerful strike sends the target sprawling to the ground.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": ["bludgeoning", "force"],
+        "anatomyTypes": ["legs", "torso"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "prone",
+        "duration": null
+      }
+    },
+    {
+      "id": "eye-wound",
+      "name": "Eye Wound",
+      "description": "The precise strike injures the target's eye, impairing vision.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 8,
+      "applicableContexts": {
+        "damageTypes": ["piercing", "slashing"],
+        "anatomyTypes": ["head"]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "perception",
+        "value": -2,
+        "duration": 2
+      }
+    },
+    {
+      "id": "severed-tendons",
+      "name": "Severed Tendons",
+      "description": "The slashing strike cuts through tendons in the target's arm.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["slashing"],
+        "anatomyTypes": ["arms", "limbs"]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -2,
+        "duration": 2
+      }
+    },
+    {
+      "id": "hamstrung",
+      "name": "Hamstrung",
+      "description": "The strike damages leg muscles, severely hindering movement.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 9,
+      "applicableContexts": {
+        "damageTypes": ["slashing", "piercing"],
+        "anatomyTypes": ["legs"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "slowed",
+        "value": 1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "burning-agony",
+      "name": "Burning Agony",
+      "description": "Flames continue to burn the target after the initial strike.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["fire"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "fire",
+        "value": "1d4",
+        "dc": 15
+      }
+    },
+    {
+      "id": "scorched",
+      "name": "Scorched",
+      "description": "The searing flames leave the target burned and nauseated.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": ["fire"],
+        "anatomyTypes": ["head", "torso", "vitals"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "sickened",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "frozen-limbs",
+      "name": "Frozen Limbs",
+      "description": "Bitter cold freezes the target's limbs, slowing their movements.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["cold"],
+        "anatomyTypes": ["arms", "legs", "limbs"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "slowed",
+        "value": 1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "frostbite",
+      "name": "Frostbite",
+      "description": "Freezing energy continues to damage frozen flesh.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["cold"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "cold",
+        "value": "1d4",
+        "dc": 15
+      }
+    },
+    {
+      "id": "chilled-core",
+      "name": "Chilled Core",
+      "description": "Penetrating cold weakens the target's body.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": ["cold"],
+        "anatomyTypes": ["torso", "vitals"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "enfeebled",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "shocked",
+      "name": "Shocked",
+      "description": "Electricity courses through the target, locking up their muscles momentarily.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": ["electricity"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "stunned",
+        "value": 1,
+        "duration": null
+      }
+    },
+    {
+      "id": "heart-jolt",
+      "name": "Heart Jolt",
+      "description": "Electric shock disrupts the target's vital systems.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["electricity"],
+        "anatomyTypes": ["torso", "vitals"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "enfeebled",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "muscle-spasms",
+      "name": "Muscle Spasms",
+      "description": "Residual electricity causes involuntary muscle spasms.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["electricity"],
+        "anatomyTypes": ["arms", "legs", "limbs", "torso"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "clumsy",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "acid-burns",
+      "name": "Acid Burns",
+      "description": "Corrosive acid continues to eat away at the target's flesh.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["acid"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "acid",
+        "value": "1d4",
+        "dc": 15
+      }
+    },
+    {
+      "id": "corroded-armor",
+      "name": "Corroded Armor",
+      "description": "Acid eats through the target's armor, leaving them vulnerable.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["acid"],
+        "anatomyTypes": ["torso", "arms"]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "weakened-grip",
+      "name": "Weakened Grip",
+      "description": "Acid burns weaken the target's ability to hold weapons.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 9,
+      "applicableContexts": {
+        "damageTypes": ["acid"],
+        "anatomyTypes": ["arms", "limbs"]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "deafened",
+      "name": "Deafened",
+      "description": "The sonic assault leaves the target temporarily unable to hear.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["sonic"],
+        "anatomyTypes": ["head"]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "perception",
+        "value": -2,
+        "duration": 2
+      }
+    },
+    {
+      "id": "disoriented",
+      "name": "Disoriented",
+      "description": "Thunderous sound disorients the target.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["sonic"],
+        "anatomyTypes": ["head", "torso"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "off-guard",
+        "duration": 1
+      }
+    },
+    {
+      "id": "nauseous",
+      "name": "Nauseous",
+      "description": "Resonating vibrations upset the target's internal organs.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": ["sonic"],
+        "anatomyTypes": ["torso", "vitals"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "sickened",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "poisoned",
+      "name": "Poisoned",
+      "description": "Toxins continue to course through the target's bloodstream.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["poison"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "poison",
+        "value": "1d4",
+        "dc": 15
+      }
+    },
+    {
+      "id": "toxic-sickness",
+      "name": "Toxic Sickness",
+      "description": "Poison makes the target violently ill.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": ["poison"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "sickened",
+        "value": 1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "mental-confusion",
+      "name": "Mental Confusion",
+      "description": "Psychic assault clouds the target's mind.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["mental"],
+        "anatomyTypes": ["head"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "stupefied",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "terrified",
+      "name": "Terrified",
+      "description": "The mental attack fills the target with overwhelming fear.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": ["mental"],
+        "anatomyTypes": ["head"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "frightened",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "life-drain",
+      "name": "Life Drain",
+      "description": "Void energy saps the target's life force.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["void", "negative"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "drained",
+        "value": 1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "withered",
+      "name": "Withered",
+      "description": "Negative energy withers the target's muscles.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": ["void", "negative"],
+        "anatomyTypes": ["torso", "vitals", "arms", "legs"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "enfeebled",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "seared-by-light",
+      "name": "Seared by Light",
+      "description": "Positive energy burns like fire through unnatural flesh.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["vitality", "positive"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "sickened",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "kinetic-impact",
+      "name": "Kinetic Impact",
+      "description": "Pure force knocks the target off their feet.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": ["force"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "prone",
+        "duration": null
+      }
+    },
+    {
+      "id": "force-rattled",
+      "name": "Force Rattled",
+      "description": "The force blast leaves the target shaken and vulnerable.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": ["force"],
+        "anatomyTypes": ["torso", "head"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "off-guard",
+        "duration": 1
+      }
+    },
+    {
+      "id": "spiritual-weakness",
+      "name": "Spiritual Weakness",
+      "description": "The spiritual attack undermines the target's resolve.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["spirit"],
+        "anatomyTypes": ["any"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "frightened",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "soul-shaken",
+      "name": "Soul Shaken",
+      "description": "The spirit attack leaves the target mentally unstable.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 9,
+      "applicableContexts": {
+        "damageTypes": ["spirit"],
+        "anatomyTypes": ["head", "torso"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "stupefied",
+        "value": 1,
+        "duration": 1
+      }
+    },
+    {
+      "id": "wing-tear",
+      "name": "Wing Tear",
+      "description": "The strike tears through delicate wing membrane.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": ["slashing", "piercing"],
+        "anatomyTypes": ["wings"]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -10,
+        "duration": 2
+      }
+    },
+    {
+      "id": "tail-injury",
+      "name": "Tail Injury",
+      "description": "The strike damages the target's tail, affecting balance.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 9,
+      "applicableContexts": {
+        "damageTypes": ["slashing", "bludgeoning"],
+        "anatomyTypes": ["tail"]
+      },
+      "effect": {
+        "type": "condition",
+        "condition": "clumsy",
+        "value": 1,
+        "duration": 1
+      }
     }
   ]
 }
