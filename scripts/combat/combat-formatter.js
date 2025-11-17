@@ -73,11 +73,14 @@ export class CombatFormatter {
    */
   static generateMinimalHTML(description) {
     const escapedDescription = StringUtils.escapeHTML(description);
+    const autoApply = game.settings.get("pf2e-narrative-seeds", "autoApplyComplications");
+    const regenerateButton = autoApply ? '' : '<button class="regenerate-icon" data-action="regenerate" title="Generate new narrative">🔄</button>';
+
     return `
       <div class="pf2e-narrative-seed minimal-inline">
         <span class="narrative-icon">⚔️</span>
         <span class="narrative-text">${escapedDescription}</span>
-        <button class="regenerate-icon" data-action="regenerate" title="Generate new narrative">🔄</button>
+        ${regenerateButton}
       </div>
     `;
   }
@@ -97,16 +100,18 @@ export class CombatFormatter {
       outcome
     } = seed;
 
+    const autoApply = game.settings.get("pf2e-narrative-seeds", "autoApplyComplications");
     const escapedDescription = StringUtils.escapeHTML(description);
     const complicationHTML = complication ? this.generateComplicationHTML(complication, outcome) : '';
     const dismembermentHTML = dismemberment ? this.generateDismembermentHTML(dismemberment) : '';
+    const regenerateButton = autoApply ? '' : '<button class="regenerate-btn" title="Regenerate narrative">♻️</button>';
 
     // Simple box design - narrative text with regenerate button
     return `
       <div class="pf2e-narrative-seed simple-box">
         <div class="narrative-box">
           <span class="narrative-text">${escapedDescription}</span>
-          <button class="regenerate-btn" title="Regenerate narrative">♻️</button>
+          ${regenerateButton}
         </div>
         ${complicationHTML}
         ${dismembermentHTML}
@@ -188,6 +193,7 @@ export class CombatFormatter {
   static generateComplicationHTML(complication, outcome) {
     if (!complication) return '';
 
+    const autoApply = game.settings.get("pf2e-narrative-seeds", "autoApplyComplications");
     const escapedName = StringUtils.escapeHTML(complication.name);
     const durationText = complication.duration
       ? `${complication.duration}r`
@@ -213,13 +219,18 @@ export class CombatFormatter {
       mechanicalEffect = escapedName;
     }
 
+    // If auto-apply is enabled, show effect was applied automatically
+    const applyButton = autoApply
+      ? '<span class="auto-applied" title="Automatically applied">✓ Applied</span>'
+      : `<button class="apply-btn" data-action="apply-complication" title="Apply ${escapedName}">✓</button>`;
+
     // Simple effect box with icon-only apply button
     return `
       <div class="effect-box">
         <div class="effect-info">
           <span class="effect-text">${mechanicalEffect}</span>
         </div>
-        <button class="apply-btn" data-action="apply-complication" title="Apply ${escapedName}">✓</button>
+        ${applyButton}
       </div>
     `;
   }
