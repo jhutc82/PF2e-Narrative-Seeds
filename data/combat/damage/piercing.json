@@ -2,23 +2,23 @@
   "weaponType": "Your weapon",
   "verbs": {
     "criticalSuccess": [
-      "splits armor and flesh in",
+      "splits armor and flesh",
       "splits defenses and penetrates",
       "impales brutally through",
-      "pierces devastatingly into",
+      "pierces devastatingly",
       "stabs viciously through",
       "skewers savagely through",
       "punctures catastrophically through",
       "lances brutally through",
       "gores savagely through",
       "thrusts catastrophically through",
-      "bores through defensive tissue in",
-      "stakes through protective tissue in"
+      "bores through defensive tissue",
+      "stakes through protective tissue"
     ],
     "success": [
-      "enters tissue of",
-      "punctures tissue in",
-      "pierces into",
+      "enters",
+      "punctures",
+      "pierces",
       "stabs through",
       "punctures",
       "drives into",

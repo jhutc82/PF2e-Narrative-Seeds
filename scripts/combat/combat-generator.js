@@ -149,6 +149,9 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           // Apply tone filter
           description = ToneFilter.apply(description, tone);
 
+          // Capitalize all sentences and ensure proper punctuation
+          description = StringUtils.capitalizeSentences(description);
+
           attempts++;
 
           // Check if message was recently used
@@ -206,8 +209,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           anatomyDisplay,
           damageType,
           outcome,
-          targetName: target.name,
-          attackerName: attacker ? attacker.name : "Unknown",
+          targetName: StringUtils.formatActorName(target.name, target),
+          attackerName: attacker ? StringUtils.formatActorName(attacker.name, attacker) : "Unknown",
           detailLevel,
           tone,
           complication,
@@ -296,8 +299,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
    * @returns {string} Simple fallback description
    */
   generateFallback(outcome, target, attacker) {
-    const targetName = target?.name || "the target";
-    const attackerName = attacker?.name || "The attacker";
+    const targetName = target ? StringUtils.formatActorName(target.name, target) : "the target";
+    const attackerName = attacker ? StringUtils.formatActorName(attacker.name, attacker) : "the attacker";
 
     const fallbacks = {
       criticalSuccess: `${attackerName} critically hits ${targetName}!`,
@@ -306,7 +309,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
       criticalFailure: `${attackerName} critically misses ${targetName}!`
     };
 
-    return fallbacks[outcome] || "Attack resolves.";
+    const result = fallbacks[outcome] || "Attack resolves.";
+    return StringUtils.capitalizeSentences(result);
   }
 
   /**
@@ -323,8 +327,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
       anatomyDisplay: null,
       damageType: damageType || "bludgeoning",
       outcome: outcome || "success",
-      targetName: target?.name || "Unknown",
-      attackerName: attacker?.name || "Unknown",
+      targetName: target ? StringUtils.formatActorName(target.name, target) : "Unknown",
+      attackerName: attacker ? StringUtils.formatActorName(attacker.name, attacker) : "Unknown",
       detailLevel: "minimal",
       tone: "standard"
     };
@@ -372,8 +376,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     // Determine POV based on detail level
     const pov = detailLevel === 'cinematic' ? 'third' : 'second';
     const weaponType = getWeaponType(damageType, item, pov, message);
-    const targetName = target ? target.name : "the target";
-    const attackerName = attacker ? attacker.name : "The attacker";
+    const targetName = target ? StringUtils.formatActorName(target.name, target) : "the target";
+    const attackerName = attacker ? StringUtils.formatActorName(attacker.name, attacker) : "the attacker";
 
     // Get contextual verb and effect with filtering applied
     const context = { anatomy, damageType, location };

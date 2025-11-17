@@ -2,18 +2,18 @@
   "weaponType": "Your weapon",
   "verbs": {
     "criticalSuccess": [
-      "crushes brutally into",
-      "smashes devastatingly against",
+      "crushes brutally",
+      "smashes devastatingly",
       "pulverizes savagely",
-      "shatters bone in",
-      "cracks viciously into",
+      "shatters bone",
+      "cracks viciously",
       "batters mercilessly",
-      "hammers catastrophically into",
+      "hammers catastrophically",
       "breaks brutally",
-      "splinters bone in",
+      "splinters bone",
       "dents catastrophically",
-      "impacts with bone-shattering force on",
-      "pounds through protective tissue in"
+      "impacts with bone-shattering force",
+      "pounds through protective tissue"
     ],
     "success": [
       "strikes solidly",

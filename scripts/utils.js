@@ -302,23 +302,122 @@ export class RandomUtils {
  */
 export class StringUtils {
   /**
-   * Format actor name for display
+   * Check if a name appears to be a proper name vs creature type
    * @param {string} name
-   * @returns {string}
+   * @param {Object} actor - Optional actor object for type checking
+   * @returns {boolean} True if proper name, false if creature type
    */
-  static formatActorName(name) {
-    if (!name) return "Unknown";
-    return name.trim();
+  static isProperName(name, actor = null) {
+    if (!name) return false;
+
+    // If we have actor data, use it
+    if (actor) {
+      // PCs (characters) always have proper names
+      if (actor.type === 'character') return true;
+
+      // Check if actor has a specific identifier that suggests it's a unique NPC
+      // Unique NPCs often have isUnique flag or specific traits
+      if (actor.system?.traits?.rarity === 'unique') return true;
+    }
+
+    // Heuristics for name-only detection:
+    // Check if name contains multiple words with mixed case (likely a name)
+    const words = name.trim().split(/\s+/);
+    if (words.length > 1) {
+      // Multi-word names like "Bandit Leader" or "Orc Warrior" are creature types
+      // But "John Smith" or "Valeros the Brave" are proper names
+      // Check if all words are capitalized title-case (creature type pattern)
+      const allTitleCase = words.every(word =>
+        word.length > 0 && word[0] === word[0].toUpperCase() && word.slice(1) === word.slice(1).toLowerCase()
+      );
+      // If it has numbers or parentheses, it's likely a proper name "Valeros (Beginner Box)"
+      if (name.match(/\d|\(|\)/)) return true;
+      // If all words are simple title case with no special chars, likely creature type
+      if (allTitleCase && !name.match(/[^a-zA-Z\s]/)) return false;
+    }
+
+    // Single capitalized words are ambiguous, default to creature type for safety
+    // This covers cases like "Bandit", "Owlbear", "Dragon"
+    // But proper names like "Valeros" will need actor type to distinguish
+    return false;
   }
 
   /**
-   * Capitalize first letter of sentence
+   * Format actor name for display, adding "the" before creature types
+   * @param {string} name
+   * @param {Object} actor - Optional actor object for type checking
+   * @returns {string}
+   */
+  static formatActorName(name, actor = null) {
+    if (!name) return "Unknown";
+    const trimmed = name.trim();
+
+    // Check if this is a proper name or creature type
+    if (this.isProperName(trimmed, actor)) {
+      return trimmed;
+    } else {
+      // It's a creature type, add "the" and lowercase first letter
+      const lower = trimmed.charAt(0).toLowerCase() + trimmed.slice(1);
+      return `the ${lower}`;
+    }
+  }
+
+  /**
+   * Capitalize first letter of string
    * @param {string} str
    * @returns {string}
    */
   static capitalizeFirst(str) {
     if (!str) return "";
     return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  /**
+   * Capitalize the first letter of each sentence and ensure proper punctuation
+   * @param {string} text - Text to process
+   * @returns {string} Text with capitalized sentences and proper punctuation
+   */
+  static capitalizeSentences(text) {
+    if (!text) return "";
+
+    // First, clean up spacing and punctuation
+    let cleaned = text
+      .replace(/\s+/g, ' ') // Remove double spaces
+      .replace(/\s+([.,!?])/g, '$1') // Fix space before punctuation
+      .replace(/([.!?])\1+/g, '$1') // Fix double punctuation
+      .replace(/([.!?])([A-Za-z])/g, '$1 $2') // Ensure space after sentence punctuation
+      .trim();
+
+    // Split on sentence boundaries while keeping the delimiter
+    const sentences = cleaned.split(/([.!?]\s*)/);
+    let result = '';
+    let shouldCapitalize = true;
+
+    for (let i = 0; i < sentences.length; i++) {
+      const part = sentences[i];
+      if (!part) continue;
+
+      // If this is punctuation, add it and flag next for capitalization
+      if (part.match(/^[.!?]\s*$/)) {
+        result += part;
+        shouldCapitalize = true;
+      } else {
+        // This is text content
+        if (shouldCapitalize && part.length > 0) {
+          result += part.charAt(0).toUpperCase() + part.slice(1);
+          shouldCapitalize = false;
+        } else {
+          result += part;
+        }
+      }
+    }
+
+    // Ensure text ends with punctuation
+    if (result && !result.match(/[.!?]$/)) {
+      result += '.';
+    }
+
+    return result;
   }
 
   /**
