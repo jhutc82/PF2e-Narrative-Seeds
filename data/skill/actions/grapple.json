@@ -1,0 +1,138 @@
+{
+  "action": "grapple",
+  "actionName": "Grapple",
+  "skill": "athletics",
+  "traits": ["attack"],
+  "description": "You attempt to grab a foe, making them grabbed",
+
+  "variants": {
+    "default": {
+      "displayName": "Grapple",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You grab {targetName} firmly!",
+            "You secure a strong hold on {targetName}!",
+            "{targetName} is caught in your grip!",
+            "You seize {targetName} completely!",
+            "You lock {targetName} in place!"
+          ],
+          "success": [
+            "You grab {targetName}.",
+            "You seize {targetName}.",
+            "You catch {targetName}.",
+            "You hold {targetName}.",
+            "You grapple {targetName}."
+          ],
+          "failure": [
+            "{targetName} slips away.",
+            "You can't get a grip.",
+            "{targetName} evades your grasp.",
+            "You miss {targetName}.",
+            "They slip free."
+          ],
+          "criticalFailure": [
+            "You overextend badly!",
+            "{targetName} counters your grab!",
+            "You lose your balance!",
+            "You stumble forward!",
+            "Your attempt backfires!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You seize {targetName} with explosive force, wrenching them into a devastating lock!",
+            "Your hands clamp down on {targetName} like an iron vice - they struggle helplessly!",
+            "You catch {targetName} perfectly, securing them in a grip they can't escape!",
+            "With practiced precision, you grab {targetName} and lock them completely!",
+            "You wrap {targetName} in a powerful hold that leaves them immobilized!",
+            "Your grab finds perfect leverage - {targetName} is completely restrained!",
+            "You seize {targetName} with overwhelming strength, pinning them in place!",
+            "Your grapple is flawless - {targetName} can barely move!",
+            "{targetName} is caught in your crushing grip, totally helpless!",
+            "You secure {targetName} with a hold that's nearly impossible to break!"
+          ],
+          "success": [
+            "You grab {targetName}, securing a solid hold on them.",
+            "Your hands find purchase on {targetName}, restricting their movement.",
+            "You catch {targetName} and manage to restrain them.",
+            "You successfully grapple {targetName}, holding them in place.",
+            "Your grip closes on {targetName}, preventing them from escaping.",
+            "You seize {targetName} and maintain control despite their struggles.",
+            "You manage to grab {targetName}, though they continue to resist.",
+            "Your grapple succeeds - {targetName} is now grabbed.",
+            "You catch {targetName} in a firm hold.",
+            "You successfully restrain {targetName} with your grip."
+          ],
+          "failure": [
+            "You reach for {targetName}, but they slip out of your grasp.",
+            "Your attempt to grab {targetName} fails as they evade you.",
+            "{targetName} twists away before you can secure a grip.",
+            "You can't get a proper hold on {targetName}.",
+            "Your hands close on empty air as {targetName} escapes.",
+            "{targetName} deftly avoids your grapple attempt.",
+            "You lunge for {targetName}, but they're too quick.",
+            "Your grip fails to find purchase on {targetName}.",
+            "{targetName} slips through your fingers.",
+            "You can't quite catch {targetName}."
+          ],
+          "criticalFailure": [
+            "You overcommit to the grab and stumble right past {targetName}!",
+            "Your clumsy grapple attempt leaves you off-balance and vulnerable!",
+            "{targetName} sidesteps your grab and you nearly fall!",
+            "You lunge too hard and end up sprawled awkwardly!",
+            "Your failed grab puts you in a terrible position!",
+            "{targetName} easily avoids your wild grab attempt!",
+            "You overextend so badly that you're now at {targetName}'s mercy!",
+            "Your grab misses completely and you lose your footing!",
+            "{targetName} counters your attempt, leaving you exposed!",
+            "You botch the grapple and end up worse off than before!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Your hands shoot out with perfect timing, clamping onto {targetName} with overwhelming force. You wrench them into a devastating lock, using leverage and strength to completely immobilize them. They struggle futilely against your iron grip, but you have them completely restrained!",
+            "With explosive power, you seize {targetName} and twist them into a submission hold. Your technique is flawless - every movement calculated to maximize control. They can barely breathe, let alone escape your crushing embrace!",
+            "You catch {targetName} in mid-movement, your grip finding perfect purchase. With a powerful wrench, you lock them in a hold that renders them helpless. Their attempts to break free only tighten your control!"
+          ],
+          "success": [
+            "You grab {targetName} and maintain a solid grip despite their attempts to escape. Your hold restricts their movement significantly, though they continue to struggle against your restraint.",
+            "Your hands find purchase on {targetName} and you manage to secure them. It's not a perfect hold, but it's enough to keep them from moving freely.",
+            "You successfully grapple {targetName}, wrapping them in a firm grip. They resist, but you manage to keep them restrained for now."
+          ],
+          "failure": [
+            "You reach for {targetName}, hands outstretched, but they twist away at the last moment. Your fingers grasp nothing but air as they slip from your attempted grip.",
+            "Despite your best efforts, you can't quite get a hold on {targetName}. They move too quickly, evading your grasp with frustrating ease.",
+            "You lunge forward to grab {targetName}, but they're just out of reach. Your attempt to secure them fails completely."
+          ],
+          "criticalFailure": [
+            "You commit fully to grabbing {targetName}, but they sidestep at the perfect moment. Your momentum carries you forward, stumbling awkwardly as your hands close on nothing. You're left off-balance and vulnerable!",
+            "Your overeager grab attempt is so poorly executed that you practically throw yourself at {targetName}. They easily avoid you, and you nearly fall flat on your face in the process!",
+            "You lunge for {targetName} with too much force and no finesse. Not only do you miss completely, but you end up in a compromised position, totally exposed to their counterattack!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "In one fluid, explosive motion, you seize {targetName} with the precision of a master wrestler. Your hands lock onto them like steel traps, and you twist their body into a submission hold that's simultaneously brutal and beautiful in its technical perfection. Every muscle in your frame engages as you apply crushing pressure. {targetName}'s eyes go wide with shock - they can't move, can't escape, can barely even breathe. Your grip is absolute. They are completely, utterly at your mercy!",
+            "Your hands shoot forward like striking serpents, finding {targetName} with unerring accuracy. The impact is devastating - you don't just grab them, you dominate them. With overwhelming strength and perfect technique, you wrench them into a lock that defies escape. Their struggles only tighten the hold. Your power is undeniable, your control total. In this moment, they are nothing more than a caught prey in the jaws of an apex predator!"
+          ],
+          "success": [
+            "Your grip finds {targetName} and locks on with determined strength. They struggle against your hold, twisting and pulling, but you maintain control through sheer force of will and athletic prowess. It's not a perfect restraint, but it's enough to severely limit their options.",
+            "You catch {targetName} in a solid grapple, your arms wrapping around them with practiced efficiency. The hold isn't unbreakable, but it's firm enough to keep them from moving freely. They strain against your grip, but you adjust and adapt, maintaining dominance."
+          ],
+          "failure": [
+            "You reach for {targetName} with confident aggression, but they read your intention perfectly. With a subtle shift of weight and a deft twist, they slip through your attempted grasp like water through fingers. Your hands close on empty space, your technique sound but your timing just slightly off.",
+            "Despite explosive effort and proper form, you simply can't secure a hold on {targetName}. They're too quick, too aware, moving with the kind of evasive grace that makes grappling impossible. Your grab finds nothing but frustration."
+          ],
+          "criticalFailure": [
+            "In your aggressive pursuit of the perfect grapple, you overcommit catastrophically. You lunge forward with too much force and not enough control, your hands grasping desperately for {targetName}. They sidestep with contemptuous ease, and your momentum betrays you. You stumble forward, arms windmilling for balance, completely exposed. What should have been dominance becomes humiliation - you're off-balance, vulnerable, and entirely at their mercy!",
+            "Your attempt to seize {targetName} is so poorly executed it's almost comical. You throw yourself forward with reckless abandon, technique abandoned in favor of raw aggression. {targetName} doesn't just avoid you - they effortlessly dance away while you crash past them like a charging bull missing its target. You end up sprawled and disoriented, your failed grab leaving you in the worst possible position!"
+          ]
+        }
+      }
+    }
+  }
+}
