@@ -162,7 +162,7 @@ export class TemplateEngine {
       return `${opening} ${verb} their ${location}. ${effect}`;
     }
     if (opening && location) {
-      return `${opening} Hits their ${location}!`;
+      return `${opening} hits their ${location}!`;
     }
     if (opening) {
       return `${opening} The attack connects!`;

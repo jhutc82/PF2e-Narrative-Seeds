@@ -313,12 +313,13 @@ export class WeaponNameExtractor {
   static formatName(name, pov) {
     switch(pov) {
       case "first":
-        return `My ${name}`;
+        return `my ${name}`;
       case "third":
-        return `The ${name}`;
+        // For third person, return bare weapon name (templates handle possessive context)
+        return name;
       case "second":
       default:
-        return `Your ${name}`;
+        return `your ${name}`;
     }
   }
 

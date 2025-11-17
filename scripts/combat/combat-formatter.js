@@ -67,22 +67,17 @@ export class CombatFormatter {
   }
 
   /**
-   * Generate minimal HTML
+   * Generate minimal HTML - compact inline display
    * @param {string} description
    * @returns {string}
    */
   static generateMinimalHTML(description) {
     const escapedDescription = StringUtils.escapeHTML(description);
     return `
-      <div class="pf2e-narrative-seed combat-seed minimal">
-        <div class="seed-description">
-          <p>${escapedDescription}</p>
-        </div>
-        <div class="seed-actions minimal">
-          <button class="seed-button regenerate-button" data-action="regenerate" title="Generate a new narrative description">
-            🔄 Regenerate
-          </button>
-        </div>
+      <div class="pf2e-narrative-seed minimal-inline">
+        <span class="narrative-icon">⚔️</span>
+        <span class="narrative-text">${escapedDescription}</span>
+        <button class="regenerate-icon" data-action="regenerate" title="Generate new narrative">🔄</button>
       </div>
     `;
   }
@@ -109,33 +104,24 @@ export class CombatFormatter {
     const escapedAnatomyDisplay = StringUtils.escapeHTML(anatomyDisplay);
     const escapedTargetName = StringUtils.escapeHTML(targetName);
     const escapedAttackerName = StringUtils.escapeHTML(attackerName);
-    const complicationHTML = this.generateComplicationHTML(complication, outcome);
-    const dismembermentHTML = this.generateDismembermentHTML(dismemberment);
+    const complicationHTML = complication ? this.generateComplicationHTML(complication, outcome) : '';
+    const dismembermentHTML = dismemberment ? this.generateDismembermentHTML(dismemberment) : '';
 
+    // Compact collapsible design
     return `
-      <div class="pf2e-narrative-seed combat-seed">
-        <header class="seed-header">
-          <h3>⚔️ Combat Narrative Seed</h3>
-          ${anatomyDisplay ? `<span class="anatomy-tag">[${escapedAnatomyDisplay}]</span>` : ''}
-        </header>
-        <div class="seed-content">
-          <div class="seed-metadata">
-            <span class="attacker"><strong>Attacker:</strong> ${escapedAttackerName}</span>
-            <span class="target"><strong>Target:</strong> ${escapedTargetName}</span>
-            <span class="outcome ${outcomeClass}"><strong>Outcome:</strong> ${outcomeFormatted}</span>
-          </div>
-          <hr>
-          <div class="seed-description">
-            <p>${escapedDescription}</p>
-          </div>
+      <div class="pf2e-narrative-seed compact-card">
+        <div class="narrative-summary">
+          <span class="narrative-icon">⚔️</span>
+          <span class="narrative-brief">${escapedDescription}</span>
+          <button class="regenerate-icon" data-action="regenerate" title="Generate new narrative">🔄</button>
+          ${complicationHTML || dismembermentHTML ? '<button class="toggle-details" data-action="toggle-details" title="Show details">▼</button>' : ''}
+        </div>
+        ${complicationHTML || dismembermentHTML ? `
+        <div class="narrative-details" style="display: none;">
           ${complicationHTML}
           ${dismembermentHTML}
-          <div class="seed-actions">
-            <button class="seed-button regenerate-button" data-action="regenerate" title="Generate a new narrative description">
-              🔄 Regenerate
-            </button>
-          </div>
         </div>
+        ` : ''}
       </div>
     `;
   }
@@ -243,30 +229,11 @@ export class CombatFormatter {
       ? `${complication.duration} round${complication.duration > 1 ? 's' : ''}`
       : 'until recovered';
 
-    // Encode complication data for the button
-    const complicationData = JSON.stringify(complication);
-    const escapedData = StringUtils.escapeHTML(complicationData);
-
+    // Complication data is stored in message flags, no need to encode in HTML
     return `
       <div class="seed-complication">
-        <div class="complication-header">
-          <span class="complication-icon">⚠️</span>
-          <span class="complication-name">${escapedName}</span>
-          <span class="complication-duration">(${durationText})</span>
-        </div>
-        <div class="complication-description">
-          ${escapedDescription}
-        </div>
-        <div class="complication-actions">
-          <button
-            class="seed-button apply-complication-button"
-            data-action="apply-complication"
-            data-complication='${escapedData}'
-            data-outcome="${outcome}"
-            title="Apply this effect to the ${targetDesc}">
-            ✨ Apply to ${StringUtils.capitalizeFirst(targetDesc)}
-          </button>
-        </div>
+        <strong>⚠️ ${escapedName}</strong> (${durationText}): ${escapedDescription}
+        <button class="apply-effect-btn" data-action="apply-complication" title="Apply this effect">✨</button>
       </div>
     `;
   }
@@ -281,35 +248,12 @@ export class CombatFormatter {
 
     const escapedName = StringUtils.escapeHTML(dismemberment.name);
     const escapedDescription = StringUtils.escapeHTML(dismemberment.description);
-    const warningText = DismembermentManager.getWarningText(dismemberment);
-    const severityClass = `severity-${dismemberment.severity}`;
 
-    // Encode dismemberment data for the button
-    const dismembermentData = JSON.stringify(dismemberment);
-    const escapedData = StringUtils.escapeHTML(dismembermentData);
-
+    // Dismemberment data is stored in message flags, no need to encode in HTML
     return `
-      <div class="seed-dismemberment ${severityClass}">
-        <div class="dismemberment-header">
-          <span class="dismemberment-icon">💀</span>
-          <span class="dismemberment-warning">${warningText}</span>
-        </div>
-        <div class="dismemberment-name">${escapedName}</div>
-        <div class="dismemberment-description">
-          ${escapedDescription}
-        </div>
-        <div class="dismemberment-notice">
-          ⚠️ This is a PERMANENT effect that cannot be easily removed!
-        </div>
-        <div class="dismemberment-actions">
-          <button
-            class="seed-button apply-dismemberment-button"
-            data-action="apply-dismemberment"
-            data-dismemberment='${escapedData}'
-            title="Apply this permanent injury to the target">
-            💀 Apply Permanent Injury
-          </button>
-        </div>
+      <div class="seed-dismemberment">
+        <strong>💀 PERMANENT: ${escapedName}</strong> - ${escapedDescription}
+        <button class="apply-effect-btn danger" data-action="apply-dismemberment" title="Apply permanent injury">💀</button>
       </div>
     `;
   }

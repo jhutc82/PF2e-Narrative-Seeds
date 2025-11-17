@@ -51,18 +51,13 @@ export class EffectApplicator {
         const condition = effect.condition;
         const value = effect.value || null;
 
-        // Use PF2e's condition system
+        // Use PF2e's condition system (updated API)
         try {
             // For conditions with values (like clumsy 1, stupefied 1)
             if (value !== null) {
-                await game.pf2e.ConditionManager.addConditionToActor(condition, actor, { value });
+                await actor.increaseCondition(condition, { value: value });
             } else {
-                await game.pf2e.ConditionManager.addConditionToActor(condition, actor);
-            }
-
-            // If duration is specified, we need to add expiry
-            if (duration) {
-                await this.addDurationToLastCondition(actor, condition, duration);
+                await actor.increaseCondition(condition);
             }
 
             ui.notifications.info(`Applied ${name} to ${actor.name}`);
@@ -72,10 +67,10 @@ export class EffectApplicator {
             // Fallback: create a custom effect item
             return await this.createCustomEffect(actor, name, description, duration, [
                 {
-                    key: 'PF2E.ConditionManager',
+                    key: 'PF2E.RuleElement.ConditionValue',
+                    path: 'condition.' + condition,
                     mode: 'add',
-                    condition: condition,
-                    value: value
+                    value: value || 1
                 }
             ]);
         }

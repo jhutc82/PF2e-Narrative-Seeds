@@ -130,7 +130,8 @@ export class DismembermentManager {
             return null;
         }
 
-        const { outcome, target } = attackData;
+        const { target } = attackData;
+        const { outcome } = seed;
 
         // Check if conditions are met
         if (!this.shouldCheckDismemberment(attackData, outcome)) {
@@ -208,12 +209,18 @@ export class DismembermentManager {
                 // Direct match
                 if (anatomy === applicableAnatomy) return true;
 
-                // Partial match (e.g., 'arms' matches 'arm', 'hand')
-                if (anatomy.includes(applicableAnatomy) || applicableAnatomy.includes(anatomy)) {
-                    return true;
-                }
+                // Normalize for plural/singular comparison (e.g., 'arms' vs 'arm')
+                const normalizedAnatomy = anatomy.replace(/s$/, '');
+                const normalizedApplicable = applicableAnatomy.replace(/s$/, '');
 
-                return false;
+                if (normalizedAnatomy === normalizedApplicable) return true;
+
+                // Word boundary match to prevent false positives (e.g., 'harms' vs 'arm')
+                const anatomyWords = anatomy.split(/\s+/);
+                const applicableWords = applicableAnatomy.split(/\s+/);
+
+                return anatomyWords.some(word => applicableWords.includes(word)) ||
+                       applicableWords.some(word => anatomyWords.includes(word));
             });
 
             if (!matches) {

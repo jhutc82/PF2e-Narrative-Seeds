@@ -4,7 +4,7 @@
  */
 
 import { NarrativeSeedsSettings } from '../settings.js';
-import { PF2eUtils } from '../utils.js';
+import { PF2eUtils, StringUtils } from '../utils.js';
 import { CombatNarrativeGenerator } from './combat-generator.js';
 import { CombatFormatter } from './combat-formatter.js';
 import { EffectApplicator } from './effect-applicator.js';
@@ -295,23 +295,29 @@ export class CombatHooks {
       });
     }
 
-    // Add listener for apply complication button
-    const applyComplicationButton = html.find('.apply-complication-button');
-    if (applyComplicationButton.length > 0) {
-      applyComplicationButton.on('click', async (event) => {
-        event.preventDefault();
-        await this.applyComplication(message, event.currentTarget);
-      });
-    }
+    // Handle button clicks with data-action attribute
+    html.find('[data-action]').on('click', async (event) => {
+      event.preventDefault();
+      const button = event.currentTarget;
+      const action = button.dataset.action;
 
-    // Add listener for apply dismemberment button
-    const applyDismembermentButton = html.find('.apply-dismemberment-button');
-    if (applyDismembermentButton.length > 0) {
-      applyDismembermentButton.on('click', async (event) => {
-        event.preventDefault();
-        await this.applyDismemberment(message, event.currentTarget);
-      });
-    }
+      switch (action) {
+        case 'apply-complication':
+          await this.applyComplication(message, button);
+          break;
+        case 'apply-dismemberment':
+          await this.applyDismemberment(message, button);
+          break;
+        case 'toggle-details':
+          const details = button.closest('.pf2e-narrative-seed').querySelector('.narrative-details');
+          if (details) {
+            const isHidden = details.style.display === 'none';
+            details.style.display = isHidden ? 'block' : 'none';
+            button.textContent = isHidden ? '▲' : '▼';
+          }
+          break;
+      }
+    });
   }
 
   /**
@@ -427,24 +433,15 @@ export class CombatHooks {
    */
   static async applyComplication(message, button) {
     try {
-      // Get complication data from button
-      const complicationData = button.dataset.complication;
-      const outcome = button.dataset.outcome;
-
-      if (!complicationData) {
-        ui.notifications.warn("No complication data found");
+      // Get complication data from message flags (no encoding needed)
+      const seed = message.flags?.["pf2e-narrative-seeds"]?.seed;
+      if (!seed || !seed.complication) {
+        ui.notifications.warn("No complication data found in message");
         return;
       }
 
-      // Parse complication data
-      let complication;
-      try {
-        complication = JSON.parse(complicationData);
-      } catch (e) {
-        console.error("Failed to parse complication data:", e);
-        ui.notifications.error("Failed to parse complication data");
-        return;
-      }
+      const complication = seed.complication;
+      const outcome = seed.outcome;
 
       // Get stored attack data to determine target
       const storedData = message.flags?.["pf2e-narrative-seeds"]?.attackData;
@@ -496,23 +493,14 @@ export class CombatHooks {
    */
   static async applyDismemberment(message, button) {
     try {
-      // Get dismemberment data from button
-      const dismembermentData = button.dataset.dismemberment;
-
-      if (!dismembermentData) {
-        ui.notifications.warn("No dismemberment data found");
+      // Get dismemberment data from message flags
+      const seed = message.flags?.["pf2e-narrative-seeds"]?.seed;
+      if (!seed || !seed.dismemberment) {
+        ui.notifications.warn("No dismemberment data found in message");
         return;
       }
 
-      // Parse dismemberment data
-      let dismemberment;
-      try {
-        dismemberment = JSON.parse(dismembermentData);
-      } catch (e) {
-        console.error("Failed to parse dismemberment data:", e);
-        ui.notifications.error("Failed to parse dismemberment data");
-        return;
-      }
+      const dismemberment = seed.dismemberment;
 
       // Get stored attack data to determine target
       const storedData = message.flags?.["pf2e-narrative-seeds"]?.attackData;
@@ -530,15 +518,20 @@ export class CombatHooks {
       }
 
       // CRITICAL WARNING: Dismemberment is permanent!
+      // Escape all dynamic content to prevent XSS
+      const escapedName = StringUtils.escapeHTML(dismemberment.name);
+      const escapedTarget = StringUtils.escapeHTML(targetActor.name);
+      const escapedDescription = StringUtils.escapeHTML(dismemberment.description);
+
       const confirmed = await Dialog.confirm({
         title: "💀 PERMANENT INJURY WARNING 💀",
         content: `<div style="background: #8b0000; border: 2px solid #ff0000; padding: 15px; border-radius: 5px; color: #fff;">
           <h2 style="color: #ff0000; margin-top: 0;">⚠️ PERMANENT INJURY ⚠️</h2>
           <p><strong>You are about to apply:</strong></p>
-          <p style="font-size: 1.2em; color: #ffd700;">${dismemberment.name}</p>
-          <p><strong>To:</strong> ${targetActor.name}</p>
+          <p style="font-size: 1.2em; color: #ffd700;">${escapedName}</p>
+          <p><strong>To:</strong> ${escapedTarget}</p>
           <hr style="border-color: #ff0000;">
-          <p>${dismemberment.description}</p>
+          <p>${escapedDescription}</p>
           <hr style="border-color: #ff0000;">
           <p style="color: #ff6666;"><strong>THIS IS A PERMANENT EFFECT!</strong></p>
           <p>This effect cannot be easily removed and will have lasting consequences.</p>

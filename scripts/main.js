@@ -27,7 +27,7 @@ class PF2eNarrativeSeeds {
 
   static MODULE_ID = "pf2e-narrative-seeds";
   static MODULE_TITLE = "PF2e Narrative Seeds";
-  static VERSION = "1.1.2";
+  static VERSION = "1.2.0";
 
   static generators = new Map();
   static initialized = false;
@@ -86,22 +86,14 @@ class PF2eNarrativeSeeds {
       this.generators.set("combat", CombatHooks);
     }
 
-    // Phase 2: Spells (future)
-    if (NarrativeSeedsSettings.get("enableSpells")) {
-      console.log("PF2e Narrative Seeds | Spell narration coming soon!");
-    }
-
-    // Phase 3: Skill Actions
+    // Phase 2: Skill Actions
     if (NarrativeSeedsSettings.isSkillEnabled()) {
       console.log("PF2e Narrative Seeds | Initializing skill action narration...");
       SkillHooks.initialize();
       this.generators.set("skills", SkillHooks);
     }
 
-    // Phase 4: Exploration (future)
-    if (NarrativeSeedsSettings.get("enableExploration")) {
-      console.log("PF2e Narrative Seeds | Exploration narration coming soon!");
-    }
+    // Future phases: Spells, Exploration (coming soon)
   }
 
   /**
@@ -208,28 +200,11 @@ Hooks.once("init", () => {
  */
 Hooks.once("ready", () => {
   console.log("PF2e Narrative Seeds | Ready hook fired");
+
+  // Initialize the module
   PF2eNarrativeSeeds.initialize();
-});
 
-/**
- * Handle hot reload (development)
- */
-if (import.meta.hot) {
-  import.meta.hot.accept(() => {
-    console.log("PF2e Narrative Seeds | Hot reload detected");
-    PF2eNarrativeSeeds.shutdown();
-    PF2eNarrativeSeeds.initialize();
-  });
-}
-
-// ============================================================================
-// DEVELOPER CONSOLE COMMANDS
-// ============================================================================
-
-/**
- * Expose module to console for debugging
- */
-Hooks.once("ready", () => {
+  // Expose console API for debugging
   window.PF2eNarrativeSeeds = {
     version: PF2eNarrativeSeeds.VERSION,
     module: PF2eNarrativeSeeds,
@@ -284,6 +259,17 @@ Hooks.once("ready", () => {
   console.log("PF2e Narrative Seeds | Performance monitoring: window.PF2eNarrativeSeeds.performance.enable()");
   console.log("PF2e Narrative Seeds | Cache warming: window.PF2eNarrativeSeeds.data.warmCache()");
 });
+
+/**
+ * Handle hot reload (development)
+ */
+if (import.meta.hot) {
+  import.meta.hot.accept(() => {
+    console.log("PF2e Narrative Seeds | Hot reload detected");
+    PF2eNarrativeSeeds.shutdown();
+    PF2eNarrativeSeeds.initialize();
+  });
+}
 
 // ============================================================================
 // EXPORTS

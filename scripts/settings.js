@@ -190,7 +190,15 @@ export class NarrativeSeedsSettings {
         max: 100,
         step: 5
       },
-      default: 60
+      default: 60,
+      onChange: value => {
+        // Validate and clamp value to valid range
+        if (value < 0 || value > 100) {
+          const clamped = Math.max(0, Math.min(100, value));
+          console.warn(`PF2e Narrative Seeds | Complication chance must be 0-100. Clamping ${value} to ${clamped}`);
+          game.settings.set("pf2e-narrative-seeds", "complicationChance", clamped);
+        }
+      }
     });
 
     // ========================================
@@ -200,13 +208,13 @@ export class NarrativeSeedsSettings {
     // Enable dismemberment
     game.settings.register("pf2e-narrative-seeds", "enableDismemberment", {
       name: "Enable Dismemberment System",
-      hint: "PERMANENT INJURIES: Generate dismemberment effects for devastating critical hits (>50% HP or on unconscious targets)",
+      hint: "PERMANENT INJURIES: Generate dismemberment effects for devastating critical hits (dealing >50% of max HP or against unconscious targets)",
       scope: "world",
       config: true,
       type: Boolean,
       default: false,
       onChange: value => {
-        ui.notifications.warn("Dismemberment system " + (value ? "ENABLED - Permanent injuries are now possible!" : "disabled"));
+        ui.notifications.warn("Dismemberment system" + (value ? " ENABLED - Permanent injuries are now possible!" : " disabled"));
       }
     });
 

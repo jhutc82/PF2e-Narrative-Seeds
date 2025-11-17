@@ -151,8 +151,8 @@ All **13 PF2e damage types** fully supported:
 - **Poison** - Toxins, venom
 - **Force** - Magical energy
 - **Mental** - Psychic damage
-- **Positive** - Life energy
-- **Negative** - Death energy
+- **Vitality** - Life energy
+- **Void** - Death energy
 
 Each damage type has **10+ unique verbs and effects** for each outcome level!
 
