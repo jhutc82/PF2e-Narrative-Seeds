@@ -2,7 +2,7 @@
   "cinematic": {
     "criticalSuccess": [
       "Wood and steel sing as ${attackerName} strikes with brutal precision.",
-      "The spear thrusts armor like kindling from ${attackerName}.",
+      "The spear thrusts through armor like kindling from ${attackerName}.",
       "${attackerName}'s spear thrusts through bone and sinew.",
       "${attackerName} delivers the berserker's perfect strike.",
       "${attackerName} delivers the perfect overhead stab.",
