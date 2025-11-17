@@ -53,8 +53,8 @@ export class SkillNarrativeGenerator {
         return null;
       }
 
-      // Determine which variant to use based on feats
-      const variant = this.selectVariant(actionData, feats);
+      // Determine which variant to use based on feats AND conditions
+      const variant = this.selectVariant(actionData, feats, skillData);
 
       // Get detail level from settings
       const detailLevel = this.getDetailLevel();
@@ -156,24 +156,129 @@ export class SkillNarrativeGenerator {
   }
 
   /**
-   * Select variant based on detected feats
+   * Select variant based on detected feats AND their conditions
    * @param {Object} actionData - Full action data
    * @param {Array<string>} feats - Detected feats
+   * @param {Object} skillData - Skill data including actor, target, etc.
    * @returns {Object} Selected variant
    */
-  selectVariant(actionData, feats) {
+  selectVariant(actionData, feats, skillData) {
     // Check for feat-specific variants
-    if (feats.length > 0 && actionData.variants?.feats) {
-      // Priority order: use first detected feat that has a variant
+    if (feats.length > 0 && actionData.variants) {
+      // Priority order: use first detected feat that has a variant AND meets conditions
       for (const feat of feats) {
-        if (actionData.variants.feats[feat]) {
-          return actionData.variants.feats[feat];
+        const variant = actionData.variants[feat];
+        if (variant) {
+          // Check if feat conditions are met
+          if (this.checkFeatConditions(feat, skillData, actionData)) {
+            console.log(`Using ${feat} variant for ${actionData.action} (conditions met)`);
+            return variant;
+          } else {
+            console.log(`Feat ${feat} present but conditions not met, skipping variant`);
+          }
         }
       }
     }
 
     // Fall back to default variant
     return actionData.variants?.default || actionData.variants;
+  }
+
+  /**
+   * Check if feat-specific conditions are met
+   * @param {string} feat - Feat slug
+   * @param {Object} skillData - Skill data {actor, target, action, etc.}
+   * @param {Object} actionData - Action data
+   * @returns {boolean} True if conditions are met
+   */
+  checkFeatConditions(feat, skillData, actionData) {
+    const { actor, target, action } = skillData;
+
+    switch (feat) {
+      case 'titan-wrestler':
+        return this.checkTitanWrestlerConditions(actor, target);
+
+      case 'battle-cry':
+        return this.checkBattleCryConditions(skillData);
+
+      case 'intimidating-glare':
+        // Intimidating Glare can be used anytime for Demoralize
+        // No special conditions needed
+        return true;
+
+      case 'intimidating-prowess':
+        // Intimidating Prowess can be used anytime for Demoralize
+        // No special conditions needed
+        return true;
+
+      // Add more feat conditions as needed
+      default:
+        // If no specific conditions defined, allow the feat variant
+        return true;
+    }
+  }
+
+  /**
+   * Check Titan Wrestler conditions
+   * Requires: target is larger than actor, but not more than 2 size categories larger
+   * @param {Actor} actor - Acting character
+   * @param {Actor} target - Target character
+   * @returns {boolean} True if conditions met
+   */
+  checkTitanWrestlerConditions(actor, target) {
+    if (!actor || !target) {
+      return false;
+    }
+
+    // Get size values from PF2e system
+    const actorSize = actor.system?.traits?.size?.value;
+    const targetSize = target.system?.traits?.size?.value;
+
+    if (!actorSize || !targetSize) {
+      return false;
+    }
+
+    // PF2e size order: tiny (0), small (1), medium (2), large (3), huge (4), gargantuan (5)
+    const sizeOrder = ['tiny', 'sm', 'med', 'lg', 'huge', 'grg'];
+    const actorSizeIndex = sizeOrder.indexOf(actorSize);
+    const targetSizeIndex = sizeOrder.indexOf(targetSize);
+
+    if (actorSizeIndex === -1 || targetSizeIndex === -1) {
+      return false;
+    }
+
+    // Target must be larger
+    if (targetSizeIndex <= actorSizeIndex) {
+      return false;
+    }
+
+    // Size difference must be 1 or 2 categories (not more)
+    const sizeDifference = targetSizeIndex - actorSizeIndex;
+    return sizeDifference >= 1 && sizeDifference <= 2;
+  }
+
+  /**
+   * Check Battle Cry conditions
+   * Requires: first action of combat OR first Demoralize of encounter
+   * @param {Object} skillData - Skill data
+   * @returns {boolean} True if conditions met
+   */
+  checkBattleCryConditions(skillData) {
+    const { actor, message } = skillData;
+
+    // For now, we'll allow Battle Cry variant any time
+    // TODO: Implement proper "first action of combat" detection
+    // This would require tracking combat state and round/turn info
+    // which isn't easily accessible from chat messages alone
+
+    // Simple heuristic: check if combat just started (round 1, low turn number)
+    if (game?.combat?.round === 1) {
+      return true;
+    }
+
+    // If no combat active or we can't determine timing, allow it
+    // (prefer showing the feat variant over hiding it)
+    return true;
   }
 
   /**
