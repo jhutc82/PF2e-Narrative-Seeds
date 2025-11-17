@@ -1,0 +1,150 @@
+{
+  "action": "demoralize",
+  "actionName": "Demoralize",
+  "skill": "intimidation",
+  "traits": ["auditory", "concentrate", "emotion", "mental"],
+  "description": "You attempt to Frighten a foe using threats",
+
+  "variants": {
+    "default": {
+      "displayName": "Demoralize",
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You terrify {targetName}!",
+            "You break {targetName}'s nerve!",
+            "{targetName} recoils in fear!",
+            "Your threat devastates {targetName}!",
+            "{targetName} is overwhelmed with terror!"
+          ],
+          "success": [
+            "You unnerve {targetName}.",
+            "You intimidate {targetName}.",
+            "{targetName} hesitates.",
+            "Your threat works.",
+            "{targetName} looks worried."
+          ],
+          "failure": [
+            "{targetName} isn't impressed.",
+            "Your threat falls flat.",
+            "{targetName} stands firm.",
+            "It has no effect.",
+            "{targetName} ignores you."
+          ],
+          "criticalFailure": [
+            "{targetName} laughs at you!",
+            "Your intimidation backfires!",
+            "You look foolish!",
+            "{targetName} seems amused!",
+            "It makes things worse!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You unleash a fearsome threat that breaks {targetName}'s nerve completely!",
+            "Your intimidating display sends {targetName} reeling backward in terror!",
+            "{targetName} staggers, face pale with fear at your menacing presence!",
+            "You bellow a war cry that shatters {targetName}'s composure entirely!",
+            "Your threatening words cut through {targetName} like a blade - they're terrified!",
+            "{targetName}'s hands tremble as your intimidation overwhelms them!",
+            "You lock eyes with {targetName}, and they freeze, utterly cowed!",
+            "Your menacing presence breaks {targetName}'s will to fight!",
+            "{targetName} stumbles backward, terror written across their face!",
+            "Your threat carries such weight that {targetName} goes pale!"
+          ],
+          "success": [
+            "You bellow a threatening warning that makes {targetName} hesitate.",
+            "Your menacing words catch {targetName}'s attention, making them nervous.",
+            "{targetName} flinches at your intimidating display.",
+            "You deliver a stern threat that clearly unsettles {targetName}.",
+            "Your aggressive posture makes {targetName} think twice.",
+            "{targetName} backs away slightly, unnerved by your threats.",
+            "You snarl a warning that gives {targetName} pause.",
+            "Your intimidating demeanor makes {targetName} wary.",
+            "{targetName}'s confidence wavers at your menacing words.",
+            "You project enough menace to rattle {targetName}."
+          ],
+          "failure": [
+            "You try to intimidate {targetName}, but they're unimpressed by your threats.",
+            "Your threatening words don't seem to affect {targetName}.",
+            "{targetName} stands firm against your intimidation attempt.",
+            "Your menacing display fails to land - {targetName} doesn't budge.",
+            "{targetName} meets your threats with steady resolve.",
+            "Your intimidation attempt doesn't produce the effect you hoped for.",
+            "{targetName} remains unfazed by your threatening demeanor.",
+            "Your words lack the bite needed to unsettle {targetName}.",
+            "{targetName} brushes off your intimidation with confidence.",
+            "Your attempt to seem threatening falls short."
+          ],
+          "criticalFailure": [
+            "Your clumsy intimidation attempt makes {targetName} laugh derisively!",
+            "{targetName} mocks your failed threat, emboldening them further!",
+            "Your intimidation backfires spectacularly - {targetName} seems amused!",
+            "You stumble over your threatening words, and {targetName} grins!",
+            "{targetName} actually laughs out loud at your poor attempt!",
+            "Your menacing display comes across as pathetic - {targetName} smirks!",
+            "{targetName} rolls their eyes at your failed intimidation!",
+            "You try to seem threatening, but {targetName} finds it funny!",
+            "Your bravado crumbles embarrassingly, boosting {targetName}'s confidence!",
+            "{targetName} responds with mocking laughter that stings!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "Your voice thunders with raw menace as you lock eyes with {targetName}. They stumble backward, terror etched across their face, completely shaken by the primal fear you've invoked!",
+            "You unleash a fearsome war cry that resonates with pure dominance. {targetName}'s composure shatters entirely - they pale, hands trembling as the weight of your threat crashes over them!",
+            "Stepping forward with aggressive intent, you deliver a bone-chilling threat. {targetName}'s bravado crumbles instantly, replaced by wide-eyed panic as they realize the danger they face!",
+            "You channel pure menace through every word and gesture. {targetName} actually recoils, their weapon wavering as genuine terror takes hold. Your intimidation has broken something fundamental in them!",
+            "Your threatening words drip with such conviction that {targetName} can't help but believe them. They back away, breathing quickly, eyes darting for escape routes. You've truly terrified them!"
+          ],
+          "success": [
+            "You growl a menacing warning through gritted teeth. {targetName} takes an involuntary step back, their confidence clearly shaken by your display.",
+            "Your intimidating words carry undeniable weight. {targetName}'s eyes dart nervously as they reassess the situation, no longer quite so certain.",
+            "With a threatening gesture, you make your intentions crystal clear. {targetName} swallows hard, visibly unnerved by your aggressive posture.",
+            "You project raw menace through body language and tone. {targetName} tenses, clearly affected by your intimidating presence even if not fully cowed.",
+            "Your well-timed threat catches {targetName} off-guard. They hesitate, uncertainty creeping into their expression as your words sink in."
+          ],
+          "failure": [
+            "You try to project menace, but your words lack the conviction needed. {targetName} barely reacts, their confidence unshaken.",
+            "Your attempted intimidation comes across as forced and hollow. {targetName} meets your gaze steadily, unimpressed.",
+            "Despite your best efforts to seem threatening, {targetName} doesn't seem particularly concerned by your display.",
+            "You deliver your threats with gusto, but {targetName} stands their ground, apparently unmoved by your bluster.",
+            "Your intimidating stance and harsh words fail to produce the desired effect. {targetName} remains resolute."
+          ],
+          "criticalFailure": [
+            "Your attempt at intimidation is so poorly delivered that {targetName} actually laughs out loud! Their mocking response emboldens them, making them more confident than before!",
+            "You stumble over your threatening words, voice cracking embarrassingly. {targetName} grins wickedly, your failed intimidation only fueling their courage!",
+            "Your aggressive display backfires completely - you overcommit and nearly lose your balance. {targetName} smirks at your clumsiness, clearly not taking you seriously now!",
+            "In trying to project overwhelming menace, you instead come across as desperate. {targetName}'s expression shifts from caution to contemptuous amusement!",
+            "Your theatrical attempt at intimidation is so over-the-top that {targetName} can't help but chuckle. The sound of their laughter is mortifying!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "The very air seems to chill as you channel pure, predatory menace. Your eyes burn with lethal promise as your words drip with inevitable violence. {targetName}'s blood turns to ice - their hands shake uncontrollably, breath coming in ragged gasps as primal terror overrides all reason. They know, with absolute certainty, that they are prey before an apex predator.",
+            "Your battle cry tears through the chaos like the roar of an ancient dragon - raw, primal, absolutely dominant. The sound reverberates in {targetName}'s very bones. Their face drains of all color as their legs nearly give out beneath them. This isn't mere intimidation - it's the recognition of overwhelming, unstoppable force!",
+            "You become death incarnate in this moment. Each word falls like a hammer blow of doom. Each step forward radiates inexorable violence. {targetName}'s courage doesn't just falter - it shatters completely. Their weapon wavers as their nerve breaks, consumed by the terrible certainty that they face something far beyond their ability to resist!"
+          ],
+          "success": [
+            "Menace radiates from your every word and gesture like heat from a forge. {targetName}'s confidence visibly wavers - their stance shifts defensively, uncertainty creeping into their eyes. They're not broken, but they're definitely concerned now.",
+            "You unleash a threat laden with dark promise and undeniable conviction. The shift in {targetName}'s demeanor is immediate - jaw tightening, eyes narrowing, a slight backward step betraying their sudden unease. Your message has been received.",
+            "Your intimidating display combines aggressive body language with perfectly chosen words of menace. {targetName} tries to maintain composure, but you catch the telltale signs - the white knuckles, the tense shoulders, the quick glance assessing escape routes. They're rattled."
+          ],
+          "failure": [
+            "You attempt to project overwhelming menace, but something in your delivery rings hollow. {targetName}'s eyes remain steady, their stance unchanged. Your threat, for all its bluster, lacks the teeth to give them pause.",
+            "Despite drawing on every ounce of intimidating presence you can muster, {targetName} seems frustratingly unmoved. They meet your threatening gaze with calm indifference, secure in whatever reserves of courage or foolishness keep them fearless.",
+            "Your words of menace fall on surprisingly unimpressed ears. {targetName} doesn't even bother responding - their casual dismissal of your intimidation attempt stinging more than outright mockery would."
+          ],
+          "criticalFailure": [
+            "In trying to project overwhelming dominance, you instead reveal the desperation beneath your bravado. {targetName}'s eyes light up with predatory glee as they recognize your fear dressed up as aggression. Your voice cracks mid-threat, destroying any credibility. They actually smile - you've just shown them weakness!",
+            "Your attempted intimidation is so transparently overplayed that it has the opposite effect entirely. {targetName} bursts into genuine laughter at your theatrical display. Worse, their mocking sets your cheeks burning with humiliation, and everyone watching knows your threatening words were empty posturing!",
+            "You commit so hard to your menacing advance that you literally trip over your own feet! Stumbling awkwardly, you have to catch yourself to avoid falling. {targetName}'s expression shifts from caution to open amusement - any fear they might have felt is now replaced with the certainty that you're more danger to yourself than to them!"
+          ]
+        }
+      }
+    }
+  }
+}
