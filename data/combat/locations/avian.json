@@ -20,7 +20,7 @@
     "brain",
     "vital organs",
     "throat opening",
-    "chest cavity",
+    "aorta (a main blood vessel in the chest)",
     "wing bone",
     "leg bone",
     "cranium",
@@ -81,7 +81,7 @@
     "right chamber of the heart",
     "main artery in the chest",
     "lung artery",
-    "neck artery",
+    "carotid artery (a major artery in the neck)",
     "left carotid",
     "right carotid",
     "major blood vessel in the neck",
@@ -113,7 +113,7 @@
     "axis vertebra",
     "notarium",
     "cervical nerve",
-    "shoulder nerves",
+    "nerve cluster (in the shoulder)",
     "lumbosacral plexus",
     "major nerve in the leg",
     "nerve in the arm",
@@ -157,7 +157,7 @@
     "primary feather follicle",
     "blood feather base",
     "wing vein",
-    "leg artery"
+    "femoral artery (a major artery in the leg)"
   ],
   "success": [
     "left wing",
