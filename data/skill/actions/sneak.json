@@ -133,6 +133,136 @@
           ]
         }
       }
+    },
+
+    "swift-sneak": {
+      "displayName": "Sneak (Swift Sneak)",
+      "feats": ["swift-sneak"],
+      "narratives": {
+        "minimal": {
+          "criticalSuccess": [
+            "You move swiftly and silently!",
+            "Full-speed stealth!",
+            "You race forward undetected!",
+            "Silent and fast!",
+            "You dash past unseen!"
+          ],
+          "success": [
+            "You sneak at full speed.",
+            "You move fast and quiet.",
+            "Swift stealth succeeds.",
+            "You race forward quietly.",
+            "Quick and undetected."
+          ],
+          "failure": [
+            "Speed breaks your stealth.",
+            "You're detected.",
+            "Too fast - you're noticed.",
+            "You can't maintain both.",
+            "Speed ruins stealth."
+          ],
+          "criticalFailure": [
+            "You crash loudly!",
+            "Speed destroys stealth!",
+            "You're spotted immediately!",
+            "Your rush alerts everyone!",
+            "You stumble noisily!"
+          ]
+        },
+
+        "standard": {
+          "criticalSuccess": [
+            "You move at full speed while remaining perfectly silent - undetected!",
+            "You dash forward with amazing stealth - fast and invisible!",
+            "Your swift movement is also perfectly stealthy - no one notices!",
+            "You race ahead while staying completely hidden - masterful!",
+            "You combine speed and stealth flawlessly - quick and silent!",
+            "You move rapidly without sacrificing stealth - completely undetected!",
+            "Your fast stealth is perfect - you're like a shadow in motion!",
+            "You sprint forward silently - speed doesn't break your stealth!",
+            "You move with both velocity and silence - expert sneaking!",
+            "You dash past at full speed, yet remain completely hidden!"
+          ],
+          "success": [
+            "You successfully sneak at full speed, remaining undetected.",
+            "You move swiftly while maintaining adequate stealth.",
+            "You manage to combine speed with silence successfully.",
+            "You advance rapidly without being noticed.",
+            "You sneak at normal speed instead of half, staying hidden.",
+            "You move fast enough while still remaining stealthy.",
+            "You successfully maintain stealth at full speed.",
+            "You advance quickly without alerting anyone.",
+            "You combine swift movement with functional stealth.",
+            "You sneak rapidly without being detected."
+          ],
+          "failure": [
+            "Your attempt to move fast and stealthy fails - you're detected!",
+            "You can't maintain both speed and silence - you're noticed!",
+            "Moving too quickly breaks your stealth - you're spotted!",
+            "Your rapid movement gives you away!",
+            "You're forced to choose speed over stealth and get detected!",
+            "Your swift sneak attempt fails - you're noticed!",
+            "You can't balance speed with silence - you're spotted!",
+            "Moving at full pace costs you your stealth!",
+            "Your rapid movement alerts observers!",
+            "Speed defeats stealth - you're detected!"
+          ],
+          "criticalFailure": [
+            "Your rapid movement creates tremendous noise - everyone spots you!",
+            "You stumble while moving fast and crash loudly!",
+            "Your swift sneak fails catastrophically - you're very obvious!",
+            "Speed destroys your stealth completely - you alert everyone!",
+            "You rush forward and knock into something loudly!",
+            "Your fast movement creates such noise you're immediately detected!",
+            "You trip while moving quickly and crash!",
+            "Your rapid pace makes you incredibly obvious!",
+            "You stumble at full speed and make a tremendous crash!",
+            "Your swift sneak becomes a loud, clumsy rush!"
+          ]
+        },
+
+        "detailed": {
+          "criticalSuccess": [
+            "You demonstrate the rare ability to move at full speed while maintaining perfect stealth. Your footfalls are rapid but light, your movements quick but controlled. You flow forward at normal pace, yet somehow you're making no more noise than a careful creep. Your breathing is controlled despite the exertion, your positioning optimal despite the speed. You race ahead while remaining a ghost - fast, silent, and completely undetected!",
+            "Your swift sneak is masterful. You've trained to move quickly without sacrificing stealth, and it shows. You advance at full speed, yet every footfall is placed with precision, every movement is fluid, every sound minimized. You combine velocity with invisibility beautifully!",
+            "With expert technique, you move rapidly while staying hidden. Speed and stealth aren't opposites for you - they're complementary skills. You dash forward with perfect noise discipline, remaining completely undetected despite your pace!"
+          ],
+          "success": [
+            "You successfully employ swift sneak techniques to move at full speed while maintaining stealth. It's demanding - moving fast while staying quiet requires significant skill - but you manage it. You advance rapidly without being detected.",
+            "You combine speed with adequate stealth. Your movements are quick but controlled enough to avoid detection. You're making progress at normal pace while remaining hidden.",
+            "Your swift sneak works. You're not slowed to half speed like normal sneaking - you move at full pace while maintaining enough stealth to avoid detection."
+          ],
+          "failure": [
+            "You attempt to move at full speed while staying stealthy, but the combination proves too difficult. Moving fast creates noise and obvious movement. Despite your swift sneak training, you're detected. Speed and stealth prove incompatible this time.",
+            "Your swift sneak attempt fails. You try to maintain both velocity and silence, but you can't manage both. Your rapid movement gives you away and you're noticed.",
+            "Despite your best efforts, you can't maintain stealth at full speed. The faster pace creates too much noise or too obvious movement. You're detected."
+          ],
+          "criticalFailure": [
+            "Your attempt to move quickly while staying stealthy backfires catastrophically. You're moving at full pace, trying to maintain stealth discipline, when something goes terribly wrong. Maybe you step on something loud, maybe you lose your footing at speed, but the result is a tremendous crash. Your rapid movement transforms from attempted stealth into obvious noise and movement. Everyone knows exactly where you are!",
+            "Your swift sneak becomes swift failure. You're trying to balance speed with silence, and the juggling act collapses completely. You stumble at full pace, or crash into something you didn't have time to notice, or simply make too much noise moving quickly. The result is catastrophic - you're not just detected, you're announced!",
+            "Speed defeats you utterly. You try to maintain stealth while moving fast, but it's simply too much. Your rapid footfalls create noise, your quick movements are obvious, and when you inevitably stumble or knock into something at full pace, the crash is tremendous. You've failed spectacularly!"
+          ]
+        },
+
+        "cinematic": {
+          "criticalSuccess": [
+            "This is stealth mastery in motion. You explode forward at full running speed, yet somehow you're still a ghost. Your feet find perfect purchase with each rapid stride, making no more sound than falling leaves. Your breathing is controlled even at this pace, your awareness total. You read the terrain at speed, flowing around obstacles with fluid grace. Normal sneaking is slow, careful work. But you've transcended that limitation. You combine velocity with invisibility, racing forward while remaining completely undetected. It's like watching a phantom sprint - movement without sound, speed without visibility. You cover ground at normal pace while maintaining perfect stealth. It's a masterful display of advanced infiltration skills!",
+            "Like an elite special operations soldier, you demonstrate the art of rapid stealth movement. You don't creep - you move at full tactical pace. Yet your noise discipline is perfect, your positioning flawless, your stealth complete. Each footfall is placed with microscopic precision despite the speed. Your breathing remains controlled even while moving fast. You flow through the environment like water - quick, silent, unstoppable. Observers would swear nobody could move that fast while staying hidden. But you're proving them wrong with every silent stride. This is swift sneaking perfected!"
+          ],
+          "success": [
+            "You employ solid swift sneak techniques to advance at full speed while maintaining stealth. It's challenging work - the faster pace makes silence harder - but your training carries you through. You move rapidly without being detected.",
+            "You successfully balance speed with adequate stealth. Your movements are quick but controlled enough to avoid giving you away. You advance at normal pace while staying hidden."
+          ],
+          "failure": [
+            "You attempt swift sneaking with confidence, trying to maintain both speed and silence. But the combination proves beyond your current ability. Moving at full pace creates too much noise, too much obvious movement. Despite your best efforts, you're detected. The rapid advancement has cost you your stealth.",
+            "Your swift sneak attempt breaks down under the conflicting demands. You're trying to move fast and stay hidden, but you can't maintain both. Speed wins out over stealth, and the result is detection. You're noticed despite your best efforts."
+          ],
+          "criticalFailure": [
+            "Your attempt at rapid stealth movement becomes a disaster in motion. You launch forward at full speed, trying desperately to maintain noise discipline and concealment. For a few steps it almost works. Then physics and probability catch up with you. Moving this fast while trying to stay stealthy creates impossible demands. Your foot finds something unexpected - a stick, a stone, uneven ground. At full pace, there's no time to recover. You stumble, arms windmilling. The noise is tremendous. Or perhaps you simply move too fast to notice an obstacle until you crash into it. Either way, the result is catastrophic failure. You're not just detected - you're the center of attention, marked by noise and obvious movement. Your swift sneak has become a loud, clumsy charge!",
+            "Speed and stealth prove utterly incompatible for you in this moment. You try to move at full pace while staying hidden, and the attempt collapses spectacularly. You're moving too fast to properly control each footfall, too rushed to properly read the environment. Something goes wrong - a loud step, a stumble, a collision. The noise echoes. Movement draws every eye. You've not just failed to sneak - you've announced your presence more effectively than if you'd simply run normally. Your advanced technique has betrayed you completely!"
+          ]
+        }
+      }
     }
   }
 }
