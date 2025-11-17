@@ -2,7 +2,7 @@
   "cinematic": {
     "criticalSuccess": [
       "Wood and flesh sing as ${attackerName} strikes with brutal precision.",
-      "Strike buries itself deep from ${attackerName}'s strike.",
+      "The blow buries itself deep from ${attackerName}'s strike.",
       "The strike breaks through armor like kindling from ${attackerName}.",
       "${attackerName} delivers the berserker's perfect strike.",
       "${attackerName} delivers the perfect overhead punch.",

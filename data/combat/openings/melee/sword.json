@@ -249,7 +249,7 @@
     "criticalFailure": [
       "The blade nearly cuts ${attackerName}.",
       "The blade cuts ${attackerName}.",
-      "The blade cuts ${attackerName}.",
+      "The blade strikes ${attackerName}.",
       "${attackerName} swings wildly.",
       "${attackerName} botches the strike.",
       "${attackerName} strikes terribly.",
