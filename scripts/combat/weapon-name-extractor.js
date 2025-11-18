@@ -33,13 +33,19 @@ export class WeaponNameExtractor {
       return this.getImprovisedName(pov);
     }
 
-    // Priority 4: Get base weapon name (clean it)
+    // Priority 4: Check for ammunition (if weapon uses ammo, return ammo name)
+    const ammoName = this.getAmmoName(item, pov);
+    if (ammoName) {
+      return ammoName;
+    }
+
+    // Priority 5: Get base weapon name (clean it)
     const baseName = this.extractBaseWeaponName(item);
     if (baseName) {
       return this.formatWeaponName(baseName, pov);
     }
 
-    // Priority 5: Fallback to damage-type generic
+    // Priority 6: Fallback to damage-type generic
     return this.getFallbackName(damageType, pov);
   }
 
@@ -140,6 +146,150 @@ export class WeaponNameExtractor {
    */
   static getImprovisedName(pov) {
     return this.formatName('improvised weapon', pov);
+  }
+
+  /**
+   * Get ammunition name if weapon uses ammo
+   * @param {Object} item - PF2e weapon item
+   * @param {string} pov - Point of view
+   * @returns {string|null} Ammunition name or null if no ammo
+   */
+  static getAmmoName(item, pov) {
+    if (!item) return null;
+
+    // Check if weapon uses ammunition
+    if (!this.usesAmmunition(item)) {
+      return null;
+    }
+
+    // Try to get selected ammunition from various PF2e system locations
+    let ammo = null;
+
+    // Method 1: Check for selectedAmmoId in system
+    if (item.system?.selectedAmmoId) {
+      const actor = item.actor || item.parent;
+      if (actor) {
+        ammo = actor.items.get(item.system.selectedAmmoId);
+      }
+    }
+
+    // Method 2: Check for ammunition property
+    if (!ammo && item.system?.ammunition) {
+      ammo = item.system.ammunition;
+    }
+
+    // Method 3: Check for ammo in system data
+    if (!ammo && item.system?.ammo?.value) {
+      const actor = item.actor || item.parent;
+      if (actor) {
+        ammo = actor.items.get(item.system.ammo.value);
+      }
+    }
+
+    // If we found ammo, extract and return its name
+    if (ammo) {
+      const ammoName = this.extractAmmoName(ammo);
+      if (ammoName) {
+        return this.formatName(ammoName, pov);
+      }
+    }
+
+    return null;
+  }
+
+  /**
+   * Check if weapon uses ammunition
+   * @param {Object} item - PF2e weapon item
+   * @returns {boolean}
+   */
+  static usesAmmunition(item) {
+    if (!item) return false;
+
+    const traits = item.system?.traits?.value || [];
+    const name = item.name?.toLowerCase() || '';
+
+    // Check for reload trait (indicates ammo usage)
+    if (traits.some(trait => trait.includes('reload'))) {
+      return true;
+    }
+
+    // Check weapon category - bows and crossbows use ammo
+    const weaponCategory = item.system?.category;
+    if (weaponCategory && ['bow', 'crossbow'].includes(weaponCategory)) {
+      return true;
+    }
+
+    // Check weapon group
+    const weaponGroup = item.system?.group;
+    if (weaponGroup && ['bow', 'crossbow'].includes(weaponGroup)) {
+      return true;
+    }
+
+    // Check by name patterns
+    if (name.includes('bow') || name.includes('crossbow') || name.includes('sling')) {
+      return true;
+    }
+
+    return false;
+  }
+
+  /**
+   * Extract clean ammunition name
+   * @param {Object} ammo - Ammunition item
+   * @returns {string|null}
+   */
+  static extractAmmoName(ammo) {
+    if (!ammo) return null;
+
+    let name = ammo.name || '';
+    if (!name) return null;
+
+    name = name.toLowerCase();
+
+    // Remove quantity indicators like "(10)", "(20)"
+    name = name.replace(/\s*\(\d+\)\s*/g, '').trim();
+
+    // Remove "ammunition" word if present
+    name = name.replace(/\s*ammunition\s*/gi, '').trim();
+
+    // Common ammunition types
+    const ammoTypes = {
+      'arrow': 'arrow',
+      'arrows': 'arrow',
+      'bolt': 'bolt',
+      'bolts': 'bolt',
+      'bullet': 'bullet',
+      'bullets': 'bullet',
+      'sling bullet': 'sling bullet',
+      'sling bullets': 'sling bullet',
+      'stone': 'stone',
+      'stones': 'stone',
+      'blowgun dart': 'dart',
+      'dart': 'dart',
+      'darts': 'dart',
+      'fire arrow': 'fire arrow',
+      'cold iron arrow': 'cold iron arrow',
+      'silver arrow': 'silver arrow',
+      'adamantine arrow': 'adamantine arrow'
+    };
+
+    // Check for recognized ammo types
+    for (const [key, value] of Object.entries(ammoTypes)) {
+      if (name.includes(key)) {
+        return value;
+      }
+    }
+
+    // If name is reasonable length, return as-is
+    if (name.length > 0 && name.length <= 20) {
+      // Singularize if plural
+      if (name.endsWith('s') && name.length > 2) {
+        return name.slice(0, -1);
+      }
+      return name;
+    }
+
+    return null;
   }
 
   /**
