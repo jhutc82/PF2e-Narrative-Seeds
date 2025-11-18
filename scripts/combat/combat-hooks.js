@@ -91,38 +91,106 @@ export class CombatHooks {
         return;
       }
 
-      // Store seed and attack data in flags ONLY
-      // DO NOT update message.content - that breaks PF2e's damage/critical buttons
-      // The narrative will be injected during rendering via onRenderChatMessage
-      const narrativeFlags = {
-        "pf2e-narrative-seeds": {
-          hasNarrative: true,
-          attackData: {
-            actorId: attackData.actor?.id,
-            targetId: attackData.target?.id,
-            itemId: attackData.item?.id,
-            itemUuid: attackData.origin?.uuid,
-            outcome: attackData.context?.outcome
-          },
-          seed: seed
-        }
+      // Get visibility mode to determine how to display the narrative
+      const visibilityMode = NarrativeSeedsSettings.get("visibilityMode");
+
+      // Store attack data in flags for potential regeneration
+      const attackDataFlags = {
+        actorId: attackData.actor?.id,
+        targetId: attackData.target?.id,
+        itemId: attackData.item?.id,
+        itemUuid: attackData.origin?.uuid,
+        outcome: attackData.context?.outcome
       };
 
-      // Only update flags, never touch message.content
-      await message.update({
-        flags: {
-          ...message.flags,
-          ...narrativeFlags
-        }
-      });
+      if (visibilityMode === "everyone") {
+        // For public visibility, inject into the PF2e message via flags
+        // This will be rendered by onRenderChatMessage for all users
+        await message.update({
+          flags: {
+            ...message.flags,
+            "pf2e-narrative-seeds": {
+              hasNarrative: true,
+              attackData: attackDataFlags,
+              seed: seed,
+              visibilityMode: visibilityMode
+            }
+          }
+        });
+      } else {
+        // For GM-only or GM-plus-actor, create a SEPARATE whispered message
+        // This ensures server-side visibility control via Foundry's whisper system
+        const whisperTargets = this.getWhisperTargets(visibilityMode, attackData.actor?.id);
+
+        // Generate HTML for the narrative
+        const narrativeHTML = CombatFormatter.generateHTML(seed);
+
+        // Create a separate whispered chat message
+        await ChatMessage.create({
+          content: narrativeHTML,
+          whisper: whisperTargets,
+          type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+          speaker: message.speaker,
+          flags: {
+            "pf2e-narrative-seeds": {
+              hasNarrative: true,
+              attackData: attackDataFlags,
+              seed: seed,
+              visibilityMode: visibilityMode,
+              originalMessageId: message.id
+            }
+          }
+        });
+
+        // Store minimal reference in original message for regeneration
+        await message.update({
+          flags: {
+            ...message.flags,
+            "pf2e-narrative-seeds": {
+              hasNarrativeMessage: true,
+              attackData: attackDataFlags
+            }
+          }
+        });
+      }
 
       // Auto-apply complication if setting is enabled
       if (game.settings.get("pf2e-narrative-seeds", "autoApplyComplications")) {
-        await this.autoApplyComplication(message, seed);
+        await this.autoApplyComplication(attackData, seed);
       }
 
     } catch (error) {
       console.error("PF2e Narrative Seeds | Error processing combat message:", error);
+    }
+  }
+
+  /**
+   * Get whisper targets based on visibility mode
+   * @param {string} visibilityMode
+   * @param {string} actorId - ID of the acting character
+   * @returns {Array} Array of user IDs to whisper to
+   */
+  static getWhisperTargets(visibilityMode, actorId = null) {
+    switch (visibilityMode) {
+      case "gm-only":
+        return game.users.filter(u => u.isGM).map(u => u.id);
+
+      case "everyone":
+        return [];  // Empty array means public message
+
+      case "gm-plus-actor":
+        const targets = game.users.filter(u => u.isGM).map(u => u.id);
+        if (actorId) {
+          const actor = game.actors.get(actorId);
+          if (actor?.hasPlayerOwner) {
+            const owners = game.users.filter(u => actor.testUserPermission(u, "OWNER"));
+            targets.push(...owners.map(u => u.id));
+          }
+        }
+        return [...new Set(targets)];  // Remove duplicates
+
+      default:
+        return game.users.filter(u => u.isGM).map(u => u.id);
     }
   }
 
@@ -249,38 +317,39 @@ export class CombatHooks {
    * @param {Object} data
    */
   static onRenderChatMessage(message, html, data) {
-    // Check if this message has our narrative
-    const hasNarrative = message.flags?.["pf2e-narrative-seeds"]?.hasNarrative;
-    if (!hasNarrative) return;
+    const flags = message.flags?.["pf2e-narrative-seeds"];
+    if (!flags) return;
 
-    // Check if current user should see the narrative based on visibility settings
-    const visibilityMode = NarrativeSeedsSettings.get("visibilityMode");
-    const shouldShowNarrative = this.shouldShowNarrative(message, visibilityMode);
+    // Check if this message has an embedded narrative (for "everyone" mode)
+    const hasEmbeddedNarrative = flags.hasNarrative;
 
-    if (!shouldShowNarrative) {
-      return;
+    if (hasEmbeddedNarrative) {
+      // This is for "everyone" mode - inject the narrative into the PF2e message
+      const seed = flags.seed;
+      if (!seed) return;
+
+      const narrativeHTML = CombatFormatter.generateHTML(seed);
+
+      // Inject narrative HTML into the rendered message
+      const messageContent = html.find('.message-content');
+      if (messageContent.length > 0) {
+        messageContent.append(narrativeHTML);
+      } else {
+        html.append(narrativeHTML);
+      }
     }
 
-    // Get seed from flags and generate HTML
-    const seed = message.flags?.["pf2e-narrative-seeds"]?.seed;
-    if (!seed) return;
+    // Attach event listeners to any narrative elements in this message
+    this.attachNarrativeEventListeners(message, html);
+  }
 
-    const narrativeHTML = CombatFormatter.generateHTML(seed);
-
-    // Inject narrative HTML into the rendered message
-    // Find the message content area and append our narrative
-    const messageContent = html.find('.message-content');
-    if (messageContent.length > 0) {
-      messageContent.append(narrativeHTML);
-    } else {
-      // Fallback: append to the entire message
-      html.append(narrativeHTML);
-    }
-
-    // Find the narrative element (now that we've added it)
-    const narrativeElement = html.find('.pf2e-narrative-seed');
-
-    // User can see narrative, so attach event listeners to buttons
+  /**
+   * Attach event listeners to narrative elements
+   * @param {ChatMessage} message
+   * @param {jQuery} html
+   */
+  static attachNarrativeEventListeners(message, html) {
+    // Regenerate button
     const regenerateButton = html.find('.regenerate-btn');
     if (regenerateButton.length > 0) {
       regenerateButton.on('click', async (event) => {
@@ -289,7 +358,7 @@ export class CombatHooks {
       });
     }
 
-    // Also attach listeners to other buttons if present
+    // Narrate button
     const narrateButton = html.find('.narrate-button');
     if (narrateButton.length > 0) {
       narrateButton.on('click', async (event) => {
@@ -301,6 +370,7 @@ export class CombatHooks {
       });
     }
 
+    // Copy button
     const copyButton = html.find('.copy-button');
     if (copyButton.length > 0) {
       copyButton.on('click', (event) => {
@@ -338,51 +408,16 @@ export class CombatHooks {
   }
 
   /**
-   * Check if current user should see the narrative based on visibility settings
-   * @param {ChatMessage} message
-   * @param {string} visibilityMode
-   * @returns {boolean}
-   */
-  static shouldShowNarrative(message, visibilityMode) {
-    const currentUser = game.user;
-
-    switch (visibilityMode) {
-      case "gm-only":
-        // Only GMs can see the narrative
-        return currentUser.isGM;
-
-      case "everyone":
-        // Everyone can see the narrative
-        return true;
-
-      case "gm-plus-actor":
-        // GMs and the owner of the acting character can see it
-        if (currentUser.isGM) return true;
-
-        // Get the actor from stored attack data
-        const actorId = message.flags?.["pf2e-narrative-seeds"]?.attackData?.actorId;
-        if (!actorId) return false;
-
-        const actor = game.actors.get(actorId);
-        if (!actor) return false;
-
-        // Check if current user owns this actor
-        return actor.testUserPermission(currentUser, "OWNER");
-
-      default:
-        // Default to GM-only for safety
-        return currentUser.isGM;
-    }
-  }
-
-  /**
    * Regenerate narrative for an existing message
-   * @param {ChatMessage} message
+   * @param {ChatMessage} message - Either the original PF2e message or the whispered narrative message
    */
   static async regenerateNarrative(message) {
     try {
-      // Get stored attack data
-      const storedData = message.flags?.["pf2e-narrative-seeds"]?.attackData;
+      // Determine if this is an embedded narrative or a separate whispered message
+      const flags = message.flags?.["pf2e-narrative-seeds"];
+      const isWhisperedMessage = flags?.originalMessageId != null;
+      const storedData = flags?.attackData;
+
       if (!storedData) {
         ui.notifications.warn("Cannot regenerate: attack data not found");
         return;
@@ -394,8 +429,12 @@ export class CombatHooks {
         actor: storedData.actorId ? game.actors.get(storedData.actorId) : null,
         target: storedData.targetId ? game.actors.get(storedData.targetId) : null,
         item: null,
-        context: message.flags?.pf2e?.context,
-        origin: message.flags?.pf2e?.origin
+        context: isWhisperedMessage
+          ? game.messages.get(flags.originalMessageId)?.flags?.pf2e?.context
+          : message.flags?.pf2e?.context,
+        origin: isWhisperedMessage
+          ? game.messages.get(flags.originalMessageId)?.flags?.pf2e?.origin
+          : message.flags?.pf2e?.origin
       };
 
       // Try to get item
@@ -418,17 +457,33 @@ export class CombatHooks {
         return;
       }
 
-      // Update only the seed in flags, not message.content
-      // The renderChatMessage hook will display the new narrative
-      await message.update({
-        flags: {
-          ...message.flags,
-          "pf2e-narrative-seeds": {
-            ...message.flags["pf2e-narrative-seeds"],
-            seed: seed
+      // Update the message with new seed
+      const narrativeHTML = CombatFormatter.generateHTML(seed);
+
+      if (isWhisperedMessage) {
+        // Update the whispered message content
+        await message.update({
+          content: narrativeHTML,
+          flags: {
+            ...message.flags,
+            "pf2e-narrative-seeds": {
+              ...flags,
+              seed: seed
+            }
           }
-        }
-      });
+        });
+      } else {
+        // Update embedded narrative in original PF2e message
+        await message.update({
+          flags: {
+            ...message.flags,
+            "pf2e-narrative-seeds": {
+              ...flags,
+              seed: seed
+            }
+          }
+        });
+      }
 
       ui.notifications.info("Narrative regenerated successfully");
     } catch (error) {
@@ -499,10 +554,10 @@ export class CombatHooks {
 
   /**
    * Automatically apply a complication without user interaction
-   * @param {ChatMessage} message - The chat message containing attack data
+   * @param {Object} attackData - The attack data containing actor and target
    * @param {Object} seed - The narrative seed containing complication data
    */
-  static async autoApplyComplication(message, seed) {
+  static async autoApplyComplication(attackData, seed) {
     try {
       // Check if there's a complication to apply
       if (!seed || !seed.complication) {
@@ -511,19 +566,6 @@ export class CombatHooks {
 
       const complication = seed.complication;
       const outcome = seed.outcome;
-
-      // Get stored attack data to determine target
-      const storedData = message.flags?.["pf2e-narrative-seeds"]?.attackData;
-      if (!storedData) {
-        console.warn("PF2e Narrative Seeds | Cannot auto-apply complication: attack data not found");
-        return;
-      }
-
-      // Reconstruct attack data
-      const attackData = {
-        actor: storedData.actorId ? game.actors.get(storedData.actorId) : null,
-        target: storedData.targetId ? game.actors.get(storedData.targetId) : null
-      };
 
       // Determine which actor to apply the complication to
       const targetActor = ComplicationManager.getComplicationTarget(attackData, outcome);
