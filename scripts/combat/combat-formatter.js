@@ -106,6 +106,14 @@ export class CombatFormatter {
     const dismembermentHTML = dismemberment ? this.generateDismembermentHTML(dismemberment) : '';
     const regenerateButton = autoApply ? '' : '<button class="regenerate-btn" title="Regenerate narrative">♻️</button>';
 
+    // Debug logging
+    console.log("PF2e Narrative Seeds | Generating HTML with:", {
+      hasComplication: !!complication,
+      hasDismemberment: !!dismemberment,
+      complicationHTML: complicationHTML.substring(0, 100),
+      dismembermentHTML: dismembermentHTML.substring(0, 100)
+    });
+
     // Simple box design - narrative text with regenerate button
     return `
       <div class="pf2e-narrative-seed simple-box">
@@ -195,42 +203,48 @@ export class CombatFormatter {
 
     const autoApply = game.settings.get("pf2e-narrative-seeds", "autoApplyComplications");
     const escapedName = StringUtils.escapeHTML(complication.name);
+    const escapedDescription = StringUtils.escapeHTML(complication.description || '');
     const durationText = complication.duration
-      ? `${complication.duration}r`
-      : '';
+      ? `${complication.duration} round${complication.duration > 1 ? 's' : ''}`
+      : 'Permanent';
 
     // Get mechanical effect from effect object
-    let mechanicalEffect = '';
+    let conditionName = '';
+    let conditionValue = '';
+    let mechanics = '';
+
     if (complication.effect?.condition) {
-      const condition = complication.effect.condition;
-      const value = complication.effect.value || '';
-      const mechanics = this.getConditionMechanics(condition, value);
-      mechanicalEffect = `${StringUtils.capitalizeFirst(condition)} ${value}`.trim();
-      if (durationText) mechanicalEffect += ` (${durationText})`;
-      mechanicalEffect += `: ${mechanics}`;
+      conditionName = StringUtils.capitalizeFirst(complication.effect.condition);
+      conditionValue = complication.effect.value || '';
+      mechanics = this.getConditionMechanics(complication.effect.condition, conditionValue);
     } else if (complication.conditionSlug) {
       // Fallback to old format
-      const value = complication.conditionValue || '';
-      const mechanics = this.getConditionMechanics(complication.conditionSlug, value);
-      mechanicalEffect = `${StringUtils.capitalizeFirst(complication.conditionSlug)} ${value}`.trim();
-      if (durationText) mechanicalEffect += ` (${durationText})`;
-      mechanicalEffect += `: ${mechanics}`;
-    } else {
-      mechanicalEffect = escapedName;
+      conditionName = StringUtils.capitalizeFirst(complication.conditionSlug);
+      conditionValue = complication.conditionValue || '';
+      mechanics = this.getConditionMechanics(complication.conditionSlug, conditionValue);
     }
+
+    // Build effect display
+    const effectTitle = conditionValue
+      ? `${conditionName} ${conditionValue}`
+      : conditionName;
 
     // If auto-apply is enabled, show effect was applied automatically
     const applyButton = autoApply
       ? '<span class="auto-applied" title="Automatically applied">✓ Applied</span>'
-      : `<button class="apply-btn" data-action="apply-complication" title="Apply ${escapedName}">✓</button>`;
+      : `<button class="apply-btn" data-action="apply-complication" title="Apply ${escapedName}">Apply Effect</button>`;
 
-    // Simple effect box with icon-only apply button
+    // Effect box with clear mechanical details
     return `
-      <div class="effect-box">
-        <div class="effect-info">
-          <span class="effect-text">${mechanicalEffect}</span>
+      <div class="effect-box complication">
+        <div class="effect-header">
+          <strong>${effectTitle}</strong> <span class="effect-duration">(${durationText})</span>
         </div>
-        ${applyButton}
+        <div class="effect-mechanics">${mechanics}</div>
+        ${escapedDescription ? `<div class="effect-description">${escapedDescription}</div>` : ''}
+        <div class="effect-actions">
+          ${applyButton}
+        </div>
       </div>
     `;
   }
@@ -246,37 +260,57 @@ export class CombatFormatter {
     const escapedName = StringUtils.escapeHTML(dismemberment.name);
     const escapedDescription = StringUtils.escapeHTML(dismemberment.description);
 
-    // Build mechanical effect description
-    let mechanicalEffect = 'PERMANENT: ';
+    // Build mechanical effects list
     const effects = [];
 
     if (dismemberment.effect?.condition) {
       const condition = dismemberment.effect.condition;
       const value = dismemberment.effect.value || '';
-      effects.push(`${StringUtils.capitalizeFirst(condition)} ${value}`.trim());
+      const conditionName = StringUtils.capitalizeFirst(condition);
+      const mechanics = this.getConditionMechanics(condition, value);
+      effects.push({
+        name: value ? `${conditionName} ${value}` : conditionName,
+        mechanics: mechanics
+      });
     } else if (dismemberment.conditionSlug) {
-      effects.push(`${dismemberment.conditionSlug}`);
+      const mechanics = this.getConditionMechanics(dismemberment.conditionSlug, '');
+      effects.push({
+        name: StringUtils.capitalizeFirst(dismemberment.conditionSlug),
+        mechanics: mechanics
+      });
     }
 
     if (dismemberment.penalties && dismemberment.penalties.length > 0) {
       dismemberment.penalties.forEach(penalty => {
-        effects.push(`${penalty.value} ${penalty.stat}`);
+        effects.push({
+          name: `${penalty.value} ${penalty.stat}`,
+          mechanics: `Permanent penalty to ${penalty.stat}`
+        });
       });
     }
 
-    if (effects.length > 0) {
-      mechanicalEffect += effects.join(', ');
-    } else {
-      mechanicalEffect += escapedDescription;
-    }
+    // Build effects HTML
+    const effectsHTML = effects.map(effect =>
+      `<div class="dismemberment-effect">
+        <strong>${effect.name}:</strong> ${effect.mechanics}
+      </div>`
+    ).join('');
 
-    // Simple effect box with icon-only apply button (red theme for permanent)
+    // Dismemberment box with clear warning and mechanics
     return `
-      <div class="effect-box permanent">
-        <div class="effect-info">
-          <span class="effect-text">${mechanicalEffect}</span>
+      <div class="effect-box dismemberment permanent">
+        <div class="effect-header permanent-warning">
+          <strong>⚠️ PERMANENT INJURY: ${escapedName}</strong>
         </div>
-        <button class="apply-btn danger" data-action="apply-dismemberment" title="Apply ${escapedName} (PERMANENT)">💀</button>
+        <div class="effect-description">${escapedDescription}</div>
+        <div class="effect-mechanics-list">
+          <div class="mechanics-title">Permanent Mechanical Effects:</div>
+          ${effectsHTML}
+          <div class="permanence-notice">These effects are PERMANENT and cannot be removed without special healing (Regenerate spell, etc.)</div>
+        </div>
+        <div class="effect-actions">
+          <button class="apply-btn danger" data-action="apply-dismemberment" title="Apply ${escapedName} (PERMANENT)">⚠️ Apply Permanent Injury</button>
+        </div>
       </div>
     `;
   }
