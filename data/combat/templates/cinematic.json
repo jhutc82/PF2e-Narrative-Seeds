@@ -128,7 +128,7 @@
       "grammar": "successful-connection"
     },
     {
-      "pattern": "Good timing allows me to strike! ${opening} ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
+      "pattern": "Good timing allows you to strike! ${opening} ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
       "weight": 11,
       "grammar": "good-timing"
     },
@@ -225,7 +225,7 @@
       "grammar": "overextended"
     },
     {
-      "pattern": "${opening} Poor positioning costs me the strike. ${weaponType} fails to connect with ${targetName}'s ${location}.",
+      "pattern": "${opening} Poor positioning costs you the strike. ${weaponType} fails to connect with ${targetName}'s ${location}.",
       "weight": 7,
       "grammar": "poor-positioning"
     }
@@ -257,7 +257,7 @@
       "grammar": "lost-focus"
     },
     {
-      "pattern": "The tides of battle turn against me as ${opening} the attack fails miserably!",
+      "pattern": "The tides of battle turn against you as ${opening} the attack fails miserably!",
       "weight": 8,
       "grammar": "battle-turn"
     },
