@@ -166,11 +166,16 @@ export class CombatHooks {
         const narrativeHTML = CombatFormatter.generateHTML(seed);
         const whisperTargets = this.getWhisperTargets(visibilityMode, attackData.actor?.id);
 
+        // For GM-only mode, use GM speaker to prevent player from receiving the whisper
+        const speaker = visibilityMode === "gm-only"
+          ? ChatMessage.getSpeaker({ alias: "Narrative Seeds" })
+          : message.speaker;
+
         await ChatMessage.create({
           content: narrativeHTML,
           whisper: whisperTargets,
           style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-          speaker: message.speaker,
+          speaker: speaker,
           flags: {
             "pf2e-narrative-seeds": {
               hasNarrative: true,
@@ -330,11 +335,16 @@ export class CombatHooks {
         damageAmount: damageAmount
       };
 
+      // For GM-only mode, use GM speaker to prevent player from receiving the whisper
+      const speaker = visibilityMode === "gm-only"
+        ? ChatMessage.getSpeaker({ alias: "Narrative Seeds" })
+        : pendingAttack.speaker;
+
       await ChatMessage.create({
         content: narrativeHTML,
         whisper: whisperTargets, // Empty array for "everyone" mode
         style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-        speaker: pendingAttack.speaker,
+        speaker: speaker,
         flags: {
           "pf2e-narrative-seeds": {
             hasNarrative: true,
@@ -502,11 +512,16 @@ export class CombatHooks {
 
       const whisperTargets = this.getWhisperTargets(visibilityMode, actor.id);
 
+      // For GM-only mode, use GM speaker to prevent player from receiving the whisper
+      const speaker = visibilityMode === "gm-only"
+        ? ChatMessage.getSpeaker({ alias: "Narrative Seeds" })
+        : message.speaker;
+
       await ChatMessage.create({
         content: narrativeHTML,
         whisper: whisperTargets, // Empty array for "everyone" mode
         style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-        speaker: message.speaker,
+        speaker: speaker,
         flags: {
           "pf2e-narrative-seeds": {
             hasNarrative: true,
