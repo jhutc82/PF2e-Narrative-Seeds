@@ -48,24 +48,27 @@ export class DismembermentManager {
             return false;
         }
 
-        // NOTE: We cannot reliably get damage from attack-roll messages since
-        // PF2e sends damage in a separate damage-roll message.
-        // Instead, we trigger dismemberment checks on all critical successes
-        // and let the random chance system determine if dismemberment occurs.
-
-        // Check if target is at low health (makes dismemberment more likely narratively)
+        // Get target HP info
         const currentHP = target.system?.attributes?.hp?.value || 0;
         const maxHP = target.system?.attributes?.hp?.max || 0;
-        const isLowHealth = maxHP > 0 && currentHP <= (maxHP / 2);
 
         // Check if target is unconscious (dying or unconscious condition)
         const isUnconscious = target.hasCondition?.('unconscious') ||
                              target.hasCondition?.('dying') ||
                              currentHP <= 0;
 
-        // Trigger dismemberment check on critical hits against low-health or unconscious targets
-        // OR always allow a chance on any critical hit (controlled by base chance setting)
-        return isLowHealth || isUnconscious || true;
+        // NEW LOGIC: Check damage amount if available
+        // Dismemberment triggers on critical hit IF:
+        // 1. Target is unconscious/dying, OR
+        // 2. Damage dealt is >= 50% of target's max HP
+        const damageAmount = attackData.damageAmount || 0;
+        const damageThreshold = maxHP * 0.5;
+        const isHighDamage = damageAmount >= damageThreshold && maxHP > 0;
+
+        console.log(`PF2e Narrative Seeds | Dismemberment check: unconscious=${isUnconscious}, damage=${damageAmount}/${damageThreshold} (${maxHP} max HP), highDamage=${isHighDamage}`);
+
+        // Trigger dismemberment check if either condition is met
+        return isUnconscious || isHighDamage;
     }
 
     /**
