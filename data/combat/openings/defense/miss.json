@@ -42,7 +42,7 @@
       "You overcommits and the strike sails past ${targetName}!",
       "The weapon wobbles mid-swing, throwing your aim off!",
       "You misreads the distance badly!",
-      "Combat fatigue shows as you swing and misses!",
+      "Combat fatigue shows as you swing and miss!",
       "You lose your footing slightly, ruining the strike!",
       "A moment of uncertainty causes you to miss!",
       "You strike at where ${targetName} was, not where they are!",

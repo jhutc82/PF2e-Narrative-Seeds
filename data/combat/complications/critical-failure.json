@@ -21,7 +21,7 @@
     {
       "id": "lost-footing",
       "name": "Lost Footing",
-      "description": "You loses their balance in the failed attack.",
+      "description": "You lose your balance in the failed attack.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 20,
@@ -39,7 +39,7 @@
     {
       "id": "defensive-gap",
       "name": "Defensive Gap",
-      "description": "Your failed strike creates an opening in their defenses.",
+      "description": "Your failed strike creates an opening in your defenses.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 18,
@@ -92,7 +92,7 @@
     {
       "id": "twisted-ankle",
       "name": "Twisted Ankle",
-      "description": "You twists their ankle during the failed strike.",
+      "description": "You twist your ankle during the failed strike.",
       "outcome": "criticalFailure",
       "duration": 2,
       "weight": 14,
@@ -199,7 +199,7 @@
     {
       "id": "self-prick",
       "name": "Self-Prick",
-      "description": "Your weapon nicks their own flesh.",
+      "description": "Your weapon nicks your own flesh.",
       "outcome": "criticalFailure",
       "duration": null,
       "weight": 10,
@@ -271,7 +271,7 @@
     {
       "id": "chilled",
       "name": "Chilled",
-      "description": "Cold energy backlashes onto you, slowing them.",
+      "description": "Cold energy backlashes onto you, slowing you.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 14,
@@ -486,7 +486,7 @@
     {
       "id": "self-poisoned",
       "name": "Self-Poisoned",
-      "description": "You is exposed to their own poison.",
+      "description": "You are exposed to your own poison.",
       "outcome": "criticalFailure",
       "duration": null,
       "weight": 13,
