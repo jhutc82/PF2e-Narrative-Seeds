@@ -19,6 +19,18 @@ export class CombatHooks {
   static generator = null;
 
   /**
+   * Pending attack tracker for attack-damage linking
+   * Key: `${actorId}-${itemUuid}`
+   * Value: {attackMessageId, narrativeMessageId, attackData, seed, timestamp, visibilityMode}
+   */
+  static pendingAttacks = new Map();
+
+  /**
+   * Maximum age for pending attacks (30 seconds)
+   */
+  static PENDING_ATTACK_MAX_AGE = 30000;
+
+  /**
    * Initialize combat hooks
    */
   static initialize() {
@@ -30,7 +42,31 @@ export class CombatHooks {
     // Register hooks
     this.registerHooks();
 
+    // Start cleanup interval for pending attacks
+    this.startPendingAttackCleanup();
+
     console.log("PF2e Narrative Seeds | Combat hooks initialized");
+  }
+
+  /**
+   * Start periodic cleanup of old pending attacks
+   */
+  static startPendingAttackCleanup() {
+    setInterval(() => {
+      this.cleanupOldPendingAttacks();
+    }, 10000); // Check every 10 seconds
+  }
+
+  /**
+   * Remove pending attacks older than PENDING_ATTACK_MAX_AGE
+   */
+  static cleanupOldPendingAttacks() {
+    const now = Date.now();
+    for (const [key, value] of this.pendingAttacks.entries()) {
+      if (now - value.timestamp > this.PENDING_ATTACK_MAX_AGE) {
+        this.pendingAttacks.delete(key);
+      }
+    }
   }
 
   /**
@@ -63,6 +99,12 @@ export class CombatHooks {
 
       // Check if combat narration is enabled
       if (!NarrativeSeedsSettings.isCombatEnabled()) {
+        return;
+      }
+
+      // Check if this is a damage roll FIRST (before strike check)
+      if (this.isDamageRollMessage(message)) {
+        await this.onDamageRoll(message, options, userId);
         return;
       }
 
@@ -103,6 +145,8 @@ export class CombatHooks {
         outcome: attackData.context?.outcome
       };
 
+      let narrativeMessageId = null;
+
       if (visibilityMode === "everyone") {
         // For public visibility, inject into the PF2e message via flags
         // This will be rendered by onRenderChatMessage for all users
@@ -117,6 +161,7 @@ export class CombatHooks {
             }
           }
         });
+        narrativeMessageId = message.id; // For "everyone" mode, narrative is in the same message
       } else {
         // For GM-only or GM-plus-actor, create a SEPARATE whispered message
         // This ensures server-side visibility control via Foundry's whisper system
@@ -126,7 +171,7 @@ export class CombatHooks {
         const narrativeHTML = CombatFormatter.generateHTML(seed);
 
         // Create a separate whispered chat message
-        await ChatMessage.create({
+        const narrativeMessage = await ChatMessage.create({
           content: narrativeHTML,
           whisper: whisperTargets,
           type: CONST.CHAT_MESSAGE_TYPES.OTHER,
@@ -141,6 +186,7 @@ export class CombatHooks {
             }
           }
         });
+        narrativeMessageId = narrativeMessage.id;
 
         // Store minimal reference in original message for regeneration
         await message.update({
@@ -153,6 +199,18 @@ export class CombatHooks {
           }
         });
       }
+
+      // Store pending attack for damage roll linking
+      const attackKey = `${attackData.actor?.id}-${attackData.origin?.uuid}`;
+      this.pendingAttacks.set(attackKey, {
+        attackMessageId: message.id,
+        narrativeMessageId: narrativeMessageId,
+        attackData: attackData,
+        attackDataFlags: attackDataFlags,
+        seed: seed,
+        timestamp: Date.now(),
+        visibilityMode: visibilityMode
+      });
 
       // Auto-apply complication if setting is enabled
       if (game.settings.get("pf2e-narrative-seeds", "autoApplyComplications")) {
@@ -225,6 +283,322 @@ export class CombatHooks {
     if (flavor.includes("strike") || flavor.includes("attack")) return true;
 
     return false;
+  }
+
+  /**
+   * Check if message is a PF2e damage roll
+   * @param {ChatMessage} message
+   * @returns {boolean}
+   */
+  static isDamageRollMessage(message) {
+    const flags = message.flags?.pf2e;
+    if (!flags) return false;
+
+    const context = flags.context;
+    if (!context) return false;
+
+    return context.type === "damage-roll";
+  }
+
+  /**
+   * Handle damage roll message
+   * @param {ChatMessage} message
+   * @param {Object} options
+   * @param {string} userId
+   */
+  static async onDamageRoll(message, options, userId) {
+    try {
+      console.log("PF2e Narrative Seeds | Processing damage roll:", message.id);
+
+      // Extract basic info from damage message
+      const flags = message.flags?.pf2e;
+      const origin = flags?.origin;
+      const context = flags?.context;
+
+      // Get actor (attacker)
+      let actorId = message.speaker?.actor;
+      let itemUuid = origin?.uuid;
+
+      if (!actorId || !itemUuid) {
+        console.log("PF2e Narrative Seeds | Damage roll missing actor or item UUID");
+        return;
+      }
+
+      // Find matching pending attack
+      const attackKey = `${actorId}-${itemUuid}`;
+      const pendingAttack = this.pendingAttacks.get(attackKey);
+
+      if (!pendingAttack) {
+        // No matching attack - this might be a damage-only spell like Force Barrage
+        await this.handleDamageOnlySpell(message, actorId, itemUuid);
+        return;
+      }
+
+      // Extract damage amount from the message
+      const damageAmount = this.extractDamageAmount(message);
+      console.log(`PF2e Narrative Seeds | Damage amount: ${damageAmount}`);
+
+      // Re-generate narrative with damage included
+      const attackData = pendingAttack.attackData;
+      attackData.damageAmount = damageAmount;
+      attackData.damageMessage = message;
+
+      const seed = await this.generator.generate(attackData);
+      if (!seed) {
+        console.log("PF2e Narrative Seeds | Could not regenerate narrative with damage");
+        return;
+      }
+
+      // Delete the original narrative message
+      const oldNarrativeMessage = game.messages.get(pendingAttack.narrativeMessageId);
+      if (oldNarrativeMessage) {
+        await oldNarrativeMessage.delete();
+        console.log("PF2e Narrative Seeds | Deleted original narrative message");
+      }
+
+      // Create new combined narrative message
+      const visibilityMode = pendingAttack.visibilityMode;
+      const narrativeHTML = CombatFormatter.generateHTML(seed);
+
+      const attackDataFlags = {
+        ...pendingAttack.attackDataFlags,
+        damageAmount: damageAmount
+      };
+
+      if (visibilityMode === "everyone") {
+        // For "everyone" mode, we deleted and need to recreate as standalone since we can't inject into damage roll
+        await ChatMessage.create({
+          content: narrativeHTML,
+          type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+          speaker: message.speaker,
+          flags: {
+            "pf2e-narrative-seeds": {
+              hasNarrative: true,
+              attackData: attackDataFlags,
+              seed: seed,
+              visibilityMode: visibilityMode,
+              originalMessageId: pendingAttack.attackMessageId,
+              damageMessageId: message.id
+            }
+          }
+        });
+      } else {
+        // For whispered mode, create new whispered message
+        const whisperTargets = this.getWhisperTargets(visibilityMode, attackData.actor?.id);
+
+        await ChatMessage.create({
+          content: narrativeHTML,
+          whisper: whisperTargets,
+          type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+          speaker: message.speaker,
+          flags: {
+            "pf2e-narrative-seeds": {
+              hasNarrative: true,
+              attackData: attackDataFlags,
+              seed: seed,
+              visibilityMode: visibilityMode,
+              originalMessageId: pendingAttack.attackMessageId,
+              damageMessageId: message.id
+            }
+          }
+        });
+      }
+
+      // Remove from pending attacks
+      this.pendingAttacks.delete(attackKey);
+      console.log("PF2e Narrative Seeds | Created combined attack+damage narrative");
+
+    } catch (error) {
+      console.error("PF2e Narrative Seeds | Error processing damage roll:", error);
+    }
+  }
+
+  /**
+   * Extract total damage amount from damage roll message
+   * @param {ChatMessage} message - Damage roll message
+   * @returns {number} Total damage amount
+   */
+  static extractDamageAmount(message) {
+    try {
+      // Method 1: Check roll total
+      if (message.rolls && message.rolls.length > 0) {
+        const total = message.rolls.reduce((sum, roll) => sum + (roll.total || 0), 0);
+        if (total > 0) return total;
+      }
+
+      // Method 2: Check flags
+      if (message.flags?.pf2e?.context?.damage) {
+        return message.flags.pf2e.context.damage;
+      }
+
+      // Method 3: Parse from content
+      const content = message.content || "";
+      const match = content.match(/total[^0-9]*(\d+)/i);
+      if (match) {
+        return parseInt(match[1], 10);
+      }
+
+      return 0;
+    } catch (error) {
+      console.error("PF2e Narrative Seeds | Error extracting damage amount:", error);
+      return 0;
+    }
+  }
+
+  /**
+   * Handle damage-only spells (like Force Barrage) that have no attack roll
+   * @param {ChatMessage} message - Damage roll message
+   * @param {string} actorId - Actor ID
+   * @param {string} itemUuid - Item UUID
+   */
+  static async handleDamageOnlySpell(message, actorId, itemUuid) {
+    try {
+      console.log("PF2e Narrative Seeds | Handling damage-only spell");
+
+      // Get the item to check if it's Force Barrage or similar
+      let item = null;
+      try {
+        item = await fromUuid(itemUuid);
+      } catch (e) {
+        console.warn("PF2e Narrative Seeds | Could not resolve item UUID for damage-only spell:", itemUuid);
+        return;
+      }
+
+      if (!item) {
+        console.log("PF2e Narrative Seeds | No item found for damage-only spell");
+        return;
+      }
+
+      // Check if this is Force Barrage or another damage-only spell
+      const itemName = item.name?.toLowerCase() || "";
+      const isForcBarrage = itemName.includes("force barrage") || itemName.includes("magic missile");
+
+      if (!isForcBarrage) {
+        // Not a damage-only spell we handle, skip
+        console.log(`PF2e Narrative Seeds | Skipping non-force-barrage damage spell: ${item.name}`);
+        return;
+      }
+
+      console.log(`PF2e Narrative Seeds | Processing Force Barrage: ${item.name}`);
+
+      // Get actor
+      const actor = game.actors.get(actorId);
+      if (!actor) {
+        console.warn("PF2e Narrative Seeds | No actor found for Force Barrage");
+        return;
+      }
+
+      // Get target (from context or current targets)
+      let target = null;
+      const context = message.flags?.pf2e?.context;
+      if (context?.target) {
+        if (context.target.actor) {
+          target = game.actors.get(context.target.actor);
+        } else if (context.target.token) {
+          const token = canvas.tokens?.get(context.target.token);
+          if (token) target = token.actor;
+        }
+      }
+
+      // Try to get target from current targets if not in context
+      if (!target && game.user.targets.size > 0) {
+        const targetToken = game.user.targets.first();
+        if (targetToken) target = targetToken.actor;
+      }
+
+      if (!target) {
+        console.warn("PF2e Narrative Seeds | No target found for Force Barrage");
+        return;
+      }
+
+      // Extract damage
+      const damageAmount = this.extractDamageAmount(message);
+
+      // Create attack data for Force Barrage (always succeeds)
+      const attackData = {
+        message,
+        actor,
+        target,
+        item,
+        context: {
+          type: "spell-damage",
+          outcome: "success", // Force Barrage always hits
+          target: {
+            actor: target.id
+          }
+        },
+        origin: {
+          uuid: itemUuid,
+          type: "spell"
+        },
+        damageAmount: damageAmount,
+        damageMessage: message
+      };
+
+      // Generate narrative with force damage type
+      const seed = await this.generator.generate(attackData);
+      if (!seed) {
+        console.log("PF2e Narrative Seeds | Could not generate Force Barrage narrative");
+        return;
+      }
+
+      // Get visibility mode
+      const visibilityMode = NarrativeSeedsSettings.get("visibilityMode");
+
+      // Create narrative message
+      const narrativeHTML = CombatFormatter.generateHTML(seed);
+
+      const attackDataFlags = {
+        actorId: actor.id,
+        targetId: target.id,
+        itemId: item.id,
+        itemUuid: itemUuid,
+        outcome: "success",
+        damageAmount: damageAmount
+      };
+
+      if (visibilityMode === "everyone") {
+        await ChatMessage.create({
+          content: narrativeHTML,
+          type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+          speaker: message.speaker,
+          flags: {
+            "pf2e-narrative-seeds": {
+              hasNarrative: true,
+              attackData: attackDataFlags,
+              seed: seed,
+              visibilityMode: visibilityMode,
+              damageMessageId: message.id,
+              isForcBarrage: true
+            }
+          }
+        });
+      } else {
+        const whisperTargets = this.getWhisperTargets(visibilityMode, actor.id);
+
+        await ChatMessage.create({
+          content: narrativeHTML,
+          whisper: whisperTargets,
+          type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+          speaker: message.speaker,
+          flags: {
+            "pf2e-narrative-seeds": {
+              hasNarrative: true,
+              attackData: attackDataFlags,
+              seed: seed,
+              visibilityMode: visibilityMode,
+              damageMessageId: message.id,
+              isForcBarrage: true
+            }
+          }
+        });
+      }
+
+      console.log("PF2e Narrative Seeds | Created Force Barrage narrative");
+
+    } catch (error) {
+      console.error("PF2e Narrative Seeds | Error handling damage-only spell:", error);
+    }
   }
 
   /**
