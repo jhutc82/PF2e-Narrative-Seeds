@@ -823,6 +823,105 @@
   filter: none;
 }
 
+/* Enhanced effect display with headers and mechanics */
+.pf2e-narrative-seed.simple-box .effect-box.complication,
+.pf2e-narrative-seed.simple-box .effect-box.dismemberment {
+  flex-direction: column;
+  align-items: stretch;
+  padding: 8px 10px;
+  gap: 6px;
+}
+
+.pf2e-narrative-seed.simple-box .effect-header {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-text-dark-primary, #e8e8e8);
+  margin-bottom: 4px;
+}
+
+.pf2e-narrative-seed.simple-box .effect-header.permanent-warning {
+  color: #ff8888;
+  font-size: 13px;
+}
+
+.pf2e-narrative-seed.simple-box .effect-duration {
+  font-size: 10px;
+  font-weight: normal;
+  color: #999;
+  font-style: italic;
+}
+
+.pf2e-narrative-seed.simple-box .effect-mechanics {
+  font-size: 11px;
+  color: #aaccff;
+  line-height: 1.4;
+  padding: 4px 6px;
+  background: rgba(0, 50, 100, 0.2);
+  border-radius: 2px;
+}
+
+.pf2e-narrative-seed.simple-box .effect-description {
+  font-size: 10px;
+  color: #ccc;
+  line-height: 1.3;
+  font-style: italic;
+}
+
+.pf2e-narrative-seed.simple-box .effect-mechanics-list {
+  background: rgba(0, 50, 100, 0.15);
+  border-radius: 3px;
+  padding: 6px;
+}
+
+.pf2e-narrative-seed.simple-box .mechanics-title {
+  font-size: 10px;
+  font-weight: 600;
+  color: #ffaa88;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 4px;
+}
+
+.pf2e-narrative-seed.simple-box .dismemberment-effect {
+  font-size: 11px;
+  color: #ffccaa;
+  line-height: 1.4;
+  margin-bottom: 3px;
+  padding-left: 8px;
+  border-left: 2px solid rgba(255, 136, 136, 0.3);
+}
+
+.pf2e-narrative-seed.simple-box .permanence-notice {
+  font-size: 10px;
+  color: #ff8888;
+  font-style: italic;
+  margin-top: 6px;
+  padding: 4px;
+  background: rgba(100, 0, 0, 0.2);
+  border-radius: 2px;
+  text-align: center;
+}
+
+.pf2e-narrative-seed.simple-box .effect-actions {
+  margin-top: 4px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.pf2e-narrative-seed.simple-box .effect-actions .apply-btn {
+  font-size: 11px;
+  padding: 4px 8px;
+  border: 1px solid currentColor;
+  border-radius: 3px;
+  opacity: 1;
+}
+
+.pf2e-narrative-seed.simple-box .auto-applied {
+  font-size: 10px;
+  color: #88ee88;
+  font-style: italic;
+}
+
 /* Light theme support - adjust colors for better contrast */
 @media (prefers-color-scheme: light) {
   .pf2e-narrative-seed.simple-box .narrative-box,

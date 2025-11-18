@@ -134,8 +134,15 @@ export class DismembermentManager {
         const { target } = attackData;
         const { outcome } = seed;
 
+        console.log('PF2e Narrative Seeds | Dismemberment check:', {
+            outcome,
+            targetName: target?.name,
+            targetLevel: target?.system?.details?.level?.value
+        });
+
         // Check if conditions are met
         if (!this.shouldCheckDismemberment(attackData, outcome)) {
+            console.log('PF2e Narrative Seeds | Dismemberment conditions not met');
             return null;
         }
 
@@ -144,6 +151,12 @@ export class DismembermentManager {
 
         // Roll for dismemberment
         const roll = Math.random() * 100;
+        console.log('PF2e Narrative Seeds | Dismemberment roll:', {
+            roll: roll.toFixed(2),
+            chance: chance.toFixed(2),
+            success: roll < chance
+        });
+
         if (roll >= chance) {
             return null; // No dismemberment
         }
@@ -152,13 +165,22 @@ export class DismembermentManager {
         const { damageType, anatomy } = seed;
         const anatomyString = typeof anatomy === 'string' ? anatomy : anatomy?.base || 'torso';
 
+        console.log('PF2e Narrative Seeds | Looking for dismemberments for:', {
+            damageType,
+            anatomy: anatomyString,
+            totalDismemberments: this.dismemberments.length
+        });
+
         // Filter dismemberments by context
         const applicableDismemberments = this.dismemberments.filter(dismemberment => {
             return this.isApplicable(dismemberment, damageType, anatomyString);
         });
 
+        console.log('PF2e Narrative Seeds | Found applicable dismemberments:', applicableDismemberments.length);
+
         if (applicableDismemberments.length === 0) {
             // No applicable dismemberments for this location/damage type
+            console.warn('PF2e Narrative Seeds | No applicable dismemberments found!');
             return null;
         }
 
