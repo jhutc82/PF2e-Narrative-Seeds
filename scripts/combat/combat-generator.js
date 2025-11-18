@@ -374,8 +374,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
       DataLoader.loadTemplates(detailLevel, outcome)
     ]);
 
-    // Determine POV based on detail level
-    const pov = detailLevel === 'cinematic' ? 'third' : 'second';
+    // Determine POV - use second person for all narratives
+    const pov = 'second';
     const weaponType = getWeaponType(damageType, item, pov, message);
     const targetName = target ? StringUtils.formatActorName(target.name, target) : "the target";
     const attackerName = attacker ? StringUtils.formatActorName(attacker.name, attacker) : "the attacker";

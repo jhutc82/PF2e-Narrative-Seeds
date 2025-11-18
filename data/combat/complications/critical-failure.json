@@ -3,7 +3,7 @@
     {
       "id": "overextended",
       "name": "Overextended",
-      "description": "The wild swing leaves the attacker exposed.",
+      "description": "The wild swing leaves you exposed.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 22,
@@ -21,7 +21,7 @@
     {
       "id": "lost-footing",
       "name": "Lost Footing",
-      "description": "The attacker loses their balance in the failed attack.",
+      "description": "You lose your balance in the failed attack.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 20,
@@ -39,7 +39,7 @@
     {
       "id": "defensive-gap",
       "name": "Defensive Gap",
-      "description": "The attacker's failed strike creates an opening in their defenses.",
+      "description": "Your failed strike creates an opening in your defenses.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 18,
@@ -57,7 +57,7 @@
     {
       "id": "rattled",
       "name": "Rattled",
-      "description": "The embarrassing miss rattles the attacker's confidence.",
+      "description": "The embarrassing miss rattles your confidence.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 16,
@@ -75,7 +75,7 @@
     {
       "id": "stumble",
       "name": "Stumble",
-      "description": "The attacker stumbles awkwardly, hindering movement.",
+      "description": "You stumbles awkwardly, hindering movement.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 16,
@@ -92,7 +92,7 @@
     {
       "id": "twisted-ankle",
       "name": "Twisted Ankle",
-      "description": "The attacker twists their ankle during the failed strike.",
+      "description": "You twist your ankle during the failed strike.",
       "outcome": "criticalFailure",
       "duration": 2,
       "weight": 14,
@@ -109,7 +109,7 @@
     {
       "id": "awkward-footing",
       "name": "Awkward Footing",
-      "description": "The failed attack puts the attacker off-balance.",
+      "description": "The failed attack puts you off-balance.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 13,
@@ -127,7 +127,7 @@
     {
       "id": "jarred-shoulder",
       "name": "Jarred Shoulder",
-      "description": "The heavy swing jars the attacker's shoulder painfully.",
+      "description": "The heavy swing jars your shoulder painfully.",
       "outcome": "criticalFailure",
       "duration": 2,
       "weight": 15,
@@ -145,7 +145,7 @@
     {
       "id": "pulled-muscle",
       "name": "Pulled Muscle",
-      "description": "The awkward motion pulls a muscle in the attacker's body.",
+      "description": "The awkward motion pulls a muscle in your body.",
       "outcome": "criticalFailure",
       "duration": 2,
       "weight": 14,
@@ -163,7 +163,7 @@
     {
       "id": "strained-wrist",
       "name": "Strained Wrist",
-      "description": "The failed attack strains the attacker's wrist.",
+      "description": "The failed attack strains your wrist.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 15,
@@ -181,7 +181,7 @@
     {
       "id": "overswung",
       "name": "Overswung",
-      "description": "The heavy swing throws off the attacker's next attack.",
+      "description": "The heavy swing throws off your next attack.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 13,
@@ -199,7 +199,7 @@
     {
       "id": "self-prick",
       "name": "Self-Prick",
-      "description": "The attacker's weapon nicks their own flesh.",
+      "description": "Your weapon nicks your own flesh.",
       "outcome": "criticalFailure",
       "duration": null,
       "weight": 10,
@@ -217,7 +217,7 @@
     {
       "id": "burned-self",
       "name": "Burned Self",
-      "description": "Flames from the attack backfire onto the attacker.",
+      "description": "Flames from the attack backfire onto you.",
       "outcome": "criticalFailure",
       "duration": null,
       "weight": 14,
@@ -235,7 +235,7 @@
     {
       "id": "singed-hands",
       "name": "Singed Hands",
-      "description": "The misfired flames singe the attacker's hands.",
+      "description": "The misfired flames singe your hands.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 12,
@@ -253,7 +253,7 @@
     {
       "id": "fire-distraction",
       "name": "Fire Distraction",
-      "description": "Wild flames distract and unnerve the attacker.",
+      "description": "Wild flames distract and unnerve you.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 11,
@@ -271,7 +271,7 @@
     {
       "id": "chilled",
       "name": "Chilled",
-      "description": "Cold energy backlashes onto the attacker, slowing them.",
+      "description": "Cold energy backlashes onto you, slowing you.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 14,
@@ -288,7 +288,7 @@
     {
       "id": "frostbitten-fingers",
       "name": "Frostbitten Fingers",
-      "description": "Freezing energy numbs the attacker's extremities.",
+      "description": "Freezing energy numbs your extremities.",
       "outcome": "criticalFailure",
       "duration": null,
       "weight": 12,
@@ -306,7 +306,7 @@
     {
       "id": "numbed-hands",
       "name": "Numbed Hands",
-      "description": "The cold numbs the attacker's hands.",
+      "description": "The cold numbs your hands.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 11,
@@ -324,7 +324,7 @@
     {
       "id": "self-shock",
       "name": "Self-Shock",
-      "description": "Electricity arcs back to shock the attacker.",
+      "description": "Electricity arcs back to shock you.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 14,
@@ -342,7 +342,7 @@
     {
       "id": "electric-spasm",
       "name": "Electric Spasm",
-      "description": "Electric feedback causes muscle spasms in the attacker.",
+      "description": "Electric feedback causes muscle spasms in you.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 13,
@@ -360,7 +360,7 @@
     {
       "id": "shocked-grip",
       "name": "Shocked Grip",
-      "description": "Electricity makes the attacker's grip falter.",
+      "description": "Electricity makes your grip falter.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 12,
@@ -378,7 +378,7 @@
     {
       "id": "splashed-by-acid",
       "name": "Splashed by Acid",
-      "description": "Acid splashes back onto the attacker.",
+      "description": "Acid splashes back onto you.",
       "outcome": "criticalFailure",
       "duration": null,
       "weight": 14,
@@ -396,7 +396,7 @@
     {
       "id": "acid-spray",
       "name": "Acid Spray",
-      "description": "Acid spray damages the attacker's armor.",
+      "description": "Acid spray damages your armor.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 12,
@@ -414,7 +414,7 @@
     {
       "id": "corroded-grip",
       "name": "Corroded Grip",
-      "description": "Acid eats at the attacker's weapon grip.",
+      "description": "Acid eats at your weapon grip.",
       "outcome": "criticalFailure",
       "duration": 2,
       "weight": 10,
@@ -432,7 +432,7 @@
     {
       "id": "ears-ringing",
       "name": "Ears Ringing",
-      "description": "The sonic blast rings in the attacker's own ears.",
+      "description": "The sonic blast rings in your own ears.",
       "outcome": "criticalFailure",
       "duration": 2,
       "weight": 14,
@@ -450,7 +450,7 @@
     {
       "id": "sonic-backlash",
       "name": "Sonic Backlash",
-      "description": "Sound waves disorient the attacker.",
+      "description": "Sound waves disorient you.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 13,
@@ -468,7 +468,7 @@
     {
       "id": "sonic-nausea",
       "name": "Sonic Nausea",
-      "description": "Reverberating sound makes the attacker ill.",
+      "description": "Reverberating sound makes you ill.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 11,
@@ -486,7 +486,7 @@
     {
       "id": "self-poisoned",
       "name": "Self-Poisoned",
-      "description": "The attacker is exposed to their own poison.",
+      "description": "You are exposed to your own poison.",
       "outcome": "criticalFailure",
       "duration": null,
       "weight": 13,
@@ -504,7 +504,7 @@
     {
       "id": "toxin-exposure",
       "name": "Toxin Exposure",
-      "description": "Poison exposure weakens the attacker.",
+      "description": "Poison exposure weakens you.",
       "outcome": "criticalFailure",
       "duration": 2,
       "weight": 12,
@@ -522,7 +522,7 @@
     {
       "id": "mental-backlash",
       "name": "Mental Backlash",
-      "description": "The psychic attack rebounds onto the attacker's mind.",
+      "description": "The psychic attack rebounds onto your mind.",
       "outcome": "criticalFailure",
       "duration": 2,
       "weight": 13,
@@ -576,7 +576,7 @@
     {
       "id": "void-backlash",
       "name": "Void Backlash",
-      "description": "Negative energy drains the attacker's vitality.",
+      "description": "Negative energy drains your vitality.",
       "outcome": "criticalFailure",
       "duration": 2,
       "weight": 12,
@@ -594,7 +594,7 @@
     {
       "id": "life-sapped",
       "name": "Life Sapped",
-      "description": "Void energy weakens the attacker's body.",
+      "description": "Void energy weakens your body.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 11,
@@ -612,7 +612,7 @@
     {
       "id": "vitality-burn",
       "name": "Vitality Burn",
-      "description": "Positive energy burns through the attacker unnaturally.",
+      "description": "Positive energy burns through you unnaturally.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 11,
@@ -630,7 +630,7 @@
     {
       "id": "force-recoil",
       "name": "Force Recoil",
-      "description": "The force blast knocks the attacker off balance.",
+      "description": "The force blast knocks you off balance.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 13,
@@ -648,7 +648,7 @@
     {
       "id": "kinetic-feedback",
       "name": "Kinetic Feedback",
-      "description": "Force energy rebounds, leaving the attacker vulnerable.",
+      "description": "Force energy rebounds, leaving you vulnerable.",
       "outcome": "criticalFailure",
       "duration": 1,
       "weight": 12,
@@ -666,7 +666,7 @@
     {
       "id": "spirit-drain",
       "name": "Spirit Drain",
-      "description": "Spiritual energy rebounds, shaking the attacker's resolve.",
+      "description": "Spiritual energy rebounds, shaking your resolve.",
       "outcome": "criticalFailure",
       "duration": 2,
       "weight": 12,
