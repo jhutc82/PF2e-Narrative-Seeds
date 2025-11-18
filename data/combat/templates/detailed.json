@@ -1,7 +1,7 @@
 {
   "criticalSuccess": [
     {
-      "pattern": "${opening} ${weaponType} ${verb} ${targetName}'s ${location} with devastating precision! ${effect}!",
+      "pattern": "${opening} your ${weaponType} ${verb} ${targetName}'s ${location} with devastating precision! ${effect}!",
       "weight": 25,
       "grammar": "standard"
     },
@@ -16,12 +16,12 @@
       "grammar": "masterful"
     },
     {
-      "pattern": "${targetName}'s ${location} takes a devastating hit! ${opening} ${effect}! ${weaponType} ${verb} with brutal force!",
+      "pattern": "${targetName}'s ${location} takes a devastating hit! ${opening} ${effect}! Your ${weaponType} ${verb} with brutal force!",
       "weight": 15,
       "grammar": "location-dramatic"
     },
     {
-      "pattern": "${opening} ${effect}! you ${verb} ${targetName}'s ${location} with ${weaponType}!",
+      "pattern": "${opening} ${effect}! you ${verb} ${targetName}'s ${location} with your ${weaponType}!",
       "weight": 15,
       "grammar": "attacker-focus"
     },
@@ -31,44 +31,44 @@
       "grammar": "action-first"
     },
     {
-      "pattern": "Excellent strike! ${opening} ${weaponType} ${verb} ${targetName}'s ${location}! ${effect}!",
+      "pattern": "Excellent strike! ${opening} your ${weaponType} ${verb} ${targetName}'s ${location}! ${effect}!",
       "weight": 18,
       "grammar": "excellent"
     },
     {
-      "pattern": "You land a powerful blow! ${opening} ${weaponType} ${verb} ${location}! ${effect}!",
+      "pattern": "You land a powerful blow! ${opening} your ${weaponType} ${verb} ${location}! ${effect}!",
       "weight": 16,
       "grammar": "powerful"
     },
     {
-      "pattern": "${effect}! ${targetName}'s ${location} suffers major damage! ${opening} ${weaponType} ${verb} brutally!",
+      "pattern": "${effect}! ${targetName}'s ${location} suffers major damage! ${opening} your ${weaponType} ${verb} brutally!",
       "weight": 14,
       "grammar": "major-damage"
     },
     {
-      "pattern": "${opening} Perfect execution! ${weaponType} ${verb} ${targetName}'s ${location}! ${effect}!",
+      "pattern": "${opening} Perfect execution! Your ${weaponType} ${verb} ${targetName}'s ${location}! ${effect}!",
       "weight": 13,
       "grammar": "perfect"
     },
     {
-      "pattern": "You strike with precision! ${opening} ${weaponType} ${verb} ${location}! ${effect}!",
+      "pattern": "You strike with precision! ${opening} your ${weaponType} ${verb} ${location}! ${effect}!",
       "weight": 12,
       "grammar": "precise"
     },
     {
-      "pattern": "Critical impact! ${opening} ${weaponType} ${verb} ${targetName}'s ${location}! ${effect}!",
+      "pattern": "Critical impact! ${opening} your ${weaponType} ${verb} ${targetName}'s ${location}! ${effect}!",
       "weight": 11,
       "grammar": "critical"
     }
   ],
   "success": [
     {
-      "pattern": "${opening} ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
+      "pattern": "${opening} your ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
       "weight": 30,
       "grammar": "standard"
     },
     {
-      "pattern": "${effect} ${opening} ${weaponType} ${verb} ${targetName}'s ${location}.",
+      "pattern": "${effect} ${opening} your ${weaponType} ${verb} ${targetName}'s ${location}.",
       "weight": 18,
       "grammar": "effect-first"
     },
@@ -78,7 +78,7 @@
       "grammar": "location-first"
     },
     {
-      "pattern": "You target ${targetName}'s ${location}. ${opening} ${weaponType} ${verb}. ${effect}",
+      "pattern": "You target ${targetName}'s ${location}. ${opening} your ${weaponType} ${verb}. ${effect}",
       "weight": 12,
       "grammar": "tactical"
     },
@@ -93,39 +93,39 @@
       "grammar": "action-first"
     },
     {
-      "pattern": "${opening} you strike! ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
+      "pattern": "${opening} you strike! Your ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
       "weight": 16,
       "grammar": "strike-announcement"
     },
     {
-      "pattern": "Good hit! ${opening} ${weaponType} ${verb} ${location}. ${effect}",
+      "pattern": "Good hit! ${opening} your ${weaponType} ${verb} ${location}. ${effect}",
       "weight": 14,
       "grammar": "good-hit"
     },
     {
-      "pattern": "${effect}! ${opening} ${weaponType} connects with ${targetName}'s ${location}.",
+      "pattern": "${effect}! ${opening} your ${weaponType} connects with ${targetName}'s ${location}.",
       "weight": 13,
       "grammar": "connection"
     },
     {
-      "pattern": "${targetName}'s ${location} is hit! ${opening} ${weaponType} ${verb}. ${effect}",
+      "pattern": "${targetName}'s ${location} is hit! ${opening} your ${weaponType} ${verb}. ${effect}",
       "weight": 12,
       "grammar": "hit-announcement"
     },
     {
-      "pattern": "${opening} Solid strike! ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
+      "pattern": "${opening} Solid strike! Your ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
       "weight": 11,
       "grammar": "solid"
     },
     {
-      "pattern": "Your attack lands! ${opening} ${weaponType} ${verb} ${location}. ${effect}",
+      "pattern": "Your attack lands! ${opening} your ${weaponType} ${verb} ${location}. ${effect}",
       "weight": 10,
       "grammar": "lands"
     }
   ],
   "failure": [
     {
-      "pattern": "${opening} but ${weaponType} misses ${targetName}'s ${location}.",
+      "pattern": "${opening} but your ${weaponType} misses ${targetName}'s ${location}.",
       "weight": 35,
       "grammar": "standard"
     },
@@ -140,7 +140,7 @@
       "grammar": "tactical-miss"
     },
     {
-      "pattern": "${weaponType} fails to connect with ${targetName}. ${opening}",
+      "pattern": "Your ${weaponType} fails to connect with ${targetName}. ${opening}",
       "weight": 15,
       "grammar": "weapon-miss"
     },
@@ -150,7 +150,7 @@
       "grammar": "simple-fail"
     },
     {
-      "pattern": "${opening} ${targetName} evades! ${weaponType} misses ${location}.",
+      "pattern": "${opening} ${targetName} evades! Your ${weaponType} misses ${location}.",
       "weight": 22,
       "grammar": "evasion"
     },
@@ -160,17 +160,17 @@
       "grammar": "no-contact"
     },
     {
-      "pattern": "${opening} ${weaponType} swings past ${targetName} without hitting.",
+      "pattern": "${opening} your ${weaponType} swings past ${targetName} without hitting.",
       "weight": 18,
       "grammar": "swing-past"
     },
     {
-      "pattern": "${targetName} avoids the strike! ${opening} ${weaponType} misses.",
+      "pattern": "${targetName} avoids the strike! ${opening} your ${weaponType} misses.",
       "weight": 16,
       "grammar": "avoided"
     },
     {
-      "pattern": "${opening} you misjudge! ${weaponType} fails to hit ${targetName}.",
+      "pattern": "${opening} you misjudge! Your ${weaponType} fails to hit ${targetName}.",
       "weight": 14,
       "grammar": "misjudged"
     },
@@ -180,7 +180,7 @@
       "grammar": "miss-announcement"
     },
     {
-      "pattern": "${opening} ${weaponType} finds only air as ${targetName} shifts away.",
+      "pattern": "${opening} your ${weaponType} finds only air as ${targetName} shifts away.",
       "weight": 10,
       "grammar": "only-air"
     }
@@ -192,7 +192,7 @@
       "grammar": "standard"
     },
     {
-      "pattern": "${opening} ${weaponType} misses ${targetName} badly!",
+      "pattern": "${opening} your ${weaponType} misses ${targetName} badly!",
       "weight": 25,
       "grammar": "bad-miss"
     },
@@ -207,27 +207,27 @@
       "grammar": "clumsy"
     },
     {
-      "pattern": "${opening} you lose control! ${weaponType} swings wildly!",
+      "pattern": "${opening} you lose control! Your ${weaponType} swings wildly!",
       "weight": 10,
       "grammar": "loss-control"
     },
     {
-      "pattern": "Complete miss! ${opening} ${weaponType} misses ${targetName} by a wide margin!",
+      "pattern": "Complete miss! ${opening} your ${weaponType} misses ${targetName} by a wide margin!",
       "weight": 22,
       "grammar": "complete-miss"
     },
     {
-      "pattern": "${opening} Terrible strike! ${weaponType} fails spectacularly against ${targetName}!",
+      "pattern": "${opening} Terrible strike! Your ${weaponType} fails spectacularly against ${targetName}!",
       "weight": 18,
       "grammar": "terrible"
     },
     {
-      "pattern": "You fumble the attack! ${opening} ${weaponType} misses ${targetName} badly!",
+      "pattern": "You fumble the attack! ${opening} your ${weaponType} misses ${targetName} badly!",
       "weight": 16,
       "grammar": "fumble"
     },
     {
-      "pattern": "${opening} ${targetName} doesn't even need to dodge! ${weaponType} swings hopelessly wide!",
+      "pattern": "${opening} ${targetName} doesn't even need to dodge! Your ${weaponType} swings hopelessly wide!",
       "weight": 14,
       "grammar": "hopeless"
     },
@@ -237,12 +237,12 @@
       "grammar": "epic-fail"
     },
     {
-      "pattern": "${opening} you stumble! ${weaponType} misses ${targetName} completely!",
+      "pattern": "${opening} you stumble! Your ${weaponType} misses ${targetName} completely!",
       "weight": 10,
       "grammar": "stumble"
     },
     {
-      "pattern": "${targetName} barely notices! ${opening} ${weaponType} swings harmlessly past!",
+      "pattern": "${targetName} barely notices! ${opening} your ${weaponType} swings harmlessly past!",
       "weight": 8,
       "grammar": "barely-notice"
     }
