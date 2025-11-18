@@ -118,7 +118,7 @@
       "grammar": "solid"
     },
     {
-      "pattern": "My attack lands! ${opening} ${weaponType} ${verb} ${location}. ${effect}",
+      "pattern": "Your attack lands! ${opening} ${weaponType} ${verb} ${location}. ${effect}",
       "weight": 10,
       "grammar": "lands"
     }

@@ -140,7 +140,7 @@
       "grammar": "avoids"
     },
     {
-      "pattern": "My attack fails. ${opening}",
+      "pattern": "Your attack fails. ${opening}",
       "weight": 10,
       "grammar": "fails"
     },
