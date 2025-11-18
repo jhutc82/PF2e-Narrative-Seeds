@@ -48,23 +48,24 @@ export class DismembermentManager {
             return false;
         }
 
-        // Get damage dealt and target's max HP
-        const damage = this.extractDamage(attackData.message);
+        // NOTE: We cannot reliably get damage from attack-roll messages since
+        // PF2e sends damage in a separate damage-roll message.
+        // Instead, we trigger dismemberment checks on all critical successes
+        // and let the random chance system determine if dismemberment occurs.
+
+        // Check if target is at low health (makes dismemberment more likely narratively)
+        const currentHP = target.system?.attributes?.hp?.value || 0;
         const maxHP = target.system?.attributes?.hp?.max || 0;
+        const isLowHealth = maxHP > 0 && currentHP <= (maxHP / 2);
 
-        if (maxHP === 0) {
-            return false; // Can't calculate threshold
-        }
-
-        // Check condition 1: Damage > half max HP
-        const halfHPThreshold = damage > (maxHP / 2);
-
-        // Check condition 2: Target is unconscious (dying or unconscious condition)
+        // Check if target is unconscious (dying or unconscious condition)
         const isUnconscious = target.hasCondition?.('unconscious') ||
                              target.hasCondition?.('dying') ||
-                             (target.system?.attributes?.hp?.value || 0) <= 0;
+                             currentHP <= 0;
 
-        return halfHPThreshold || isUnconscious;
+        // Trigger dismemberment check on critical hits against low-health or unconscious targets
+        // OR always allow a chance on any critical hit (controlled by base chance setting)
+        return isLowHealth || isUnconscious || true;
     }
 
     /**
