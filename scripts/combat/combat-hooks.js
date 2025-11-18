@@ -91,10 +91,9 @@ export class CombatHooks {
         return;
       }
 
-      // Format narrative HTML
-      const narrativeHTML = CombatFormatter.generateHTML(seed);
-
-      // Store attack data for potential regeneration
+      // Store seed and attack data in flags ONLY
+      // DO NOT update message.content - that breaks PF2e's damage/critical buttons
+      // The narrative will be injected during rendering via onRenderChatMessage
       const narrativeFlags = {
         "pf2e-narrative-seeds": {
           hasNarrative: true,
@@ -109,9 +108,8 @@ export class CombatHooks {
         }
       };
 
-      // Append narrative to existing attack roll message
+      // Only update flags, never touch message.content
       await message.update({
-        content: message.content + narrativeHTML,
         flags: {
           ...message.flags,
           ...narrativeFlags
@@ -259,14 +257,28 @@ export class CombatHooks {
     const visibilityMode = NarrativeSeedsSettings.get("visibilityMode");
     const shouldShowNarrative = this.shouldShowNarrative(message, visibilityMode);
 
-    // Find the narrative element
-    const narrativeElement = html.find('.pf2e-narrative-seed');
-
     if (!shouldShowNarrative) {
-      // Remove narrative from DOM if user shouldn't see it
-      narrativeElement.remove();
       return;
     }
+
+    // Get seed from flags and generate HTML
+    const seed = message.flags?.["pf2e-narrative-seeds"]?.seed;
+    if (!seed) return;
+
+    const narrativeHTML = CombatFormatter.generateHTML(seed);
+
+    // Inject narrative HTML into the rendered message
+    // Find the message content area and append our narrative
+    const messageContent = html.find('.message-content');
+    if (messageContent.length > 0) {
+      messageContent.append(narrativeHTML);
+    } else {
+      // Fallback: append to the entire message
+      html.append(narrativeHTML);
+    }
+
+    // Find the narrative element (now that we've added it)
+    const narrativeElement = html.find('.pf2e-narrative-seed');
 
     // User can see narrative, so attach event listeners to buttons
     const regenerateButton = html.find('.regenerate-btn');
@@ -406,15 +418,9 @@ export class CombatHooks {
         return;
       }
 
-      // Format new narrative HTML
-      const narrativeHTML = CombatFormatter.generateHTML(seed);
-
-      // Get original PF2e content (everything before our narrative)
-      const originalContent = message.content.split('<div class="pf2e-narrative-seed')[0];
-
-      // Update message with new narrative
+      // Update only the seed in flags, not message.content
+      // The renderChatMessage hook will display the new narrative
       await message.update({
-        content: originalContent + narrativeHTML,
         flags: {
           ...message.flags,
           "pf2e-narrative-seeds": {

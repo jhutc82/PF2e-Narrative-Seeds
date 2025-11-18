@@ -204,6 +204,14 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           }
         );
 
+        // Debug logging for complications and dismemberment
+        if (complication) {
+          console.log("PF2e Narrative Seeds | Generated complication:", complication);
+        }
+        if (dismemberment) {
+          console.log("PF2e Narrative Seeds | Generated dismemberment:", dismemberment);
+        }
+
         return {
           description,
           anatomy,

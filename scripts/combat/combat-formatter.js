@@ -106,6 +106,14 @@ export class CombatFormatter {
     const dismembermentHTML = dismemberment ? this.generateDismembermentHTML(dismemberment) : '';
     const regenerateButton = autoApply ? '' : '<button class="regenerate-btn" title="Regenerate narrative">♻️</button>';
 
+    // Debug logging
+    console.log("PF2e Narrative Seeds | Generating HTML with:", {
+      hasComplication: !!complication,
+      hasDismemberment: !!dismemberment,
+      complicationHTML: complicationHTML.substring(0, 100),
+      dismembermentHTML: dismembermentHTML.substring(0, 100)
+    });
+
     // Simple box design - narrative text with regenerate button
     return `
       <div class="pf2e-narrative-seed simple-box">
