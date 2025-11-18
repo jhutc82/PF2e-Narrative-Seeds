@@ -31,6 +31,11 @@ export class CombatHooks {
   static PENDING_ATTACK_MAX_AGE = 30000;
 
   /**
+   * Interval ID for cleanup task
+   */
+  static cleanupIntervalId = null;
+
+  /**
    * Initialize combat hooks
    */
   static initialize() {
@@ -52,7 +57,12 @@ export class CombatHooks {
    * Start periodic cleanup of old pending attacks
    */
   static startPendingAttackCleanup() {
-    setInterval(() => {
+    // Clear any existing interval first
+    if (this.cleanupIntervalId) {
+      clearInterval(this.cleanupIntervalId);
+    }
+
+    this.cleanupIntervalId = setInterval(() => {
       this.cleanupOldPendingAttacks();
     }, 10000); // Check every 10 seconds
   }
@@ -454,7 +464,7 @@ export class CombatHooks {
       }
 
       // Try to get target from current targets if not in context
-      if (!target && game.user.targets.size > 0) {
+      if (!target && game.user?.targets && game.user.targets.size > 0) {
         const targetToken = game.user.targets.first();
         if (targetToken) target = targetToken.actor;
       }
@@ -576,7 +586,7 @@ export class CombatHooks {
     }
 
     // Try to get target from current targets if not in context
-    if (!target && game.user.targets.size > 0) {
+    if (!target && game.user?.targets && game.user.targets.size > 0) {
       const targetToken = game.user.targets.first();
       if (targetToken) target = targetToken.actor;
     }
@@ -586,8 +596,8 @@ export class CombatHooks {
       const combatant = game.combat.combatant;
       if (combatant && combatant.token) {
         // Get targets of current combatant
-        const targets = game.user.targets;
-        if (targets.size > 0) {
+        const targets = game.user?.targets;
+        if (targets && targets.size > 0) {
           const firstTarget = targets.first();
           if (firstTarget) target = firstTarget.actor;
         }
@@ -971,6 +981,16 @@ export class CombatHooks {
    */
   static shutdown() {
     console.log("PF2e Narrative Seeds | Shutting down combat hooks");
+
+    // Clear cleanup interval to prevent memory leak
+    if (this.cleanupIntervalId) {
+      clearInterval(this.cleanupIntervalId);
+      this.cleanupIntervalId = null;
+    }
+
+    // Clear pending attacks
+    this.pendingAttacks.clear();
+
     // Hooks are automatically managed by Foundry
   }
 }

@@ -299,7 +299,8 @@ export class SkillNarrativeGenerator {
    */
   selectNarrativeWithVariety(narratives, action, outcome) {
     const cacheKey = `skill-${action}-${outcome}`;
-    return RandomUtils.selectWithVariety(narratives, cacheKey);
+    const varietyMode = NarrativeSeedsSettings.get("varietyMode") || "high";
+    return RandomUtils.selectRandom(narratives, varietyMode, cacheKey);
   }
 
   /**

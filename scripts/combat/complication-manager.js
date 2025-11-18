@@ -40,7 +40,7 @@ export class ComplicationManager {
      * @returns {boolean} Whether to generate a complication
      */
     static shouldGenerateComplication(seed) {
-        const { outcome, attackerLevel } = seed;
+        const { outcome } = seed;
 
         // Only generate complications for critical outcomes
         if (outcome !== 'criticalSuccess' && outcome !== 'criticalFailure') {
@@ -53,9 +53,8 @@ export class ComplicationManager {
             return false;
         }
 
-        // Calculate level-based chance: 5% per level, 100% at level 20
-        const level = attackerLevel || 1;
-        const chance = Math.min(level * 5, 100);
+        // Use complication chance from settings (0-100%)
+        const chance = game.settings.get('pf2e-narrative-seeds', 'complicationChance');
 
         return Math.random() * 100 < chance;
     }
