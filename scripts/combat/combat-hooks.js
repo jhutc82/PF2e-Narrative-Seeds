@@ -145,66 +145,46 @@ export class CombatHooks {
         outcome: attackData.context?.outcome
       };
 
-      let narrativeMessageId = null;
+      // Generate HTML for the narrative
+      const narrativeHTML = CombatFormatter.generateHTML(seed);
 
-      if (visibilityMode === "everyone") {
-        // For public visibility, inject into the PF2e message via flags
-        // This will be rendered by onRenderChatMessage for all users
-        await message.update({
-          flags: {
-            ...message.flags,
-            "pf2e-narrative-seeds": {
-              hasNarrative: true,
-              attackData: attackDataFlags,
-              seed: seed,
-              visibilityMode: visibilityMode
-            }
+      // Always create a separate narrative message (will be deleted/replaced when damage comes in)
+      const whisperTargets = this.getWhisperTargets(visibilityMode, attackData.actor?.id);
+
+      const narrativeMessage = await ChatMessage.create({
+        content: narrativeHTML,
+        whisper: whisperTargets, // Empty array for "everyone" mode
+        style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+        speaker: message.speaker,
+        flags: {
+          "pf2e-narrative-seeds": {
+            hasNarrative: true,
+            attackData: attackDataFlags,
+            seed: seed,
+            visibilityMode: visibilityMode,
+            originalMessageId: message.id,
+            isPending: true // Mark as pending until damage roll
           }
-        });
-        narrativeMessageId = message.id; // For "everyone" mode, narrative is in the same message
-      } else {
-        // For GM-only or GM-plus-actor, create a SEPARATE whispered message
-        // This ensures server-side visibility control via Foundry's whisper system
-        const whisperTargets = this.getWhisperTargets(visibilityMode, attackData.actor?.id);
+        }
+      });
 
-        // Generate HTML for the narrative
-        const narrativeHTML = CombatFormatter.generateHTML(seed);
-
-        // Create a separate whispered chat message
-        const narrativeMessage = await ChatMessage.create({
-          content: narrativeHTML,
-          whisper: whisperTargets,
-          type: CONST.CHAT_MESSAGE_TYPES.OTHER,
-          speaker: message.speaker,
-          flags: {
-            "pf2e-narrative-seeds": {
-              hasNarrative: true,
-              attackData: attackDataFlags,
-              seed: seed,
-              visibilityMode: visibilityMode,
-              originalMessageId: message.id
-            }
+      // Store reference in original attack message for regeneration
+      await message.update({
+        flags: {
+          ...message.flags,
+          "pf2e-narrative-seeds": {
+            hasNarrativeMessage: true,
+            narrativeMessageId: narrativeMessage.id,
+            attackData: attackDataFlags
           }
-        });
-        narrativeMessageId = narrativeMessage.id;
-
-        // Store minimal reference in original message for regeneration
-        await message.update({
-          flags: {
-            ...message.flags,
-            "pf2e-narrative-seeds": {
-              hasNarrativeMessage: true,
-              attackData: attackDataFlags
-            }
-          }
-        });
-      }
+        }
+      });
 
       // Store pending attack for damage roll linking
       const attackKey = `${attackData.actor?.id}-${attackData.origin?.uuid}`;
       this.pendingAttacks.set(attackKey, {
         attackMessageId: message.id,
-        narrativeMessageId: narrativeMessageId,
+        narrativeMessageId: narrativeMessage.id,
         attackData: attackData,
         attackDataFlags: attackDataFlags,
         seed: seed,
@@ -359,50 +339,29 @@ export class CombatHooks {
       // Create new combined narrative message
       const visibilityMode = pendingAttack.visibilityMode;
       const narrativeHTML = CombatFormatter.generateHTML(seed);
+      const whisperTargets = this.getWhisperTargets(visibilityMode, attackData.actor?.id);
 
       const attackDataFlags = {
         ...pendingAttack.attackDataFlags,
         damageAmount: damageAmount
       };
 
-      if (visibilityMode === "everyone") {
-        // For "everyone" mode, we deleted and need to recreate as standalone since we can't inject into damage roll
-        await ChatMessage.create({
-          content: narrativeHTML,
-          type: CONST.CHAT_MESSAGE_TYPES.OTHER,
-          speaker: message.speaker,
-          flags: {
-            "pf2e-narrative-seeds": {
-              hasNarrative: true,
-              attackData: attackDataFlags,
-              seed: seed,
-              visibilityMode: visibilityMode,
-              originalMessageId: pendingAttack.attackMessageId,
-              damageMessageId: message.id
-            }
+      await ChatMessage.create({
+        content: narrativeHTML,
+        whisper: whisperTargets, // Empty array for "everyone" mode
+        style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+        speaker: message.speaker,
+        flags: {
+          "pf2e-narrative-seeds": {
+            hasNarrative: true,
+            attackData: attackDataFlags,
+            seed: seed,
+            visibilityMode: visibilityMode,
+            originalMessageId: pendingAttack.attackMessageId,
+            damageMessageId: message.id
           }
-        });
-      } else {
-        // For whispered mode, create new whispered message
-        const whisperTargets = this.getWhisperTargets(visibilityMode, attackData.actor?.id);
-
-        await ChatMessage.create({
-          content: narrativeHTML,
-          whisper: whisperTargets,
-          type: CONST.CHAT_MESSAGE_TYPES.OTHER,
-          speaker: message.speaker,
-          flags: {
-            "pf2e-narrative-seeds": {
-              hasNarrative: true,
-              attackData: attackDataFlags,
-              seed: seed,
-              visibilityMode: visibilityMode,
-              originalMessageId: pendingAttack.attackMessageId,
-              damageMessageId: message.id
-            }
-          }
-        });
-      }
+        }
+      });
 
       // Remove from pending attacks
       this.pendingAttacks.delete(attackKey);
@@ -557,42 +516,24 @@ export class CombatHooks {
         damageAmount: damageAmount
       };
 
-      if (visibilityMode === "everyone") {
-        await ChatMessage.create({
-          content: narrativeHTML,
-          type: CONST.CHAT_MESSAGE_TYPES.OTHER,
-          speaker: message.speaker,
-          flags: {
-            "pf2e-narrative-seeds": {
-              hasNarrative: true,
-              attackData: attackDataFlags,
-              seed: seed,
-              visibilityMode: visibilityMode,
-              damageMessageId: message.id,
-              isForcBarrage: true
-            }
-          }
-        });
-      } else {
-        const whisperTargets = this.getWhisperTargets(visibilityMode, actor.id);
+      const whisperTargets = this.getWhisperTargets(visibilityMode, actor.id);
 
-        await ChatMessage.create({
-          content: narrativeHTML,
-          whisper: whisperTargets,
-          type: CONST.CHAT_MESSAGE_TYPES.OTHER,
-          speaker: message.speaker,
-          flags: {
-            "pf2e-narrative-seeds": {
-              hasNarrative: true,
-              attackData: attackDataFlags,
-              seed: seed,
-              visibilityMode: visibilityMode,
-              damageMessageId: message.id,
-              isForcBarrage: true
-            }
+      await ChatMessage.create({
+        content: narrativeHTML,
+        whisper: whisperTargets, // Empty array for "everyone" mode
+        style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+        speaker: message.speaker,
+        flags: {
+          "pf2e-narrative-seeds": {
+            hasNarrative: true,
+            attackData: attackDataFlags,
+            seed: seed,
+            visibilityMode: visibilityMode,
+            damageMessageId: message.id,
+            isForcBarrage: true
           }
-        });
-      }
+        }
+      });
 
       console.log("PF2e Narrative Seeds | Created Force Barrage narrative");
 
@@ -694,26 +635,8 @@ export class CombatHooks {
     const flags = message.flags?.["pf2e-narrative-seeds"];
     if (!flags) return;
 
-    // Check if this message has an embedded narrative (for "everyone" mode)
-    const hasEmbeddedNarrative = flags.hasNarrative;
-
-    if (hasEmbeddedNarrative) {
-      // This is for "everyone" mode - inject the narrative into the PF2e message
-      const seed = flags.seed;
-      if (!seed) return;
-
-      const narrativeHTML = CombatFormatter.generateHTML(seed);
-
-      // Inject narrative HTML into the rendered message
-      const messageContent = html.find('.message-content');
-      if (messageContent.length > 0) {
-        messageContent.append(narrativeHTML);
-      } else {
-        html.append(narrativeHTML);
-      }
-    }
-
     // Attach event listeners to any narrative elements in this message
+    // (Narratives are now always separate messages, not embedded)
     this.attachNarrativeEventListeners(message, html);
   }
 
