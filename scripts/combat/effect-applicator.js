@@ -17,16 +17,19 @@ export class EffectApplicator {
 
         const { effect, name, description, duration } = complication;
 
+        // Enhance description with mechanical effects
+        const enhancedDescription = this.enhanceComplicationDescription(description, effect, duration);
+
         try {
             switch (effect.type) {
                 case 'condition':
-                    return await this.applyCondition(actor, effect, name, description, duration);
+                    return await this.applyCondition(actor, effect, name, enhancedDescription, duration);
                 case 'persistent-damage':
-                    return await this.applyPersistentDamage(actor, effect, name, description);
+                    return await this.applyPersistentDamage(actor, effect, name, enhancedDescription);
                 case 'penalty':
-                    return await this.applyPenalty(actor, effect, name, description, duration);
+                    return await this.applyPenalty(actor, effect, name, enhancedDescription, duration);
                 case 'speed-penalty':
-                    return await this.applySpeedPenalty(actor, effect, name, description, duration);
+                    return await this.applySpeedPenalty(actor, effect, name, enhancedDescription, duration);
                 default:
                     console.warn(`Unknown complication effect type: ${effect.type}`);
                     return false;
@@ -36,6 +39,35 @@ export class EffectApplicator {
             ui.notifications.error(`Failed to apply complication: ${name}`);
             return false;
         }
+    }
+
+    /**
+     * Enhance complication description with mechanical effect details
+     * @param {string} description - Original description
+     * @param {Object} effect - Effect data
+     * @param {number} duration - Duration in rounds
+     * @returns {string} Enhanced description
+     */
+    static enhanceComplicationDescription(description, effect, duration) {
+        let mechanicsText = '';
+        const durationText = duration ? ` for ${duration} round${duration > 1 ? 's' : ''}` : '';
+
+        switch (effect.type) {
+            case 'condition':
+                mechanicsText = `<p><strong>Effect:</strong> ${effect.condition}${effect.value ? ' ' + effect.value : ''}${durationText}</p>`;
+                break;
+            case 'persistent-damage':
+                mechanicsText = `<p><strong>Effect:</strong> ${effect.value} ${effect.damageType} persistent damage (DC ${effect.dc} flat check to end)</p>`;
+                break;
+            case 'penalty':
+                mechanicsText = `<p><strong>Effect:</strong> ${effect.value} penalty to ${effect.stat}${durationText}</p>`;
+                break;
+            case 'speed-penalty':
+                mechanicsText = `<p><strong>Effect:</strong> ${effect.value} foot penalty to ${effect.movementType || 'all movement'}${durationText}</p>`;
+                break;
+        }
+
+        return `<p>${description}</p>${mechanicsText}`;
     }
 
     /**
@@ -188,10 +220,7 @@ export class EffectApplicator {
                     show: true
                 },
                 rules: rules,
-                slug: `complication-${name.toLowerCase().replace(/\s+/g, '-')}`,
-                traits: {
-                    value: ['complication']
-                }
+                slug: `complication-${name.toLowerCase().replace(/\s+/g, '-')}`
             }
         };
 

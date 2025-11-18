@@ -208,26 +208,36 @@ export class CombatFormatter {
       ? `${complication.duration} round${complication.duration > 1 ? 's' : ''}`
       : 'Permanent';
 
-    // Get mechanical effect from effect object
-    let conditionName = '';
-    let conditionValue = '';
+    // Get mechanical effect details
     let mechanics = '';
+    let effectTitle = escapedName;
 
-    if (complication.effect?.condition) {
-      conditionName = StringUtils.capitalizeFirst(complication.effect.condition);
-      conditionValue = complication.effect.value || '';
-      mechanics = this.getConditionMechanics(complication.effect.condition, conditionValue);
-    } else if (complication.conditionSlug) {
-      // Fallback to old format
-      conditionName = StringUtils.capitalizeFirst(complication.conditionSlug);
-      conditionValue = complication.conditionValue || '';
-      mechanics = this.getConditionMechanics(complication.conditionSlug, conditionValue);
+    if (complication.effect) {
+      const effect = complication.effect;
+
+      switch (effect.type) {
+        case 'condition':
+          const condName = StringUtils.capitalizeFirst(effect.condition);
+          effectTitle = effect.value ? `${condName} ${effect.value}` : condName;
+          mechanics = this.getConditionMechanics(effect.condition, effect.value || '');
+          break;
+
+        case 'persistent-damage':
+          effectTitle = `${effect.value} ${effect.damageType} Persistent`;
+          mechanics = `Take ${effect.value} ${effect.damageType} damage at the end of your turn (DC ${effect.dc} flat check to end)`;
+          break;
+
+        case 'penalty':
+          effectTitle = `${effect.value} ${effect.stat}`;
+          mechanics = `${effect.value} circumstance penalty to ${effect.stat}`;
+          break;
+
+        case 'speed-penalty':
+          effectTitle = `${effect.value}ft Speed Penalty`;
+          mechanics = `${effect.value}-foot penalty to ${effect.movementType || 'all movement speeds'}`;
+          break;
+      }
     }
-
-    // Build effect display
-    const effectTitle = conditionValue
-      ? `${conditionName} ${conditionValue}`
-      : conditionName;
 
     // If auto-apply is enabled, show effect was applied automatically
     const applyButton = autoApply
@@ -240,7 +250,7 @@ export class CombatFormatter {
         <div class="effect-header">
           <strong>${effectTitle}</strong> <span class="effect-duration">(${durationText})</span>
         </div>
-        <div class="effect-mechanics">${mechanics}</div>
+        ${mechanics ? `<div class="effect-mechanics">${mechanics}</div>` : ''}
         ${escapedDescription ? `<div class="effect-description">${escapedDescription}</div>` : ''}
         <div class="effect-actions">
           ${applyButton}
