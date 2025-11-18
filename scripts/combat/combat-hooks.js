@@ -21,7 +21,7 @@ export class CombatHooks {
   /**
    * Pending attack tracker for attack-damage linking
    * Key: `${actorId}-${itemUuid}`
-   * Value: {attackMessageId, narrativeMessageId, attackData, seed, timestamp, visibilityMode}
+   * Value: {attackMessageId, attackData, attackDataFlags, seed, timestamp, visibilityMode, speaker}
    */
   static pendingAttacks = new Map();
 
@@ -145,52 +145,43 @@ export class CombatHooks {
         outcome: attackData.context?.outcome
       };
 
-      // Generate HTML for the narrative
-      const narrativeHTML = CombatFormatter.generateHTML(seed);
+      // Check if this attack will have a damage roll (hits and critical hits)
+      const outcome = attackData.context?.outcome;
+      const willHaveDamageRoll = outcome === 'success' || outcome === 'criticalSuccess';
 
-      // Always create a separate narrative message (will be deleted/replaced when damage comes in)
-      const whisperTargets = this.getWhisperTargets(visibilityMode, attackData.actor?.id);
+      if (willHaveDamageRoll) {
+        // Store pending attack for damage roll linking (don't post chat card yet)
+        const attackKey = `${attackData.actor?.id}-${attackData.origin?.uuid}`;
+        this.pendingAttacks.set(attackKey, {
+          attackMessageId: message.id,
+          attackData: attackData,
+          attackDataFlags: attackDataFlags,
+          seed: seed,
+          timestamp: Date.now(),
+          visibilityMode: visibilityMode,
+          speaker: message.speaker
+        });
+      } else {
+        // Miss or critical miss - post narrative immediately (no damage roll coming)
+        const narrativeHTML = CombatFormatter.generateHTML(seed);
+        const whisperTargets = this.getWhisperTargets(visibilityMode, attackData.actor?.id);
 
-      const narrativeMessage = await ChatMessage.create({
-        content: narrativeHTML,
-        whisper: whisperTargets, // Empty array for "everyone" mode
-        style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-        speaker: message.speaker,
-        flags: {
-          "pf2e-narrative-seeds": {
-            hasNarrative: true,
-            attackData: attackDataFlags,
-            seed: seed,
-            visibilityMode: visibilityMode,
-            originalMessageId: message.id,
-            isPending: true // Mark as pending until damage roll
+        await ChatMessage.create({
+          content: narrativeHTML,
+          whisper: whisperTargets,
+          style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+          speaker: message.speaker,
+          flags: {
+            "pf2e-narrative-seeds": {
+              hasNarrative: true,
+              attackData: attackDataFlags,
+              seed: seed,
+              visibilityMode: visibilityMode,
+              originalMessageId: message.id
+            }
           }
-        }
-      });
-
-      // Store reference in original attack message for regeneration
-      await message.update({
-        flags: {
-          ...message.flags,
-          "pf2e-narrative-seeds": {
-            hasNarrativeMessage: true,
-            narrativeMessageId: narrativeMessage.id,
-            attackData: attackDataFlags
-          }
-        }
-      });
-
-      // Store pending attack for damage roll linking
-      const attackKey = `${attackData.actor?.id}-${attackData.origin?.uuid}`;
-      this.pendingAttacks.set(attackKey, {
-        attackMessageId: message.id,
-        narrativeMessageId: narrativeMessage.id,
-        attackData: attackData,
-        attackDataFlags: attackDataFlags,
-        seed: seed,
-        timestamp: Date.now(),
-        visibilityMode: visibilityMode
-      });
+        });
+      }
 
       // Auto-apply complication if setting is enabled
       if (game.settings.get("pf2e-narrative-seeds", "autoApplyComplications")) {
@@ -329,14 +320,7 @@ export class CombatHooks {
         return;
       }
 
-      // Delete the original narrative message
-      const oldNarrativeMessage = game.messages.get(pendingAttack.narrativeMessageId);
-      if (oldNarrativeMessage) {
-        await oldNarrativeMessage.delete();
-        console.log("PF2e Narrative Seeds | Deleted original narrative message");
-      }
-
-      // Create new combined narrative message
+      // Create combined attack+damage narrative message
       const visibilityMode = pendingAttack.visibilityMode;
       const narrativeHTML = CombatFormatter.generateHTML(seed);
       const whisperTargets = this.getWhisperTargets(visibilityMode, attackData.actor?.id);
@@ -350,7 +334,7 @@ export class CombatHooks {
         content: narrativeHTML,
         whisper: whisperTargets, // Empty array for "everyone" mode
         style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-        speaker: message.speaker,
+        speaker: pendingAttack.speaker,
         flags: {
           "pf2e-narrative-seeds": {
             hasNarrative: true,
@@ -365,7 +349,7 @@ export class CombatHooks {
 
       // Remove from pending attacks
       this.pendingAttacks.delete(attackKey);
-      console.log("PF2e Narrative Seeds | Created combined attack+damage narrative");
+      console.log("PF2e Narrative Seeds | Created attack+damage narrative");
 
     } catch (error) {
       console.error("PF2e Narrative Seeds | Error processing damage roll:", error);
