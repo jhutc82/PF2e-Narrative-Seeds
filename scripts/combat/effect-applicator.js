@@ -64,15 +64,9 @@ export class EffectApplicator {
             return true;
         } catch (error) {
             console.error('Failed to apply condition:', error);
-            // Fallback: create a custom effect item
-            return await this.createCustomEffect(actor, name, description, duration, [
-                {
-                    key: 'PF2E.RuleElement.ConditionValue',
-                    path: 'condition.' + condition,
-                    mode: 'add',
-                    value: value || 1
-                }
-            ]);
+            // Fallback: create a custom effect item without rule elements
+            // Just create a descriptive effect since condition application failed
+            return await this.createCustomEffect(actor, name, description, duration, []);
         }
     }
 
@@ -99,16 +93,13 @@ export class EffectApplicator {
             console.error('Failed to apply persistent damage:', error);
         }
 
-        // Fallback: create custom effect
+        // Fallback: create custom effect with PersistentDamage rule element
         return await this.createCustomEffect(actor, name, description, null, [
             {
-                key: 'system.attributes.persistentDamage',
-                mode: 'add',
-                value: {
-                    formula: value,
-                    damageType: damageType,
-                    dc: dc
-                }
+                key: 'PersistentDamage',
+                damageType: damageType,
+                formula: value,
+                dc: dc
             }
         ]);
     }
