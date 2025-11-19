@@ -21,6 +21,11 @@ export class SkillHooks {
   static generator = null;
 
   /**
+   * Hook IDs for cleanup
+   */
+  static hookIds = [];
+
+  /**
    * Initialize skill hooks
    */
   static initialize() {
@@ -40,22 +45,24 @@ export class SkillHooks {
    */
   static registerHooks() {
     // Hook into chat message creation
-    Hooks.on("createChatMessage", async (message, options, userId) => {
+    const createHookId = Hooks.on("createChatMessage", async (message, options, userId) => {
       try {
         await this.onChatMessage(message, options, userId);
       } catch (error) {
         console.error("PF2e Narrative Seeds | Error in skill createChatMessage hook:", error);
       }
     });
+    this.hookIds.push(createHookId);
 
     // Hook into chat message rendering to attach event listeners
-    Hooks.on("renderChatMessage", (message, html, data) => {
+    const renderHookId = Hooks.on("renderChatMessage", (message, html, data) => {
       try {
         this.onRenderChatMessage(message, html, data);
       } catch (error) {
         console.error("PF2e Narrative Seeds | Error in skill renderChatMessage hook:", error);
       }
     });
+    this.hookIds.push(renderHookId);
   }
 
   /**
@@ -359,6 +366,13 @@ export class SkillHooks {
    */
   static shutdown() {
     console.log("PF2e Narrative Seeds | Shutting down skill hooks...");
+
+    // Remove registered Foundry hooks
+    for (const hookId of this.hookIds) {
+      Hooks.off(hookId);
+    }
+    this.hookIds = [];
+
     this.generator = null;
   }
 }
