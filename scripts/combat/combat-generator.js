@@ -178,7 +178,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           } else if (anatomy && anatomy.base) {
             // Build display name with modifiers
             const baseName = AnatomyDetector.getDisplayName(anatomy.base);
-            if (anatomy.modifiers && anatomy.modifiers.length > 0) {
+            if (Array.isArray(anatomy.modifiers) && anatomy.modifiers.length > 0) {
               const modifierNames = anatomy.modifiers.map(m => AnatomyDetector.getDisplayName(m)).join(' ');
               anatomyDisplay = `${modifierNames} ${baseName}`;
             } else {
@@ -557,7 +557,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
         return "criticalFailure";
       default:
         // Try to parse from rolls
-        if (message.rolls && message.rolls.length > 0) {
+        if (Array.isArray(message.rolls) && message.rolls.length > 0) {
           const roll = message.rolls[0];
           if (roll.options?.degreeOfSuccess !== undefined) {
             return this.mapDegreeOfSuccess(roll.options.degreeOfSuccess);
