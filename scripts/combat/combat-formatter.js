@@ -332,7 +332,7 @@ export class CombatFormatter {
   static async narrateToChat(description) {
     await ChatMessage.create({
       content: description,
-      type: CONST.CHAT_MESSAGE_TYPES.IC
+      style: CONST.CHAT_MESSAGE_STYLES.IC
     });
   }
 

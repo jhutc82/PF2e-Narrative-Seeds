@@ -546,7 +546,7 @@ export class ChatUtils {
     return ChatMessage.create({
       content: content,
       whisper: whisper,
-      type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+      style: CONST.CHAT_MESSAGE_STYLES.OTHER,
       speaker: options.speaker || {},
       flags: {
         "pf2e-narrative-seeds": options.flags || {}

@@ -396,7 +396,7 @@ export class EffectApplicator {
                     <p style="margin: 0;"><strong>${actor.name}</strong> has suffered: <strong>${name}</strong></p>
                     <p style="margin: 5px 0 0 0; font-size: 0.9em;">${description}</p>
                 </div>`,
-                type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+                style: CONST.CHAT_MESSAGE_STYLES.OTHER,
                 whisper: game.users.filter(u => u.isGM).map(u => u.id)
             });
 

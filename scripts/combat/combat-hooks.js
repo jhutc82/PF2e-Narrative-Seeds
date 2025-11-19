@@ -304,6 +304,9 @@ export class CombatHooks {
    * @param {string} userId
    */
   static async onDamageRoll(message, options, userId) {
+    let attackKey = null;
+    let pendingAttack = null;
+
     try {
       console.log("PF2e Narrative Seeds | Processing damage roll:", message.id);
 
@@ -322,8 +325,8 @@ export class CombatHooks {
       }
 
       // Find matching pending attack
-      const attackKey = `${actorId}-${itemUuid}`;
-      const pendingAttack = this.pendingAttacks.get(attackKey);
+      attackKey = `${actorId}-${itemUuid}`;
+      pendingAttack = this.pendingAttacks.get(attackKey);
 
       if (!pendingAttack) {
         // No matching attack - this might be a damage-only spell like Force Barrage
@@ -376,12 +379,15 @@ export class CombatHooks {
         }
       });
 
-      // Remove from pending attacks
-      this.pendingAttacks.delete(attackKey);
       console.log("PF2e Narrative Seeds | Created attack+damage narrative");
 
     } catch (error) {
       console.error("PF2e Narrative Seeds | Error processing damage roll:", error);
+    } finally {
+      // Always remove pending attack to prevent memory leaks
+      if (attackKey && pendingAttack) {
+        this.pendingAttacks.delete(attackKey);
+      }
     }
   }
 
