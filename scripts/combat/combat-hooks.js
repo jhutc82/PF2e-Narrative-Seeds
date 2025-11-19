@@ -226,7 +226,7 @@ export class CombatHooks {
         const targets = game.users.filter(u => u.isGM).map(u => u.id);
         if (actorId) {
           const actor = game.actors.get(actorId);
-          if (actor?.hasPlayerOwner) {
+          if (actor?.hasPlayerOwner && typeof actor.testUserPermission === 'function') {
             const owners = game.users.filter(u => actor.testUserPermission(u, "OWNER"));
             targets.push(...owners.map(u => u.id));
           }
@@ -321,7 +321,8 @@ export class CombatHooks {
       }
 
       // Extract damage amount from the message
-      const damageAmount = this.extractDamageAmount(message);
+      const rawDamageAmount = this.extractDamageAmount(message);
+      const damageAmount = Math.max(0, rawDamageAmount || 0);
       console.log(`PF2e Narrative Seeds | Damage amount: ${damageAmount}`);
 
       // Re-generate narrative with damage included

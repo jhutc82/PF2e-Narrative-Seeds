@@ -4,33 +4,38 @@
  */
 export class ComplicationManager {
     static complications = {
-        criticalSuccess: null,
-        criticalFailure: null
+        criticalSuccess: [],
+        criticalFailure: []
     };
 
     static initialized = false;
+    static initializationFailed = false;
 
     /**
      * Initialize the complication manager by loading complication data
      */
     static async initialize() {
-        if (this.initialized) return;
+        if (this.initialized || this.initializationFailed) return;
 
         try {
             // Load critical success complications
             const critSuccessResponse = await fetch('modules/pf2e-narrative-seeds/data/combat/complications/critical-success.json');
             const critSuccessData = await critSuccessResponse.json();
-            this.complications.criticalSuccess = critSuccessData.complications;
+            this.complications.criticalSuccess = critSuccessData.complications || [];
 
             // Load critical failure complications
             const critFailResponse = await fetch('modules/pf2e-narrative-seeds/data/combat/complications/critical-failure.json');
             const critFailData = await critFailResponse.json();
-            this.complications.criticalFailure = critFailData.complications;
+            this.complications.criticalFailure = critFailData.complications || [];
 
             this.initialized = true;
             console.log('PF2e Narrative Seeds | Complication Manager initialized');
         } catch (error) {
             console.error('PF2e Narrative Seeds | Failed to initialize Complication Manager:', error);
+            this.initializationFailed = true;
+            // Ensure arrays are empty rather than null/undefined
+            this.complications.criticalSuccess = [];
+            this.complications.criticalFailure = [];
         }
     }
 
@@ -77,7 +82,9 @@ export class ComplicationManager {
         const { outcome, damageType, anatomy } = seed;
         const availableComplications = this.complications[outcome];
 
-        if (!availableComplications || availableComplications.length === 0) {
+        // Validate that complications array exists and has items
+        if (!Array.isArray(availableComplications) || availableComplications.length === 0) {
+            console.warn(`PF2e Narrative Seeds | No complications available for outcome: ${outcome}`);
             return null;
         }
 

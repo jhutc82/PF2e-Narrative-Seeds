@@ -83,9 +83,11 @@ export class NarrativeSeedGenerator {
 export class RandomUtils {
   static MAX_CACHE_SIZE = 100;  // Maximum number of categories to track
   static MAX_CACHE_AGE = 300000;  // 5 minutes in milliseconds
+  static PRUNE_INTERVAL = 60000;  // Prune every 60 seconds
   static usageHistory = new Map();
   static cacheTimestamps = new Map();
   static messageHistory = [];
+  static lastPruneTime = 0;
 
   // History size limits for variety modes
   // These control how many recent selections to avoid repeating
@@ -182,9 +184,11 @@ export class RandomUtils {
       return array[Math.floor(Math.random() * array.length)];
     }
 
-    // Prune cache periodically
-    if (this.usageHistory.size > this.MAX_CACHE_SIZE * 0.9) {
+    // Prune cache periodically (both time-based and size-based)
+    const now = Date.now();
+    if (this.usageHistory.size > this.MAX_CACHE_SIZE * 0.9 || now - this.lastPruneTime > this.PRUNE_INTERVAL) {
       this.pruneCache();
+      this.lastPruneTime = now;
     }
 
     // Get or create history for this category
@@ -474,10 +478,23 @@ export class StringUtils {
     // Single pass replacement - much faster than multiple regex calls
     // All values are HTML-escaped to prevent XSS injection
     return template.replace(/\$\{(\w+)\}/g, (match, key) => {
-      if (vars[key] !== undefined) {
-        return this.escapeHTML(String(vars[key]));
+      const value = vars[key];
+      if (value === undefined || value === null) {
+        return match;
       }
-      return match;
+      // Convert value to string, handling objects appropriately
+      let strValue;
+      if (typeof value === 'object') {
+        // For objects, use JSON representation or toString
+        try {
+          strValue = JSON.stringify(value);
+        } catch (e) {
+          strValue = String(value);
+        }
+      } else {
+        strValue = String(value);
+      }
+      return this.escapeHTML(strValue);
     });
   }
 }

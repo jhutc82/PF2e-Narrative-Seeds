@@ -257,7 +257,7 @@ export class SkillHooks {
     }
 
     // Try to get target from current targets if not in context
-    if (!target && game.user.targets.size > 0) {
+    if (!target && game.user?.targets?.size > 0) {
       const targetToken = game.user.targets.first();
       if (targetToken) target = targetToken.actor;
     }

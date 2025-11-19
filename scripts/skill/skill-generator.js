@@ -126,7 +126,7 @@ export class SkillNarrativeGenerator {
       this.memory.recordAction(actor, action, outcome);
     }
 
-    PerformanceMonitor.end(PerformanceMonitor.start('skill-narrative-generation'));
+    // Performance monitoring handled by generate() method
 
     return {
       text: text,

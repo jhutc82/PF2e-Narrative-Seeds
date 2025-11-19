@@ -332,14 +332,17 @@ export class EffectApplicator {
                         } else if (modifier.type === 'fly-speed-reduction') {
                             // Calculate percentage reduction of current fly speed
                             const currentFlySpeed = actor.system?.attributes?.speed?.fly || 0;
-                            const reduction = Math.floor(currentFlySpeed * (modifier.value / 100));
-                            rules.push({
-                                key: 'FlatModifier',
-                                selector: 'fly-speed',
-                                value: -reduction,
-                                type: 'untyped',
-                                label: name
-                            });
+                            // Only apply reduction if actor has a fly speed
+                            if (currentFlySpeed > 0) {
+                                const reduction = Math.floor(currentFlySpeed * (modifier.value / 100));
+                                rules.push({
+                                    key: 'FlatModifier',
+                                    selector: 'fly-speed',
+                                    value: -reduction,
+                                    type: 'untyped',
+                                    label: name
+                                });
+                            }
                         } else if (modifier.type === 'fly-speed-override') {
                             // Set fly speed to specific value (often 0)
                             rules.push({
