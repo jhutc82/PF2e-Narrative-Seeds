@@ -188,10 +188,12 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
         }
 
         // Generate complication if applicable
+        // Pass full anatomy object to preserve modifiers (skeleton, zombie, etc.)
+        const anatomyForFiltering = typeof anatomy === 'string' ? { base: anatomy, modifiers: [] } : anatomy;
         const complication = ComplicationManager.selectComplication({
           outcome,
           damageType,
-          anatomy: typeof anatomy === 'string' ? anatomy : anatomy?.base || 'torso',
+          anatomy: anatomyForFiltering,
           attackerLevel: attacker?.level || attacker?.system?.details?.level?.value || 1
         });
 
@@ -201,7 +203,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           {
             outcome,
             damageType,
-            anatomy: typeof anatomy === 'string' ? anatomy : anatomy?.base || 'torso'
+            anatomy: anatomyForFiltering
           }
         );
 

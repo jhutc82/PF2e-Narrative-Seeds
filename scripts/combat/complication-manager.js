@@ -87,7 +87,7 @@ export class ComplicationManager {
             return null;
         }
 
-        const { outcome, damageType, anatomy } = seed;
+        const { outcome, damageType, anatomy, creatureType } = seed;
         const availableComplications = this.complications[outcome];
 
         // Validate that complications array exists and has items
@@ -98,7 +98,7 @@ export class ComplicationManager {
 
         // Filter complications based on context
         const applicableComplications = availableComplications.filter(comp => {
-            return this.isApplicable(comp, damageType, anatomy);
+            return this.isApplicable(comp, damageType, anatomy, creatureType);
         });
 
         if (applicableComplications.length === 0) {
@@ -114,10 +114,11 @@ export class ComplicationManager {
      * Check if a complication is applicable to the current context
      * @param {Object} complication - The complication to check
      * @param {string} damageType - The damage type of the attack
-     * @param {string} anatomy - The anatomy location hit
+     * @param {string|Object} anatomy - Anatomy object {base, modifiers} or string for backwards compat
+     * @param {string} creatureType - DEPRECATED: Use anatomy object instead
      * @returns {boolean} Whether the complication applies
      */
-    static isApplicable(complication, damageType, anatomy) {
+    static isApplicable(complication, damageType, anatomy, creatureType = null) {
         const { applicableContexts } = complication;
 
         if (!applicableContexts) {
@@ -131,10 +132,29 @@ export class ComplicationManager {
             return false;
         }
 
-        // Check anatomy
+        // Extract base and modifiers from anatomy
+        const anatomyBase = typeof anatomy === 'string' ? anatomy : anatomy?.base || 'humanoid';
+        const anatomyModifiers = typeof anatomy === 'object' && Array.isArray(anatomy?.modifiers) ? anatomy.modifiers : [];
+
+        // Check creature type (check both base anatomy AND modifiers)
+        if (applicableContexts.creatureTypes) {
+            if (!applicableContexts.creatureTypes.includes('any')) {
+                // Map skeletal modifier to skeleton for matching
+                const modifiersForMatching = anatomyModifiers.map(m => m === 'skeletal' ? 'skeleton' : m);
+
+                const matchesBase = applicableContexts.creatureTypes.includes(anatomyBase);
+                const matchesModifier = modifiersForMatching.some(m => applicableContexts.creatureTypes.includes(m));
+
+                if (!matchesBase && !matchesModifier) {
+                    return false;
+                }
+            }
+        }
+
+        // Check anatomy (hit location or creature type for backwards compatibility)
         if (applicableContexts.anatomyTypes &&
             !applicableContexts.anatomyTypes.includes('any') &&
-            !applicableContexts.anatomyTypes.includes(anatomy)) {
+            !applicableContexts.anatomyTypes.includes(anatomyBase)) {
             return false;
         }
 

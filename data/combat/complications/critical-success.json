@@ -8,8 +8,12 @@
       "duration": 1,
       "weight": 18,
       "applicableContexts": {
-        "damageTypes": ["bludgeoning"],
-        "anatomyTypes": ["head"]
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "head"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -26,8 +30,13 @@
       "duration": 1,
       "weight": 16,
       "applicableContexts": {
-        "damageTypes": ["bludgeoning", "sonic"],
-        "anatomyTypes": ["head"]
+        "damageTypes": [
+          "bludgeoning",
+          "sonic"
+        ],
+        "anatomyTypes": [
+          "head"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -44,8 +53,13 @@
       "duration": 2,
       "weight": 12,
       "applicableContexts": {
-        "damageTypes": ["piercing", "slashing"],
-        "anatomyTypes": ["head"]
+        "damageTypes": [
+          "piercing",
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "head"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -62,8 +76,14 @@
       "duration": 1,
       "weight": 14,
       "applicableContexts": {
-        "damageTypes": ["bludgeoning", "piercing", "slashing"],
-        "anatomyTypes": ["head"]
+        "damageTypes": [
+          "bludgeoning",
+          "piercing",
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "head"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -80,8 +100,15 @@
       "duration": 2,
       "weight": 16,
       "applicableContexts": {
-        "damageTypes": ["slashing", "piercing", "bludgeoning"],
-        "anatomyTypes": ["arms", "limbs"]
+        "damageTypes": [
+          "slashing",
+          "piercing",
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "limbs"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -98,8 +125,13 @@
       "duration": 2,
       "weight": 14,
       "applicableContexts": {
-        "damageTypes": ["slashing"],
-        "anatomyTypes": ["arms", "limbs"]
+        "damageTypes": [
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "limbs"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -116,8 +148,14 @@
       "duration": 2,
       "weight": 12,
       "applicableContexts": {
-        "damageTypes": ["bludgeoning", "slashing"],
-        "anatomyTypes": ["arms", "limbs"]
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "limbs"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -134,8 +172,14 @@
       "duration": 1,
       "weight": 16,
       "applicableContexts": {
-        "damageTypes": ["slashing", "piercing", "bludgeoning"],
-        "anatomyTypes": ["legs"]
+        "damageTypes": [
+          "slashing",
+          "piercing",
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "legs"
+        ]
       },
       "effect": {
         "type": "speed-penalty",
@@ -151,8 +195,13 @@
       "duration": 2,
       "weight": 14,
       "applicableContexts": {
-        "damageTypes": ["slashing", "piercing"],
-        "anatomyTypes": ["legs"]
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "anatomyTypes": [
+          "legs"
+        ]
       },
       "effect": {
         "type": "speed-penalty",
@@ -168,8 +217,13 @@
       "duration": 2,
       "weight": 13,
       "applicableContexts": {
-        "damageTypes": ["bludgeoning", "slashing"],
-        "anatomyTypes": ["legs"]
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "legs"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -186,8 +240,13 @@
       "duration": 1,
       "weight": 16,
       "applicableContexts": {
-        "damageTypes": ["bludgeoning"],
-        "anatomyTypes": ["torso", "vitals"]
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "torso",
+          "vitals"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -204,8 +263,12 @@
       "duration": 2,
       "weight": 14,
       "applicableContexts": {
-        "damageTypes": ["bludgeoning"],
-        "anatomyTypes": ["torso"]
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "torso"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -222,8 +285,14 @@
       "duration": 2,
       "weight": 15,
       "applicableContexts": {
-        "damageTypes": ["slashing", "piercing"],
-        "anatomyTypes": ["torso", "arms"]
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "anatomyTypes": [
+          "torso",
+          "arms"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -240,8 +309,17 @@
       "duration": null,
       "weight": 14,
       "applicableContexts": {
-        "damageTypes": ["piercing", "slashing"],
-        "anatomyTypes": ["torso", "vitals", "limbs", "arms", "legs"]
+        "damageTypes": [
+          "piercing",
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "torso",
+          "vitals",
+          "limbs",
+          "arms",
+          "legs"
+        ]
       },
       "effect": {
         "type": "persistent-damage",
@@ -258,8 +336,12 @@
       "duration": null,
       "weight": 16,
       "applicableContexts": {
-        "damageTypes": ["fire"],
-        "anatomyTypes": ["any"]
+        "damageTypes": [
+          "fire"
+        ],
+        "anatomyTypes": [
+          "any"
+        ]
       },
       "effect": {
         "type": "persistent-damage",
@@ -276,8 +358,14 @@
       "duration": 1,
       "weight": 12,
       "applicableContexts": {
-        "damageTypes": ["fire"],
-        "anatomyTypes": ["legs", "arms", "limbs"]
+        "damageTypes": [
+          "fire"
+        ],
+        "anatomyTypes": [
+          "legs",
+          "arms",
+          "limbs"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -294,8 +382,12 @@
       "duration": 2,
       "weight": 10,
       "applicableContexts": {
-        "damageTypes": ["fire"],
-        "anatomyTypes": ["head"]
+        "damageTypes": [
+          "fire"
+        ],
+        "anatomyTypes": [
+          "head"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -312,8 +404,12 @@
       "duration": null,
       "weight": 16,
       "applicableContexts": {
-        "damageTypes": ["cold"],
-        "anatomyTypes": ["any"]
+        "damageTypes": [
+          "cold"
+        ],
+        "anatomyTypes": [
+          "any"
+        ]
       },
       "effect": {
         "type": "persistent-damage",
@@ -330,8 +426,14 @@
       "duration": 2,
       "weight": 14,
       "applicableContexts": {
-        "damageTypes": ["cold"],
-        "anatomyTypes": ["arms", "legs", "limbs"]
+        "damageTypes": [
+          "cold"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "legs",
+          "limbs"
+        ]
       },
       "effect": {
         "type": "speed-penalty",
@@ -347,8 +449,13 @@
       "duration": 2,
       "weight": 12,
       "applicableContexts": {
-        "damageTypes": ["cold"],
-        "anatomyTypes": ["arms", "limbs"]
+        "damageTypes": [
+          "cold"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "limbs"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -365,8 +472,12 @@
       "duration": 1,
       "weight": 14,
       "applicableContexts": {
-        "damageTypes": ["electricity"],
-        "anatomyTypes": ["any"]
+        "damageTypes": [
+          "electricity"
+        ],
+        "anatomyTypes": [
+          "any"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -383,8 +494,14 @@
       "duration": 1,
       "weight": 13,
       "applicableContexts": {
-        "damageTypes": ["electricity"],
-        "anatomyTypes": ["arms", "legs", "limbs"]
+        "damageTypes": [
+          "electricity"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "legs",
+          "limbs"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -401,8 +518,14 @@
       "duration": 2,
       "weight": 12,
       "applicableContexts": {
-        "damageTypes": ["electricity"],
-        "anatomyTypes": ["torso", "vitals", "head"]
+        "damageTypes": [
+          "electricity"
+        ],
+        "anatomyTypes": [
+          "torso",
+          "vitals",
+          "head"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -419,8 +542,12 @@
       "duration": null,
       "weight": 16,
       "applicableContexts": {
-        "damageTypes": ["acid"],
-        "anatomyTypes": ["any"]
+        "damageTypes": [
+          "acid"
+        ],
+        "anatomyTypes": [
+          "any"
+        ]
       },
       "effect": {
         "type": "persistent-damage",
@@ -437,8 +564,13 @@
       "duration": 2,
       "weight": 13,
       "applicableContexts": {
-        "damageTypes": ["acid"],
-        "anatomyTypes": ["torso", "arms"]
+        "damageTypes": [
+          "acid"
+        ],
+        "anatomyTypes": [
+          "torso",
+          "arms"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -455,8 +587,12 @@
       "duration": 1,
       "weight": 11,
       "applicableContexts": {
-        "damageTypes": ["acid"],
-        "anatomyTypes": ["any"]
+        "damageTypes": [
+          "acid"
+        ],
+        "anatomyTypes": [
+          "any"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -473,8 +609,12 @@
       "duration": 2,
       "weight": 14,
       "applicableContexts": {
-        "damageTypes": ["sonic"],
-        "anatomyTypes": ["head"]
+        "damageTypes": [
+          "sonic"
+        ],
+        "anatomyTypes": [
+          "head"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -491,8 +631,13 @@
       "duration": 1,
       "weight": 13,
       "applicableContexts": {
-        "damageTypes": ["sonic"],
-        "anatomyTypes": ["head", "torso"]
+        "damageTypes": [
+          "sonic"
+        ],
+        "anatomyTypes": [
+          "head",
+          "torso"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -509,8 +654,13 @@
       "duration": 1,
       "weight": 12,
       "applicableContexts": {
-        "damageTypes": ["sonic"],
-        "anatomyTypes": ["torso", "vitals"]
+        "damageTypes": [
+          "sonic"
+        ],
+        "anatomyTypes": [
+          "torso",
+          "vitals"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -527,8 +677,12 @@
       "duration": null,
       "weight": 16,
       "applicableContexts": {
-        "damageTypes": ["poison"],
-        "anatomyTypes": ["any"]
+        "damageTypes": [
+          "poison"
+        ],
+        "anatomyTypes": [
+          "any"
+        ]
       },
       "effect": {
         "type": "persistent-damage",
@@ -545,8 +699,12 @@
       "duration": 2,
       "weight": 14,
       "applicableContexts": {
-        "damageTypes": ["poison"],
-        "anatomyTypes": ["any"]
+        "damageTypes": [
+          "poison"
+        ],
+        "anatomyTypes": [
+          "any"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -563,8 +721,12 @@
       "duration": 2,
       "weight": 14,
       "applicableContexts": {
-        "damageTypes": ["mental"],
-        "anatomyTypes": ["head"]
+        "damageTypes": [
+          "mental"
+        ],
+        "anatomyTypes": [
+          "head"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -581,8 +743,12 @@
       "duration": 2,
       "weight": 11,
       "applicableContexts": {
-        "damageTypes": ["mental"],
-        "anatomyTypes": ["head"]
+        "damageTypes": [
+          "mental"
+        ],
+        "anatomyTypes": [
+          "head"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -599,8 +765,12 @@
       "duration": 2,
       "weight": 10,
       "applicableContexts": {
-        "damageTypes": ["mental"],
-        "anatomyTypes": ["head"]
+        "damageTypes": [
+          "mental"
+        ],
+        "anatomyTypes": [
+          "head"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -617,8 +787,13 @@
       "duration": 2,
       "weight": 14,
       "applicableContexts": {
-        "damageTypes": ["void", "negative"],
-        "anatomyTypes": ["any"]
+        "damageTypes": [
+          "void",
+          "negative"
+        ],
+        "anatomyTypes": [
+          "any"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -635,8 +810,15 @@
       "duration": 2,
       "weight": 13,
       "applicableContexts": {
-        "damageTypes": ["void", "negative"],
-        "anatomyTypes": ["arms", "legs", "limbs"]
+        "damageTypes": [
+          "void",
+          "negative"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "legs",
+          "limbs"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -653,8 +835,14 @@
       "duration": 1,
       "weight": 12,
       "applicableContexts": {
-        "damageTypes": ["void", "negative"],
-        "anatomyTypes": ["head", "torso"]
+        "damageTypes": [
+          "void",
+          "negative"
+        ],
+        "anatomyTypes": [
+          "head",
+          "torso"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -671,8 +859,13 @@
       "duration": 1,
       "weight": 12,
       "applicableContexts": {
-        "damageTypes": ["vitality", "positive"],
-        "anatomyTypes": ["any"]
+        "damageTypes": [
+          "vitality",
+          "positive"
+        ],
+        "anatomyTypes": [
+          "any"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -689,8 +882,12 @@
       "duration": 1,
       "weight": 14,
       "applicableContexts": {
-        "damageTypes": ["force"],
-        "anatomyTypes": ["any"]
+        "damageTypes": [
+          "force"
+        ],
+        "anatomyTypes": [
+          "any"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -707,8 +904,13 @@
       "duration": 1,
       "weight": 12,
       "applicableContexts": {
-        "damageTypes": ["force"],
-        "anatomyTypes": ["torso", "head"]
+        "damageTypes": [
+          "force"
+        ],
+        "anatomyTypes": [
+          "torso",
+          "head"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -725,8 +927,12 @@
       "duration": 2,
       "weight": 13,
       "applicableContexts": {
-        "damageTypes": ["spirit"],
-        "anatomyTypes": ["any"]
+        "damageTypes": [
+          "spirit"
+        ],
+        "anatomyTypes": [
+          "any"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -743,8 +949,13 @@
       "duration": 2,
       "weight": 11,
       "applicableContexts": {
-        "damageTypes": ["spirit"],
-        "anatomyTypes": ["head", "torso"]
+        "damageTypes": [
+          "spirit"
+        ],
+        "anatomyTypes": [
+          "head",
+          "torso"
+        ]
       },
       "effect": {
         "type": "penalty",
@@ -761,8 +972,13 @@
       "duration": 2,
       "weight": 12,
       "applicableContexts": {
-        "damageTypes": ["slashing", "piercing"],
-        "anatomyTypes": ["wings"]
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "anatomyTypes": [
+          "wings"
+        ]
       },
       "effect": {
         "type": "speed-penalty",
@@ -778,14 +994,1173 @@
       "duration": 2,
       "weight": 11,
       "applicableContexts": {
-        "damageTypes": ["slashing", "bludgeoning"],
-        "anatomyTypes": ["tail"]
+        "damageTypes": [
+          "slashing",
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "tail"
+        ]
       },
       "effect": {
         "type": "penalty",
         "stat": "acrobatics",
         "value": -1,
         "duration": 2
+      }
+    },
+    {
+      "id": "splintered-wood",
+      "name": "Splintered Wood",
+      "description": "The attack splinters the plant creature's woody structure.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "plant"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "sap-leak",
+      "name": "Sap Leak",
+      "description": "The wound causes the plant creature to leak vital sap.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "plant"
+        ]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "bleed",
+        "value": "1d4",
+        "dc": 15
+      }
+    },
+    {
+      "id": "damaged-roots",
+      "name": "Damaged Roots",
+      "description": "The strike damages the creature's root structure, impairing mobility.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 15,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "plant"
+        ]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -10,
+        "duration": 2
+      }
+    },
+    {
+      "id": "wilted-leaves",
+      "name": "Wilted Leaves",
+      "description": "Fire or frost causes the plant's leaves to wilt, reducing awareness.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "fire",
+          "cold"
+        ],
+        "creatureTypes": [
+          "plant"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "perception",
+        "value": -2,
+        "duration": 2
+      }
+    },
+    {
+      "id": "cracked-bark-armor",
+      "name": "Cracked Bark Armor",
+      "description": "The impact cracks the protective bark, leaving vulnerabilities.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "plant"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "damaged-photosynthesis",
+      "name": "Damaged Photosynthesis",
+      "description": "The attack damages the plant's ability to gather energy from light.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 10,
+      "applicableContexts": {
+        "damageTypes": [
+          "fire",
+          "acid"
+        ],
+        "creatureTypes": [
+          "plant"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "fortitude",
+        "value": -1,
+        "duration": 3
+      }
+    },
+    {
+      "id": "seized-mechanisms",
+      "name": "Seized Mechanisms",
+      "description": "The impact jams the construct's internal mechanisms.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "construct"
+        ]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -5,
+        "duration": 2
+      }
+    },
+    {
+      "id": "loose-joints",
+      "name": "Loose Joints",
+      "description": "The strike loosens critical joints, impairing precision.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "construct"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "damaged-plating",
+      "name": "Damaged Plating",
+      "description": "The attack dents or tears the construct's protective plating.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 15,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "construct"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "power-leak",
+      "name": "Power Leak",
+      "description": "The strike damages the construct's power source, causing energy to leak.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "construct"
+        ]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "force",
+        "value": "1d4",
+        "dc": 15
+      }
+    },
+    {
+      "id": "frayed-cables",
+      "name": "Frayed Control Cables",
+      "description": "The attack frays internal control cables, reducing coordination.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "construct"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "reflex",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "overheated-core",
+      "name": "Overheated Core",
+      "description": "The attack causes the construct's core to overheat.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": [
+          "fire",
+          "electricity"
+        ],
+        "creatureTypes": [
+          "construct"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "fortitude",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "dispersed-form",
+      "name": "Dispersed Form",
+      "description": "The attack disperses part of the elemental's essence.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "force"
+        ],
+        "creatureTypes": [
+          "elemental-general"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "destabilized-essence",
+      "name": "Destabilized Essence",
+      "description": "The strike destabilizes the elemental's core essence.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "any"
+        ],
+        "creatureTypes": [
+          "elemental-general"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "weakened-manifestation",
+      "name": "Weakened Manifestation",
+      "description": "The elemental's physical form flickers and weakens.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "force",
+          "spirit"
+        ],
+        "creatureTypes": [
+          "elemental-general"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "fortitude",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "elemental-imbalance",
+      "name": "Elemental Imbalance",
+      "description": "The attack disrupts the elemental's natural balance.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": [
+          "any"
+        ],
+        "creatureTypes": [
+          "elemental-general"
+        ]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -5,
+        "duration": 2
+      }
+    },
+    {
+      "id": "fractured-membrane",
+      "name": "Fractured Membrane",
+      "description": "The strike fractures the ooze's outer membrane.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "amorphous"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "split-cytoplasm",
+      "name": "Split Cytoplasm",
+      "description": "The attack splits the ooze's cytoplasm, causing mass to leak out.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "amorphous"
+        ]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "acid",
+        "value": "1d4",
+        "dc": 15
+      }
+    },
+    {
+      "id": "reduced-viscosity",
+      "name": "Reduced Viscosity",
+      "description": "Cold or acid reduces the ooze's viscosity and cohesion.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "cold",
+          "acid"
+        ],
+        "creatureTypes": [
+          "amorphous"
+        ]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -10,
+        "duration": 2
+      }
+    },
+    {
+      "id": "damaged-organelle",
+      "name": "Damaged Organelle",
+      "description": "The precise strike damages a critical internal organelle.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing"
+        ],
+        "creatureTypes": [
+          "amorphous"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "fortitude",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "rotting-flesh-exposed",
+      "name": "Rotting Flesh Exposed",
+      "description": "The blow tears away chunks of rotting flesh, exposing decayed tissue beneath.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "zombie"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "limb-dangling",
+      "name": "Limb Dangling",
+      "description": "The strike partially severs a limb, leaving it hanging by sinews and rotted tissue.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing"
+        ],
+        "creatureTypes": [
+          "zombie"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "jaw-unhinged",
+      "name": "Jaw Unhinged",
+      "description": "The powerful blow dislocates the zombie's jaw, causing it to hang loosely.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "zombie"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "intimidation",
+        "value": -2,
+        "duration": 2
+      }
+    },
+    {
+      "id": "maggot-infested-wound",
+      "name": "Maggot-Infested Wound",
+      "description": "The strike opens a foul wound teeming with maggots and decay.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "zombie"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "fortitude",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "shattered-ribs",
+      "name": "Shattered Ribs",
+      "description": "The impact shatters several ribs, causing bone fragments to scatter.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "skeleton"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "cracked-skull",
+      "name": "Cracked Skull",
+      "description": "A devastating blow cracks the skeleton's skull, causing the jaw to hang askew.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "skeleton"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "perception",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "splintered-bones",
+      "name": "Splintered Bones",
+      "description": "The strike splinters bones in the limb, weakening the skeletal structure.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 15,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "skeleton"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "loosened-joints-skeleton",
+      "name": "Loosened Joints",
+      "description": "The attack loosens the skeletal joints, causing bones to rattle and shift.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "skeleton"
+        ]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -5,
+        "duration": 2
+      }
+    },
+    {
+      "id": "scale-breach",
+      "name": "Scale Breach",
+      "description": "The attack penetrates between scales, finding vulnerable flesh beneath the armored hide.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 15,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing"
+        ],
+        "creatureTypes": [
+          "dragon"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "shattered-scales",
+      "name": "Shattered Scales",
+      "description": "The powerful blow shatters several protective scales, leaving exposed flesh.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "dragon"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "wing-membrane-tear",
+      "name": "Wing Membrane Tear",
+      "description": "The strike tears the delicate wing membrane, impairing flight capability.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "dragon"
+        ]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -10,
+        "duration": 3
+      }
+    },
+    {
+      "id": "breath-weapon-disruption",
+      "name": "Breath Weapon Disruption",
+      "description": "The blow strikes the throat or chest, temporarily disrupting breath weapon capability.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "dragon"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -2,
+        "duration": 1
+      }
+    },
+    {
+      "id": "horn-crack",
+      "name": "Cracked Horn",
+      "description": "The impact cracks one of the dragon's majestic horns.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "dragon"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "intimidation",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "tentacle-damage",
+      "name": "Tentacle Damage",
+      "description": "The strike damages one of the creature's grasping tentacles, reducing its ability to manipulate objects.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "aberration-general"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "eye-stalk-injury",
+      "name": "Eye Stalk Injury",
+      "description": "The attack strikes an eye stalk, causing it to droop and impair vision.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "aberration-general"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "perception",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "alien-ichor-leak",
+      "name": "Alien Ichor Leak",
+      "description": "The wound leaks strange, otherworldly ichor that saps the creature's vitality.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "aberration-general"
+        ]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "bleed",
+        "value": "1d4",
+        "dc": 15
+      }
+    },
+    {
+      "id": "psychic-feedback",
+      "name": "Psychic Feedback",
+      "description": "The injury causes psychic feedback that disrupts the aberration's mental focus.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": [
+          "any"
+        ],
+        "creatureTypes": [
+          "aberration-general"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "will",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "broken-fang",
+      "name": "Broken Fang",
+      "description": "The strike shatters one of the beast's fangs, reducing bite effectiveness.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "quadruped"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "torn-muscle",
+      "name": "Torn Muscle",
+      "description": "The attack tears powerful muscles, reducing the beast's physical prowess.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "quadruped"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "athletics",
+        "value": -2,
+        "duration": 2
+      }
+    },
+    {
+      "id": "injured-paw",
+      "name": "Injured Paw",
+      "description": "The strike damages a paw or claw, causing the beast to limp.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 15,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "quadruped"
+        ]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -10,
+        "duration": 2
+      }
+    },
+    {
+      "id": "glamour-disrupted",
+      "name": "Glamour Disrupted",
+      "description": "The blow disrupts the fey's natural glamour, making them appear less enchanting.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "any"
+        ],
+        "creatureTypes": [
+          "fey-general"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "diplomacy",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "fey-essence-leak",
+      "name": "Fey Essence Leak",
+      "description": "The wound causes shimmering fey essence to leak out, weakening magical abilities.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "fey-general"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "spell-attack",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "broken-wing-fey",
+      "name": "Broken Fey Wing",
+      "description": "The attack damages delicate fey wings, impairing flight and grace.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "fey-general"
+        ]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -10,
+        "duration": 3
+      }
+    },
+    {
+      "id": "ruptured-organ",
+      "name": "Ruptured Organ",
+      "description": "The devastating blow ruptures an internal organ, causing severe internal damage.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing",
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "torso",
+          "vitals"
+        ]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "bleed",
+        "value": "1d6",
+        "dc": 17
+      }
+    },
+    {
+      "id": "fractured-bone",
+      "name": "Fractured Bone",
+      "description": "The impact fractures bone, causing excruciating pain with every movement.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "legs",
+          "limbs"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "athletics",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "nerve-damage",
+      "name": "Nerve Damage",
+      "description": "The precise strike damages nerves, causing numbness and loss of fine motor control.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "hands"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "thievery",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "dislocated-joint",
+      "name": "Dislocated Joint",
+      "description": "The wrenching impact dislocates a major joint, severely limiting mobility.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 15,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "legs"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -2,
+        "duration": 2
+      }
+    },
+    {
+      "id": "punctured-lung",
+      "name": "Punctured Lung",
+      "description": "The piercing attack punctures a lung, causing gasping breaths and weakness.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing"
+        ],
+        "anatomyTypes": [
+          "torso"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "fortitude",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "spinal-impact",
+      "name": "Spinal Impact",
+      "description": "The blow strikes the spine, sending shocking pain throughout the body.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "torso"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "reflex",
+        "value": -2,
+        "duration": 1
+      }
+    },
+    {
+      "id": "arterial-nick",
+      "name": "Arterial Nick",
+      "description": "The blade nicks an artery, causing profuse bleeding that's difficult to staunch.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "legs",
+          "neck"
+        ]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "bleed",
+        "value": "1d6",
+        "dc": 16
+      }
+    },
+    {
+      "id": "crushed-hand",
+      "name": "Crushed Hand",
+      "description": "The crushing blow mangles the hand, making it nearly useless for delicate tasks.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "hands"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "thievery",
+        "value": -3,
+        "duration": 3
       }
     }
   ]
