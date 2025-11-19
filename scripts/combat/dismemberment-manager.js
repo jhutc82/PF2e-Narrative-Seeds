@@ -225,8 +225,8 @@ export class DismembermentManager {
      * Check if a dismemberment is applicable to the current context
      * @param {Object} dismemberment - The dismemberment to check
      * @param {string} damageType - The damage type of the attack
-     * @param {string} anatomy - The anatomy location hit
-     * @param {string} creatureType - The creature's base anatomy type (optional, for filtering by creature type)
+     * @param {string|Object} anatomy - Anatomy location (string) OR anatomy object {base, modifiers}
+     * @param {string} creatureType - DEPRECATED: Use anatomy object instead
      * @returns {boolean} Whether the dismemberment applies
      */
     static isApplicable(dismemberment, damageType, anatomy, creatureType = null) {
@@ -243,31 +243,45 @@ export class DismembermentManager {
             return false;
         }
 
-        // Check creature type (if specified in dismemberment and provided)
-        if (applicableContexts.creatureTypes && creatureType) {
-            if (!applicableContexts.creatureTypes.includes('any') &&
-                !applicableContexts.creatureTypes.includes(creatureType)) {
-                return false;
+        // Extract base and modifiers from anatomy if it's an object
+        const anatomyBase = typeof anatomy === 'string' ? anatomy : anatomy?.base || 'humanoid';
+        const anatomyModifiers = typeof anatomy === 'object' && Array.isArray(anatomy?.modifiers) ? anatomy.modifiers : [];
+
+        // Check creature type (check both base anatomy AND modifiers)
+        if (applicableContexts.creatureTypes) {
+            if (!applicableContexts.creatureTypes.includes('any')) {
+                // Map skeletal modifier to skeleton for matching
+                const modifiersForMatching = anatomyModifiers.map(m => m === 'skeletal' ? 'skeleton' : m);
+
+                const matchesBase = applicableContexts.creatureTypes.includes(anatomyBase);
+                const matchesModifier = modifiersForMatching.some(m => applicableContexts.creatureTypes.includes(m));
+
+                // Also check the old creatureType param for backwards compatibility
+                const matchesLegacy = creatureType && applicableContexts.creatureTypes.includes(creatureType);
+
+                if (!matchesBase && !matchesModifier && !matchesLegacy) {
+                    return false;
+                }
             }
         }
 
         // Check anatomy - need to match the anatomy location
-        // The anatomy from the seed might be 'arms', 'legs', 'head', etc.
+        // The anatomyBase might be creature type or hit location depending on context
         // The dismemberment location might be 'hand', 'arm', 'foot', 'leg', 'eye', etc.
         if (applicableContexts.anatomyTypes) {
             // Check if the seed anatomy matches any of the applicable anatomies
             const matches = applicableContexts.anatomyTypes.some(applicableAnatomy => {
                 // Direct match
-                if (anatomy === applicableAnatomy) return true;
+                if (anatomyBase === applicableAnatomy) return true;
 
                 // Normalize for plural/singular comparison (e.g., 'arms' vs 'arm')
-                const normalizedAnatomy = anatomy.replace(/s$/, '');
+                const normalizedAnatomy = anatomyBase.replace(/s$/, '');
                 const normalizedApplicable = applicableAnatomy.replace(/s$/, '');
 
                 if (normalizedAnatomy === normalizedApplicable) return true;
 
                 // Word boundary match to prevent false positives (e.g., 'harms' vs 'arm')
-                const anatomyWords = anatomy.split(/\s+/);
+                const anatomyWords = anatomyBase.split(/\s+/);
                 const applicableWords = applicableAnatomy.split(/\s+/);
 
                 return anatomyWords.some(word => applicableWords.includes(word)) ||

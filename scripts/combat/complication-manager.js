@@ -114,8 +114,8 @@ export class ComplicationManager {
      * Check if a complication is applicable to the current context
      * @param {Object} complication - The complication to check
      * @param {string} damageType - The damage type of the attack
-     * @param {string} anatomy - The anatomy type (creature type like 'humanoid', 'plant', etc.) OR hit location (like 'head', 'arms', etc.)
-     * @param {string} creatureType - The creature's base anatomy type (optional, for filtering by creature type)
+     * @param {string|Object} anatomy - Anatomy object {base, modifiers} or string for backwards compat
+     * @param {string} creatureType - DEPRECATED: Use anatomy object instead
      * @returns {boolean} Whether the complication applies
      */
     static isApplicable(complication, damageType, anatomy, creatureType = null) {
@@ -132,18 +132,29 @@ export class ComplicationManager {
             return false;
         }
 
-        // Check creature type (if specified in complication and provided)
-        if (applicableContexts.creatureTypes && creatureType) {
-            if (!applicableContexts.creatureTypes.includes('any') &&
-                !applicableContexts.creatureTypes.includes(creatureType)) {
-                return false;
+        // Extract base and modifiers from anatomy
+        const anatomyBase = typeof anatomy === 'string' ? anatomy : anatomy?.base || 'humanoid';
+        const anatomyModifiers = typeof anatomy === 'object' && Array.isArray(anatomy?.modifiers) ? anatomy.modifiers : [];
+
+        // Check creature type (check both base anatomy AND modifiers)
+        if (applicableContexts.creatureTypes) {
+            if (!applicableContexts.creatureTypes.includes('any')) {
+                // Map skeletal modifier to skeleton for matching
+                const modifiersForMatching = anatomyModifiers.map(m => m === 'skeletal' ? 'skeleton' : m);
+
+                const matchesBase = applicableContexts.creatureTypes.includes(anatomyBase);
+                const matchesModifier = modifiersForMatching.some(m => applicableContexts.creatureTypes.includes(m));
+
+                if (!matchesBase && !matchesModifier) {
+                    return false;
+                }
             }
         }
 
         // Check anatomy (hit location or creature type for backwards compatibility)
         if (applicableContexts.anatomyTypes &&
             !applicableContexts.anatomyTypes.includes('any') &&
-            !applicableContexts.anatomyTypes.includes(anatomy)) {
+            !applicableContexts.anatomyTypes.includes(anatomyBase)) {
             return false;
         }
 

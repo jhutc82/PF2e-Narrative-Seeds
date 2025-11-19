@@ -98,8 +98,23 @@ export async function getContextualDamageVerb(damageType, outcome, varietyMode =
 export async function getContextualDamageEffect(damageType, outcome, varietyMode = 'high', context = {}) {
   const { anatomy } = context;
   const anatomyBase = typeof anatomy === 'string' ? anatomy : anatomy?.base || 'humanoid';
+  const anatomyModifiers = typeof anatomy === 'object' && Array.isArray(anatomy?.modifiers) ? anatomy.modifiers : [];
 
-  // Check for anatomy-specific overrides first
+  // Check for modifier-specific overrides first (skeleton, zombie, etc.)
+  // These take priority over base anatomy
+  if (anatomyModifiers.length > 0) {
+    for (const modifier of anatomyModifiers) {
+      // Map skeletal to skeleton for override lookup
+      const modifierKey = modifier === 'skeletal' ? 'skeleton' : modifier;
+      const modifierOverrides = await DataLoader.loadAnatomyOverrides(modifierKey, outcome);
+      if (modifierOverrides && Array.isArray(modifierOverrides) && modifierOverrides.length > 0) {
+        const category = `anatomy-override:${modifierKey}:${outcome}`;
+        return RandomUtils.selectRandom(modifierOverrides, varietyMode, category);
+      }
+    }
+  }
+
+  // Check for base anatomy-specific overrides
   const overrides = await DataLoader.loadAnatomyOverrides(anatomyBase, outcome);
   if (overrides && Array.isArray(overrides) && overrides.length > 0) {
     const category = `anatomy-override:${anatomyBase}:${outcome}`;

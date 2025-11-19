@@ -1295,7 +1295,7 @@
           "force"
         ],
         "creatureTypes": [
-          "elemental"
+          "elemental-general"
         ]
       },
       "effect": {
@@ -1317,7 +1317,7 @@
           "any"
         ],
         "creatureTypes": [
-          "elemental"
+          "elemental-general"
         ]
       },
       "effect": {
@@ -1340,7 +1340,7 @@
           "magic"
         ],
         "creatureTypes": [
-          "elemental"
+          "elemental-general"
         ]
       },
       "effect": {
@@ -1362,7 +1362,7 @@
           "any"
         ],
         "creatureTypes": [
-          "elemental"
+          "elemental-general"
         ]
       },
       "effect": {
@@ -1384,7 +1384,7 @@
           "piercing"
         ],
         "creatureTypes": [
-          "ooze"
+          "amorphous"
         ]
       },
       "effect": {
@@ -1407,7 +1407,7 @@
           "piercing"
         ],
         "creatureTypes": [
-          "ooze"
+          "amorphous"
         ]
       },
       "effect": {
@@ -1430,7 +1430,7 @@
           "acid"
         ],
         "creatureTypes": [
-          "ooze"
+          "amorphous"
         ]
       },
       "effect": {
@@ -1451,7 +1451,7 @@
           "piercing"
         ],
         "creatureTypes": [
-          "ooze"
+          "amorphous"
         ]
       },
       "effect": {
@@ -1765,7 +1765,7 @@
           "bludgeoning"
         ],
         "creatureTypes": [
-          "aberration"
+          "aberration-general"
         ]
       },
       "effect": {
@@ -1788,7 +1788,7 @@
           "piercing"
         ],
         "creatureTypes": [
-          "aberration"
+          "aberration-general"
         ]
       },
       "effect": {
@@ -1811,7 +1811,7 @@
           "slashing"
         ],
         "creatureTypes": [
-          "aberration"
+          "aberration-general"
         ]
       },
       "effect": {
@@ -1833,7 +1833,7 @@
           "any"
         ],
         "creatureTypes": [
-          "aberration"
+          "aberration-general"
         ]
       },
       "effect": {
@@ -1855,7 +1855,7 @@
           "bludgeoning"
         ],
         "creatureTypes": [
-          "beast"
+          "quadruped"
         ]
       },
       "effect": {
@@ -1878,7 +1878,7 @@
           "piercing"
         ],
         "creatureTypes": [
-          "beast"
+          "quadruped"
         ]
       },
       "effect": {
@@ -1901,7 +1901,7 @@
           "slashing"
         ],
         "creatureTypes": [
-          "beast"
+          "quadruped"
         ]
       },
       "effect": {
@@ -1922,7 +1922,7 @@
           "any"
         ],
         "creatureTypes": [
-          "fey"
+          "fey-general"
         ]
       },
       "effect": {
@@ -1945,7 +1945,7 @@
           "slashing"
         ],
         "creatureTypes": [
-          "fey"
+          "fey-general"
         ]
       },
       "effect": {
@@ -1968,7 +1968,7 @@
           "slashing"
         ],
         "creatureTypes": [
-          "fey"
+          "fey-general"
         ]
       },
       "effect": {
