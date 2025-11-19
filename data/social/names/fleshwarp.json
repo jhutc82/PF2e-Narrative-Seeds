@@ -12,20 +12,20 @@
     "3": 20
   },
   "male": {
-    "prefixes": ["Ash", "Claw", "Fang", "Grist", "Maw", "Scar", "Shred", "Spine", "Twist", "Warp"],
-    "suffixes": ["ar", "en", "ix", "on", "us"]
+    "prefixes": ["Agon", "Ash", "Barb", "Bile", "Bleak", "Blister", "Blood", "Bone", "Brut", "Carn", "Claw", "Corrupt", "Crook", "Cruel", "Curr", "Curse", "Decay", "Dread", "Fang", "Fester", "Flay", "Flesh", "Gaunt", "Ghast", "Gnash", "Gore", "Graft", "Grim", "Grist", "Groan", "Grot", "Haunt", "Hiss", "Hook", "Horn", "Howl", "Lash", "Leer", "Maim", "Malign", "Mang", "Mar", "Marr", "Maw", "Mire", "Mourn", "Mut", "Nox", "Pain", "Plague", "Pox", "Putrid", "Rasp", "Rend", "Retch", "Rift", "Rot", "Ruin", "Scar", "Seethe", "Shade", "Shred", "Shriek", "Sinew", "Skew", "Snarl", "Sneer", "Spine", "Stain", "Stitch", "Strain", "Sunder", "Taint", "Talon", "Tear", "Thorn", "Thrash", "Torment", "Torture", "Twist", "Ulcer", "Vex", "Vile", "Void", "Warp", "Welt", "Whelt", "Wither", "Wound", "Wrack", "Wraith", "Wrench", "Writhe", "Wroth"],
+    "suffixes": ["ar", "en", "ex", "ic", "id", "ir", "is", "ix", "on", "or", "us", "yx"]
   },
   "female": {
-    "prefixes": ["Asha", "Clawa", "Fanga", "Grista", "Mawa", "Scara", "Shreda", "Spina", "Twista", "Warpa"],
-    "suffixes": ["a", "ara", "en", "ia", "ina"]
+    "prefixes": ["Agona", "Asha", "Barba", "Bilea", "Bleaka", "Blistera", "Blooda", "Bonea", "Bruta", "Carna", "Clawa", "Corrupta", "Crooka", "Cruella", "Curra", "Cursea", "Decaya", "Dreada", "Fanga", "Festera", "Flaya", "Flesha", "Gaunta", "Ghasta", "Gnasha", "Gorea", "Grafta", "Grima", "Grista", "Groana", "Grota", "Haunta", "Hissa", "Hooka", "Horna", "Howla", "Lasha", "Leera", "Maima", "Maligna", "Manga", "Mara", "Marra", "Mawa", "Mirea", "Mourna", "Muta", "Noxa", "Paina", "Plaguea", "Poxa", "Putrida", "Raspa", "Renda", "Retcha", "Rifta", "Rota", "Ruina", "Scara", "Seethea", "Shadea", "Shreda", "Shrieka", "Sinewa", "Skewa", "Snarla", "Sneera", "Spina", "Staina", "Stitcha", "Straina", "Sundera", "Tainta", "Talona", "Teara", "Thorna", "Thrasha", "Tormenta", "Tortura", "Twista", "Ulcera", "Vexa", "Vilea", "Voida", "Warpa", "Welta", "Whelta", "Withera", "Wounda", "Wracka", "Wraitha", "Wrencha", "Writhea", "Wrotha"],
+    "suffixes": ["a", "ara", "en", "ia", "ica", "ida", "ina", "ira", "ixa"]
   },
   "nonbinary": {
-    "prefixes": ["Ash", "Claw", "Fang", "Grist", "Maw", "Scar", "Shred", "Spine", "Twist", "Warp"],
-    "suffixes": ["a", "ar", "en", "ia", "ix", "on", "us"]
+    "prefixes": ["Agon", "Agona", "Ash", "Asha", "Barb", "Barba", "Bile", "Bilea", "Bleak", "Bleaka", "Blister", "Blistera", "Blood", "Blooda", "Bone", "Bonea", "Brut", "Bruta", "Carn", "Carna", "Claw", "Clawa", "Corrupt", "Corrupta", "Crook", "Crooka", "Cruel", "Cruella", "Curr", "Curra", "Curse", "Cursea", "Decay", "Decaya", "Dread", "Dreada", "Fang", "Fanga", "Fester", "Festera", "Flay", "Flaya", "Flesh", "Flesha", "Gaunt", "Gaunta", "Ghast", "Ghasta", "Gnash", "Gnasha", "Gore", "Gorea", "Graft", "Grafta", "Grim", "Grima", "Grist", "Grista", "Groan", "Groana", "Grot", "Grota", "Haunt", "Haunta", "Hiss", "Hissa", "Hook", "Hooka", "Horn", "Horna", "Howl", "Howla", "Lash", "Lasha", "Leer", "Leera", "Maim", "Maima", "Malign", "Maligna", "Mang", "Manga", "Mar", "Mara", "Marr", "Marra", "Maw", "Mawa", "Mire", "Mirea", "Mourn", "Mourna", "Mut", "Muta", "Nox", "Noxa", "Pain", "Paina", "Plague", "Plaguea"],
+    "suffixes": ["a", "ar", "ara", "en", "ex", "ia", "ic", "ica", "id", "ida", "ina", "ir", "ira", "is", "ix", "ixa", "on", "or", "us", "yx"]
   },
   "compoundParts": {
-    "prefixes": ["Blood", "Bone", "Claw", "Flesh", "Gore", "Pain", "Scar", "Shadow", "Thorn", "Warp"],
-    "suffixes": ["born", "changed", "marked", "touched", "twisted", "warped"]
+    "prefixes": ["Agony", "Bile", "Bleak", "Blood", "Bone", "Claw", "Corrupt", "Cruel", "Curse", "Decay", "Dread", "Fang", "Fester", "Flay", "Flesh", "Gore", "Graft", "Grim", "Horror", "Lash", "Malice", "Mar", "Maw", "Mutant", "Pain", "Plague", "Putrid", "Rend", "Rot", "Ruin", "Scar", "Shade", "Shadow", "Shred", "Sinew", "Spine", "Stitch", "Taint", "Thorn", "Torment", "Twist", "Vile", "Void", "Warp", "Wither", "Wound", "Wraith", "Writhe"],
+    "suffixes": ["born", "bound", "branded", "changed", "form", "maker", "marked", "shaped", "touched", "twisted", "warped"]
   },
   "compoundSeparator": ""
 }

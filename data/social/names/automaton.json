@@ -11,20 +11,20 @@
     "3": 20
   },
   "male": {
-    "prefixes": ["Adaman", "Brass", "Bronze", "Cog", "Forge", "Gear", "Iron", "Mech", "Steel", "Titan"],
-    "suffixes": ["an", "ar", "iron", "on", "or", "os", "ron", "ton", "us"]
+    "prefixes": ["Adaman", "Adamant", "Aegis", "Alloy", "Anvi", "Anvil", "Armo", "Armor", "Auton", "Axel", "Bolt", "Brass", "Bronze", "Caster", "Chrom", "Chrome", "Cinder", "Cog", "Cogwork", "Construct", "Copper", "Core", "Coron", "Crucib", "Dynamo", "Ferr", "Ferro", "Fluxor", "Forge", "Forger", "Fulcrum", "Fusion", "Galvan", "Gear", "Gearwork", "Golem", "Guardian", "Gyro", "Hinge", "Iron", "Ironclad", "Lever", "Mech", "Mechan", "Metal", "Mithral", "Motor", "Nexus", "Piston", "Platinum", "Pulsar", "Pulsor", "Ratch", "Ratchet", "Rivet", "Servo", "Shaft", "Shear", "Silver", "Smelt", "Spark", "Spindle", "Sprocket", "Steel", "Strut", "Synth", "Temper", "Tensor", "Titan", "Torque", "Tread", "Turbine", "Valve", "Vaultor", "Vector", "Warden", "Wardon", "Weldon", "Zinc", "Zircon", "Armaton", "Brasston", "Bronzor", "Cognar", "Ferraton", "Forgeron", "Gearon", "Ironon", "Mechor", "Steelron", "Titaron", "Adamor", "Alloyon", "Anvilon", "Cogron", "Dynamon", "Forgeon", "Gearor", "Ironar", "Mechor", "Steelor", "Titanor"],
+    "suffixes": ["an", "ar", "ator", "iron", "on", "or", "os", "ron", "ton", "tron", "us"]
   },
   "female": {
-    "prefixes": ["Adama", "Brassa", "Bronza", "Cogna", "Forge", "Geara", "Irona", "Mecha", "Steela", "Titana"],
-    "suffixes": ["a", "ana", "ara", "ia", "ina", "ona", "ra"]
+    "prefixes": ["Adama", "Adamanta", "Aegisa", "Alloya", "Anvia", "Anvila", "Armoa", "Armora", "Autona", "Axela", "Bolta", "Brassa", "Bronza", "Castera", "Chroma", "Chromia", "Cindera", "Cogna", "Cogworka", "Constructa", "Coppera", "Cora", "Corona", "Cruciba", "Dynama", "Ferra", "Ferroa", "Fluxora", "Forge", "Forgera", "Fulcruma", "Fusiona", "Galvana", "Geara", "Gearworka", "Golema", "Guardiana", "Gyroa", "Hingea", "Irona", "Ironclada", "Levera", "Mecha", "Mechana", "Metala", "Mithrala", "Motora", "Nexusa", "Pistona", "Platina", "Pulsara", "Pulsora", "Ratcha", "Ratcheta", "Riveta", "Servoa", "Shafta", "Sheara", "Silvera", "Smelta", "Sparka", "Spindla", "Sprocketa", "Steela", "Struta", "Syntha", "Tempera", "Tensora", "Titana", "Torqua", "Treada", "Turbina", "Valva", "Vaultora", "Vectora", "Wardena", "Wardona", "Weldona", "Zinca", "Zircona", "Armatona", "Brasstona", "Bronzora", "Cognara", "Ferratona", "Forgerona", "Gearona", "Ironona", "Mechora", "Steelrona", "Titarona", "Adamora", "Alloyana", "Anvilona", "Cogrona", "Dynamona", "Forgeona", "Gearora", "Ironara", "Mechora", "Steelora", "Titanora"],
+    "suffixes": ["a", "ana", "ara", "atrix", "ia", "ina", "ona", "ora", "ra", "trix"]
   },
   "nonbinary": {
-    "prefixes": ["Adaman", "Brass", "Bronze", "Cog", "Forge", "Gear", "Iron", "Mech", "Steel", "Titan"],
-    "suffixes": ["a", "an", "ar", "ia", "iron", "on", "or", "os", "ron", "us"]
+    "prefixes": ["Adaman", "Adama", "Adamant", "Adamanta", "Aegis", "Aegisa", "Alloy", "Alloya", "Anvi", "Anvia", "Anvil", "Anvila", "Armo", "Armoa", "Armor", "Armora", "Auton", "Autona", "Axel", "Axela", "Bolt", "Bolta", "Brass", "Brassa", "Bronze", "Bronza", "Caster", "Castera", "Chrom", "Chroma", "Chrome", "Chromia", "Cinder", "Cindera", "Cog", "Cogna", "Cogwork", "Cogworka", "Construct", "Constructa", "Copper", "Coppera", "Core", "Cora", "Coron", "Corona", "Crucib", "Cruciba", "Dynamo", "Dynama", "Ferr", "Ferra", "Ferro", "Ferroa", "Fluxor", "Fluxora", "Forge", "Forgera", "Forger", "Fulcrum", "Fulcruma", "Fusion", "Fusiona", "Galvan", "Galvana", "Gear", "Geara", "Gearwork", "Gearworka", "Golem", "Golema", "Guardian", "Guardiana", "Gyro", "Gyroa", "Hinge", "Hingea", "Iron", "Irona", "Ironclad", "Ironclada", "Lever", "Levera", "Mech", "Mecha", "Mechan", "Mechana", "Metal", "Metala", "Mithral", "Mithrala", "Motor", "Motora"],
+    "suffixes": ["a", "an", "ana", "ar", "ara", "ator", "atrix", "ia", "ina", "iron", "on", "ona", "or", "ora", "os", "ra", "ron", "ton", "trix", "tron", "us"]
   },
   "compoundParts": {
-    "prefixes": ["Alpha", "Beta", "Construct", "Delta", "Guardian", "Omega", "Prime", "Sentinel", "Unit", "Warden"],
-    "suffixes": ["one", "prime", "seven", "three", "two", "unit"]
+    "prefixes": ["Alpha", "Arc", "Astra", "Beta", "Binary", "Chrono", "Code", "Construct", "Core", "Cyber", "Data", "Delta", "Echo", "Epsilon", "Flux", "Gamma", "Guardian", "Hex", "Index", "Ion", "Kappa", "Lambda", "Logic", "Matrix", "Nano", "Neural", "Nova", "Omega", "Optic", "Phi", "Prime", "Proto", "Psi", "Pulse", "Quantum", "Rho", "Sentinel", "Sigma", "Synth", "Tech", "Theta", "Unit", "Vector", "Vertex", "Vortex", "Warden", "Warp", "Wave", "Xi", "Zeta", "Zero"],
+    "suffixes": ["core", "five", "four", "index", "line", "nine", "node", "null", "one", "prime", "pulse", "seven", "six", "sync", "three", "trace", "two", "unit", "wave", "zero"]
   },
   "compoundSeparator": "-"
 }
