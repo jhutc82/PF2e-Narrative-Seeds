@@ -10,18 +10,18 @@
     "3": 30
   },
   "male": {
-    "prefixes": ["Embe", "Golo", "Kaba", "Maba", "Ngu", "Oko", "Saba", "Taba", "Umbe", "Zaba"],
-    "middles": ["ba", "bo", "gu", "ka", "ma", "nga"],
-    "suffixes": ["ba", "be", "bo", "gu", "ka", "ma", "nga"]
+    "prefixes": ["Aba", "Abebe", "Ambe", "Bembe", "Biko", "Boku", "Daba", "Dumbe", "Embe", "Faba", "Fombe", "Gaba", "Gombe", "Golo", "Haba", "Jaba", "Jombo", "Kaba", "Kambe", "Kobo", "Kumbe", "Laba", "Lembe", "Lobo", "Lumbe", "Maba", "Mambe", "Mobo", "Mumbe", "Naba", "Namba", "Ngu", "Ngumbe", "Nobo", "Numbe", "Obo", "Oko", "Omba", "Paba", "Pombo", "Qaba", "Rumbe", "Saba", "Sambe", "Sobo", "Sumbe", "Taba", "Tembe", "Tobo", "Tumbe", "Uba", "Umbe", "Waba", "Wombo", "Yaba", "Yembe", "Zaba", "Zembe", "Zobo", "Zumbe", "Abago", "Ambego", "Bambe", "Bembo", "Dabago", "Embego", "Fabagu", "Gombego", "Golongo", "Habagu", "Jambego", "Kabango", "Kombego", "Labango", "Mambego", "Nambago", "Ngumbo", "Okongo", "Pambego", "Rumbego", "Sambango", "Tabango", "Umbego", "Wambego", "Yambego", "Zambego", "Abakar", "Bambar", "Embor", "Golokar", "Kabar", "Mabar", "Ngumbar", "Okobar", "Sabakar", "Tabakar", "Umbar", "Zabar", "Aboku", "Bemoku", "Daboku", "Emboku", "Goku", "Kaboku", "Maboku", "Nguku", "Saboku", "Taboku", "Umboku", "Zaboku"],
+    "middles": ["ba", "be", "bo", "bu", "go", "gu", "ka", "ko", "ma", "mo", "mu", "nga", "ngo", "za"],
+    "suffixes": ["ba", "be", "bo", "gu", "ka", "ko", "ma", "mbe", "mo", "mu", "nga", "ngo", "ngu"]
   },
   "female": {
-    "prefixes": ["Amba", "Gola", "Kaba", "Maba", "Ngua", "Oka", "Saba", "Taba", "Umba", "Zaba"],
-    "middles": ["ba", "ka", "la", "ma", "nga"},
-    "suffixes": ["a", "ba", "ka", "la", "ma", "nga"]
+    "prefixes": ["Aba", "Abela", "Amba", "Bemba", "Bika", "Bola", "Daba", "Dumba", "Emba", "Faba", "Fomba", "Gaba", "Gomba", "Gola", "Haba", "Jaba", "Jomba", "Kaba", "Kamba", "Koba", "Kumba", "Laba", "Lemba", "Loba", "Lumba", "Maba", "Mamba", "Moba", "Mumba", "Naba", "Namba", "Ngua", "Ngumba", "Noba", "Numba", "Oba", "Oka", "Omba", "Paba", "Pomba", "Qaba", "Rumba", "Saba", "Samba", "Soba", "Sumba", "Taba", "Temba", "Toba", "Tumba", "Uba", "Umba", "Waba", "Womba", "Yaba", "Yemba", "Zaba", "Zemba", "Zoba", "Zumba", "Abaga", "Ambega", "Bamba", "Bemba", "Dabaga", "Embega", "Fabaga", "Gombega", "Golonga", "Habaga", "Jambega", "Kabanga", "Kombega", "Labanga", "Mambega", "Nambaga", "Ngumba", "Okonga", "Pambega", "Rumbega", "Sambanga", "Tabanga", "Umbega", "Wambega", "Yambega", "Zambega", "Abaka", "Bambara", "Embora", "Goloka", "Kabara", "Mabara", "Ngumbara", "Okobara", "Sabaka", "Tabaka", "Umbara", "Zabara", "Abola", "Bemola", "Dabola", "Embola", "Gola", "Kabola", "Mabola", "Ngula", "Sabola", "Tabola", "Umbola", "Zabola"],
+    "middles": ["ba", "be", "bo", "ga", "ka", "ko", "la", "ma", "mo", "na", "nga", "ngo", "ra", "za"},
+    "suffixes": ["a", "ba", "ga", "ka", "ko", "la", "ma", "mba", "mo", "na", "nga", "ngo", "ra"]
   },
   "nonbinary": {
-    "prefixes": ["Embe", "Golo", "Kaba", "Maba", "Ngu", "Oko", "Saba", "Taba", "Umbe", "Zaba"],
-    "middles": ["ba", "bo", "ka", "la", "ma", "nga"},
-    "suffixes": ["a", "ba", "be", "bo", "ka", "la", "ma", "nga"]
+    "prefixes": ["Aba", "Abebe", "Abela", "Amba", "Ambe", "Bemba", "Bembe", "Bika", "Biko", "Bola", "Boku", "Daba", "Dumba", "Dumbe", "Emba", "Embe", "Faba", "Fomba", "Fombe", "Gaba", "Gomba", "Gombe", "Gola", "Golo", "Haba", "Jaba", "Jomba", "Jombo", "Kaba", "Kamba", "Kambe", "Koba", "Kobo", "Kumba", "Kumbe", "Laba", "Lemba", "Lembe", "Loba", "Lobo", "Lumba", "Lumbe", "Maba", "Mamba", "Mambe", "Moba", "Mobo", "Mumba", "Mumbe", "Naba", "Namba", "Ngu", "Ngua", "Ngumba", "Ngumbe", "Noba", "Nobo", "Numba", "Numbe", "Oba", "Obo", "Oka", "Oko", "Omba", "Paba", "Pomba", "Pombo", "Qaba", "Rumba", "Rumbe", "Saba", "Samba", "Sambe", "Soba", "Sobo", "Sumba", "Sumbe", "Taba", "Temba", "Tembe", "Toba", "Tobo", "Tumba", "Tumbe", "Uba", "Umba", "Umbe", "Waba", "Womba", "Wombo", "Yaba", "Yemba", "Yembe", "Zaba", "Zemba", "Zembe", "Zoba", "Zobo", "Zumba", "Zumbe"],
+    "middles": ["ba", "be", "bo", "bu", "ga", "go", "gu", "ka", "ko", "la", "ma", "mo", "mu", "na", "nga", "ngo", "ra", "za"],
+    "suffixes": ["a", "ba", "be", "bo", "ga", "gu", "ka", "ko", "la", "ma", "mba", "mbe", "mo", "mu", "na", "nga", "ngo", "ngu", "ra"]
   }
 }

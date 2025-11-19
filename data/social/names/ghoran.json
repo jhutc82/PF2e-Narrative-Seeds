@@ -12,24 +12,24 @@
     "3": 30
   },
   "male": {
-    "prefixes": ["Ash", "Cedar", "Elm", "Haw", "Oak", "Pine", "Reed", "Root", "Thorn", "Wil"],
-    "middles": ["bar", "den", "fen", "root", "wood"],
-    "suffixes": ["bark", "den", "fen", "root", "thorn", "wood"]
+    "prefixes": ["Alder", "Ash", "Aspen", "Bark", "Beech", "Birch", "Bough", "Bracken", "Branch", "Brier", "Cedar", "Cypress", "Ebony", "Elder", "Elm", "Fen", "Fern", "Fir", "Flux", "Gorse", "Grove", "Haw", "Hawthorn", "Hazel", "Heath", "Hemlock", "Herb", "Hickory", "Juniper", "Larch", "Leaf", "Lichen", "Lin", "Linden", "Log", "Mahogan", "Maple", "Marsh", "Moss", "Oak", "Osier", "Palm", "Pine", "Reed", "Root", "Rowan", "Sedge", "Sequoia", "Sod", "Spruce", "Stalk", "Stem", "Sycamore", "Tamarack", "Teak", "Thorn", "Timber", "Trunk", "Tuber", "Twig", "Vine", "Walnut", "Wicker", "Wil", "Willow", "Wood", "Woody", "Yew", "Arbor", "Barken", "Barton", "Boscor", "Brachen", "Brandon", "Briar", "Brion", "Canop", "Cedrion", "Coppice", "Dalewood", "Denden", "Elmor", "Ferndon", "Firden", "Forestor", "Gorden", "Greenwood", "Grover", "Hawden", "Hazelton", "Heartwood", "Hedgeton", "Linden", "Oakton", "Pinetree", "Redwood", "Reedon", "Rooton", "Sagebrush", "Thornton", "Timber", "Treewood", "Vinewood", "Wildwood", "Woodson"],
+    "middles": ["bar", "bri", "den", "fer", "fen", "root", "thorn", "tree", "wick", "wood"],
+    "suffixes": ["bark", "branch", "brier", "bush", "den", "fen", "grove", "leaf", "log", "moss", "reed", "root", "thorn", "tree", "twig", "vine", "wick", "wood"]
   },
   "female": {
-    "prefixes": ["Bloom", "Dahlia", "Flora", "Iris", "Lily", "Petal", "Rose", "Tulip", "Violet", "Willow"],
-    "middles": ["blos", "flow", "petal"},
-    "suffixes": ["a", "bloom", "blossom", "flower", "petal"]
+    "prefixes": ["Acacia", "Aloe", "Amaryllis", "Anemone", "Aster", "Azalea", "Begonia", "Bellflower", "Blossom", "Bloom", "Bluebell", "Buttercup", "Calla", "Camellia", "Carnation", "Cherry", "Chrysanth", "Clematis", "Clover", "Columbine", "Coral", "Cosmos", "Crocus", "Cyclamen", "Daffodil", "Dahlia", "Daisy", "Dandelion", "Delphinium", "Fern", "Flora", "Forget", "Forsyth", "Freesia", "Gardenia", "Geranium", "Ginger", "Gladiol", "Heather", "Helio", "Hibiscus", "Holly", "Hollyhock", "Honeysuckle", "Hyacinth", "Hydrangea", "Iris", "Ivy", "Jasmine", "Juniper", "Larkspur", "Laurel", "Lavender", "Lilac", "Lily", "Lotus", "Lupin", "Magnolia", "Mallow", "Marigold", "Meadow", "Myrtle", "Narciss", "Oleander", "Orchid", "Pansy", "Peony", "Petal", "Petunia", "Phlox", "Poppy", "Primrose", "Protea", "Rose", "Rosemary", "Saffron", "Snapdragon", "Snowdrop", "Sunflower", "Sweet", "Tansy", "Thistle", "Tulip", "Verbena", "Vetch", "Viola", "Violet", "Wisteria", "Yarrow", "Yucca", "Zinnia", "Bloom", "Blossom", "Briar", "Clementine", "Flora", "Heather", "Maple", "Meadow", "Petal", "Posy", "Saffron", "Willow"],
+    "middles": ["bell", "blos", "flow", "leaf", "petal", "rose"},
+    "suffixes": ["a", "bell", "bloom", "blossom", "bud", "flower", "ia", "leaf", "lily", "petal", "rose"]
   },
   "nonbinary": {
-    "prefixes": ["Bloom", "Cedar", "Fern", "Leaf", "Oak", "Petal", "Root", "Sage", "Thorn", "Willow"],
-    "middles": ["bar", "blos", "den", "fen", "root"},
-    "suffixes": ["a", "bark", "bloom", "den", "fen", "petal", "root", "wood"]
+    "prefixes": ["Alder", "Aloe", "Amaranth", "Ash", "Aspen", "Aster", "Azalea", "Basil", "Bay", "Birch", "Bloom", "Blossom", "Bracken", "Branch", "Briar", "Brier", "Cedar", "Chamomile", "Cherry", "Clover", "Coral", "Cypress", "Dahlia", "Daisy", "Elder", "Elm", "Fen", "Fern", "Fir", "Flora", "Foxglove", "Gardenia", "Ginger", "Gorse", "Grove", "Hawthorn", "Hazel", "Heather", "Heath", "Hemlock", "Herb", "Hickory", "Holly", "Iris", "Ivy", "Jasmine", "Juniper", "Larch", "Laurel", "Lavender", "Leaf", "Lichen", "Lilac", "Lily", "Linden", "Lotus", "Magnolia", "Mallow", "Maple", "Marigold", "Meadow", "Moss", "Myrtle", "Oak", "Oleander", "Orchid", "Palm", "Pansy", "Peony", "Petal", "Pine", "Poppy", "Primrose", "Reed", "Root", "Rose", "Rosemary", "Rowan", "Rue", "Saffron", "Sage", "Sedge", "Sequoia", "Snapdragon", "Snowdrop", "Spruce", "Sunflower", "Tansy", "Thyme", "Thorn", "Tulip", "Verbena", "Violet", "Willow", "Wisteria", "Yarrow", "Yew", "Zinnia"],
+    "middles": ["bar", "bell", "blos", "bri", "den", "fer", "fen", "flow", "leaf", "petal", "root", "rose", "thorn", "tree", "wick", "wood"},
+    "suffixes": ["a", "bark", "bell", "bloom", "blossom", "branch", "brier", "bud", "bush", "den", "fen", "flower", "grove", "ia", "leaf", "lily", "log", "moss", "petal", "reed", "root", "rose", "thorn", "tree", "twig", "vine", "wick", "wood"]
   },
   "compoundParts": {
-    "prefixes": ["Autumn", "Bloom", "Branch", "Flower", "Garden", "Leaf", "Root", "Spring", "Summer", "Winter"],
-    "suffixes": ["bloom", "branch", "flower", "leaf", "root", "seed", "vine"]
+    "prefixes": ["Autumn", "Bloom", "Blossom", "Branch", "Brier", "Canopy", "Cedar", "Cherry", "Flower", "Forest", "Garden", "Green", "Grove", "Harvest", "Leaf", "Meadow", "Moss", "Oak", "Petal", "Pine", "Pollen", "Root", "Rose", "Sap", "Season", "Seed", "Seedling", "Soil", "Spring", "Sprout", "Stalk", "Stem", "Summer", "Sunlight", "Thorn", "Timber", "Vine", "Wild", "Willow", "Winter", "Wood"],
+    "suffixes": ["bloom", "blossom", "branch", "flower", "grove", "keeper", "leaf", "root", "runner", "seed", "song", "sprout", "tender", "vine", "walker", "warden", "weaver"]
   },
   "compoundSeparator": "",
-  "names": ["Basil", "Cedar", "Clover", "Fern", "Hazel", "Ivy", "Jasmine", "Laurel", "Lotus", "Moss", "Oak", "Oleander", "Orchid", "Poppy", "Primrose", "Reed", "Rowan", "Rue", "Sage", "Thyme", "Violet", "Willow"]
+  "names": ["Acacia", "Aloe", "Amaranth", "Ash", "Aster", "Azalea", "Basil", "Bay", "Birch", "Bloom", "Cedar", "Clover", "Cypress", "Dahlia", "Daisy", "Elder", "Elm", "Fern", "Flora", "Hawthorn", "Hazel", "Heather", "Heath", "Hemlock", "Holly", "Iris", "Ivy", "Jasmine", "Juniper", "Laurel", "Lavender", "Lilac", "Lily", "Linden", "Lotus", "Magnolia", "Maple", "Marigold", "Moss", "Myrtle", "Oak", "Oleander", "Orchid", "Palm", "Pansy", "Peony", "Pine", "Poppy", "Primrose", "Reed", "Rose", "Rosemary", "Rowan", "Rue", "Saffron", "Sage", "Sequoia", "Snapdragon", "Snowdrop", "Spruce", "Sunflower", "Tansy", "Thyme", "Tulip", "Verbena", "Violet", "Willow", "Wisteria", "Yarrow", "Yew", "Zinnia"]
 }
