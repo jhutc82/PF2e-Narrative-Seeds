@@ -1337,7 +1337,7 @@
       "applicableContexts": {
         "damageTypes": [
           "force",
-          "magic"
+          "spirit"
         ],
         "creatureTypes": [
           "elemental-general"
