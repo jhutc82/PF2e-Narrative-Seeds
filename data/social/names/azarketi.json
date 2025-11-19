@@ -11,21 +11,21 @@
     "3": 40
   },
   "male": {
-    "prefixes": ["Aqu", "Cor", "Del", "Mar", "Ner", "Ocean", "Pel", "Thal", "Tri", "Vael"],
-    "middles": ["an", "ar", "en", "ian", "on", "van"],
-    "suffixes": ["an", "ar", "as", "el", "en", "ian", "is", "on", "us", "van"]
+    "prefixes": ["Aqu", "Aquan", "Aquil", "Arden", "Azur", "Bren", "Cael", "Caer", "Cor", "Coran", "Corel", "Delm", "Delmar", "Deln", "Delph", "Doran", "Elor", "Eran", "Fin", "Galen", "Goran", "Kael", "Kalan", "Kel", "Kelan", "Koral", "Lir", "Liran", "Lor", "Mael", "Maran", "Mar", "Maren", "Marin", "Marlen", "Mer", "Meran", "Miran", "Morian", "Nael", "Naren", "Nar", "Navan", "Ner", "Neran", "Nerian", "Ocean", "Ocelar", "Oceran", "Orin", "Orlan", "Pel", "Pelan", "Pelor", "Peran", "Ren", "Renar", "Roran", "Rylan", "Sael", "Saran", "Sel", "Selan", "Selor", "Tael", "Talan", "Taren", "Thal", "Thalan", "Thalor", "Tiran", "Torin", "Trel", "Trelan", "Tri", "Trian", "Trilon", "Vael", "Valan", "Varen", "Varian", "Velan", "Vel", "Ven", "Voran", "Wael", "Walan", "Waven", "Xael", "Xaran", "Yael", "Yaren", "Zael", "Zalan", "Zaran", "Zelen", "Zoren"],
+    "middles": ["al", "an", "ar", "el", "en", "er", "ian", "il", "lan", "len", "lin", "lon", "mar", "nar", "on", "or", "ran", "ren", "van", "ven"],
+    "suffixes": ["an", "ar", "as", "el", "elan", "en", "er", "es", "ian", "il", "in", "ir", "is", "lan", "len", "lin", "lon", "mar", "nar", "on", "or", "ran", "ren", "us", "van", "ven", "von"]
   },
   "female": {
-    "prefixes": ["Aqua", "Cora", "Della", "Mara", "Nera", "Ocea", "Pela", "Thala", "Tria", "Vaela"],
-    "middles": ["an", "el", "en", "ia", "la", "na", "ra"],
-    "suffixes": ["a", "ana", "ara", "ela", "ena", "ia", "ina", "la", "na", "ra"]
+    "prefixes": ["Aqua", "Aquana", "Aquila", "Arena", "Azura", "Brena", "Caela", "Caera", "Cora", "Corana", "Corela", "Delma", "Delmara", "Delna", "Delpha", "Dorana", "Elora", "Erana", "Fina", "Galena", "Gorana", "Kaela", "Kalana", "Kela", "Kelana", "Korala", "Lira", "Lirana", "Lora", "Maela", "Marana", "Mara", "Marena", "Marina", "Marlena", "Mera", "Merana", "Mirana", "Moriana", "Naela", "Narena", "Nara", "Navana", "Nera", "Nerana", "Neriana", "Ocea", "Ocela", "Oceana", "Orana", "Oriana", "Pela", "Pelana", "Pelora", "Perana", "Rena", "Renara", "Rorana", "Rylana", "Saela", "Sarana", "Sela", "Selana", "Selora", "Taela", "Talana", "Tarena", "Thala", "Thalana", "Thalora", "Tirana", "Torina", "Trela", "Trelana", "Tria", "Triana", "Trilona", "Vaela", "Valana", "Varena", "Variana", "Velana", "Vela", "Vena", "Vorana", "Waela", "Walana", "Wavena", "Xaela", "Xarana", "Yaela", "Yarena", "Zaela", "Zalana", "Zarana", "Zelena", "Zorena"],
+    "middles": ["al", "ana", "ara", "el", "ela", "en", "ena", "ia", "il", "ila", "la", "lan", "len", "lina", "mar", "na", "nar", "ra", "ran", "ren", "va", "van", "ven"],
+    "suffixes": ["a", "al", "ana", "ara", "el", "ela", "elana", "en", "ena", "era", "ia", "ila", "in", "ina", "ira", "la", "lan", "lana", "len", "lena", "lina", "mar", "mara", "na", "nar", "nara", "ra", "ran", "rana", "ren", "rena", "va", "van", "vana", "ven", "vena"]
   },
   "nonbinary": {
-    "prefixes": ["Aqu", "Cor", "Del", "Mar", "Ner", "Ocea", "Pel", "Thal", "Tri", "Vael"],
-    "middles": ["an", "el", "en", "ia", "on", "ra"],
-    "suffixes": ["a", "an", "ar", "el", "en", "ia", "is", "on", "ra", "us"]
+    "prefixes": ["Aqu", "Aqua", "Aquan", "Aquana", "Aquil", "Aquila", "Arden", "Arena", "Azur", "Azura", "Bren", "Brena", "Cael", "Caela", "Caer", "Caera", "Cor", "Cora", "Coran", "Corana", "Corel", "Corela", "Delm", "Delma", "Delmar", "Delmara", "Deln", "Delna", "Delph", "Delpha", "Doran", "Dorana", "Elor", "Elora", "Eran", "Erana", "Fin", "Fina", "Galen", "Galena", "Goran", "Gorana", "Kael", "Kaela", "Kalan", "Kalana", "Kel", "Kela", "Kelan", "Kelana", "Koral", "Korala", "Lir", "Lira", "Liran", "Lirana", "Lor", "Lora", "Mael", "Maela", "Maran", "Marana", "Mar", "Mara", "Maren", "Marena", "Marin", "Marina", "Marlen", "Marlena", "Mer", "Mera", "Meran", "Merana", "Miran", "Mirana", "Morian", "Moriana", "Nael", "Naela", "Naren", "Narena", "Nar", "Nara", "Navan", "Navana", "Ner", "Nera", "Neran", "Nerana", "Nerian", "Neriana", "Ocean", "Ocea", "Ocelar", "Ocela"],
+    "middles": ["al", "an", "ana", "ar", "ara", "el", "ela", "en", "ena", "er", "ia", "ian", "il", "la", "lan", "len", "mar", "na", "on", "or", "ra", "ran", "ren", "van", "ven"],
+    "suffixes": ["a", "al", "an", "ana", "ar", "ara", "as", "el", "ela", "elan", "elana", "en", "ena", "er", "era", "es", "ia", "ian", "il", "ila", "in", "ina", "ir", "ira", "is", "la", "lan", "lana", "len", "lena", "lin", "lina", "lon", "mar", "mara", "na", "nar", "nara", "on", "or", "ra", "ran", "rana", "ren", "rena", "us", "va", "van", "vana", "ven", "vena", "von"]
   },
-  "lastNames": ["Coralborn", "Deepcurrent", "Pearldiver", "Seafoam", "Tidecaller", "Waverunner"],
-  "lastNamePrefixes": ["Coral", "Deep", "Pearl", "Sea", "Tide", "Wave"],
-  "lastNameSuffixes": ["born", "caller", "current", "diver", "foam", "runner", "walker"]
+  "lastNames": ["Bluecurrent", "Coralborn", "Deepcurrent", "Deepdiver", "Kelpdancer", "Pearldiver", "Reefwalker", "Seafoam", "Shellseeker", "Tidecaller", "Tiderunner", "Waveborn", "Wavebreaker", "Waverunner", "Whirlpool"],
+  "lastNamePrefixes": ["Azure", "Blue", "Coral", "Crystal", "Deep", "Kelp", "Ocean", "Pearl", "Reef", "Salt", "Sea", "Shell", "Tidal", "Tide", "Trident", "Wave", "Whirl"],
+  "lastNameSuffixes": ["born", "breaker", "caller", "current", "dancer", "diver", "foam", "keeper", "pool", "runner", "seeker", "singer", "swimmer", "walker", "watcher"]
 }

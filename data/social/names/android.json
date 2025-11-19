@@ -11,23 +11,23 @@
     "3": 20
   },
   "male": {
-    "prefixes": ["Ax", "Cir", "Dex", "Hex", "Kex", "Nex", "Pyx", "Rax", "Tec", "Vex", "Zex"],
-    "middles": ["an", "or", "on", "ron", "ton", "ven"],
-    "suffixes": ["an", "ar", "ax", "ex", "on", "or", "ron", "ton", "vex"]
+    "prefixes": ["Ax", "Aex", "Bex", "Cir", "Cor", "Cox", "Cyx", "Dax", "Dex", "Drex", "Dyx", "Ex", "Fex", "Fox", "Gex", "Grex", "Gyx", "Hex", "Hyx", "Ix", "Jax", "Jex", "Kax", "Kex", "Krex", "Kyx", "Lex", "Lux", "Lyx", "Max", "Mex", "Mox", "Myx", "Nax", "Nex", "Nox", "Nyx", "Ox", "Pax", "Pex", "Pox", "Prex", "Pyx", "Qax", "Qex", "Qyx", "Rax", "Rex", "Rox", "Ryx", "Sax", "Sex", "Sox", "Strex", "Styx", "Syn", "Tec", "Tex", "Tor", "Tox", "Trex", "Tyx", "Ux", "Var", "Vec", "Vex", "Vix", "Vox", "Vyx", "Wex", "Wyx", "Xan", "Xar", "Xen", "Xer", "Xex", "Xor", "Xyn", "Xyr", "Yor", "Yex", "Yor", "Yux", "Yyx", "Zax", "Zek", "Zen", "Zer", "Zex", "Zor", "Zox", "Zyn", "Zyr", "Zyx", "Aeron", "Axion", "Bexon", "Cyron", "Daxon", "Exon", "Hexon", "Kexon", "Nexon", "Orion", "Paxon", "Rexon", "Taxon", "Vexon", "Xeron", "Zexon"],
+    "middles": ["an", "ar", "en", "er", "ion", "on", "or", "ox", "ran", "ron", "tan", "ton", "van", "ven", "xan", "xen", "yon", "zan", "zen"],
+    "suffixes": ["an", "ar", "ax", "en", "er", "ex", "ion", "ix", "on", "or", "ox", "ran", "rex", "ron", "tan", "tec", "ton", "tor", "van", "vex", "von", "xan", "xar", "xen", "xer", "xon", "xor", "yon", "zan", "zen", "zer", "zex", "zon", "zor", "zyx"]
   },
   "female": {
-    "prefixes": ["Ara", "Cira", "Dexa", "Hexa", "Kexa", "Nexa", "Pyxa", "Raxa", "Teca", "Vexa", "Zexa"],
-    "middles": ["an", "en", "in", "ra", "va"],
-    "suffixes": ["a", "ana", "ara", "exa", "ina", "ona", "ra", "va"]
+    "prefixes": ["Ara", "Ava", "Axa", "Bera", "Cira", "Cora", "Coxa", "Cyra", "Dara", "Dexa", "Drexa", "Dyra", "Era", "Exa", "Fera", "Foxa", "Gera", "Grexa", "Gyra", "Hera", "Hexa", "Hyra", "Ira", "Jara", "Jera", "Kara", "Kera", "Kexa", "Krexa", "Kyra", "Lera", "Luxa", "Lyra", "Mara", "Mera", "Mexa", "Moxa", "Myra", "Nara", "Nera", "Nexa", "Noxa", "Nyra", "Ora", "Para", "Pera", "Pexa", "Poxa", "Prexa", "Pyra", "Pyxa", "Qara", "Qera", "Qyra", "Rara", "Rera", "Rexa", "Roxa", "Ryra", "Sara", "Sera", "Sexa", "Soxa", "Strexa", "Styra", "Syra", "Tara", "Teca", "Tera", "Texa", "Tora", "Toxa", "Trexa", "Tyra", "Ura", "Vara", "Veca", "Vena", "Vera", "Vexa", "Vira", "Vixa", "Voxa", "Vyra", "Wera", "Wyra", "Xana", "Xara", "Xena", "Xera", "Xira", "Xora", "Xyna", "Xyra", "Yara", "Yera", "Yora", "Yura", "Zyra", "Zara", "Zeka", "Zena", "Zera", "Zexa", "Zora", "Zoxa", "Zyna", "Zyra"],
+    "middles": ["an", "ara", "en", "era", "in", "ina", "ion", "na", "ra", "ren", "rina", "va", "ven", "vina", "xana", "xena", "yana", "zana", "zena"],
+    "suffixes": ["a", "ana", "ara", "en", "ena", "era", "exa", "in", "ina", "ion", "ira", "na", "ona", "ora", "ra", "ren", "rina", "va", "ven", "vina", "xa", "xana", "xara", "xena", "xera", "xina", "xona", "xora", "ya", "yana", "za", "zana", "zena", "zera", "zina", "zona", "zora", "zyra"]
   },
   "nonbinary": {
-    "prefixes": ["Ax", "Cir", "Dex", "Hex", "Kex", "Nex", "Pyx", "Rax", "Tec", "Vex", "Zex"],
-    "middles": ["an", "en", "on", "ra", "ron"],
-    "suffixes": ["a", "an", "ar", "ax", "ex", "on", "ra", "ron", "vex"]
+    "prefixes": ["Ax", "Ara", "Aex", "Ava", "Axa", "Bex", "Bera", "Cir", "Cira", "Cor", "Cora", "Cox", "Coxa", "Cyx", "Cyra", "Dax", "Dara", "Dex", "Dexa", "Drex", "Drexa", "Dyx", "Dyra", "Ex", "Era", "Exa", "Fex", "Fera", "Fox", "Foxa", "Gex", "Gera", "Grex", "Grexa", "Gyx", "Gyra", "Hex", "Hera", "Hexa", "Hyx", "Hyra", "Ix", "Ira", "Jax", "Jara", "Jex", "Jera", "Kax", "Kara", "Kex", "Kera", "Kexa", "Krex", "Krexa", "Kyx", "Kyra", "Lex", "Lera", "Lux", "Luxa", "Lyx", "Lyra", "Max", "Mara", "Mex", "Mera", "Mexa", "Mox", "Moxa", "Myx", "Myra", "Nax", "Nara", "Nex", "Nera", "Nexa", "Nox", "Noxa", "Nyx", "Nyra", "Ox", "Ora", "Pax", "Para", "Pex", "Pera", "Pexa", "Pox", "Poxa", "Prex", "Prexa", "Pyx", "Pyra", "Pyxa", "Qax", "Qara", "Qex", "Qera", "Qyx", "Qyra"],
+    "middles": ["an", "ara", "en", "era", "ion", "on", "ora", "ra", "ran", "ren", "ron", "van", "ven", "xan", "xen", "yon", "zan", "zen"],
+    "suffixes": ["a", "an", "ana", "ar", "ara", "ax", "en", "ena", "er", "era", "ex", "exa", "in", "ina", "ion", "ix", "on", "ona", "or", "ora", "ox", "ra", "ran", "ren", "rex", "rina", "ron", "tan", "ton", "va", "van", "ven", "vex", "vina", "von", "xa", "xan", "xar", "xen", "xer", "xon", "xor", "yon", "za", "zan", "zen", "zer", "zex", "zona", "zon", "zor", "zyra", "zyx"]
   },
   "compoundParts": {
-    "prefixes": ["Alpha", "Beta", "Delta", "Gamma", "Nova", "Omega", "Prime", "Sigma", "Vector", "Zero"],
-    "suffixes": ["one", "prime", "seven", "three", "two", "unit", "zero"]
+    "prefixes": ["Alpha", "Arc", "Astra", "Beta", "Binary", "Chrono", "Code", "Core", "Cyber", "Data", "Delta", "Echo", "Epsilon", "Flux", "Gamma", "Hex", "Index", "Ion", "Kappa", "Lambda", "Logic", "Matrix", "Nano", "Neural", "Nova", "Omega", "Optic", "Phi", "Prime", "Proto", "Psi", "Pulse", "Quantum", "Rho", "Sigma", "Synth", "Tech", "Theta", "Vector", "Vertex", "Vortex", "Warp", "Wave", "Xi", "Zeta", "Zero"],
+    "suffixes": ["core", "five", "four", "index", "line", "nine", "node", "null", "one", "prime", "pulse", "seven", "six", "sync", "three", "trace", "two", "unit", "wave", "zero"]
   },
   "compoundSeparator": "-"
 }

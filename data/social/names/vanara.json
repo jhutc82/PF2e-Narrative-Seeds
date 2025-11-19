@@ -10,18 +10,18 @@
     "3": 40
   },
   "male": {
-    "prefixes": ["Anup", "Bali", "Hanu", "Jamba", "Kapi", "Kesari", "Manu", "Nala", "Rama", "Sugri", "Vali"],
-    "middles": ["an", "ar", "man", "van"],
-    "suffixes": ["an", "ar", "i", "man", "nu", "van"]
+    "prefixes": ["Agni", "Ajit", "Anand", "Anup", "Arun", "Ashwin", "Bali", "Bharat", "Bhima", "Chetan", "Daksh", "Deepan", "Ganesh", "Gautam", "Govin", "Hanu", "Hanuman", "Hari", "Indra", "Jamba", "Jayan", "Kali", "Kama", "Kapi", "Kapil", "Karna", "Kavi", "Kesari", "Keshan", "Krishna", "Kumar", "Laksh", "Madhav", "Manu", "Nalin", "Nala", "Nanda", "Naveen", "Nihal", "Nimit", "Pavan", "Pramod", "Pratap", "Pravan", "Rajan", "Rama", "Raman", "Ravi", "Rohan", "Sanjay", "Sayan", "Shiva", "Sohan", "Sugan", "Sugri", "Sugriva", "Suman", "Sunil", "Suresh", "Tarun", "Uday", "Ujjwal", "Vali", "Vaman", "Varun", "Vasu", "Vedan", "Vikram", "Vimal", "Vinay", "Vishnu", "Vivek", "Yash", "Yogesh", "Ajay", "Amar", "Amrit", "Angad", "Arjun", "Ashok", "Atul", "Bhavin", "Chandra", "Darshan", "Deepak", "Dharam", "Dhruv", "Dilip", "Gagan", "Girish", "Gopal", "Harsh", "Hemant", "Hitesh", "Jatin", "Karan", "Kiran", "Kunal", "Manoj", "Mihir", "Mohan", "Naren", "Nitin", "Pankaj", "Paresh"],
+    "middles": ["an", "ar", "en", "in", "man", "ni", "ran", "van", "vi"],
+    "suffixes": ["a", "an", "ar", "at", "en", "i", "il", "in", "it", "man", "ni", "nu", "ran", "sh", "van", "vi"]
   },
   "female": {
-    "prefixes": ["Ami", "Devi", "Kali", "Laks", "Mala", "Nali", "Pari", "Rani", "Sari", "Tara", "Vani"],
-    "middles": ["ka", "la", "ma", "na", "ra", "va"],
-    "suffixes": ["a", "i", "ka", "la", "ma", "na", "ra", "va"]
+    "prefixes": ["Aditi", "Amba", "Ambika", "Ami", "Amita", "Ananya", "Anjali", "Anita", "Anu", "Anusha", "Aruna", "Asha", "Avani", "Bharati", "Bhavna", "Chandni", "Damini", "Deepa", "Deepika", "Devi", "Devika", "Diya", "Divya", "Gauri", "Geeta", "Gita", "Hema", "Hina", "Indira", "Ishana", "Jaya", "Jyoti", "Kala", "Kali", "Kamala", "Kanti", "Kavita", "Kiran", "Lalita", "Lata", "Laks", "Lakshmi", "Leela", "Mala", "Malini", "Mamta", "Maya", "Meera", "Meeta", "Mina", "Mohini", "Nali", "Nalini", "Nanda", "Nandini", "Neela", "Neeta", "Nisha", "Padma", "Pari", "Parvati", "Pooja", "Priya", "Radha", "Rani", "Ranya", "Rashi", "Rekha", "Renu", "Reshma", "Rita", "Riya", "Ruchi", "Rupa", "Sangita", "Sandhya", "Sarita", "Sari", "Saroja", "Sati", "Savita", "Seema", "Shakti", "Shanti", "Sheela", "Shobha", "Shree", "Shreya", "Sita", "Sneha", "Sonal", "Suchi", "Sudha", "Sumitra", "Sunita", "Sushma", "Swati", "Tara", "Uma", "Usha", "Vani", "Veena", "Vidya", "Vijaya", "Vimala"],
+    "middles": ["ka", "ki", "la", "li", "ma", "mi", "na", "ni", "ra", "ri", "ta", "ti", "va", "vi"],
+    "suffixes": ["a", "i", "ka", "ki", "la", "li", "ma", "mi", "na", "ni", "ra", "ri", "ta", "ti", "va", "vi", "ya"]
   },
   "nonbinary": {
-    "prefixes": ["Ami", "Anup", "Bali", "Kali", "Kapi", "Mala", "Manu", "Nala", "Pari", "Tara", "Vali"],
-    "middles": ["an", "ka", "la", "ma", "na", "ra", "van"},
-    "suffixes": ["a", "an", "i", "ka", "la", "ma", "man", "na", "ra", "van"]
+    "prefixes": ["Aditi", "Agni", "Ajit", "Ajay", "Amba", "Ambika", "Amar", "Ami", "Amita", "Amrit", "Anand", "Ananya", "Angad", "Anjali", "Anita", "Anu", "Anup", "Anusha", "Arjun", "Arun", "Aruna", "Asha", "Ashok", "Ashwin", "Atul", "Avani", "Bali", "Bharat", "Bharati", "Bhavna", "Bhavin", "Bhima", "Chandra", "Chandni", "Chetan", "Daksh", "Damini", "Darshan", "Deepa", "Deepak", "Deepan", "Deepika", "Devi", "Devika", "Dharam", "Dhruv", "Dilip", "Divya", "Diya", "Gagan", "Ganesh", "Gauri", "Gautam", "Geeta", "Girish", "Gita", "Gopal", "Govin", "Hanu", "Hanuman", "Hari", "Harsh", "Hema", "Hemant", "Hina", "Hitesh", "Indira", "Indra", "Ishana", "Jamba", "Jatin", "Jaya", "Jayan", "Jyoti", "Kala", "Kali", "Kamala", "Kanti", "Kapi", "Kapil", "Karan", "Karna", "Kavi", "Kavita", "Kesari", "Keshan", "Kiran", "Krishna", "Kumar", "Kunal", "Laksh", "Lakshmi", "Laks", "Lalita", "Lata", "Leela", "Madhav", "Mala", "Malini", "Mamta", "Manoj", "Manu", "Maya", "Meera", "Meeta", "Mihir", "Mina", "Mohan", "Mohini", "Nalin", "Nali", "Nalini", "Nala", "Nanda", "Nandini", "Naren", "Naveen", "Neela", "Neeta", "Nihal", "Nimit", "Nisha", "Nitin"],
+    "middles": ["an", "ar", "en", "in", "ka", "ki", "la", "li", "ma", "man", "mi", "na", "ni", "ra", "ran", "ri", "ta", "ti", "va", "van", "vi"],
+    "suffixes": ["a", "an", "ar", "at", "en", "i", "il", "in", "it", "ka", "ki", "la", "li", "ma", "man", "mi", "na", "ni", "nu", "ra", "ran", "ri", "sh", "ta", "ti", "va", "van", "vi", "ya"]
   }
 }

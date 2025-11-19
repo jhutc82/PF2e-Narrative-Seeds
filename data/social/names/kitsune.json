@@ -11,21 +11,21 @@
     "3": 50
   },
   "male": {
-    "prefixes": ["Hiro", "Kazu", "Koji", "Kuro", "Mako", "Nori", "Riku", "Roku", "Taka", "Yori"],
-    "middles": ["hiro", "ji", "ka", "ko", "ma", "no", "shi", "ta", "to", "ya"],
-    "suffixes": ["chi", "hiro", "ji", "ka", "ki", "ko", "ma", "ro", "shi", "ta", "to", "ya"]
+    "prefixes": ["Akira", "Daichi", "Eiji", "Fubuki", "Genji", "Haruki", "Hayato", "Hikaru", "Hiro", "Ichiro", "Isamu", "Jiro", "Kaito", "Katsu", "Kazu", "Kazuo", "Kenji", "Kenta", "Koji", "Kuro", "Mako", "Makoto", "Masaru", "Minato", "Naoki", "Nori", "Raiden", "Renji", "Riku", "Roku", "Ryoma", "Ryo", "Saburo", "Saito", "Satoshi", "Shin", "Shiro", "Sora", "Tadashi", "Taka", "Takashi", "Takeshi", "Taro", "Tatsuya", "Tomoya", "Toshiro", "Yamato", "Yori", "Yoshiro", "Yuki", "Yuuto", "Akihiro", "Arata", "Atsushi", "Daiki", "Fumio", "Goro", "Hachiro", "Haruto", "Hideaki", "Hiroshi", "Hitoshi", "Ichigo", "Issei", "Junichi", "Kaede", "Kazuki", "Keiichi", "Kichiro", "Koichi", "Kosuke", "Kyoshi", "Mamoru", "Masao", "Mikio", "Noboru", "Osamu", "Ren", "Renjiro", "Rokuro", "Ryuji", "Ryunosuke", "Saburo", "Seiji", "Shigeru", "Shinichi", "Shoichi", "Shuichi", "Susumu", "Tadao", "Takeo", "Takumi", "Tetsuo", "Tomohiro", "Toru", "Yasuo", "Yoichi", "Yoshiaki", "Yoshikazu", "Yuichi", "Yukio", "Yutaka"],
+    "middles": ["chi", "hiko", "hiro", "ji", "ka", "ki", "ko", "kura", "ma", "mi", "no", "ro", "ryu", "shi", "suke", "ta", "to", "ya", "yo", "yuki"],
+    "suffixes": ["chi", "go", "hiko", "hiro", "ji", "jo", "ka", "ki", "ko", "kura", "ma", "maru", "masa", "mi", "nori", "ro", "roku", "ryu", "saburo", "shi", "shiro", "suke", "ta", "taro", "to", "toshi", "ya", "yama", "yo", "yori", "yoshi", "yuki"]
   },
   "female": {
-    "prefixes": ["Aki", "Hana", "Haru", "Kimi", "Michi", "Nami", "Saki", "Tama", "Yuki", "Yuri"],
-    "middles": ["chi", "ka", "ki", "ko", "mi", "na", "ri", "ya"],
-    "suffixes": ["chi", "ka", "ki", "ko", "mi", "na", "ri", "ya"]
+    "prefixes": ["Ai", "Aiko", "Akane", "Aki", "Akiko", "Amaya", "Asuka", "Aya", "Ayame", "Chiaki", "Chihiro", "Chiyo", "Emi", "Emiko", "Fumi", "Fumiko", "Hana", "Hanako", "Haruka", "Haru", "Hikari", "Hime", "Hina", "Hinata", "Hoshi", "Hotaru", "Izumi", "Kae", "Kaede", "Kana", "Kaori", "Kasumi", "Kiku", "Kimiko", "Kimi", "Kira", "Kiya", "Kohaku", "Koto", "Kotone", "Madoka", "Mai", "Maki", "Makoto", "Manami", "Mana", "Mari", "Masa", "Megumi", "Michi", "Michiko", "Midori", "Mika", "Minako", "Mina", "Minori", "Mio", "Miyu", "Miyako", "Miyuki", "Momo", "Nagi", "Nami", "Nanami", "Nana", "Nao", "Naomi", "Natsuki", "Nori", "Rei", "Reika", "Ren", "Rikka", "Rina", "Rio", "Risa", "Rumi", "Sachi", "Saki", "Sakura", "Saya", "Sayuri", "Shizuka", "Sora", "Suzu", "Tama", "Tomoko", "Tomo", "Tsubaki", "Tsuki", "Ume", "Wakana", "Yoko", "Yoshi", "Yua", "Yui", "Yuki", "Yukiko", "Yumeko", "Yumi", "Yuri", "Yuriko"],
+    "middles": ["chi", "ka", "ki", "ko", "mi", "na", "ne", "no", "ra", "ri", "ya", "yo", "yu", "za"],
+    "suffixes": ["chi", "e", "hi", "ka", "ki", "ko", "me", "mi", "miko", "na", "ne", "no", "ra", "ri", "ya", "yo", "yuki", "yuko"]
   },
   "nonbinary": {
-    "prefixes": ["Aki", "Haru", "Kazu", "Kimi", "Mako", "Nami", "Nori", "Saki", "Taka", "Yuki"],
-    "middles": ["chi", "ji", "ka", "ki", "ko", "mi", "na", "shi", "ya"],
-    "suffixes": ["chi", "ka", "ki", "ko", "mi", "na", "ri", "shi", "ya"]
+    "prefixes": ["Ai", "Aiko", "Akane", "Aki", "Akiko", "Akira", "Amaya", "Arata", "Asuka", "Aya", "Ayame", "Chiaki", "Chihiro", "Daichi", "Daiki", "Eiji", "Emi", "Emiko", "Fubuki", "Fumi", "Fumiko", "Fumio", "Genji", "Hana", "Hanako", "Haruka", "Haruki", "Haruto", "Haru", "Hayato", "Hikari", "Hikaru", "Hime", "Hina", "Hinata", "Hiro", "Hiroshi", "Hoshi", "Hotaru", "Ichiro", "Isamu", "Izumi", "Jiro", "Kae", "Kaede", "Kaito", "Kana", "Kaori", "Kasumi", "Katsu", "Kazu", "Kazuo", "Kazuki", "Kenji", "Kenta", "Kiku", "Kimiko", "Kimi", "Kira", "Kiya", "Kohaku", "Koji", "Koto", "Kotone", "Kuro", "Madoka", "Mai", "Maki", "Mako", "Makoto", "Manami", "Mana", "Mari", "Masa", "Masaru", "Megumi", "Michi", "Michiko", "Midori", "Mika", "Minako", "Mina", "Minato", "Minori", "Mio", "Miyu", "Miyako", "Miyuki", "Momo", "Nagi", "Nami", "Nanami", "Nana", "Nao", "Naoki", "Naomi", "Natsuki", "Nori", "Raiden", "Rei", "Reika", "Ren", "Renji", "Rikka", "Riku", "Rina", "Rio", "Risa", "Roku", "Rumi", "Ryo", "Ryoma", "Sachi", "Saito", "Saki", "Sakura", "Satoshi", "Saya", "Sayuri", "Shin", "Shiro", "Shizuka", "Sora", "Suzu", "Tadashi", "Taka", "Takashi", "Takeshi", "Tama", "Taro", "Tatsuya", "Tomoko", "Tomo", "Tomoya", "Toshiro", "Tsubaki", "Tsuki", "Ume", "Wakana", "Yamato", "Yoko", "Yori", "Yoshiro", "Yoshi", "Yua", "Yui", "Yuki", "Yukiko", "Yukio", "Yumeko", "Yumi", "Yuri", "Yuriko", "Yuuto"],
+    "middles": ["chi", "hiko", "hiro", "ji", "ka", "ki", "ko", "kura", "ma", "mi", "na", "ne", "no", "ra", "ri", "ro", "ryu", "shi", "suke", "ta", "to", "ya", "yo", "yu", "yuki", "za"],
+    "suffixes": ["chi", "e", "go", "hi", "hiko", "hiro", "ji", "jo", "ka", "ki", "ko", "kura", "ma", "maru", "masa", "me", "mi", "miko", "na", "ne", "no", "nori", "ra", "ri", "ro", "roku", "ryu", "saburo", "shi", "shiro", "suke", "ta", "taro", "to", "toshi", "ya", "yama", "yo", "yori", "yoshi", "yuki", "yuko"]
   },
-  "lastNames": ["Foxfire", "Moonpaw", "Silvertail", "Spiritfox", "Starwhisker"],
-  "lastNamePrefixes": ["Fox", "Moon", "Silver", "Spirit", "Star"],
-  "lastNameSuffixes": ["fire", "paw", "tail", "whisker"]
+  "lastNames": ["Akatsuki", "Amaterasu", "Foxfire", "Hoshikage", "Inari", "Kitsunezaki", "Moonpaw", "Moonshadow", "Silverfox", "Silvertail", "Spiritfox", "Starwhisker", "Tsukikage", "Yumekage"],
+  "lastNamePrefixes": ["Aka", "Ama", "Fox", "Hoshi", "Inari", "Kage", "Kitsune", "Moon", "Shadow", "Silver", "Spirit", "Star", "Tsuki", "Yume"],
+  "lastNameSuffixes": ["fire", "kage", "kaze", "paw", "spirit", "tail", "whisker", "yume", "zaki"]
 }
