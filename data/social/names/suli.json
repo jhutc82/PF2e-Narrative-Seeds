@@ -10,18 +10,18 @@
     "3": 40
   },
   "male": {
-    "prefixes": ["Adal", "Amir", "Farid", "Hasan", "Karim", "Malik", "Omar", "Rashid", "Salim", "Zahir"],
-    "middles": ["al", "ar", "id", "im", "ir", "ud"],
-    "suffixes": ["ad", "al", "an", "ar", "id", "im", "ir", "ud"]
+    "prefixes": ["Abad", "Adal", "Adil", "Ahmad", "Akram", "Amir", "Anwar", "Arif", "Asad", "Asim", "Ayyub", "Aziz", "Basil", "Bilal", "Dabir", "Daud", "Fahad", "Fahim", "Faisal", "Farid", "Faris", "Fuad", "Ghalib", "Habib", "Hafiz", "Hakeem", "Halim", "Hamid", "Hasan", "Hashim", "Husam", "Ibrahim", "Idris", "Imran", "Irfan", "Ismail", "Jaber", "Jabir", "Jalal", "Jamal", "Kadir", "Kamal", "Kamil", "Karim", "Khalid", "Latif", "Luqman", "Mahdi", "Mahmud", "Majid", "Malik", "Mansur", "Marwan", "Masud", "Mubarak", "Musa", "Mustafa", "Nadir", "Najib", "Nasir", "Nizam", "Nuri", "Omar", "Qasim", "Rafi", "Raheem", "Rahim", "Rashid", "Riyad", "Sabir", "Sadiq", "Saeed", "Safir", "Sajid", "Salah", "Salim", "Salman", "Samir", "Shakir", "Sharif", "Suhail", "Tahir", "Talib", "Tariq", "Tawfiq", "Umar", "Usama", "Wali", "Walid", "Yasir", "Yusuf", "Zafar", "Zahid", "Zahir", "Zain", "Zaki", "Zayd"],
+    "middles": ["ad", "al", "ar", "id", "im", "ir", "man", "ud"],
+    "suffixes": ["ad", "al", "an", "ar", "eem", "id", "il", "im", "ir", "iq", "is", "ub", "ud", "um", "us"]
   },
   "female": {
-    "prefixes": ["Amara", "Farah", "Hala", "Jasmin", "Layla", "Malika", "Nadia", "Rasha", "Salima", "Zahira"],
-    "middles": ["ar", "ha", "la", "ma", "ra"],
-    "suffixes": ["a", "ah", "ara", "ha", "la", "ma", "ra"]
+    "prefixes": ["Aaliyah", "Adila", "Aisha", "Alima", "Amara", "Amina", "Anisa", "Arifa", "Asma", "Aziza", "Basima", "Dalal", "Dalia", "Farah", "Farida", "Fatima", "Habiba", "Hadia", "Hafsa", "Hala", "Halima", "Hanifa", "Hasna", "Hoda", "Iman", "Inaya", "Jalila", "Jamila", "Jasmin", "Jenna", "Khadija", "Karima", "Latifa", "Layla", "Leila", "Lubna", "Madiha", "Mahira", "Maimuna", "Malak", "Malika", "Mariam", "Maryam", "Nabila", "Nadia", "Naima", "Najla", "Nasima", "Nasrin", "Noor", "Nura", "Qasima", "Rabiah", "Radia", "Rahima", "Rajiya", "Rana", "Rania", "Rasha", "Rida", "Sabah", "Sabiha", "Safiya", "Safa", "Sahar", "Sahira", "Saida", "Salima", "Salma", "Samira", "Sana", "Shadia", "Shakira", "Sharifa", "Sumaya", "Tahira", "Tasneem", "Wafa", "Warda", "Yasmin", "Zahra", "Zahira", "Zaina", "Zara", "Zaria", "Zuhra"],
+    "middles": ["ah", "ar", "ha", "ida", "ima", "la", "ma", "na", "ra", "ya"],
+    "suffixes": ["a", "ah", "ara", "ema", "ha", "ida", "ifa", "ima", "ina", "la", "ma", "na", "ra", "ya"]
   },
   "nonbinary": {
-    "prefixes": ["Adal", "Amir", "Amara", "Farah", "Hasan", "Jasmin", "Karim", "Layla", "Salim", "Zahir"],
-    "middles": ["al", "ar", "ha", "id", "la", "ma", "ra", "ud"],
-    "suffixes": ["a", "ad", "al", "an", "ar", "ha", "id", "la", "ma", "ra", "ud"]
+    "prefixes": ["Abad", "Aaliyah", "Adal", "Adila", "Adil", "Ahmad", "Aisha", "Akram", "Alima", "Amara", "Amir", "Amina", "Anisa", "Anwar", "Arif", "Arifa", "Asad", "Asim", "Asma", "Ayyub", "Aziz", "Aziza", "Basil", "Basima", "Bilal", "Dabir", "Dalal", "Dalia", "Daud", "Fahad", "Fahim", "Faisal", "Farah", "Farid", "Farida", "Faris", "Fatima", "Fuad", "Ghalib", "Habib", "Habiba", "Hadia", "Hafiz", "Hafsa", "Hakeem", "Hala", "Halim", "Halima", "Hamid", "Hanifa", "Hasan", "Hasna", "Hashim", "Hoda", "Husam", "Ibrahim", "Idris", "Iman", "Imran", "Inaya", "Irfan", "Ismail", "Jaber", "Jabir", "Jalal", "Jalila", "Jamal", "Jamila", "Jasmin", "Jenna", "Kadir", "Khadija", "Kamal", "Kamil", "Karim", "Karima", "Khalid", "Latif", "Latifa", "Layla", "Leila", "Lubna", "Luqman", "Madiha", "Mahdi", "Mahira", "Mahmud", "Maimuna", "Majid", "Malak", "Malik", "Malika", "Mansur", "Mariam", "Marwan", "Maryam", "Masud", "Mubarak", "Musa", "Mustafa"],
+    "middles": ["ad", "ah", "al", "ar", "ha", "id", "ida", "im", "ima", "ir", "la", "ma", "man", "na", "ra", "ud", "ya"],
+    "suffixes": ["a", "ad", "ah", "al", "an", "ar", "ara", "eem", "ema", "ha", "id", "ida", "ifa", "il", "im", "ima", "in", "ina", "ir", "iq", "is", "la", "ma", "na", "ra", "ub", "ud", "um", "us", "ya"]
   }
 }

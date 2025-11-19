@@ -10,18 +10,18 @@
     "3": 40
   },
   "male": {
-    "prefixes": ["Aer", "Breeze", "Cirr", "Gale", "Nim", "Sky", "Tempest", "Ven", "Whis", "Zeph"],
-    "middles": ["an", "ar", "el", "ian", "on", "or"],
-    "suffixes": ["an", "ar", "el", "ian", "is", "on", "or", "us", "yr"]
+    "prefixes": ["Aeol", "Aer", "Aeran", "Aerion", "Aeris", "Aeron", "Aether", "Airan", "Airen", "Airus", "Altair", "Anemo", "Astra", "Auram", "Aurel", "Auster", "Boreas", "Breez", "Breeze", "Caelan", "Caelus", "Cirr", "Cirran", "Cirrus", "Cloudan", "Cumul", "Cyclon", "Darion", "Drift", "Dryan", "Eurus", "Gale", "Galen", "Gust", "Gustus", "Levian", "Liron", "Mistral", "Nebul", "Nim", "Nimban", "Nimbus", "Notos", "Nubian", "Nubis", "Nyan", "Orion", "Quilan", "Rael", "Raen", "Railan", "Raion", "Raiven", "Sirocco", "Skyan", "Sky", "Skylar", "Skyran", "Skyron", "Soar", "Stratos", "Talon", "Talyn", "Tempest", "Terran", "Tiran", "Typhon", "Tyran", "Vael", "Valan", "Varen", "Varian", "Ven", "Venar", "Ventus", "Vern", "Vian", "Viren", "Volus", "Voran", "Vyen", "Vylan", "Waven", "Whirl", "Whis", "Whispar", "Winden", "Windus", "Wyan", "Wylan", "Wynd", "Xephyr", "Yoran", "Zech", "Zeph", "Zephan", "Zephir", "Zephyr", "Zephyrus", "Zylan", "Zyndal"],
+    "middles": ["an", "ar", "el", "en", "ian", "ir", "lan", "on", "or", "ran", "ron", "van", "ven", "yan"],
+    "suffixes": ["an", "ar", "el", "en", "ian", "ir", "is", "lan", "on", "or", "ran", "ron", "rus", "us", "van", "ven", "yan", "yr"]
   },
   "female": {
-    "prefixes": ["Aera", "Breeza", "Cirra", "Galea", "Nimba", "Skya", "Tempesta", "Vena", "Whisa", "Zepha"],
-    "middles": ["an", "ar", "el", "ia", "ra"],
-    "suffixes": ["a", "ana", "ara", "ela", "ia", "ina", "ra"]
+    "prefixes": ["Aeola", "Aera", "Aerana", "Aeriana", "Aeris", "Aerona", "Aethera", "Airana", "Airena", "Airus", "Altaira", "Anema", "Astra", "Aura", "Aurela", "Austera", "Boreasa", "Breeza", "Breeze", "Caelana", "Caela", "Cirra", "Cirrana", "Cirrus", "Cloudana", "Cumula", "Cyclona", "Daria", "Drifta", "Dryana", "Eurusa", "Galea", "Galena", "Gusta", "Gustara", "Leviana", "Lirana", "Mistra", "Nebula", "Nimba", "Nimbana", "Nimbus", "Notosa", "Nubiana", "Nubis", "Nyana", "Oriana", "Quilana", "Raela", "Raena", "Railana", "Raiana", "Raivena", "Sirocca", "Skyana", "Skya", "Skylara", "Skyrana", "Skyrona", "Soara", "Stratos", "Talona", "Talyna", "Tempesta", "Terrana", "Tirana", "Typhona", "Tyrana", "Vaela", "Valana", "Varena", "Variana", "Vena", "Venara", "Ventusa", "Verna", "Viana", "Virena", "Volusa", "Vorana", "Vyena", "Vylana", "Wavena", "Whirla", "Whisa", "Whispara", "Windena", "Windusa", "Wyana", "Wylana", "Wynda", "Xephyra", "Yorana", "Zecha", "Zepha", "Zephana", "Zephira", "Zephyra", "Zephyrus", "Zylana", "Zyndala"],
+    "middles": ["an", "ana", "ara", "ela", "en", "ena", "ia", "iana", "ina", "la", "lana", "ra", "ran", "ren", "vana", "vena", "yana"],
+    "suffixes": ["a", "ana", "ara", "ela", "ena", "ia", "iana", "ina", "la", "lana", "na", "ra", "ran", "ren", "rus", "us", "vana", "vena", "yana"]
   },
   "nonbinary": {
-    "prefixes": ["Aer", "Breeze", "Cirr", "Gale", "Nimb", "Sky", "Tempest", "Ven", "Whis", "Zeph"],
-    "middles": ["an", "ar", "el", "ia", "on", "ra"],
-    "suffixes": ["a", "an", "ar", "el", "ia", "ian", "is", "on", "ra", "yr"]
+    "prefixes": ["Aeol", "Aeola", "Aer", "Aera", "Aeran", "Aerana", "Aerion", "Aeriana", "Aeris", "Aeron", "Aerona", "Aether", "Aethera", "Airan", "Airana", "Airen", "Airena", "Airus", "Altair", "Altaira", "Anemo", "Anema", "Astra", "Aura", "Auram", "Aurel", "Aurela", "Auster", "Austera", "Boreas", "Boreasa", "Breez", "Breeza", "Breeze", "Caelan", "Caelana", "Caelus", "Caela", "Cirr", "Cirra", "Cirran", "Cirrana", "Cirrus", "Cloudan", "Cloudana", "Cumul", "Cumula", "Cyclon", "Cyclona", "Darion", "Daria", "Drift", "Drifta", "Dryan", "Dryana", "Eurus", "Eurusa", "Gale", "Galea", "Galen", "Galena", "Gust", "Gusta", "Gustus", "Gustara", "Levian", "Leviana", "Liron", "Lirana", "Mistral", "Mistra", "Nebul", "Nebula", "Nim", "Nimba", "Nimban", "Nimbana", "Nimbus", "Notos", "Notosa", "Nubian", "Nubiana", "Nubis", "Nyan", "Nyana", "Orion", "Oriana", "Quilan", "Quilana", "Rael", "Raela", "Raen", "Raena", "Railan", "Railana", "Raion", "Raiana", "Raiven", "Raivena", "Sirocco", "Sirocca", "Skyan", "Skyana", "Sky", "Skya", "Skylar", "Skylara", "Skyran", "Skyrana"],
+    "middles": ["an", "ana", "ar", "ara", "el", "ela", "en", "ena", "ia", "ian", "iana", "in", "ina", "ir", "la", "lan", "lana", "on", "or", "ra", "ran", "ren", "ron", "van", "vana", "ven", "vena", "yan", "yana"],
+    "suffixes": ["a", "an", "ana", "ar", "ara", "el", "ela", "en", "ena", "ia", "ian", "iana", "in", "ina", "ir", "is", "la", "lan", "lana", "na", "on", "or", "ra", "ran", "ren", "ron", "rus", "us", "van", "vana", "ven", "vena", "yan", "yana", "yr"]
   }
 }

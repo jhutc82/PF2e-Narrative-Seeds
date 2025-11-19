@@ -10,18 +10,18 @@
     "3": 40
   },
   "male": {
-    "prefixes": ["Ash", "Azur", "Djal", "Ember", "Ignis", "Khal", "Naar", "Pyre", "Rash", "Zahir"],
-    "middles": ["ar", "ash", "ir", "ral", "zar"],
-    "suffixes": ["ak", "an", "ar", "ash", "ir", "is", "ral", "us", "zar"]
+    "prefixes": ["Adar", "Adhar", "Afrit", "Agni", "Ahmar", "Anar", "Ash", "Ashar", "Ashir", "Ashkan", "Atar", "Atesh", "Azad", "Azar", "Azir", "Azur", "Bahram", "Blaze", "Brand", "Darius", "Djal", "Djinn", "Ember", "Farid", "Faris", "Feral", "Feroz", "Firash", "Firuz", "Flam", "Ghazi", "Hakan", "Hamza", "Hassan", "Hazar", "Hural", "Idris", "Ifran", "Ignar", "Ignis", "Ismail", "Jalal", "Kadar", "Kadir", "Kamran", "Karash", "Karim", "Kasim", "Khal", "Khalid", "Malik", "Nadir", "Naar", "Namar", "Nizar", "Omar", "Pyre", "Qadir", "Rash", "Rashid", "Razar", "Razir", "Reza", "Sahar", "Sahir", "Saif", "Salim", "Sameer", "Sardar", "Sarin", "Shahin", "Shakir", "Sharif", "Tamir", "Tariq", "Tazar", "Umar", "Yazan", "Yasir", "Zahir", "Zafar", "Zafir", "Zaid", "Zaki", "Zamir", "Zarak", "Zarif", "Zarrar", "Zayan", "Zephir", "Zoral", "Zuhar", "Ashmar", "Ashral", "Ataral", "Azaral", "Djalar", "Djinnar", "Embral", "Ferazir", "Firazar", "Flamar", "Ignazar", "Kharal", "Namarzir", "Pyrazir", "Rashazar", "Zahirak"],
+    "middles": ["ad", "al", "ar", "ash", "dar", "far", "id", "im", "ir", "iz", "kal", "mar", "ral", "zar", "zir"],
+    "suffixes": ["ad", "ak", "al", "an", "ar", "ash", "dar", "far", "id", "il", "im", "ir", "is", "iz", "kal", "mar", "ral", "ud", "us", "zar", "zir"]
   },
   "female": {
-    "prefixes": ["Asha", "Azura", "Djala", "Embera", "Igna", "Khala", "Naara", "Pyra", "Rasha", "Zahira"],
-    "middles": ["ar", "ira", "la", "ra", "sha"],
-    "suffixes": ["a", "ara", "ira", "is", "la", "ra", "sha"]
+    "prefixes": ["Adara", "Adhara", "Afrita", "Agna", "Ahmara", "Anara", "Asha", "Ashara", "Ashira", "Ashkana", "Atara", "Atesha", "Azada", "Azara", "Azira", "Azura", "Bahira", "Blazea", "Branda", "Daria", "Djala", "Djinna", "Embera", "Farida", "Farisa", "Ferala", "Feroza", "Firasha", "Firuza", "Flama", "Ghazia", "Hakana", "Hamira", "Hassana", "Hazara", "Hurala", "Idrisa", "Ifrana", "Ignara", "Igna", "Ismaila", "Jalala", "Kadara", "Kadira", "Kamrana", "Karasha", "Karima", "Kasima", "Khala", "Khalida", "Malika", "Nadira", "Naara", "Namara", "Nizara", "Omara", "Pyra", "Qadira", "Rasha", "Rashida", "Razara", "Razira", "Reza", "Sahara", "Sahira", "Saifa", "Salima", "Sameera", "Sardara", "Sarina", "Shahina", "Shakira", "Sharifa", "Tamira", "Tariqa", "Tazara", "Umara", "Yazana", "Yasira", "Zahira", "Zafara", "Zafira", "Zaida", "Zakia", "Zamira", "Zaraka", "Zarifa", "Zarrara", "Zayana", "Zephira", "Zorala", "Zuhara", "Ashmara", "Ashrala", "Atarala", "Azarala", "Djalara", "Djinnara", "Embrala", "Ferazira", "Firazara", "Flamara", "Ignazara", "Kharala", "Namarzira", "Pyrazira", "Rashazara", "Zahiraka"],
+    "middles": ["ad", "ara", "ha", "ida", "ira", "la", "ma", "ra", "sha", "za", "zira"],
+    "suffixes": ["a", "ad", "ah", "ara", "ha", "ida", "ila", "ima", "ina", "ira", "is", "isha", "la", "ma", "ra", "sha", "za", "zira"]
   },
   "nonbinary": {
-    "prefixes": ["Ash", "Azur", "Djal", "Ember", "Ignis", "Khal", "Naar", "Pyre", "Rash", "Zahir"],
-    "middles": ["ar", "ash", "ir", "la", "ra", "zar"],
-    "suffixes": ["a", "ak", "an", "ar", "ash", "ir", "is", "la", "ra", "zar"]
+    "prefixes": ["Adar", "Adara", "Adhar", "Adhara", "Afrit", "Afrita", "Agni", "Agna", "Ahmar", "Ahmara", "Anar", "Anara", "Ash", "Asha", "Ashar", "Ashara", "Ashir", "Ashira", "Ashkan", "Ashkana", "Atar", "Atara", "Atesh", "Atesha", "Azad", "Azada", "Azar", "Azara", "Azir", "Azira", "Azur", "Azura", "Bahram", "Bahira", "Blaze", "Blazea", "Brand", "Branda", "Darius", "Daria", "Djal", "Djala", "Djinn", "Djinna", "Ember", "Embera", "Farid", "Farida", "Faris", "Farisa", "Feral", "Ferala", "Feroz", "Feroza", "Firash", "Firasha", "Firuz", "Firuza", "Flam", "Flama", "Ghazi", "Ghazia", "Hakan", "Hakana", "Hamza", "Hamira", "Hassan", "Hassana", "Hazar", "Hazara", "Hural", "Hurala", "Idris", "Idrisa", "Ifran", "Ifrana", "Ignar", "Ignara", "Ignis", "Igna", "Ismail", "Ismaila", "Jalal", "Jalala", "Kadar", "Kadara", "Kadir", "Kadira", "Kamran", "Kamrana", "Karash", "Karasha", "Karim", "Karima", "Kasim", "Kasima", "Khal", "Khala", "Khalid", "Khalida"],
+    "middles": ["ad", "al", "ar", "ara", "ash", "dar", "far", "ha", "id", "im", "ir", "ira", "iz", "la", "ma", "ral", "ra", "sha", "za", "zar", "zir", "zira"],
+    "suffixes": ["a", "ad", "ah", "ak", "al", "an", "ar", "ara", "ash", "dar", "far", "ha", "id", "ida", "il", "ila", "im", "ima", "in", "ina", "ir", "ira", "is", "isha", "iz", "la", "ma", "ral", "ra", "sha", "ud", "us", "za", "zar", "zir", "zira"]
   }
 }

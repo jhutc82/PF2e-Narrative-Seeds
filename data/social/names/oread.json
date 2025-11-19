@@ -10,18 +10,18 @@
     "3": 30
   },
   "male": {
-    "prefixes": ["Basalt", "Crag", "Flint", "Gron", "Kron", "Obsid", "Quartz", "Shard", "Slate", "Stone"],
-    "middles": ["ar", "en", "ian", "on", "or"],
-    "suffixes": ["an", "ar", "en", "ian", "on", "or", "us"]
+    "prefixes": ["Agat", "Alabast", "Andesit", "Argil", "Basalt", "Beryl", "Boron", "Boulder", "Bronz", "Calcar", "Carbon", "Chert", "Clay", "Coal", "Cobalt", "Copper", "Crag", "Crystal", "Diabas", "Diamond", "Diorit", "Dolomit", "Feldspar", "Flint", "Gabbro", "Garnet", "Gemm", "Gneiss", "Granite", "Graphit", "Gravel", "Gron", "Hornblend", "Iron", "Jasper", "Kaolin", "Kron", "Lapis", "Lead", "Limestone", "Magma", "Malachit", "Marble", "Mica", "Mineral", "Nickel", "Obsid", "Onyx", "Opal", "Pebbl", "Pumice", "Pyrit", "Quartz", "Rhyolit", "Ruby", "Sandston", "Sapphir", "Schist", "Shale", "Shard", "Silica", "Silv", "Slate", "Steel", "Stone", "Titan", "Topaz", "Tungsten", "Turquois", "Zinc", "Zircon", "Adamant", "Alabaster", "Andesite", "Argillite", "Beryllium", "Bronzite", "Calcite", "Chromite", "Cinnabar", "Diorite", "Dolomite", "Emerald", "Gabbron", "Graphite", "Halite", "Hematite", "Hornblende", "Magnetite", "Malachite", "Manganese", "Marcasite", "Molybden", "Nephrite", "Olivine", "Peridot", "Phosphor", "Pyrite", "Rhyolite", "Serpentin", "Siderite", "Sphalerite", "Staurolite", "Stibnite", "Talc"],
+    "middles": ["ar", "en", "ian", "in", "it", "on", "or", "ron", "ton"],
+    "suffixes": ["an", "ar", "en", "ian", "in", "ion", "it", "ite", "on", "or", "ron", "ton", "um", "us"]
   },
   "female": {
-    "prefixes": ["Ameth", "Basalta", "Craga", "Flinta", "Gema", "Jade", "Obsida", "Quartza", "Sharda", "Stonea"],
-    "middles": ["ar", "en", "ia", "ra"],
-    "suffixes": ["a", "ara", "ena", "ia", "ina", "ra"]
+    "prefixes": ["Agata", "Alabasta", "Andesita", "Argila", "Basalta", "Beryla", "Borona", "Bouldera", "Bronza", "Calcara", "Carbona", "Cherta", "Claya", "Coala", "Cobalta", "Coppera", "Craga", "Crysta", "Diabasa", "Diamonda", "Diorita", "Dolomita", "Feldspara", "Flinta", "Gabbra", "Garneta", "Gemma", "Gneissa", "Granita", "Graphita", "Gravela", "Grona", "Hornblenda", "Irona", "Jaspera", "Kaolina", "Krona", "Lapisa", "Leada", "Limestona", "Magma", "Malachita", "Marbla", "Micah", "Minerala", "Nickela", "Obsida", "Onyxa", "Opala", "Pebbla", "Pumica", "Pyrita", "Quartza", "Rhyolita", "Rubya", "Sandstona", "Sapphira", "Schista", "Shala", "Sharda", "Silica", "Silva", "Slatea", "Steela", "Stonea", "Titana", "Topaza", "Tungstena", "Turquoisa", "Zinca", "Zircona", "Adamanta", "Alabastera", "Andesitea", "Argillita", "Beryllia", "Bronzita", "Calcita", "Chromita", "Cinnabara", "Diorita", "Dolomitea", "Emeralda", "Gabbrona", "Graphita", "Halita", "Hematita", "Hornblenda", "Magnetita", "Malachita", "Manganesa", "Marcasita", "Molybdena", "Nephrita", "Olivina", "Peridota", "Phosphora", "Pyrita", "Rhyolita", "Serpentina", "Siderita", "Sphalerita", "Staurolita", "Stibnita", "Talca"],
+    "middles": ["ara", "ena", "ia", "ina", "ita", "ona", "ra"],
+    "suffixes": ["a", "ara", "ena", "ia", "ina", "ita", "ona", "ra"]
   },
   "nonbinary": {
-    "prefixes": ["Ameth", "Basalt", "Crag", "Flint", "Gem", "Jade", "Obsid", "Quartz", "Shard", "Stone"],
-    "middles": ["ar", "en", "ia", "on", "ra"],
-    "suffixes": ["a", "an", "ar", "en", "ia", "ian", "on", "ra", "us"]
+    "prefixes": ["Agat", "Agata", "Alabast", "Alabasta", "Andesit", "Andesita", "Argil", "Argila", "Basalt", "Basalta", "Beryl", "Beryla", "Boron", "Borona", "Boulder", "Bouldera", "Bronz", "Bronza", "Calcar", "Calcara", "Carbon", "Carbona", "Chert", "Cherta", "Clay", "Claya", "Coal", "Coala", "Cobalt", "Cobalta", "Copper", "Coppera", "Crag", "Craga", "Crystal", "Crysta", "Diabas", "Diabasa", "Diamond", "Diamonda", "Diorit", "Diorita", "Dolomit", "Dolomita", "Feldspar", "Feldspara", "Flint", "Flinta", "Gabbro", "Gabbra", "Garnet", "Garneta", "Gem", "Gemma", "Gneiss", "Gneissa", "Granite", "Granita", "Graphit", "Graphita", "Gravel", "Gravela", "Gron", "Grona", "Hornblend", "Hornblenda", "Iron", "Irona", "Jade", "Jasper", "Jaspera", "Kaolin", "Kaolina", "Kron", "Krona", "Lapis", "Lapisa", "Lead", "Leada", "Limestone", "Limestona", "Magma", "Malachit", "Malachita", "Marble", "Marbla", "Mica", "Micah", "Mineral", "Minerala", "Nickel", "Nickela", "Obsid", "Obsida", "Onyx", "Onyxa", "Opal", "Opala"],
+    "middles": ["ar", "ara", "en", "ena", "ia", "ian", "in", "ina", "it", "ita", "on", "ona", "or", "ra", "ron", "ton"],
+    "suffixes": ["a", "an", "ar", "ara", "en", "ena", "ia", "ian", "in", "ina", "ion", "it", "ita", "ite", "on", "ona", "or", "ra", "ron", "ton", "um", "us"]
   }
 }

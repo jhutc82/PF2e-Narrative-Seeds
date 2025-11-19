@@ -10,18 +10,18 @@
     "3": 40
   },
   "male": {
-    "prefixes": ["Aquil", "Corel", "Dylan", "Hydor", "Mer", "Nept", "Ocean", "River", "Tide", "Wavel"],
-    "middles": ["an", "ar", "en", "ian", "on", "or"],
-    "suffixes": ["an", "ar", "el", "en", "ian", "is", "on", "or", "us"]
+    "prefixes": ["Aquan", "Aquil", "Aquilon", "Azul", "Brook", "Caerul", "Cascade", "Corel", "Coren", "Corian", "Current", "Delmar", "Delta", "Depth", "Dilan", "Dylan", "Ebben", "Edden", "Fin", "Finnan", "Flux", "Foss", "Fount", "Galvan", "Gulf", "Harbor", "Hydor", "Hydran", "Hydren", "Kai", "Kalan", "Kalder", "Kaspian", "Keldan", "Kellen", "Lir", "Liran", "Liron", "Loch", "Lokan", "Maren", "Marin", "Marlen", "Mer", "Meran", "Merlin", "Miran", "Morian", "Nalin", "Naren", "Nautic", "Nept", "Neptun", "Nerian", "Ocean", "Ocelar", "Ocenan", "Ondine", "Pelan", "Perel", "Pool", "Pondan", "Rapid", "Rellen", "River", "Rivern", "Roan", "Salen", "Saren", "Serran", "Shoren", "Solan", "Sorel", "Soren", "Stream", "Taelan", "Talan", "Taren", "Thal", "Thalan", "Thalor", "Tide", "Tidan", "Tiran", "Torin", "Torren", "Trent", "Trian", "Triton", "Vael", "Valan", "Varen", "Vell", "Vellan", "Waden", "Walan", "Warden", "Watel", "Wave", "Wavel", "Waven", "Yaren", "Zalen", "Zaran", "Zoren"],
+    "middles": ["an", "ar", "el", "en", "ian", "il", "ir", "lan", "len", "lin", "on", "or", "ran", "ren", "van", "ven"],
+    "suffixes": ["an", "ar", "el", "en", "er", "ian", "il", "in", "ir", "is", "lan", "len", "lin", "lon", "on", "or", "ran", "ren", "ron", "us", "van", "ven", "von"]
   },
   "female": {
-    "prefixes": ["Aquila", "Corela", "Dylana", "Hydra", "Mera", "Nepta", "Oceana", "Rivera", "Tidea", "Wavela"],
-    "middles": ["an", "el", "en", "ia", "la", "ra"],
-    "suffixes": ["a", "ana", "ara", "ela", "ena", "ia", "ina", "la", "ra"]
+    "prefixes": ["Aquana", "Aquila", "Aquilona", "Azula", "Brooke", "Caerula", "Cascada", "Corela", "Corena", "Coriana", "Currenta", "Delmara", "Delta", "Deptha", "Dilana", "Dylana", "Ebbena", "Eddena", "Fina", "Finnana", "Fluxa", "Fossa", "Founta", "Galvana", "Gulfa", "Harbora", "Hydra", "Hydrana", "Hydrena", "Kaia", "Kalana", "Kaldera", "Kaspiana", "Keldana", "Kellena", "Lira", "Lirana", "Lirona", "Locha", "Lokana", "Marena", "Marina", "Marlena", "Mera", "Merana", "Merlina", "Mirana", "Moriana", "Nalina", "Narena", "Nautica", "Nepta", "Neptuna", "Neriana", "Oceana", "Ocelara", "Ocenana", "Ondina", "Pelana", "Perela", "Poola", "Pondana", "Rapida", "Rellena", "Rivera", "Riverna", "Roana", "Salena", "Sarena", "Serrana", "Shorena", "Solana", "Sorela", "Sorena", "Streama", "Taelana", "Talana", "Tarena", "Thala", "Thalana", "Thalora", "Tidea", "Tidana", "Tirana", "Torina", "Torrena", "Trenta", "Triana", "Tritona", "Vaela", "Valana", "Varena", "Vella", "Vellana", "Wadena", "Walana", "Wardena", "Watela", "Wavea", "Wavela", "Wavena", "Yarena", "Zalena", "Zarana", "Zorena"],
+    "middles": ["al", "ana", "ara", "ela", "en", "ena", "ia", "iana", "ila", "ina", "la", "lan", "lana", "lena", "na", "ra", "ran", "rena", "vana", "vena"],
+    "suffixes": ["a", "al", "ana", "ara", "ela", "en", "ena", "era", "ia", "iana", "ila", "in", "ina", "ira", "la", "lan", "lana", "lena", "lina", "na", "nara", "ra", "ran", "rana", "rena", "rina", "va", "vana", "vena"]
   },
   "nonbinary": {
-    "prefixes": ["Aquil", "Corel", "Dylan", "Hydor", "Mer", "Nept", "Ocean", "River", "Tide", "Wavel"],
-    "middles": ["an", "el", "en", "ia", "on", "ra"],
-    "suffixes": ["a", "an", "ar", "el", "en", "ia", "ian", "is", "on", "ra", "us"]
+    "prefixes": ["Aquan", "Aquana", "Aquil", "Aquila", "Aquilon", "Aquilona", "Azul", "Azula", "Brook", "Brooke", "Caerul", "Caerula", "Cascade", "Cascada", "Corel", "Corela", "Coren", "Corena", "Corian", "Coriana", "Current", "Currenta", "Delmar", "Delmara", "Delta", "Depth", "Deptha", "Dilan", "Dilana", "Dylan", "Dylana", "Ebben", "Ebbena", "Edden", "Eddena", "Fin", "Fina", "Finnan", "Finnana", "Flux", "Fluxa", "Foss", "Fossa", "Fount", "Founta", "Galvan", "Galvana", "Gulf", "Gulfa", "Harbor", "Harbora", "Hydor", "Hydra", "Hydran", "Hydrana", "Hydren", "Hydrena", "Kai", "Kaia", "Kalan", "Kalana", "Kalder", "Kaldera", "Kaspian", "Kaspiana", "Keldan", "Keldana", "Kellen", "Kellena", "Lir", "Lira", "Liran", "Lirana", "Liron", "Lirona", "Loch", "Locha", "Lokan", "Lokana", "Maren", "Marena", "Marin", "Marina", "Marlen", "Marlena", "Mer", "Mera", "Meran", "Merana", "Merlin", "Merlina", "Miran", "Mirana", "Morian", "Moriana", "Nalin", "Nalina", "Naren", "Narena", "Nautic", "Nautica", "Nept", "Nepta", "Neptun", "Neptuna"],
+    "middles": ["al", "an", "ana", "ar", "ara", "el", "ela", "en", "ena", "er", "ia", "ian", "iana", "il", "ila", "in", "ina", "ir", "la", "lan", "lana", "len", "lena", "lin", "na", "on", "or", "ra", "ran", "rena", "ren", "van", "vana", "ven", "vena"],
+    "suffixes": ["a", "al", "an", "ana", "ar", "ara", "el", "ela", "en", "ena", "er", "era", "ia", "ian", "iana", "il", "ila", "in", "ina", "ir", "ira", "is", "la", "lan", "lana", "len", "lena", "lin", "lina", "lon", "na", "nara", "on", "or", "ra", "ran", "rana", "ren", "rena", "rina", "ron", "us", "va", "vana", "van", "ven", "vena", "von"]
   }
 }
