@@ -343,25 +343,40 @@ export class CombatFormatter {
   static copyToClipboard(text) {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(text).then(() => {
-        ui.notifications.info("Copied to clipboard!");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.info("Copied to clipboard!");
+        }
       }).catch(err => {
         console.error("Failed to copy:", err);
-        ui.notifications.error("Failed to copy to clipboard");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.error("Failed to copy to clipboard");
+        }
       });
     } else {
       // Fallback for older browsers
       const textArea = document.createElement("textarea");
       textArea.value = text;
-      document.body.appendChild(textArea);
-      textArea.select();
+      textArea.style.position = 'fixed';
+      textArea.style.opacity = '0';
+
       try {
+        document.body.appendChild(textArea);
+        textArea.select();
         document.execCommand('copy');
-        ui.notifications.info("Copied to clipboard!");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.info("Copied to clipboard!");
+        }
       } catch (err) {
         console.error("Failed to copy:", err);
-        ui.notifications.error("Failed to copy to clipboard");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.error("Failed to copy to clipboard");
+        }
+      } finally {
+        // Safely remove textArea even if appendChild failed
+        if (textArea.parentNode) {
+          document.body.removeChild(textArea);
+        }
       }
-      document.body.removeChild(textArea);
     }
   }
 }
