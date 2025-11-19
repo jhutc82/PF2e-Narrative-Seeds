@@ -262,7 +262,7 @@ export class SkillHooks {
 
     // Get actor (person performing action)
     let actor = null;
-    if (message.speaker?.actor) {
+    if (message.speaker?.actor && game?.actors) {
       actor = game.actors.get(message.speaker.actor);
     }
     if (!actor && message.speaker?.token) {
@@ -273,7 +273,7 @@ export class SkillHooks {
     // Get target (if applicable)
     let target = null;
     if (context.target) {
-      if (context.target.actor) {
+      if (context.target.actor && game?.actors) {
         target = game.actors.get(context.target.actor);
       } else if (context.target.token) {
         const token = canvas.tokens?.get(context.target.token);

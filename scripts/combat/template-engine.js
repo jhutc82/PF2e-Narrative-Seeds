@@ -16,7 +16,8 @@ export class TemplateEngine {
    * @returns {Object} Selected template object
    */
   static selectTemplate(templates, varietyMode, category) {
-    if (!templates || templates.length === 0) {
+    // Validate templates is an array
+    if (!templates || !Array.isArray(templates) || templates.length === 0) {
       return { pattern: "${opening} ${verb} their ${location}. ${effect}", weight: 10, grammar: "standard" };
     }
 
