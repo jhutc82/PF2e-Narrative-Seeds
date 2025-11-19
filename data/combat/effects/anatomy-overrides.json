@@ -9,7 +9,12 @@
       "The ancient bones crumble under the tremendous force!",
       "The skeleton's framework collapses inward!",
       "Vertebrae shatter in a cascading failure!",
-      "The skeletal structure suffers catastrophic damage!"
+      "The skeletal structure suffers catastrophic damage!",
+      "The skull cracks down the middle with a sickening sound!",
+      "Entire sections of ribcage collapse inward!",
+      "The skeletal hands shatter into bone dust!",
+      "Jawbone detaches and clatters to the ground!",
+      "Hip bones fracture and the skeleton nearly collapses!"
     ],
     "success": [
       "Bone chips fly from the impact.",
@@ -18,10 +23,13 @@
       "Bones rattle from the forceful blow.",
       "A rib cracks audibly.",
       "The skeleton's frame shudders from the impact.",
-      "Bone dust puffs from the strike zone."
+      "Bone dust puffs from the strike zone.",
+      "A femur develops a hairline fracture.",
+      "Finger bones chip and crack.",
+      "The skull shows a new fissure.",
+      "Shoulder bones grind against each other."
     ]
   },
-
   "incorporeal": {
     "criticalSuccess": [
       "The spectral form flickers and destabilizes dramatically!",
@@ -40,7 +48,6 @@
       "The spirit's cohesion weakens momentarily."
     ]
   },
-
   "construct": {
     "criticalSuccess": [
       "Gears and mechanisms scatter as the construct's chassis ruptures!",
@@ -49,7 +56,12 @@
       "Internal components explode outward!",
       "The construct's core mechanism shatters!",
       "Magical energy arcs wildly from the damaged construct!",
-      "The golem's form cracks apart with devastating force!"
+      "The golem's form cracks apart with devastating force!",
+      "Bolts shear off and mechanisms jam catastrophically!",
+      "The animated armor buckles and tears apart!",
+      "Steam and magical energy vent explosively!",
+      "Critical systems fail in a cascading shutdown!",
+      "The golem's limbs seize and lock up!"
     ],
     "success": [
       "Metal rings against metal as the construct takes damage.",
@@ -57,10 +69,13 @@
       "Sparks fly from damaged components.",
       "The strike damages internal mechanisms.",
       "The construct's frame groans under the impact.",
-      "Gears grind and seize from the blow."
+      "Gears grind and seize from the blow.",
+      "Joints become less fluid and more jerky.",
+      "Warning runes flicker along the construct's body.",
+      "Grinding noises intensify from damaged parts.",
+      "The magical animation weakens visibly."
     ]
   },
-
   "air-elemental": {
     "criticalSuccess": [
       "The swirling vortex destabilizes catastrophically!",
@@ -76,7 +91,6 @@
       "The cyclone stutters and wobbles."
     ]
   },
-
   "fire-elemental": {
     "criticalSuccess": [
       "Flames explode outward in a brilliant conflagration!",
@@ -92,7 +106,6 @@
       "The fire elemental's intensity decreases."
     ]
   },
-
   "earth-elemental": {
     "criticalSuccess": [
       "Stone shatters and fragments in all directions!",
@@ -108,7 +121,6 @@
       "Stone dust falls from the damaged area."
     ]
   },
-
   "water-elemental": {
     "criticalSuccess": [
       "The living water splashes violently in all directions!",
@@ -124,7 +136,6 @@
       "The elemental's surface churns violently."
     ]
   },
-
   "ooze": {
     "criticalSuccess": [
       "The ooze's membrane ruptures, spilling viscous fluid!",
@@ -140,36 +151,162 @@
       "The gelatinous body deforms significantly."
     ]
   },
-
   "plant": {
     "criticalSuccess": [
       "Sap explodes outward as bark splinters!",
       "The plant creature's woody flesh tears apart!",
       "Branches snap and leaves scatter!",
       "Fibrous strands rip and fray catastrophically!",
-      "The living plant shudders and cracks!"
+      "The living plant shudders and cracks!",
+      "Entire branches snap off and crash down!",
+      "The trunk splits with a deafening crack!",
+      "Roots tear free from the earth!",
+      "Sap gushes like a burst dam!",
+      "Bark explodes outward in deadly shrapnel!"
     ],
     "success": [
       "Sap oozes from the damaged bark.",
       "Wood splinters from the impact.",
       "Leaves and fragments scatter.",
-      "The plant tissue tears visibly."
+      "The plant tissue tears visibly.",
+      "Leaves fall prematurely from damaged branches.",
+      "The plant creature's growth rings show stress.",
+      "Vines wither and darken at the impact point.",
+      "Flowers wilt and petals scatter."
     ]
   },
-
   "zombie": {
     "criticalSuccess": [
       "Rotted flesh tears apart in putrid chunks!",
       "The undead body suffers catastrophic damage!",
       "Decayed tissue scatters from the devastating blow!",
       "The zombie's form ruptures grotesquely!",
-      "Necrotic flesh rips away in ragged pieces!"
+      "Necrotic flesh rips away in ragged pieces!",
+      "The zombie's arm hangs by a thread of sinew!",
+      "Organs spill from the ruptured torso!",
+      "The walking corpse nearly falls apart!",
+      "An eye dangles from its socket grotesquely!",
+      "The jaw dislocates entirely, hanging slack!"
     ],
     "success": [
       "Rotted flesh tears from the impact.",
       "Decayed tissue peels away.",
       "The zombie's body shudders.",
-      "Putrid chunks fall from the wound."
+      "Putrid chunks fall from the wound.",
+      "More flesh sloughs off the rotting frame.",
+      "The zombie's movement becomes even more labored.",
+      "Maggots scatter from the fresh wound.",
+      "A limb becomes less responsive."
+    ]
+  },
+  "dragon": {
+    "criticalSuccess": [
+      "Scales shatter and scatter like shards of armor!",
+      "The mighty dragon recoils from the devastating blow!",
+      "Blood sprays from between rent scales!",
+      "The dragon's flesh tears beneath broken armor!",
+      "A roar of pain erupts from the wounded wyrm!",
+      "The draconic hide splits wide, exposing vulnerable flesh!",
+      "Scales crack and peel away in sheets!",
+      "The dragon's blood sizzles as it hits the ground!",
+      "Massive scales are torn from the dragon's body!",
+      "The wyrm's armored hide cracks like breaking stone!"
+    ],
+    "success": [
+      "Scales crack audibly from the impact.",
+      "The dragon's hide shows a deep rent.",
+      "Blood seeps from between damaged scales.",
+      "The blow staggers the mighty creature.",
+      "Draconic scales chip and flake away.",
+      "The dragon hisses in pain and fury.",
+      "The wyrm's flesh bruises beneath its armor."
+    ]
+  },
+  "aberration": {
+    "criticalSuccess": [
+      "Alien ichor sprays from the ruptured flesh!",
+      "Tentacles thrash wildly as the creature recoils!",
+      "The aberrant form convulses horrifically!",
+      "Strange fluids leak from the gaping wound!",
+      "The creature's alien anatomy is exposed grotesquely!",
+      "Otherworldly flesh tears apart in unnatural ways!",
+      "Multiple eyes roll back as the aberration shudders!",
+      "Bizarre organs spill from the ruptured body!",
+      "The creature's form warps and twists in agony!",
+      "Tentacles sever and writhe independently!"
+    ],
+    "success": [
+      "Strange ichor oozes from the wound.",
+      "The aberration's flesh quivers unnaturally.",
+      "Tentacles contract reflexively.",
+      "Alien tissue bruises in impossible colors.",
+      "The creature emits an unsettling sound.",
+      "Eyes on stalks swivel erratically.",
+      "The aberrant form ripples disturbingly."
+    ]
+  },
+  "beast": {
+    "criticalSuccess": [
+      "Fur and flesh tear away in a spray of blood!",
+      "The beast howls in primal agony!",
+      "Muscle and sinew rip apart catastrophically!",
+      "The creature staggers, grievously wounded!",
+      "Blood matts the beast's fur as it roars!",
+      "The animal's body convulses from the devastating blow!",
+      "Claws rake uselessly as the beast stumbles!",
+      "A piteous cry escapes the wounded creature!",
+      "The predator becomes prey, bleeding freely!",
+      "Fangs snap in impotent rage as blood flows!"
+    ],
+    "success": [
+      "The beast yelps in pain.",
+      "Blood stains the creature's fur.",
+      "The animal flinches from the strike.",
+      "A pained growl rumbles from the beast.",
+      "The creature favors its wounded side.",
+      "Fur and flesh show signs of trauma.",
+      "The beast's movements become more cautious."
+    ]
+  },
+  "fey": {
+    "criticalSuccess": [
+      "The fey's glamour shatters as they cry out!",
+      "Glittering essence sprays from the wound!",
+      "The enchanted being's form flickers and wavers!",
+      "Fey blood shimmers like liquid starlight!",
+      "The magical creature reels from the iron-touched blow!",
+      "Ethereal wings tear and trail sparkling dust!",
+      "The fey's beautiful visage contorts in pain!",
+      "Mystical energy bleeds away into nothingness!",
+      "The glamoured form reveals true injury beneath!",
+      "The fey creature screams in a voice like wind chimes!"
+    ],
+    "success": [
+      "The fey winces, glamour flickering.",
+      "Sparkling blood marks the wound.",
+      "The enchanted being staggers gracefully.",
+      "The fey's illusions waver momentarily.",
+      "A musical cry of pain escapes them.",
+      "Glittering essence seeps from the injury.",
+      "The magical creature's glow dims slightly."
+    ]
+  },
+  "undead": {
+    "criticalSuccess": [
+      "Undead flesh tears apart with unnatural ease!",
+      "The unliving creature suffers catastrophic damage!",
+      "Necrotic energy dissipates from the grievous wound!",
+      "The undead form crumbles and fragments!",
+      "Dark magic wavers as the body is ravaged!",
+      "The creature's animation falters dramatically!",
+      "Pieces of the undead being scatter widely!"
+    ],
+    "success": [
+      "The undead form takes visible damage.",
+      "Unliving tissue is torn away.",
+      "Dark energy flickers weakly.",
+      "The creature's movements become more stilted.",
+      "Necrotic flesh peels and hangs loose."
     ]
   }
 }

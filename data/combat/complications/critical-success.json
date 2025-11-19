@@ -1460,6 +1460,708 @@
         "value": -1,
         "duration": 2
       }
+    },
+    {
+      "id": "rotting-flesh-exposed",
+      "name": "Rotting Flesh Exposed",
+      "description": "The blow tears away chunks of rotting flesh, exposing decayed tissue beneath.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "zombie"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "limb-dangling",
+      "name": "Limb Dangling",
+      "description": "The strike partially severs a limb, leaving it hanging by sinews and rotted tissue.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing"
+        ],
+        "creatureTypes": [
+          "zombie"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "jaw-unhinged",
+      "name": "Jaw Unhinged",
+      "description": "The powerful blow dislocates the zombie's jaw, causing it to hang loosely.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "zombie"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "intimidation",
+        "value": -2,
+        "duration": 2
+      }
+    },
+    {
+      "id": "maggot-infested-wound",
+      "name": "Maggot-Infested Wound",
+      "description": "The strike opens a foul wound teeming with maggots and decay.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "zombie"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "fortitude",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "shattered-ribs",
+      "name": "Shattered Ribs",
+      "description": "The impact shatters several ribs, causing bone fragments to scatter.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "skeleton"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "cracked-skull",
+      "name": "Cracked Skull",
+      "description": "A devastating blow cracks the skeleton's skull, causing the jaw to hang askew.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "skeleton"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "perception",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "splintered-bones",
+      "name": "Splintered Bones",
+      "description": "The strike splinters bones in the limb, weakening the skeletal structure.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 15,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "skeleton"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "loosened-joints-skeleton",
+      "name": "Loosened Joints",
+      "description": "The attack loosens the skeletal joints, causing bones to rattle and shift.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "skeleton"
+        ]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -5,
+        "duration": 2
+      }
+    },
+    {
+      "id": "scale-breach",
+      "name": "Scale Breach",
+      "description": "The attack penetrates between scales, finding vulnerable flesh beneath the armored hide.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 15,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing"
+        ],
+        "creatureTypes": [
+          "dragon"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "shattered-scales",
+      "name": "Shattered Scales",
+      "description": "The powerful blow shatters several protective scales, leaving exposed flesh.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "dragon"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "ac",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "wing-membrane-tear",
+      "name": "Wing Membrane Tear",
+      "description": "The strike tears the delicate wing membrane, impairing flight capability.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "dragon"
+        ]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -10,
+        "duration": 3
+      }
+    },
+    {
+      "id": "breath-weapon-disruption",
+      "name": "Breath Weapon Disruption",
+      "description": "The blow strikes the throat or chest, temporarily disrupting breath weapon capability.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "dragon"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -2,
+        "duration": 1
+      }
+    },
+    {
+      "id": "horn-crack",
+      "name": "Cracked Horn",
+      "description": "The impact cracks one of the dragon's majestic horns.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "dragon"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "intimidation",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "tentacle-damage",
+      "name": "Tentacle Damage",
+      "description": "The strike damages one of the creature's grasping tentacles, reducing its ability to manipulate objects.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "aberration"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "eye-stalk-injury",
+      "name": "Eye Stalk Injury",
+      "description": "The attack strikes an eye stalk, causing it to droop and impair vision.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "aberration"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "perception",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "alien-ichor-leak",
+      "name": "Alien Ichor Leak",
+      "description": "The wound leaks strange, otherworldly ichor that saps the creature's vitality.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "aberration"
+        ]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "bleed",
+        "value": "1d4",
+        "dc": 15
+      }
+    },
+    {
+      "id": "psychic-feedback",
+      "name": "Psychic Feedback",
+      "description": "The injury causes psychic feedback that disrupts the aberration's mental focus.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": [
+          "any"
+        ],
+        "creatureTypes": [
+          "aberration"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "will",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "broken-fang",
+      "name": "Broken Fang",
+      "description": "The strike shatters one of the beast's fangs, reducing bite effectiveness.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "beast"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "torn-muscle",
+      "name": "Torn Muscle",
+      "description": "The attack tears powerful muscles, reducing the beast's physical prowess.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "beast"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "athletics",
+        "value": -2,
+        "duration": 2
+      }
+    },
+    {
+      "id": "injured-paw",
+      "name": "Injured Paw",
+      "description": "The strike damages a paw or claw, causing the beast to limp.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 15,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "beast"
+        ]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -10,
+        "duration": 2
+      }
+    },
+    {
+      "id": "glamour-disrupted",
+      "name": "Glamour Disrupted",
+      "description": "The blow disrupts the fey's natural glamour, making them appear less enchanting.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "any"
+        ],
+        "creatureTypes": [
+          "fey"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "diplomacy",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "fey-essence-leak",
+      "name": "Fey Essence Leak",
+      "description": "The wound causes shimmering fey essence to leak out, weakening magical abilities.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "fey"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "spell-attack",
+        "value": -1,
+        "duration": 2
+      }
+    },
+    {
+      "id": "broken-wing-fey",
+      "name": "Broken Fey Wing",
+      "description": "The attack damages delicate fey wings, impairing flight and grace.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "fey"
+        ]
+      },
+      "effect": {
+        "type": "speed-penalty",
+        "value": -10,
+        "duration": 3
+      }
+    },
+    {
+      "id": "ruptured-organ",
+      "name": "Ruptured Organ",
+      "description": "The devastating blow ruptures an internal organ, causing severe internal damage.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing",
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "torso",
+          "vitals"
+        ]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "bleed",
+        "value": "1d6",
+        "dc": 17
+      }
+    },
+    {
+      "id": "fractured-bone",
+      "name": "Fractured Bone",
+      "description": "The impact fractures bone, causing excruciating pain with every movement.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "legs",
+          "limbs"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "athletics",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "nerve-damage",
+      "name": "Nerve Damage",
+      "description": "The precise strike damages nerves, causing numbness and loss of fine motor control.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "hands"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "thievery",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "dislocated-joint",
+      "name": "Dislocated Joint",
+      "description": "The wrenching impact dislocates a major joint, severely limiting mobility.",
+      "outcome": "criticalSuccess",
+      "duration": 2,
+      "weight": 15,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "legs"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "attack",
+        "value": -2,
+        "duration": 2
+      }
+    },
+    {
+      "id": "punctured-lung",
+      "name": "Punctured Lung",
+      "description": "The piercing attack punctures a lung, causing gasping breaths and weakness.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 12,
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing"
+        ],
+        "anatomyTypes": [
+          "torso"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "fortitude",
+        "value": -2,
+        "duration": 3
+      }
+    },
+    {
+      "id": "spinal-impact",
+      "name": "Spinal Impact",
+      "description": "The blow strikes the spine, sending shocking pain throughout the body.",
+      "outcome": "criticalSuccess",
+      "duration": 1,
+      "weight": 13,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "torso"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "reflex",
+        "value": -2,
+        "duration": 1
+      }
+    },
+    {
+      "id": "arterial-nick",
+      "name": "Arterial Nick",
+      "description": "The blade nicks an artery, causing profuse bleeding that's difficult to staunch.",
+      "outcome": "criticalSuccess",
+      "duration": null,
+      "weight": 11,
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "legs",
+          "neck"
+        ]
+      },
+      "effect": {
+        "type": "persistent-damage",
+        "damageType": "bleed",
+        "value": "1d6",
+        "dc": 16
+      }
+    },
+    {
+      "id": "crushed-hand",
+      "name": "Crushed Hand",
+      "description": "The crushing blow mangles the hand, making it nearly useless for delicate tasks.",
+      "outcome": "criticalSuccess",
+      "duration": 3,
+      "weight": 14,
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "hands"
+        ]
+      },
+      "effect": {
+        "type": "penalty",
+        "stat": "thievery",
+        "value": -3,
+        "duration": 3
+      }
     }
   ]
 }

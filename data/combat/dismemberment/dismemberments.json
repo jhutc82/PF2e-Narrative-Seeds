@@ -949,6 +949,837 @@
           ]
         }
       ]
+    },
+    {
+      "id": "severed-rotting-arm",
+      "name": "Severed Rotting Arm",
+      "description": "The blow cleaves through decayed flesh and bone, severing the zombie's arm completely.",
+      "severity": "critical",
+      "location": "arm",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing"
+        ],
+        "creatureTypes": [
+          "zombie"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Severed Rotting Arm",
+          "description": "Your arm has been severed. Though you feel no pain, you cannot use this limb for attacks or manipulation.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "attack",
+              "value": -3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "head-half-destroyed",
+      "name": "Half-Destroyed Head",
+      "description": "The crushing blow destroys half the zombie's head, leaving only partial sensory capability.",
+      "severity": "catastrophic",
+      "location": "head",
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "zombie"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Half-Destroyed Head",
+          "description": "Half your head has been destroyed. You take a -4 circumstance penalty to Perception checks and Will saves.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "perception",
+              "value": -4
+            },
+            {
+              "type": "circumstance",
+              "stat": "will",
+              "value": -4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "torso-split-zombie",
+      "name": "Split Torso",
+      "description": "The devastating blow splits the zombie's torso, exposing rotted organs.",
+      "severity": "catastrophic",
+      "location": "torso",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "zombie"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Split Torso",
+          "description": "Your torso has been split open. Your maximum HP is reduced by 30% and you are slowed 1.",
+          "modifiers": [
+            {
+              "type": "max-hp-reduction",
+              "value": 30,
+              "unit": "percent"
+            }
+          ],
+          "conditions": [
+            "slowed-1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shattered-leg-skeleton",
+      "name": "Shattered Leg",
+      "description": "The impact shatters the skeletal leg into fragments.",
+      "severity": "critical",
+      "location": "leg",
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "skeleton"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Shattered Leg",
+          "description": "Your leg has been shattered. Your Speed is reduced to 10 feet and you cannot take the Stride action, only Step.",
+          "modifiers": [
+            {
+              "type": "speed-override",
+              "value": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "skull-caved-in",
+      "name": "Caved-In Skull",
+      "description": "The crushing blow caves in the skeleton's skull, destroying cognitive capability.",
+      "severity": "catastrophic",
+      "location": "head",
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "skeleton"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Caved-In Skull",
+          "description": "Your skull has been caved in. You take a -5 circumstance penalty to all mental checks and cannot speak.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "will",
+              "value": -5
+            },
+            {
+              "type": "circumstance",
+              "stat": "perception",
+              "value": -5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "arm-bones-scattered",
+      "name": "Arm Bones Scattered",
+      "description": "The blow shatters the arm bones, scattering them across the ground.",
+      "severity": "severe",
+      "location": "arm",
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "skeleton"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Arm Bones Scattered",
+          "description": "Your arm bones have been scattered. You cannot use this arm for any purpose.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "attack",
+              "value": -4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "wing-severed-dragon",
+      "name": "Severed Dragon Wing",
+      "description": "The mighty blow severs one of the dragon's powerful wings.",
+      "severity": "catastrophic",
+      "location": "wing",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing"
+        ],
+        "creatureTypes": [
+          "dragon"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Severed Dragon Wing",
+          "description": "You have lost a wing. Your fly Speed is reduced to 0 and you can no longer fly. You take a -4 circumstance penalty to Balance checks.",
+          "modifiers": [
+            {
+              "type": "fly-speed-override",
+              "value": 0
+            }
+          ],
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "acrobatics",
+              "value": -4,
+              "skills": [
+                "balance"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tail-severed-dragon",
+      "name": "Severed Dragon Tail",
+      "description": "The slashing attack severs the dragon's tail, a devastating loss.",
+      "severity": "critical",
+      "location": "tail",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing"
+        ],
+        "creatureTypes": [
+          "dragon"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Severed Dragon Tail",
+          "description": "Your tail has been severed. You cannot use tail attacks, take a -3 circumstance penalty to Balance, and lose any tail-based special abilities.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "acrobatics",
+              "value": -3,
+              "skills": [
+                "balance"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jaw-shattered-dragon",
+      "name": "Shattered Jaw",
+      "description": "The crushing blow shatters the dragon's jaw, preventing bite attacks.",
+      "severity": "severe",
+      "location": "head",
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "dragon"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Shattered Jaw",
+          "description": "Your jaw has been shattered. You cannot make bite attacks or use breath weapons. You take a -3 circumstance penalty to Intimidation.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "intimidation",
+              "value": -3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scales-flayed",
+      "name": "Flayed Scales",
+      "description": "The attack flays away large sections of protective scales, exposing vulnerable flesh.",
+      "severity": "severe",
+      "location": "torso",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "acid"
+        ],
+        "creatureTypes": [
+          "dragon"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Flayed Scales",
+          "description": "Your protective scales have been flayed away. You take a -3 circumstance penalty to AC and your resistance to physical damage is reduced by 10.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "ac",
+              "value": -3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tentacles-severed",
+      "name": "Multiple Tentacles Severed",
+      "description": "The sweeping attack severs multiple tentacles at once.",
+      "severity": "critical",
+      "location": "tentacles",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing"
+        ],
+        "creatureTypes": [
+          "aberration"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Multiple Tentacles Severed",
+          "description": "You have lost multiple tentacles. You cannot make tentacle attacks and take a -4 circumstance penalty to Athletics checks involving grappling.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "attack",
+              "value": -4,
+              "condition": "tentacle attacks"
+            },
+            {
+              "type": "circumstance",
+              "stat": "athletics",
+              "value": -4,
+              "skills": [
+                "grapple"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "brain-exposed-aberration",
+      "name": "Exposed Brain",
+      "description": "The attack cracks open the creature's skull, exposing its alien brain matter.",
+      "severity": "catastrophic",
+      "location": "head",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "aberration"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Exposed Brain",
+          "description": "Your brain is exposed to the elements. You take a -5 circumstance penalty to Will saves and all mental skill checks. Your maximum HP is reduced by 40%.",
+          "modifiers": [
+            {
+              "type": "max-hp-reduction",
+              "value": 40,
+              "unit": "percent"
+            }
+          ],
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "will",
+              "value": -5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eye-stalks-destroyed",
+      "name": "Destroyed Eye Stalks",
+      "description": "The attack destroys all the creature's eye stalks, leaving it nearly blind.",
+      "severity": "catastrophic",
+      "location": "eyes",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "aberration"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Destroyed Eye Stalks",
+          "description": "All your eye stalks have been destroyed. You automatically critically fail visual Perception checks and cannot use gaze attacks or ray attacks.",
+          "conditions": [
+            "blinded"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "broken-spine-beast",
+      "name": "Broken Spine",
+      "description": "The devastating blow breaks the beast's spine, paralyzing its hindquarters.",
+      "severity": "catastrophic",
+      "location": "torso",
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "beast"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Broken Spine",
+          "description": "Your spine has been broken. Your Speed is reduced to 5 feet (crawling) and you cannot use abilities requiring your hind legs.",
+          "modifiers": [
+            {
+              "type": "speed-override",
+              "value": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "jaw-torn-off",
+      "name": "Jaw Torn Off",
+      "description": "The attack tears the beast's jaw completely off.",
+      "severity": "critical",
+      "location": "head",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "beast"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Jaw Torn Off",
+          "description": "Your jaw has been torn off. You cannot make bite attacks and automatically fail checks to eat or drink.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "attack",
+              "value": -4,
+              "condition": "bite attacks"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "eviscerated-beast",
+      "name": "Eviscerated",
+      "description": "The brutal attack eviscerates the beast, spilling organs across the ground.",
+      "severity": "catastrophic",
+      "location": "torso",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing"
+        ],
+        "creatureTypes": [
+          "beast"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Eviscerated",
+          "description": "You have been eviscerated. Your maximum HP is reduced by 50% and you are dying 2.",
+          "modifiers": [
+            {
+              "type": "max-hp-reduction",
+              "value": 50,
+              "unit": "percent"
+            }
+          ],
+          "conditions": [
+            "dying-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "glamour-shattered",
+      "name": "Shattered Glamour",
+      "description": "The attack shatters the fey's glamour, revealing their true form and weakening their essence.",
+      "severity": "severe",
+      "location": "essence",
+      "applicableContexts": {
+        "damageTypes": [
+          "cold-iron",
+          "any"
+        ],
+        "creatureTypes": [
+          "fey"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Shattered Glamour",
+          "description": "Your glamour has been shattered. You cannot use illusion or enchantment magic, and take a -3 circumstance penalty to Diplomacy and Deception.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "diplomacy",
+              "value": -3
+            },
+            {
+              "type": "circumstance",
+              "stat": "deception",
+              "value": -3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "severed-fey-wings",
+      "name": "Severed Fey Wings",
+      "description": "The attack severs both delicate fey wings.",
+      "severity": "critical",
+      "location": "wings",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing"
+        ],
+        "creatureTypes": [
+          "fey"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Severed Fey Wings",
+          "description": "Both wings have been severed. You lose your fly Speed entirely and take a -2 circumstance penalty to Acrobatics.",
+          "modifiers": [
+            {
+              "type": "fly-speed-override",
+              "value": 0
+            }
+          ],
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "acrobatics",
+              "value": -2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "crushed-skull",
+      "name": "Crushed Skull",
+      "description": "The crushing blow caves in the skull, causing catastrophic brain damage.",
+      "severity": "catastrophic",
+      "location": "head",
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "head"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Crushed Skull",
+          "description": "Your skull has been crushed. You are unconscious and dying 3. If you survive, you take a -5 circumstance penalty to all mental ability checks.",
+          "conditions": [
+            "unconscious",
+            "dying-3"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "disemboweled",
+      "name": "Disemboweled",
+      "description": "The slashing attack disembowels the victim, spilling organs onto the ground.",
+      "severity": "catastrophic",
+      "location": "torso",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "torso",
+          "vitals"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Disemboweled",
+          "description": "You have been disemboweled. Your maximum HP is reduced by 50%. You are dying 2 and take persistent bleed damage 2d6.",
+          "modifiers": [
+            {
+              "type": "max-hp-reduction",
+              "value": 50,
+              "unit": "percent"
+            }
+          ],
+          "conditions": [
+            "dying-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spine-severed",
+      "name": "Severed Spine",
+      "description": "The precise strike severs the spine, causing total paralysis below the waist.",
+      "severity": "catastrophic",
+      "location": "spine",
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing",
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "torso"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Severed Spine",
+          "description": "Your spine has been severed. You cannot use your legs. Your Speed is reduced to 5 feet (crawling only). You are permanently paralyzed from the waist down.",
+          "modifiers": [
+            {
+              "type": "speed-override",
+              "value": 5,
+              "mode": "crawl"
+            }
+          ],
+          "conditions": [
+            "paralyzed-lower-body"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "throat-torn-out",
+      "name": "Throat Torn Out",
+      "description": "The attack tears out the throat, causing massive bleeding and preventing speech.",
+      "severity": "critical",
+      "location": "throat",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "anatomyTypes": [
+          "neck",
+          "head"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Throat Torn Out",
+          "description": "Your throat has been torn out. You cannot speak or make verbal sounds. You take persistent bleed damage 2d6 (DC 18 to stop).",
+          "conditions": [
+            "cannot-speak"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "knee-shattered",
+      "name": "Shattered Knee",
+      "description": "The crushing blow completely shatters the knee joint.",
+      "severity": "severe",
+      "location": "leg",
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "legs"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Shattered Knee",
+          "description": "Your knee has been shattered. Your Speed is reduced by 15 feet (minimum 5 feet). You cannot run or make sudden movements.",
+          "modifiers": [
+            {
+              "type": "speed-reduction",
+              "value": 15,
+              "minimum": 5
+            }
+          ],
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "acrobatics",
+              "value": -3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "multiple-fingers-severed",
+      "name": "Multiple Fingers Severed",
+      "description": "The blow severs multiple fingers from the hand.",
+      "severity": "severe",
+      "location": "hand",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "hands"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Multiple Fingers Severed",
+          "description": "You have lost multiple fingers. You cannot use this hand to hold weapons or shields. You take a -4 circumstance penalty to Thievery and similar skill checks.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "thievery",
+              "value": -4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "face-mutilated",
+      "name": "Mutilated Face",
+      "description": "The attack horrifically mutilates the face, destroying features.",
+      "severity": "severe",
+      "location": "face",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "acid"
+        ],
+        "anatomyTypes": [
+          "head",
+          "face"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Mutilated Face",
+          "description": "Your face has been mutilated. You take a -4 circumstance penalty to Diplomacy and Perception checks, and a +4 circumstance bonus to Intimidation.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "diplomacy",
+              "value": -4
+            },
+            {
+              "type": "circumstance",
+              "stat": "perception",
+              "value": -4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "elbow-destroyed",
+      "name": "Destroyed Elbow",
+      "description": "The crushing impact destroys the elbow joint completely.",
+      "severity": "severe",
+      "location": "arm",
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "arms"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Destroyed Elbow",
+          "description": "Your elbow has been destroyed. You cannot bend this arm. You take a -3 circumstance penalty to attacks with this arm and cannot use two-handed weapons.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "attack",
+              "value": -3,
+              "condition": "with this arm"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
