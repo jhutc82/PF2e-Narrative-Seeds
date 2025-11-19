@@ -429,7 +429,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     // Defense-aware openings for failures (if no weapon-specific opening)
     if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
       const defenseOpenings = await getDefenseOpenings(outcome, defense.missReason, 'cinematic');
-      if (defenseOpenings && defenseOpenings.length > 0) {
+      if (Array.isArray(defenseOpenings) && defenseOpenings.length > 0) {
         opening = RandomUtils.selectRandom(defenseOpenings, varietyMode, `defense-opening-${outcome}-${defense.missReason}`);
         opening = StringUtils.interpolate(opening, { attackerName, targetName, weaponType });
         return opening; // Defense-aware openings are complete
@@ -452,6 +452,12 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     }
 
     const templateObj = TemplateEngine.selectTemplate(templates, effectiveVarietyMode, `${detailLevel}-${outcome}`);
+
+    // Handle case where no template is found
+    if (!templateObj) {
+      console.warn("PF2e Narrative Seeds | No template found, using simple description");
+      return `${opening || "Strike"} ${location || ""}`.trim();
+    }
 
     // Apply escalation modifiers to effect text
     let escalatedEffect = effect || "";
@@ -479,7 +485,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     // Add streak-based modifiers for dramatic moments
     if (memoryContext?.isDramatic && outcome === 'criticalSuccess') {
       // Breaking a losing streak with a crit deserves extra flair
-      if (memoryContext.streak.streakBroken && memoryContext.streak.consecutiveHits === 1) {
+      if (memoryContext.streak && memoryContext.streak.streakBroken && memoryContext.streak.consecutiveHits === 1) {
         description = description + " Finally!";
       }
     }

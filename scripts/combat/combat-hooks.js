@@ -710,25 +710,32 @@ export class CombatHooks {
 
     // Handle button clicks with data-action attribute
     html.find('[data-action]').on('click', async (event) => {
-      event.preventDefault();
-      const button = event.currentTarget;
-      const action = button.dataset.action;
+      try {
+        event.preventDefault();
+        const button = event.currentTarget;
+        const action = button.dataset.action;
 
-      switch (action) {
-        case 'apply-complication':
-          await this.applyComplication(message, button);
-          break;
-        case 'apply-dismemberment':
-          await this.applyDismemberment(message, button);
-          break;
-        case 'toggle-details':
-          const details = button.closest('.pf2e-narrative-seed').querySelector('.narrative-details');
-          if (details) {
-            const isHidden = details.style.display === 'none';
-            details.style.display = isHidden ? 'block' : 'none';
-            button.textContent = isHidden ? '▲' : '▼';
-          }
-          break;
+        switch (action) {
+          case 'apply-complication':
+            await this.applyComplication(message, button);
+            break;
+          case 'apply-dismemberment':
+            await this.applyDismemberment(message, button);
+            break;
+          case 'toggle-details':
+            const container = button.closest('.pf2e-narrative-seed');
+            if (container) {
+              const details = container.querySelector('.narrative-details');
+              if (details) {
+                const isHidden = details.style.display === 'none';
+                details.style.display = isHidden ? 'block' : 'none';
+                button.textContent = isHidden ? '▲' : '▼';
+              }
+            }
+            break;
+        }
+      } catch (error) {
+        console.error("PF2e Narrative Seeds | Error handling button click:", error);
       }
     });
   }
@@ -745,9 +752,14 @@ export class CombatHooks {
       const storedData = flags?.attackData;
 
       if (!storedData) {
-        ui.notifications.warn("Cannot regenerate: attack data not found");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Cannot regenerate: attack data not found");
+        }
         return;
       }
+
+      // Get original message if this is a whispered message
+      const originalMessage = isWhisperedMessage ? game.messages.get(flags.originalMessageId) : null;
 
       // Reconstruct attack data
       const attackData = {
@@ -756,10 +768,10 @@ export class CombatHooks {
         target: storedData.targetId ? game.actors.get(storedData.targetId) : null,
         item: null,
         context: isWhisperedMessage
-          ? game.messages.get(flags.originalMessageId)?.flags?.pf2e?.context
+          ? originalMessage?.flags?.pf2e?.context
           : message.flags?.pf2e?.context,
         origin: isWhisperedMessage
-          ? game.messages.get(flags.originalMessageId)?.flags?.pf2e?.origin
+          ? originalMessage?.flags?.pf2e?.origin
           : message.flags?.pf2e?.origin
       };
 
@@ -779,7 +791,9 @@ export class CombatHooks {
       // Generate new narrative
       const seed = await this.generator.generate(attackData);
       if (!seed) {
-        ui.notifications.warn("Could not generate new narrative");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Could not generate new narrative");
+        }
         return;
       }
 
@@ -811,10 +825,14 @@ export class CombatHooks {
         });
       }
 
-      ui.notifications.info("Narrative regenerated successfully");
+      if (typeof ui !== 'undefined' && ui.notifications) {
+        ui.notifications.info("Narrative regenerated successfully");
+      }
     } catch (error) {
       console.error("PF2e Narrative Seeds | Error regenerating narrative:", error);
-      ui.notifications.error("Failed to regenerate narrative");
+      if (typeof ui !== 'undefined' && ui.notifications) {
+        ui.notifications.error("Failed to regenerate narrative");
+      }
     }
   }
 
@@ -828,7 +846,9 @@ export class CombatHooks {
       // Get complication data from message flags (no encoding needed)
       const seed = message.flags?.["pf2e-narrative-seeds"]?.seed;
       if (!seed || !seed.complication) {
-        ui.notifications.warn("No complication data found in message");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("No complication data found in message");
+        }
         return;
       }
 
@@ -838,7 +858,9 @@ export class CombatHooks {
       // Get stored attack data to determine target
       const storedData = message.flags?.["pf2e-narrative-seeds"]?.attackData;
       if (!storedData) {
-        ui.notifications.warn("Cannot apply complication: attack data not found");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Cannot apply complication: attack data not found");
+        }
         return;
       }
 
@@ -852,13 +874,17 @@ export class CombatHooks {
       const targetActor = ComplicationManager.getComplicationTarget(attackData, outcome);
 
       if (!targetActor) {
-        ui.notifications.warn("Could not determine target for complication");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Could not determine target for complication");
+        }
         return;
       }
 
       // Check if user has permission to modify the target actor
-      if (!targetActor.testUserPermission(game.user, "OWNER") && !game.user.isGM) {
-        ui.notifications.warn(`You do not have permission to modify ${targetActor.name}`);
+      if (typeof targetActor.testUserPermission === 'function' && !targetActor.testUserPermission(game.user, "OWNER") && !game.user.isGM) {
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn(`You do not have permission to modify ${targetActor.name}`);
+        }
         return;
       }
 
@@ -874,7 +900,9 @@ export class CombatHooks {
 
     } catch (error) {
       console.error("PF2e Narrative Seeds | Error applying complication:", error);
-      ui.notifications.error("Failed to apply complication");
+      if (typeof ui !== 'undefined' && ui.notifications) {
+        ui.notifications.error("Failed to apply complication");
+      }
     }
   }
 
@@ -923,7 +951,9 @@ export class CombatHooks {
       // Get dismemberment data from message flags
       const seed = message.flags?.["pf2e-narrative-seeds"]?.seed;
       if (!seed || !seed.dismemberment) {
-        ui.notifications.warn("No dismemberment data found in message");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("No dismemberment data found in message");
+        }
         return;
       }
 
@@ -932,7 +962,9 @@ export class CombatHooks {
       // Get stored attack data to determine target
       const storedData = message.flags?.["pf2e-narrative-seeds"]?.attackData;
       if (!storedData) {
-        ui.notifications.warn("Cannot apply dismemberment: attack data not found");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Cannot apply dismemberment: attack data not found");
+        }
         return;
       }
 
@@ -940,7 +972,9 @@ export class CombatHooks {
       const targetActor = storedData.targetId ? game.actors.get(storedData.targetId) : null;
 
       if (!targetActor) {
-        ui.notifications.warn("Could not find target for dismemberment");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Could not find target for dismemberment");
+        }
         return;
       }
 
@@ -970,13 +1004,17 @@ export class CombatHooks {
       });
 
       if (!confirmed) {
-        ui.notifications.info("Dismemberment application cancelled");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.info("Dismemberment application cancelled");
+        }
         return;
       }
 
       // Check if user has permission to modify the target actor
-      if (!targetActor.testUserPermission(game.user, "OWNER") && !game.user.isGM) {
-        ui.notifications.warn(`You do not have permission to modify ${targetActor.name}`);
+      if (typeof targetActor.testUserPermission === 'function' && !targetActor.testUserPermission(game.user, "OWNER") && !game.user.isGM) {
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn(`You do not have permission to modify ${targetActor.name}`);
+        }
         return;
       }
 
@@ -992,7 +1030,9 @@ export class CombatHooks {
 
     } catch (error) {
       console.error("PF2e Narrative Seeds | Error applying dismemberment:", error);
-      ui.notifications.error("Failed to apply dismemberment");
+      if (typeof ui !== 'undefined' && ui.notifications) {
+        ui.notifications.error("Failed to apply dismemberment");
+      }
     }
   }
 
