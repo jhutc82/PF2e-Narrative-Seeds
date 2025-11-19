@@ -118,6 +118,29 @@
       "Stone dust falls from the damaged area."
     ]
   },
+  "elemental-general": {
+    "criticalSuccess": [
+      "The elemental's form destabilizes catastrophically!",
+      "Elemental essence scatters in all directions!",
+      "The living energy erupts violently from the wound!",
+      "The elemental being's cohesion shatters completely!",
+      "Raw elemental power dissipates into the air!",
+      "The creature's manifestation tears itself apart!",
+      "Energy crackles and sparks from the devastating impact!",
+      "The elemental recoils, its form fragmenting!",
+      "The being's physical form flickers and wavers wildly!",
+      "Primordial forces burst forth uncontrolled!"
+    ],
+    "success": [
+      "The elemental form ripples from the impact.",
+      "Energy disperses momentarily from the blow.",
+      "The being's cohesion weakens visibly.",
+      "Elemental essence trails from the wound.",
+      "The manifestation wavers and flickers.",
+      "The creature's form shudders from the strike.",
+      "Sparks of energy scatter from the impact point."
+    ]
+  },
   "fey-general": {
     "criticalSuccess": [
       "The fey's glamour shatters as they cry out!",
