@@ -720,7 +720,12 @@ export class CombatHooks {
       try {
         event.preventDefault();
         const button = event.currentTarget;
-        const action = button.dataset.action;
+        const action = button?.dataset?.action;
+
+        if (!action) {
+          console.warn('PF2e Narrative Seeds | Button click without action dataset');
+          return;
+        }
 
         switch (action) {
           case 'apply-complication':
