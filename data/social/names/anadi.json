@@ -11,21 +11,21 @@
     "3": 50
   },
   "male": {
-    "prefixes": ["Arac", "Chin", "Click", "Drak", "Klik", "Skit", "Spinn", "Tik", "Web", "Zik"],
-    "middles": ["ak", "ik", "klik", "rak", "tik"],
-    "suffixes": ["ak", "ar", "ik", "klik", "rak", "tik", "zar"]
+    "prefixes": ["Arac", "Arachk", "Chin", "Chink", "Chirak", "Chisk", "Click", "Clickar", "Clickik", "Cliktak", "Drak", "Drakik", "Klik", "Klikak", "Klikkar", "Kliktar", "Krak", "Krikak", "Skit", "Skitar", "Skitik", "Skrak", "Spin", "Spinar", "Spink", "Spinn", "Spinnak", "Spintar", "Tachar", "Tachik", "Tak", "Takar", "Takik", "Tarak", "Tik", "Tikar", "Tikik", "Titar", "Web", "Webar", "Webik", "Zik", "Zikar", "Zikik", "Zitar", "Arakik", "Araktar", "Chibik", "Chichar", "Chikak", "Chiktak", "Chitar", "Chitrak", "Clakik", "Claktar", "Clikak", "Clikik", "Drachar", "Drakak", "Draktar", "Klakar", "Klakik", "Klikar", "Klikik", "Klikrak", "Krakak", "Krakik", "Kratik", "Krikik", "Kriktar", "Qlikik", "Rakik", "Sakik", "Sikar", "Skikak", "Skikik", "Skitar", "Skrach", "Skrakak", "Skrakik", "Skrikik", "Spinak", "Spinik", "Spitar", "Sprakak", "Sprikik", "Tachar", "Tachik", "Takak", "Takar", "Takik", "Takrak", "Tikak", "Tikrak", "Titak", "Trakak", "Trakik", "Trikak", "Trikik", "Webach", "Webak", "Webik", "Webtak", "Zikak", "Zikrak", "Zitak"],
+    "middles": ["ak", "ar", "chik", "ik", "kar", "klik", "rak", "tak", "tik"],
+    "suffixes": ["ak", "ar", "chik", "ik", "kar", "klik", "rak", "tak", "tik", "zar"]
   },
   "female": {
-    "prefixes": ["Araca", "China", "Clicka", "Draka", "Klika", "Skita", "Spinna", "Tika", "Weba", "Zika"],
-    "middles": ["ka", "kli", "ra", "ti"],
-    "suffixes": ["a", "ka", "kia", "ra", "tia"]
+    "prefixes": ["Araca", "Arachka", "China", "Chinka", "Chiraka", "Chiska", "Clicka", "Clickara", "Clickika", "Cliktaka", "Draka", "Drakika", "Klika", "Klikaka", "Klikkara", "Kliktara", "Kraka", "Krikaka", "Skita", "Skitara", "Skitika", "Skraka", "Spina", "Spinara", "Spinka", "Spinna", "Spinnaka", "Spintara", "Tachara", "Tachika", "Taka", "Takara", "Takika", "Taraka", "Tika", "Tikara", "Tikika", "Titara", "Weba", "Webara", "Webika", "Zika", "Zikara", "Zikika", "Zitara", "Arakika", "Araktara", "Chibika", "Chichara", "Chikaka", "Chiktaka", "Chitara", "Chitraka", "Clakika", "Claktara", "Clikaka", "Clikika", "Drachara", "Drakaka", "Draktara", "Klakara", "Klakika", "Klikara", "Klikika", "Klikraka", "Krakaka", "Krakika", "Kratika", "Krikika", "Kriktara", "Qlikika", "Rakika", "Sakika", "Sikara", "Skikaka", "Skikika", "Skitara", "Skracha", "Skrakaka", "Skrakika", "Skrikika", "Spinaka", "Spinika", "Spitara", "Sprakaka", "Sprikika", "Tachara", "Tachika", "Takaka", "Takara", "Takika", "Takraka", "Tikaka", "Tikraka", "Titaka", "Trakaka", "Trakika", "Trikaka", "Trikika", "Webacha", "Webaka", "Webika", "Webtaka", "Zikaka", "Zikraka", "Zitaka"],
+    "middles": ["ka", "kli", "ra", "ta", "ti"],
+    "suffixes": ["a", "ka", "kia", "ra", "ta", "tia"]
   },
   "nonbinary": {
-    "prefixes": ["Arac", "Chin", "Click", "Drak", "Klik", "Skit", "Spinn", "Tik", "Web", "Zik"],
-    "middles": ["ak", "ik", "ka", "klik", "ra", "tik"],
-    "suffixes": ["a", "ak", "ik", "ka", "klik", "ra", "tik", "zar"]
+    "prefixes": ["Arac", "Araca", "Arachk", "Arachka", "Chin", "China", "Chink", "Chinka", "Chirak", "Chiraka", "Chisk", "Chiska", "Click", "Clicka", "Clickar", "Clickara", "Clickik", "Clickika", "Cliktak", "Cliktaka", "Drak", "Draka", "Drakik", "Drakika", "Klik", "Klika", "Klikak", "Klikaka", "Klikkar", "Klikkara", "Kliktar", "Kliktara", "Krak", "Kraka", "Krikak", "Krikaka", "Skit", "Skita", "Skitar", "Skitara", "Skitik", "Skitika", "Skrak", "Skraka", "Spin", "Spina", "Spinar", "Spinara", "Spink", "Spinka", "Spinn", "Spinna", "Spinnak", "Spinnaka", "Spintar", "Spintara", "Tachar", "Tachara", "Tachik", "Tachika", "Tak", "Taka", "Takar", "Takara", "Takik", "Takika", "Tarak", "Taraka", "Tik", "Tika", "Tikar", "Tikara", "Tikik", "Tikika", "Titar", "Titara", "Web", "Weba", "Webar", "Webara", "Webik", "Webika", "Zik", "Zika", "Zikar", "Zikara", "Zikik", "Zikika", "Zitar", "Zitara"],
+    "middles": ["ak", "ar", "chik", "ik", "ka", "kar", "kli", "klik", "ra", "rak", "ta", "tak", "ti", "tik"],
+    "suffixes": ["a", "ak", "ar", "chik", "ik", "ka", "kar", "kia", "klik", "ra", "rak", "ta", "tak", "tia", "tik", "zar"]
   },
-  "lastNames": ["Eightleg", "Silkweaver", "Spinnemaker", "Webdancer", "Webwalker"],
+  "lastNames": ["Eightleg", "Silkspinner", "Silkweaver", "Spinnemaker", "Webdancer", "Webspinner", "Webwalker", "Webweaver"],
   "lastNamePrefixes": ["Eight", "Silk", "Spin", "Web"],
-  "lastNameSuffixes": ["dancer", "leg", "maker", "walker", "weaver"]
+  "lastNameSuffixes": ["dancer", "leg", "maker", "spinner", "walker", "weaver"]
 }
