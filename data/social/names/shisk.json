@@ -10,18 +10,18 @@
     "3": 20
   },
   "male": {
-    "prefixes": ["Chisk", "Kresh", "Prik", "Quil", "Shisk", "Skar", "Spik", "Thrask", "Tisk", "Zisk"],
-    "middles": ["ar", "ik", "isk", "kar", "tik"],
-    "suffixes": ["ak", "ar", "ash", "ik", "isk", "kar", "tik"]
+    "prefixes": ["Ashk", "Brisk", "Chisk", "Crask", "Drisk", "Frask", "Grisk", "Hrask", "Kask", "Krask", "Kresh", "Krisk", "Krusk", "Prask", "Prik", "Prisk", "Quask", "Quil", "Quisk", "Rask", "Rusk", "Shask", "Shisk", "Shrask", "Sisk", "Skar", "Skask", "Skrask", "Skresh", "Skrish", "Skrusk", "Spik", "Spisk", "Sprask", "Strask", "Thrask", "Thrisk", "Tisk", "Trask", "Trisk", "Trusk", "Vask", "Vrask", "Vrisk", "Whisk", "Wrask", "Wrisk", "Zask", "Zisk", "Zrask", "Zrisk", "Ashkar", "Briskol", "Chiskar", "Craskor", "Driskan", "Fraskar", "Griskor", "Hraskan", "Kaskor", "Kraskar", "Kreshol", "Kriskan", "Kruskor", "Praskor", "Prikan", "Priskar", "Quaskor", "Quilar", "Quiskan", "Raskor", "Ruskan", "Shaskar", "Shiskor", "Shraskan", "Siskar", "Skarol", "Skaskar", "Skraskor", "Skreshar", "Skrishal", "Skruskor", "Spikor", "Spiskar", "Spraskan", "Straskor", "Thraskar", "Thriskor", "Tiskor", "Traskan", "Triskar", "Truskor", "Vaskar", "Vraskor", "Vriskan", "Whiskar", "Wraskor", "Wriskan", "Zaskar", "Ziskor", "Zraskan"],
+    "middles": ["ar", "ik", "isk", "kar", "kol", "resh", "rish", "skal", "tik", "tor", "zar"],
+    "suffixes": ["ak", "ar", "ash", "esh", "ik", "isk", "kar", "kol", "ol", "resh", "rish", "skal", "tik", "tor", "zar"]
   },
   "female": {
-    "prefixes": ["Chiska", "Kresha", "Prika", "Quila", "Shiska", "Skara", "Spika", "Thraska", "Tiska", "Ziska"],
-    "middles": ["ka", "ra", "ska"},
-    "suffixes": ["a", "ka", "ra", "ska"]
+    "prefixes": ["Ashka", "Briska", "Chiska", "Craska", "Driska", "Fraska", "Griska", "Hraska", "Kaska", "Kraska", "Kresha", "Kriska", "Kruska", "Praska", "Prika", "Priska", "Quaska", "Quila", "Quiska", "Raska", "Ruska", "Shaska", "Shiska", "Shraska", "Siska", "Skara", "Skaska", "Skraska", "Skresha", "Skrisha", "Skruska", "Spika", "Spiska", "Spraska", "Straska", "Thraska", "Thriska", "Tiska", "Traska", "Triska", "Truska", "Vaska", "Vraska", "Vriska", "Whiska", "Wraska", "Wriska", "Zaska", "Ziska", "Zraska", "Zriska", "Ashkara", "Briskala", "Chiskara", "Craskara", "Driskana", "Fraskara", "Griskara", "Hraskana", "Kaskara", "Kraskara", "Kreshala", "Kriskana", "Kruskara", "Praskara", "Prikana", "Priskara", "Quaskara", "Quilara", "Quiskana", "Raskara", "Ruskana", "Shaskara", "Shiskara", "Shraskana", "Siskara", "Skarala", "Skaskara", "Skraskara", "Skreshara", "Skrishala", "Skruskara", "Spikara", "Spiskara", "Spraskana", "Straskara", "Thraskara", "Thriskara", "Tiskara", "Traskana", "Triskara", "Truskara", "Vaskara", "Vraskara", "Vriskana", "Whiskara", "Wraskara", "Wriskana", "Zaskara", "Ziskara", "Zraskana"],
+    "middles": ["ka", "kala", "kana", "kara", "ra", "sha", "ska"},
+    "suffixes": ["a", "ka", "kala", "kana", "kara", "la", "na", "ra", "sha", "ska"]
   },
   "nonbinary": {
-    "prefixes": ["Chisk", "Kresh", "Prik", "Quil", "Shisk", "Skar", "Spik", "Thrask", "Tisk", "Zisk"],
-    "middles": ["ar", "ik", "isk", "ka", "kar", "ra", "tik"],
-    "suffixes": ["a", "ak", "ar", "ik", "isk", "ka", "kar", "ra", "tik"]
+    "prefixes": ["Ashk", "Ashka", "Brisk", "Briska", "Chisk", "Chiska", "Crask", "Craska", "Drisk", "Driska", "Frask", "Fraska", "Grisk", "Griska", "Hrask", "Hraska", "Kask", "Kaska", "Krask", "Kraska", "Kresh", "Kresha", "Krisk", "Kriska", "Krusk", "Kruska", "Prask", "Praska", "Prik", "Prika", "Prisk", "Priska", "Quask", "Quaska", "Quil", "Quila", "Quisk", "Quiska", "Rask", "Raska", "Rusk", "Ruska", "Shask", "Shaska", "Shisk", "Shiska", "Shrask", "Shraska", "Sisk", "Siska", "Skar", "Skara", "Skask", "Skaska", "Skrask", "Skraska", "Skresh", "Skresha", "Skrish", "Skrisha", "Skrusk", "Skruska", "Spik", "Spika", "Spisk", "Spiska", "Sprask", "Spraska", "Strask", "Straska", "Thrask", "Thraska", "Thrisk", "Thriska", "Tisk", "Tiska", "Trask", "Traska", "Trisk", "Triska", "Trusk", "Truska", "Vask", "Vaska", "Vrask", "Vraska", "Vrisk", "Vriska", "Whisk", "Whiska", "Wrask", "Wraska", "Wrisk", "Wriska", "Zask", "Zaska", "Zisk", "Ziska", "Zrask", "Zraska", "Zrisk", "Zriska"],
+    "middles": ["ar", "ik", "isk", "ka", "kala", "kana", "kar", "kara", "kol", "ra", "resh", "rish", "sha", "skal", "ska", "tik", "tor", "zar"],
+    "suffixes": ["a", "ak", "ar", "ash", "esh", "ik", "isk", "ka", "kala", "kana", "kar", "kara", "kol", "la", "na", "ol", "ra", "resh", "rish", "sha", "skal", "ska", "tik", "tor", "zar"]
   }
 }

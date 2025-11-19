@@ -12,21 +12,21 @@
     "2": 70
   },
   "male": {
-    "prefixes": ["But", "Dol", "Mop", "Pep", "Pip", "Pop", "Tip", "Top", "Toy", "Zip"],
+    "prefixes": ["Bink", "Bobbin", "Bolly", "Bric", "Bumble", "But", "Buzzy", "Chip", "Clicky", "Cog", "Cork", "Cuddle", "Dapper", "Dinky", "Dol", "Flap", "Flip", "Fuzzy", "Gizmo", "Googly", "Happy", "Hoppy", "Jiffy", "Jingly", "Jolly", "Jumpy", "Kip", "Knobby", "Lucky", "Merry", "Mop", "Nippy", "Paddy", "Patch", "Pep", "Perky", "Pickle", "Pin", "Pip", "Plucky", "Poddy", "Pop", "Puffy", "Quirky", "Raggy", "Ricky", "Roly", "Rusty", "Scrappy", "Skippy", "Snappy", "Snippy", "Sparky", "Spunky", "Squeaky", "Stitch", "Sunny", "Tappy", "Tatter", "Teddy", "Tick", "Tiggy", "Tinker", "Tiny", "Tip", "Toby", "Top", "Toy", "Tricky", "Tuffy", "Tumble", "Twiggy", "Waddle", "Whistle", "Whizzy", "Wiggle", "Winky", "Wobble", "Zippy", "Blinky", "Bobo", "Bouncy", "Buddy", "Chipper", "Clappy", "Crinkle", "Doodle", "Fidget", "Freckle", "Giggly", "Hopscotch", "Jumble", "Kippy", "Marble", "Moppet", "Nifty", "Pebble", "Peppy", "Popper"],
     "suffixes": ["bot", "kin", "let", "ly", "pet", "py"]
   },
   "female": {
-    "prefixes": ["Bella", "Dolly", "Mop", "Pep", "Pip", "Poppy", "Rosie", "Tilly", "Tip", "Winnie"],
-    "suffixes": ["a", "bell", "ette", "ie", "kin", "let", "ly"]
+    "prefixes": ["Annabelle", "Bella", "Blossom", "Bonnie", "Bubbles", "Buttercup", "Button", "Candy", "Cherry", "Clarabelle", "Clementine", "Cookie", "Coral", "Cupcake", "Daisy", "Dolly", "Dotty", "Emmy", "Fanny", "Fifi", "Flora", "Frilly", "Ginger", "Goldie", "Gracie", "Honey", "Ivy", "Jemma", "Jenny", "Jessie", "Josie", "Kitty", "Lacey", "Lily", "Lolly", "Lucy", "Lulu", "Maisie", "Margo", "Merry", "Millie", "Minnie", "Missy", "Mitzi", "Molly", "Mop", "Nelly", "Opal", "Pansy", "Peaches", "Pearl", "Penny", "Pep", "Petunia", "Pip", "Polly", "Poppy", "Posy", "Prissy", "Pumpkin", "Rosie", "Ruby", "Sadie", "Sally", "Sugarplum", "Sunny", "Susie", "Sweetpea", "Taffy", "Tessa", "Tilly", "Tinkerbell", "Tip", "Trixie", "Trudy", "Tulip", "Twinkle", "Violet", "Wendy", "Willow", "Winnie", "Annabel", "Babydoll", "Belle", "Buttony", "Clover", "Coco", "Cricket", "Daffodil", "Fancy", "Freckles", "Gigi", "Hazel", "Lottie", "Mabel", "Marigold", "Nellie", "Peony", "Petal", "Phoebe", "Pippin"],
+    "suffixes": ["a", "bell", "belle", "ette", "ie", "kin", "let", "ly"]
   },
   "nonbinary": {
-    "prefixes": ["But", "Dol", "Mop", "Pep", "Pip", "Pop", "Tip", "Top", "Toy", "Zip"],
+    "prefixes": ["Berry", "Biscuit", "Bobbin", "Bright", "Bubbles", "Bumble", "But", "Button", "Candy", "Cherry", "Chipper", "Cookie", "Cuddle", "Dapper", "Dinky", "Dol", "Dotty", "Fizzy", "Freckles", "Fuzzy", "Giggly", "Gizmo", "Happy", "Honey", "Hoppy", "Jiffy", "Jingly", "Jolly", "Jumpy", "Lucky", "Marble", "Merry", "Mop", "Nibbles", "Nifty", "Paddy", "Patch", "Pebble", "Pep", "Peppy", "Pickle", "Pip", "Pixie", "Plucky", "Pop", "Poppy", "Puffy", "Quirky", "Raggy", "Roly", "Rusty", "Scrappy", "Skippy", "Snappy", "Snippy", "Sparky", "Sprinkles", "Spunky", "Squeaky", "Stitch", "Sunny", "Sweetpea", "Taffy", "Tappy", "Tatter", "Teddy", "Tickle", "Tiggy", "Tilly", "Tinker", "Tiny", "Tip", "Toby", "Top", "Toy", "Tricky", "Tuffy", "Tumble", "Twiggy", "Twinkle", "Waddle", "Whistle", "Whizzy", "Wiggle", "Winky", "Winnie", "Wobble", "Zippy", "Blinky", "Bouncy", "Buddy", "Clappy", "Crinkle", "Doodle", "Fidget", "Hopscotch", "Jumble", "Kippy", "Moppet"],
     "suffixes": ["a", "bot", "ie", "kin", "let", "ly", "pet", "py"]
   },
   "compoundParts": {
-    "prefixes": ["Button", "Cotton", "Doll", "Moppet", "Patch", "Puppet", "Ragdoll", "Stitch", "Stuffing", "Toy"],
-    "suffixes": ["eyes", "face", "heart", "patch", "stitch"]
+    "prefixes": ["Button", "Candy", "Cotton", "Cuddle", "Daisy", "Doll", "Freckle", "Giggles", "Honey", "Jingle", "Marble", "Moppet", "Patch", "Pebble", "Pickle", "Poppy", "Pudding", "Puppet", "Ragdoll", "Ribbon", "Rosie", "Sparkle", "Sprinkles", "Stitch", "Stuffing", "Sugar", "Sunny", "Sweetpea", "Taffy", "Tickle", "Tinker", "Toy", "Twinkle", "Waddle", "Whistle", "Wiggle"],
+    "suffixes": ["bell", "berry", "buttons", "eyes", "face", "heart", "patch", "pie", "pop", "puff", "shine", "stitch", "sweet", "toe", "top"]
   },
   "compoundSeparator": "",
-  "names": ["Buttons", "Cotton", "Dolly", "Moppet", "Patches", "Pip", "Poppy", "Raggedy", "Stitches", "Tilly"]
+  "names": ["Biscuit", "Buttons", "Candy", "Cotton", "Cuddles", "Dolly", "Freckles", "Giggles", "Marble", "Moppet", "Patches", "Pickle", "Pip", "Poppy", "Pudding", "Raggedy", "Rosie", "Sprinkles", "Stitches", "Sunny", "Taffy", "Tickles", "Tilly", "Tinker", "Twinkle", "Whistle", "Wiggle"]
 }
