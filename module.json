@@ -18,7 +18,8 @@
     "scripts/main.js"
   ],
   "styles": [
-    "styles/main.css"
+    "styles/main.css",
+    "styles/settings-app.css"
   ],
   "languages": [
     {

@@ -1,0 +1,260 @@
+<form class="narrative-seeds-settings">
+
+  <nav class="tabs" data-group="settings-tabs">
+    <a class="tab" data-tab="global">
+      <i class="fas fa-globe"></i>
+      <span>Global</span>
+    </a>
+    <a class="tab" data-tab="combat">
+      <i class="fas fa-crossed-swords"></i>
+      <span>Combat</span>
+    </a>
+    <a class="tab" data-tab="skills">
+      <i class="fas fa-hand-sparkles"></i>
+      <span>Skills</span>
+    </a>
+  </nav>
+
+  <div class="tab-content">
+
+    <!-- GLOBAL TAB -->
+    <div class="tab" data-tab="global">
+      <div class="settings-section">
+        <h3><i class="fas fa-power-off"></i> Master Controls</h3>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Enable Module</span>
+            <span class="setting-hint">Master switch for all narrative generation features</span>
+          </label>
+          <input type="checkbox" name="enableModule" {{checked settings.enableModule}}>
+        </div>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Narrative Visibility</span>
+            <span class="setting-hint">Who can see the generated narrative descriptions?</span>
+          </label>
+          <select name="visibilityMode">
+            {{#select settings.visibilityMode}}
+            {{#each choices.visibilityMode as |label key|}}
+            <option value="{{key}}">{{label}}</option>
+            {{/each}}
+            {{/select}}
+          </select>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3><i class="fas fa-palette"></i> Narrative Style</h3>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Content Tone</span>
+            <span class="setting-hint">How graphic and intense should descriptions be?</span>
+          </label>
+          <select name="contentTone">
+            {{#select settings.contentTone}}
+            {{#each choices.contentTone as |label key|}}
+            <option value="{{key}}">{{label}}</option>
+            {{/each}}
+            {{/select}}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Variety Level</span>
+            <span class="setting-hint">How much variation between descriptions?</span>
+          </label>
+          <select name="varietyMode">
+            {{#select settings.varietyMode}}
+            {{#each choices.varietyMode as |label key|}}
+            <option value="{{key}}">{{label}}</option>
+            {{/each}}
+            {{/select}}
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMBAT TAB -->
+    <div class="tab" data-tab="combat">
+
+      <div class="settings-section">
+        <h3><i class="fas fa-swords"></i> Combat Narration</h3>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Enable Combat Narration</span>
+            <span class="setting-hint">Generate descriptions for attack rolls and damage</span>
+          </label>
+          <input type="checkbox" name="enableCombat" {{checked settings.enableCombat}}>
+        </div>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Detail Level</span>
+            <span class="setting-hint">How much detail to include in combat descriptions</span>
+          </label>
+          <select name="combatDetailLevel" class="combat-dependent">
+            {{#select settings.combatDetailLevel}}
+            {{#each choices.detailLevel as |label key|}}
+            <option value="{{key}}">{{label}}</option>
+            {{/each}}
+            {{/select}}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Show Creature Type</span>
+            <span class="setting-hint">Display detected anatomy type in output (e.g., [Humanoid])</span>
+          </label>
+          <input type="checkbox" name="showAnatomyType" class="combat-dependent" {{checked settings.showAnatomyType}}>
+        </div>
+      </div>
+
+      <div class="settings-section">
+        <h3><i class="fas fa-bolt"></i> Combat Complications</h3>
+        <p class="section-description">Mechanical effects triggered on critical successes and failures</p>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Enable Complications</span>
+            <span class="setting-hint">Generate mechanical effects for critical outcomes</span>
+          </label>
+          <input type="checkbox" name="enableComplications" {{checked settings.enableComplications}}>
+        </div>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Complication Frequency</span>
+            <span class="setting-hint">Chance (%) for complications on critical rolls</span>
+          </label>
+          <div class="slider-container">
+            <input type="range" name="complicationChance" class="complications-dependent"
+                   min="0" max="100" step="5" value="{{settings.complicationChance}}">
+            <output class="slider-value">{{settings.complicationChance}}%</output>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Auto-Apply Effects</span>
+            <span class="setting-hint">Apply complications automatically without GM confirmation</span>
+          </label>
+          <input type="checkbox" name="autoApplyComplications" class="complications-dependent" {{checked settings.autoApplyComplications}}>
+        </div>
+      </div>
+
+      <div class="settings-section warning-section">
+        <h3><i class="fas fa-skull"></i> Dismemberment System</h3>
+        <p class="section-description warning"><i class="fas fa-exclamation-triangle"></i> <strong>Warning:</strong> Creates permanent injuries on devastating critical hits</p>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Enable Dismemberment</span>
+            <span class="setting-hint">Generate permanent injury effects on devastating crits</span>
+          </label>
+          <input type="checkbox" name="enableDismemberment" {{checked settings.enableDismemberment}}>
+        </div>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Base Chance</span>
+            <span class="setting-hint">Starting percentage before level scaling (0-50%)</span>
+          </label>
+          <div class="slider-container">
+            <input type="range" name="dismembermentBaseChance" class="dismemberment-dependent"
+                   min="0" max="50" step="1" value="{{settings.dismembermentBaseChance}}">
+            <output class="slider-value">{{settings.dismembermentBaseChance}}%</output>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Level Scaling</span>
+            <span class="setting-hint">Additional % per target level (0-2%)</span>
+          </label>
+          <div class="slider-container">
+            <input type="range" name="dismembermentLevelScaling" class="dismemberment-dependent"
+                   min="0" max="2" step="0.1" value="{{settings.dismembermentLevelScaling}}">
+            <output class="slider-value">{{settings.dismembermentLevelScaling}}%</output>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Maximum Chance</span>
+            <span class="setting-hint">Cap on total dismemberment chance (5-100%)</span>
+          </label>
+          <div class="slider-container">
+            <input type="range" name="dismembermentMaxChance" class="dismemberment-dependent"
+                   min="5" max="100" step="5" value="{{settings.dismembermentMaxChance}}">
+            <output class="slider-value">{{settings.dismembermentMaxChance}}%</output>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SKILLS TAB -->
+    <div class="tab" data-tab="skills">
+      <div class="settings-section">
+        <h3><i class="fas fa-hand-sparkles"></i> Skill Action Narration</h3>
+        <p class="section-description">Generate descriptions for skill actions in encounter mode</p>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Enable Skill Narration</span>
+            <span class="setting-hint">Generate descriptions for skill checks in encounters</span>
+          </label>
+          <input type="checkbox" name="enableSkills" {{checked settings.enableSkills}}>
+        </div>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Detail Level</span>
+            <span class="setting-hint">How much detail to include in skill descriptions</span>
+          </label>
+          <select name="skillDetailLevel" class="skills-dependent">
+            {{#select settings.skillDetailLevel}}
+            {{#each choices.detailLevel as |label key|}}
+            <option value="{{key}}">{{label}}</option>
+            {{/each}}
+            {{/select}}
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Show Detected Feats</span>
+            <span class="setting-hint">Display which feats were detected in output</span>
+          </label>
+          <input type="checkbox" name="showDetectedFeats" class="skills-dependent" {{checked settings.showDetectedFeats}}>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="sheet-footer flexrow">
+    <button type="button" class="reset-defaults">
+      <i class="fas fa-undo"></i> Reset to Defaults
+    </button>
+    <button type="submit" name="submit">
+      <i class="fas fa-save"></i> Save Changes
+    </button>
+  </footer>
+
+</form>
+
+<script>
+// Update slider output values in real-time
+document.querySelectorAll('input[type="range"]').forEach(slider => {
+  const output = slider.nextElementSibling;
+  slider.addEventListener('input', (e) => {
+    output.textContent = e.target.value + '%';
+  });
+});
+</script>

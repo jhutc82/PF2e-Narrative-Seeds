@@ -1,0 +1,405 @@
+/**
+ * PF2e Narrative Seeds - Settings Application Styles
+ * Custom styling for the improved settings dialog
+ */
+
+/* ========================================
+   MAIN DIALOG CONTAINER
+   ======================================== */
+
+#pf2e-narrative-seeds-settings {
+  font-family: "Signika", sans-serif;
+}
+
+#pf2e-narrative-seeds-settings .window-content {
+  background: #f0f0e8;
+  padding: 0;
+}
+
+.narrative-seeds-settings {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* ========================================
+   TABS NAVIGATION
+   ======================================== */
+
+.narrative-seeds-settings .tabs {
+  display: flex;
+  gap: 0;
+  background: linear-gradient(to bottom, #5e0000, #3d0000);
+  border-bottom: 2px solid #8b0000;
+  margin: 0;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.narrative-seeds-settings .tabs .tab {
+  flex: 1;
+  padding: 12px 20px;
+  text-align: center;
+  color: #d4af37;
+  background: transparent;
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-decoration: none;
+}
+
+.narrative-seeds-settings .tabs .tab:last-child {
+  border-right: none;
+}
+
+.narrative-seeds-settings .tabs .tab:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffd700;
+}
+
+.narrative-seeds-settings .tabs .tab.active {
+  background: #f0f0e8;
+  color: #5e0000;
+  border-bottom: 3px solid #d4af37;
+  font-weight: bold;
+}
+
+.narrative-seeds-settings .tabs .tab i {
+  font-size: 20px;
+}
+
+.narrative-seeds-settings .tabs .tab span {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ========================================
+   TAB CONTENT
+   ======================================== */
+
+.narrative-seeds-settings .tab-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.narrative-seeds-settings .tab-content > .tab {
+  display: none;
+}
+
+.narrative-seeds-settings .tab-content > .tab.active {
+  display: block;
+}
+
+/* ========================================
+   SETTINGS SECTIONS
+   ======================================== */
+
+.settings-section {
+  background: white;
+  border: 2px solid #5e0000;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.settings-section:last-child {
+  margin-bottom: 0;
+}
+
+.settings-section h3 {
+  margin: 0 0 12px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #d4af37;
+  color: #5e0000;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.settings-section h3 i {
+  color: #d4af37;
+  font-size: 20px;
+}
+
+.section-description {
+  margin: 0 0 16px 0;
+  padding: 10px;
+  background: #f8f8f8;
+  border-left: 3px solid #5e0000;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.4;
+}
+
+.section-description.warning {
+  background: #fff3cd;
+  border-left-color: #ff6b6b;
+  color: #856404;
+}
+
+.section-description i {
+  margin-right: 6px;
+}
+
+.warning-section {
+  border-color: #ff6b6b;
+  background: #fff9f9;
+}
+
+.warning-section h3 {
+  color: #d63031;
+  border-bottom-color: #ff6b6b;
+}
+
+.warning-section h3 i {
+  color: #ff6b6b;
+}
+
+/* ========================================
+   FORM GROUPS
+   ======================================== */
+
+.form-group {
+  margin-bottom: 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+.setting-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.setting-name {
+  font-weight: bold;
+  color: #333;
+  font-size: 14px;
+}
+
+.setting-hint {
+  font-size: 12px;
+  color: #666;
+  font-style: italic;
+  line-height: 1.3;
+}
+
+/* ========================================
+   FORM CONTROLS
+   ======================================== */
+
+.form-group input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  accent-color: #5e0000;
+}
+
+.form-group select {
+  min-width: 200px;
+  padding: 6px 12px;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  color: #333;
+  font-size: 13px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.form-group select:hover {
+  border-color: #5e0000;
+}
+
+.form-group select:focus {
+  outline: none;
+  border-color: #d4af37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+/* ========================================
+   SLIDERS
+   ======================================== */
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 250px;
+}
+
+.slider-container input[type="range"] {
+  flex: 1;
+  height: 6px;
+  border-radius: 3px;
+  background: #ddd;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.slider-container input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #5e0000;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease;
+}
+
+.slider-container input[type="range"]::-webkit-slider-thumb:hover {
+  background: #8b0000;
+}
+
+.slider-container input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #5e0000;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background 0.2s ease;
+}
+
+.slider-container input[type="range"]::-moz-range-thumb:hover {
+  background: #8b0000;
+}
+
+.slider-value {
+  min-width: 50px;
+  text-align: right;
+  font-weight: bold;
+  color: #5e0000;
+  font-size: 14px;
+}
+
+/* ========================================
+   DISABLED STATES
+   ======================================== */
+
+.form-group select:disabled,
+.form-group input:disabled,
+.slider-container input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled + .slider-value {
+  opacity: 0.5;
+}
+
+/* ========================================
+   FOOTER BUTTONS
+   ======================================== */
+
+.sheet-footer {
+  background: linear-gradient(to top, #e8e8e0, #f0f0e8);
+  padding: 16px 20px;
+  border-top: 2px solid #5e0000;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.sheet-footer button {
+  padding: 10px 20px;
+  border: 2px solid #5e0000;
+  border-radius: 4px;
+  background: white;
+  color: #5e0000;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sheet-footer button:hover {
+  background: #5e0000;
+  color: #d4af37;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.sheet-footer button[type="submit"] {
+  background: #5e0000;
+  color: #d4af37;
+}
+
+.sheet-footer button[type="submit"]:hover {
+  background: #8b0000;
+  color: #ffd700;
+}
+
+.sheet-footer button i {
+  font-size: 14px;
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+
+.narrative-seeds-settings .tab-content::-webkit-scrollbar {
+  width: 8px;
+}
+
+.narrative-seeds-settings .tab-content::-webkit-scrollbar-track {
+  background: #f0f0e8;
+}
+
+.narrative-seeds-settings .tab-content::-webkit-scrollbar-thumb {
+  background: #5e0000;
+  border-radius: 4px;
+}
+
+.narrative-seeds-settings .tab-content::-webkit-scrollbar-thumb:hover {
+  background: #8b0000;
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 600px) {
+  .form-group {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group select,
+  .slider-container {
+    width: 100%;
+  }
+
+  .sheet-footer {
+    flex-direction: column;
+  }
+
+  .sheet-footer button {
+    width: 100%;
+    justify-content: center;
+  }
+}

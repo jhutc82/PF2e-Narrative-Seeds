@@ -58,6 +58,48 @@
       "enableSkills": {
         "name": "Enable Skill Action Narration",
         "hint": "Generate descriptions for skill actions in encounter mode"
+      },
+      "skillDetailLevel": {
+        "name": "Skill Detail Level",
+        "hint": "How much information to include in skill narratives",
+        "choices": {
+          "minimal": "Minimal (Quick description)",
+          "standard": "Standard (Balanced)",
+          "detailed": "Detailed (Full description)",
+          "cinematic": "Cinematic (Maximum drama)"
+        }
+      },
+      "showDetectedFeats": {
+        "name": "Show Detected Feats",
+        "hint": "Display which feats were detected in skill narrative output"
+      },
+      "enableComplications": {
+        "name": "Enable Combat Complications",
+        "hint": "Generate mechanical complications for critical successes and failures"
+      },
+      "complicationChance": {
+        "name": "Complication Frequency",
+        "hint": "Percentage chance for a complication to occur on critical outcomes (0-100)"
+      },
+      "autoApplyComplications": {
+        "name": "Auto-Apply Complications",
+        "hint": "Automatically apply complications without requiring the GM to click the apply button"
+      },
+      "enableDismemberment": {
+        "name": "Enable Dismemberment System",
+        "hint": "PERMANENT INJURIES: Generate dismemberment effects for devastating critical hits"
+      },
+      "dismembermentBaseChance": {
+        "name": "Dismemberment Base Chance",
+        "hint": "Base percentage chance for dismemberment when conditions are met (before level scaling)"
+      },
+      "dismembermentLevelScaling": {
+        "name": "Dismemberment Level Scaling",
+        "hint": "Additional percentage chance per target level (e.g., 0.5 = +0.5% per level)"
+      },
+      "dismembermentMaxChance": {
+        "name": "Dismemberment Maximum Chance",
+        "hint": "Maximum percentage chance for dismemberment (caps total chance including level scaling)"
       }
     },
 
