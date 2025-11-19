@@ -11,23 +11,23 @@
     "3": 30
   },
   "male": {
-    "prefixes": ["Bram", "Craw", "Gritch", "Hag", "Mire", "Murk", "Rag", "Thorn", "Wither", "Wretch"],
-    "middles": ["ar", "en", "mor", "wick"},
+    "prefixes": ["Barrow", "Blight", "Blotch", "Boggart", "Boil", "Bram", "Brambleton", "Canker", "Carrion", "Claw", "Corbin", "Crab", "Craven", "Craw", "Crawley", "Creep", "Croaker", "Crouch", "Crust", "Curdmore", "Darken", "Decay", "Drekker", "Dritch", "Dross", "Ebon", "Fallow", "Fang", "Fester", "Filch", "Filth", "Fungus", "Ghast", "Gitch", "Gloom", "Gnash", "Gouge", "Grawth", "Grazzle", "Grimble", "Grimm", "Grit", "Gritch", "Grovel", "Grub", "Grum", "Gurgle", "Hag", "Hobble", "Lurch", "Maggot", "Mallow", "Mantle", "Marrow", "Marsh", "Midden", "Mildew", "Mire", "Morl", "Muck", "Murk", "Nacht", "Nettle", "Nitre", "Pallor", "Peat", "Phlegm", "Pox", "Quag", "Rag", "Rake", "Rankor", "Rattle", "Retch", "Rot", "Scourge", "Scrab", "Scrape", "Scritch", "Scum", "Shade", "Shard", "Shiver", "Shrivel", "Skulk", "Slough", "Sludge", "Smear", "Snag", "Snitch", "Spore", "Stagnor", "Stench", "Stoat", "Tarnish", "Thatch", "Thorn", "Thrall", "Timber", "Toad", "Troll", "Veil", "Vermin", "Wart", "Weevil", "Wither", "Wraith", "Wretch", "Writhen"],
+    "middles": ["ar", "en", "itch", "mor", "wick"],
     "suffixes": ["ar", "en", "itch", "mor", "tch", "wick"]
   },
   "female": {
-    "prefixes": ["Baba", "Crone", "Grimm", "Hag", "Mire", "Murk", "Raven", "Thorn", "Wither", "Wych"],
-    "middles": ["ar", "ba", "eth", "wick"},
-    "suffixes": ["a", "ara", "ba", "eth", "wick", "wyth"]
+    "prefixes": ["Arachna", "Baba", "Barba", "Beldam", "Beldame", "Blacket", "Blight", "Blight", "Brack", "Bramble", "Briara", "Brume", "Caldera", "Cinder", "Corba", "Craven", "Creepa", "Crone", "Crook", "Crowla", "Danken", "Darva", "Draga", "Dreara", "Duskra", "Embera", "Fallowa", "Fenna", "Fetchra", "Flensa", "Fretta", "Fuchsa", "Ghoula", "Glenna", "Glimra", "Gloom", "Gorga", "Gravna", "Grima", "Grimm", "Grizzle", "Gritta", "Grizelda", "Haga", "Hagara", "Hagatha", "Hagrid", "Harrow", "Henna", "Hestia", "Hexana", "Holla", "Igna", "Inksla", "Kessa", "Knotta", "Maggota", "Mallowa", "Marsha", "Mawla", "Milda", "Mildra", "Mira", "Mire", "Mirna", "Morbida", "Morga", "Morta", "Muddra", "Murka", "Nassa", "Nethara", "Nighta", "Nixra", "Pallida", "Pestra", "Poxia", "Quagmira", "Ragna", "Ravena", "Raven", "Repulsa", "Rivka", "Rowena", "Rubella", "Sabra", "Salema", "Sarka", "Scarda", "Scorna", "Sephula", "Shada", "Shadowla", "Silta", "Soota", "Straga", "Swampa", "Tarna", "Thistla", "Thornra", "Toada", "Torva", "Venoma", "Vexa", "Vilda", "Weeda", "Wilda", "Willowa", "Wither", "Wycha", "Wych"],
+    "middles": ["ar", "ba", "eth", "ra", "wick"},
+    "suffixes": ["a", "ara", "ba", "ella", "ena", "eth", "ida", "ra", "wick", "wyth"]
   },
   "nonbinary": {
-    "prefixes": ["Baba", "Bram", "Craw", "Grimm", "Hag", "Mire", "Murk", "Raven", "Thorn", "Wither"},
-    "middles": ["ar", "ba", "en", "eth", "mor", "wick"},
-    "suffixes": ["a", "ar", "ba", "en", "eth", "itch", "mor", "wick", "wyth"]
+    "prefixes": ["Baba", "Barrow", "Blight", "Blotch", "Boggart", "Bramble", "Bram", "Briara", "Brume", "Canker", "Carrion", "Cinder", "Claw", "Corbin", "Craw", "Crawley", "Creep", "Crone", "Crouch", "Darken", "Darva", "Decay", "Draga", "Dreara", "Dritch", "Dross", "Duskra", "Ebon", "Embera", "Fallow", "Fang", "Fenna", "Fester", "Filch", "Filth", "Flensa", "Fungus", "Ghast", "Gitch", "Glenna", "Gloom", "Gnash", "Gouge", "Gravna", "Grima", "Grimble", "Grimm", "Grit", "Gritch", "Grizelda", "Grovel", "Grub", "Grum", "Hag", "Hagara", "Hagatha", "Harrow", "Henna", "Hexana", "Hobble", "Holla", "Kessa", "Lurch", "Maggot", "Mallow", "Marsh", "Marsha", "Mawla", "Midden", "Mildew", "Mira", "Mire", "Mirna", "Morbida", "Morl", "Morga", "Morta", "Muck", "Muddra", "Murk", "Murka", "Nacht", "Nassa", "Nettle", "Nethara", "Nighta", "Pallida", "Pallor", "Pestra", "Phlegm", "Poxia", "Quag", "Quagmira", "Rag", "Ragna", "Rake", "Rankor", "Rattle", "Ravena", "Raven", "Retch", "Rivka", "Rot", "Rowena", "Rubella", "Sabra", "Scourge", "Scrab", "Scrape", "Scritch", "Scum", "Shade", "Shada", "Shadowla", "Shard", "Shiver", "Shrivel", "Skulk", "Slough", "Sludge", "Smear", "Snag", "Snitch", "Soota", "Spore", "Stagnor", "Stench", "Stoat", "Straga", "Swampa", "Tarnish", "Tarna", "Thatch", "Thistla", "Thorn", "Thornra", "Thrall", "Timber", "Toada", "Toad", "Troll", "Veil", "Venoma", "Vexa", "Vermin", "Vilda", "Wart", "Weeda", "Weevil", "Wilda", "Willowa", "Wither", "Wraith", "Wretch", "Writhen", "Wycha", "Wych"],
+    "middles": ["ar", "ba", "en", "eth", "itch", "mor", "ra", "wick"},
+    "suffixes": ["a", "ar", "ara", "ba", "ella", "en", "ena", "eth", "ida", "itch", "mor", "ra", "wick", "wyth"]
   },
   "compoundParts": {
-    "prefixes": ["Bog", "Crone", "Dark", "Hag", "Mire", "Murk", "Shadow", "Swamp", "Thorn", "Wither"],
-    "suffixes": ["born", "child", "daughter", "kin", "son", "spawn"]
+    "prefixes": ["Blackwater", "Blightwood", "Bog", "Bramble", "Carrion", "Corpse", "Crone", "Curse", "Dark", "Darkfen", "Deadwood", "Decay", "Doom", "Fallow", "Fell", "Fen", "Fester", "Fungus", "Gloom", "Grave", "Grim", "Hag", "Haunt", "Hex", "Mire", "Mold", "Murk", "Murkwood", "Night", "Peat", "Plague", "Poison", "Putrid", "Rot", "Shadow", "Shadowfen", "Skulk", "Sludge", "Sorrow", "Spore", "Stagnant", "Swamp", "Thorn", "Thornwood", "Venom", "Vile", "Weed", "Wild", "Wildwood", "Wither", "Wraith"],
+    "suffixes": ["bane", "blood", "born", "breath", "child", "daughter", "fen", "heart", "kin", "mire", "rot", "shadow", "son", "spawn", "weed", "wood"]
   },
   "compoundSeparator": ""
 }

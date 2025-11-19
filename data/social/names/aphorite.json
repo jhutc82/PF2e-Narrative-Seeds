@@ -10,15 +10,15 @@
     "3": 30
   },
   "male": {
-    "prefixes": ["Axi", "Lex", "Log", "Ord", "Prec", "Rul", "Sym", "Syn", "Tetra", "Trig"},
-    "suffixes": ["an", "ar", "is", "on", "or", "os", "um", "us"]
+    "prefixes": ["Absolut", "Axel", "Axi", "Axilar", "Axiom", "Balanc", "Calcul", "Canon", "Certit", "Circ", "Codex", "Coven", "Creed", "Decret", "Defin", "Diagr", "Dictum", "Dogm", "Edict", "Equat", "Exactit", "Formu", "Geom", "Hexag", "Irrevoc", "Justic", "Lawful", "Lex", "Lexic", "Log", "Logic", "Mandat", "Math", "Maxim", "Method", "Octan", "Ord", "Order", "Ortho", "Parag", "Pattern", "Pentag", "Polyg", "Prec", "Precept", "Predic", "Prescript", "Princip", "Proof", "Propos", "Quadr", "Ration", "Recton", "Regul", "Resol", "Rigor", "Rul", "Sanct", "Statem", "Statut", "Structur", "Sym", "Symmetr", "Syn", "Syntax", "System", "Teorem", "Tesser", "Tetra", "Tetrag", "Theorem", "Trig", "Trigonom", "Truth", "Ultim", "Unif", "Univers", "Valid", "Verit", "Absor", "Algorith", "Arith", "Axilar", "Balan", "Cantor", "Causal", "Centrax", "Certus", "Circon", "Codex", "Coroll", "Deduc", "Determin", "Doctrin", "Dogmar", "Edictus", "Equilib", "Euclon", "Eviden", "Finit", "Fixon"],
+    "suffixes": ["an", "ar", "ath", "atus", "el", "eon", "ex", "ic", "is", "ith", "on", "or", "orm", "os", "oth", "um", "us", "yx"]
   },
   "female": {
-    "prefixes": ["Axia", "Lexa", "Loga", "Orda", "Preca", "Rula", "Symmetra", "Syna", "Tetra", "Triga"],
-    "suffixes": ["a", "ana", "ara", "ia", "ina", "uma"]
+    "prefixes": ["Absoluta", "Axela", "Axia", "Axilara", "Axioma", "Balanca", "Calcula", "Canona", "Certita", "Circa", "Codexa", "Covena", "Creeda", "Decreta", "Defina", "Diagra", "Dictuma", "Dogma", "Edicta", "Equata", "Exactita", "Formula", "Geoma", "Hexaga", "Irrevoca", "Justica", "Lawfula", "Lexa", "Lexica", "Loga", "Logica", "Mandata", "Matha", "Maxima", "Methoda", "Octana", "Orda", "Ordera", "Orthoa", "Paraga", "Patterna", "Pentaga", "Polyga", "Preca", "Precepta", "Predica", "Prescripta", "Principa", "Proofa", "Proposa", "Quadra", "Rationa", "Rectona", "Regula", "Resola", "Rigora", "Rula", "Sancta", "Statema", "Statuta", "Structura", "Syma", "Symmetra", "Syna", "Syntaxa", "Systema", "Teorema", "Tessera", "Tetra", "Tetraga", "Theorema", "Triga", "Trigonoma", "Trutha", "Ultima", "Unifa", "Universa", "Valida", "Verita", "Absora", "Algoritha", "Aritha", "Axilara", "Balana", "Cantora", "Causala", "Centraxa", "Certusa", "Circona", "Codexa", "Corolla", "Deduca", "Determina", "Doctrina", "Dogmara", "Edictusa", "Equiliba", "Euclona", "Evidena", "Finita", "Fixona"],
+    "suffixes": ["a", "ala", "ana", "ara", "ata", "estra", "ia", "ica", "ina", "is", "ita", "ona", "ora", "uma", "usa"]
   },
   "nonbinary": {
-    "prefixes": ["Axi", "Lex", "Log", "Ord", "Prec", "Rul", "Sym", "Syn", "Tetra", "Trig"},
-    "suffixes": ["a", "an", "ar", "ia", "is", "on", "or", "os", "um", "us"]
+    "prefixes": ["Absolut", "Absoluta", "Axel", "Axela", "Axi", "Axia", "Axilar", "Axilara", "Axiom", "Axioma", "Balanc", "Balanca", "Calcul", "Calcula", "Canon", "Canona", "Certit", "Certita", "Circ", "Circa", "Codex", "Codexa", "Coven", "Covena", "Creed", "Creeda", "Decret", "Decreta", "Defin", "Defina", "Diagr", "Diagra", "Dictum", "Dictuma", "Dogm", "Dogma", "Edict", "Edicta", "Equat", "Equata", "Exactit", "Exactita", "Formu", "Formula", "Geom", "Geoma", "Hexag", "Hexaga", "Irrevoc", "Irrevoca", "Justic", "Justica", "Lawful", "Lawfula", "Lex", "Lexa", "Lexic", "Lexica", "Log", "Loga", "Logic", "Logica", "Mandat", "Mandata", "Math", "Matha", "Maxim", "Maxima", "Method", "Methoda", "Octan", "Octana", "Ord", "Orda", "Order", "Ordera", "Ortho", "Orthoa", "Parag", "Paraga", "Pattern", "Patterna", "Pentag", "Pentaga", "Polyg", "Polyga", "Prec", "Preca", "Precept", "Precepta", "Predic", "Predica", "Prescript", "Prescripta", "Princip", "Principa", "Proof", "Proofa", "Propos", "Proposa", "Quadr", "Quadra", "Ration", "Rationa", "Recton", "Rectona", "Regul", "Regula"],
+    "suffixes": ["a", "ala", "an", "ana", "ar", "ara", "ata", "ath", "atus", "el", "eon", "estra", "ex", "ia", "ic", "ica", "ina", "is", "ita", "ith", "on", "ona", "or", "ora", "orm", "os", "oth", "um", "uma", "us", "usa", "yx"]
   }
 }

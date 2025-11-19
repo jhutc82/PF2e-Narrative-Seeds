@@ -11,21 +11,21 @@
     "3": 40
   },
   "male": {
-    "prefixes": ["Ael", "Alric", "Caelan", "Eldan", "Faelan", "Galen", "Liran", "Nolan", "Rael", "Theron", "Valen"],
-    "middles": ["al", "an", "ar", "en", "ian", "or"],
-    "suffixes": ["an", "ar", "el", "en", "ian", "on", "or", "us"]
+    "prefixes": ["Ael", "Aelric", "Aeron", "Aldric", "Alerian", "Alric", "Aramil", "Aranel", "Arion", "Arvid", "Caldor", "Caelan", "Caelum", "Daelan", "Daerin", "Edric", "Eldan", "Eldric", "Elion", "Elowen", "Eolan", "Erion", "Faelan", "Faelon", "Faelor", "Galen", "Galeor", "Gaeron", "Haldor", "Haldric", "Ildan", "Ilion", "Kael", "Kaelan", "Kaelric", "Lael", "Laelan", "Laelon", "Leander", "Leoric", "Liran", "Liron", "Lorian", "Maelon", "Maelor", "Naelan", "Naelor", "Nolan", "Noric", "Nyrion", "Oleander", "Orin", "Orion", "Paelan", "Paelor", "Quilan", "Rael", "Raelan", "Raelon", "Raelor", "Ranael", "Riordan", "Saelon", "Saeran", "Taelan", "Taelon", "Taeron", "Thalan", "Theron", "Thorian", "Tolan", "Vael", "Vaelan", "Vaelon", "Valen", "Valeor", "Varian", "Velan", "Veron", "Waelan", "Waelon", "Xaelan", "Xalor", "Yaelan", "Yaelon", "Zael", "Zaelan", "Zaelon", "Zephron", "Alderon", "Aleron", "Calderon", "Daelon", "Elaric", "Faelorian", "Galaeron", "Halorian", "Kaelorian", "Laelorian", "Maelorian", "Naelorian"],
+    "middles": ["al", "an", "ar", "el", "en", "ian", "ion", "lan", "lor", "or", "ron"],
+    "suffixes": ["an", "ar", "el", "en", "ian", "ion", "lan", "lon", "lor", "on", "or", "ric", "ron", "us"]
   },
   "female": {
-    "prefixes": ["Aela", "Aria", "Caela", "Elara", "Faela", "Gwen", "Lira", "Nora", "Raela", "Thea", "Valeria"],
-    "middles": ["an", "ar", "el", "ia", "la", "ra"},
-    "suffixes": ["a", "ana", "ara", "ela", "ia", "ina", "la", "ra"]
+    "prefixes": ["Aela", "Aelara", "Aeliana", "Aelora", "Aeris", "Alavara", "Alara", "Aldara", "Amara", "Ariana", "Ariel", "Aria", "Aurora", "Caela", "Caelara", "Caelis", "Caelora", "Caelwyn", "Daela", "Daelara", "Daelia", "Elara", "Elayna", "Elayne", "Eliana", "Eliora", "Elora", "Elowen", "Elyria", "Elysia", "Elyssa", "Faela", "Faelara", "Faelia", "Faeora", "Faelyn", "Galena", "Galadriel", "Gwendolyn", "Gwenora", "Halara", "Haliana", "Ilaria", "Iliana", "Isara", "Isolde", "Kaela", "Kaelara", "Kaeliana", "Kaelora", "Laela", "Laelara", "Laelia", "Laelora", "Liana", "Liliana", "Lira", "Liora", "Lorelei", "Loriana", "Maela", "Maelara", "Maelia", "Miara", "Miriel", "Naela", "Naelara", "Naelia", "Neara", "Nora", "Nyssa", "Olara", "Ophelia", "Orana", "Raela", "Raelara", "Raelia", "Raeora", "Raina", "Rosalind", "Seraphina", "Selara", "Sylara", "Sylvia", "Taela", "Taelara", "Talia", "Thalia", "Thea", "Vaela", "Vaelara", "Vaelia", "Valeria", "Velara", "Verana", "Viera", "Viviana", "Waelara", "Xaela", "Xalara", "Yaela", "Yaelara", "Zaela", "Zaelara", "Zelara", "Zephyra"],
+    "middles": ["an", "ara", "el", "ella", "ia", "la", "lara", "liana", "ora", "ra", "ria", "wyn"],
+    "suffixes": ["a", "ana", "ara", "el", "ela", "ella", "ia", "iana", "ina", "la", "lara", "ora", "ra", "ria", "wyn"]
   },
   "nonbinary": {
-    "prefixes": ["Ael", "Aria", "Caelan", "Elara", "Faelan", "Galen", "Lira", "Nolan", "Rael", "Thea", "Valen"},
-    "middles": ["al", "an", "ar", "el", "ia", "la", "or", "ra"},
-    "suffixes": ["a", "an", "ar", "el", "en", "ia", "ian", "la", "on", "or", "ra", "us"]
+    "prefixes": ["Ael", "Aela", "Aelric", "Aeron", "Aelara", "Aldric", "Alara", "Aranel", "Aria", "Arion", "Aurora", "Caelan", "Caela", "Caelum", "Caelara", "Daelan", "Daela", "Eldan", "Elara", "Eldric", "Eliana", "Elion", "Elowen", "Elyria", "Faelan", "Faela", "Faelon", "Faelara", "Galen", "Galena", "Galeor", "Galadriel", "Haldor", "Halara", "Ildan", "Ilaria", "Kael", "Kaela", "Kaelan", "Kaelara", "Lael", "Laela", "Laelan", "Laelara", "Lira", "Liora", "Liran", "Lorelei", "Maelon", "Maela", "Naelan", "Naela", "Nolan", "Nora", "Orin", "Ophelia", "Paelan", "Raela", "Rael", "Raelara", "Raelon", "Raina", "Saelon", "Selara", "Taelan", "Taela", "Theron", "Thalia", "Thea", "Vael", "Vaela", "Vaelan", "Vaelara", "Valen", "Valeria", "Varian", "Verana", "Waelara", "Xaelan", "Xaela", "Yaelan", "Yaela", "Zael", "Zaela", "Zaelan", "Zaelara", "Zephron", "Zephyra", "Alderon", "Aleron", "Aeliana", "Calderon", "Caelwyn", "Daelon", "Elara", "Elysia", "Faelyn", "Galadriel", "Gwendolyn", "Iliana", "Isolde", "Kaeliana", "Liliana", "Miriel", "Nyssa", "Rosalind", "Seraphina"],
+    "middles": ["al", "an", "ara", "ar", "el", "ella", "en", "ia", "ian", "ion", "la", "lara", "lan", "lor", "ora", "or", "ra", "ria", "ron", "wyn"],
+    "suffixes": ["a", "an", "ana", "ar", "ara", "el", "ela", "ella", "en", "ia", "ian", "iana", "ina", "ion", "la", "lara", "lan", "lon", "lor", "on", "ora", "or", "ra", "ria", "ric", "ron", "us", "wyn"]
   },
-  "lastNames": ["Brightwood", "Evenstar", "Highbrook", "Moonwind", "Silverleaf", "Stormcrest"],
-  "lastNamePrefixes": ["Bright", "Even", "High", "Moon", "Silver", "Storm"],
-  "lastNameSuffixes": ["brook", "crest", "leaf", "star", "wind", "wood"]
+  "lastNames": ["Autumnleaf", "Brightwater", "Brightwood", "Dawnstar", "Evenbrook", "Evenstar", "Goldenleaf", "Highbrook", "Moonbrook", "Moonwhisper", "Moonwind", "Silverbrook", "Silverleaf", "Silverwind", "Starbrook", "Starcrest", "Starwhisper", "Stormbrook", "Stormcrest", "Sunleaf", "Sunstar", "Thornbrook", "Thornwood", "Twilightbrook"],
+  "lastNamePrefixes": ["Autumn", "Bright", "Dawn", "Even", "Golden", "High", "Moon", "Silver", "Star", "Storm", "Sun", "Thorn", "Twilight"],
+  "lastNameSuffixes": ["brook", "crest", "leaf", "star", "water", "whisper", "wind", "wood"]
 }
