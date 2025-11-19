@@ -225,7 +225,7 @@ export class CombatHooks {
       }
 
       // Auto-apply complication if setting is enabled
-      if (game.settings.get("pf2e-narrative-seeds", "autoApplyComplications")) {
+      if (NarrativeSeedsSettings.get("autoApplyComplications", false)) {
         await this.autoApplyComplication(attackData, seed);
       }
 

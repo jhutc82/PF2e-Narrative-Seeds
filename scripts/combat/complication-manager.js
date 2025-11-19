@@ -2,6 +2,8 @@
  * Manages the selection and application of combat complications
  * for critical successes and critical failures.
  */
+import { NarrativeSeedsSettings } from '../settings.js';
+
 export class ComplicationManager {
     static complications = {
         criticalSuccess: [],
@@ -59,13 +61,13 @@ export class ComplicationManager {
         }
 
         // Check if complications are enabled in settings
-        const enabled = game.settings.get('pf2e-narrative-seeds', 'enableComplications');
+        const enabled = NarrativeSeedsSettings.get('enableComplications', false);
         if (!enabled) {
             return false;
         }
 
         // Use complication chance from settings (0-100%)
-        const chance = game.settings.get('pf2e-narrative-seeds', 'complicationChance');
+        const chance = NarrativeSeedsSettings.get('complicationChance', 30);
 
         return Math.random() * 100 < chance;
     }

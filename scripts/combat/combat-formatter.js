@@ -73,7 +73,7 @@ export class CombatFormatter {
    */
   static generateMinimalHTML(description) {
     const escapedDescription = StringUtils.escapeHTML(description);
-    const autoApply = game.settings.get("pf2e-narrative-seeds", "autoApplyComplications");
+    const autoApply = NarrativeSeedsSettings.get("autoApplyComplications", false);
     const regenerateButton = autoApply ? '' : '<button class="regenerate-icon" data-action="regenerate" title="Generate new narrative">🔄</button>';
 
     return `
@@ -100,7 +100,7 @@ export class CombatFormatter {
       outcome
     } = seed;
 
-    const autoApply = game.settings.get("pf2e-narrative-seeds", "autoApplyComplications");
+    const autoApply = NarrativeSeedsSettings.get("autoApplyComplications", false);
     const escapedDescription = StringUtils.escapeHTML(description);
     const complicationHTML = complication ? this.generateComplicationHTML(complication, outcome) : '';
     const dismembermentHTML = dismemberment ? this.generateDismembermentHTML(dismemberment) : '';
@@ -201,7 +201,7 @@ export class CombatFormatter {
   static generateComplicationHTML(complication, outcome) {
     if (!complication) return '';
 
-    const autoApply = game.settings.get("pf2e-narrative-seeds", "autoApplyComplications");
+    const autoApply = NarrativeSeedsSettings.get("autoApplyComplications", false);
     const escapedName = StringUtils.escapeHTML(complication.name);
     const escapedDescription = StringUtils.escapeHTML(complication.description || '');
     const durationText = complication.duration

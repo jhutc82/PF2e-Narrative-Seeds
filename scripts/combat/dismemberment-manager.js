@@ -2,6 +2,8 @@
  * Manages the selection and application of dismemberment effects
  * for devastating critical hits.
  */
+import { NarrativeSeedsSettings } from '../settings.js';
+
 export class DismembermentManager {
     static dismemberments = [];
     static initialized = false;
@@ -45,7 +47,7 @@ export class DismembermentManager {
         }
 
         // Check if dismemberment is enabled
-        const enabled = game.settings.get('pf2e-narrative-seeds', 'enableDismemberment');
+        const enabled = NarrativeSeedsSettings.get('enableDismemberment', false);
         if (!enabled) {
             return false;
         }
@@ -116,17 +118,21 @@ export class DismembermentManager {
      * @returns {number} Percentage chance (0-100)
      */
     static calculateDismembermentChance(target) {
-        const baseChance = game.settings.get('pf2e-narrative-seeds', 'dismembermentBaseChance');
-        const levelScaling = game.settings.get('pf2e-narrative-seeds', 'dismembermentLevelScaling');
-        const maxChance = game.settings.get('pf2e-narrative-seeds', 'dismembermentMaxChance');
+        const baseChance = NarrativeSeedsSettings.get('dismembermentBaseChance', 10);
+        const levelScaling = NarrativeSeedsSettings.get('dismembermentLevelScaling', true);
+        const maxChance = NarrativeSeedsSettings.get('dismembermentMaxChance', 50);
 
-        const targetLevel = target.system?.details?.level?.value || 0;
+        // Validate numeric values to prevent NaN
+        const validBaseChance = typeof baseChance === 'number' && !isNaN(baseChance) ? baseChance : 10;
+        const validMaxChance = typeof maxChance === 'number' && !isNaN(maxChance) ? maxChance : 50;
 
-        // Calculate: base + (level * scaling)
-        let chance = baseChance + (targetLevel * levelScaling);
+        const targetLevel = target?.system?.details?.level?.value || 0;
+
+        // Calculate: base + (level if scaling enabled)
+        let chance = validBaseChance + (levelScaling ? targetLevel : 0);
 
         // Cap at max
-        chance = Math.min(chance, maxChance);
+        chance = Math.min(chance, validMaxChance);
 
         return chance;
     }
