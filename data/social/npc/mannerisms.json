@@ -1,0 +1,174 @@
+{
+  "mannerisms": [
+    {
+      "id": "fidgets",
+      "description": "Constantly fidgets with objects or clothing",
+      "category": "gesture"
+    },
+    {
+      "id": "eye-contact",
+      "description": "Maintains intense, unwavering eye contact",
+      "category": "gesture"
+    },
+    {
+      "id": "avoids-eye-contact",
+      "description": "Avoids making direct eye contact",
+      "category": "gesture"
+    },
+    {
+      "id": "hand-talker",
+      "description": "Uses expansive hand gestures when speaking",
+      "category": "gesture"
+    },
+    {
+      "id": "crosses-arms",
+      "description": "Frequently crosses arms defensively",
+      "category": "gesture"
+    },
+    {
+      "id": "taps-fingers",
+      "description": "Taps fingers rhythmically on surfaces",
+      "category": "gesture"
+    },
+    {
+      "id": "strokes-beard",
+      "description": "Habitually strokes their beard or chin",
+      "category": "gesture"
+    },
+    {
+      "id": "adjusts-clothing",
+      "description": "Constantly adjusts their clothing or accessories",
+      "category": "gesture"
+    },
+    {
+      "id": "paces",
+      "description": "Paces back and forth while talking",
+      "category": "gesture"
+    },
+    {
+      "id": "slow-speech",
+      "description": "Speaks slowly and deliberately",
+      "category": "speech"
+    },
+    {
+      "id": "fast-speech",
+      "description": "Speaks rapidly, words tumbling over each other",
+      "category": "speech"
+    },
+    {
+      "id": "mumbles",
+      "description": "Mumbles or speaks unclearly",
+      "category": "speech"
+    },
+    {
+      "id": "loud-voice",
+      "description": "Speaks loudly, perhaps too loudly",
+      "category": "speech"
+    },
+    {
+      "id": "whispers",
+      "description": "Speaks in hushed, conspiratorial tones",
+      "category": "speech"
+    },
+    {
+      "id": "clears-throat",
+      "description": "Frequently clears their throat",
+      "category": "speech"
+    },
+    {
+      "id": "laughs-nervously",
+      "description": "Punctuates sentences with nervous laughter",
+      "category": "speech"
+    },
+    {
+      "id": "repeats-words",
+      "description": "Repeats certain words or phrases for emphasis",
+      "category": "speech"
+    },
+    {
+      "id": "uses-big-words",
+      "description": "Uses unnecessarily complex vocabulary",
+      "category": "speech"
+    },
+    {
+      "id": "colorful-curses",
+      "description": "Peppers speech with colorful expletives",
+      "category": "speech"
+    },
+    {
+      "id": "formal-speech",
+      "description": "Speaks in overly formal, proper manner",
+      "category": "speech"
+    },
+    {
+      "id": "common-phrases",
+      "description": "Frequently uses common sayings and proverbs",
+      "category": "speech"
+    },
+    {
+      "id": "chews-something",
+      "description": "Constantly chews on something (tobacco, straw, etc.)",
+      "category": "habit"
+    },
+    {
+      "id": "blinks-often",
+      "description": "Blinks excessively when nervous",
+      "category": "habit"
+    },
+    {
+      "id": "sniffs",
+      "description": "Sniffs frequently",
+      "category": "habit"
+    },
+    {
+      "id": "cracks-knuckles",
+      "description": "Cracks their knuckles habitually",
+      "category": "habit"
+    },
+    {
+      "id": "touches-face",
+      "description": "Touches their face or hair frequently",
+      "category": "habit"
+    },
+    {
+      "id": "drums-table",
+      "description": "Drums fingers on tables or surfaces",
+      "category": "habit"
+    },
+    {
+      "id": "hums",
+      "description": "Hums or whistles tunelessly",
+      "category": "habit"
+    },
+    {
+      "id": "sighs",
+      "description": "Sighs heavily and often",
+      "category": "habit"
+    },
+    {
+      "id": "smiles-constantly",
+      "description": "Smiles even when discussing serious matters",
+      "category": "expression"
+    },
+    {
+      "id": "frowns",
+      "description": "Has a habitual frown or stern expression",
+      "category": "expression"
+    },
+    {
+      "id": "raises-eyebrow",
+      "description": "Frequently raises an eyebrow skeptically",
+      "category": "expression"
+    },
+    {
+      "id": "squints",
+      "description": "Squints as if trying to see better",
+      "category": "expression"
+    },
+    {
+      "id": "poker-face",
+      "description": "Maintains an expressionless poker face",
+      "category": "expression"
+    }
+  ]
+}

@@ -1,0 +1,132 @@
+{
+  "moods": [
+    {
+      "id": "hostile",
+      "name": "Hostile",
+      "description": "Openly antagonistic and unfriendly",
+      "socialDC": 5,
+      "attitudes": ["hostile", "unfriendly"],
+      "likelihood": 10
+    },
+    {
+      "id": "suspicious",
+      "name": "Suspicious",
+      "description": "Wary and distrustful",
+      "socialDC": 3,
+      "attitudes": ["unfriendly", "indifferent"],
+      "likelihood": 15
+    },
+    {
+      "id": "guarded",
+      "name": "Guarded",
+      "description": "Careful and reserved",
+      "socialDC": 2,
+      "attitudes": ["unfriendly", "indifferent"],
+      "likelihood": 20
+    },
+    {
+      "id": "indifferent",
+      "name": "Indifferent",
+      "description": "Neither friendly nor unfriendly",
+      "socialDC": 0,
+      "attitudes": ["indifferent"],
+      "likelihood": 25
+    },
+    {
+      "id": "neutral",
+      "name": "Neutral",
+      "description": "Calm and businesslike",
+      "socialDC": 0,
+      "attitudes": ["indifferent", "friendly"],
+      "likelihood": 20
+    },
+    {
+      "id": "curious",
+      "name": "Curious",
+      "description": "Interested and inquisitive",
+      "socialDC": -1,
+      "attitudes": ["indifferent", "friendly"],
+      "likelihood": 15
+    },
+    {
+      "id": "friendly",
+      "name": "Friendly",
+      "description": "Warm and welcoming",
+      "socialDC": -2,
+      "attitudes": ["friendly", "helpful"],
+      "likelihood": 20
+    },
+    {
+      "id": "eager",
+      "name": "Eager",
+      "description": "Enthusiastic and cooperative",
+      "socialDC": -3,
+      "attitudes": ["friendly", "helpful"],
+      "likelihood": 10
+    },
+    {
+      "id": "nervous",
+      "name": "Nervous",
+      "description": "Anxious and on edge",
+      "socialDC": 1,
+      "attitudes": ["unfriendly", "indifferent"],
+      "likelihood": 15
+    },
+    {
+      "id": "fearful",
+      "name": "Fearful",
+      "description": "Scared and ready to flee",
+      "socialDC": 4,
+      "attitudes": ["hostile", "unfriendly"],
+      "likelihood": 10
+    },
+    {
+      "id": "distracted",
+      "name": "Distracted",
+      "description": "Preoccupied with other concerns",
+      "socialDC": 2,
+      "attitudes": ["indifferent"],
+      "likelihood": 12
+    },
+    {
+      "id": "bored",
+      "name": "Bored",
+      "description": "Uninterested and looking for entertainment",
+      "socialDC": -1,
+      "attitudes": ["indifferent", "friendly"],
+      "likelihood": 8
+    },
+    {
+      "id": "irritated",
+      "name": "Irritated",
+      "description": "Annoyed and impatient",
+      "socialDC": 3,
+      "attitudes": ["unfriendly", "indifferent"],
+      "likelihood": 12
+    },
+    {
+      "id": "jovial",
+      "name": "Jovial",
+      "description": "Cheerful and good-humored",
+      "socialDC": -2,
+      "attitudes": ["friendly", "helpful"],
+      "likelihood": 8
+    },
+    {
+      "id": "melancholic",
+      "name": "Melancholic",
+      "description": "Sad and withdrawn",
+      "socialDC": 2,
+      "attitudes": ["unfriendly", "indifferent"],
+      "likelihood": 8
+    },
+    {
+      "id": "calculating",
+      "name": "Calculating",
+      "description": "Weighing every word and action",
+      "socialDC": 1,
+      "attitudes": ["indifferent"],
+      "likelihood": 10
+    }
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "personalities": [
+    {
+      "id": "verbose",
+      "name": "Verbose",
+      "description": "Talks extensively, often going off on tangents",
+      "tags": ["speech-pattern"]
+    },
+    {
+      "id": "taciturn",
+      "name": "Taciturn",
+      "description": "Speaks in short, clipped sentences",
+      "tags": ["speech-pattern"]
+    },
+    {
+      "id": "cunning",
+      "name": "Cunning",
+      "description": "Clever and scheming, always has an angle",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "honest",
+      "name": "Honest",
+      "description": "Straightforward and truthful, sometimes bluntly so",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "deceitful",
+      "name": "Deceitful",
+      "description": "Prone to lying and misdirection",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "pompous",
+      "name": "Pompous",
+      "description": "Self-important and condescending",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "humble",
+      "name": "Humble",
+      "description": "Modest and unassuming",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "aggressive",
+      "name": "Aggressive",
+      "description": "Quick to anger and confrontation",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "timid",
+      "name": "Timid",
+      "description": "Shy and easily intimidated",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "flirtatious",
+      "name": "Flirtatious",
+      "description": "Playfully romantic or suggestive",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "scholarly",
+      "name": "Scholarly",
+      "description": "Intellectual and pedantic",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "superstitious",
+      "name": "Superstitious",
+      "description": "Believes in omens and folklore",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "pragmatic",
+      "name": "Pragmatic",
+      "description": "Focused on practical matters and results",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "idealistic",
+      "name": "Idealistic",
+      "description": "Driven by principles and beliefs",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "cynical",
+      "name": "Cynical",
+      "description": "Distrusting and pessimistic about others' motives",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "optimistic",
+      "name": "Optimistic",
+      "description": "Hopeful and positive about outcomes",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "paranoid",
+      "name": "Paranoid",
+      "description": "Constantly worried about hidden threats",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "gregarious",
+      "name": "Gregarious",
+      "description": "Sociable and fond of company",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "aloof",
+      "name": "Aloof",
+      "description": "Distant and emotionally detached",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "melodramatic",
+      "name": "Melodramatic",
+      "description": "Prone to exaggeration and theatrics",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "stoic",
+      "name": "Stoic",
+      "description": "Shows little emotion, endures hardship quietly",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "impulsive",
+      "name": "Impulsive",
+      "description": "Acts on whims without thinking ahead",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "methodical",
+      "name": "Methodical",
+      "description": "Careful and systematic in approach",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "mercenary",
+      "name": "Mercenary",
+      "description": "Motivated primarily by profit",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "altruistic",
+      "name": "Altruistic",
+      "description": "Selflessly concerned for others' wellbeing",
+      "tags": ["personality-trait"]
+    }
+  ]
+}
