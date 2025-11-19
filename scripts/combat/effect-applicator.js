@@ -17,7 +17,17 @@ export class EffectApplicator {
             return false;
         }
 
+        if (!complication || typeof complication !== 'object') {
+            console.warn('PF2e Narrative Seeds | Invalid complication data');
+            return false;
+        }
+
         const { effect, name, description, duration } = complication;
+
+        if (!effect || !name) {
+            console.warn('PF2e Narrative Seeds | Complication missing required fields');
+            return false;
+        }
 
         // Enhance description with mechanical effects
         const enhancedDescription = this.enhanceComplicationDescription(description, effect, duration);
@@ -289,7 +299,17 @@ export class EffectApplicator {
             return false;
         }
 
+        if (!dismemberment || typeof dismemberment !== 'object') {
+            console.warn('PF2e Narrative Seeds | Invalid dismemberment data');
+            return false;
+        }
+
         const { name, description, effects } = dismemberment;
+
+        if (!name || !effects) {
+            console.warn('PF2e Narrative Seeds | Dismemberment missing required fields');
+            return false;
+        }
 
         try {
             // Create a permanent effect item for the dismemberment
