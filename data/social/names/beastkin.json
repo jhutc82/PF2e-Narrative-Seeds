@@ -11,23 +11,23 @@
     "3": 30
   },
   "male": {
-    "prefixes": ["Ash", "Bear", "Claw", "Hawk", "Raven", "Stag", "Thorn", "Wolf", "Wulf", "Wyld"},
-    "middles": ["ar", "en", "fang", "kin"},
-    "suffixes": ["ar", "born", "claw", "en", "fang", "kin", "paw"]
+    "prefixes": ["Ash", "Ashen", "Badger", "Barken", "Bear", "Birch", "Boar", "Boulder", "Bramble", "Brock", "Buck", "Claw", "Cougar", "Crow", "Drake", "Eagle", "Elk", "Fang", "Fenrir", "Ferox", "Flint", "Fox", "Frost", "Grim", "Grizzle", "Hawk", "Heron", "Hound", "Hunter", "Kodiak", "Kragen", "Lion", "Lomar", "Lupe", "Lynx", "Mane", "Oak", "Onyx", "Otter", "Owl", "Panther", "Prowl", "Raven", "Ridge", "Roar", "Sable", "Sage", "Shadow", "Slate", "Snarl", "Snow", "Stag", "Stone", "Storm", "Talon", "Thorn", "Thunder", "Timber", "Ulf", "Ulric", "Ursus", "Varg", "Warden", "Wild", "Wolf", "Wulfgar", "Wulf", "Wyr", "Wyld", "Alder", "Amarok", "Ashbear", "Bearwald", "Blackclaw", "Bloodfang", "Boargar", "Bracken", "Bronson", "Clawson", "Coldpaw", "Darkfang", "Duskwolf", "Eagleson", "Fangmar", "Fennec", "Fierywolf", "Frostwolf", "Graymane", "Grimfang", "Growler", "Hawkson", "Ironjaw", "Jaguar", "Leopard", "Lionmane", "Lynxar", "Moonhowl", "Nightstalker", "Ravenwood", "Shadowpaw", "Silvertooth", "Stoneclaw", "Stormwolf", "Swiftclaw", "Tigerclaw", "Wildfang", "Wolfsong"],
+    "middles": ["ar", "claw", "en", "fang", "fen", "gar", "kin", "mar", "paw", "son"],
+    "suffixes": ["ar", "born", "claw", "den", "en", "fang", "fen", "gar", "heart", "kin", "mane", "mar", "paw", "rage", "son", "tooth"]
   },
   "female": {
-    "prefixes": ["Asha", "Claw", "Doe", "Hawk", "Luna", "Raven", "Thorn", "Willow", "Wolf", "Wyld"},
-    "middles": ["ar", "en", "ia", "kin", "ra"},
-    "suffixes": ["a", "ara", "born", "claw", "en", "ia", "kin", "paw", "ra"]
+    "prefixes": ["Amber", "Ash", "Asha", "Aurora", "Bella", "Birch", "Blossom", "Briar", "Calypso", "Claw", "Crystal", "Dawn", "Doe", "Dove", "Ebony", "Ember", "Fawn", "Feather", "Fern", "Flora", "Fox", "Grace", "Hare", "Harte", "Hawk", "Hazel", "Heather", "Holly", "Ivy", "Jade", "Luna", "Lynx", "Maple", "Meadow", "Mist", "Moira", "Moon", "Nova", "Onyx", "Opal", "Pearl", "Petal", "Primrose", "Prowl", "Raven", "Rowan", "Ruby", "Sable", "Sage", "Shadow", "Silver", "Snow", "Sparrow", "Spirit", "Star", "Storm", "Tala", "Talon", "Terra", "Thorn", "Whisper", "Willow", "Winter", "Wolf", "Wyld", "Alder", "Ashfern", "Bearclaw", "Blackfeather", "Bloodmoon", "Brambleheart", "Brighteye", "Clawdance", "Coldmoon", "Crystalpaw", "Darkfeather", "Dawnwing", "Doeheart", "Dovewing", "Emberpaw", "Fangdancer", "Fawnpaw", "Featherstep", "Foxfire", "Frostheart", "Goldenpaw", "Graypelt", "Hawkfeather", "Ivyheart", "Lionfang", "Lunaheart", "Lynxclaw", "Moonfeather", "Nightprowl", "Ravenfeather", "Rosepetal", "Shadowfang", "Silverclaw", "Snowpaw", "Starpaw", "Stormfeather", "Swiftstep", "Thornrose", "Whitefang", "Wildfern", "Windwalker", "Wintermoon", "Wolfspirit"],
+    "middles": ["ar", "dance", "en", "feather", "heart", "ia", "kin", "paw", "petal", "ra", "step", "wing"},
+    "suffixes": ["a", "ara", "born", "claw", "dance", "en", "eye", "fang", "feather", "fern", "fire", "heart", "ia", "kin", "moon", "paw", "petal", "ra", "step", "wing"]
   },
   "nonbinary": {
-    "prefixes": ["Ash", "Bear", "Claw", "Doe", "Hawk", "Luna", "Raven", "Stag", "Thorn", "Wolf", "Wyld"},
-    "middles": ["ar", "en", "ia", "kin", "ra"},
-    "suffixes": ["a", "ar", "born", "claw", "en", "fang", "ia", "kin", "paw", "ra"]
+    "prefixes": ["Amber", "Ash", "Asha", "Ashen", "Aurora", "Badger", "Barken", "Bear", "Birch", "Blossom", "Boar", "Boulder", "Bramble", "Briar", "Brock", "Buck", "Calypso", "Claw", "Cougar", "Crow", "Crystal", "Dawn", "Doe", "Dove", "Drake", "Eagle", "Ebony", "Elk", "Ember", "Fang", "Fawn", "Feather", "Fenrir", "Fern", "Ferox", "Flint", "Flora", "Fox", "Frost", "Grace", "Grim", "Grizzle", "Hare", "Harte", "Hawk", "Hazel", "Heather", "Heron", "Holly", "Hound", "Hunter", "Ivy", "Jade", "Kodiak", "Kragen", "Lion", "Lomar", "Luna", "Lupe", "Lynx", "Mane", "Maple", "Meadow", "Mist", "Moira", "Moon", "Nova", "Oak", "Onyx", "Opal", "Otter", "Owl", "Panther", "Pearl", "Petal", "Primrose", "Prowl", "Raven", "Ridge", "Roar", "Rowan", "Ruby", "Sable", "Sage", "Shadow", "Silver", "Slate", "Snarl", "Snow", "Sparrow", "Spirit", "Stag", "Star", "Stone", "Storm", "Tala", "Talon", "Terra", "Thorn", "Thunder", "Timber", "Ulf", "Ulric", "Ursus", "Varg", "Warden", "Whisper", "Wild", "Willow", "Winter", "Wolf", "Wulfgar", "Wulf", "Wyr", "Wyld"],
+    "middles": ["ar", "claw", "dance", "en", "fang", "feather", "fen", "gar", "heart", "ia", "kin", "mar", "paw", "petal", "ra", "son", "step", "wing"},
+    "suffixes": ["a", "ar", "ara", "born", "claw", "dance", "den", "en", "eye", "fang", "feather", "fen", "fern", "fire", "gar", "heart", "ia", "kin", "mane", "mar", "moon", "paw", "petal", "ra", "rage", "son", "step", "tooth", "wing"]
   },
   "compoundParts": {
-    "prefixes": ["Bear", "Claw", "Eagle", "Fang", "Hawk", "Moon", "Raven", "Stag", "Wild", "Wolf"],
-    "suffixes": ["born", "claw", "fang", "heart", "kin", "paw", "runner", "stalker"]
+    "prefixes": ["Ash", "Bear", "Black", "Blood", "Bone", "Boulder", "Bramble", "Claw", "Cold", "Crow", "Dark", "Dawn", "Deer", "Dire", "Drake", "Dusk", "Eagle", "Elk", "Fang", "Fawn", "Feather", "Feral", "Fire", "Flame", "Fox", "Frost", "Gold", "Gray", "Grim", "Hare", "Hawk", "Iron", "Leaf", "Lion", "Lone", "Lynx", "Midnight", "Moon", "Night", "Oak", "Owl", "Panther", "Raven", "Red", "Ridge", "River", "Roar", "Sable", "Shadow", "Silver", "Snow", "Spirit", "Stag", "Star", "Stone", "Storm", "Swift", "Talon", "Thunder", "Tiger", "Timber", "Thorn", "Twilight", "War", "Wild", "Wind", "Winter", "Wolf", "Wood"],
+    "suffixes": ["bane", "blood", "born", "bound", "claw", "dancer", "eye", "fang", "feather", "fire", "fist", "fur", "heart", "hide", "howl", "hunter", "jaw", "kin", "mane", "moon", "paw", "pelt", "prowler", "rage", "roar", "runner", "shadow", "song", "soul", "spirit", "stalker", "strike", "stride", "talon", "tooth", "tracker", "walker", "whisper", "wind", "wing"]
   },
   "compoundSeparator": ""
 }

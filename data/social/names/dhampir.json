@@ -11,21 +11,21 @@
     "3": 40
   },
   "male": {
-    "prefixes": ["Adri", "Drac", "Lucian", "Mal", "Nikol", "Raven", "Seb", "Stef", "Vlad", "Viktor"],
-    "middles": ["an", "ar", "ian", "mir", "van"},
-    "suffixes": ["an", "ar", "ian", "mir", "or", "us", "van"]
+    "prefixes": ["Adler", "Adri", "Adrian", "Alaric", "Alek", "Alexandru", "Alexei", "Andrei", "Anton", "Arkadi", "Armand", "Balthazar", "Basil", "Bogdan", "Boris", "Casimir", "Cazimir", "Constantin", "Damien", "Dimitri", "Dorian", "Drac", "Dragomir", "Draven", "Eugen", "Fedor", "Florin", "Gabriel", "Gavril", "Gregor", "Igor", "Ilya", "Ioan", "Isidor", "Ivan", "Jaroslav", "Konstantin", "Lazarus", "Lestat", "Lucian", "Lucius", "Luka", "Mal", "Maksim", "Marius", "Matis", "Mikhail", "Milos", "Mircea", "Nicolae", "Nikol", "Nikolai", "Octavian", "Oleg", "Pavel", "Petru", "Radimir", "Radu", "Raphael", "Raul", "Raven", "Roman", "Seb", "Sebastian", "Sergei", "Sorin", "Stef", "Stefan", "Stoyan", "Taras", "Valentin", "Valeri", "Vasile", "Viktor", "Vitus", "Vlad", "Vladimir", "Vladislav", "Yuri", "Zephyr", "Dorin", "Dumitru", "Emeric", "Erasmus", "Florentiu", "Gheorghe", "Grigore", "Horia", "Ilie", "Ionut", "Laurentiu", "Lucifer", "Ludovic", "Matei", "Mordecai", "Nicolae", "Octavius", "Raven", "Razvan", "Severin", "Tiberius", "Traian", "Valerian", "Virgil"],
+    "middles": ["al", "an", "ar", "el", "ian", "im", "ir", "mir", "ol", "or", "van", "vic"],
+    "suffixes": ["al", "an", "ar", "el", "escu", "ian", "ic", "im", "ir", "mir", "ol", "or", "us", "van", "vic"]
   },
   "female": {
-    "prefixes": ["Adri", "Carm", "Ilona", "Len", "Luciana", "Mir", "Nat", "Raven", "Sel", "Valen"],
-    "middles": ["an", "ara", "el", "ia", "ina", "ra"},
-    "suffixes": ["a", "ana", "ara", "el", "ena", "ia", "ina", "ra"]
+    "prefixes": ["Adela", "Adelina", "Adri", "Adriana", "Agatha", "Alessandra", "Alina", "Anastasia", "Andrea", "Angelica", "Anja", "Anna", "Antonia", "Arabella", "Aurelia", "Beatrix", "Bianca", "Bogdana", "Carmilla", "Carm", "Cassia", "Catalina", "Claudia", "Constantina", "Cornelia", "Dacia", "Daria", "Diana", "Doina", "Dorina", "Elena", "Eleonora", "Elisabeta", "Evangeline", "Galina", "Gabriela", "Greta", "Helena", "Ilona", "Ioana", "Irina", "Isabela", "Isadora", "Iulia", "Ivana", "Katarina", "Katerina", "Larisa", "Len", "Lena", "Lenore", "Lidia", "Liliana", "Lilith", "Lucia", "Luciana", "Ludmila", "Magdalena", "Marcella", "Mariana", "Marina", "Mila", "Milena", "Mir", "Mira", "Mirabella", "Mirela", "Morana", "Natalia", "Nat", "Natalya", "Nicoleta", "Octavia", "Olesya", "Olivia", "Petra", "Raven", "Roxana", "Sabina", "Serafina", "Sel", "Selena", "Serena", "Silvana", "Sorina", "Svetlana", "Tamara", "Tatiana", "Valentina", "Valen", "Valeria", "Veronika", "Viktoria", "Viviana", "Zara", "Zora", "Adrienne", "Aurelia", "Cassandra", "Desdemona", "Dominika", "Elizabeta", "Evangeline", "Morgana", "Persephone", "Ravenna", "Rosalind", "Seraphina", "Theodora", "Violetta", "Yekaterina"],
+    "middles": ["an", "ana", "ara", "el", "ella", "ena", "ia", "ina", "ira", "la", "lena", "na", "ra", "rina"},
+    "suffixes": ["a", "al", "ana", "ara", "el", "ela", "ella", "ena", "escu", "ia", "ika", "ina", "ira", "la", "lena", "na", "ra", "rina"]
   },
   "nonbinary": {
-    "prefixes": ["Adri", "Carm", "Drac", "Len", "Lucian", "Mir", "Nikol", "Raven", "Sel", "Vlad"},
-    "middles": ["an", "ara", "el", "ia", "ian", "mir", "ra", "van"},
-    "suffixes": ["a", "an", "ara", "el", "ena", "ia", "ian", "mir", "or", "ra", "us", "van"]
+    "prefixes": ["Adler", "Adri", "Adrian", "Adriana", "Alaric", "Alek", "Alexandru", "Alexei", "Andrei", "Angel", "Angelica", "Anton", "Arkadi", "Armand", "Balthazar", "Basil", "Bogdan", "Carmilla", "Carm", "Casimir", "Cazimir", "Constantin", "Constantina", "Damien", "Dimitri", "Dorian", "Drac", "Dragomir", "Draven", "Elena", "Eleonora", "Eugen", "Evangeline", "Fedor", "Florin", "Gabriel", "Gabriela", "Gavril", "Gregor", "Helena", "Igor", "Ilona", "Ilya", "Ioan", "Ioana", "Isador", "Isadora", "Ivan", "Ivana", "Jaroslav", "Katarina", "Konstantin", "Larisa", "Lazarus", "Len", "Lena", "Lenore", "Lestat", "Liliana", "Lilith", "Lucian", "Luciana", "Lucius", "Luka", "Mal", "Maksim", "Marius", "Matis", "Mikhail", "Mila", "Milos", "Mir", "Mira", "Mircea", "Morana", "Natalia", "Nat", "Natalya", "Nicolae", "Nicoleta", "Nikol", "Nikolai", "Octavia", "Octavian", "Oleg", "Olivia", "Pavel", "Petra", "Petru", "Radimir", "Radu", "Raphael", "Raul", "Raven", "Ravenna", "Roman", "Seb", "Sebastian", "Sel", "Selena", "Sergei", "Serafina", "Serena", "Silvana", "Sorin", "Sorina", "Stef", "Stefan", "Stoyan", "Svetlana", "Tamara", "Taras", "Tatiana", "Valentin", "Valentina", "Valen", "Valeri", "Valeria", "Vasile", "Veronika", "Viktor", "Viktoria", "Vitus", "Viviana", "Vlad", "Vladimir", "Vladislav", "Yuri", "Zephyr"],
+    "middles": ["al", "an", "ana", "ar", "ara", "el", "ella", "ena", "ia", "ian", "im", "ina", "ir", "ira", "la", "mir", "na", "ol", "or", "ra", "rina", "van", "vic"},
+    "suffixes": ["a", "al", "an", "ana", "ar", "ara", "el", "ela", "ella", "ena", "escu", "ia", "ian", "ic", "ika", "im", "ina", "ir", "ira", "la", "lena", "mir", "na", "ol", "or", "ra", "rina", "us", "van", "vic"]
   },
-  "lastNames": ["Blackwood", "Darkmoor", "Nightshade", "Ravencroft", "Shadowborne", "Thornheart"],
-  "lastNamePrefixes": ["Black", "Dark", "Night", "Raven", "Shadow", "Thorn"],
-  "lastNameSuffixes": ["borne", "croft", "heart", "moor", "shade", "wood"]
+  "lastNames": ["Blackblood", "Blackrose", "Blackthorn", "Blackwood", "Bloodmoon", "Bloodworth", "Crimsonfang", "Darkholme", "Darkmoor", "Darkveil", "Duskmire", "Gravenight", "Gravesend", "Moonshade", "Nightbane", "Nightfall", "Nightrose", "Nightshade", "Nightvale", "Paleblood", "Ravenblood", "Ravencroft", "Ravenholme", "Ravenwood", "Redthorn", "Shadowbane", "Shadowborne", "Shadowmere", "Shadowveil", "Silentgrave", "Silvermoon", "Thornblood", "Thornhart", "Thornheart", "Veilcroft", "Winterblood"],
+  "lastNamePrefixes": ["Black", "Blood", "Crimson", "Dark", "Dusk", "Grave", "Moon", "Night", "Pale", "Raven", "Red", "Shadow", "Silent", "Silver", "Thorn", "Veil", "Winter"],
+  "lastNameSuffixes": ["bane", "blood", "borne", "croft", "fang", "fall", "grave", "hart", "heart", "holme", "mire", "moor", "night", "rose", "shade", "thorn", "vale", "veil", "wood", "worth"]
 }

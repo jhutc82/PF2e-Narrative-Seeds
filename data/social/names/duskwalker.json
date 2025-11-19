@@ -11,23 +11,23 @@
     "3": 30
   },
   "male": {
-    "prefixes": ["Dusk", "Grave", "Mor", "Nox", "Psyche", "Raven", "Shade", "Silent", "Twi", "Veil"],
-    "middles": ["an", "ar", "en", "on", "or"},
-    "suffixes": ["an", "ar", "el", "en", "ix", "on", "or", "os", "us"]
+    "prefixes": ["Animus", "Ash", "Astryx", "Beyond", "Cairn", "Charon", "Crypt", "Death", "Dirge", "Doom", "Dusk", "Duskon", "Ebb", "Ebon", "Etern", "Eventide", "Fade", "Fathom", "Final", "Gloom", "Grave", "Grim", "Hallow", "Haunt", "Hush", "Lament", "Limen", "Limin", "Liminal", "Memor", "Mor", "Moribund", "Morrow", "Mortis", "Mourner", "Murk", "Necrox", "Nether", "Night", "Nocturne", "Nox", "Noxen", "Obliv", "Omen", "Pallor", "Passage", "Phan", "Phantom", "Portent", "Psyche", "Purgat", "Quies", "Quietus", "Raven", "Reaper", "Remem", "Requi", "Requiem", "Rest", "Revenant", "Sanctum", "Sepulch", "Shade", "Shadow", "Shroud", "Sil", "Silent", "Silentus", "Slumber", "Solace", "Solemn", "Somber", "Soul", "Specter", "Spirit", "Stygian", "Styx", "Thren", "Threnody", "Threshold", "Tomb", "Transit", "Twi", "Twilight", "Umbral", "Veil", "Veiled", "Vesper", "Vigil", "Void", "Wake", "Wander", "Whisper", "Wither", "Wraith", "Zephyr", "Anubis", "Atropos", "Chronos", "Erebus", "Hades", "Hypnos", "Morpheus", "Osiris", "Thanatos"],
+    "middles": ["an", "ar", "el", "en", "ix", "on", "or", "rim", "um"],
+    "suffixes": ["an", "ar", "el", "en", "ex", "im", "ix", "on", "or", "os", "rim", "um", "us", "yx"]
   },
   "female": {
-    "prefixes": ["Dusk", "Grave", "Luna", "Mora", "Nox", "Psyche", "Raven", "Shade", "Silence", "Veil"],
-    "middles": ["an", "ara", "el", "ia", "ra"},
-    "suffixes": ["a", "ana", "ara", "el", "ena", "ia", "ina", "ra"]
+    "prefixes": ["Aether", "Animara", "Asha", "Astria", "Beyonda", "Cairna", "Crypta", "Deatha", "Dusca", "Duskara", "Ebba", "Ebona", "Eterna", "Eventida", "Fada", "Fathoma", "Finala", "Glooma", "Gravena", "Grima", "Hallowa", "Haunta", "Husha", "Lamenta", "Limena", "Limina", "Luminara", "Luna", "Memoria", "Mora", "Morbida", "Morra", "Mortala", "Mortisa", "Mournera", "Murka", "Necrosa", "Nethera", "Nighta", "Noctessa", "Nocturna", "Noxa", "Noxara", "Oblivia", "Omena", "Pallida", "Passa", "Phantoma", "Portenta", "Psycha", "Psyche", "Purgata", "Quieta", "Quietura", "Ravena", "Reapera", "Remembra", "Requiana", "Requiema", "Resta", "Revenanta", "Sancta", "Sepulcha", "Shada", "Shadowa", "Shrouda", "Silenta", "Silentia", "Silessa", "Slumbra", "Solara", "Sola", "Solemna", "Sombra", "Soula", "Spectra", "Spirita", "Stygia", "Styxa", "Threna", "Threnoda", "Thresholda", "Tomba", "Transita", "Twilight", "Umbrala", "Vala", "Veila", "Veiled", "Vespera", "Vigila", "Voida", "Wakara", "Wandera", "Whispera", "Withera", "Wraitha", "Zephyra", "Andromeda", "Artemisia", "Astarte", "Hecate", "Isis", "Lilith", "Morrigan", "Nyx", "Persephone", "Selene"],
+    "middles": ["al", "an", "ana", "ara", "el", "ella", "ia", "ina", "ra", "ria"},
+    "suffixes": ["a", "al", "ana", "ara", "el", "ela", "ella", "ena", "essa", "ia", "ina", "issa", "ra", "ria"]
   },
   "nonbinary": {
-    "prefixes": ["Dusk", "Grave", "Luna", "Mor", "Nox", "Psyche", "Raven", "Shade", "Silence", "Twi", "Veil"},
-    "middles": ["an", "ara", "el", "en", "ia", "on", "ra"},
-    "suffixes": ["a", "an", "ara", "el", "en", "ia", "ix", "on", "or", "ra", "us"]
+    "prefixes": ["Aether", "Animus", "Animara", "Ash", "Asha", "Astria", "Astryx", "Beyond", "Beyonda", "Cairn", "Cairna", "Charon", "Crypt", "Crypta", "Death", "Deatha", "Dirge", "Doom", "Dusk", "Dusca", "Duskara", "Duskon", "Ebb", "Ebba", "Ebon", "Ebona", "Etern", "Eterna", "Eventide", "Eventida", "Fade", "Fada", "Fathom", "Fathoma", "Final", "Finala", "Gloom", "Glooma", "Grave", "Gravena", "Grim", "Grima", "Hallow", "Hallowa", "Haunt", "Haunta", "Hush", "Husha", "Lament", "Lamenta", "Limen", "Limena", "Limin", "Limina", "Liminal", "Luminara", "Luna", "Memor", "Memoria", "Mor", "Mora", "Moribund", "Morbida", "Morrow", "Morra", "Mortis", "Mortala", "Mortisa", "Mourner", "Mournera", "Murk", "Murka", "Necrox", "Necrosa", "Nether", "Nethera", "Night", "Nighta", "Nocturne", "Noctessa", "Nocturna", "Nox", "Noxa", "Noxara", "Noxen", "Obliv", "Oblivia", "Omen", "Omena", "Pallor", "Pallida", "Passage", "Passa", "Phan", "Phantom", "Phantoma", "Portent", "Portenta", "Psyche", "Psycha", "Purgat", "Purgata", "Quies", "Quieta", "Quietus", "Quietura", "Raven", "Ravena", "Reaper", "Reapera", "Remem", "Remembra", "Requi", "Requiana", "Requiem", "Requiema", "Rest", "Resta", "Revenant", "Revenanta", "Sanctum", "Sancta", "Sepulch", "Sepulcha", "Shade", "Shada", "Shadow", "Shadowa", "Shroud", "Shrouda", "Sil", "Silent", "Silenta", "Silentus", "Silentia", "Silessa"],
+    "middles": ["al", "an", "ana", "ar", "ara", "el", "ella", "en", "ia", "ina", "ix", "on", "or", "ra", "ria", "rim", "um"},
+    "suffixes": ["a", "al", "an", "ana", "ar", "ara", "el", "ela", "ella", "en", "ena", "essa", "ex", "ia", "im", "ina", "issa", "ix", "on", "or", "os", "ra", "ria", "rim", "um", "us", "yx"]
   },
   "compoundParts": {
-    "prefixes": ["Death", "Dusk", "Grave", "Psyche", "Shadow", "Silence", "Soul", "Spirit", "Twilight", "Veil"],
-    "suffixes": ["born", "keeper", "walker", "watcher"]
+    "prefixes": ["Afterlife", "Abyss", "Barrow", "Beyond", "Bone", "Cairn", "Charon", "Corpse", "Crypt", "Dark", "Death", "Doom", "Dusk", "Ebb", "Eternity", "Eventide", "Fade", "Fate", "Final", "Funeral", "Ghost", "Gloom", "Grave", "Grim", "Hallow", "Haunt", "Hereafter", "Hush", "Lament", "Limen", "Liminal", "Memento", "Memory", "Midnight", "Morrow", "Mortal", "Mourner", "Nether", "Night", "Nocturne", "Oblivion", "Omen", "Pallor", "Passage", "Phantom", "Psyche", "Psychopomp", "Purgatory", "Quiet", "Quietus", "Raven", "Reaper", "Remembrance", "Requiem", "Rest", "Revenant", "Sepulcher", "Shade", "Shadow", "Shroud", "Silent", "Slumber", "Solace", "Solemn", "Somber", "Soul", "Specter", "Spirit", "Stygian", "Styx", "Threshold", "Tomb", "Transit", "Twilight", "Umbral", "Underworld", "Veil", "Vesper", "Vigil", "Void", "Wake", "Whisper", "Wither", "Wraith"],
+    "suffixes": ["bearer", "born", "bound", "caller", "gate", "guide", "keeper", "passage", "seeker", "speaker", "steward", "touched", "walker", "warden", "watcher", "way"]
   },
   "compoundSeparator": ""
 }

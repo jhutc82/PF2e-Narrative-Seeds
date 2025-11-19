@@ -11,23 +11,23 @@
     "3": 50
   },
   "male": {
-    "prefixes": ["Chaos", "Flux", "Kaleid", "Morph", "Prot", "Rand", "Shift", "Spark", "Twist", "Whirl"],
-    "middles": ["an", "ar", "ix", "on", "or"},
-    "suffixes": ["an", "ar", "ix", "on", "or", "os", "us", "yx"]
+    "prefixes": ["Aberr", "Anom", "Anomal", "Atyp", "Bedlam", "Capr", "Capric", "Chaos", "Chaot", "Chrom", "Confu", "Contrad", "Discord", "Disor", "Disorder", "Disrupt", "Diverg", "Entrop", "Errat", "Flux", "Fractal", "Frenzy", "Haphaz", "Havoc", "Irradi", "Irrat", "Irration", "Kaleid", "Kaleidos", "Madness", "Mayhem", "Merc", "Mercur", "Morph", "Morphos", "Mutab", "Nebul", "Parad", "Paradox", "Prism", "Prot", "Prote", "Protean", "Quantic", "Quantum", "Quirk", "Radiant", "Rand", "Random", "Rift", "Ripple", "Roil", "Scatter", "Shift", "Shifter", "Spark", "Sparkle", "Spectr", "Spiral", "Splintr", "Spontan", "Storm", "Strange", "Surge", "Swirl", "Tangle", "Torrent", "Turbu", "Turbul", "Twist", "Twister", "Unpred", "Variabl", "Varian", "Variant", "Variat", "Vortex", "Vortic", "Warp", "Warper", "Whim", "Whimsy", "Whirl", "Whirlpool", "Wild", "Wyrd", "Aether", "Amorphon", "Arbitrar", "Asymmetr", "Bizarr", "Catalyx", "Chromatyx", "Cyclon", "Deviant", "Dynamyx", "Eclips", "Entropyx", "Fluxter", "Fractus", "Galaxion", "Helixor", "Infinityx", "Lunatic", "Mercurix", "Metamorph", "Nexus", "Parabex", "Phantyx", "Polychrom", "Primax", "Proton"],
+    "middles": ["an", "ar", "ex", "ix", "on", "or", "yx"],
+    "suffixes": ["an", "ar", "ex", "ic", "ix", "on", "or", "os", "us", "yx"]
   },
   "female": {
-    "prefixes": ["Chaosa", "Fluxa", "Kaleida", "Morpha", "Prota", "Randa", "Shifta", "Sparka", "Twista", "Whirla"],
-    "middles": ["an", "ara", "ia", "ra"},
-    "suffixes": ["a", "ana", "ara", "ia", "ina", "ra"]
+    "prefixes": ["Aberra", "Anoma", "Anomala", "Atypa", "Bedlama", "Capra", "Caprica", "Chaosa", "Chaota", "Chroma", "Confusa", "Contradica", "Discorda", "Disora", "Disordera", "Disrupta", "Diverga", "Entropa", "Errata", "Fluxa", "Fractala", "Frenzya", "Haphaza", "Havoca", "Irradiata", "Irrata", "Irrationa", "Kaleida", "Kaleidosa", "Madness", "Mayhema", "Merca", "Mercura", "Morpha", "Morphosa", "Mutaba", "Nebula", "Parada", "Paradoxa", "Prisma", "Prota", "Protea", "Proteana", "Quantica", "Quantuma", "Quirka", "Radianta", "Randa", "Randoma", "Rifta", "Rippla", "Roila", "Scattera", "Shifta", "Shiftera", "Sparka", "Sparkla", "Spectra", "Spirala", "Splintra", "Spontana", "Storma", "Strangea", "Surgea", "Swirla", "Tangla", "Torrenta", "Turbua", "Turbula", "Twista", "Twistera", "Unpreda", "Variabla", "Variana", "Varianta", "Variata", "Vortexa", "Vortica", "Warpa", "Warpera", "Whima", "Whimsya", "Whirla", "Whirlpoola", "Wilda", "Wyrda", "Aethera", "Amorpha", "Arbitrara", "Asymmetra", "Bizarra", "Catalyxa", "Chromatyxa", "Cyclona", "Devianta", "Dynamyxa", "Eclipsa", "Entropyxa", "Fluxtera", "Fractusa", "Galaxiona", "Helixora", "Infinityxa", "Lunatica", "Mercurixa", "Metamorpha", "Nexusa", "Parabexa", "Phantyxa", "Polychroma", "Primaxa", "Protona"],
+    "middles": ["al", "an", "ana", "ara", "ia", "ica", "ina", "ra", "xa", "ya"},
+    "suffixes": ["a", "al", "ana", "ara", "ia", "ica", "ina", "isa", "issa", "ra", "xa", "ya"]
   },
   "nonbinary": {
-    "prefixes": ["Chaos", "Flux", "Kaleid", "Morph", "Prot", "Rand", "Shift", "Spark", "Twist", "Whirl"},
-    "middles": ["an", "ara", "ia", "ix", "on", "ra"},
-    "suffixes": ["a", "an", "ara", "ia", "ix", "on", "or", "os", "ra", "us", "yx"]
+    "prefixes": ["Aberr", "Aberra", "Anom", "Anoma", "Anomal", "Anomala", "Atyp", "Atypa", "Bedlam", "Bedlama", "Capr", "Capra", "Capric", "Caprica", "Chaos", "Chaosa", "Chaot", "Chaota", "Chrom", "Chroma", "Confu", "Confusa", "Contrad", "Contradica", "Discord", "Discorda", "Disor", "Disora", "Disorder", "Disordera", "Disrupt", "Disrupta", "Diverg", "Diverga", "Entrop", "Entropa", "Errat", "Errata", "Flux", "Fluxa", "Fractal", "Fractala", "Frenzy", "Frenzya", "Haphaz", "Haphaza", "Havoc", "Havoca", "Irradi", "Irradiata", "Irrat", "Irrata", "Irration", "Irrationa", "Kaleid", "Kaleida", "Kaleidos", "Kaleidosa", "Madness", "Mayhem", "Mayhema", "Merc", "Merca", "Mercur", "Mercura", "Morph", "Morpha", "Morphos", "Morphosa", "Mutab", "Mutaba", "Nebul", "Nebula", "Parad", "Parada", "Paradox", "Paradoxa", "Prism", "Prisma", "Prot", "Prota", "Prote", "Protea", "Protean", "Proteana", "Quantic", "Quantica", "Quantum", "Quantuma", "Quirk", "Quirka", "Radiant", "Radianta", "Rand", "Randa", "Random", "Randoma", "Rift", "Rifta", "Ripple", "Rippla", "Roil", "Roila", "Scatter", "Scattera", "Shift", "Shifta", "Shifter", "Shiftera", "Spark", "Sparka", "Sparkle", "Sparkla", "Spectr", "Spectra", "Spiral", "Spirala", "Splintr", "Splintra", "Spontan", "Spontana", "Storm", "Storma", "Strange", "Strangea", "Surge", "Surgea", "Swirl", "Swirla", "Tangle", "Tangla", "Torrent", "Torrenta", "Turbu", "Turbua", "Turbul", "Turbula", "Twist", "Twista", "Twister", "Twistera", "Unpred", "Unpreda", "Variabl", "Variabla", "Varian", "Variana", "Variant", "Varianta", "Variat", "Variata", "Vortex", "Vortexa", "Vortic", "Vortica", "Warp", "Warpa", "Warper", "Warpera", "Whim", "Whima", "Whimsy", "Whimsya", "Whirl", "Whirla", "Whirlpool", "Whirlpoola", "Wild", "Wilda", "Wyrd", "Wyrda"],
+    "middles": ["al", "an", "ana", "ar", "ara", "ex", "ia", "ica", "ina", "ix", "on", "or", "ra", "xa", "ya", "yx"},
+    "suffixes": ["a", "al", "an", "ana", "ar", "ara", "ex", "ia", "ic", "ica", "ina", "isa", "issa", "ix", "on", "or", "os", "ra", "us", "xa", "ya", "yx"]
   },
   "compoundParts": {
-    "prefixes": ["Chaos", "Flux", "Morph", "Proto", "Random", "Shift", "Twist", "Warp", "Wild"],
-    "suffixes": ["born", "kin", "spawn", "touched"]
+    "prefixes": ["Abyss", "Aberrant", "Anomaly", "Asymmetry", "Bedlam", "Calamity", "Caprice", "Catalyst", "Chaos", "Chromatic", "Conflux", "Contradiction", "Cyclone", "Discord", "Disorder", "Divergent", "Dynamic", "Entropy", "Erratic", "Flux", "Fractal", "Frenzy", "Galaxy", "Haphazard", "Havoc", "Helix", "Infinity", "Iridescent", "Irrational", "Kaleidoscope", "Lunacy", "Madness", "Mayhem", "Mercurial", "Metamorphosis", "Morph", "Mutation", "Nebula", "Nexus", "Paradox", "Prism", "Protean", "Quantum", "Radiant", "Random", "Rift", "Ripple", "Scatter", "Shift", "Spectrum", "Spiral", "Spontaneous", "Storm", "Strange", "Surge", "Swirl", "Tangle", "Torrent", "Turbulent", "Twist", "Unpredictable", "Variable", "Variant", "Vortex", "Warp", "Whim", "Whirlpool", "Wild", "Wyrd"],
+    "suffixes": ["born", "bound", "caller", "child", "flux", "kin", "soul", "spawn", "spirit", "storm", "touched", "weaver", "wyrd"]
   },
   "compoundSeparator": ""
 }

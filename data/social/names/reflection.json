@@ -11,23 +11,23 @@
     "3": 30
   },
   "male": {
-    "prefixes": ["Echo", "Mir", "Paral", "Reflect", "Shad", "Twin", "Veil", "Void"],
-    "middles": ["an", "ar", "or", "ron"},
-    "suffixes": ["an", "ar", "ix", "on", "or", "ron", "us"]
+    "prefixes": ["Alter", "Antithe", "Clone", "Counter", "Doppel", "Double", "Dual", "Duplicate", "Echo", "Echon", "Facsimile", "Glass", "Hollow", "Image", "Imago", "Inverse", "Likeness", "Looking", "Mir", "Mirage", "Mirror", "Mirron", "Obverse", "Oppos", "Other", "Paral", "Parallel", "Phantom", "Reflect", "Reflector", "Reflex", "Replica", "Revers", "Sembl", "Shad", "Shadow", "Simulac", "Simul", "Specul", "Symmetr", "Symmetron", "Twin", "Twinborn", "Umbra", "Veil", "Veiled", "Void", "Voidborn", "Alike", "Analogon", "Correspondex", "Echorus", "Equivalex", "Facsimilon", "Geminus", "Imagion", "Inversor", "Likenus", "Mirroron", "Parallelon", "Phantex", "Reflectus", "Reflexor", "Replicor", "Reversus", "Sameson", "Shadowborn", "Similex", "Simularon", "Twinex", "Umbron", "Veilborn", "Voidex", "Alikeson", "Clonex", "Counterborn", "Doppelon", "Dualex", "Duplicon", "Echoborn", "Glasson", "Hollowen", "Imageborn", "Inversex", "Likeson", "Lookon", "Miragen", "Mirrorborn", "Obversex", "Opposit", "Otheron", "Parallax", "Phantomborn", "Reflecton", "Replicex", "Reversex", "Semblex", "Shadowex", "Simulex", "Symmetrex", "Twinborn", "Umbrex", "Veilex", "Voidson"],
+    "middles": ["an", "ar", "born", "ex", "ix", "on", "or", "ron", "son", "us"],
+    "suffixes": ["an", "ar", "born", "en", "ex", "ix", "on", "or", "ron", "son", "us", "x"]
   },
   "female": {
-    "prefixes": ["Echoa", "Mira", "Parallela", "Reflecta", "Shada", "Twina", "Veila", "Voida"],
-    "middles": ["an", "ara", "la", "ra"},
-    "suffixes": ["a", "ana", "ara", "ia", "la", "ra"]
+    "prefixes": ["Altera", "Antithea", "Clona", "Countera", "Doppela", "Doubla", "Duala", "Duplica", "Echoa", "Echona", "Facsimila", "Glassa", "Hollowa", "Imagea", "Imagona", "Inversa", "Likena", "Lookina", "Mira", "Miragea", "Mirrora", "Mirrona", "Obversa", "Opposa", "Othera", "Parala", "Parallela", "Phantoma", "Reflecta", "Reflectora", "Reflexa", "Replica", "Reversa", "Sembla", "Shada", "Shadowa", "Simulaca", "Simula", "Specula", "Symmetra", "Symmetrona", "Twina", "Twinara", "Umbra", "Veila", "Veilara", "Voida", "Voidara", "Alikea", "Analogona", "Corresponda", "Echora", "Equivala", "Facsimilona", "Gemina", "Imagiona", "Inversara", "Likena", "Mirrorona", "Parallena", "Phantexa", "Reflectura", "Reflexara", "Replicora", "Reversara", "Samesara", "Shadowara", "Simila", "Simulara", "Twinexa", "Umbrona", "Veilara", "Voidexa", "Alikesona", "Clonexa", "Counterara", "Doppelona", "Dualexa", "Duplicona", "Echoara", "Glassona", "Hollowena", "Imageara", "Inversexa", "Likesona", "Lookona", "Miragena", "Mirrorara", "Obversexa", "Opposita", "Otherona", "Parallaxa", "Phantomara", "Reflectona", "Replicexa", "Reversexa", "Semblexa", "Shadowexa", "Simulexa", "Symmetrexa", "Twinara", "Umbrexa", "Veilexa", "Voidsona"],
+    "middles": ["al", "an", "ana", "ara", "el", "ena", "ia", "ina", "la", "ona", "ra"],
+    "suffixes": ["a", "al", "ana", "ara", "el", "ela", "ena", "ia", "ina", "la", "ona", "ra"]
   },
   "nonbinary": {
-    "prefixes": ["Echo", "Mir", "Paral", "Reflect", "Shad", "Twin", "Veil", "Void"},
-    "middles": ["an", "ara", "la", "on", "ra"},
-    "suffixes": ["a", "an", "ara", "ia", "ix", "la", "on", "or", "ra", "us"]
+    "prefixes": ["Alter", "Altera", "Antithe", "Antithea", "Clone", "Clona", "Counter", "Countera", "Doppel", "Doppela", "Double", "Doubla", "Dual", "Duala", "Duplicate", "Duplica", "Echo", "Echoa", "Echon", "Echona", "Facsimile", "Facsimila", "Glass", "Glassa", "Hollow", "Hollowa", "Image", "Imagea", "Imago", "Imagona", "Inverse", "Inversa", "Likeness", "Likena", "Looking", "Lookina", "Mir", "Mira", "Mirage", "Miragea", "Mirror", "Mirrora", "Mirron", "Mirrona", "Obverse", "Obversa", "Oppos", "Opposa", "Other", "Othera", "Paral", "Parala", "Parallel", "Parallela", "Phantom", "Phantoma", "Reflect", "Reflecta", "Reflector", "Reflectora", "Reflex", "Reflexa", "Replica", "Revers", "Reversa", "Sembl", "Sembla", "Shad", "Shada", "Shadow", "Shadowa", "Simulac", "Simulaca", "Simul", "Simula", "Specul", "Specula", "Symmetr", "Symmetra", "Symmetron", "Symmetrona", "Twin", "Twina", "Twinborn", "Twinara", "Umbra", "Veil", "Veila", "Veiled", "Veilara", "Void", "Voida", "Voidborn", "Voidara", "Alike", "Alikea", "Analogon", "Analogona", "Correspondex", "Corresponda", "Echorus", "Echora", "Equivalex", "Equivala", "Facsimilon", "Facsimilona", "Geminus", "Gemina", "Imagion", "Imagiona", "Inversor", "Inversara", "Likenus", "Likena", "Mirroron", "Mirrorona", "Parallelon", "Parallena", "Phantex", "Phantexa", "Reflectus", "Reflectura", "Reflexor", "Reflexara", "Replicor", "Replicora", "Reversus", "Reversara", "Sameson", "Samesara", "Shadowborn", "Shadowara", "Similex", "Simila", "Simularon", "Simulara", "Twinex", "Twinexa", "Umbron", "Umbrona", "Veilborn", "Veilara", "Voidex", "Voidexa"],
+    "middles": ["al", "an", "ana", "ar", "ara", "born", "el", "ena", "ex", "ia", "ina", "ix", "la", "on", "ona", "or", "ra", "ron", "son", "us", "x"},
+    "suffixes": ["a", "al", "an", "ana", "ar", "ara", "born", "el", "ela", "en", "ena", "ex", "ia", "ina", "ix", "la", "on", "ona", "or", "ra", "ron", "son", "us", "x"]
   },
   "compoundParts": {
-    "prefixes": ["Echo", "Mirror", "Parallel", "Reflect", "Shadow", "Twin", "Void"],
-    "suffixes": ["born", "image", "self", "twin", "walker"]
+    "prefixes": ["Alter", "Alternate", "Clone", "Copy", "Counter", "Doppel", "Doppelganger", "Double", "Dual", "Duplicate", "Echo", "Facsimile", "Glass", "Hollow", "Image", "Inverse", "Looking", "Mimic", "Mirror", "Mirrored", "Obverse", "Opposite", "Other", "Parallel", "Phantom", "Reflect", "Reflection", "Reflex", "Replica", "Reverse", "Same", "Self", "Semblance", "Shadow", "Shard", "Shimmer", "Simulacrum", "Simul", "Specular", "Symmetry", "Twin", "Umbra", "Veil", "Veiled", "Void"],
+    "suffixes": ["born", "bound", "clone", "copy", "double", "echo", "glass", "image", "mirror", "self", "shade", "shadow", "soul", "twin", "walker", "world"]
   },
   "compoundSeparator": ""
 }
