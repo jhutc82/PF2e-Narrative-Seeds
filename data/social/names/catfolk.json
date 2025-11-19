@@ -11,21 +11,21 @@
     "3": 30
   },
   "male": {
-    "prefixes": ["Aza", "Bara", "Dara", "Keru", "Maru", "Nala", "Raka", "Saru", "Tanu", "Vara", "Yara", "Zeru"],
-    "middles": ["ka", "ma", "ra", "sha", "ta", "va", "za"],
-    "suffixes": ["kar", "mar", "nar", "rak", "san", "tar", "van", "zar"]
+    "prefixes": ["Aka", "Ara", "Asha", "Aza", "Bala", "Bara", "Baru", "Daka", "Dara", "Daru", "Fala", "Fara", "Feru", "Gala", "Gara", "Geru", "Haka", "Hara", "Heru", "Jala", "Jara", "Jeru", "Kala", "Kara", "Keru", "Laka", "Lara", "Leru", "Maka", "Mara", "Maru", "Naka", "Nala", "Naru", "Paka", "Para", "Paru", "Raka", "Rala", "Raru", "Saka", "Sala", "Saru", "Shaka", "Shara", "Sheru", "Taka", "Tala", "Tanu", "Taru", "Vaka", "Vara", "Varu", "Waka", "Wara", "Waru", "Yaka", "Yara", "Yaru", "Zaka", "Zala", "Zaru", "Zera", "Zeru", "Akar", "Amar", "Azar", "Balar", "Barar", "Dalar", "Darar", "Falar", "Farar", "Galar", "Garar", "Halar", "Harar", "Jalar", "Jarar", "Kalar", "Karar", "Lalar", "Larar", "Malar", "Marar", "Nalar", "Narar", "Palar", "Parar", "Ralar", "Rarar", "Salar", "Sarar", "Talar", "Tarar", "Valar", "Varar", "Walar", "Warar", "Yalar", "Yarar", "Zalar", "Zarar"],
+    "middles": ["ka", "la", "ma", "na", "ra", "sa", "sha", "ta", "va", "wa", "ya", "za"],
+    "suffixes": ["kar", "lar", "mar", "nar", "par", "rak", "ran", "san", "shan", "tar", "van", "wan", "yar", "zar", "ak", "an", "ar", "ash", "ath", "kan", "kash", "kath", "mak", "mash", "nak", "nath", "pak", "pash", "rak", "rash", "rath", "sak", "sash", "sath", "shak", "shash", "shath", "tak", "tash", "tath", "vak", "vash", "vath", "wak", "wash", "wath", "yak", "yash", "yath", "zak", "zash", "zath"]
   },
   "female": {
-    "prefixes": ["Asha", "Dara", "Kira", "Lira", "Mara", "Nara", "Rasha", "Shara", "Tara", "Vara", "Yara", "Zara"],
-    "middles": ["ka", "la", "ma", "na", "ra", "sha", "va"],
-    "suffixes": ["ka", "la", "ma", "na", "ra", "sha", "va"]
+    "prefixes": ["Aka", "Ala", "Amara", "Ara", "Asha", "Ashara", "Azara", "Bala", "Bara", "Bella", "Dala", "Dara", "Della", "Fala", "Fara", "Fera", "Gala", "Gara", "Gira", "Hala", "Hara", "Hira", "Jala", "Jara", "Jira", "Kala", "Kara", "Kira", "Lala", "Lara", "Lira", "Mala", "Mara", "Mira", "Nala", "Nara", "Nira", "Pala", "Para", "Pira", "Rala", "Rara", "Rasha", "Rira", "Sala", "Sara", "Sasha", "Shala", "Shara", "Shira", "Sira", "Tala", "Tara", "Tira", "Vala", "Vara", "Vira", "Wala", "Wara", "Wira", "Yala", "Yara", "Yira", "Zala", "Zara", "Zira", "Alara", "Amara", "Arasha", "Azara", "Balara", "Barasha", "Dalara", "Darasha", "Falara", "Farasha", "Galara", "Garasha", "Halara", "Harasha", "Jalara", "Jarasha", "Kalara", "Karasha", "Lalara", "Larasha", "Malara", "Marasha", "Nalara", "Narasha", "Palara", "Parasha", "Ralara", "Rarasha", "Salara", "Sarasha", "Talara", "Tarasha", "Valara", "Varasha", "Walara", "Warasha", "Yalara", "Yarasha", "Zalara", "Zarasha"],
+    "middles": ["ka", "la", "ma", "na", "ra", "sha", "ta", "va", "wa", "ya", "za"],
+    "suffixes": ["ka", "la", "ma", "na", "ra", "sha", "ta", "va", "wa", "ya", "za", "asha", "isha", "ella", "enna", "essa", "ina", "ira", "issa", "itha", "kha", "lha", "mha", "nha", "rha", "shha", "tha", "vha", "wha", "yha", "zha"]
   },
   "nonbinary": {
-    "prefixes": ["Ara", "Dara", "Kara", "Mara", "Nara", "Rara", "Shar", "Tara", "Vara", "Yara"],
-    "middles": ["ka", "ma", "na", "ra", "sha", "va"],
-    "suffixes": ["ka", "kar", "ma", "na", "rak", "va", "zar"]
+    "prefixes": ["Aka", "Ala", "Amara", "Ara", "Asha", "Azar", "Azara", "Bala", "Bara", "Baru", "Daka", "Dala", "Dara", "Daru", "Fala", "Fara", "Feru", "Gala", "Gara", "Geru", "Haka", "Hala", "Hara", "Heru", "Jala", "Jara", "Jeru", "Kala", "Kara", "Keru", "Kira", "Laka", "Lala", "Lara", "Leru", "Lira", "Maka", "Mala", "Mara", "Maru", "Mira", "Naka", "Nala", "Nara", "Naru", "Nira", "Paka", "Pala", "Para", "Paru", "Pira", "Raka", "Rala", "Rara", "Raru", "Rasha", "Rira", "Saka", "Sala", "Sara", "Saru", "Sasha", "Shaka", "Shala", "Shara", "Sheru", "Shira", "Taka", "Tala", "Tanu", "Tara", "Taru", "Tira", "Vaka", "Vala", "Vara", "Varu", "Vira", "Waka", "Wala", "Wara", "Waru", "Wira", "Yaka", "Yala", "Yara", "Yaru", "Yira", "Zaka", "Zala", "Zara", "Zaru", "Zera", "Zeru", "Zira"],
+    "middles": ["ka", "la", "ma", "na", "ra", "sha", "ta", "va", "wa", "ya", "za"],
+    "suffixes": ["ka", "kar", "la", "lar", "ma", "mar", "na", "nar", "ra", "rak", "ran", "sha", "shan", "ta", "tar", "va", "van", "wa", "wan", "ya", "yar", "za", "zar", "ak", "an", "ar", "ash", "ath", "kan", "kash", "mak", "mash", "nak", "nath", "pak", "pash", "rak", "rash", "rath", "sak", "sash", "shak", "shash", "tak", "tash", "vak", "vash", "wak", "wash", "yak", "yash", "zak", "zash"]
   },
   "lastNames": ["Clawstripe", "Moonwhisker", "Nightprowler", "Quickpaw", "Shadowtail", "Silentpad", "Sunstalker", "Swiftclaw"],
-  "lastNamePrefixes": ["Claw", "Moon", "Night", "Quick", "Shadow", "Silent", "Sun", "Swift", "Wild"],
-  "lastNameSuffixes": ["claw", "pad", "paw", "prowler", "stalker", "stride", "stripe", "tail", "whisker"]
+  "lastNamePrefixes": ["Bright", "Claw", "Dark", "Dawn", "Desert", "Dust", "Fast", "Golden", "Grass", "Keen", "Moon", "Mountain", "Night", "Pride", "Quick", "River", "Sand", "Savanna", "Shadow", "Sharp", "Silent", "Silver", "Sky", "Spotted", "Star", "Storm", "Sun", "Swift", "Tail", "Twilight", "Valley", "Wild", "Wind"],
+  "lastNameSuffixes": ["chaser", "claw", "eye", "fang", "fur", "heart", "hunter", "leap", "pad", "paw", "pride", "prowler", "runner", "shadow", "spring", "stalker", "step", "stride", "stripe", "tail", "tracker", "walker", "watcher", "whisker", "wind"]
 }
