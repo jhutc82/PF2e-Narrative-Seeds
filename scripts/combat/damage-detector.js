@@ -194,8 +194,11 @@ export class DamageDetector {
 
     // Check if any trait is a damage type
     for (const trait of traits) {
+      // Ensure trait is a string (could be object in some PF2e versions)
+      if (typeof trait !== 'string' && typeof trait !== 'number') continue;
+
       const normalized = this.normalizeDamageType(trait);
-      if (this.DAMAGE_TYPES.includes(normalized)) {
+      if (normalized && this.DAMAGE_TYPES.includes(normalized)) {
         return normalized;
       }
     }
@@ -297,6 +300,7 @@ export class DamageDetector {
    */
   static getDisplayName(damageType) {
     const normalized = this.normalizeDamageType(damageType);
+    if (!normalized) return "Unknown";
     return normalized.charAt(0).toUpperCase() + normalized.slice(1);
   }
 

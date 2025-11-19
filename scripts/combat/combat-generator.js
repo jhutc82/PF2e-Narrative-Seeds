@@ -110,9 +110,10 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
         const showAnatomy = NarrativeSeedsSettings.get("showAnatomyType");
 
         // Record attack in combat memory and get memory context
+        // Use a unique identifier that combines ID and UUID to prevent name collisions
         const combatId = message?.combat?.id || 'default';
-        const attackerId = attacker?.id || attacker?.name || 'unknown';
-        const targetId = target?.id || target?.name || 'unknown';
+        const attackerId = attacker?.id || attacker?.uuid || `name-${attacker?.name || 'unknown'}`;
+        const targetId = target?.id || target?.uuid || `name-${target?.name || 'unknown'}`;
         const memoryContext = CombatMemory.recordAttack(combatId, attackerId, targetId, outcome);
 
         // Generate description with repetition prevention

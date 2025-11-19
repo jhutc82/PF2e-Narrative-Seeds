@@ -459,9 +459,10 @@ export class StringUtils {
   /**
    * Interpolate template variables in a single pass
    * Optimized replacement for multiple regex operations
+   * SECURITY: All interpolated values are HTML-escaped to prevent XSS attacks
    * @param {string} template - String with ${var} placeholders
    * @param {Object} vars - Variable substitutions
-   * @returns {string} Interpolated string
+   * @returns {string} Interpolated string with HTML-escaped values
    * @example
    * interpolate("${name} hits ${target}", {name: "Bob", target: "Alice"})
    * // Returns: "Bob hits Alice"
@@ -471,8 +472,12 @@ export class StringUtils {
     if (!vars || typeof vars !== 'object') return template;
 
     // Single pass replacement - much faster than multiple regex calls
+    // All values are HTML-escaped to prevent XSS injection
     return template.replace(/\$\{(\w+)\}/g, (match, key) => {
-      return vars[key] !== undefined ? vars[key] : match;
+      if (vars[key] !== undefined) {
+        return this.escapeHTML(String(vars[key]));
+      }
+      return match;
     });
   }
 }
@@ -551,8 +556,11 @@ export class PF2eUtils {
    * @returns {Actor|null}
    */
   static getActor(tokenOrActorId) {
-    const token = canvas.tokens?.get(tokenOrActorId);
-    if (token) return token.actor;
+    // Check if canvas is available (not in setup/login screens)
+    if (canvas?.tokens) {
+      const token = canvas.tokens.get(tokenOrActorId);
+      if (token) return token.actor;
+    }
 
     return game.actors.get(tokenOrActorId);
   }
@@ -572,7 +580,7 @@ export class PF2eUtils {
 
     return context.type === "attack-roll" ||
            context.action === "strike" ||
-           message.flags.pf2e.modifierName === "Attack Roll";
+           flags.modifierName === "Attack Roll";
   }
 
   /**
