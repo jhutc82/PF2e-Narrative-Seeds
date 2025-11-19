@@ -11,20 +11,20 @@
     "3": 30
   },
   "male": {
-    "prefixes": ["Ash", "Bone", "Crypt", "Grim", "Mort", "Rattle", "Skel", "Tomb", "Vault", "Whisper"],
-    "suffixes": ["ar", "en", "ix", "on", "os", "us"]
+    "prefixes": ["Ash", "Barrow", "Bone", "Cairn", "Casket", "Charnel", "Chill", "Coffin", "Corpse", "Crypt", "Curs", "Dire", "Doom", "Dread", "Dust", "Ebon", "Ether", "Fell", "Fester", "Gast", "Ghast", "Gloom", "Grave", "Grim", "Haunt", "Lich", "Mort", "Mortis", "Necroth", "Ossuar", "Pale", "Pall", "Phantas", "Phantom", "Rattle", "Rictus", "Rot", "Ruin", "Sepulch", "Shadow", "Shade", "Shroud", "Skel", "Skelton", "Skull", "Sorrow", "Spectr", "Spine", "Spirit", "Tomb", "Umbra", "Vault", "Vex", "Wail", "Whisper", "Wither", "Wraith", "Ashborn", "Barrowen", "Boneson", "Cairnor", "Charnor", "Cryptor", "Curseth", "Direth", "Doomor", "Dreador", "Dustborn", "Ebonix", "Fellor", "Festeron", "Gastor", "Ghastix", "Gloomor", "Graven", "Grimor", "Hauntor", "Lichor", "Mortor", "Mortix", "Necros", "Ossuor", "Pallor", "Phantor", "Rattlen", "Rictorn", "Rotor", "Ruinor", "Sepulcor", "Shadon", "Shadorn", "Shroudon", "Skeltor", "Skullor", "Sorron", "Spectron", "Spiron", "Tomborn", "Umbron", "Vaultor", "Vexor"],
+    "suffixes": ["an", "ar", "ath", "en", "eth", "ix", "on", "or", "os", "oth", "ron", "sor", "thar", "thor", "us"]
   },
   "female": {
-    "prefixes": ["Asha", "Bonea", "Crypta", "Grima", "Morta", "Rattla", "Skela", "Tomba", "Vaulta", "Whispera"],
-    "suffixes": ["a", "ara", "ena", "ia", "ina", "ra"]
+    "prefixes": ["Asha", "Barrowa", "Bonea", "Cairna", "Casketa", "Charnela", "Chilla", "Coffina", "Corpsa", "Crypta", "Cursa", "Dira", "Dooma", "Dreada", "Dusta", "Ebona", "Ethera", "Fella", "Festera", "Gasta", "Ghasta", "Glooma", "Grava", "Grima", "Haunta", "Licha", "Morta", "Mortisa", "Necrotha", "Ossuara", "Pala", "Palla", "Phantasa", "Phantoma", "Rattla", "Rictusa", "Rota", "Ruina", "Sepulcha", "Shadowa", "Shada", "Shrouda", "Skela", "Skeltona", "Skulla", "Sorrowa", "Spectra", "Spina", "Spirita", "Tomba", "Umbra", "Vaulta", "Vexa", "Waila", "Whispera", "Withera", "Wraitha", "Ashara", "Barrowena", "Boneara", "Cairnara", "Charnara", "Cryptara", "Cursara", "Dirara", "Doomara", "Dreadara", "Dustara", "Ebonara", "Fellara", "Festerina", "Gastara", "Ghastara", "Gloomara", "Gravena", "Grimara", "Hauntara", "Lichara", "Mortara", "Mortina", "Necrosara", "Ossuara", "Pallara", "Phantara", "Rattlena", "Rictara", "Rotara", "Ruinara", "Sepulcara", "Shadara", "Shadownara", "Shroudina", "Skeltara", "Skullara", "Sorrowina", "Spectrara", "Spirara", "Tombara", "Umbrara", "Vaultara", "Vexara"],
+    "suffixes": ["a", "ana", "ara", "asha", "ella", "ena", "enna", "ia", "ina", "ira", "issa", "ra", "tha", "thra"]
   },
   "nonbinary": {
-    "prefixes": ["Ash", "Bone", "Crypt", "Grim", "Mort", "Rattle", "Skel", "Tomb", "Vault", "Whisper"],
-    "suffixes": ["a", "ar", "en", "ia", "ix", "on", "os", "ra", "us"]
+    "prefixes": ["Ash", "Asha", "Barrow", "Barrowa", "Bone", "Bonea", "Cairn", "Cairna", "Casket", "Casketa", "Charnel", "Charnela", "Chill", "Chilla", "Coffin", "Coffina", "Corpse", "Corpsa", "Crypt", "Crypta", "Curs", "Cursa", "Dire", "Dira", "Doom", "Dooma", "Dread", "Dreada", "Dust", "Dusta", "Ebon", "Ebona", "Ether", "Ethera", "Fell", "Fella", "Fester", "Festera", "Gast", "Gasta", "Ghast", "Ghasta", "Gloom", "Glooma", "Grave", "Grava", "Grim", "Grima", "Haunt", "Haunta", "Lich", "Licha", "Mort", "Morta", "Mortis", "Mortisa", "Necroth", "Necrotha", "Ossuar", "Ossuara", "Pale", "Pala", "Pall", "Palla", "Phantas", "Phantasa", "Phantom", "Phantoma", "Rattle", "Rattla", "Rictus", "Rictusa", "Rot", "Rota", "Ruin", "Ruina", "Sepulch", "Sepulcha", "Shadow", "Shadowa", "Shade", "Shada", "Shroud", "Shrouda", "Skel", "Skela", "Skelton", "Skeltona", "Skull", "Skulla", "Sorrow", "Sorrowa", "Spectr", "Spectra", "Spine", "Spina", "Spirit", "Spirita"],
+    "suffixes": ["a", "an", "ana", "ar", "ara", "asha", "ath", "ella", "en", "ena", "enna", "eth", "ia", "ina", "ira", "issa", "ix", "on", "or", "os", "oth", "ra", "ron", "sor", "tha", "thar", "thor", "thra", "us"]
   },
   "compoundParts": {
-    "prefixes": ["Bone", "Crypt", "Death", "Grave", "Mortal", "Rattle", "Shadow", "Skull", "Tomb", "Whisper"],
-    "suffixes": ["born", "caller", "keeper", "rattle", "walker", "whisper"]
+    "prefixes": ["Barrow", "Bone", "Cairn", "Charnel", "Coffin", "Corpse", "Crypt", "Dark", "Death", "Doom", "Dread", "Dust", "Fell", "Grave", "Grim", "Haunt", "Lich", "Mortal", "Necro", "Night", "Ossuary", "Pale", "Phantom", "Rattle", "Rot", "Ruin", "Sepulcher", "Shadow", "Shade", "Shroud", "Silent", "Skeleton", "Skull", "Sorrow", "Spectre", "Spirit", "Tomb", "Umbra", "Vault", "Whisper", "Wither", "Wraith"],
+    "suffixes": ["bane", "born", "bound", "breaker", "caller", "dancer", "guard", "haunt", "keeper", "rattle", "seeker", "shadow", "singer", "speaker", "stalker", "walker", "warden", "whisper"]
   },
   "compoundSeparator": ""
 }

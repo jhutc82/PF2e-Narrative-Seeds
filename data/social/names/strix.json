@@ -12,21 +12,21 @@
     "3": 30
   },
   "male": {
-    "prefixes": ["Kaw", "Kresh", "Kroth", "Rawk", "Rek", "Rok", "Skree", "Talon", "Vrok", "Zawk"],
-    "middles": ["ar", "awk", "ok", "oth", "rok"],
-    "suffixes": ["ak", "ar", "awk", "kresh", "ok", "oth", "rok"]
+    "prefixes": ["Akraw", "Arkaw", "Bawk", "Cawk", "Crawk", "Crawk", "Crok", "Grak", "Graw", "Grawk", "Grok", "Hark", "Hawk", "Kaar", "Karak", "Karawk", "Kaw", "Kawrok", "Kesh", "Krak", "Krawk", "Kresh", "Kreshok", "Krok", "Kroth", "Krothok", "Krow", "Oakar", "Raawk", "Rawk", "Rawkesh", "Reak", "Rek", "Rekosh", "Rok", "Rokaar", "Rokesh", "Rokk", "Roth", "Rothok", "Sawk", "Skaar", "Skaw", "Skawk", "Skrawk", "Skree", "Skreek", "Skreesh", "Skresh", "Skreshok", "Skrok", "Talon", "Talonok", "Thrak", "Thrawk", "Throk", "Varawk", "Vawk", "Vok", "Vokaar", "Vrak", "Vrawk", "Vrek", "Vrok", "Vrokesh", "Wawk", "Wrok", "Yawk", "Zarak", "Zawk", "Zok", "Zokaar", "Akroth", "Arkesh", "Bawkesh", "Cawkaar", "Crothok", "Drakaw", "Falkaw", "Grakaar", "Grawkesh", "Harkesh", "Hawkaar", "Kaaroth", "Karakesh", "Kawresh", "Keshok", "Kralok", "Krawkaar", "Kreshaar", "Krokesh", "Krothesh", "Oakroth", "Raalok", "Rawkaar", "Reakesh", "Rekaar", "Roklok", "Rothesh", "Sawkaar", "Skawkesh", "Skrothok"],
+    "middles": ["ar", "awk", "esh", "kaw", "kesh", "krok", "ok", "oth", "rok", "roth"],
+    "suffixes": ["ak", "ar", "awk", "esh", "kaar", "kaw", "kesh", "kresh", "krok", "lok", "ok", "osh", "oth", "rok", "roth"]
   },
   "female": {
-    "prefixes": ["Kara", "Kresha", "Krotha", "Rawa", "Reka", "Roka", "Skree", "Talona", "Vroka", "Zawa"],
-    "middles": ["ar", "ka", "ra", "wa"},
-    "suffixes": ["a", "ara", "ka", "ra", "wa"]
+    "prefixes": ["Akra", "Arka", "Bawa", "Cawa", "Crawa", "Crawa", "Croka", "Graka", "Grawa", "Grawka", "Groka", "Harka", "Hawka", "Kaara", "Karaka", "Karawka", "Kara", "Kawra", "Kesha", "Kraka", "Krawka", "Kresha", "Kreshka", "Kroka", "Krotha", "Krothka", "Krowa", "Oakara", "Raawa", "Rawa", "Rawkesha", "Reaka", "Reka", "Rekosha", "Roka", "Rokaara", "Rokesha", "Rokka", "Rotha", "Rothka", "Sawka", "Skaara", "Skawa", "Skawka", "Skrawka", "Skree", "Skreeka", "Skreesha", "Skresha", "Skreshka", "Skroka", "Talona", "Talonka", "Thraka", "Thrawka", "Throka", "Varawka", "Vawka", "Voka", "Vokaara", "Vraka", "Vrawka", "Vreka", "Vroka", "Vrokesha", "Wawka", "Wroka", "Yawka", "Zaraka", "Zawka", "Zoka", "Zokaara", "Akrotha", "Arkesha", "Bawkesha", "Cawkaara", "Crothka", "Drakawa", "Falkawa", "Grakaara", "Grawkesha", "Harkesha", "Hawkaara", "Kaarotha", "Karakesha", "Kawresha", "Keshka", "Kraloka", "Krawkaara", "Kreshara", "Krokesha", "Krothesha", "Oakrotha", "Raaloka", "Rawkaara", "Reakesha", "Rekaara", "Rokloka", "Rothesha", "Sawkaara", "Skawkesha", "Skrothka"],
+    "middles": ["ara", "ar", "ka", "ra", "sha", "wa"},
+    "suffixes": ["a", "aara", "ara", "esha", "ka", "ra", "sha", "wa"]
   },
   "nonbinary": {
-    "prefixes": ["Kaw", "Kresh", "Kroth", "Rawk", "Rek", "Rok", "Skree", "Talon", "Vrok", "Zawk"],
-    "middles": ["ar", "awk", "ka", "ok", "oth", "ra", "rok"},
-    "suffixes": ["a", "ak", "ar", "awk", "ka", "ok", "oth", "ra", "rok"]
+    "prefixes": ["Akraw", "Akra", "Arkaw", "Arka", "Bawk", "Bawa", "Cawk", "Cawa", "Crawk", "Crawa", "Crok", "Croka", "Grak", "Graka", "Graw", "Grawa", "Grawk", "Grawka", "Grok", "Groka", "Hark", "Harka", "Hawk", "Hawka", "Kaar", "Kaara", "Karak", "Karaka", "Karawk", "Karawka", "Kara", "Kaw", "Kawra", "Kawrok", "Kesh", "Kesha", "Krak", "Kraka", "Krawk", "Krawka", "Kresh", "Kresha", "Kreshok", "Kreshka", "Krok", "Kroka", "Kroth", "Krotha", "Krothok", "Krothka", "Krow", "Krowa", "Oakar", "Oakara", "Raawk", "Raawa", "Rawk", "Rawa", "Rawkesh", "Rawkesha", "Reak", "Reaka", "Rek", "Reka", "Rekosh", "Rekosha", "Rok", "Roka", "Rokaar", "Rokaara", "Rokesh", "Rokesha", "Rokk", "Rokka", "Roth", "Rotha", "Rothok", "Rothka", "Sawk", "Sawka", "Skaar", "Skaara", "Skaw", "Skawa", "Skawk", "Skawka", "Skrawk", "Skrawka", "Skree", "Skreek", "Skreeka", "Skreesh", "Skreesha", "Skresh", "Skresha", "Skreshok", "Skreshka", "Skrok", "Skroka", "Talon", "Talona", "Talonok", "Talonka"],
+    "middles": ["ar", "ara", "awk", "esh", "ka", "kaw", "kesh", "krok", "ok", "oth", "ra", "rok", "roth", "sha", "wa"},
+    "suffixes": ["a", "aara", "ak", "ar", "ara", "awk", "esh", "esha", "ka", "kaar", "kaw", "kesh", "kresh", "krok", "lok", "ok", "osh", "oth", "ra", "rok", "roth", "sha", "wa"]
   },
-  "clanNames": ["Darkwing", "Nightfeather", "Ravenclaw", "Shadowtalon", "Skyhunter", "Stormwing", "Windtalon"],
-  "clanPrefixes": ["Dark", "Night", "Raven", "Shadow", "Sky", "Storm", "Wind"],
-  "clanSuffixes": ["claw", "feather", "flight", "hunter", "talon", "wing"]
+  "clanNames": ["Blackwing", "Cloudtalon", "Darkfeather", "Dawnwing", "Dusktalon", "Nightclaw", "Nightfeather", "Nightwing", "Ravenclaw", "Ravenfeather", "Ravenwing", "Shadowclaw", "Shadowfeather", "Shadowtalon", "Shadowwing", "Skyfeather", "Skyhunter", "Skytalon", "Skywing", "Starclaw", "Starfeather", "Starwing", "Stormclaw", "Stormfeather", "Stormtalon", "Stormwing", "Swiftwing", "Thunderclaw", "Thunderwing", "Twilightfeather", "Windclaw", "Windfeather", "Windtalon", "Windwing"],
+  "clanPrefixes": ["Black", "Cloud", "Dark", "Dawn", "Dusk", "Moon", "Night", "Raven", "Shadow", "Sky", "Star", "Storm", "Swift", "Thunder", "Twilight", "Wind"],
+  "clanSuffixes": ["claw", "feather", "flight", "hunter", "screech", "shadow", "sky", "talon", "walker", "watcher", "wing"]
 }
