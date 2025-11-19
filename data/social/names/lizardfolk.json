@@ -1,0 +1,31 @@
+{
+  "ancestry": "lizardfolk",
+  "description": "Lizardfolk (Iruxi) names are hissing and sibilant with tribal identifiers",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 60 },
+    { "type": "clan-name", "weight": 40 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Arax", "Dras", "Gresh", "Hriss", "Kess", "Sess", "Soth", "Tesh", "Vess", "Zess"],
+    "middles": ["ar", "es", "is", "os", "us"],
+    "suffixes": ["ak", "ar", "esh", "eth", "iss", "ith", "oth", "uss"]
+  },
+  "female": {
+    "prefixes": ["Issa", "Kessa", "Lessa", "Ressa", "Sissa", "Tessa", "Vessa", "Yessa", "Zessa"],
+    "middles": ["ar", "es", "is", "ra"],
+    "suffixes": ["a", "ith", "sa", "tha"]
+  },
+  "nonbinary": {
+    "prefixes": ["Arax", "Dras", "Gresh", "Hriss", "Kess", "Sess", "Soth", "Tesh", "Vess"],
+    "middles": ["ar", "es", "is", "os"],
+    "suffixes": ["a", "ak", "esh", "iss", "ith", "sa", "uss"]
+  },
+  "clanNames": ["Blackscale", "Boghunter", "Marshstrider", "Riverwalker", "Swampfang", "Waterclaw"],
+  "clanPrefixes": ["Black", "Bog", "Marsh", "River", "Swamp", "Water", "Stone"],
+  "clanSuffixes": ["claw", "fang", "hide", "hunter", "scale", "strider", "walker"]
+}

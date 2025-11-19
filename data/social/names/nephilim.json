@@ -1,0 +1,27 @@
+{
+  "ancestry": "nephilim",
+  "description": "Nephilim (planar-touched) names blend mortal and planar themes",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 100 }
+  ],
+  "lengthWeights": {
+    "2": 60,
+    "3": 40
+  },
+  "male": {
+    "prefixes": ["Ael", "Azar", "Cael", "Daz", "Elys", "Gabe", "Mich", "Raph", "Sera", "Tyr", "Zeph"],
+    "middles": ["an", "ar", "el", "ian", "on", "or"},
+    "suffixes": ["an", "ar", "el", "ian", "is", "on", "or", "us", "yn"]
+  },
+  "female": {
+    "prefixes": ["Aela", "Azara", "Caela", "Daza", "Elysia", "Gabri", "Micha", "Rapha", "Sera", "Tyra", "Zepha"],
+    "middles": ["an", "ara", "el", "ia", "la", "ra"},
+    "suffixes": ["a", "ana", "ara", "el", "ella", "ia", "ina", "la", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Ael", "Azar", "Cael", "Daz", "Elys", "Gabri", "Mich", "Raph", "Sera", "Tyr", "Zeph"],
+    "middles": ["an", "ara", "el", "ia", "ian", "la", "on", "ra"},
+    "suffixes": ["a", "an", "ara", "el", "ia", "ian", "is", "la", "on", "or", "ra", "us", "yn"]
+  }
+}

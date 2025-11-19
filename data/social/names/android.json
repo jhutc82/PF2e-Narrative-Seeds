@@ -1,0 +1,33 @@
+{
+  "ancestry": "android",
+  "description": "Android names are technical and designation-based, often alphanumeric",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 70 },
+    { "type": "compound", "weight": 30 }
+  ],
+  "lengthWeights": {
+    "2": 80,
+    "3": 20
+  },
+  "male": {
+    "prefixes": ["Ax", "Cir", "Dex", "Hex", "Kex", "Nex", "Pyx", "Rax", "Tec", "Vex", "Zex"],
+    "middles": ["an", "or", "on", "ron", "ton", "ven"],
+    "suffixes": ["an", "ar", "ax", "ex", "on", "or", "ron", "ton", "vex"]
+  },
+  "female": {
+    "prefixes": ["Ara", "Cira", "Dexa", "Hexa", "Kexa", "Nexa", "Pyxa", "Raxa", "Teca", "Vexa", "Zexa"],
+    "middles": ["an", "en", "in", "ra", "va"],
+    "suffixes": ["a", "ana", "ara", "exa", "ina", "ona", "ra", "va"]
+  },
+  "nonbinary": {
+    "prefixes": ["Ax", "Cir", "Dex", "Hex", "Kex", "Nex", "Pyx", "Rax", "Tec", "Vex", "Zex"],
+    "middles": ["an", "en", "on", "ra", "ron"],
+    "suffixes": ["a", "an", "ar", "ax", "ex", "on", "ra", "ron", "vex"]
+  },
+  "compoundParts": {
+    "prefixes": ["Alpha", "Beta", "Delta", "Gamma", "Nova", "Omega", "Prime", "Sigma", "Vector", "Zero"],
+    "suffixes": ["one", "prime", "seven", "three", "two", "unit", "zero"]
+  },
+  "compoundSeparator": "-"
+}

@@ -1,0 +1,27 @@
+{
+  "ancestry": "shisk",
+  "description": "Shisk (quill-covered humanoids) names are sharp and clicking",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 100 }
+  ],
+  "lengthWeights": {
+    "2": 80,
+    "3": 20
+  },
+  "male": {
+    "prefixes": ["Chisk", "Kresh", "Prik", "Quil", "Shisk", "Skar", "Spik", "Thrask", "Tisk", "Zisk"],
+    "middles": ["ar", "ik", "isk", "kar", "tik"],
+    "suffixes": ["ak", "ar", "ash", "ik", "isk", "kar", "tik"]
+  },
+  "female": {
+    "prefixes": ["Chiska", "Kresha", "Prika", "Quila", "Shiska", "Skara", "Spika", "Thraska", "Tiska", "Ziska"],
+    "middles": ["ka", "ra", "ska"},
+    "suffixes": ["a", "ka", "ra", "ska"]
+  },
+  "nonbinary": {
+    "prefixes": ["Chisk", "Kresh", "Prik", "Quil", "Shisk", "Skar", "Spik", "Thrask", "Tisk", "Zisk"],
+    "middles": ["ar", "ik", "isk", "ka", "kar", "ra", "tik"],
+    "suffixes": ["a", "ak", "ar", "ik", "isk", "ka", "kar", "ra", "tik"]
+  }
+}

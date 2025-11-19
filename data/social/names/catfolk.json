@@ -1,0 +1,31 @@
+{
+  "ancestry": "catfolk",
+  "description": "Catfolk names often have soft consonants and flowing sounds, with tribal surnames",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 60 },
+    { "type": "first-last", "weight": 40 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Aza", "Bara", "Dara", "Keru", "Maru", "Nala", "Raka", "Saru", "Tanu", "Vara", "Yara", "Zeru"],
+    "middles": ["ka", "ma", "ra", "sha", "ta", "va", "za"],
+    "suffixes": ["kar", "mar", "nar", "rak", "san", "tar", "van", "zar"]
+  },
+  "female": {
+    "prefixes": ["Asha", "Dara", "Kira", "Lira", "Mara", "Nara", "Rasha", "Shara", "Tara", "Vara", "Yara", "Zara"],
+    "middles": ["ka", "la", "ma", "na", "ra", "sha", "va"],
+    "suffixes": ["ka", "la", "ma", "na", "ra", "sha", "va"]
+  },
+  "nonbinary": {
+    "prefixes": ["Ara", "Dara", "Kara", "Mara", "Nara", "Rara", "Shar", "Tara", "Vara", "Yara"],
+    "middles": ["ka", "ma", "na", "ra", "sha", "va"],
+    "suffixes": ["ka", "kar", "ma", "na", "rak", "va", "zar"]
+  },
+  "lastNames": ["Clawstripe", "Moonwhisker", "Nightprowler", "Quickpaw", "Shadowtail", "Silentpad", "Sunstalker", "Swiftclaw"],
+  "lastNamePrefixes": ["Claw", "Moon", "Night", "Quick", "Shadow", "Silent", "Sun", "Swift", "Wild"],
+  "lastNameSuffixes": ["claw", "pad", "paw", "prowler", "stalker", "stride", "stripe", "tail", "whisker"]
+}

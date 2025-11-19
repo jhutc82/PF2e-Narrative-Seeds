@@ -1,0 +1,28 @@
+{
+  "ancestry": "droomaar",
+  "description": "Droomaar (human/orc mix) names blend human and orcish naming conventions",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 60 },
+    { "type": "clan-name", "weight": 40 }
+  ],
+  "lengthWeights": {
+    "2": 80,
+    "3": 20
+  },
+  "male": {
+    "prefixes": ["Brak", "Dorn", "Grak", "Karn", "Morg", "Rak", "Thok", "Vorg", "Zarn"],
+    "suffixes": ["ak", "ar", "ash", "en", "kar", "on", "rak", "us"]
+  },
+  "female": {
+    "prefixes": ["Braka", "Dorna", "Graka", "Karna", "Morga", "Raka", "Thoka", "Vorg", "Zarna"],
+    "suffixes": ["a", "ara", "en", "ka", "na", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Brak", "Dorn", "Grak", "Karn", "Morg", "Rak", "Thok", "Vorg", "Zarn"],
+    "suffixes": ["a", "ak", "ar", "ash", "en", "ka", "kar", "na", "on", "ra", "rak", "us"]
+  },
+  "clanNames": ["Ironheart", "Stormborn", "Warblade", "Wildblood"],
+  "clanPrefixes": ["Iron", "Storm", "War", "Wild"],
+  "clanSuffixes": ["blade", "blood", "born", "heart"]
+}

@@ -1,0 +1,28 @@
+{
+  "ancestry": "hobgoblin",
+  "description": "Hobgoblin names are militaristic and harsh, often with rank-based surnames",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 50 },
+    { "type": "first-last", "weight": 50 }
+  ],
+  "lengthWeights": {
+    "2": 80,
+    "3": 20
+  },
+  "male": {
+    "prefixes": ["Azar", "Brak", "Drak", "Ghor", "Karg", "Morg", "Rakh", "Targ", "Vorg", "Zark"],
+    "suffixes": ["ak", "ar", "eth", "gash", "kar", "mok", "rak", "thar", "vok"]
+  },
+  "female": {
+    "prefixes": ["Azra", "Dra", "Ghar", "Kara", "Mora", "Rakha", "Shara", "Targa", "Vora", "Zara"],
+    "suffixes": ["a", "eth", "ka", "na", "ra", "sha", "tha"]
+  },
+  "nonbinary": {
+    "prefixes": ["Azar", "Brak", "Drak", "Ghar", "Karg", "Mora", "Rakh", "Targ", "Vorg", "Zar"],
+    "suffixes": ["ak", "ar", "a", "eth", "kar", "na", "rak", "sha", "thar"]
+  },
+  "lastNames": ["Ironmarch", "Steelclaw", "Warblade", "Battleborn", "Shieldbreaker", "Swordmaster", "Wardrummer"],
+  "lastNamePrefixes": ["Battle", "Blood", "Iron", "Shield", "Steel", "War", "Sword"],
+  "lastNameSuffixes": ["blade", "born", "breaker", "claw", "fist", "march", "master", "shield"]
+}

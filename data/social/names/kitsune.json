@@ -1,0 +1,31 @@
+{
+  "ancestry": "kitsune",
+  "description": "Kitsune names are Japanese-inspired, elegant and fox-themed",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 70 },
+    { "type": "first-last", "weight": 30 }
+  ],
+  "lengthWeights": {
+    "2": 50,
+    "3": 50
+  },
+  "male": {
+    "prefixes": ["Hiro", "Kazu", "Koji", "Kuro", "Mako", "Nori", "Riku", "Roku", "Taka", "Yori"],
+    "middles": ["hiro", "ji", "ka", "ko", "ma", "no", "shi", "ta", "to", "ya"],
+    "suffixes": ["chi", "hiro", "ji", "ka", "ki", "ko", "ma", "ro", "shi", "ta", "to", "ya"]
+  },
+  "female": {
+    "prefixes": ["Aki", "Hana", "Haru", "Kimi", "Michi", "Nami", "Saki", "Tama", "Yuki", "Yuri"],
+    "middles": ["chi", "ka", "ki", "ko", "mi", "na", "ri", "ya"],
+    "suffixes": ["chi", "ka", "ki", "ko", "mi", "na", "ri", "ya"]
+  },
+  "nonbinary": {
+    "prefixes": ["Aki", "Haru", "Kazu", "Kimi", "Mako", "Nami", "Nori", "Saki", "Taka", "Yuki"],
+    "middles": ["chi", "ji", "ka", "ki", "ko", "mi", "na", "shi", "ya"],
+    "suffixes": ["chi", "ka", "ki", "ko", "mi", "na", "ri", "shi", "ya"]
+  },
+  "lastNames": ["Foxfire", "Moonpaw", "Silvertail", "Spiritfox", "Starwhisker"],
+  "lastNamePrefixes": ["Fox", "Moon", "Silver", "Spirit", "Star"],
+  "lastNameSuffixes": ["fire", "paw", "tail", "whisker"]
+}

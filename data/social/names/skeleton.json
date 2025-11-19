@@ -1,0 +1,30 @@
+{
+  "ancestry": "skeleton",
+  "description": "Skeleton (undead animated skeletons) names are often macabre or chosen names",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 60 },
+    { "type": "compound", "weight": 40 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Ash", "Bone", "Crypt", "Grim", "Mort", "Rattle", "Skel", "Tomb", "Vault", "Whisper"],
+    "suffixes": ["ar", "en", "ix", "on", "os", "us"]
+  },
+  "female": {
+    "prefixes": ["Asha", "Bonea", "Crypta", "Grima", "Morta", "Rattla", "Skela", "Tomba", "Vaulta", "Whispera"],
+    "suffixes": ["a", "ara", "ena", "ia", "ina", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Ash", "Bone", "Crypt", "Grim", "Mort", "Rattle", "Skel", "Tomb", "Vault", "Whisper"],
+    "suffixes": ["a", "ar", "en", "ia", "ix", "on", "os", "ra", "us"]
+  },
+  "compoundParts": {
+    "prefixes": ["Bone", "Crypt", "Death", "Grave", "Mortal", "Rattle", "Shadow", "Skull", "Tomb", "Whisper"],
+    "suffixes": ["born", "caller", "keeper", "rattle", "walker", "whisper"]
+  },
+  "compoundSeparator": ""
+}

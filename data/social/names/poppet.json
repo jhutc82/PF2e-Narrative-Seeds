@@ -1,0 +1,32 @@
+{
+  "ancestry": "poppet",
+  "description": "Poppet (animated construct dolls) names are often endearing and child-like",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 50 },
+    { "type": "compound", "weight": 30 },
+    { "type": "single", "weight": 20 }
+  ],
+  "lengthWeights": {
+    "1": 30,
+    "2": 70
+  },
+  "male": {
+    "prefixes": ["But", "Dol", "Mop", "Pep", "Pip", "Pop", "Tip", "Top", "Toy", "Zip"],
+    "suffixes": ["bot", "kin", "let", "ly", "pet", "py"]
+  },
+  "female": {
+    "prefixes": ["Bella", "Dolly", "Mop", "Pep", "Pip", "Poppy", "Rosie", "Tilly", "Tip", "Winnie"],
+    "suffixes": ["a", "bell", "ette", "ie", "kin", "let", "ly"]
+  },
+  "nonbinary": {
+    "prefixes": ["But", "Dol", "Mop", "Pep", "Pip", "Pop", "Tip", "Top", "Toy", "Zip"],
+    "suffixes": ["a", "bot", "ie", "kin", "let", "ly", "pet", "py"]
+  },
+  "compoundParts": {
+    "prefixes": ["Button", "Cotton", "Doll", "Moppet", "Patch", "Puppet", "Ragdoll", "Stitch", "Stuffing", "Toy"],
+    "suffixes": ["eyes", "face", "heart", "patch", "stitch"]
+  },
+  "compoundSeparator": "",
+  "names": ["Buttons", "Cotton", "Dolly", "Moppet", "Patches", "Pip", "Poppy", "Raggedy", "Stitches", "Tilly"]
+}

@@ -1,0 +1,33 @@
+{
+  "ancestry": "changeling",
+  "description": "Changeling (hag-descended) names often have dark, fey, or nature-twisted themes",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 70 },
+    { "type": "compound", "weight": 30 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Bram", "Craw", "Gritch", "Hag", "Mire", "Murk", "Rag", "Thorn", "Wither", "Wretch"],
+    "middles": ["ar", "en", "mor", "wick"},
+    "suffixes": ["ar", "en", "itch", "mor", "tch", "wick"]
+  },
+  "female": {
+    "prefixes": ["Baba", "Crone", "Grimm", "Hag", "Mire", "Murk", "Raven", "Thorn", "Wither", "Wych"],
+    "middles": ["ar", "ba", "eth", "wick"},
+    "suffixes": ["a", "ara", "ba", "eth", "wick", "wyth"]
+  },
+  "nonbinary": {
+    "prefixes": ["Baba", "Bram", "Craw", "Grimm", "Hag", "Mire", "Murk", "Raven", "Thorn", "Wither"},
+    "middles": ["ar", "ba", "en", "eth", "mor", "wick"},
+    "suffixes": ["a", "ar", "ba", "en", "eth", "itch", "mor", "wick", "wyth"]
+  },
+  "compoundParts": {
+    "prefixes": ["Bog", "Crone", "Dark", "Hag", "Mire", "Murk", "Shadow", "Swamp", "Thorn", "Wither"],
+    "suffixes": ["born", "child", "daughter", "kin", "son", "spawn"]
+  },
+  "compoundSeparator": ""
+}

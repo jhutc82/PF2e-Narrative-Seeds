@@ -1,0 +1,27 @@
+{
+  "ancestry": "sylph",
+  "description": "Sylph names are airy and light, inspired by wind and sky themes",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 100 }
+  ],
+  "lengthWeights": {
+    "2": 60,
+    "3": 40
+  },
+  "male": {
+    "prefixes": ["Aer", "Breeze", "Cirr", "Gale", "Nim", "Sky", "Tempest", "Ven", "Whis", "Zeph"],
+    "middles": ["an", "ar", "el", "ian", "on", "or"],
+    "suffixes": ["an", "ar", "el", "ian", "is", "on", "or", "us", "yr"]
+  },
+  "female": {
+    "prefixes": ["Aera", "Breeza", "Cirra", "Galea", "Nimba", "Skya", "Tempesta", "Vena", "Whisa", "Zepha"],
+    "middles": ["an", "ar", "el", "ia", "ra"],
+    "suffixes": ["a", "ana", "ara", "ela", "ia", "ina", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Aer", "Breeze", "Cirr", "Gale", "Nimb", "Sky", "Tempest", "Ven", "Whis", "Zeph"],
+    "middles": ["an", "ar", "el", "ia", "on", "ra"],
+    "suffixes": ["a", "an", "ar", "el", "ia", "ian", "is", "on", "ra", "yr"]
+  }
+}

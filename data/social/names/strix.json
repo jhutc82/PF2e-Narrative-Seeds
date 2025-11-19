@@ -1,0 +1,32 @@
+{
+  "ancestry": "strix",
+  "description": "Strix (winged humanoids) names are harsh and avian, often from their Rokoan heritage",
+  "hasLastNames": true,
+  "clanFirst": false,
+  "structures": [
+    { "type": "syllabic", "weight": 60 },
+    { "type": "clan-name", "weight": 40 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Kaw", "Kresh", "Kroth", "Rawk", "Rek", "Rok", "Skree", "Talon", "Vrok", "Zawk"],
+    "middles": ["ar", "awk", "ok", "oth", "rok"],
+    "suffixes": ["ak", "ar", "awk", "kresh", "ok", "oth", "rok"]
+  },
+  "female": {
+    "prefixes": ["Kara", "Kresha", "Krotha", "Rawa", "Reka", "Roka", "Skree", "Talona", "Vroka", "Zawa"],
+    "middles": ["ar", "ka", "ra", "wa"},
+    "suffixes": ["a", "ara", "ka", "ra", "wa"]
+  },
+  "nonbinary": {
+    "prefixes": ["Kaw", "Kresh", "Kroth", "Rawk", "Rek", "Rok", "Skree", "Talon", "Vrok", "Zawk"],
+    "middles": ["ar", "awk", "ka", "ok", "oth", "ra", "rok"},
+    "suffixes": ["a", "ak", "ar", "awk", "ka", "ok", "oth", "ra", "rok"]
+  },
+  "clanNames": ["Darkwing", "Nightfeather", "Ravenclaw", "Shadowtalon", "Skyhunter", "Stormwing", "Windtalon"],
+  "clanPrefixes": ["Dark", "Night", "Raven", "Shadow", "Sky", "Storm", "Wind"],
+  "clanSuffixes": ["claw", "feather", "flight", "hunter", "talon", "wing"]
+}

@@ -1,0 +1,27 @@
+{
+  "ancestry": "kashrishi",
+  "description": "Kashrishi (gentle, horned humanoids) names are calm and meditative",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 100 }
+  ],
+  "lengthWeights": {
+    "2": 60,
+    "3": 40
+  },
+  "male": {
+    "prefixes": ["Anan", "Bodhi", "Dhar", "Karam", "Manu", "Nirav", "Prem", "Ravi", "Shanti", "Veer"],
+    "middles": ["an", "ar", "ma", "rav", "van"],
+    "suffixes": ["an", "ar", "dhi", "ma", "nu", "rav", "van"]
+  },
+  "female": {
+    "prefixes": ["Aditi", "Devi", "Kali", "Laksh", "Maya", "Nila", "Pari", "Rani", "Shanti", "Vani"],
+    "middles": ["ka", "la", "ma", "na", "ra"},
+    "suffixes": ["a", "ka", "la", "ma", "na", "ni", "ra", "ti"]
+  },
+  "nonbinary": {
+    "prefixes": ["Anan", "Bodhi", "Devi", "Kali", "Karam", "Maya", "Nirav", "Prem", "Shanti", "Veer"],
+    "middles": ["an", "ka", "la", "ma", "na", "ra", "van"},
+    "suffixes": ["a", "an", "dhi", "ka", "la", "ma", "na", "ni", "ra", "ti", "van"]
+  }
+}

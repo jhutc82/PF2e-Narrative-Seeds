@@ -1,0 +1,31 @@
+{
+  "ancestry": "fleshwarp",
+  "description": "Fleshwarp names are often self-chosen, reflecting their transformed nature",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 60 },
+    { "type": "compound", "weight": 40 }
+  ],
+  "lengthWeights": {
+    "1": 20,
+    "2": 60,
+    "3": 20
+  },
+  "male": {
+    "prefixes": ["Ash", "Claw", "Fang", "Grist", "Maw", "Scar", "Shred", "Spine", "Twist", "Warp"],
+    "suffixes": ["ar", "en", "ix", "on", "us"]
+  },
+  "female": {
+    "prefixes": ["Asha", "Clawa", "Fanga", "Grista", "Mawa", "Scara", "Shreda", "Spina", "Twista", "Warpa"],
+    "suffixes": ["a", "ara", "en", "ia", "ina"]
+  },
+  "nonbinary": {
+    "prefixes": ["Ash", "Claw", "Fang", "Grist", "Maw", "Scar", "Shred", "Spine", "Twist", "Warp"],
+    "suffixes": ["a", "ar", "en", "ia", "ix", "on", "us"]
+  },
+  "compoundParts": {
+    "prefixes": ["Blood", "Bone", "Claw", "Flesh", "Gore", "Pain", "Scar", "Shadow", "Thorn", "Warp"],
+    "suffixes": ["born", "changed", "marked", "touched", "twisted", "warped"]
+  },
+  "compoundSeparator": ""
+}

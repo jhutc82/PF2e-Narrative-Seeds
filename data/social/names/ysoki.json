@@ -1,0 +1,31 @@
+{
+  "ancestry": "ratfolk",
+  "description": "Ratfolk (Ysoki) names are quick and chittering, often with family names",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 60 },
+    { "type": "first-last", "weight": 40 }
+  ],
+  "lengthWeights": {
+    "2": 80,
+    "3": 20
+  },
+  "male": {
+    "prefixes": ["Chik", "Krik", "Nib", "Pik", "Rik", "Skee", "Snik", "Tik", "Vik", "Zik"],
+    "middles": ["ik", "ki", "ni", "ri", "si"],
+    "suffixes": ["chik", "ik", "kin", "nik", "rik", "sik", "tik"]
+  },
+  "female": {
+    "prefixes": ["Chi", "Kri", "Lika", "Mika", "Nika", "Rika", "Sika", "Tika", "Vika", "Zika"],
+    "middles": ["ka", "ki", "ni", "ri"],
+    "suffixes": ["a", "ka", "kia", "ni", "ria", "sia"]
+  },
+  "nonbinary": {
+    "prefixes": ["Chik", "Krik", "Lika", "Mik", "Nik", "Rik", "Sik", "Tik", "Vik", "Zik"],
+    "middles": ["ik", "ka", "ki", "ni", "ri"],
+    "suffixes": ["a", "chik", "ik", "ka", "kin", "nik", "rik"]
+  },
+  "lastNames": ["Cheekwhisker", "Quickpaw", "Scrounger", "Swiftfoot", "Tailtwitch", "Tinkersnout", "Whiskerwick"],
+  "lastNamePrefixes": ["Bright", "Cheek", "Quick", "Swift", "Tail", "Tinker", "Whisker"],
+  "lastNameSuffixes": ["foot", "paw", "scrounger", "snout", "tail", "twitch", "whisker", "wick"]
+}

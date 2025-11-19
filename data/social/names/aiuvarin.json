@@ -1,0 +1,31 @@
+{
+  "ancestry": "aiuvarin",
+  "description": "Aiuvarin (human/elf mix) names blend human and elven naming conventions",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 70 },
+    { "type": "first-last", "weight": 30 }
+  ],
+  "lengthWeights": {
+    "2": 60,
+    "3": 40
+  },
+  "male": {
+    "prefixes": ["Ael", "Alric", "Caelan", "Eldan", "Faelan", "Galen", "Liran", "Nolan", "Rael", "Theron", "Valen"],
+    "middles": ["al", "an", "ar", "en", "ian", "or"],
+    "suffixes": ["an", "ar", "el", "en", "ian", "on", "or", "us"]
+  },
+  "female": {
+    "prefixes": ["Aela", "Aria", "Caela", "Elara", "Faela", "Gwen", "Lira", "Nora", "Raela", "Thea", "Valeria"],
+    "middles": ["an", "ar", "el", "ia", "la", "ra"},
+    "suffixes": ["a", "ana", "ara", "ela", "ia", "ina", "la", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Ael", "Aria", "Caelan", "Elara", "Faelan", "Galen", "Lira", "Nolan", "Rael", "Thea", "Valen"},
+    "middles": ["al", "an", "ar", "el", "ia", "la", "or", "ra"},
+    "suffixes": ["a", "an", "ar", "el", "en", "ia", "ian", "la", "on", "or", "ra", "us"]
+  },
+  "lastNames": ["Brightwood", "Evenstar", "Highbrook", "Moonwind", "Silverleaf", "Stormcrest"],
+  "lastNamePrefixes": ["Bright", "Even", "High", "Moon", "Silver", "Storm"],
+  "lastNameSuffixes": ["brook", "crest", "leaf", "star", "wind", "wood"]
+}

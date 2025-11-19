@@ -1,0 +1,27 @@
+{
+  "ancestry": "nagaji",
+  "description": "Nagaji names are serpentine and sibilant, inspired by Indian phonetics",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 100 }
+  ],
+  "lengthWeights": {
+    "2": 50,
+    "3": 50
+  },
+  "male": {
+    "prefixes": ["Aja", "Anas", "Dara", "Kesh", "Naga", "Rajes", "Sanj", "Shes", "Vasu", "Vish"],
+    "middles": ["an", "ash", "esh", "ish", "raj", "van"],
+    "suffixes": ["an", "ar", "ash", "dev", "esh", "ish", "nu", "raj", "van"]
+  },
+  "female": {
+    "prefixes": ["Asha", "Devi", "Kala", "Laks", "Naga", "Padma", "Rani", "Sita", "Uma", "Vani"],
+    "middles": ["ka", "la", "ma", "na", "ra", "va"],
+    "suffixes": ["a", "ka", "la", "ma", "na", "ni", "ra", "ta", "va"]
+  },
+  "nonbinary": {
+    "prefixes": ["Aja", "Asha", "Dara", "Kala", "Kesh", "Naga", "Padma", "Sanj", "Uma", "Vasu"],
+    "middles": ["an", "ka", "la", "ma", "na", "raj", "va"],
+    "suffixes": ["a", "an", "ash", "ka", "la", "ma", "na", "raj", "va"]
+  }
+}

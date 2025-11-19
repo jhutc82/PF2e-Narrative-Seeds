@@ -1,0 +1,33 @@
+{
+  "ancestry": "duskwalker",
+  "description": "Duskwalker (psychopomp-reincarnated) names are spiritual and death-themed",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 70 },
+    { "type": "compound", "weight": 30 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Dusk", "Grave", "Mor", "Nox", "Psyche", "Raven", "Shade", "Silent", "Twi", "Veil"],
+    "middles": ["an", "ar", "en", "on", "or"},
+    "suffixes": ["an", "ar", "el", "en", "ix", "on", "or", "os", "us"]
+  },
+  "female": {
+    "prefixes": ["Dusk", "Grave", "Luna", "Mora", "Nox", "Psyche", "Raven", "Shade", "Silence", "Veil"],
+    "middles": ["an", "ara", "el", "ia", "ra"},
+    "suffixes": ["a", "ana", "ara", "el", "ena", "ia", "ina", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Dusk", "Grave", "Luna", "Mor", "Nox", "Psyche", "Raven", "Shade", "Silence", "Twi", "Veil"},
+    "middles": ["an", "ara", "el", "en", "ia", "on", "ra"},
+    "suffixes": ["a", "an", "ara", "el", "en", "ia", "ix", "on", "or", "ra", "us"]
+  },
+  "compoundParts": {
+    "prefixes": ["Death", "Dusk", "Grave", "Psyche", "Shadow", "Silence", "Soul", "Spirit", "Twilight", "Veil"],
+    "suffixes": ["born", "keeper", "walker", "watcher"]
+  },
+  "compoundSeparator": ""
+}

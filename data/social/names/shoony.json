@@ -1,0 +1,28 @@
+{
+  "ancestry": "shoony",
+  "description": "Shoony (dog-like people) names are friendly and bark-like",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 70 },
+    { "type": "first-last", "weight": 30 }
+  ],
+  "lengthWeights": {
+    "2": 80,
+    "3": 20
+  },
+  "male": {
+    "prefixes": ["Bark", "Bow", "Bud", "Chow", "Dash", "Hound", "Pup", "Ruff", "Wag", "Yip"],
+    "suffixes": ["bark", "bow", "dash", "hound", "pup", "ruff", "tail", "wag", "yip"]
+  },
+  "female": {
+    "prefixes": ["Bella", "Brownie", "Cocoa", "Daisy", "Dotty", "Honey", "Luna", "Molly", "Pepper", "Ruby"],
+    "suffixes": ["a", "bell", "dot", "ie", "paw", "tail"]
+  },
+  "nonbinary": {
+    "prefixes": ["Bark", "Bow", "Bud", "Chow", "Dash", "Dotty", "Honey", "Hound", "Pup", "Wag"},
+    "suffixes": ["a", "bark", "bow", "dot", "ie", "paw", "pup", "tail", "wag"]
+  },
+  "lastNames": ["Barkmore", "Diggerson", "Fetchworth", "Goodpup", "Tailwagger", "Wagglesworth"],
+  "lastNamePrefixes": ["Bark", "Dig", "Fetch", "Good", "Tail", "Waggle"],
+  "lastNameSuffixes": ["more", "pup", "son", "wagger", "worth"]
+}

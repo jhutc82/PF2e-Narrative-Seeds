@@ -1,0 +1,35 @@
+{
+  "ancestry": "ghoran",
+  "description": "Ghoran (intelligent plant-people) names are botanical and seasonal",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 50 },
+    { "type": "compound", "weight": 30 },
+    { "type": "single", "weight": 20 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Ash", "Cedar", "Elm", "Haw", "Oak", "Pine", "Reed", "Root", "Thorn", "Wil"],
+    "middles": ["bar", "den", "fen", "root", "wood"],
+    "suffixes": ["bark", "den", "fen", "root", "thorn", "wood"]
+  },
+  "female": {
+    "prefixes": ["Bloom", "Dahlia", "Flora", "Iris", "Lily", "Petal", "Rose", "Tulip", "Violet", "Willow"],
+    "middles": ["blos", "flow", "petal"},
+    "suffixes": ["a", "bloom", "blossom", "flower", "petal"]
+  },
+  "nonbinary": {
+    "prefixes": ["Bloom", "Cedar", "Fern", "Leaf", "Oak", "Petal", "Root", "Sage", "Thorn", "Willow"],
+    "middles": ["bar", "blos", "den", "fen", "root"},
+    "suffixes": ["a", "bark", "bloom", "den", "fen", "petal", "root", "wood"]
+  },
+  "compoundParts": {
+    "prefixes": ["Autumn", "Bloom", "Branch", "Flower", "Garden", "Leaf", "Root", "Spring", "Summer", "Winter"],
+    "suffixes": ["bloom", "branch", "flower", "leaf", "root", "seed", "vine"]
+  },
+  "compoundSeparator": "",
+  "names": ["Basil", "Cedar", "Clover", "Fern", "Hazel", "Ivy", "Jasmine", "Laurel", "Lotus", "Moss", "Oak", "Oleander", "Orchid", "Poppy", "Primrose", "Reed", "Rowan", "Rue", "Sage", "Thyme", "Violet", "Willow"]
+}

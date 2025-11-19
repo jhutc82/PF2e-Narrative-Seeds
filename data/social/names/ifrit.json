@@ -1,0 +1,27 @@
+{
+  "ancestry": "ifrit",
+  "description": "Ifrit names are fiery and passionate, inspired by Arabic and Persian phonetics",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 100 }
+  ],
+  "lengthWeights": {
+    "2": 60,
+    "3": 40
+  },
+  "male": {
+    "prefixes": ["Ash", "Azur", "Djal", "Ember", "Ignis", "Khal", "Naar", "Pyre", "Rash", "Zahir"],
+    "middles": ["ar", "ash", "ir", "ral", "zar"],
+    "suffixes": ["ak", "an", "ar", "ash", "ir", "is", "ral", "us", "zar"]
+  },
+  "female": {
+    "prefixes": ["Asha", "Azura", "Djala", "Embera", "Igna", "Khala", "Naara", "Pyra", "Rasha", "Zahira"],
+    "middles": ["ar", "ira", "la", "ra", "sha"],
+    "suffixes": ["a", "ara", "ira", "is", "la", "ra", "sha"]
+  },
+  "nonbinary": {
+    "prefixes": ["Ash", "Azur", "Djal", "Ember", "Ignis", "Khal", "Naar", "Pyre", "Rash", "Zahir"],
+    "middles": ["ar", "ash", "ir", "la", "ra", "zar"],
+    "suffixes": ["a", "ak", "an", "ar", "ash", "ir", "is", "la", "ra", "zar"]
+  }
+}

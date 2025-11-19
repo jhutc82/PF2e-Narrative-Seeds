@@ -1,0 +1,27 @@
+{
+  "ancestry": "vanara",
+  "description": "Vanara names are playful and nimble, inspired by Indian phonetics and simian themes",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 100 }
+  ],
+  "lengthWeights": {
+    "2": 60,
+    "3": 40
+  },
+  "male": {
+    "prefixes": ["Anup", "Bali", "Hanu", "Jamba", "Kapi", "Kesari", "Manu", "Nala", "Rama", "Sugri", "Vali"],
+    "middles": ["an", "ar", "man", "van"],
+    "suffixes": ["an", "ar", "i", "man", "nu", "van"]
+  },
+  "female": {
+    "prefixes": ["Ami", "Devi", "Kali", "Laks", "Mala", "Nali", "Pari", "Rani", "Sari", "Tara", "Vani"],
+    "middles": ["ka", "la", "ma", "na", "ra", "va"],
+    "suffixes": ["a", "i", "ka", "la", "ma", "na", "ra", "va"]
+  },
+  "nonbinary": {
+    "prefixes": ["Ami", "Anup", "Bali", "Kali", "Kapi", "Mala", "Manu", "Nala", "Pari", "Tara", "Vali"],
+    "middles": ["an", "ka", "la", "ma", "na", "ra", "van"},
+    "suffixes": ["a", "an", "i", "ka", "la", "ma", "man", "na", "ra", "van"]
+  }
+}

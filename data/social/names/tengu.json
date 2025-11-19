@@ -1,0 +1,27 @@
+{
+  "ancestry": "tengu",
+  "description": "Tengu names are sharp and birdlike, inspired by Japanese phonetics",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 100 }
+  ],
+  "lengthWeights": {
+    "2": 50,
+    "3": 50
+  },
+  "male": {
+    "prefixes": ["Aka", "Ishi", "Kara", "Kuro", "Mizu", "Naga", "Raku", "Roku", "Taka", "Yama", "Zaka"],
+    "middles": ["be", "chi", "ji", "ka", "ma", "ra", "shi", "ta", "ya", "za"],
+    "suffixes": ["chi", "ji", "ka", "ki", "ku", "ma", "ra", "ro", "shi", "ta", "to", "ya", "zo"]
+  },
+  "female": {
+    "prefixes": ["Aka", "Hana", "Haru", "Kiku", "Mika", "Nami", "Saki", "Tama", "Yuki", "Yuri"],
+    "middles": ["chi", "ka", "ki", "mi", "na", "ri", "ya"],
+    "suffixes": ["chi", "ka", "ki", "ko", "mi", "na", "ri", "ya"]
+  },
+  "nonbinary": {
+    "prefixes": ["Aka", "Haru", "Ishi", "Kara", "Kiku", "Mizu", "Naga", "Raku", "Saki", "Taka", "Yuki"],
+    "middles": ["chi", "ji", "ka", "ki", "ma", "na", "ra", "shi", "ya"],
+    "suffixes": ["chi", "ka", "ki", "ko", "ma", "na", "ra", "shi", "ya", "zo"]
+  }
+}

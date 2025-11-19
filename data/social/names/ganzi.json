@@ -1,0 +1,33 @@
+{
+  "ancestry": "ganzi",
+  "description": "Ganzi (chaos-touched, protean-descended) names are wild and unpredictable",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 80 },
+    { "type": "compound", "weight": 20 }
+  ],
+  "lengthWeights": {
+    "2": 50,
+    "3": 50
+  },
+  "male": {
+    "prefixes": ["Chaos", "Flux", "Kaleid", "Morph", "Prot", "Rand", "Shift", "Spark", "Twist", "Whirl"],
+    "middles": ["an", "ar", "ix", "on", "or"},
+    "suffixes": ["an", "ar", "ix", "on", "or", "os", "us", "yx"]
+  },
+  "female": {
+    "prefixes": ["Chaosa", "Fluxa", "Kaleida", "Morpha", "Prota", "Randa", "Shifta", "Sparka", "Twista", "Whirla"],
+    "middles": ["an", "ara", "ia", "ra"},
+    "suffixes": ["a", "ana", "ara", "ia", "ina", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Chaos", "Flux", "Kaleid", "Morph", "Prot", "Rand", "Shift", "Spark", "Twist", "Whirl"},
+    "middles": ["an", "ara", "ia", "ix", "on", "ra"},
+    "suffixes": ["a", "an", "ara", "ia", "ix", "on", "or", "os", "ra", "us", "yx"]
+  },
+  "compoundParts": {
+    "prefixes": ["Chaos", "Flux", "Morph", "Proto", "Random", "Shift", "Twist", "Warp", "Wild"],
+    "suffixes": ["born", "kin", "spawn", "touched"]
+  },
+  "compoundSeparator": ""
+}

@@ -1,0 +1,33 @@
+{
+  "ancestry": "reflection",
+  "description": "Reflection (mirror/alternate reality duplicates) names often mirror their source",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 70 },
+    { "type": "compound", "weight": 30 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Echo", "Mir", "Paral", "Reflect", "Shad", "Twin", "Veil", "Void"],
+    "middles": ["an", "ar", "or", "ron"},
+    "suffixes": ["an", "ar", "ix", "on", "or", "ron", "us"]
+  },
+  "female": {
+    "prefixes": ["Echoa", "Mira", "Parallela", "Reflecta", "Shada", "Twina", "Veila", "Voida"],
+    "middles": ["an", "ara", "la", "ra"},
+    "suffixes": ["a", "ana", "ara", "ia", "la", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Echo", "Mir", "Paral", "Reflect", "Shad", "Twin", "Veil", "Void"},
+    "middles": ["an", "ara", "la", "on", "ra"},
+    "suffixes": ["a", "an", "ara", "ia", "ix", "la", "on", "or", "ra", "us"]
+  },
+  "compoundParts": {
+    "prefixes": ["Echo", "Mirror", "Parallel", "Reflect", "Shadow", "Twin", "Void"],
+    "suffixes": ["born", "image", "self", "twin", "walker"]
+  },
+  "compoundSeparator": ""
+}

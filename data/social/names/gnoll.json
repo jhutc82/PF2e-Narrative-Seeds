@@ -1,0 +1,28 @@
+{
+  "ancestry": "kholo",
+  "description": "Kholo (gnoll) names are harsh and cackling, with pack-based surnames",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 60 },
+    { "type": "clan-name", "weight": 40 }
+  ],
+  "lengthWeights": {
+    "2": 80,
+    "3": 20
+  },
+  "male": {
+    "prefixes": ["Ghak", "Gnar", "Hraka", "Krak", "Marak", "Rak", "Shak", "Thak", "Vrak", "Yaka"],
+    "suffixes": ["agh", "ak", "ar", "ash", "kra", "nak", "ragh", "shak"]
+  },
+  "female": {
+    "prefixes": ["Ghara", "Gnara", "Hraka", "Kraka", "Mara", "Raka", "Shara", "Thaka", "Vraka", "Yara"],
+    "suffixes": ["a", "ka", "na", "ra", "sha"]
+  },
+  "nonbinary": {
+    "prefixes": ["Ghak", "Gnar", "Hraka", "Krak", "Marak", "Rak", "Shak", "Thak", "Vrak", "Yak"],
+    "suffixes": ["a", "agh", "ak", "ka", "kra", "na", "rak", "sha"]
+  },
+  "clanNames": ["Bonegnawer", "Carrionpack", "Dustrunner", "Fleshripper", "Moonhowler", "Sandstrider", "Sunscreamer"],
+  "clanPrefixes": ["Bone", "Carrion", "Dust", "Flesh", "Moon", "Sand", "Sun", "Wind"],
+  "clanSuffixes": ["gnawer", "howler", "pack", "ripper", "runner", "screamer", "strider", "tooth"]
+}

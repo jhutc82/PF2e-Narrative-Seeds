@@ -1,0 +1,27 @@
+{
+  "ancestry": "undine",
+  "description": "Undine names are flowing and aquatic, inspired by water and ocean themes",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 100 }
+  ],
+  "lengthWeights": {
+    "2": 60,
+    "3": 40
+  },
+  "male": {
+    "prefixes": ["Aquil", "Corel", "Dylan", "Hydor", "Mer", "Nept", "Ocean", "River", "Tide", "Wavel"],
+    "middles": ["an", "ar", "en", "ian", "on", "or"],
+    "suffixes": ["an", "ar", "el", "en", "ian", "is", "on", "or", "us"]
+  },
+  "female": {
+    "prefixes": ["Aquila", "Corela", "Dylana", "Hydra", "Mera", "Nepta", "Oceana", "Rivera", "Tidea", "Wavela"],
+    "middles": ["an", "el", "en", "ia", "la", "ra"],
+    "suffixes": ["a", "ana", "ara", "ela", "ena", "ia", "ina", "la", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Aquil", "Corel", "Dylan", "Hydor", "Mer", "Nept", "Ocean", "River", "Tide", "Wavel"],
+    "middles": ["an", "el", "en", "ia", "on", "ra"],
+    "suffixes": ["a", "an", "ar", "el", "en", "ia", "ian", "is", "on", "ra", "us"]
+  }
+}

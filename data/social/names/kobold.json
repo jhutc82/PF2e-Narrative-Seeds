@@ -1,0 +1,26 @@
+{
+  "ancestry": "kobold",
+  "description": "Kobold names are short, sharp, and often draconic-inspired",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 80 },
+    { "type": "single", "weight": 20 }
+  ],
+  "lengthWeights": {
+    "1": 30,
+    "2": 70
+  },
+  "male": {
+    "prefixes": ["Drix", "Gix", "Jik", "Kik", "Mik", "Pik", "Rik", "Sik", "Tik", "Vix", "Zik"],
+    "suffixes": ["ak", "ik", "ix", "ok", "rik", "sik", "tik", "xik"]
+  },
+  "female": {
+    "prefixes": ["Dira", "Gira", "Jira", "Kira", "Mira", "Pira", "Rira", "Sira", "Tira", "Vira", "Zira"],
+    "suffixes": ["a", "ia", "ika", "ira", "xa"]
+  },
+  "nonbinary": {
+    "prefixes": ["Dix", "Gix", "Jik", "Kik", "Mik", "Pik", "Rik", "Sik", "Tik", "Vix", "Zik"],
+    "suffixes": ["a", "ak", "ia", "ik", "ix", "ok", "rik"]
+  },
+  "names": ["Bix", "Drik", "Gix", "Jik", "Kik", "Mik", "Nix", "Pik", "Rik", "Sik", "Tik", "Vix", "Zik"]
+}

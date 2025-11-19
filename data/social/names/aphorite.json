@@ -1,0 +1,24 @@
+{
+  "ancestry": "aphorite",
+  "description": "Aphorite (axiomite-touched, lawful outsider) names are orderly and geometric",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 100 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Axi", "Lex", "Log", "Ord", "Prec", "Rul", "Sym", "Syn", "Tetra", "Trig"},
+    "suffixes": ["an", "ar", "is", "on", "or", "os", "um", "us"]
+  },
+  "female": {
+    "prefixes": ["Axia", "Lexa", "Loga", "Orda", "Preca", "Rula", "Symmetra", "Syna", "Tetra", "Triga"],
+    "suffixes": ["a", "ana", "ara", "ia", "ina", "uma"]
+  },
+  "nonbinary": {
+    "prefixes": ["Axi", "Lex", "Log", "Ord", "Prec", "Rul", "Sym", "Syn", "Tetra", "Trig"},
+    "suffixes": ["a", "an", "ar", "ia", "is", "on", "or", "os", "um", "us"]
+  }
+}

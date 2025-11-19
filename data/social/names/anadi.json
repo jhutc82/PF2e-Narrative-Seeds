@@ -1,0 +1,31 @@
+{
+  "ancestry": "anadi",
+  "description": "Anadi (spider shapeshifters) names are clicking and multi-syllabic",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 70 },
+    { "type": "first-last", "weight": 30 }
+  ],
+  "lengthWeights": {
+    "2": 50,
+    "3": 50
+  },
+  "male": {
+    "prefixes": ["Arac", "Chin", "Click", "Drak", "Klik", "Skit", "Spinn", "Tik", "Web", "Zik"],
+    "middles": ["ak", "ik", "klik", "rak", "tik"],
+    "suffixes": ["ak", "ar", "ik", "klik", "rak", "tik", "zar"]
+  },
+  "female": {
+    "prefixes": ["Araca", "China", "Clicka", "Draka", "Klika", "Skita", "Spinna", "Tika", "Weba", "Zika"],
+    "middles": ["ka", "kli", "ra", "ti"],
+    "suffixes": ["a", "ka", "kia", "ra", "tia"]
+  },
+  "nonbinary": {
+    "prefixes": ["Arac", "Chin", "Click", "Drak", "Klik", "Skit", "Spinn", "Tik", "Web", "Zik"],
+    "middles": ["ak", "ik", "ka", "klik", "ra", "tik"],
+    "suffixes": ["a", "ak", "ik", "ka", "klik", "ra", "tik", "zar"]
+  },
+  "lastNames": ["Eightleg", "Silkweaver", "Spinnemaker", "Webdancer", "Webwalker"],
+  "lastNamePrefixes": ["Eight", "Silk", "Spin", "Web"],
+  "lastNameSuffixes": ["dancer", "leg", "maker", "walker", "weaver"]
+}

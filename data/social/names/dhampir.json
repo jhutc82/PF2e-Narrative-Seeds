@@ -1,0 +1,31 @@
+{
+  "ancestry": "dhampir",
+  "description": "Dhampir (vampire offspring) names are gothic and often Eastern European-inspired",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 60 },
+    { "type": "first-last", "weight": 40 }
+  ],
+  "lengthWeights": {
+    "2": 60,
+    "3": 40
+  },
+  "male": {
+    "prefixes": ["Adri", "Drac", "Lucian", "Mal", "Nikol", "Raven", "Seb", "Stef", "Vlad", "Viktor"],
+    "middles": ["an", "ar", "ian", "mir", "van"},
+    "suffixes": ["an", "ar", "ian", "mir", "or", "us", "van"]
+  },
+  "female": {
+    "prefixes": ["Adri", "Carm", "Ilona", "Len", "Luciana", "Mir", "Nat", "Raven", "Sel", "Valen"],
+    "middles": ["an", "ara", "el", "ia", "ina", "ra"},
+    "suffixes": ["a", "ana", "ara", "el", "ena", "ia", "ina", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Adri", "Carm", "Drac", "Len", "Lucian", "Mir", "Nikol", "Raven", "Sel", "Vlad"},
+    "middles": ["an", "ara", "el", "ia", "ian", "mir", "ra", "van"},
+    "suffixes": ["a", "an", "ara", "el", "ena", "ia", "ian", "mir", "or", "ra", "us", "van"]
+  },
+  "lastNames": ["Blackwood", "Darkmoor", "Nightshade", "Ravencroft", "Shadowborne", "Thornheart"],
+  "lastNamePrefixes": ["Black", "Dark", "Night", "Raven", "Shadow", "Thorn"],
+  "lastNameSuffixes": ["borne", "croft", "heart", "moor", "shade", "wood"]
+}

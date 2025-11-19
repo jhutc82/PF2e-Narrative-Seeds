@@ -1,0 +1,33 @@
+{
+  "ancestry": "beastkin",
+  "description": "Beastkin (animal shapeshifters) names often reflect their animal nature",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 60 },
+    { "type": "compound", "weight": 40 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Ash", "Bear", "Claw", "Hawk", "Raven", "Stag", "Thorn", "Wolf", "Wulf", "Wyld"},
+    "middles": ["ar", "en", "fang", "kin"},
+    "suffixes": ["ar", "born", "claw", "en", "fang", "kin", "paw"]
+  },
+  "female": {
+    "prefixes": ["Asha", "Claw", "Doe", "Hawk", "Luna", "Raven", "Thorn", "Willow", "Wolf", "Wyld"},
+    "middles": ["ar", "en", "ia", "kin", "ra"},
+    "suffixes": ["a", "ara", "born", "claw", "en", "ia", "kin", "paw", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Ash", "Bear", "Claw", "Doe", "Hawk", "Luna", "Raven", "Stag", "Thorn", "Wolf", "Wyld"},
+    "middles": ["ar", "en", "ia", "kin", "ra"},
+    "suffixes": ["a", "ar", "born", "claw", "en", "fang", "ia", "kin", "paw", "ra"]
+  },
+  "compoundParts": {
+    "prefixes": ["Bear", "Claw", "Eagle", "Fang", "Hawk", "Moon", "Raven", "Stag", "Wild", "Wolf"],
+    "suffixes": ["born", "claw", "fang", "heart", "kin", "paw", "runner", "stalker"]
+  },
+  "compoundSeparator": ""
+}

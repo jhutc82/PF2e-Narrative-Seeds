@@ -1,0 +1,36 @@
+{
+  "ancestry": "sprite",
+  "description": "Sprite (tiny fey with wings) names are whimsical and nature-themed",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 50 },
+    { "type": "compound", "weight": 30 },
+    { "type": "single", "weight": 20 }
+  ],
+  "lengthWeights": {
+    "1": 20,
+    "2": 60,
+    "3": 20
+  },
+  "male": {
+    "prefixes": ["Biz", "Flick", "Jink", "Nix", "Pix", "Snick", "Spr", "Tink", "Wick", "Zap"],
+    "middles": ["el", "ik", "il", "wick", "zap"],
+    "suffixes": ["el", "ick", "ik", "in", "le", "wick", "zap"]
+  },
+  "female": {
+    "prefixes": ["Bella", "Fae", "Flitter", "Luna", "Pixie", "Shimmer", "Sparkle", "Tilly", "Twinkle", "Willa"],
+    "middles": ["bel", "la", "lin"},
+    "suffixes": ["a", "bell", "la", "le", "lin"]
+  },
+  "nonbinary": {
+    "prefixes": ["Biz", "Fae", "Flick", "Jink", "Luna", "Nix", "Pix", "Sparkle", "Tink", "Zap"],
+    "middles": ["bel", "el", "ik", "la", "wick"},
+    "suffixes": ["a", "bell", "el", "ick", "ik", "la", "le", "wick", "zap"]
+  },
+  "compoundParts": {
+    "prefixes": ["Dew", "Fairy", "Flit", "Flutter", "Glow", "Moon", "Petal", "Shimmer", "Sparkle", "Star", "Twinkle", "Wing"],
+    "suffixes": ["bell", "dust", "glow", "light", "spark", "wing"]
+  },
+  "compoundSeparator": "",
+  "names": ["Blink", "Flutter", "Glow", "Nix", "Pix", "Shimmer", "Sparkle", "Tink", "Twinkle", "Wink"]
+}

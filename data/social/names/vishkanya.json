@@ -1,0 +1,27 @@
+{
+  "ancestry": "vishkanya",
+  "description": "Vishkanya (poison-touched humanoids) names are inspired by Indian phonetics",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 100 }
+  ],
+  "lengthWeights": {
+    "2": 50,
+    "3": 50
+  },
+  "male": {
+    "prefixes": ["Adh", "Bala", "Dara", "Jai", "Karan", "Manu", "Nihal", "Preet", "Ravi", "Sanjay", "Vijay"],
+    "middles": ["an", "ar", "dev", "raj", "van"],
+    "suffixes": ["an", "ar", "dev", "nu", "raj", "van"]
+  },
+  "female": {
+    "prefixes": ["Asha", "Devi", "Kali", "Laks", "Meera", "Nila", "Pari", "Priya", "Rani", "Sita", "Vani"],
+    "middles": ["ka", "la", "ma", "na", "ra", "va"},
+    "suffixes": ["a", "ka", "la", "ma", "na", "ni", "ra", "ta", "va"]
+  },
+  "nonbinary": {
+    "prefixes": ["Adh", "Asha", "Bala", "Dara", "Jai", "Kali", "Laks", "Meera", "Preet", "Ravi", "Vani"],
+    "middles": ["an", "ar", "ka", "la", "ma", "na", "raj", "ra", "va", "van"},
+    "suffixes": ["a", "an", "ar", "dev", "ka", "la", "ma", "na", "ni", "ra", "raj", "ta", "va", "van"]
+  }
+}

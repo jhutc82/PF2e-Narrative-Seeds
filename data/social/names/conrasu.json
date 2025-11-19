@@ -1,0 +1,33 @@
+{
+  "ancestry": "conrasu",
+  "description": "Conrasu names are geometric and philosophical, reflecting their construct-plant nature",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 70 },
+    { "type": "compound", "weight": 30 }
+  ],
+  "lengthWeights": {
+    "2": 60,
+    "3": 40
+  },
+  "male": {
+    "prefixes": ["Axi", "Circ", "Cub", "Helix", "Orb", "Pris", "Spir", "Sym", "Tetra", "Vertex"],
+    "middles": ["an", "on", "or", "um"],
+    "suffixes": ["an", "is", "on", "or", "um", "us"]
+  },
+  "female": {
+    "prefixes": ["Axiala", "Circla", "Cubla", "Helixa", "Orba", "Prisma", "Spira", "Symmetra", "Tetra", "Vertexa"],
+    "middles": ["an", "ia", "ra", "um"],
+    "suffixes": ["a", "ia", "ina", "ra", "uma"]
+  },
+  "nonbinary": {
+    "prefixes": ["Axi", "Circ", "Cub", "Helix", "Orb", "Pris", "Spir", "Sym", "Tetra", "Vertex"],
+    "middles": ["an", "ia", "on", "ra", "um"],
+    "suffixes": ["a", "an", "ia", "is", "on", "or", "ra", "um", "us"]
+  },
+  "compoundParts": {
+    "prefixes": ["Balance", "Circle", "Harmony", "Order", "Pattern", "Sphere", "Spiral", "Symmetry", "Unity", "Vertex"],
+    "suffixes": ["form", "pattern", "seeker", "walker"]
+  },
+  "compoundSeparator": ""
+}

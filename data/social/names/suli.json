@@ -1,0 +1,27 @@
+{
+  "ancestry": "suli",
+  "description": "Suli names blend all elemental themes, inspired by Middle Eastern phonetics",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 100 }
+  ],
+  "lengthWeights": {
+    "2": 60,
+    "3": 40
+  },
+  "male": {
+    "prefixes": ["Adal", "Amir", "Farid", "Hasan", "Karim", "Malik", "Omar", "Rashid", "Salim", "Zahir"],
+    "middles": ["al", "ar", "id", "im", "ir", "ud"],
+    "suffixes": ["ad", "al", "an", "ar", "id", "im", "ir", "ud"]
+  },
+  "female": {
+    "prefixes": ["Amara", "Farah", "Hala", "Jasmin", "Layla", "Malika", "Nadia", "Rasha", "Salima", "Zahira"],
+    "middles": ["ar", "ha", "la", "ma", "ra"],
+    "suffixes": ["a", "ah", "ara", "ha", "la", "ma", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Adal", "Amir", "Amara", "Farah", "Hasan", "Jasmin", "Karim", "Layla", "Salim", "Zahir"],
+    "middles": ["al", "ar", "ha", "id", "la", "ma", "ra", "ud"],
+    "suffixes": ["a", "ad", "al", "an", "ar", "ha", "id", "la", "ma", "ra", "ud"]
+  }
+}

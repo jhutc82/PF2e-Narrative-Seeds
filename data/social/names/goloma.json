@@ -1,0 +1,27 @@
+{
+  "ancestry": "goloma",
+  "description": "Goloma (multi-eyed secretive humanoids) names are soft and observant",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 100 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Embe", "Golo", "Kaba", "Maba", "Ngu", "Oko", "Saba", "Taba", "Umbe", "Zaba"],
+    "middles": ["ba", "bo", "gu", "ka", "ma", "nga"],
+    "suffixes": ["ba", "be", "bo", "gu", "ka", "ma", "nga"]
+  },
+  "female": {
+    "prefixes": ["Amba", "Gola", "Kaba", "Maba", "Ngua", "Oka", "Saba", "Taba", "Umba", "Zaba"],
+    "middles": ["ba", "ka", "la", "ma", "nga"},
+    "suffixes": ["a", "ba", "ka", "la", "ma", "nga"]
+  },
+  "nonbinary": {
+    "prefixes": ["Embe", "Golo", "Kaba", "Maba", "Ngu", "Oko", "Saba", "Taba", "Umbe", "Zaba"],
+    "middles": ["ba", "bo", "ka", "la", "ma", "nga"},
+    "suffixes": ["a", "ba", "be", "bo", "ka", "la", "ma", "nga"]
+  }
+}

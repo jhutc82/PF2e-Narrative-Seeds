@@ -1,0 +1,30 @@
+{
+  "ancestry": "automaton",
+  "description": "Automaton names are mechanical and designation-based, often with soul names",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 60 },
+    { "type": "compound", "weight": 40 }
+  ],
+  "lengthWeights": {
+    "2": 80,
+    "3": 20
+  },
+  "male": {
+    "prefixes": ["Adaman", "Brass", "Bronze", "Cog", "Forge", "Gear", "Iron", "Mech", "Steel", "Titan"],
+    "suffixes": ["an", "ar", "iron", "on", "or", "os", "ron", "ton", "us"]
+  },
+  "female": {
+    "prefixes": ["Adama", "Brassa", "Bronza", "Cogna", "Forge", "Geara", "Irona", "Mecha", "Steela", "Titana"],
+    "suffixes": ["a", "ana", "ara", "ia", "ina", "ona", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Adaman", "Brass", "Bronze", "Cog", "Forge", "Gear", "Iron", "Mech", "Steel", "Titan"],
+    "suffixes": ["a", "an", "ar", "ia", "iron", "on", "or", "os", "ron", "us"]
+  },
+  "compoundParts": {
+    "prefixes": ["Alpha", "Beta", "Construct", "Delta", "Guardian", "Omega", "Prime", "Sentinel", "Unit", "Warden"],
+    "suffixes": ["one", "prime", "seven", "three", "two", "unit"]
+  },
+  "compoundSeparator": "-"
+}

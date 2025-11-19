@@ -1,0 +1,27 @@
+{
+  "ancestry": "oread",
+  "description": "Oread names are earthy and solid, inspired by stone and mountain themes",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 100 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Basalt", "Crag", "Flint", "Gron", "Kron", "Obsid", "Quartz", "Shard", "Slate", "Stone"],
+    "middles": ["ar", "en", "ian", "on", "or"],
+    "suffixes": ["an", "ar", "en", "ian", "on", "or", "us"]
+  },
+  "female": {
+    "prefixes": ["Ameth", "Basalta", "Craga", "Flinta", "Gema", "Jade", "Obsida", "Quartza", "Sharda", "Stonea"],
+    "middles": ["ar", "en", "ia", "ra"],
+    "suffixes": ["a", "ara", "ena", "ia", "ina", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Ameth", "Basalt", "Crag", "Flint", "Gem", "Jade", "Obsid", "Quartz", "Shard", "Stone"],
+    "middles": ["ar", "en", "ia", "on", "ra"],
+    "suffixes": ["a", "an", "ar", "en", "ia", "ian", "on", "ra", "us"]
+  }
+}
