@@ -1,0 +1,31 @@
+{
+  "ancestry": "fetchling",
+  "description": "Fetchling (kayal) names are shadowy and mysterious, reflecting the Shadow Plane",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 70 },
+    { "type": "first-last", "weight": 30 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Ash", "Dusk", "Mor", "Nox", "Raven", "Shade", "Shad", "Twil", "Umbr", "Veil"],
+    "middles": ["an", "ar", "en", "on", "or"],
+    "suffixes": ["an", "ar", "en", "ix", "on", "or", "os", "yx"]
+  },
+  "female": {
+    "prefixes": ["Ash", "Dusk", "Luna", "Mora", "Nox", "Raven", "Shada", "Twila", "Umbra", "Veil"],
+    "middles": ["an", "ara", "en", "la", "ra"],
+    "suffixes": ["a", "ana", "ara", "ena", "ia", "ina", "la", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Ash", "Dusk", "Luna", "Mor", "Nox", "Raven", "Shade", "Twil", "Umbr", "Veil"],
+    "middles": ["an", "ara", "en", "on", "ra"],
+    "suffixes": ["a", "an", "ara", "en", "ia", "ix", "on", "or", "yx"]
+  },
+  "lastNames": ["Darkwhisper", "Duskveil", "Nightshade", "Shadowborn", "Twilightwalker", "Veilrunner"],
+  "lastNamePrefixes": ["Dark", "Dusk", "Night", "Shadow", "Twilight", "Veil"],
+  "lastNameSuffixes": ["born", "runner", "shade", "veil", "walker", "whisper"]
+}

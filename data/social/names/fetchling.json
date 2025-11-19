@@ -1,0 +1,95 @@
+{
+  "male": {
+    "prefixes": [
+      "Ash", "Ashvar", "Cael", "Calix", "Drak", "Draven", "Dusk", "Duskar", "Erebos", "Gavin",
+      "Galen", "Gloom", "Grim", "Grimvar", "Kael", "Kalix", "Mael", "Mor", "Moran", "Morix",
+      "Murk", "Ner", "Neron", "Nevar", "Noir", "Nox", "Noxen", "Nyxar", "Nyxen", "Orin",
+      "Orix", "Oren", "Raven", "Ravix", "Rael", "Ren", "Sable", "Shade", "Shaden", "Shador",
+      "Shadrix", "Shael", "Shalix", "Sorin", "Sorix", "Taren", "Theron", "Twil", "Twilar", "Umbra",
+      "Umbriel", "Umbron", "Vael", "Valin", "Varen", "Veil", "Veilir", "Velor", "Vex", "Velar",
+      "Voran", "Vorin", "Xael", "Xaren", "Xorin", "Yael", "Yaren", "Yorin", "Zael", "Zaren",
+      "Zeph", "Zephar", "Zoren", "Ashlen", "Ashmar", "Ashren", "Duskren", "Dusvar", "Graven", "Grimlen",
+      "Morven", "Noxar", "Noxir", "Nyxor", "Raelor", "Ravin", "Shadren", "Shadvar", "Shaelor", "Shalin",
+      "Sorel", "Sorven", "Taelon", "Thalen", "Twilix", "Umbrel", "Umbrex", "Vaelor", "Vaelir", "Veilax",
+      "Velix", "Vorix", "Xaelor", "Aelar", "Aeris", "Aeron", "Aldren", "Aler", "Alvar", "Andar",
+      "Ander", "Anor", "Aral", "Arden", "Arel", "Aren", "Arian", "Arlen", "Ashen", "Astor",
+      "Atheris", "Athor", "Balen", "Belor", "Beron", "Boran", "Brelan", "Brelor", "Caelen", "Caelor",
+      "Caeris", "Calan", "Calen", "Celor", "Ceran", "Coran", "Daelon", "Daelor", "Dalen", "Darel",
+      "Daren", "Delen", "Delor", "Deron", "Dorel", "Dorin", "Elaren", "Elar", "Elan", "Elor",
+      "Emar", "Erel", "Eren", "Faelen", "Faelor", "Falan", "Felor", "Gaelon", "Gaelor", "Galar",
+      "Garen", "Gelor", "Haelon", "Halen", "Helor", "Heran", "Ilar", "Jaelon", "Jalen", "Jelor",
+      "Kaelon", "Kaelor", "Kalen", "Kelor", "Laelon", "Lael", "Lalen", "Lelor", "Maelon", "Maelor",
+      "Malen", "Melor", "Naelon", "Nalen", "Nelor", "Orix", "Orlen", "Raelon", "Ralen", "Relor",
+      "Saelon", "Salen", "Selor", "Taelon", "Talen", "Telor", "Vaelon", "Valen", "Velor", "Xaelon"
+    ],
+    "suffixes": [
+      "an", "ar", "el", "en", "er", "es", "ex", "il", "in", "ir",
+      "is", "ix", "len", "lin", "lon", "on", "or", "os", "ren", "rix",
+      "ron", "us", "van", "ven", "vor", "yx", "al", "am", "aran", "arel",
+      "aren", "aris", "ar", "dar", "elar", "elan", "elen", "elor", "emar", "enar",
+      "eron", "ian", "iel", "ien", "ier", "ilar", "ilan", "ilen", "ilor", "imar",
+      "inar", "ion", "ior", "irel", "iren", "irian", "iron", "isan", "isen", "ivar",
+      "ivel", "lar", "laren", "len", "ler", "leran", "lon", "lor", "luan", "lyan",
+      "mar", "maran", "melan", "moran", "nar", "nalan", "naren", "nelan", "noran", "oel",
+      "olan", "olen", "oran", "orel", "orian", "orin", "rael", "ralan", "ralen", "rarel",
+      "relen", "renan", "rian", "riel", "rien", "rilan", "rion", "ronan", "saelan", "salan",
+      "saran", "selan", "selor", "soran", "tael", "talan", "taren", "telan", "tharan", "thoren"
+    ]
+  },
+  "female": {
+    "prefixes": [
+      "Ash", "Ashara", "Ashla", "Ashlyn", "Caela", "Calista", "Draka", "Dravena", "Dusk", "Duskara",
+      "Duskla", "Elara", "Erebia", "Gavina", "Galena", "Glooma", "Grima", "Grimara", "Kaela", "Kalista",
+      "Luna", "Lunara", "Maela", "Mora", "Morana", "Morix", "Murka", "Nera", "Nerona", "Nevara",
+      "Noira", "Nox", "Noxara", "Noxia", "Nyxara", "Nyxia", "Orana", "Orixa", "Orena", "Raven",
+      "Ravena", "Ravixa", "Raela", "Rena", "Sabla", "Sable", "Shada", "Shadara", "Shadora", "Shadra",
+      "Shaela", "Shalista", "Sorana", "Sorixa", "Tarena", "Therona", "Twila", "Twilara", "Umbra", "Umbria",
+      "Umbriel", "Vaela", "Valina", "Varena", "Veil", "Veilara", "Velora", "Vexa", "Velara", "Vorana",
+      "Vorina", "Xaela", "Xarena", "Xorina", "Yaela", "Yarena", "Yorina", "Zaela", "Zarena", "Zepha",
+      "Zephara", "Zorena", "Ashlana", "Ashmara", "Ashrena", "Duskrana", "Dusvara", "Gravena", "Grimlena", "Morvena",
+      "Noxara", "Noxira", "Nyxora", "Raelora", "Ravina", "Shadrena", "Shadvara", "Shaelora", "Shalina", "Sorela",
+      "Sorvena", "Taelona", "Thalena", "Twilixa", "Umbrela", "Umbrexa", "Vaelora", "Vaelira", "Aelara", "Aerisa",
+      "Aerona", "Aldrena", "Alera", "Alvara", "Andara", "Andera", "Anora", "Arala", "Ardena", "Arela",
+      "Arena", "Ariana", "Arlena", "Ashena", "Astora", "Athera", "Athora", "Balena", "Belora", "Berona",
+      "Borana", "Brelana", "Brelora", "Caelena", "Caelora", "Caerisa", "Calana", "Calena", "Celora", "Cerana",
+      "Corana", "Daelona", "Daelena", "Daelora", "Dalena", "Darela", "Darena", "Delena", "Delora", "Derona",
+      "Dorela", "Dorina", "Elarena", "Elara", "Elana", "Elora", "Emara", "Erela", "Erena", "Faelana",
+      "Faelora", "Falana", "Felora", "Gaelona", "Gaelora", "Galara", "Garena", "Gelora", "Haelona", "Halena",
+      "Helora", "Herana", "Ilara", "Jaelona", "Jalena", "Jelora", "Kaelona", "Kaelora", "Kalena", "Kelora",
+      "Laelona", "Laela", "Lalena", "Lelora", "Maelona", "Maelora", "Malena", "Melora", "Naelona", "Nalena",
+      "Nelora", "Orixa", "Orlena", "Raelona", "Ralena", "Relora", "Saelona", "Salena", "Selora", "Taelona"
+    ],
+    "suffixes": [
+      "a", "al", "ana", "ara", "el", "ela", "en", "ena", "ia", "il",
+      "ila", "in", "ina", "ira", "ix", "ixa", "la", "lana", "len", "lena",
+      "lin", "lina", "na", "nara", "ra", "rana", "ren", "rena", "rix", "rixa",
+      "va", "vana", "ven", "vena", "vora", "ala", "alana", "alena", "alina", "amara",
+      "anara", "andra", "anela", "anera", "ara", "arela", "arena", "aria", "ariana", "arina",
+      "arra", "arella", "bella", "brina", "cela", "cella", "cera", "dana", "dara", "dela",
+      "denna", "dina", "dira", "dora", "drana", "ebela", "edra", "eila", "eira", "ela",
+      "elda", "elena", "elina", "elisa", "ella", "elma", "elora", "elsa", "emara", "emera",
+      "ena", "enara", "enna", "era", "erana", "erella", "erina", "erra", "essa", "estra",
+      "eta", "ethia", "etta", "evra", "ia", "iana", "iara", "iella", "iena", "ila",
+      "ilana", "ilena", "ilia", "iliana", "ilina", "illa", "ima", "ina", "inara", "inda",
+      "ine", "inia", "inna", "iola", "iona", "ira", "irana", "irella", "irina", "irra",
+      "isa", "ishara", "isla", "issa", "ista", "itha", "ithra", "ivia", "ivra", "ixia"
+    ]
+  },
+  "lastNames": {
+    "prefixes": [
+      "Dark", "Dim", "Dusk", "Gloom", "Midnight", "Night", "Shadow", "Shade", "Twilight", "Umbra",
+      "Veil", "Ash", "Black", "Cinder", "Dread", "Dusky", "Ebony", "Eclipse", "Ember", "Evening",
+      "Fog", "Ghost", "Gray", "Grey", "Haze", "Mist", "Misty", "Moon", "Murk", "Murky",
+      "Obsidian", "Onyx", "Pale", "Phantom", "Raven", "Sable", "Shroud", "Silent", "Smoke",
+      "Smoky", "Somber", "Starless", "Umbral", "Void", "Whispering"
+    ],
+    "suffixes": [
+      "born", "caller", "dancer", "runner", "shade", "veil", "walker", "wanderer", "whisper", "bane",
+      "blade", "bound", "bringer", "cloak", "creeper", "dancer", "dweller", "eye", "face", "gaze",
+      "glider", "haunter", "heart", "keeper", "kin", "lurker", "mist", "prowler", "roamer", "seeker",
+      "shadow", "shifter", "shroud", "skulker", "song", "soul", "speaker", "spirit", "stalker", "step",
+      "strider", "touched", "traveler", "tread", "veiled", "wanderer", "warden", "watcher", "weaver", "whisperer",
+      "wind", "wing", "wraith"
+    ]
+  }
+}

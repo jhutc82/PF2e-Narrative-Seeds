@@ -1,0 +1,124 @@
+{
+  "motivations": [
+    {
+      "id": "wants-information",
+      "name": "Wants Information",
+      "description": "Trying to learn something from the party",
+      "gmGuidance": "They'll ask probing questions and steer conversation to their topic of interest"
+    },
+    {
+      "id": "hiding-something",
+      "name": "Hiding Something",
+      "description": "Concealing important information or a secret",
+      "gmGuidance": "They'll deflect certain topics and may lie if pressed"
+    },
+    {
+      "id": "needs-help",
+      "name": "Needs Help",
+      "description": "Requires assistance but may be reluctant to ask directly",
+      "gmGuidance": "They're hoping the party will offer aid or notice their plight"
+    },
+    {
+      "id": "testing-party",
+      "name": "Testing the Party",
+      "description": "Evaluating the party's capabilities, morals, or intentions",
+      "gmGuidance": "They'll present hypotheticals or small challenges to gauge responses"
+    },
+    {
+      "id": "making-sale",
+      "name": "Making a Sale",
+      "description": "Trying to sell goods, services, or an idea",
+      "gmGuidance": "They'll highlight benefits and downplay drawbacks"
+    },
+    {
+      "id": "seeking-allies",
+      "name": "Seeking Allies",
+      "description": "Looking for people to join their cause or faction",
+      "gmGuidance": "They'll emphasize shared goals and mutual benefits"
+    },
+    {
+      "id": "delivering-message",
+      "name": "Delivering a Message",
+      "description": "Has specific information to convey to the party",
+      "gmGuidance": "They'll try to get to their message, but may build rapport first"
+    },
+    {
+      "id": "seeking-revenge",
+      "name": "Seeking Revenge",
+      "description": "Wants retribution against someone or something",
+      "gmGuidance": "They may try to manipulate the party into helping with their vendetta"
+    },
+    {
+      "id": "lonely",
+      "name": "Lonely",
+      "description": "Simply wants companionship and conversation",
+      "gmGuidance": "They'll try to prolong the interaction and share stories"
+    },
+    {
+      "id": "suspicious",
+      "name": "Suspicious of Party",
+      "description": "Doesn't trust the party and wants to assess the threat",
+      "gmGuidance": "They'll be cautious and watch for signs of danger"
+    },
+    {
+      "id": "hurried",
+      "name": "In a Hurry",
+      "description": "Has urgent business elsewhere",
+      "gmGuidance": "They'll try to keep the interaction brief and to the point"
+    },
+    {
+      "id": "showing-off",
+      "name": "Showing Off",
+      "description": "Wants to impress the party or demonstrate superiority",
+      "gmGuidance": "They'll boast about accomplishments and drop names"
+    },
+    {
+      "id": "seeking-validation",
+      "name": "Seeking Validation",
+      "description": "Wants approval or reassurance from others",
+      "gmGuidance": "They'll share concerns and look for affirmation"
+    },
+    {
+      "id": "warning-party",
+      "name": "Warning the Party",
+      "description": "Knows of a danger and wants to alert them",
+      "gmGuidance": "They may be cryptic if fearful of being overheard"
+    },
+    {
+      "id": "entertainment",
+      "name": "Seeking Entertainment",
+      "description": "Bored and looking for amusement or gossip",
+      "gmGuidance": "They'll ask about the party's adventures and share local rumors"
+    },
+    {
+      "id": "recruiting",
+      "name": "Recruiting",
+      "description": "Trying to hire the party for a job",
+      "gmGuidance": "They'll assess the party's skills and discuss terms"
+    },
+    {
+      "id": "intimidating",
+      "name": "Intimidating",
+      "description": "Trying to scare the party away or establish dominance",
+      "gmGuidance": "They'll make veiled threats or show of strength"
+    },
+    {
+      "id": "genuine-interest",
+      "name": "Genuine Interest",
+      "description": "Actually curious about the party and their stories",
+      "gmGuidance": "They'll ask thoughtful questions and engage authentically"
+    },
+    {
+      "id": "protecting-someone",
+      "name": "Protecting Someone",
+      "description": "Trying to keep someone else safe from the party",
+      "gmGuidance": "They'll misdirect or lie to protect their charge"
+    },
+    {
+      "id": "duty-bound",
+      "name": "Duty Bound",
+      "description": "Performing their job or fulfilling an obligation",
+      "gmGuidance": "They'll be professional but may lack personal investment"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "ancestry": "sprite",
+  "description": "Sprite (tiny fey with wings) names are whimsical and nature-themed",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 50 },
+    { "type": "compound", "weight": 30 },
+    { "type": "single", "weight": 20 }
+  ],
+  "lengthWeights": {
+    "1": 20,
+    "2": 60,
+    "3": 20
+  },
+  "male": {
+    "prefixes": ["Biz", "Blip", "Blink", "Bop", "Breezy", "Bright", "Buzz", "Chip", "Crick", "Dew", "Ding", "Dizzy", "Fiz", "Flick", "Flit", "Flitter", "Flutter", "Glim", "Glit", "Glow", "Jig", "Jink", "Jit", "Merry", "Nix", "Pix", "Pixie", "Plink", "Pop", "Puck", "Quip", "Quiver", "Shimmy", "Snick", "Snip", "Spark", "Sparkle", "Sprig", "Spr", "Spring", "Sprinkle", "Star", "Sunny", "Tink", "Tinkle", "Tip", "Tiptoe", "Trick", "Tweak", "Tweet", "Twik", "Twill", "Twink", "Twinkle", "Whim", "Whimsy", "Whir", "Whisk", "Whisper", "Wick", "Wiggly", "Wink", "Wisp", "Wobble", "Zap", "Zing", "Zip", "Zippy", "Zoom", "Beezel", "Binky", "Bizzy", "Blizzy", "Boppy", "Bramble", "Breeze", "Bubbly", "Bumble", "Chirp", "Cricket", "Crinkle", "Dazzle", "Dimple", "Doodle", "Fidget", "Fizzy", "Flicker", "Freckle", "Giggle", "Glimmer", "Glitter", "Gremlin", "Hoppy", "Jangle", "Jester", "Jiggle", "Jolly", "Belle", "Berry", "Blink", "Bloom", "Blue", "Bobble", "Bounce", "Bramble", "Bubble", "Button", "Charm", "Cherry", "Chipper", "Chirpy", "Chuckle", "Clover", "Cobble", "Cricket", "Crinkle", "Curl", "Daisy", "Dandy", "Dapple", "Dash", "Dew", "Diamond", "Dilly", "Dimple", "Doodle", "Dot", "Dove", "Dream", "Drift", "Drizzle", "Drop", "Dust", "Echo", "Ember", "Fairy", "Fawn", "Feather", "Fern", "Fiddlestick", "Fig", "Fire", "Flare", "Flash", "Fleece", "Flicker", "Fling", "Flip", "Flirt", "Flit", "Flitter", "Flutter", "Fog", "Frost", "Fuzz", "Garden", "Gem", "Giggle", "Ginger", "Glimmer", "Glint", "Glisten", "Glitter", "Glow", "Gold", "Gossamer", "Grace", "Grape", "Grass", "Gravel", "Green", "Grin", "Grove", "Hail", "Harmony", "Haze", "Hazel", "Heather", "Hedge", "Herb", "Hickory", "Hill", "Hive", "Holly", "Honey", "Hop", "Huckle", "Hum"],
+    "middles": ["el", "ik", "il", "le", "wick", "wink", "zap", "zip"],
+    "suffixes": ["el", "ick", "ie", "ik", "in", "le", "wick", "wink", "y", "zap", "zip"]
+  },
+  "female": {
+    "prefixes": ["Aura", "Bella", "Belle", "Berry", "Blossom", "Breeze", "Bubble", "Buttercup", "Celeste", "Cherry", "Clover", "Crystal", "Daisy", "Dainty", "Dawn", "Dewdrop", "Dreamy", "Fae", "Fairy", "Fawn", "Fern", "Flora", "Flitter", "Flutter", "Glimmer", "Glow", "Gossamer", "Grace", "Harmony", "Honey", "Iris", "Ivy", "Jewel", "Joy", "Juniper", "Lavender", "Lily", "Luna", "Maple", "Marigold", "Meadow", "Melody", "Misty", "Moonbeam", "Nectar", "Opal", "Pearl", "Petal", "Pixie", "Poppy", "Primrose", "Purity", "Rainbow", "Rose", "Rosie", "Ruby", "Shimmer", "Shine", "Sky", "Sparkle", "Star", "Starlight", "Sugar", "Summer", "Sunny", "Sunshine", "Sweetpea", "Thistle", "Tilly", "Tinkerbell", "Tulip", "Twila", "Twinkle", "Violet", "Whisper", "Willow", "Willa", "Windy", "Aurora", "Bluebell", "Briar", "Buttercup", "Coral", "Dahlia", "Dandelion", "Dewberry", "Dove", "Ember", "Fawn", "Frost", "Glitter", "Hazel", "Heather", "Jasmine", "Juniper", "Lark", "Lilac", "Lotus", "Merry", "Mist", "Acacia", "Alder", "Amaryllis", "Anemone", "Angelica", "Anise", "Apple", "Aster", "Azalea", "Basil", "Bay", "Bee", "Begonia", "Birch", "Bird", "Blackberry", "Bloom", "Blossom", "Bonnet", "Bramble", "Breeze", "Brier", "Bud", "Bumble", "Butterfly", "Camellia", "Candle", "Carnation", "Cedar", "Chamomile", "Chickadee", "Chicory", "Cinnamon", "Clematis", "Cloud", "Columbine", "Coneflower", "Cornflower", "Cotton", "Cranberry", "Crocus", "Daffodil", "Dawn", "Daybreak", "Delphinium", "Dove", "Dragonfly", "Dream", "Dusk", "Edelweiss", "Elder", "Elm", "Evening", "Fawn", "Feather", "Fennel", "Fig", "Firefly", "Flame", "Flax", "Flower", "Flurry", "Fog", "Forget-me-not", "Forsythia", "Foxglove", "Freesia", "Gardenia", "Garland", "Geranium", "Ginger", "Gladiolus", "Goldenrod", "Goose", "Harebell", "Harvest", "Hawthorne", "Heath", "Heliotrope", "Hemlock", "Heron", "Hibiscus", "Hollyhock", "Honeysuckle", "Hummingbird", "Hyacinth", "Hydrangea", "Hyssop", "Indigo", "Iris", "Ivory", "Jade", "Jasmine", "Jessamine", "Jonquil", "Joy", "Jubilee", "Junco", "Kindle", "Kingfisher", "Ladybug", "Larch", "Larkspur", "Laurel", "Lavender", "Leaf", "Lemon", "Lichen", "Lilac", "Linden", "Lotus"],
+    "middles": ["bel", "la", "lin", "ra", "sa"],
+    "suffixes": ["a", "bell", "belle", "berry", "ella", "ia", "la", "le", "lin", "lyn", "ra", "rie", "sa"]
+  },
+  "nonbinary": {
+    "prefixes": ["Biz", "Blip", "Blink", "Blossom", "Breeze", "Bright", "Bubble", "Buzz", "Cherry", "Chip", "Clover", "Crystal", "Dew", "Dewdrop", "Ding", "Dizzy", "Fae", "Fern", "Fiz", "Flick", "Flit", "Flitter", "Flutter", "Glimmer", "Glim", "Glit", "Glow", "Honey", "Iris", "Ivy", "Jig", "Jink", "Jit", "Joy", "Lavender", "Lily", "Luna", "Maple", "Meadow", "Melody", "Merry", "Misty", "Moonbeam", "Nectar", "Nix", "Opal", "Pearl", "Petal", "Pix", "Pixie", "Plink", "Pop", "Poppy", "Puck", "Quip", "Rainbow", "Rose", "Shimmer", "Shimmy", "Shine", "Sky", "Snick", "Snip", "Spark", "Sparkle", "Sprig", "Spring", "Sprinkle", "Star", "Starlight", "Sugar", "Summer", "Sunny", "Sunshine", "Sweetpea", "Thistle", "Tilly", "Tink", "Tinkle", "Tip", "Tiptoe", "Trick", "Tulip", "Tweak", "Tweet", "Twik", "Twill", "Twink", "Twinkle", "Violet", "Whim", "Whimsy", "Whir", "Whisk", "Whisper", "Wick", "Willow", "Willa", "Wink", "Wisp", "Zap", "Zing", "Zip", "Zoom"],
+    "middles": ["bel", "el", "ik", "il", "la", "le", "lin", "ra", "sa", "wick", "wink", "zap", "zip"],
+    "suffixes": ["a", "bell", "belle", "berry", "el", "ella", "ia", "ick", "ie", "ik", "in", "la", "le", "lin", "lyn", "ra", "rie", "sa", "wick", "wink", "y", "zap", "zip"]
+  },
+  "compoundParts": {
+    "prefixes": ["Berry", "Blossom", "Bubble", "Butterfly", "Candle", "Clover", "Crystal", "Daisy", "Dawn", "Dew", "Dream", "Fairy", "Fern", "Firefly", "Flower", "Flutter", "Frost", "Garden", "Glimmer", "Glow", "Honey", "Ivy", "Leaf", "Light", "Lily", "Luna", "Meadow", "Moon", "Moonbeam", "Nectar", "Night", "Pearl", "Petal", "Pixie", "Rainbow", "Rose", "Shimmer", "Sky", "Sparkle", "Spring", "Star", "Starlight", "Sugar", "Summer", "Sun", "Sunbeam", "Thistle", "Twinkle", "Violet", "Whisper", "Willow", "Wind", "Wing"],
+    "suffixes": ["beam", "bell", "berry", "blossom", "bloom", "breeze", "bright", "dance", "dancer", "dream", "dust", "flame", "flight", "flower", "flutter", "glow", "kiss", "light", "petal", "shimmer", "shine", "song", "spark", "sprite", "star", "stream", "twinkle", "whirl", "whisper", "wind", "wing", "wisp"]
+  },
+  "compoundSeparator": "",
+  "names": ["Blink", "Blossom", "Breeze", "Bubble", "Dewdrop", "Fae", "Firefly", "Flutter", "Glimmer", "Glow", "Moonbeam", "Nectar", "Nix", "Pearl", "Petal", "Pix", "Pixie", "Shimmer", "Sparkle", "Starlight", "Sunbeam", "Tink", "Twinkle", "Whisper", "Wink", "Wisp"]
+}

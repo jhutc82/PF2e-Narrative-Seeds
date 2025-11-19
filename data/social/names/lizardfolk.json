@@ -1,0 +1,31 @@
+{
+  "ancestry": "lizardfolk",
+  "description": "Lizardfolk (Iruxi) names are hissing and sibilant with tribal identifiers",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 60 },
+    { "type": "clan-name", "weight": 40 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Arax", "Arsith", "Aseth", "Ashess", "Athress", "Dras", "Drass", "Dresh", "Driss", "Dross", "Druss", "Essor", "Essith", "Gresh", "Gress", "Griss", "Gross", "Gruss", "Hassor", "Hessith", "Hirss", "Hress", "Hriss", "Hross", "Hruss", "Issar", "Issath", "Issith", "Kass", "Kess", "Kessar", "Kessith", "Kirss", "Kress", "Kriss", "Kross", "Kruss", "Lassar", "Lessith", "Lirss", "Lress", "Lriss", "Massar", "Messith", "Mirss", "Mress", "Mriss", "Nassar", "Nessith", "Nirss", "Nress", "Nriss", "Ossar", "Osseth", "Ossith", "Rassar", "Rassith", "Ressar", "Ressith", "Rirss", "Rress", "Rriss", "Sass", "Sess", "Sessar", "Sessith", "Sirss", "Sissar", "Skess", "Sliss", "Snass", "Sness", "Sniss", "Soth", "Sothiss", "Srass", "Sress", "Sriss", "Stess", "Stiss", "Tassar", "Tessith", "Tess", "Tesh", "Tirss", "Tress", "Triss", "Tross", "Truss", "Uress", "Uriss", "Vassar", "Vess", "Vessith", "Virss", "Vress", "Vriss", "Wess", "Wiss", "Xess", "Xiss", "Yess", "Yiss", "Zass", "Zess", "Zessith", "Zirss", "Zress", "Zriss"],
+    "middles": ["ar", "as", "ath", "es", "ess", "eth", "ir", "iss", "ith", "or", "os", "oss", "oth", "ur", "us", "uss", "uth"],
+    "suffixes": ["ak", "ar", "arth", "as", "ash", "ath", "ek", "er", "erth", "es", "esh", "eth", "ik", "irth", "is", "iss", "ith", "ok", "or", "orth", "os", "osh", "oth", "rax", "reth", "riss", "rith", "ross", "roth", "russ", "ruth", "sax", "seth", "siss", "sith", "soth", "thak", "thar", "thes", "thiss", "thoss", "uk", "ur", "urth", "us", "ush", "uss", "uth"]
+  },
+  "female": {
+    "prefixes": ["Assa", "Assa", "Assi", "Dra", "Dressa", "Drissa", "Essa", "Essara", "Essira", "Gresa", "Gressa", "Grissa", "Hassa", "Hessara", "Hirssa", "Hressa", "Hrissa", "Issa", "Issara", "Issira", "Kassa", "Kessa", "Kessara", "Kirssa", "Kressa", "Krissa", "Lassa", "Lessara", "Lirssa", "Lressa", "Lrissa", "Messa", "Messara", "Mirssa", "Mressa", "Mrissa", "Nassa", "Nessa", "Nessara", "Nirssa", "Nressa", "Nrissa", "Ossa", "Ossara", "Ossira", "Rassa", "Ressa", "Ressara", "Rirssa", "Rressa", "Rrissa", "Sassa", "Sessa", "Sessara", "Sirssa", "Sissa", "Skessa", "Slissa", "Snessa", "Snissa", "Sotha", "Sothiss", "Sressa", "Srissa", "Stessa", "Stissa", "Tassa", "Tessa", "Tessara", "Tirssa", "Tressa", "Trissa", "Uress", "Urissa", "Vassa", "Vessa", "Vessara", "Virssa", "Vressa", "Vrissa", "Wessa", "Wissa", "Xessa", "Xissa", "Yessa", "Yissa", "Zassa", "Zessa", "Zessara", "Zirssa", "Zressa", "Zrissa"],
+    "middles": ["ar", "ara", "as", "ath", "es", "ess", "essa", "eth", "ir", "ira", "iss", "issa", "ith", "or", "os", "ra", "sa", "tha", "ur", "us"],
+    "suffixes": ["a", "ara", "asa", "atha", "esha", "essa", "etha", "ira", "isa", "issa", "itha", "otha", "ra", "sa", "sha", "ssa", "tha", "thara", "thissa", "ussa", "utha"]
+  },
+  "nonbinary": {
+    "prefixes": ["Arax", "Arsith", "Assa", "Assi", "Dras", "Dra", "Drass", "Dressa", "Dresh", "Drissa", "Essa", "Essor", "Essara", "Essith", "Essira", "Gresh", "Gresa", "Gress", "Gressa", "Griss", "Grissa", "Hassa", "Hassor", "Hessara", "Hessith", "Hirss", "Hirssa", "Hress", "Hressa", "Hriss", "Hrissa", "Issar", "Issa", "Issara", "Issath", "Issira", "Issith", "Kass", "Kassa", "Kess", "Kessa", "Kessar", "Kessara", "Kessith", "Kirss", "Kirssa", "Kress", "Kressa", "Kriss", "Krissa", "Lassa", "Lassar", "Lessara", "Lessith", "Lirss", "Lirssa", "Lress", "Lressa", "Lriss", "Lrissa", "Massar", "Messa", "Messara", "Messith", "Mirss", "Mirssa", "Mress", "Mressa", "Mriss", "Mrissa", "Nassar", "Nassa", "Nessa", "Nessara", "Nessith", "Nirss", "Nirssa", "Nress", "Nressa", "Nriss", "Nrissa", "Ossar", "Ossa", "Ossara", "Osseth", "Ossira", "Ossith", "Rassar", "Rassa", "Rassith", "Ressa", "Ressar", "Ressara", "Ressith", "Rirss", "Rirssa", "Rress", "Rressa", "Rriss", "Rrissa", "Sass", "Sassa", "Sess", "Sessa", "Sessar", "Sessara", "Sessith", "Sirss", "Sirssa", "Sissar", "Sissa", "Skess", "Skessa", "Sliss", "Slissa", "Snass", "Sness", "Snessa", "Sniss", "Snissa", "Soth", "Sotha", "Sothiss", "Srass", "Sressa", "Sress", "Sriss", "Srissa", "Stess", "Stessa", "Stiss", "Stissa", "Tassar", "Tassa", "Tess", "Tessa", "Tessara", "Tessith", "Tesh", "Tirss", "Tirssa", "Tress", "Tressa", "Triss", "Trissa", "Uressa", "Uriss", "Urissa", "Vassa", "Vassar", "Vess", "Vessa", "Vessara", "Vessith", "Virss", "Virssa", "Vress", "Vressa", "Vriss", "Vrissa", "Wess", "Wessa", "Wiss", "Wissa", "Xess", "Xessa", "Xiss", "Xissa", "Yess", "Yessa", "Yiss", "Yissa", "Zass", "Zassa", "Zess", "Zessa", "Zessara", "Zessith", "Zirss", "Zirssa", "Zress", "Zressa", "Zriss", "Zrissa"],
+    "middles": ["ar", "ara", "as", "ath", "es", "ess", "essa", "eth", "ir", "ira", "is", "iss", "issa", "ith", "or", "os", "oss", "oth", "ra", "sa", "tha", "ur", "us", "uss", "uth"],
+    "suffixes": ["a", "ak", "ar", "ara", "arth", "as", "asa", "ash", "ath", "atha", "ek", "er", "erth", "es", "esh", "esha", "essa", "eth", "etha", "ik", "ira", "irth", "is", "isa", "iss", "issa", "ith", "itha", "ok", "or", "orth", "os", "osh", "oth", "otha", "ra", "rax", "reth", "riss", "rith", "ross", "roth", "russ", "ruth", "sa", "sax", "seth", "sha", "siss", "sith", "soth", "ssa", "tha", "thak", "thar", "thara", "thes", "thiss", "thissa", "thoss", "uk", "ur", "urth", "us", "ush", "uss", "ussa", "uth", "utha"]
+  },
+  "clanNames": ["Blackscale", "Boghunter", "Marshstrider", "Riverwalker", "Swampfang", "Waterclaw"],
+  "clanPrefixes": ["Ancient", "Black", "Blood", "Bog", "Bronze", "Cold", "Crystal", "Dark", "Deep", "Emerald", "Fang", "Fire", "Gold", "Green", "Iron", "Jade", "Marsh", "Night", "Red", "River", "Rock", "Ruby", "Sand", "Shadow", "Silver", "Stone", "Swamp", "Swift", "Tail", "Water", "White"],
+  "clanSuffixes": ["basker", "biter", "claw", "crawler", "eye", "fang", "guard", "hide", "hunter", "jaw", "runner", "scale", "seeker", "shadow", "skin", "stalker", "strider", "swimmer", "tail", "tooth", "tracker", "walker", "watcher"]
+}

@@ -1,0 +1,31 @@
+{
+  "ancestry": "azarketi",
+  "description": "Azarketi (gillman) names are flowing and aquatic, inspired by oceanic sounds",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 70 },
+    { "type": "first-last", "weight": 30 }
+  ],
+  "lengthWeights": {
+    "2": 60,
+    "3": 40
+  },
+  "male": {
+    "prefixes": ["Aqu", "Cor", "Del", "Mar", "Ner", "Ocean", "Pel", "Thal", "Tri", "Vael"],
+    "middles": ["an", "ar", "en", "ian", "on", "van"],
+    "suffixes": ["an", "ar", "as", "el", "en", "ian", "is", "on", "us", "van"]
+  },
+  "female": {
+    "prefixes": ["Aqua", "Cora", "Della", "Mara", "Nera", "Ocea", "Pela", "Thala", "Tria", "Vaela"],
+    "middles": ["an", "el", "en", "ia", "la", "na", "ra"],
+    "suffixes": ["a", "ana", "ara", "ela", "ena", "ia", "ina", "la", "na", "ra"]
+  },
+  "nonbinary": {
+    "prefixes": ["Aqu", "Cor", "Del", "Mar", "Ner", "Ocea", "Pel", "Thal", "Tri", "Vael"],
+    "middles": ["an", "el", "en", "ia", "on", "ra"],
+    "suffixes": ["a", "an", "ar", "el", "en", "ia", "is", "on", "ra", "us"]
+  },
+  "lastNames": ["Coralborn", "Deepcurrent", "Pearldiver", "Seafoam", "Tidecaller", "Waverunner"],
+  "lastNamePrefixes": ["Coral", "Deep", "Pearl", "Sea", "Tide", "Wave"],
+  "lastNameSuffixes": ["born", "caller", "current", "diver", "foam", "runner", "walker"]
+}

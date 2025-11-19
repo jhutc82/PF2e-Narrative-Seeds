@@ -1,0 +1,71 @@
+{
+  "male": {
+    "prefixes": [
+      "Aka", "Aki", "Asa", "Ata", "Dai", "Fuka", "Fumi", "Goro", "Hachi", "Haru",
+      "Hei", "Hiro", "Ichi", "Ishi", "Jiro", "Kage", "Kai", "Kana", "Kara", "Kata",
+      "Kaze", "Kenji", "Kichi", "Kuro", "Maru", "Masa", "Michi", "Mina", "Mizu", "Naga",
+      "Naka", "Nobu", "Oku", "Raku", "Ren", "Roku", "Ryo", "Sabi", "Sada", "Saka",
+      "Sato", "Seki", "Shin", "Shiro", "Sora", "Suke", "Taka", "Take", "Taro", "Tatsu",
+      "Toki", "Tomo", "Tora", "Tsuki", "Tsu", "Ume", "Wata", "Yama", "Yasu", "Yori",
+      "Yoshi", "Yuki", "Yuta", "Zaka", "Zen", "Akira", "Daichi", "Fubuki", "Genji", "Haruka",
+      "Hayato", "Hikaru", "Isamu", "Kaito", "Katsu", "Kazuo", "Kenta", "Makoto", "Minato", "Naoki",
+      "Raiden", "Renji", "Ryoma", "Saito", "Takeshi", "Tatsuya", "Tomoya", "Toshiro", "Yamato", "Yuuto",
+      "Zenko", "Akio", "Aoi", "Asahi", "Atsushi", "Daigo", "Eiji", "Fumio", "Gaku", "Haruki",
+      "Hayate", "Hibiki", "Hideki", "Hinata", "Hiroki", "Hiroshi", "Hitoshi", "Ichiro", "Iori", "Iwao",
+      "Jin", "Jun", "Kaede", "Kaname", "Katsuo", "Kazuki", "Keigo", "Ken", "Kenji", "Kenshin",
+      "Kenta", "Kenzo", "Kiyoshi", "Kohaku", "Koji", "Kosuke", "Kouki", "Kyou", "Madoka", "Mamoru",
+      "Masaru", "Masato", "Masayuki", "Michihiko", "Mikio", "Mitsuru", "Morihiro", "Nao", "Naoto", "Noboru",
+      "Nori", "Osamu", "Riku", "Rin", "Ritsuo", "Ryuunosuke", "Saburo", "Sadao", "Sanosuke", "Satoru",
+      "Seiji", "Shigeru", "Shinji", "Shinta", "Shouta", "Shun", "Souta", "Susumu", "Tadashi", "Takahiro",
+      "Takuma", "Takuya", "Tamaki", "Tetsuya", "Touya", "Tsuyoshi", "Yasuo", "Yoshiro", "Yukio", "Yuuma"
+    ],
+    "suffixes": [
+      "be", "chi", "da", "fu", "go", "hei", "hiko", "hiro", "ji", "jo",
+      "ka", "ki", "ko", "ku", "ma", "maru", "mi", "nori", "ra", "ro",
+      "ru", "suke", "shi", "ta", "to", "taro", "ya", "yo", "yuki", "za",
+      "zo", "aki", "asa", "atsu", "ba", "bei", "bou", "dai", "dou", "ei",
+      "emon", "goro", "hachi", "haru", "hei", "hiko", "hiro", "hisa", "ichi", "jiro",
+      "jurou", "kage", "kata", "katsu", "kazu", "ken", "ki", "kou", "kuma", "kuni",
+      "ma", "masa", "michi", "mitsu", "mori", "nao", "nari", "nobu", "nori", "o",
+      "oki", "roku", "ryu", "sabu", "sada", "sato", "shi", "shige", "shin", "suke",
+      "taka", "take", "taro", "teru", "to", "toki", "tomo", "tora", "toshi", "tsugu",
+      "tsune", "uki", "uji", "wo", "yasu", "yo", "yori", "yoshi", "yuki", "zane"
+    ]
+  },
+  "female": {
+    "prefixes": [
+      "Ai", "Aka", "Aki", "Ama", "Asa", "Aya", "Chiyo", "Emi", "Fumi", "Hana",
+      "Haru", "Hime", "Hina", "Hoshi", "Kae", "Kana", "Kaori", "Kiku", "Kimi", "Kira",
+      "Kiya", "Koto", "Mai", "Maki", "Mami", "Mana", "Mari", "Masa", "Michi", "Mika",
+      "Mina", "Mio", "Miyu", "Momo", "Nagi", "Nami", "Nana", "Nao", "Natsuki", "Nori",
+      "Rei", "Ren", "Rina", "Rio", "Risa", "Rumi", "Sachi", "Saki", "Sakura", "Saya",
+      "Sora", "Suzu", "Tama", "Tomo", "Tsuki", "Ume", "Yoko", "Yoshi", "Yua", "Yui",
+      "Yuki", "Yukiko", "Yumi", "Yuri", "Yuriko", "Akane", "Amaya", "Asuka", "Ayame", "Chiaki",
+      "Chihiro", "Emiko", "Fumiko", "Hanako", "Haruka", "Hikari", "Hinata", "Hotaru", "Kaede", "Kasumi",
+      "Kimiko", "Kohaku", "Kotone", "Madoka", "Makoto", "Manami", "Megumi", "Michiko", "Midori", "Minako",
+      "Misaki", "Miyako", "Miyuki", "Nami", "Nanami", "Naomi", "Reika", "Rikka", "Sayuri", "Shizuka",
+      "Tomoko", "Tsubaki", "Wakana", "Yumeko", "Aiko", "Akemi", "Akiko", "Ami", "Aoi", "Arisa",
+      "Asami", "Atsuko", "Ayaka", "Ayako", "Azusa", "Chie", "Chika", "Chiyoko", "Cho", "Eiko",
+      "Eri", "Etsuko", "Fuji", "Fumie", "Hama", "Hanae", "Harue", "Haruko", "Hatsue", "Hideyo",
+      "Hiroko", "Hisako", "Hisoka", "Honoka", "Hotaka", "Ichika", "Ikue", "Isoko", "Jun", "Junko",
+      "Kame", "Kameko", "Kanako", "Kanon", "Katsumi", "Kazue", "Kazuko", "Keiko", "Kiko", "Kiyoko",
+      "Kiyomi", "Koemi", "Koyuki", "Kumiko", "Kunie", "Kyoko", "Maemi", "Maho", "Maiko", "Mamiko",
+      "Mariko", "Masako", "Masumi", "Matsuko", "Mayumi", "Michi", "Mieko", "Mihoko", "Miki", "Mikoto",
+      "Mitsuko", "Mizuki", "Momoyo", "Nana", "Naoko", "Natsuko", "Nobuko", "Noriko", "Nozomi", "Ren"
+    ],
+    "suffixes": [
+      "chi", "e", "hi", "ka", "ki", "ko", "me", "mi", "na", "ne",
+      "no", "ri", "ya", "yo", "yuki", "yuko", "a", "ai", "aya", "ba",
+      "bei", "ei", "emi", "ena", "era", "eri", "esa", "eta", "hana", "haru",
+      "hime", "hina", "hiro", "i", "ie", "iko", "ima", "ina", "iri", "isa",
+      "ise", "jo", "ka", "kana", "kano", "kaze", "ke", "ken", "ki", "kie",
+      "kiko", "kimi", "kina", "kiyo", "ko", "kono", "koye", "kumi", "mai", "maki",
+      "mami", "man", "mana", "masa", "me", "mei", "mi", "michi", "miho", "mika",
+      "miki", "miku", "mina", "mine", "mio", "misa", "mitsu", "miwa", "miyo", "mo",
+      "moe", "momo", "mori", "mura", "na", "nae", "nagi", "naho", "nami", "nao",
+      "natsu", "ne", "no", "noe", "nori", "nozomi", "oka", "ra", "ran", "re",
+      "rei", "ren", "ri", "rie", "rika", "riko", "rin", "rina", "rio", "risa",
+      "rui", "sa", "sachi", "sae", "saki", "sami", "sara", "sato", "sawa", "saya"
+    ]
+  }
+}

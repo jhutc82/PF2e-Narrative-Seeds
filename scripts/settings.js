@@ -308,6 +308,41 @@ export class NarrativeSeedsSettings {
       default: 30
     });
 
+    // ========================================
+    // PHASE 4: SOCIAL ENCOUNTER SETTINGS
+    // ========================================
+
+    // Enable social encounters / NPC generator
+    game.settings.register("pf2e-narrative-seeds", "enableSocial", {
+      name: "Enable NPC Generator",
+      hint: "Generate NPC personalities for social encounters",
+      scope: "world",
+      config: false,
+      type: Boolean,
+      default: true,
+      onChange: value => {
+        if (NarrativeSeedsSettings.shouldShowNotifications()) {
+          ui.notifications.info("NPC Generator " + (value ? "enabled" : "disabled") + ". Reload required.");
+        }
+      }
+    });
+
+    // NPC detail level
+    game.settings.register("pf2e-narrative-seeds", "npcDetailLevel", {
+      name: "NPC Detail Level",
+      hint: "How much personality detail to generate for NPCs",
+      scope: "world",
+      config: false,
+      type: String,
+      choices: {
+        "minimal": "Minimal (Quick summary)",
+        "standard": "Standard (Balanced)",
+        "detailed": "Detailed (Full personality)",
+        "cinematic": "Cinematic (Maximum detail)"
+      },
+      default: "standard"
+    });
+
     console.log("PF2e Narrative Seeds | Settings registered successfully");
   }
 
@@ -348,6 +383,14 @@ export class NarrativeSeedsSettings {
    */
   static isSkillEnabled() {
     return this.isEnabled() && this.get("enableSkills");
+  }
+
+  /**
+   * Check if social encounters / NPC generator is enabled
+   * @returns {boolean}
+   */
+  static isSocialEnabled() {
+    return this.isEnabled() && this.get("enableSocial");
   }
 
   /**

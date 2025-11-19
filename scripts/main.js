@@ -11,6 +11,9 @@ import { NarrativeSeedsSettings } from './settings.js';
 import { PF2eUtils, RandomUtils } from './utils.js';
 import { CombatHooks } from './combat/combat-hooks.js';
 import { SkillHooks } from './skill/skill-hooks.js';
+import { SocialHooks } from './social/social-hooks.js';
+import { NPCGenerator } from './social/npc-generator.js';
+import { NameGenerator } from './social/name-generator.js';
 import { AnatomyDetector } from './combat/anatomy-detector.js';
 import { DamageDetector } from './combat/damage-detector.js';
 import { ActionDetector } from './skill/action-detector.js';
@@ -94,6 +97,13 @@ class PF2eNarrativeSeeds {
       console.log("PF2e Narrative Seeds | Initializing skill action narration...");
       SkillHooks.initialize();
       this.generators.set("skills", SkillHooks);
+    }
+
+    // Phase 4: Social Encounters / NPC Generator
+    if (NarrativeSeedsSettings.isSocialEnabled()) {
+      console.log("PF2e Narrative Seeds | Initializing NPC generator...");
+      SocialHooks.initialize();
+      this.generators.set("social", SocialHooks);
     }
 
     // Future phases: Spells, Exploration (coming soon)
@@ -238,6 +248,20 @@ Hooks.once("ready", () => {
     // Helper function to test feat detection
     testFeats: (actor, actionSlug) => {
       FeatDetector.debugDetection(actor, actionSlug);
+    },
+
+    // Helper function to generate NPC
+    generateNPC: (actor) => {
+      SocialHooks.generateNPC({ actor });
+    },
+
+    // NPC Generator utilities
+    npc: {
+      generate: (params) => NPCGenerator.generate(params),
+      clearMemory: () => NPCGenerator.clearMemory(),
+      stats: () => NPCGenerator.getMemoryStats(),
+      generateName: (ancestry, gender) => NameGenerator.generate(ancestry, gender),
+      detectAncestry: (actor) => NameGenerator.detectAncestry(actor)
     },
 
     // Performance monitoring

@@ -1,0 +1,179 @@
+{
+  "quirks": [
+    {
+      "id": "collects-something",
+      "description": "Obsessively collects unusual items (buttons, stones, stories, etc.)",
+      "category": "obsession"
+    },
+    {
+      "id": "quotes-literature",
+      "description": "Frequently quotes from books, plays, or poetry",
+      "category": "speech"
+    },
+    {
+      "id": "fears-animals",
+      "description": "Has an unusual fear of common animals",
+      "category": "phobia"
+    },
+    {
+      "id": "talks-to-object",
+      "description": "Speaks to an inanimate object as if it can respond",
+      "category": "behavior"
+    },
+    {
+      "id": "counts-things",
+      "description": "Compulsively counts objects, steps, or other things",
+      "category": "obsession"
+    },
+    {
+      "id": "never-sits",
+      "description": "Refuses to sit down, always stands",
+      "category": "behavior"
+    },
+    {
+      "id": "eats-constantly",
+      "description": "Always snacking or eating something",
+      "category": "behavior"
+    },
+    {
+      "id": "forgetful",
+      "description": "Frequently forgets names, faces, or recent events",
+      "category": "flaw"
+    },
+    {
+      "id": "prophetic-dreams",
+      "description": "Claims to have prophetic dreams and shares them",
+      "category": "belief"
+    },
+    {
+      "id": "animal-companion",
+      "description": "Accompanied by an unusual animal companion",
+      "category": "companion"
+    },
+    {
+      "id": "lucky-charm",
+      "description": "Carries and frequently touches a lucky charm",
+      "category": "superstition"
+    },
+    {
+      "id": "specific-greeting",
+      "description": "Always greets people the exact same unusual way",
+      "category": "speech"
+    },
+    {
+      "id": "rhymes",
+      "description": "Speaks in rhymes or tries to",
+      "category": "speech"
+    },
+    {
+      "id": "refuses-handshakes",
+      "description": "Won't shake hands or touch others",
+      "category": "behavior"
+    },
+    {
+      "id": "name-dropper",
+      "description": "Constantly mentions important people they know",
+      "category": "speech"
+    },
+    {
+      "id": "one-upper",
+      "description": "Always has a better story than yours",
+      "category": "speech"
+    },
+    {
+      "id": "perfectionist",
+      "description": "Obsessed with order, symmetry, or perfection",
+      "category": "obsession"
+    },
+    {
+      "id": "clock-watcher",
+      "description": "Constantly checking the time or position of the sun",
+      "category": "behavior"
+    },
+    {
+      "id": "bad-jokes",
+      "description": "Tells terrible jokes and laughs at them",
+      "category": "speech"
+    },
+    {
+      "id": "mispronounces",
+      "description": "Consistently mispronounces certain common words",
+      "category": "speech"
+    },
+    {
+      "id": "unusual-accent",
+      "description": "Has an accent from a distant or unusual region",
+      "category": "speech"
+    },
+    {
+      "id": "conspiracy-theorist",
+      "description": "Believes in elaborate conspiracy theories",
+      "category": "belief"
+    },
+    {
+      "id": "gambler",
+      "description": "Wants to bet on everything",
+      "category": "behavior"
+    },
+    {
+      "id": "whistles-tunes",
+      "description": "Constantly whistles the same few tunes",
+      "category": "behavior"
+    },
+    {
+      "id": "apologizes",
+      "description": "Apologizes excessively for everything",
+      "category": "speech"
+    },
+    {
+      "id": "name-confused",
+      "description": "Always gets people's names wrong",
+      "category": "flaw"
+    },
+    {
+      "id": "weather-obsessed",
+      "description": "Constantly comments on and predicts weather",
+      "category": "obsession"
+    },
+    {
+      "id": "fashion-critic",
+      "description": "Comments on everyone's clothing and appearance",
+      "category": "behavior"
+    },
+    {
+      "id": "mythical-creature",
+      "description": "Claims to have seen mythical creatures others doubt",
+      "category": "belief"
+    },
+    {
+      "id": "inverse-speaker",
+      "description": "Often says the opposite of what they mean",
+      "category": "speech"
+    },
+    {
+      "id": "third-person",
+      "description": "Refers to themselves in the third person",
+      "category": "speech"
+    },
+    {
+      "id": "precious-item",
+      "description": "Carries a precious item they constantly worry about",
+      "category": "behavior"
+    },
+    {
+      "id": "tells-fortunes",
+      "description": "Offers to tell fortunes or read palms",
+      "category": "behavior"
+    },
+    {
+      "id": "medical-advice",
+      "description": "Constantly offers unsolicited medical or health advice",
+      "category": "speech"
+    },
+    {
+      "id": "dramatic-pauses",
+      "description": "Takes long, dramatic pauses while speaking",
+      "category": "speech"
+    }
+  ]
+}
