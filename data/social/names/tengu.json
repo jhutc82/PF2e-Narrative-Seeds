@@ -10,18 +10,18 @@
     "3": 50
   },
   "male": {
-    "prefixes": ["Aka", "Ishi", "Kara", "Kuro", "Mizu", "Naga", "Raku", "Roku", "Taka", "Yama", "Zaka"],
-    "middles": ["be", "chi", "ji", "ka", "ma", "ra", "shi", "ta", "ya", "za"],
-    "suffixes": ["chi", "ji", "ka", "ki", "ku", "ma", "ra", "ro", "shi", "ta", "to", "ya", "zo"]
+    "prefixes": ["Aka", "Aki", "Asa", "Ata", "Dai", "Fuka", "Fumi", "Goro", "Hachi", "Haru", "Hei", "Hiro", "Ichi", "Ishi", "Jiro", "Kage", "Kai", "Kana", "Kara", "Kata", "Kaze", "Kenji", "Kichi", "Kuro", "Maru", "Masa", "Michi", "Mina", "Mizu", "Naga", "Naka", "Nobu", "Oku", "Raku", "Ren", "Roku", "Ryo", "Sabi", "Sada", "Saka", "Sato", "Seki", "Shin", "Shiro", "Sora", "Suke", "Taka", "Take", "Taro", "Tatsu", "Toki", "Tomo", "Tora", "Tsuki", "Tsu", "Ume", "Wata", "Yama", "Yasu", "Yori", "Yoshi", "Yuki", "Yuta", "Zaka", "Zen", "Akira", "Daichi", "Fubuki", "Genji", "Haruka", "Hayato", "Hikaru", "Isamu", "Kaito", "Katsu", "Kazuo", "Kenta", "Makoto", "Minato", "Naoki", "Raiden", "Renji", "Ryoma", "Saito", "Takeshi", "Tatsuya", "Tomoya", "Toshiro", "Yamato", "Yuuto", "Zenko"],
+    "middles": ["be", "chi", "da", "fu", "ge", "ha", "ji", "ka", "ki", "ko", "ma", "mi", "mo", "na", "no", "ra", "ri", "ro", "ru", "sa", "se", "shi", "su", "ta", "te", "to", "ya", "yo", "yu", "za", "ze", "zo"],
+    "suffixes": ["be", "chi", "da", "fu", "go", "hei", "hiko", "hiro", "ji", "jo", "ka", "ki", "ko", "ku", "ma", "maru", "mi", "nori", "ra", "ro", "ru", "suke", "shi", "ta", "to", "taro", "ya", "yo", "yuki", "za", "zo"]
   },
   "female": {
-    "prefixes": ["Aka", "Hana", "Haru", "Kiku", "Mika", "Nami", "Saki", "Tama", "Yuki", "Yuri"],
-    "middles": ["chi", "ka", "ki", "mi", "na", "ri", "ya"],
-    "suffixes": ["chi", "ka", "ki", "ko", "mi", "na", "ri", "ya"]
+    "prefixes": ["Ai", "Aka", "Aki", "Ama", "Asa", "Aya", "Chiyo", "Emi", "Fumi", "Hana", "Haru", "Hime", "Hina", "Hoshi", "Kae", "Kana", "Kaori", "Kiku", "Kimi", "Kira", "Kiya", "Koto", "Mai", "Maki", "Mami", "Mana", "Mari", "Masa", "Michi", "Mika", "Mina", "Mio", "Miyu", "Momo", "Nagi", "Nami", "Nana", "Nao", "Natsuki", "Nori", "Rei", "Ren", "Rina", "Rio", "Risa", "Rumi", "Sachi", "Saki", "Sakura", "Saya", "Sora", "Suzu", "Tama", "Tomo", "Tsuki", "Ume", "Yoko", "Yoshi", "Yua", "Yui", "Yuki", "Yukiko", "Yumi", "Yuri", "Yuriko", "Akane", "Amaya", "Asuka", "Ayame", "Chiaki", "Chihiro", "Emiko", "Fumiko", "Hanako", "Haruka", "Hikari", "Hinata", "Hotaru", "Kaede", "Kasumi", "Kimiko", "Kohaku", "Kotone", "Madoka", "Makoto", "Manami", "Megumi", "Michiko", "Midori", "Minako", "Misaki", "Miyako", "Miyuki", "Nami", "Nanami", "Naomi", "Reika", "Rikka", "Sayuri", "Shizuka", "Tomoko", "Tsubaki", "Wakana", "Yumeko"],
+    "middles": ["chi", "ka", "ki", "ko", "mi", "na", "ne", "no", "ri", "ya", "yo", "yu", "za"],
+    "suffixes": ["chi", "e", "hi", "ka", "ki", "ko", "me", "mi", "na", "ne", "no", "ri", "ya", "yo", "yuki", "yuko"]
   },
   "nonbinary": {
-    "prefixes": ["Aka", "Haru", "Ishi", "Kara", "Kiku", "Mizu", "Naga", "Raku", "Saki", "Taka", "Yuki"],
-    "middles": ["chi", "ji", "ka", "ki", "ma", "na", "ra", "shi", "ya"],
-    "suffixes": ["chi", "ka", "ki", "ko", "ma", "na", "ra", "shi", "ya", "zo"]
+    "prefixes": ["Ai", "Aka", "Aki", "Asa", "Ata", "Aya", "Chi", "Dai", "Fuka", "Fumi", "Hachi", "Hana", "Haru", "Hei", "Hime", "Hina", "Hiro", "Hoshi", "Ichi", "Ishi", "Jiro", "Kae", "Kage", "Kai", "Kana", "Kaori", "Kara", "Kata", "Kaze", "Kenji", "Kichi", "Kiku", "Kimi", "Kira", "Kiya", "Koto", "Kuro", "Mai", "Maki", "Mami", "Mana", "Mari", "Maru", "Masa", "Michi", "Mika", "Mina", "Mio", "Miyu", "Mizu", "Momo", "Naga", "Nagi", "Naka", "Nami", "Nana", "Nao", "Nobu", "Nori", "Oku", "Raku", "Rei", "Ren", "Rina", "Rio", "Risa", "Roku", "Rumi", "Ryo", "Sabi", "Sachi", "Sada", "Saka", "Saki", "Sakura", "Sato", "Saya", "Seki", "Shin", "Shiro", "Sora", "Suke", "Suzu", "Taka", "Take", "Tama", "Taro", "Tatsu", "Toki", "Tomo", "Tora", "Tsuki", "Tsu", "Ume", "Wata", "Yama", "Yasu", "Yoko", "Yori", "Yoshi", "Yua", "Yui", "Yuki", "Yukiko", "Yumi", "Yuri", "Yuta", "Zaka", "Zen"],
+    "middles": ["be", "chi", "da", "fu", "ge", "ha", "ji", "ka", "ki", "ko", "ma", "mi", "mo", "na", "ne", "no", "ra", "ri", "ro", "ru", "sa", "se", "shi", "su", "ta", "te", "to", "ya", "yo", "yu", "za", "ze", "zo"],
+    "suffixes": ["be", "chi", "da", "e", "fu", "go", "ha", "hei", "hi", "hiko", "hiro", "ji", "jo", "ka", "ki", "ko", "ku", "ma", "maru", "me", "mi", "na", "ne", "no", "nori", "ra", "ri", "ro", "ru", "shi", "suke", "ta", "to", "ya", "yo", "yuki", "yuko", "za", "zo"]
   }
 }

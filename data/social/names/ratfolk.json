@@ -11,21 +11,21 @@
     "3": 20
   },
   "male": {
-    "prefixes": ["Chik", "Krik", "Nib", "Pik", "Rik", "Skee", "Snik", "Tik", "Vik", "Zik"],
-    "middles": ["ik", "ki", "ni", "ri", "si"],
-    "suffixes": ["chik", "ik", "kin", "nik", "rik", "sik", "tik"]
+    "prefixes": ["Bik", "Chek", "Chik", "Chirk", "Dik", "Fik", "Gik", "Hik", "Jik", "Kik", "Krik", "Kwik", "Lik", "Mik", "Nik", "Nib", "Pik", "Qik", "Rik", "Sik", "Skee", "Skik", "Skreek", "Snik", "Spik", "Squik", "Stik", "Tik", "Trik", "Twik", "Vik", "Wik", "Xik", "Yik", "Zik", "Arik", "Berik", "Cherik", "Darik", "Farik", "Garik", "Harik", "Jarik", "Karik", "Lirik", "Marik", "Narik", "Parik", "Rarik", "Sarik", "Tarik", "Varik", "Warik", "Yarik", "Zarik", "Biknik", "Chiknik", "Diknik", "Fiknik", "Giknik", "Hiknik", "Jiknik", "Kiknik", "Kriknik", "Liknik", "Miknik", "Niknik", "Piknik", "Qiknik", "Riknik", "Siknik", "Sniknik", "Tiknik", "Triknik", "Viknik", "Wiknik", "Xiknik", "Yiknik", "Ziknik", "Squeek", "Squeak", "Scritch", "Scratch", "Scurry", "Skitter", "Snitch", "Twich", "Twitch", "Whisker", "Nibble", "Chitter", "Skritch", "Skritch"],
+    "middles": ["ek", "ik", "ki", "kri", "ni", "nik", "qui", "ri", "si", "ski", "sni", "ti", "tri", "vi", "wi", "yi", "zi"],
+    "suffixes": ["chik", "cheek", "chit", "eek", "ek", "ik", "itch", "kin", "knik", "krit", "kritch", "nak", "nek", "nik", "rek", "rik", "sik", "skrit", "snik", "squeak", "squeek", "tik", "titch", "tnik", "twik", "twitch", "vik", "wik", "wich", "witch", "xik", "yik", "zik"]
   },
   "female": {
-    "prefixes": ["Chi", "Kri", "Lika", "Mika", "Nika", "Rika", "Sika", "Tika", "Vika", "Zika"],
-    "middles": ["ka", "ki", "ni", "ri"],
-    "suffixes": ["a", "ka", "kia", "ni", "ria", "sia"]
+    "prefixes": ["Bika", "Chee", "Chi", "Chika", "Chirra", "Dika", "Fika", "Gika", "Hika", "Jika", "Kika", "Kri", "Krika", "Kwika", "Lika", "Mika", "Nika", "Nika", "Pika", "Qika", "Rika", "Rika", "Sika", "Skika", "Skreeka", "Snika", "Spika", "Squika", "Stika", "Tika", "Trika", "Twika", "Vika", "Wika", "Xika", "Yika", "Zika", "Arika", "Berika", "Cherika", "Darika", "Farika", "Garika", "Harika", "Jarika", "Karika", "Lirika", "Marika", "Narika", "Parika", "Rarika", "Sarika", "Tarika", "Varika", "Warika", "Yarika", "Zarika", "Bikna", "Chikna", "Dikna", "Fikna", "Gikna", "Hikna", "Jikna", "Kikna", "Krikna", "Likna", "Mikna", "Nikna", "Pikna", "Qikna", "Rikna", "Sikna", "Snikna", "Tikna", "Trikna", "Vikna", "Wikna", "Xikna", "Yikna", "Zikna", "Squeeka", "Screeka", "Scritcha", "Scratcha", "Scurra", "Skitta", "Snitcha", "Twicha", "Twitcha", "Whiska", "Nibbla", "Chitta", "Skritcha"],
+    "middles": ["ka", "ki", "kri", "na", "ni", "ri", "ska", "sna", "ti", "tri", "vi", "wi", "yi", "zi"],
+    "suffixes": ["a", "chika", "chi", "chit", "eeka", "ika", "kia", "kina", "kria", "krita", "na", "ni", "nika", "ria", "rika", "sia", "sika", "skrita", "snika", "squeaka", "tia", "tika", "tika", "tina", "trika", "twika", "twitcha", "via", "vika", "wika", "wicha", "witcha", "xia", "xika", "yia", "yika", "zia", "zika"]
   },
   "nonbinary": {
-    "prefixes": ["Chik", "Krik", "Lika", "Mik", "Nik", "Rik", "Sik", "Tik", "Vik", "Zik"],
-    "middles": ["ik", "ka", "ki", "ni", "ri"],
-    "suffixes": ["a", "chik", "ik", "ka", "kin", "nik", "rik"]
+    "prefixes": ["Bik", "Bika", "Chee", "Chek", "Chi", "Chik", "Chika", "Chirk", "Chirra", "Dik", "Dika", "Fik", "Fika", "Gik", "Gika", "Hik", "Hika", "Jik", "Jika", "Kik", "Kika", "Kri", "Krik", "Krika", "Kwik", "Kwika", "Lik", "Lika", "Mik", "Mika", "Nik", "Nika", "Nib", "Nika", "Pik", "Pika", "Qik", "Qika", "Rik", "Rika", "Rika", "Sik", "Sika", "Skee", "Skik", "Skika", "Skreek", "Skreeka", "Snik", "Snika", "Spik", "Spika", "Squik", "Squika", "Stik", "Stika", "Tik", "Tika", "Trik", "Trika", "Twik", "Twika", "Vik", "Vika", "Wik", "Wika", "Xik", "Xika", "Yik", "Yika", "Zik", "Zika", "Arik", "Arika", "Berik", "Berika", "Cherik", "Cherika", "Darik", "Darika", "Farik", "Farika", "Garik", "Garika", "Harik", "Harika", "Jarik", "Jarika", "Karik", "Karika", "Lirik", "Lirika", "Marik", "Marika", "Narik", "Narika", "Parik", "Parika", "Rarik", "Rarika", "Sarik", "Sarika", "Tarik", "Tarika", "Varik", "Varika", "Warik", "Warika", "Yarik", "Yarika", "Zarik", "Zarika"],
+    "middles": ["ek", "ik", "ka", "ki", "kri", "na", "ni", "nik", "qui", "ri", "si", "ska", "ski", "sna", "sni", "ti", "tri", "vi", "wi", "yi", "zi"],
+    "suffixes": ["a", "chik", "chika", "cheek", "chi", "chit", "eek", "eeka", "ek", "ik", "ika", "itch", "ka", "ki", "kia", "kin", "kina", "knik", "kria", "krit", "krita", "kritch", "na", "nak", "nek", "ni", "nik", "nika", "rek", "ria", "rik", "rika", "sia", "sik", "sika", "skrit", "skrita", "snik", "snika", "squeak", "squeaka", "squeek", "tia", "tik", "tika", "tina", "titch", "tnik", "trika", "twik", "twika", "twitch", "twitcha", "via", "vik", "vika", "wik", "wika", "wich", "wicha", "witch", "witcha", "xia", "xik", "xika", "yia", "yik", "yika", "zia", "zik", "zika"]
   },
   "lastNames": ["Cheekwhisker", "Quickpaw", "Scrounger", "Swiftfoot", "Tailtwitch", "Tinkersnout", "Whiskerwick"],
-  "lastNamePrefixes": ["Bright", "Cheek", "Quick", "Swift", "Tail", "Tinker", "Whisker"],
-  "lastNameSuffixes": ["foot", "paw", "scrounger", "snout", "tail", "twitch", "whisker", "wick"]
+  "lastNamePrefixes": ["Bite", "Bright", "Chatter", "Cheek", "Chip", "Claw", "Clever", "Gnaw", "Keen", "Nibble", "Quick", "Scurry", "Sharp", "Shiny", "Skitter", "Sneak", "Snitch", "Swift", "Tail", "Tinker", "Tiny", "Twich", "Twitch", "Whisker"],
+  "lastNameSuffixes": ["bits", "cheeks", "chitter", "claw", "ear", "eye", "fang", "finger", "foot", "fur", "gnaw", "nose", "paw", "scrounger", "sneak", "snitch", "snout", "tail", "teeth", "tooth", "twitch", "whisker", "wick"]
 }

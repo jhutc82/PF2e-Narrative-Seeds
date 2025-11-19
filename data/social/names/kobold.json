@@ -11,16 +11,16 @@
     "2": 70
   },
   "male": {
-    "prefixes": ["Drix", "Gix", "Jik", "Kik", "Mik", "Pik", "Rik", "Sik", "Tik", "Vix", "Zik"],
-    "suffixes": ["ak", "ik", "ix", "ok", "rik", "sik", "tik", "xik"]
+    "prefixes": ["Akx", "Bix", "Chik", "Dax", "Drik", "Drix", "Fek", "Fik", "Fix", "Gex", "Gik", "Gix", "Grik", "Hek", "Hex", "Hik", "Hix", "Jek", "Jik", "Kek", "Kik", "Krix", "Kruk", "Kyx", "Lek", "Lix", "Mek", "Mik", "Mix", "Nek", "Nik", "Nix", "Pek", "Pik", "Pix", "Qix", "Rek", "Rik", "Rix", "Sek", "Sik", "Siks", "Six", "Skik", "Slik", "Snik", "Spik", "Srix", "Stik", "Tek", "Tik", "Tix", "Trek", "Trik", "Trix", "Vek", "Vik", "Vix", "Vrak", "Vrik", "Vrix", "Wek", "Wik", "Xek", "Xik", "Xix", "Yek", "Yik", "Yix", "Zak", "Zek", "Zik", "Zix", "Zok", "Zrak", "Zrik", "Zrix", "Arik", "Balik", "Darik", "Farik", "Galik", "Jalik", "Karik", "Marik", "Narik", "Palik", "Ralik", "Sarik", "Tarik", "Varik", "Yarik", "Zarik"],
+    "suffixes": ["ak", "eks", "ik", "iks", "iks", "ix", "ok", "oks", "pik", "rik", "rix", "sik", "six", "tik", "tix", "vik", "vix", "xik", "xix", "yik", "zik", "zix", "zok", "ak", "ek", "ik", "ok", "uk", "yx", "pek", "pik", "rek", "rik", "rex", "sek", "sik", "tek", "tik", "vek", "vik", "xek", "xik", "yek", "yik", "zek", "zik"]
   },
   "female": {
-    "prefixes": ["Dira", "Gira", "Jira", "Kira", "Mira", "Pira", "Rira", "Sira", "Tira", "Vira", "Zira"],
-    "suffixes": ["a", "ia", "ika", "ira", "xa"]
+    "prefixes": ["Axa", "Bixa", "Chika", "Daxa", "Dira", "Drixa", "Feka", "Fika", "Fixa", "Gexa", "Gika", "Gira", "Grix", "Heka", "Hexa", "Hika", "Hixa", "Jeka", "Jira", "Keka", "Kika", "Kira", "Krixa", "Kruka", "Kyxa", "Leka", "Lixa", "Meka", "Mika", "Mira", "Mixa", "Neka", "Nika", "Nixa", "Peka", "Pika", "Pira", "Pixa", "Qixa", "Reka", "Rika", "Rira", "Rixa", "Seka", "Sika", "Sira", "Siksa", "Sixa", "Skika", "Slika", "Snika", "Spika", "Srixa", "Stika", "Teka", "Tika", "Tira", "Tixa", "Treka", "Trika", "Trixa", "Veka", "Vika", "Vira", "Vixa", "Vraka", "Vrika", "Vrixa", "Weka", "Wika", "Xeka", "Xika", "Xixa", "Yeka", "Yika", "Yira", "Yixa", "Zaka", "Zeka", "Zika", "Zira", "Zixa", "Zoka", "Zraka", "Zrika", "Zrixa", "Arika", "Balika", "Darika", "Farika", "Galika", "Jalika", "Karika", "Marika", "Narika", "Palika", "Ralika", "Sarika", "Tarika", "Varika", "Yarika", "Zarika"],
+    "suffixes": ["a", "eka", "ia", "ika", "ixa", "ixia", "ka", "ra", "rika", "rixa", "xa", "yra", "za", "zira", "zixa", "aka", "eka", "ika", "oka", "uka", "exa", "ixa", "oxa", "uxa", "yxa", "pika", "sika", "tika", "vika", "xika", "yika", "zika"]
   },
   "nonbinary": {
-    "prefixes": ["Dix", "Gix", "Jik", "Kik", "Mik", "Pik", "Rik", "Sik", "Tik", "Vix", "Zik"],
-    "suffixes": ["a", "ak", "ia", "ik", "ix", "ok", "rik"]
+    "prefixes": ["Akx", "Axa", "Bix", "Bixa", "Chik", "Chika", "Dax", "Daxa", "Drik", "Dira", "Drix", "Drixa", "Fek", "Feka", "Fik", "Fika", "Fix", "Fixa", "Gex", "Gexa", "Gik", "Gika", "Gix", "Gira", "Grik", "Grix", "Hek", "Heka", "Hex", "Hexa", "Hik", "Hika", "Hix", "Hixa", "Jek", "Jeka", "Jik", "Jira", "Kek", "Keka", "Kik", "Kika", "Krix", "Krixa", "Kruk", "Kruka", "Kyx", "Kyxa", "Lek", "Leka", "Lix", "Lixa", "Mek", "Meka", "Mik", "Mika", "Mix", "Mira", "Mixa", "Nek", "Neka", "Nik", "Nika", "Nix", "Nixa", "Pek", "Peka", "Pik", "Pika", "Pix", "Pira", "Pixa", "Qix", "Qixa", "Rek", "Reka", "Rik", "Rika", "Rix", "Rira", "Rixa", "Sek", "Seka", "Sik", "Sika", "Siks", "Sira", "Six", "Sixa", "Skik", "Skika", "Slik", "Slika", "Snik", "Snika", "Spik", "Spika", "Srix", "Srixa", "Stik", "Stika", "Tek", "Teka", "Tik", "Tika", "Tix", "Tira", "Tixa", "Trek", "Treka", "Trik", "Trika", "Trix", "Trixa", "Vek", "Veka", "Vik", "Vika", "Vix", "Vira", "Vixa", "Vrak", "Vraka", "Vrik", "Vrika", "Vrix", "Vrixa", "Wek", "Weka", "Wik", "Wika", "Xek", "Xeka", "Xik", "Xika", "Xix", "Xixa", "Yek", "Yeka", "Yik", "Yika", "Yix", "Yira", "Yixa", "Zak", "Zaka", "Zek", "Zeka", "Zik", "Zika", "Zix", "Zira", "Zixa", "Zok", "Zoka", "Zrak", "Zraka", "Zrik", "Zrika", "Zrix", "Zrixa"],
+    "suffixes": ["a", "ak", "eka", "eks", "ia", "ik", "ika", "iks", "ix", "ixa", "ixia", "ka", "ok", "oka", "oks", "pik", "pika", "ra", "rik", "rika", "rix", "rixa", "sik", "sika", "six", "tik", "tika", "tix", "vik", "vika", "vix", "xa", "xik", "xika", "xix", "yik", "yika", "yra", "za", "zik", "zika", "zir", "zira", "zix", "zixa", "zok"]
   },
-  "names": ["Bix", "Drik", "Gix", "Jik", "Kik", "Mik", "Nix", "Pik", "Rik", "Sik", "Tik", "Vix", "Zik"]
+  "names": ["Bix", "Drik", "Fix", "Gix", "Hik", "Jik", "Kik", "Lik", "Mik", "Nik", "Nix", "Pik", "Qix", "Rik", "Sik", "Six", "Tik", "Trix", "Vik", "Vix", "Wik", "Xik", "Xix", "Yik", "Zik", "Zix"]
 }
