@@ -347,7 +347,9 @@ export class WeaponNameExtractor {
     ];
 
     for (const rune of runes) {
-      name = name.replace(new RegExp(`\\b${rune}\\b`, 'gi'), '').trim();
+      // Escape special regex characters to prevent regex injection
+      const escapedRune = rune.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      name = name.replace(new RegExp(`\\b${escapedRune}\\b`, 'gi'), '').trim();
     }
 
     return name;
