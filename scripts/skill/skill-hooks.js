@@ -155,14 +155,18 @@ export class SkillHooks {
     try {
       const flags = message.flags?.["pf2e-narrative-seeds"];
       if (!flags || !flags.skillData) {
-        ui.notifications.warn("Cannot regenerate narrative - skill data missing");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Cannot regenerate narrative - skill data missing");
+        }
         return;
       }
 
       // Extract skill data from flags
       const skillData = await this.extractSkillData(message);
       if (!skillData) {
-        ui.notifications.warn("Cannot regenerate narrative - invalid skill data");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Cannot regenerate narrative - invalid skill data");
+        }
         return;
       }
 
@@ -173,7 +177,9 @@ export class SkillHooks {
       // Generate new narrative
       const seed = await this.generator.generate(skillData);
       if (!seed) {
-        ui.notifications.warn("Could not generate new narrative");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Could not generate new narrative");
+        }
         return;
       }
 
@@ -197,11 +203,15 @@ export class SkillHooks {
         }
       });
 
-      ui.notifications.info("Narrative regenerated!");
+      if (typeof ui !== 'undefined' && ui.notifications) {
+        ui.notifications.info("Narrative regenerated!");
+      }
 
     } catch (error) {
       console.error("Failed to regenerate narrative:", error);
-      ui.notifications.error("Failed to regenerate narrative");
+      if (typeof ui !== 'undefined' && ui.notifications) {
+        ui.notifications.error("Failed to regenerate narrative");
+      }
     }
   }
 

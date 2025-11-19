@@ -11,7 +11,9 @@ export class EffectApplicator {
      */
     static async applyComplication(actor, complication) {
         if (!actor) {
-            ui.notifications.warn('No valid target for complication effect');
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.warn('No valid target for complication effect');
+            }
             return false;
         }
 
@@ -36,7 +38,9 @@ export class EffectApplicator {
             }
         } catch (error) {
             console.error('PF2e Narrative Seeds | Failed to apply complication:', error);
-            ui.notifications.error(`Failed to apply complication: ${name}`);
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.error(`Failed to apply complication: ${name}`);
+            }
             return false;
         }
     }
@@ -92,7 +96,9 @@ export class EffectApplicator {
                 await actor.increaseCondition(condition);
             }
 
-            ui.notifications.info(`Applied ${name} to ${actor.name}`);
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.info(`Applied ${name} to ${actor.name}`);
+            }
             return true;
         } catch (error) {
             console.error('Failed to apply condition:', error);
@@ -119,7 +125,9 @@ export class EffectApplicator {
 
             // Note: PF2e handles persistent damage through its condition system
             // The damage type and value can be configured through the condition's dialog
-            ui.notifications.info(`Applied ${name} to ${actor.name}`);
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.info(`Applied ${name} to ${actor.name}`);
+            }
             return true;
         } catch (error) {
             console.error('Failed to apply persistent damage:', error);
@@ -226,11 +234,15 @@ export class EffectApplicator {
 
         try {
             await actor.createEmbeddedDocuments('Item', [effectData]);
-            ui.notifications.info(`Applied ${name} to ${actor.name}`);
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.info(`Applied ${name} to ${actor.name}`);
+            }
             return true;
         } catch (error) {
             console.error('Failed to create custom effect:', error);
-            ui.notifications.error(`Failed to apply ${name}`);
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.error(`Failed to apply ${name}`);
+            }
             return false;
         }
     }
@@ -271,7 +283,9 @@ export class EffectApplicator {
      */
     static async applyDismemberment(actor, dismemberment) {
         if (!actor) {
-            ui.notifications.warn('No valid target for dismemberment effect');
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.warn('No valid target for dismemberment effect');
+            }
             return false;
         }
 
@@ -387,7 +401,9 @@ export class EffectApplicator {
 
             await actor.createEmbeddedDocuments('Item', [effectData]);
 
-            ui.notifications.warn(`${actor.name} has suffered a permanent injury: ${name}`);
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.warn(`${actor.name} has suffered a permanent injury: ${name}`);
+            }
 
             // Also send a chat message to highlight this major event
             await ChatMessage.create({
@@ -403,7 +419,9 @@ export class EffectApplicator {
             return true;
         } catch (error) {
             console.error('PF2e Narrative Seeds | Failed to apply dismemberment:', error);
-            ui.notifications.error(`Failed to apply dismemberment: ${name}`);
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.error(`Failed to apply dismemberment: ${name}`);
+            }
             return false;
         }
     }

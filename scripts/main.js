@@ -49,7 +49,9 @@ class PF2eNarrativeSeeds {
     // Check if PF2e system
     if (!PF2eUtils.isPF2e()) {
       console.warn("PF2e Narrative Seeds | This module requires the PF2e game system!");
-      ui.notifications.warn("PF2e Narrative Seeds requires the Pathfinder 2e game system.");
+      if (typeof ui !== 'undefined' && ui.notifications) {
+        ui.notifications.warn("PF2e Narrative Seeds requires the Pathfinder 2e game system.");
+      }
       return;
     }
 
@@ -69,7 +71,7 @@ class PF2eNarrativeSeeds {
     console.log(`PF2e Narrative Seeds | Active generators: ${this.generators.size}`);
 
     // Show notification to GM
-    if (game.user.isGM) {
+    if (game.user.isGM && typeof ui !== 'undefined' && ui.notifications) {
       ui.notifications.info("PF2e Narrative Seeds loaded successfully!");
     }
   }
