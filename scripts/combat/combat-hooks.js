@@ -99,12 +99,20 @@ export class CombatHooks {
   static registerHooks() {
     // Hook into chat message creation
     Hooks.on("createChatMessage", async (message, options, userId) => {
-      await this.onChatMessage(message, options, userId);
+      try {
+        await this.onChatMessage(message, options, userId);
+      } catch (error) {
+        console.error("PF2e Narrative Seeds | Error in createChatMessage hook:", error);
+      }
     });
 
     // Hook into chat message rendering to attach event listeners
     Hooks.on("renderChatMessage", (message, html, data) => {
-      this.onRenderChatMessage(message, html, data);
+      try {
+        this.onRenderChatMessage(message, html, data);
+      } catch (error) {
+        console.error("PF2e Narrative Seeds | Error in renderChatMessage hook:", error);
+      }
     });
   }
 

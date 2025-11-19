@@ -282,10 +282,16 @@ export class NarrativeSeedsSettings {
   /**
    * Get a setting value
    * @param {string} key - Setting key
+   * @param {*} fallback - Fallback value if setting not found (optional)
    * @returns {*} Setting value
    */
-  static get(key) {
-    return game.settings.get("pf2e-narrative-seeds", key);
+  static get(key, fallback = null) {
+    try {
+      return game.settings.get("pf2e-narrative-seeds", key);
+    } catch (error) {
+      console.warn(`PF2e Narrative Seeds | Failed to get setting '${key}':`, error);
+      return fallback;
+    }
   }
 
   /**
