@@ -80,6 +80,20 @@ export class CombatHooks {
   }
 
   /**
+   * Get appropriate speaker for chat message based on visibility mode
+   * @param {string} visibilityMode - Visibility mode setting
+   * @param {Object} defaultSpeaker - Default speaker from original message
+   * @returns {Object} Speaker object for ChatMessage
+   */
+  static getSpeakerForVisibilityMode(visibilityMode, defaultSpeaker) {
+    // For GM-only mode, use GM speaker to prevent player from receiving the whisper
+    if (visibilityMode === "gm-only") {
+      return ChatMessage.getSpeaker({ alias: "Narrative Seeds" });
+    }
+    return defaultSpeaker;
+  }
+
+  /**
    * Register Foundry hooks
    */
   static registerHooks() {
@@ -176,10 +190,7 @@ export class CombatHooks {
         const narrativeHTML = CombatFormatter.generateHTML(seed);
         const whisperTargets = this.getWhisperTargets(visibilityMode, attackData.actor?.id);
 
-        // For GM-only mode, use GM speaker to prevent player from receiving the whisper
-        const speaker = visibilityMode === "gm-only"
-          ? ChatMessage.getSpeaker({ alias: "Narrative Seeds" })
-          : message.speaker;
+        const speaker = this.getSpeakerForVisibilityMode(visibilityMode, message.speaker);
 
         await ChatMessage.create({
           content: narrativeHTML,
@@ -346,10 +357,7 @@ export class CombatHooks {
         damageAmount: damageAmount
       };
 
-      // For GM-only mode, use GM speaker to prevent player from receiving the whisper
-      const speaker = visibilityMode === "gm-only"
-        ? ChatMessage.getSpeaker({ alias: "Narrative Seeds" })
-        : pendingAttack.speaker;
+      const speaker = this.getSpeakerForVisibilityMode(visibilityMode, pendingAttack.speaker);
 
       await ChatMessage.create({
         content: narrativeHTML,
@@ -523,10 +531,7 @@ export class CombatHooks {
 
       const whisperTargets = this.getWhisperTargets(visibilityMode, actor.id);
 
-      // For GM-only mode, use GM speaker to prevent player from receiving the whisper
-      const speaker = visibilityMode === "gm-only"
-        ? ChatMessage.getSpeaker({ alias: "Narrative Seeds" })
-        : message.speaker;
+      const speaker = this.getSpeakerForVisibilityMode(visibilityMode, message.speaker);
 
       await ChatMessage.create({
         content: narrativeHTML,

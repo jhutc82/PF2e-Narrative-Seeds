@@ -518,8 +518,16 @@ export class DataLoader {
       }
     }
 
-    await Promise.all(promises);
-    console.log("PF2e Narrative Seeds | Cache warmed with common data");
+    const results = await Promise.allSettled(promises);
+
+    // Log any failures
+    const failures = results.filter(r => r.status === 'rejected');
+    if (failures.length > 0) {
+      console.warn(`PF2e Narrative Seeds | ${failures.length} cache warming operations failed:`, failures.map(f => f.reason));
+    }
+
+    const successes = results.filter(r => r.status === 'fulfilled').length;
+    console.log(`PF2e Narrative Seeds | Cache warmed: ${successes}/${results.length} operations successful`);
   }
 
   /**

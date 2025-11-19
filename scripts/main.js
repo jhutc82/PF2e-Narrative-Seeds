@@ -188,12 +188,17 @@ Hooks.once("init", () => {
   DismembermentManager.initialize();
 
   // Expose API
-  game.modules.get("pf2e-narrative-seeds").api = {
-    version: PF2eNarrativeSeeds.VERSION,
-    isInitialized: () => PF2eNarrativeSeeds.initialized,
-    getSetting: (key) => PF2eNarrativeSeeds.getSetting(key),
-    logInfo: () => PF2eNarrativeSeeds.logInfo()
-  };
+  const module = game.modules.get("pf2e-narrative-seeds");
+  if (module) {
+    module.api = {
+      version: PF2eNarrativeSeeds.VERSION,
+      isInitialized: () => PF2eNarrativeSeeds.initialized,
+      getSetting: (key) => PF2eNarrativeSeeds.getSetting(key),
+      logInfo: () => PF2eNarrativeSeeds.logInfo()
+    };
+  } else {
+    console.error("PF2e Narrative Seeds | Failed to get module from game.modules");
+  }
 });
 
 /**

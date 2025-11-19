@@ -54,7 +54,7 @@ export class DismembermentManager {
 
         // Check if target is unconscious (dying or unconscious condition)
         // Use type checking for hasCondition to ensure compatibility with all actor types
-        const isUnconscious = (typeof target.hasCondition === 'function' &&
+        const isUnconscious = (target && typeof target.hasCondition === 'function' &&
                               (target.hasCondition('unconscious') || target.hasCondition('dying'))) ||
                              currentHP <= 0;
 

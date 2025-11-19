@@ -144,6 +144,13 @@ export class ComplicationManager {
         }
 
         const totalWeight = items.reduce((sum, item) => sum + (item.weight || 1), 0);
+
+        // Edge case: all items have weight 0
+        if (totalWeight === 0) {
+            console.warn('PF2e Narrative Seeds | All items have weight 0, selecting random item');
+            return items[Math.floor(Math.random() * items.length)];
+        }
+
         let random = Math.random() * totalWeight;
 
         for (const item of items) {
@@ -153,7 +160,8 @@ export class ComplicationManager {
             }
         }
 
-        return items[0]; // Fallback
+        // Fallback for floating point precision issues
+        return items[0];
     }
 
     /**
