@@ -61,7 +61,7 @@ export class SkillNarrativeGenerator {
 
       // Get narratives for this outcome
       const narratives = variant.narratives?.[detailLevel]?.[outcome];
-      if (!narratives || narratives.length === 0) {
+      if (!narratives || !Array.isArray(narratives) || narratives.length === 0) {
         console.warn(`No narratives for ${action} at ${detailLevel}/${outcome}`);
 
         // Try to fall back to standard detail level
@@ -164,7 +164,7 @@ export class SkillNarrativeGenerator {
    */
   selectVariant(actionData, feats, skillData) {
     // Check for feat-specific variants
-    if (feats.length > 0 && actionData.variants) {
+    if (Array.isArray(feats) && feats.length > 0 && actionData.variants) {
       // Priority order: use first detected feat that has a variant AND meets conditions
       for (const feat of feats) {
         const variant = actionData.variants[feat];
@@ -329,8 +329,8 @@ export class SkillNarrativeGenerator {
       skillName: skill || "skill",
 
       // Feat info
-      feats: feats.join(', '),
-      hasFeat: feats.length > 0,
+      feats: Array.isArray(feats) ? feats.join(', ') : '',
+      hasFeat: Array.isArray(feats) && feats.length > 0,
 
       // Actor pronouns (if available)
       actorPronoun: this.getPronoun(actor, 'subject'),

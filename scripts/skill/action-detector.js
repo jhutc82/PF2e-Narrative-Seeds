@@ -226,7 +226,7 @@ export class ActionDetector {
 
       // Fallback: parse UUID manually
       const parts = uuid.split('.');
-      if (parts.length >= 4) {
+      if (parts.length >= 4 && game?.actors) {
         const actorId = parts[1];
         const itemId = parts[3];
         const actor = game.actors.get(actorId);
