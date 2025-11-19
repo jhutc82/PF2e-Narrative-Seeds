@@ -137,7 +137,7 @@ export class WeaponNameExtractor {
    * Check if improvised weapon
    */
   static isImprovisedWeapon(item) {
-    const traits = item.system?.traits?.value || [];
+    const traits = Array.isArray(item.system?.traits?.value) ? item.system.traits.value : [];
     return traits.includes('improvised');
   }
 
@@ -168,7 +168,7 @@ export class WeaponNameExtractor {
     // Method 1: Check for selectedAmmoId in system
     if (item.system?.selectedAmmoId) {
       const actor = item.actor || item.parent;
-      if (actor) {
+      if (actor && actor.items) {
         ammo = actor.items.get(item.system.selectedAmmoId);
       }
     }
@@ -181,7 +181,7 @@ export class WeaponNameExtractor {
     // Method 3: Check for ammo in system data
     if (!ammo && item.system?.ammo?.value) {
       const actor = item.actor || item.parent;
-      if (actor) {
+      if (actor && actor.items) {
         ammo = actor.items.get(item.system.ammo.value);
       }
     }
@@ -205,7 +205,7 @@ export class WeaponNameExtractor {
   static usesAmmunition(item) {
     if (!item) return false;
 
-    const traits = item.system?.traits?.value || [];
+    const traits = Array.isArray(item.system?.traits?.value) ? item.system.traits.value : [];
     const name = item.name?.toLowerCase() || '';
 
     // Check for reload trait (indicates ammo usage)
