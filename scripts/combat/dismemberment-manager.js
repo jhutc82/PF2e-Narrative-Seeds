@@ -180,18 +180,19 @@ export class DismembermentManager {
         }
 
         // Select appropriate dismemberment based on anatomy
-        const { damageType, anatomy } = seed;
+        const { damageType, anatomy, creatureType } = seed;
         const anatomyString = typeof anatomy === 'string' ? anatomy : anatomy?.base || 'torso';
 
         console.log('PF2e Narrative Seeds | Looking for dismemberments for:', {
             damageType,
             anatomy: anatomyString,
+            creatureType,
             totalDismemberments: this.dismemberments.length
         });
 
         // Filter dismemberments by context
         const applicableDismemberments = this.dismemberments.filter(dismemberment => {
-            return this.isApplicable(dismemberment, damageType, anatomyString);
+            return this.isApplicable(dismemberment, damageType, anatomyString, creatureType);
         });
 
         console.log('PF2e Narrative Seeds | Found applicable dismemberments:', applicableDismemberments.length);
@@ -225,9 +226,10 @@ export class DismembermentManager {
      * @param {Object} dismemberment - The dismemberment to check
      * @param {string} damageType - The damage type of the attack
      * @param {string} anatomy - The anatomy location hit
+     * @param {string} creatureType - The creature's base anatomy type (optional, for filtering by creature type)
      * @returns {boolean} Whether the dismemberment applies
      */
-    static isApplicable(dismemberment, damageType, anatomy) {
+    static isApplicable(dismemberment, damageType, anatomy, creatureType = null) {
         const { applicableContexts } = dismemberment;
 
         if (!applicableContexts) {
@@ -239,6 +241,14 @@ export class DismembermentManager {
             !applicableContexts.damageTypes.includes('any') &&
             !applicableContexts.damageTypes.includes(damageType)) {
             return false;
+        }
+
+        // Check creature type (if specified in dismemberment and provided)
+        if (applicableContexts.creatureTypes && creatureType) {
+            if (!applicableContexts.creatureTypes.includes('any') &&
+                !applicableContexts.creatureTypes.includes(creatureType)) {
+                return false;
+            }
         }
 
         // Check anatomy - need to match the anatomy location

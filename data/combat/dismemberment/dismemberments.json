@@ -7,8 +7,14 @@
       "severity": "severe",
       "location": "hand",
       "applicableContexts": {
-        "damageTypes": ["slashing", "piercing"],
-        "anatomyTypes": ["arms", "hand"]
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "hand"
+        ]
       },
       "effects": [
         {
@@ -33,8 +39,12 @@
       "severity": "critical",
       "location": "arm",
       "applicableContexts": {
-        "damageTypes": ["slashing"],
-        "anatomyTypes": ["arms"]
+        "damageTypes": [
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "arms"
+        ]
       },
       "effects": [
         {
@@ -46,7 +56,10 @@
               "type": "circumstance",
               "stat": "athletics",
               "value": -4,
-              "skills": ["climb", "swim"]
+              "skills": [
+                "climb",
+                "swim"
+              ]
             }
           ]
         }
@@ -59,8 +72,14 @@
       "severity": "severe",
       "location": "foot",
       "applicableContexts": {
-        "damageTypes": ["slashing", "bludgeoning"],
-        "anatomyTypes": ["legs", "feet"]
+        "damageTypes": [
+          "slashing",
+          "bludgeoning"
+        ],
+        "anatomyTypes": [
+          "legs",
+          "feet"
+        ]
       },
       "effects": [
         {
@@ -84,7 +103,10 @@
               "type": "circumstance",
               "stat": "athletics",
               "value": -4,
-              "skills": ["balance", "jump"]
+              "skills": [
+                "balance",
+                "jump"
+              ]
             }
           ]
         }
@@ -97,8 +119,12 @@
       "severity": "critical",
       "location": "leg",
       "applicableContexts": {
-        "damageTypes": ["slashing"],
-        "anatomyTypes": ["legs"]
+        "damageTypes": [
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "legs"
+        ]
       },
       "effects": [
         {
@@ -112,7 +138,9 @@
               "mode": "crawl"
             }
           ],
-          "conditions": ["prone-vulnerability"]
+          "conditions": [
+            "prone-vulnerability"
+          ]
         }
       ]
     },
@@ -123,8 +151,14 @@
       "severity": "severe",
       "location": "eye",
       "applicableContexts": {
-        "damageTypes": ["piercing", "slashing"],
-        "anatomyTypes": ["head", "face"]
+        "damageTypes": [
+          "piercing",
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "head",
+          "face"
+        ]
       },
       "effects": [
         {
@@ -154,15 +188,25 @@
       "severity": "catastrophic",
       "location": "eyes",
       "applicableContexts": {
-        "damageTypes": ["piercing", "slashing", "acid", "fire"],
-        "anatomyTypes": ["head", "face"]
+        "damageTypes": [
+          "piercing",
+          "slashing",
+          "acid",
+          "fire"
+        ],
+        "anatomyTypes": [
+          "head",
+          "face"
+        ]
       },
       "effects": [
         {
           "type": "permanent-condition",
           "name": "Blinded",
           "description": "You have lost vision in both eyes and are permanently blinded. You cannot see and automatically critically fail Perception checks requiring sight. You must use other senses to navigate.",
-          "conditions": ["blinded"]
+          "conditions": [
+            "blinded"
+          ]
         }
       ]
     },
@@ -173,8 +217,12 @@
       "severity": "moderate",
       "location": "ear",
       "applicableContexts": {
-        "damageTypes": ["slashing"],
-        "anatomyTypes": ["head"]
+        "damageTypes": [
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "head"
+        ]
       },
       "effects": [
         {
@@ -199,15 +247,23 @@
       "severity": "critical",
       "location": "ears",
       "applicableContexts": {
-        "damageTypes": ["slashing", "bludgeoning", "sonic"],
-        "anatomyTypes": ["head"]
+        "damageTypes": [
+          "slashing",
+          "bludgeoning",
+          "sonic"
+        ],
+        "anatomyTypes": [
+          "head"
+        ]
       },
       "effects": [
         {
           "type": "permanent-condition",
           "name": "Deafened",
           "description": "You have lost hearing in both ears and are permanently deafened. You automatically critically fail auditory Perception checks.",
-          "conditions": ["deafened"]
+          "conditions": [
+            "deafened"
+          ]
         }
       ]
     },
@@ -218,8 +274,12 @@
       "severity": "critical",
       "location": "wing",
       "applicableContexts": {
-        "damageTypes": ["slashing"],
-        "anatomyTypes": ["wings"]
+        "damageTypes": [
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "wings"
+        ]
       },
       "effects": [
         {
@@ -251,8 +311,12 @@
       "severity": "catastrophic",
       "location": "wings",
       "applicableContexts": {
-        "damageTypes": ["slashing"],
-        "anatomyTypes": ["wings"]
+        "damageTypes": [
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "wings"
+        ]
       },
       "effects": [
         {
@@ -275,8 +339,12 @@
       "severity": "moderate",
       "location": "tail",
       "applicableContexts": {
-        "damageTypes": ["slashing"],
-        "anatomyTypes": ["tail"]
+        "damageTypes": [
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "tail"
+        ]
       },
       "effects": [
         {
@@ -288,7 +356,9 @@
               "type": "circumstance",
               "stat": "acrobatics",
               "value": -2,
-              "skills": ["balance"]
+              "skills": [
+                "balance"
+              ]
             }
           ]
         }
@@ -301,8 +371,14 @@
       "severity": "moderate",
       "location": "hand",
       "applicableContexts": {
-        "damageTypes": ["bludgeoning", "slashing"],
-        "anatomyTypes": ["arms", "hand"]
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "anatomyTypes": [
+          "arms",
+          "hand"
+        ]
       },
       "effects": [
         {
@@ -320,6 +396,555 @@
               "stat": "attack",
               "value": -2,
               "condition": "with weapons requiring fine manipulation"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "severed-branch-major",
+      "name": "Severed Major Branch",
+      "description": "A powerful blow severs one of the creature's major branches, removing a limb-like appendage.",
+      "severity": "critical",
+      "location": "branch",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing"
+        ],
+        "creatureTypes": [
+          "plant"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Severed Major Branch",
+          "description": "You have lost a major branch. You cannot use this limb to manipulate objects or make attacks. You cannot wield two-handed weapons or use items requiring multiple limbs unless you have a grafted replacement.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "athletics",
+              "value": -2,
+              "skills": [
+                "climb"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "severed-branch-minor",
+      "name": "Severed Minor Branch",
+      "description": "A slashing attack severs one of the creature's smaller branches.",
+      "severity": "moderate",
+      "location": "branch",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "plant"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Severed Minor Branch",
+          "description": "You have lost a smaller branch. You take a -1 circumstance penalty to checks using fine manipulation.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "thievery",
+              "value": -1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "split-trunk",
+      "name": "Split Trunk",
+      "description": "A devastating blow splits the creature's trunk or main body, causing severe structural damage.",
+      "severity": "catastrophic",
+      "location": "torso",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "plant"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Split Trunk",
+          "description": "Your trunk has been split. You leak sap constantly and your structural integrity is compromised. You take a -4 circumstance penalty to all physical checks and your maximum HP is reduced by 25%.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "athletics",
+              "value": -4
+            },
+            {
+              "type": "circumstance",
+              "stat": "acrobatics",
+              "value": -4
+            }
+          ],
+          "modifiers": [
+            {
+              "type": "max-hp-reduction",
+              "value": 25,
+              "unit": "percent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "torn-roots",
+      "name": "Torn Roots",
+      "description": "The attack tears apart the creature's root system, severely impairing mobility.",
+      "severity": "critical",
+      "location": "roots",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "plant"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Torn Roots",
+          "description": "Your roots have been torn away. Your Speed is reduced by 15 feet (minimum 5 feet) and you cannot burrow. You take a -4 circumstance penalty to checks to resist being moved or knocked prone.",
+          "modifiers": [
+            {
+              "type": "speed-reduction",
+              "value": 15,
+              "minimum": 5
+            }
+          ],
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "fortitude",
+              "value": -4,
+              "condition": "against forced movement or trip"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cracked-bark",
+      "name": "Cracked Bark",
+      "description": "The impact cracks and splinters the creature's protective bark.",
+      "severity": "moderate",
+      "location": "torso",
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "plant"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Cracked Bark",
+          "description": "Your protective bark is permanently cracked. You take a -1 circumstance penalty to AC.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "ac",
+              "value": -1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "damaged-canopy",
+      "name": "Damaged Canopy",
+      "description": "The attack damages the creature's leafy canopy or crown, impairing its senses.",
+      "severity": "moderate",
+      "location": "head",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "fire"
+        ],
+        "creatureTypes": [
+          "plant"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Damaged Canopy",
+          "description": "Your canopy or crown has been damaged. You take a -2 circumstance penalty to Perception checks.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "perception",
+              "value": -2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "broken-joint",
+      "name": "Broken Joint",
+      "description": "The impact shatters one of the construct's mechanical joints.",
+      "severity": "severe",
+      "location": "joint",
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning"
+        ],
+        "creatureTypes": [
+          "construct"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Broken Joint",
+          "description": "One of your joints has been shattered. You cannot use this limb effectively. You take a -3 circumstance penalty to attack rolls and skill checks using this limb.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "attack",
+              "value": -3,
+              "condition": "with this limb"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "shattered-plating",
+      "name": "Shattered Plating",
+      "description": "A powerful blow shatters the construct's protective plating.",
+      "severity": "moderate",
+      "location": "torso",
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "slashing"
+        ],
+        "creatureTypes": [
+          "construct"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Shattered Plating",
+          "description": "Your protective plating is shattered. You take a -2 circumstance penalty to AC and resistance to physical damage is reduced by 5 (minimum 0).",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "ac",
+              "value": -2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "severed-cables",
+      "name": "Severed Control Cables",
+      "description": "The slashing attack severs critical control cables or tendons within the construct.",
+      "severity": "critical",
+      "location": "internal",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "construct"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Severed Control Cables",
+          "description": "Your control systems have been severed. You are clumsy 2 and your Speed is reduced by 10 feet (minimum 5 feet).",
+          "modifiers": [
+            {
+              "type": "speed-reduction",
+              "value": 10,
+              "minimum": 5
+            }
+          ],
+          "conditions": [
+            "clumsy-2"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cracked-core",
+      "name": "Cracked Animating Core",
+      "description": "The attack cracks the construct's animating core or power source.",
+      "severity": "catastrophic",
+      "location": "core",
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "construct"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Cracked Animating Core",
+          "description": "Your animating core is cracked and leaking energy. Your maximum HP is reduced by 30% and you are slowed 1.",
+          "modifiers": [
+            {
+              "type": "max-hp-reduction",
+              "value": 30,
+              "unit": "percent"
+            }
+          ],
+          "conditions": [
+            "slowed-1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "damaged-gears",
+      "name": "Damaged Gears",
+      "description": "The impact damages internal gears and mechanisms.",
+      "severity": "moderate",
+      "location": "internal",
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "construct"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Damaged Gears",
+          "description": "Your internal mechanisms are damaged and grinding. You take a -5 foot circumstance penalty to all Speeds and make noise when moving (cannot Sneak).",
+          "modifiers": [
+            {
+              "type": "speed-reduction",
+              "value": 5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dispersed-mass",
+      "name": "Dispersed Mass",
+      "description": "The attack disperses a portion of the elemental's mass, weakening its form.",
+      "severity": "severe",
+      "location": "body",
+      "applicableContexts": {
+        "damageTypes": [
+          "bludgeoning",
+          "cold",
+          "fire"
+        ],
+        "creatureTypes": [
+          "elemental"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Dispersed Mass",
+          "description": "Your elemental form has been dispersed. Your maximum HP is reduced by 20% and you take a -2 circumstance penalty to all physical attacks.",
+          "modifiers": [
+            {
+              "type": "max-hp-reduction",
+              "value": 20,
+              "unit": "percent"
+            }
+          ],
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "attack",
+              "value": -2,
+              "condition": "physical attacks only"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "weakened-core",
+      "name": "Weakened Elemental Core",
+      "description": "The attack damages the elemental's core essence, reducing its power.",
+      "severity": "critical",
+      "location": "core",
+      "applicableContexts": {
+        "damageTypes": [
+          "any"
+        ],
+        "creatureTypes": [
+          "elemental"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Weakened Elemental Core",
+          "description": "Your elemental core has been weakened. All damage you deal is reduced by 2 and your resistance to your elemental type is reduced by 5.",
+          "modifiers": [
+            {
+              "type": "damage-reduction",
+              "value": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unstable-manifestation",
+      "name": "Unstable Manifestation",
+      "description": "The attack destabilizes the elemental's physical manifestation.",
+      "severity": "moderate",
+      "location": "body",
+      "applicableContexts": {
+        "damageTypes": [
+          "any"
+        ],
+        "creatureTypes": [
+          "elemental"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Unstable Manifestation",
+          "description": "Your form flickers and wavers unpredictably. You take a -1 circumstance penalty to AC and Reflex saves.",
+          "penalties": [
+            {
+              "type": "circumstance",
+              "stat": "ac",
+              "value": -1
+            },
+            {
+              "type": "circumstance",
+              "stat": "reflex",
+              "value": -1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "split-mass",
+      "name": "Split Mass",
+      "description": "The attack splits the ooze's mass, reducing its volume significantly.",
+      "severity": "critical",
+      "location": "body",
+      "applicableContexts": {
+        "damageTypes": [
+          "slashing",
+          "piercing"
+        ],
+        "creatureTypes": [
+          "ooze"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Split Mass",
+          "description": "Your mass has been split. Your maximum HP is reduced by 30% and your size effectively decreases by one category for the purpose of attacks and reach.",
+          "modifiers": [
+            {
+              "type": "max-hp-reduction",
+              "value": 30,
+              "unit": "percent"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "separated-nucleus",
+      "name": "Separated Nucleus",
+      "description": "The attack separates or damages the ooze's nucleus or core organelle.",
+      "severity": "catastrophic",
+      "location": "nucleus",
+      "applicableContexts": {
+        "damageTypes": [
+          "piercing"
+        ],
+        "creatureTypes": [
+          "ooze"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Separated Nucleus",
+          "description": "Your nucleus has been separated or destroyed. You are stunned 1 at the start of each turn and cannot divide or reproduce. Your maximum HP is reduced by 40%.",
+          "modifiers": [
+            {
+              "type": "max-hp-reduction",
+              "value": 40,
+              "unit": "percent"
+            }
+          ],
+          "conditions": [
+            "recurring-stunned-1"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "diminished-cohesion",
+      "name": "Diminished Cohesion",
+      "description": "The attack reduces the ooze's ability to maintain cohesion.",
+      "severity": "moderate",
+      "location": "body",
+      "applicableContexts": {
+        "damageTypes": [
+          "cold",
+          "acid"
+        ],
+        "creatureTypes": [
+          "ooze"
+        ]
+      },
+      "effects": [
+        {
+          "type": "permanent-condition",
+          "name": "Diminished Cohesion",
+          "description": "Your cohesion is reduced. You cannot squeeze through spaces smaller than your normal size and your Speed is reduced by 5 feet.",
+          "modifiers": [
+            {
+              "type": "speed-reduction",
+              "value": 5
             }
           ]
         }

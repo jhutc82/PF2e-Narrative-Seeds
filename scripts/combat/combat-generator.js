@@ -188,10 +188,12 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
         }
 
         // Generate complication if applicable
+        const creatureType = typeof anatomy === 'string' ? anatomy : anatomy?.base || 'humanoid';
         const complication = ComplicationManager.selectComplication({
           outcome,
           damageType,
-          anatomy: typeof anatomy === 'string' ? anatomy : anatomy?.base || 'torso',
+          anatomy: creatureType,
+          creatureType: creatureType,
           attackerLevel: attacker?.level || attacker?.system?.details?.level?.value || 1
         });
 
@@ -201,7 +203,8 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           {
             outcome,
             damageType,
-            anatomy: typeof anatomy === 'string' ? anatomy : anatomy?.base || 'torso'
+            anatomy: creatureType,
+            creatureType: creatureType
           }
         );
 

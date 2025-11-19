@@ -87,7 +87,7 @@ export class ComplicationManager {
             return null;
         }
 
-        const { outcome, damageType, anatomy } = seed;
+        const { outcome, damageType, anatomy, creatureType } = seed;
         const availableComplications = this.complications[outcome];
 
         // Validate that complications array exists and has items
@@ -98,7 +98,7 @@ export class ComplicationManager {
 
         // Filter complications based on context
         const applicableComplications = availableComplications.filter(comp => {
-            return this.isApplicable(comp, damageType, anatomy);
+            return this.isApplicable(comp, damageType, anatomy, creatureType);
         });
 
         if (applicableComplications.length === 0) {
@@ -114,10 +114,11 @@ export class ComplicationManager {
      * Check if a complication is applicable to the current context
      * @param {Object} complication - The complication to check
      * @param {string} damageType - The damage type of the attack
-     * @param {string} anatomy - The anatomy location hit
+     * @param {string} anatomy - The anatomy type (creature type like 'humanoid', 'plant', etc.) OR hit location (like 'head', 'arms', etc.)
+     * @param {string} creatureType - The creature's base anatomy type (optional, for filtering by creature type)
      * @returns {boolean} Whether the complication applies
      */
-    static isApplicable(complication, damageType, anatomy) {
+    static isApplicable(complication, damageType, anatomy, creatureType = null) {
         const { applicableContexts } = complication;
 
         if (!applicableContexts) {
@@ -131,7 +132,15 @@ export class ComplicationManager {
             return false;
         }
 
-        // Check anatomy
+        // Check creature type (if specified in complication and provided)
+        if (applicableContexts.creatureTypes && creatureType) {
+            if (!applicableContexts.creatureTypes.includes('any') &&
+                !applicableContexts.creatureTypes.includes(creatureType)) {
+                return false;
+            }
+        }
+
+        // Check anatomy (hit location or creature type for backwards compatibility)
         if (applicableContexts.anatomyTypes &&
             !applicableContexts.anatomyTypes.includes('any') &&
             !applicableContexts.anatomyTypes.includes(anatomy)) {
