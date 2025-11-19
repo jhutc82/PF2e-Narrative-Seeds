@@ -58,6 +58,11 @@ export class SkillMemory {
     if (!actor) return [];
 
     const history = this.actionHistory.get(actor.id) || [];
+    // Validate history is an array
+    if (!Array.isArray(history)) {
+      console.warn('PF2e Narrative Seeds | action history is not an array');
+      return [];
+    }
     return history.slice(-limit); // Return most recent N
   }
 

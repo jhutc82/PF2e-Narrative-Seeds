@@ -13,7 +13,7 @@ export class ContextFilters {
    * @returns {Array<string>} Filtered effects
    */
   static filterEffects(effects, context) {
-    if (!effects || effects.length === 0) return effects;
+    if (!effects || !Array.isArray(effects) || effects.length === 0) return effects;
 
     const { anatomy, damageType, location } = context;
 
@@ -195,7 +195,7 @@ export class ContextFilters {
    * @returns {Array<string>} Filtered verbs
    */
   static filterVerbs(verbs, damageType) {
-    if (!verbs || verbs.length === 0) return verbs;
+    if (!verbs || !Array.isArray(verbs) || verbs.length === 0) return verbs;
 
     return verbs.filter(verb => {
       const lower = verb.toLowerCase();
@@ -235,7 +235,7 @@ export class ContextFilters {
    * @returns {Array<string>} Filtered verbs
    */
   static filterVerbsByLocation(verbs, location) {
-    if (!verbs || verbs.length === 0 || !location) return verbs;
+    if (!verbs || !Array.isArray(verbs) || verbs.length === 0 || !location) return verbs;
 
     const locationLower = location.toLowerCase();
 
@@ -294,12 +294,12 @@ export class ContextFilters {
     filteredEffects = this.filterEffects(filteredEffects, context);
 
     // Fallback to unfiltered if we filtered out everything
-    if (filteredVerbs.length === 0) {
+    if (!Array.isArray(filteredVerbs) || filteredVerbs.length === 0) {
       console.warn(`PF2e Narrative Seeds | Filtered out all ${originalVerbCount} verbs for ${damageType} at ${location}, using unfiltered`);
       filteredVerbs = verbs;
     }
 
-    if (filteredEffects.length === 0) {
+    if (!Array.isArray(filteredEffects) || filteredEffects.length === 0) {
       console.warn(`PF2e Narrative Seeds | Filtered out all ${originalEffectCount} effects for ${anatomy?.base || anatomy} with ${damageType}, using unfiltered`);
       filteredEffects = effects;
     }

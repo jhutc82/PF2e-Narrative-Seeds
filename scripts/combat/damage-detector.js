@@ -130,9 +130,9 @@ export class DamageDetector {
     }
 
     // Check damage instances (PF2e new format)
-    if (item.system?.damageRolls) {
+    if (item.system?.damageRolls && typeof item.system.damageRolls === 'object') {
       const rolls = Object.values(item.system.damageRolls);
-      if (rolls.length > 0 && rolls[0].damageType) {
+      if (Array.isArray(rolls) && rolls.length > 0 && rolls[0].damageType) {
         return this.normalizeDamageType(rolls[0].damageType);
       }
     }
@@ -194,8 +194,11 @@ export class DamageDetector {
 
     // Check if any trait is a damage type
     for (const trait of traits) {
+      // Ensure trait is a string (could be object in some PF2e versions)
+      if (typeof trait !== 'string' && typeof trait !== 'number') continue;
+
       const normalized = this.normalizeDamageType(trait);
-      if (this.DAMAGE_TYPES.includes(normalized)) {
+      if (normalized && this.DAMAGE_TYPES.includes(normalized)) {
         return normalized;
       }
     }
@@ -297,6 +300,7 @@ export class DamageDetector {
    */
   static getDisplayName(damageType) {
     const normalized = this.normalizeDamageType(damageType);
+    if (!normalized) return "Unknown";
     return normalized.charAt(0).toUpperCase() + normalized.slice(1);
   }
 
@@ -311,13 +315,15 @@ export class DamageDetector {
     const damageTypes = new Set();
 
     // Check damage instances (PF2e new format) - most reliable for mixed damage
-    if (item.system?.damageRolls) {
+    if (item.system?.damageRolls && typeof item.system.damageRolls === 'object') {
       const rolls = Object.values(item.system.damageRolls);
-      for (const roll of rolls) {
-        if (roll.damageType) {
-          const normalized = this.normalizeDamageType(roll.damageType);
-          if (this.DAMAGE_TYPES.includes(normalized)) {
-            damageTypes.add(normalized);
+      if (Array.isArray(rolls)) {
+        for (const roll of rolls) {
+          if (roll.damageType) {
+            const normalized = this.normalizeDamageType(roll.damageType);
+            if (this.DAMAGE_TYPES.includes(normalized)) {
+              damageTypes.add(normalized);
+            }
           }
         }
       }
@@ -372,9 +378,9 @@ export class DamageDetector {
     if (!item) return "bludgeoning";
 
     // Try to find the damage type with the highest damage die
-    if (item.system?.damageRolls) {
+    if (item.system?.damageRolls && typeof item.system.damageRolls === 'object') {
       const rolls = Object.values(item.system.damageRolls);
-      if (rolls.length > 0) {
+      if (Array.isArray(rolls) && rolls.length > 0) {
         // Sort by die size (extract number from dice notation like "1d8")
         const sorted = rolls
           .filter(r => r.damageType && r.damage)

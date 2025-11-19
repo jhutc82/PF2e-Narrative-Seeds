@@ -110,9 +110,10 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
         const showAnatomy = NarrativeSeedsSettings.get("showAnatomyType");
 
         // Record attack in combat memory and get memory context
+        // Use a unique identifier that combines ID and UUID to prevent name collisions
         const combatId = message?.combat?.id || 'default';
-        const attackerId = attacker?.id || attacker?.name || 'unknown';
-        const targetId = target?.id || target?.name || 'unknown';
+        const attackerId = attacker?.id || attacker?.uuid || `name-${attacker?.name || 'unknown'}`;
+        const targetId = target?.id || target?.uuid || `name-${target?.name || 'unknown'}`;
         const memoryContext = CombatMemory.recordAttack(combatId, attackerId, targetId, outcome);
 
         // Generate description with repetition prevention
@@ -177,7 +178,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
           } else if (anatomy && anatomy.base) {
             // Build display name with modifiers
             const baseName = AnatomyDetector.getDisplayName(anatomy.base);
-            if (anatomy.modifiers && anatomy.modifiers.length > 0) {
+            if (Array.isArray(anatomy.modifiers) && anatomy.modifiers.length > 0) {
               const modifierNames = anatomy.modifiers.map(m => AnatomyDetector.getDisplayName(m)).join(' ');
               anatomyDisplay = `${modifierNames} ${baseName}`;
             } else {
@@ -428,7 +429,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     // Defense-aware openings for failures (if no weapon-specific opening)
     if (!opening && (outcome === 'failure' || outcome === 'criticalFailure') && defense) {
       const defenseOpenings = await getDefenseOpenings(outcome, defense.missReason, 'cinematic');
-      if (defenseOpenings && defenseOpenings.length > 0) {
+      if (Array.isArray(defenseOpenings) && defenseOpenings.length > 0) {
         opening = RandomUtils.selectRandom(defenseOpenings, varietyMode, `defense-opening-${outcome}-${defense.missReason}`);
         opening = StringUtils.interpolate(opening, { attackerName, targetName, weaponType });
         return opening; // Defense-aware openings are complete
@@ -451,6 +452,12 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     }
 
     const templateObj = TemplateEngine.selectTemplate(templates, effectiveVarietyMode, `${detailLevel}-${outcome}`);
+
+    // Handle case where no template is found
+    if (!templateObj) {
+      console.warn("PF2e Narrative Seeds | No template found, using simple description");
+      return `${opening || "Strike"} ${location || ""}`.trim();
+    }
 
     // Apply escalation modifiers to effect text
     let escalatedEffect = effect || "";
@@ -478,7 +485,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
     // Add streak-based modifiers for dramatic moments
     if (memoryContext?.isDramatic && outcome === 'criticalSuccess') {
       // Breaking a losing streak with a crit deserves extra flair
-      if (memoryContext.streak.streakBroken && memoryContext.streak.consecutiveHits === 1) {
+      if (memoryContext.streak && memoryContext.streak.streakBroken && memoryContext.streak.consecutiveHits === 1) {
         description = description + " Finally!";
       }
     }
@@ -550,7 +557,7 @@ export class CombatNarrativeGenerator extends NarrativeSeedGenerator {
         return "criticalFailure";
       default:
         // Try to parse from rolls
-        if (message.rolls && message.rolls.length > 0) {
+        if (Array.isArray(message.rolls) && message.rolls.length > 0) {
           const roll = message.rolls[0];
           if (roll.options?.degreeOfSuccess !== undefined) {
             return this.mapDegreeOfSuccess(roll.options.degreeOfSuccess);

@@ -21,7 +21,7 @@ export class CombatHooks {
   /**
    * Pending attack tracker for attack-damage linking
    * Key: `${actorId}-${itemUuid}`
-   * Value: {attackMessageId, narrativeMessageId, attackData, seed, timestamp, visibilityMode}
+   * Value: {attackMessageId, attackData, attackDataFlags, seed, timestamp, visibilityMode, speaker}
    */
   static pendingAttacks = new Map();
 
@@ -29,6 +29,16 @@ export class CombatHooks {
    * Maximum age for pending attacks (30 seconds)
    */
   static PENDING_ATTACK_MAX_AGE = 30000;
+
+  /**
+   * Interval ID for cleanup task
+   */
+  static cleanupIntervalId = null;
+
+  /**
+   * Hook IDs for cleanup
+   */
+  static hookIds = [];
 
   /**
    * Initialize combat hooks
@@ -52,7 +62,12 @@ export class CombatHooks {
    * Start periodic cleanup of old pending attacks
    */
   static startPendingAttackCleanup() {
-    setInterval(() => {
+    // Clear any existing interval first
+    if (this.cleanupIntervalId) {
+      clearInterval(this.cleanupIntervalId);
+    }
+
+    this.cleanupIntervalId = setInterval(() => {
       this.cleanupOldPendingAttacks();
     }, 10000); // Check every 10 seconds
   }
@@ -70,18 +85,42 @@ export class CombatHooks {
   }
 
   /**
+   * Get appropriate speaker for chat message based on visibility mode
+   * @param {string} visibilityMode - Visibility mode setting
+   * @param {Object} defaultSpeaker - Default speaker from original message
+   * @returns {Object} Speaker object for ChatMessage
+   */
+  static getSpeakerForVisibilityMode(visibilityMode, defaultSpeaker) {
+    // For GM-only mode, use GM speaker to prevent player from receiving the whisper
+    if (visibilityMode === "gm-only") {
+      return ChatMessage.getSpeaker({ alias: "Narrative Seeds" });
+    }
+    return defaultSpeaker;
+  }
+
+  /**
    * Register Foundry hooks
    */
   static registerHooks() {
     // Hook into chat message creation
-    Hooks.on("createChatMessage", async (message, options, userId) => {
-      await this.onChatMessage(message, options, userId);
+    const createHookId = Hooks.on("createChatMessage", async (message, options, userId) => {
+      try {
+        await this.onChatMessage(message, options, userId);
+      } catch (error) {
+        console.error("PF2e Narrative Seeds | Error in createChatMessage hook:", error);
+      }
     });
+    this.hookIds.push(createHookId);
 
     // Hook into chat message rendering to attach event listeners
-    Hooks.on("renderChatMessage", (message, html, data) => {
-      this.onRenderChatMessage(message, html, data);
+    const renderHookId = Hooks.on("renderChatMessage", (message, html, data) => {
+      try {
+        this.onRenderChatMessage(message, html, data);
+      } catch (error) {
+        console.error("PF2e Narrative Seeds | Error in renderChatMessage hook:", error);
+      }
     });
+    this.hookIds.push(renderHookId);
   }
 
   /**
@@ -145,55 +184,48 @@ export class CombatHooks {
         outcome: attackData.context?.outcome
       };
 
-      // Generate HTML for the narrative
-      const narrativeHTML = CombatFormatter.generateHTML(seed);
+      // Check if this attack will have a damage roll (hits and critical hits)
+      const outcome = attackData.context?.outcome;
+      const willHaveDamageRoll = outcome === 'success' || outcome === 'criticalSuccess';
 
-      // Always create a separate narrative message (will be deleted/replaced when damage comes in)
-      const whisperTargets = this.getWhisperTargets(visibilityMode, attackData.actor?.id);
+      if (willHaveDamageRoll) {
+        // Store pending attack for damage roll linking (don't post chat card yet)
+        const attackKey = `${attackData.actor?.id}-${attackData.origin?.uuid}`;
+        this.pendingAttacks.set(attackKey, {
+          attackMessageId: message.id,
+          attackData: attackData,
+          attackDataFlags: attackDataFlags,
+          seed: seed,
+          timestamp: Date.now(),
+          visibilityMode: visibilityMode,
+          speaker: message.speaker
+        });
+      } else {
+        // Miss or critical miss - post narrative immediately (no damage roll coming)
+        const narrativeHTML = CombatFormatter.generateHTML(seed);
+        const whisperTargets = this.getWhisperTargets(visibilityMode, attackData.actor?.id);
 
-      const narrativeMessage = await ChatMessage.create({
-        content: narrativeHTML,
-        whisper: whisperTargets, // Empty array for "everyone" mode
-        style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-        speaker: message.speaker,
-        flags: {
-          "pf2e-narrative-seeds": {
-            hasNarrative: true,
-            attackData: attackDataFlags,
-            seed: seed,
-            visibilityMode: visibilityMode,
-            originalMessageId: message.id,
-            isPending: true // Mark as pending until damage roll
+        const speaker = this.getSpeakerForVisibilityMode(visibilityMode, message.speaker);
+
+        await ChatMessage.create({
+          content: narrativeHTML,
+          whisper: whisperTargets,
+          style: CONST.CHAT_MESSAGE_STYLES.OTHER,
+          speaker: speaker,
+          flags: {
+            "pf2e-narrative-seeds": {
+              hasNarrative: true,
+              attackData: attackDataFlags,
+              seed: seed,
+              visibilityMode: visibilityMode,
+              originalMessageId: message.id
+            }
           }
-        }
-      });
-
-      // Store reference in original attack message for regeneration
-      await message.update({
-        flags: {
-          ...message.flags,
-          "pf2e-narrative-seeds": {
-            hasNarrativeMessage: true,
-            narrativeMessageId: narrativeMessage.id,
-            attackData: attackDataFlags
-          }
-        }
-      });
-
-      // Store pending attack for damage roll linking
-      const attackKey = `${attackData.actor?.id}-${attackData.origin?.uuid}`;
-      this.pendingAttacks.set(attackKey, {
-        attackMessageId: message.id,
-        narrativeMessageId: narrativeMessage.id,
-        attackData: attackData,
-        attackDataFlags: attackDataFlags,
-        seed: seed,
-        timestamp: Date.now(),
-        visibilityMode: visibilityMode
-      });
+        });
+      }
 
       // Auto-apply complication if setting is enabled
-      if (game.settings.get("pf2e-narrative-seeds", "autoApplyComplications")) {
+      if (NarrativeSeedsSettings.get("autoApplyComplications", false)) {
         await this.autoApplyComplication(attackData, seed);
       }
 
@@ -220,7 +252,7 @@ export class CombatHooks {
         const targets = game.users.filter(u => u.isGM).map(u => u.id);
         if (actorId) {
           const actor = game.actors.get(actorId);
-          if (actor?.hasPlayerOwner) {
+          if (actor?.hasPlayerOwner && typeof actor.testUserPermission === 'function') {
             const owners = game.users.filter(u => actor.testUserPermission(u, "OWNER"));
             targets.push(...owners.map(u => u.id));
           }
@@ -287,6 +319,9 @@ export class CombatHooks {
    * @param {string} userId
    */
   static async onDamageRoll(message, options, userId) {
+    let attackKey = null;
+    let pendingAttack = null;
+
     try {
       console.log("PF2e Narrative Seeds | Processing damage roll:", message.id);
 
@@ -305,8 +340,8 @@ export class CombatHooks {
       }
 
       // Find matching pending attack
-      const attackKey = `${actorId}-${itemUuid}`;
-      const pendingAttack = this.pendingAttacks.get(attackKey);
+      attackKey = `${actorId}-${itemUuid}`;
+      pendingAttack = this.pendingAttacks.get(attackKey);
 
       if (!pendingAttack) {
         // No matching attack - this might be a damage-only spell like Force Barrage
@@ -315,7 +350,8 @@ export class CombatHooks {
       }
 
       // Extract damage amount from the message
-      const damageAmount = this.extractDamageAmount(message);
+      const rawDamageAmount = this.extractDamageAmount(message);
+      const damageAmount = Math.max(0, rawDamageAmount || 0);
       console.log(`PF2e Narrative Seeds | Damage amount: ${damageAmount}`);
 
       // Re-generate narrative with damage included
@@ -329,14 +365,7 @@ export class CombatHooks {
         return;
       }
 
-      // Delete the original narrative message
-      const oldNarrativeMessage = game.messages.get(pendingAttack.narrativeMessageId);
-      if (oldNarrativeMessage) {
-        await oldNarrativeMessage.delete();
-        console.log("PF2e Narrative Seeds | Deleted original narrative message");
-      }
-
-      // Create new combined narrative message
+      // Create combined attack+damage narrative message
       const visibilityMode = pendingAttack.visibilityMode;
       const narrativeHTML = CombatFormatter.generateHTML(seed);
       const whisperTargets = this.getWhisperTargets(visibilityMode, attackData.actor?.id);
@@ -346,11 +375,13 @@ export class CombatHooks {
         damageAmount: damageAmount
       };
 
+      const speaker = this.getSpeakerForVisibilityMode(visibilityMode, pendingAttack.speaker);
+
       await ChatMessage.create({
         content: narrativeHTML,
         whisper: whisperTargets, // Empty array for "everyone" mode
         style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-        speaker: message.speaker,
+        speaker: speaker,
         flags: {
           "pf2e-narrative-seeds": {
             hasNarrative: true,
@@ -363,12 +394,15 @@ export class CombatHooks {
         }
       });
 
-      // Remove from pending attacks
-      this.pendingAttacks.delete(attackKey);
-      console.log("PF2e Narrative Seeds | Created combined attack+damage narrative");
+      console.log("PF2e Narrative Seeds | Created attack+damage narrative");
 
     } catch (error) {
       console.error("PF2e Narrative Seeds | Error processing damage roll:", error);
+    } finally {
+      // Always remove pending attack to prevent memory leaks
+      if (attackKey && pendingAttack) {
+        this.pendingAttacks.delete(attackKey);
+      }
     }
   }
 
@@ -460,7 +494,7 @@ export class CombatHooks {
       }
 
       // Try to get target from current targets if not in context
-      if (!target && game.user.targets.size > 0) {
+      if (!target && game.user?.targets && game.user.targets.size > 0) {
         const targetToken = game.user.targets.first();
         if (targetToken) target = targetToken.actor;
       }
@@ -518,11 +552,13 @@ export class CombatHooks {
 
       const whisperTargets = this.getWhisperTargets(visibilityMode, actor.id);
 
+      const speaker = this.getSpeakerForVisibilityMode(visibilityMode, message.speaker);
+
       await ChatMessage.create({
         content: narrativeHTML,
         whisper: whisperTargets, // Empty array for "everyone" mode
         style: CONST.CHAT_MESSAGE_STYLES.OTHER,
-        speaker: message.speaker,
+        speaker: speaker,
         flags: {
           "pf2e-narrative-seeds": {
             hasNarrative: true,
@@ -577,7 +613,7 @@ export class CombatHooks {
     }
 
     // Try to get target from current targets if not in context
-    if (!target && game.user.targets.size > 0) {
+    if (!target && game.user?.targets && game.user.targets.size > 0) {
       const targetToken = game.user.targets.first();
       if (targetToken) target = targetToken.actor;
     }
@@ -587,8 +623,8 @@ export class CombatHooks {
       const combatant = game.combat.combatant;
       if (combatant && combatant.token) {
         // Get targets of current combatant
-        const targets = game.user.targets;
-        if (targets.size > 0) {
+        const targets = game.user?.targets;
+        if (targets && targets.size > 0) {
           const firstTarget = targets.first();
           if (firstTarget) target = firstTarget.actor;
         }
@@ -681,25 +717,37 @@ export class CombatHooks {
 
     // Handle button clicks with data-action attribute
     html.find('[data-action]').on('click', async (event) => {
-      event.preventDefault();
-      const button = event.currentTarget;
-      const action = button.dataset.action;
+      try {
+        event.preventDefault();
+        const button = event.currentTarget;
+        const action = button?.dataset?.action;
 
-      switch (action) {
-        case 'apply-complication':
-          await this.applyComplication(message, button);
-          break;
-        case 'apply-dismemberment':
-          await this.applyDismemberment(message, button);
-          break;
-        case 'toggle-details':
-          const details = button.closest('.pf2e-narrative-seed').querySelector('.narrative-details');
-          if (details) {
-            const isHidden = details.style.display === 'none';
-            details.style.display = isHidden ? 'block' : 'none';
-            button.textContent = isHidden ? '▲' : '▼';
-          }
-          break;
+        if (!action) {
+          console.warn('PF2e Narrative Seeds | Button click without action dataset');
+          return;
+        }
+
+        switch (action) {
+          case 'apply-complication':
+            await this.applyComplication(message, button);
+            break;
+          case 'apply-dismemberment':
+            await this.applyDismemberment(message, button);
+            break;
+          case 'toggle-details':
+            const container = button.closest('.pf2e-narrative-seed');
+            if (container) {
+              const details = container.querySelector('.narrative-details');
+              if (details) {
+                const isHidden = details.style.display === 'none';
+                details.style.display = isHidden ? 'block' : 'none';
+                button.textContent = isHidden ? '▲' : '▼';
+              }
+            }
+            break;
+        }
+      } catch (error) {
+        console.error("PF2e Narrative Seeds | Error handling button click:", error);
       }
     });
   }
@@ -716,9 +764,14 @@ export class CombatHooks {
       const storedData = flags?.attackData;
 
       if (!storedData) {
-        ui.notifications.warn("Cannot regenerate: attack data not found");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Cannot regenerate: attack data not found");
+        }
         return;
       }
+
+      // Get original message if this is a whispered message
+      const originalMessage = isWhisperedMessage ? game.messages.get(flags.originalMessageId) : null;
 
       // Reconstruct attack data
       const attackData = {
@@ -727,10 +780,10 @@ export class CombatHooks {
         target: storedData.targetId ? game.actors.get(storedData.targetId) : null,
         item: null,
         context: isWhisperedMessage
-          ? game.messages.get(flags.originalMessageId)?.flags?.pf2e?.context
+          ? originalMessage?.flags?.pf2e?.context
           : message.flags?.pf2e?.context,
         origin: isWhisperedMessage
-          ? game.messages.get(flags.originalMessageId)?.flags?.pf2e?.origin
+          ? originalMessage?.flags?.pf2e?.origin
           : message.flags?.pf2e?.origin
       };
 
@@ -750,7 +803,9 @@ export class CombatHooks {
       // Generate new narrative
       const seed = await this.generator.generate(attackData);
       if (!seed) {
-        ui.notifications.warn("Could not generate new narrative");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Could not generate new narrative");
+        }
         return;
       }
 
@@ -782,10 +837,14 @@ export class CombatHooks {
         });
       }
 
-      ui.notifications.info("Narrative regenerated successfully");
+      if (typeof ui !== 'undefined' && ui.notifications) {
+        ui.notifications.info("Narrative regenerated successfully");
+      }
     } catch (error) {
       console.error("PF2e Narrative Seeds | Error regenerating narrative:", error);
-      ui.notifications.error("Failed to regenerate narrative");
+      if (typeof ui !== 'undefined' && ui.notifications) {
+        ui.notifications.error("Failed to regenerate narrative");
+      }
     }
   }
 
@@ -799,7 +858,9 @@ export class CombatHooks {
       // Get complication data from message flags (no encoding needed)
       const seed = message.flags?.["pf2e-narrative-seeds"]?.seed;
       if (!seed || !seed.complication) {
-        ui.notifications.warn("No complication data found in message");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("No complication data found in message");
+        }
         return;
       }
 
@@ -809,7 +870,9 @@ export class CombatHooks {
       // Get stored attack data to determine target
       const storedData = message.flags?.["pf2e-narrative-seeds"]?.attackData;
       if (!storedData) {
-        ui.notifications.warn("Cannot apply complication: attack data not found");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Cannot apply complication: attack data not found");
+        }
         return;
       }
 
@@ -823,13 +886,17 @@ export class CombatHooks {
       const targetActor = ComplicationManager.getComplicationTarget(attackData, outcome);
 
       if (!targetActor) {
-        ui.notifications.warn("Could not determine target for complication");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Could not determine target for complication");
+        }
         return;
       }
 
       // Check if user has permission to modify the target actor
-      if (!targetActor.testUserPermission(game.user, "OWNER") && !game.user.isGM) {
-        ui.notifications.warn(`You do not have permission to modify ${targetActor.name}`);
+      if (typeof targetActor.testUserPermission === 'function' && !targetActor.testUserPermission(game.user, "OWNER") && !game.user.isGM) {
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn(`You do not have permission to modify ${targetActor.name}`);
+        }
         return;
       }
 
@@ -845,7 +912,9 @@ export class CombatHooks {
 
     } catch (error) {
       console.error("PF2e Narrative Seeds | Error applying complication:", error);
-      ui.notifications.error("Failed to apply complication");
+      if (typeof ui !== 'undefined' && ui.notifications) {
+        ui.notifications.error("Failed to apply complication");
+      }
     }
   }
 
@@ -894,7 +963,9 @@ export class CombatHooks {
       // Get dismemberment data from message flags
       const seed = message.flags?.["pf2e-narrative-seeds"]?.seed;
       if (!seed || !seed.dismemberment) {
-        ui.notifications.warn("No dismemberment data found in message");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("No dismemberment data found in message");
+        }
         return;
       }
 
@@ -903,7 +974,9 @@ export class CombatHooks {
       // Get stored attack data to determine target
       const storedData = message.flags?.["pf2e-narrative-seeds"]?.attackData;
       if (!storedData) {
-        ui.notifications.warn("Cannot apply dismemberment: attack data not found");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Cannot apply dismemberment: attack data not found");
+        }
         return;
       }
 
@@ -911,7 +984,9 @@ export class CombatHooks {
       const targetActor = storedData.targetId ? game.actors.get(storedData.targetId) : null;
 
       if (!targetActor) {
-        ui.notifications.warn("Could not find target for dismemberment");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Could not find target for dismemberment");
+        }
         return;
       }
 
@@ -941,13 +1016,17 @@ export class CombatHooks {
       });
 
       if (!confirmed) {
-        ui.notifications.info("Dismemberment application cancelled");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.info("Dismemberment application cancelled");
+        }
         return;
       }
 
       // Check if user has permission to modify the target actor
-      if (!targetActor.testUserPermission(game.user, "OWNER") && !game.user.isGM) {
-        ui.notifications.warn(`You do not have permission to modify ${targetActor.name}`);
+      if (typeof targetActor.testUserPermission === 'function' && !targetActor.testUserPermission(game.user, "OWNER") && !game.user.isGM) {
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn(`You do not have permission to modify ${targetActor.name}`);
+        }
         return;
       }
 
@@ -963,7 +1042,9 @@ export class CombatHooks {
 
     } catch (error) {
       console.error("PF2e Narrative Seeds | Error applying dismemberment:", error);
-      ui.notifications.error("Failed to apply dismemberment");
+      if (typeof ui !== 'undefined' && ui.notifications) {
+        ui.notifications.error("Failed to apply dismemberment");
+      }
     }
   }
 
@@ -972,6 +1053,20 @@ export class CombatHooks {
    */
   static shutdown() {
     console.log("PF2e Narrative Seeds | Shutting down combat hooks");
-    // Hooks are automatically managed by Foundry
+
+    // Remove registered Foundry hooks
+    for (const hookId of this.hookIds) {
+      Hooks.off(hookId);
+    }
+    this.hookIds = [];
+
+    // Clear cleanup interval to prevent memory leak
+    if (this.cleanupIntervalId) {
+      clearInterval(this.cleanupIntervalId);
+      this.cleanupIntervalId = null;
+    }
+
+    // Clear pending attacks
+    this.pendingAttacks.clear();
   }
 }

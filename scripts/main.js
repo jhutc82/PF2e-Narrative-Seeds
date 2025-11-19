@@ -27,7 +27,8 @@ class PF2eNarrativeSeeds {
 
   static MODULE_ID = "pf2e-narrative-seeds";
   static MODULE_TITLE = "PF2e Narrative Seeds";
-  static VERSION = "1.2.0";
+  // Version should match module.json - update both when releasing
+  static VERSION = "1.3.7";
 
   static generators = new Map();
   static initialized = false;
@@ -48,7 +49,9 @@ class PF2eNarrativeSeeds {
     // Check if PF2e system
     if (!PF2eUtils.isPF2e()) {
       console.warn("PF2e Narrative Seeds | This module requires the PF2e game system!");
-      ui.notifications.warn("PF2e Narrative Seeds requires the Pathfinder 2e game system.");
+      if (typeof ui !== 'undefined' && ui.notifications) {
+        ui.notifications.warn("PF2e Narrative Seeds requires the Pathfinder 2e game system.");
+      }
       return;
     }
 
@@ -68,7 +71,7 @@ class PF2eNarrativeSeeds {
     console.log(`PF2e Narrative Seeds | Active generators: ${this.generators.size}`);
 
     // Show notification to GM
-    if (game.user.isGM) {
+    if (game.user.isGM && typeof ui !== 'undefined' && ui.notifications) {
       ui.notifications.info("PF2e Narrative Seeds loaded successfully!");
     }
   }
@@ -187,12 +190,17 @@ Hooks.once("init", () => {
   DismembermentManager.initialize();
 
   // Expose API
-  game.modules.get("pf2e-narrative-seeds").api = {
-    version: PF2eNarrativeSeeds.VERSION,
-    isInitialized: () => PF2eNarrativeSeeds.initialized,
-    getSetting: (key) => PF2eNarrativeSeeds.getSetting(key),
-    logInfo: () => PF2eNarrativeSeeds.logInfo()
-  };
+  const module = game.modules.get("pf2e-narrative-seeds");
+  if (module) {
+    module.api = {
+      version: PF2eNarrativeSeeds.VERSION,
+      isInitialized: () => PF2eNarrativeSeeds.initialized,
+      getSetting: (key) => PF2eNarrativeSeeds.getSetting(key),
+      logInfo: () => PF2eNarrativeSeeds.logInfo()
+    };
+  } else {
+    console.error("PF2e Narrative Seeds | Failed to get module from game.modules");
+  }
 });
 
 /**

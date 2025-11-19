@@ -129,8 +129,8 @@ export class DefenseDetector {
       'giant', 'beast', 'animal', 'ooze', 'plant', 'fungus'
     ];
 
-    analysis.hasNaturalArmor = traits.some(trait =>
-      naturalArmorTraits.includes(trait.toLowerCase())
+    analysis.hasNaturalArmor = Array.isArray(traits) && traits.some(trait =>
+      typeof trait === 'string' && naturalArmorTraits.includes(trait.toLowerCase())
     );
 
     // Also check creature type for natural armor
@@ -189,6 +189,12 @@ export class DefenseDetector {
     // Check for "Raise a Shield" effect/condition
     const effects = target.appliedEffects || target.effects || [];
 
+    // Validate effects is iterable
+    if (!effects || typeof effects[Symbol.iterator] !== 'function') {
+      console.warn('PF2e Narrative Seeds | effects is not iterable');
+      return false;
+    }
+
     for (const effect of effects) {
       const name = effect.name?.toLowerCase() || effect.label?.toLowerCase() || '';
       if (name.includes('raise') && name.includes('shield')) {
@@ -244,11 +250,11 @@ export class DefenseDetector {
 
       // Check traits for resistance/immunity indicators
       const traits = target.system?.traits?.value || [];
-      const drTraits = traits.filter(t => {
-        const tLower = t.toLowerCase();
+      const drTraits = Array.isArray(traits) ? traits.filter(t => {
+        const tLower = typeof t === 'string' ? t.toLowerCase() : '';
         return tLower.includes('resistance') || tLower.includes('immunity') ||
                tLower.includes('dr') || tLower.includes('hardness');
-      });
+      }) : [];
 
       if (drTraits.length > 0) {
         return true;
@@ -268,8 +274,13 @@ export class DefenseDetector {
    */
   static hasShieldBlock(target) {
     try {
+      // Validate target.items exists
+      if (!target?.items) {
+        return false;
+      }
+
       // Check for Shield Block feat
-      const hasShieldBlockFeat = target.items?.some(item =>
+      const hasShieldBlockFeat = target.items.some(item =>
         item.type === 'feat' &&
         item.name?.toLowerCase().includes('shield block')
       );
@@ -279,7 +290,7 @@ export class DefenseDetector {
       }
 
       // Check for classes that get Shield Block automatically
-      const classItems = target.items?.filter(item => item.type === 'class') || [];
+      const classItems = target.items.filter(item => item.type === 'class');
 
       for (const classItem of classItems) {
         const className = classItem.name?.toLowerCase() || '';
@@ -311,11 +322,17 @@ export class DefenseDetector {
    * @returns {string} The selected miss reason
    */
   static selectMissReason(weights) {
+    // Validate weights parameter
+    if (!weights || typeof weights !== 'object' || Array.isArray(weights)) {
+      console.warn('PF2e Narrative Seeds | Invalid weights parameter');
+      return 'miss';
+    }
+
     const options = [];
 
     // Build weighted array
     for (const [reason, weight] of Object.entries(weights)) {
-      if (weight > 0) {
+      if (typeof weight === 'number' && weight > 0) {
         for (let i = 0; i < weight; i++) {
           options.push(reason);
         }

@@ -2,9 +2,14 @@
  * Manages the selection and application of dismemberment effects
  * for devastating critical hits.
  */
+import { NarrativeSeedsSettings } from '../settings.js';
+
 export class DismembermentManager {
     static dismemberments = [];
     static initialized = false;
+
+    // Damage threshold for triggering dismemberment (50% of max HP)
+    static DAMAGE_THRESHOLD_PERCENT = 0.5;
 
     /**
      * Initialize the dismemberment manager by loading dismemberment data
@@ -15,13 +20,17 @@ export class DismembermentManager {
         try {
             // Load dismemberment data
             const response = await fetch('modules/pf2e-narrative-seeds/data/combat/dismemberment/dismemberments.json');
+            if (!response.ok) {
+                throw new Error(`Failed to load dismemberment data: HTTP ${response.status}`);
+            }
             const data = await response.json();
-            this.dismemberments = data.dismemberments;
+            this.dismemberments = data.dismemberments || [];
 
             this.initialized = true;
             console.log('PF2e Narrative Seeds | Dismemberment Manager initialized');
         } catch (error) {
             console.error('PF2e Narrative Seeds | Failed to initialize Dismemberment Manager:', error);
+            this.dismemberments = [];  // Ensure array is initialized
         }
     }
 
@@ -38,7 +47,7 @@ export class DismembermentManager {
         }
 
         // Check if dismemberment is enabled
-        const enabled = game.settings.get('pf2e-narrative-seeds', 'enableDismemberment');
+        const enabled = NarrativeSeedsSettings.get('enableDismemberment', false);
         if (!enabled) {
             return false;
         }
@@ -53,17 +62,19 @@ export class DismembermentManager {
         const maxHP = target.system?.attributes?.hp?.max || 0;
 
         // Check if target is unconscious (dying or unconscious condition)
-        const isUnconscious = target.hasCondition?.('unconscious') ||
-                             target.hasCondition?.('dying') ||
+        // Use type checking for hasCondition to ensure compatibility with all actor types
+        const isUnconscious = (target && typeof target.hasCondition === 'function' &&
+                              (target.hasCondition('unconscious') || target.hasCondition('dying'))) ||
                              currentHP <= 0;
 
         // NEW LOGIC: Check damage amount if available
         // Dismemberment triggers on critical hit IF:
         // 1. Target is unconscious/dying, OR
-        // 2. Damage dealt is >= 50% of target's max HP
+        // 2. Damage dealt is >= configured threshold (default 50%) of target's max HP
         const damageAmount = attackData.damageAmount || 0;
-        const damageThreshold = maxHP * 0.5;
-        const isHighDamage = damageAmount >= damageThreshold && maxHP > 0;
+        // Check maxHP > 0 first to avoid division issues and unnecessary calculation
+        const isHighDamage = maxHP > 0 && damageAmount >= (maxHP * this.DAMAGE_THRESHOLD_PERCENT);
+        const damageThreshold = maxHP > 0 ? maxHP * this.DAMAGE_THRESHOLD_PERCENT : 0;
 
         console.log(`PF2e Narrative Seeds | Dismemberment check: unconscious=${isUnconscious}, damage=${damageAmount}/${damageThreshold} (${maxHP} max HP), highDamage=${isHighDamage}`);
 
@@ -107,17 +118,21 @@ export class DismembermentManager {
      * @returns {number} Percentage chance (0-100)
      */
     static calculateDismembermentChance(target) {
-        const baseChance = game.settings.get('pf2e-narrative-seeds', 'dismembermentBaseChance');
-        const levelScaling = game.settings.get('pf2e-narrative-seeds', 'dismembermentLevelScaling');
-        const maxChance = game.settings.get('pf2e-narrative-seeds', 'dismembermentMaxChance');
+        const baseChance = NarrativeSeedsSettings.get('dismembermentBaseChance', 10);
+        const levelScaling = NarrativeSeedsSettings.get('dismembermentLevelScaling', true);
+        const maxChance = NarrativeSeedsSettings.get('dismembermentMaxChance', 50);
 
-        const targetLevel = target.system?.details?.level?.value || 0;
+        // Validate numeric values to prevent NaN
+        const validBaseChance = typeof baseChance === 'number' && !isNaN(baseChance) ? baseChance : 10;
+        const validMaxChance = typeof maxChance === 'number' && !isNaN(maxChance) ? maxChance : 50;
 
-        // Calculate: base + (level * scaling)
-        let chance = baseChance + (targetLevel * levelScaling);
+        const targetLevel = target?.system?.details?.level?.value || 0;
+
+        // Calculate: base + (level if scaling enabled)
+        let chance = validBaseChance + (levelScaling ? targetLevel : 0);
 
         // Cap at max
-        chance = Math.min(chance, maxChance);
+        chance = Math.min(chance, validMaxChance);
 
         return chance;
     }

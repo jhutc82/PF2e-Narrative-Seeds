@@ -2,35 +2,48 @@
  * Manages the selection and application of combat complications
  * for critical successes and critical failures.
  */
+import { NarrativeSeedsSettings } from '../settings.js';
+
 export class ComplicationManager {
     static complications = {
-        criticalSuccess: null,
-        criticalFailure: null
+        criticalSuccess: [],
+        criticalFailure: []
     };
 
     static initialized = false;
+    static initializationFailed = false;
 
     /**
      * Initialize the complication manager by loading complication data
      */
     static async initialize() {
-        if (this.initialized) return;
+        if (this.initialized || this.initializationFailed) return;
 
         try {
             // Load critical success complications
             const critSuccessResponse = await fetch('modules/pf2e-narrative-seeds/data/combat/complications/critical-success.json');
+            if (!critSuccessResponse.ok) {
+                throw new Error(`Failed to load critical success complications: HTTP ${critSuccessResponse.status}`);
+            }
             const critSuccessData = await critSuccessResponse.json();
-            this.complications.criticalSuccess = critSuccessData.complications;
+            this.complications.criticalSuccess = critSuccessData.complications || [];
 
             // Load critical failure complications
             const critFailResponse = await fetch('modules/pf2e-narrative-seeds/data/combat/complications/critical-failure.json');
+            if (!critFailResponse.ok) {
+                throw new Error(`Failed to load critical failure complications: HTTP ${critFailResponse.status}`);
+            }
             const critFailData = await critFailResponse.json();
-            this.complications.criticalFailure = critFailData.complications;
+            this.complications.criticalFailure = critFailData.complications || [];
 
             this.initialized = true;
             console.log('PF2e Narrative Seeds | Complication Manager initialized');
         } catch (error) {
             console.error('PF2e Narrative Seeds | Failed to initialize Complication Manager:', error);
+            this.initializationFailed = true;
+            // Ensure arrays are empty rather than null/undefined
+            this.complications.criticalSuccess = [];
+            this.complications.criticalFailure = [];
         }
     }
 
@@ -40,7 +53,7 @@ export class ComplicationManager {
      * @returns {boolean} Whether to generate a complication
      */
     static shouldGenerateComplication(seed) {
-        const { outcome, attackerLevel } = seed;
+        const { outcome } = seed;
 
         // Only generate complications for critical outcomes
         if (outcome !== 'criticalSuccess' && outcome !== 'criticalFailure') {
@@ -48,14 +61,13 @@ export class ComplicationManager {
         }
 
         // Check if complications are enabled in settings
-        const enabled = game.settings.get('pf2e-narrative-seeds', 'enableComplications');
+        const enabled = NarrativeSeedsSettings.get('enableComplications', false);
         if (!enabled) {
             return false;
         }
 
-        // Calculate level-based chance: 5% per level, 100% at level 20
-        const level = attackerLevel || 1;
-        const chance = Math.min(level * 5, 100);
+        // Use complication chance from settings (0-100%)
+        const chance = NarrativeSeedsSettings.get('complicationChance', 30);
 
         return Math.random() * 100 < chance;
     }
@@ -78,7 +90,9 @@ export class ComplicationManager {
         const { outcome, damageType, anatomy } = seed;
         const availableComplications = this.complications[outcome];
 
-        if (!availableComplications || availableComplications.length === 0) {
+        // Validate that complications array exists and has items
+        if (!Array.isArray(availableComplications) || availableComplications.length === 0) {
+            console.warn(`PF2e Narrative Seeds | No complications available for outcome: ${outcome}`);
             return null;
         }
 
@@ -138,6 +152,13 @@ export class ComplicationManager {
         }
 
         const totalWeight = items.reduce((sum, item) => sum + (item.weight || 1), 0);
+
+        // Edge case: all items have weight 0
+        if (totalWeight === 0) {
+            console.warn('PF2e Narrative Seeds | All items have weight 0, selecting random item');
+            return items[Math.floor(Math.random() * items.length)];
+        }
+
         let random = Math.random() * totalWeight;
 
         for (const item of items) {
@@ -147,7 +168,8 @@ export class ComplicationManager {
             }
         }
 
-        return items[0]; // Fallback
+        // Fallback for floating point precision issues
+        return items[0];
     }
 
     /**

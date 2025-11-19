@@ -61,7 +61,7 @@ export class SkillNarrativeGenerator {
 
       // Get narratives for this outcome
       const narratives = variant.narratives?.[detailLevel]?.[outcome];
-      if (!narratives || narratives.length === 0) {
+      if (!narratives || !Array.isArray(narratives) || narratives.length === 0) {
         console.warn(`No narratives for ${action} at ${detailLevel}/${outcome}`);
 
         // Try to fall back to standard detail level
@@ -126,7 +126,7 @@ export class SkillNarrativeGenerator {
       this.memory.recordAction(actor, action, outcome);
     }
 
-    PerformanceMonitor.end(PerformanceMonitor.start('skill-narrative-generation'));
+    // Performance monitoring handled by generate() method
 
     return {
       text: text,
@@ -164,7 +164,7 @@ export class SkillNarrativeGenerator {
    */
   selectVariant(actionData, feats, skillData) {
     // Check for feat-specific variants
-    if (feats.length > 0 && actionData.variants) {
+    if (Array.isArray(feats) && feats.length > 0 && actionData.variants) {
       // Priority order: use first detected feat that has a variant AND meets conditions
       for (const feat of feats) {
         const variant = actionData.variants[feat];
@@ -260,18 +260,24 @@ export class SkillNarrativeGenerator {
   /**
    * Check Battle Cry conditions
    * Requires: first action of combat OR first Demoralize of encounter
+   *
+   * LIMITATION: Proper "first action" detection is not currently implemented
+   * because chat messages don't contain sufficient timing information.
+   *
+   * Current implementation uses a simple heuristic:
+   * - Always shows Battle Cry variant in round 1 of combat
+   * - Otherwise allows it (prefers showing the feat over hiding it)
+   *
+   * This may show Battle Cry when technically not valid, but ensures
+   * players with the feat see their narrative variant.
+   *
    * @param {Object} skillData - Skill data
-   * @returns {boolean} True if conditions met
+   * @returns {boolean} True if conditions met (or likely met)
    */
   checkBattleCryConditions(skillData) {
     const { actor, message } = skillData;
 
-    // For now, we'll allow Battle Cry variant any time
-    // TODO: Implement proper "first action of combat" detection
-    // This would require tracking combat state and round/turn info
-    // which isn't easily accessible from chat messages alone
-
-    // Simple heuristic: check if combat just started (round 1, low turn number)
+    // Simple heuristic: check if combat just started (round 1)
     if (game?.combat?.round === 1) {
       return true;
     }
@@ -299,7 +305,8 @@ export class SkillNarrativeGenerator {
    */
   selectNarrativeWithVariety(narratives, action, outcome) {
     const cacheKey = `skill-${action}-${outcome}`;
-    return RandomUtils.selectWithVariety(narratives, cacheKey);
+    const varietyMode = NarrativeSeedsSettings.get("varietyMode") || "high";
+    return RandomUtils.selectRandom(narratives, varietyMode, cacheKey);
   }
 
   /**
@@ -322,8 +329,8 @@ export class SkillNarrativeGenerator {
       skillName: skill || "skill",
 
       // Feat info
-      feats: feats.join(', '),
-      hasFeat: feats.length > 0,
+      feats: Array.isArray(feats) ? feats.join(', ') : '',
+      hasFeat: Array.isArray(feats) && feats.length > 0,
 
       // Actor pronouns (if available)
       actorPronoun: this.getPronoun(actor, 'subject'),

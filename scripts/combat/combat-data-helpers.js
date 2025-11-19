@@ -18,7 +18,7 @@ import { ContextFilters } from './context-filters.js';
  */
 export async function getLocation(anatomy, outcome, varietyMode = 'high') {
   const locations = await DataLoader.loadLocations(anatomy, outcome);
-  if (!locations || locations.length === 0) {
+  if (!locations || !Array.isArray(locations) || locations.length === 0) {
     return null;
   }
 
@@ -37,7 +37,7 @@ export async function getLocation(anatomy, outcome, varietyMode = 'high') {
  */
 export async function getDamageVerb(damageType, outcome, varietyMode = 'high', locationAnatomy = null) {
   const verbs = await DataLoader.loadDamageDescriptors(damageType, 'verbs', outcome);
-  if (!verbs || verbs.length === 0) {
+  if (!verbs || !Array.isArray(verbs) || verbs.length === 0) {
     return null;
   }
 
@@ -55,7 +55,7 @@ export async function getDamageVerb(damageType, outcome, varietyMode = 'high', l
  */
 export async function getDamageEffect(damageType, outcome, varietyMode = 'high', locationAnatomy = null) {
   const effects = await DataLoader.loadDamageDescriptors(damageType, 'effects', outcome);
-  if (!effects || effects.length === 0) {
+  if (!effects || !Array.isArray(effects) || effects.length === 0) {
     return null;
   }
 
@@ -74,7 +74,7 @@ export async function getDamageEffect(damageType, outcome, varietyMode = 'high',
  */
 export async function getContextualDamageVerb(damageType, outcome, varietyMode = 'high', context = {}) {
   const verbs = await DataLoader.loadDamageDescriptors(damageType, 'verbs', outcome);
-  if (!verbs || verbs.length === 0) {
+  if (!verbs || !Array.isArray(verbs) || verbs.length === 0) {
     return null;
   }
 
@@ -101,14 +101,14 @@ export async function getContextualDamageEffect(damageType, outcome, varietyMode
 
   // Check for anatomy-specific overrides first
   const overrides = await DataLoader.loadAnatomyOverrides(anatomyBase, outcome);
-  if (overrides && overrides.length > 0) {
+  if (overrides && Array.isArray(overrides) && overrides.length > 0) {
     const category = `anatomy-override:${anatomyBase}:${outcome}`;
     return RandomUtils.selectRandom(overrides, varietyMode, category);
   }
 
   // Fall back to standard effects with filtering
   const effects = await DataLoader.loadDamageDescriptors(damageType, 'effects', outcome);
-  if (!effects || effects.length === 0) {
+  if (!effects || !Array.isArray(effects) || effects.length === 0) {
     return null;
   }
 
@@ -142,7 +142,7 @@ export function getWeaponType(damageType, item = null, pov = "second", message =
  */
 export async function getOpeningSentence(detailLevel, outcome, context = {}) {
   const openings = await DataLoader.loadOpenings(detailLevel, outcome);
-  if (!openings || openings.length === 0) {
+  if (!openings || !Array.isArray(openings) || openings.length === 0) {
     return "";
   }
 
@@ -165,7 +165,7 @@ export async function getRangedOpeningSentence(weaponCategory, detailLevel, outc
   const category = `ranged-${weaponCategory}`;
   const openings = await DataLoader.loadOpenings(detailLevel, outcome, category);
 
-  if (!openings || openings.length === 0) {
+  if (!openings || !Array.isArray(openings) || openings.length === 0) {
     // Fallback to standard openings
     return await getOpeningSentence(detailLevel, outcome, context);
   }
@@ -188,7 +188,7 @@ export async function getMeleeOpeningSentence(weaponCategory, detailLevel, outco
   const category = `melee-${weaponCategory}`;
   const openings = await DataLoader.loadOpenings(detailLevel, outcome, category);
 
-  if (!openings || openings.length === 0) {
+  if (!openings || !Array.isArray(openings) || openings.length === 0) {
     // Fallback to standard openings
     return await getOpeningSentence(detailLevel, outcome, context);
   }
@@ -210,7 +210,7 @@ export async function getDefenseOpenings(outcome, defenseType, detailLevel) {
   const category = `defense-${defenseType}`;
   const openings = await DataLoader.loadOpenings(detailLevel, outcome, category);
 
-  return openings || [];
+  return (openings && Array.isArray(openings)) ? openings : [];
 }
 
 /**
@@ -225,7 +225,7 @@ export function getRangedWeaponCategory(item, message = null) {
   // Check item type
   const itemType = item.type?.toLowerCase();
   const itemName = item.name?.toLowerCase() || '';
-  const traits = item.system?.traits?.value || [];
+  const traits = Array.isArray(item.system?.traits?.value) ? item.system.traits.value : [];
 
   // Check for spell
   if (itemType === 'spell' || traits.includes('spell')) {
@@ -280,7 +280,7 @@ export function getMeleeWeaponCategory(item, message = null) {
 
   const itemType = item.type?.toLowerCase();
   const itemName = item.name?.toLowerCase() || '';
-  const traits = item.system?.traits?.value || [];
+  const traits = Array.isArray(item.system?.traits?.value) ? item.system.traits.value : [];
   const group = item.system?.group?.value;
 
   // Check for unarmed attacks
@@ -394,7 +394,7 @@ export function getSizeDifference(attacker, target) {
 export function isNonLethalAttack(item, message = null) {
   if (!item) return false;
 
-  const traits = item.system?.traits?.value || [];
+  const traits = Array.isArray(item.system?.traits?.value) ? item.system.traits.value : [];
   const itemName = item.name?.toLowerCase() || '';
 
   // Check for nonlethal trait
@@ -477,7 +477,7 @@ export async function getSizeModifier(sizeDifference, varietyMode = 'high') {
   }
 
   const modifiers = await DataLoader.loadSizeModifiers(sizeDifference);
-  if (!modifiers || modifiers.length === 0) {
+  if (!modifiers || !Array.isArray(modifiers) || modifiers.length === 0) {
     return null;
   }
 

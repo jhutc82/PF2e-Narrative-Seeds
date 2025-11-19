@@ -91,7 +91,7 @@ export class FeatDetector {
    */
   static getActorFromMessage(message) {
     const actorId = message.speaker?.actor;
-    if (!actorId) return null;
+    if (!actorId || !game?.actors) return null;
 
     return game.actors.get(actorId);
   }
@@ -112,6 +112,12 @@ export class FeatDetector {
 
     // Build feat set
     const feats = new Set();
+
+    // Validate actor.items is iterable
+    if (!actor.items || typeof actor.items[Symbol.iterator] !== 'function') {
+      console.warn('PF2e Narrative Seeds | actor.items is not iterable');
+      return feats;
+    }
 
     for (const item of actor.items) {
       if (item.type === 'feat') {

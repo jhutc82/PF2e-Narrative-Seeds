@@ -58,6 +58,12 @@ export class AnatomyDetector {
     const modifiers = [];
     const sortedModifiers = getSortedModifiers();
 
+    // Validate sortedModifiers is iterable
+    if (!sortedModifiers || typeof sortedModifiers[Symbol.iterator] !== 'function') {
+      console.warn('PF2e Narrative Seeds | sortedModifiers is not iterable');
+      return modifiers;
+    }
+
     for (const [key, definition] of sortedModifiers) {
       // Check name matches first (more specific)
       if (definition.nameMatches && definition.nameMatches.length > 0) {
@@ -92,6 +98,12 @@ export class AnatomyDetector {
    */
   static detectBaseAnatomy(name, traits) {
     const sortedTypes = getSortedAnatomyTypes();
+
+    // Validate sortedTypes is iterable
+    if (!sortedTypes || typeof sortedTypes[Symbol.iterator] !== 'function') {
+      console.warn('PF2e Narrative Seeds | sortedTypes is not iterable');
+      return "humanoid";
+    }
 
     for (const [key, definition] of sortedTypes) {
       // Check name matches first (more specific)

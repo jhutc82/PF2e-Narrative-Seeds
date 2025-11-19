@@ -46,7 +46,7 @@ export class SkillFormatter {
       html += ` • <span class="narrative-outcome ${seed.outcome}">${this.formatOutcome(seed.outcome)}</span>`;
     }
 
-    if (seed.feats && seed.feats.length > 0 && showDetectedFeats) {
+    if (Array.isArray(seed.feats) && seed.feats.length > 0 && showDetectedFeats) {
       html += ` • <span class="narrative-feats">${seed.feats.join(', ')}</span>`;
     }
 
@@ -54,7 +54,7 @@ export class SkillFormatter {
 
     // Regenerate button
     html += '<div class="narrative-controls">';
-    html += '<button class="narrative-regenerate" data-message-id="${messageId}">↻ Regenerate</button>';
+    html += '<button class="narrative-regenerate">↻ Regenerate</button>';
     html += '</div>';
 
     html += '</div>';
@@ -94,7 +94,7 @@ export class SkillFormatter {
       classes.push(`detail-${seed.detailLevel}`);
     }
 
-    if (seed.feats && seed.feats.length > 0) {
+    if (Array.isArray(seed.feats) && seed.feats.length > 0) {
       classes.push('has-feats');
     }
 
@@ -107,7 +107,7 @@ export class SkillFormatter {
    * @returns {string} Formatted feat list
    */
   static formatFeats(feats) {
-    if (!feats || feats.length === 0) return '';
+    if (!feats || !Array.isArray(feats) || feats.length === 0) return '';
 
     const formatted = feats.map(feat => {
       // Capitalize and format

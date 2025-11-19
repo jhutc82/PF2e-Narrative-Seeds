@@ -73,6 +73,7 @@ export class NarrativeSeedGenerator {
    * @returns {string}
    */
   capitalize(str) {
+    if (!str || typeof str !== 'string') return str || '';
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
 }
@@ -83,9 +84,11 @@ export class NarrativeSeedGenerator {
 export class RandomUtils {
   static MAX_CACHE_SIZE = 100;  // Maximum number of categories to track
   static MAX_CACHE_AGE = 300000;  // 5 minutes in milliseconds
+  static PRUNE_INTERVAL = 60000;  // Prune every 60 seconds
   static usageHistory = new Map();
   static cacheTimestamps = new Map();
   static messageHistory = [];
+  static lastPruneTime = 0;
 
   // History size limits for variety modes
   // These control how many recent selections to avoid repeating
@@ -182,9 +185,11 @@ export class RandomUtils {
       return array[Math.floor(Math.random() * array.length)];
     }
 
-    // Prune cache periodically
-    if (this.usageHistory.size > this.MAX_CACHE_SIZE * 0.9) {
+    // Prune cache periodically (both time-based and size-based)
+    const now = Date.now();
+    if (this.usageHistory.size > this.MAX_CACHE_SIZE * 0.9 || now - this.lastPruneTime > this.PRUNE_INTERVAL) {
       this.pruneCache();
+      this.lastPruneTime = now;
     }
 
     // Get or create history for this category
@@ -459,9 +464,10 @@ export class StringUtils {
   /**
    * Interpolate template variables in a single pass
    * Optimized replacement for multiple regex operations
+   * SECURITY: All interpolated values are HTML-escaped to prevent XSS attacks
    * @param {string} template - String with ${var} placeholders
    * @param {Object} vars - Variable substitutions
-   * @returns {string} Interpolated string
+   * @returns {string} Interpolated string with HTML-escaped values
    * @example
    * interpolate("${name} hits ${target}", {name: "Bob", target: "Alice"})
    * // Returns: "Bob hits Alice"
@@ -471,8 +477,25 @@ export class StringUtils {
     if (!vars || typeof vars !== 'object') return template;
 
     // Single pass replacement - much faster than multiple regex calls
+    // All values are HTML-escaped to prevent XSS injection
     return template.replace(/\$\{(\w+)\}/g, (match, key) => {
-      return vars[key] !== undefined ? vars[key] : match;
+      const value = vars[key];
+      if (value === undefined || value === null) {
+        return match;
+      }
+      // Convert value to string, handling objects appropriately
+      let strValue;
+      if (typeof value === 'object') {
+        // For objects, use JSON representation or toString
+        try {
+          strValue = JSON.stringify(value);
+        } catch (e) {
+          strValue = String(value);
+        }
+      } else {
+        strValue = String(value);
+      }
+      return this.escapeHTML(strValue);
     });
   }
 }
@@ -524,7 +547,7 @@ export class ChatUtils {
     return ChatMessage.create({
       content: content,
       whisper: whisper,
-      type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+      style: CONST.CHAT_MESSAGE_STYLES.OTHER,
       speaker: options.speaker || {},
       flags: {
         "pf2e-narrative-seeds": options.flags || {}
@@ -551,8 +574,11 @@ export class PF2eUtils {
    * @returns {Actor|null}
    */
   static getActor(tokenOrActorId) {
-    const token = canvas.tokens?.get(tokenOrActorId);
-    if (token) return token.actor;
+    // Check if canvas is available (not in setup/login screens)
+    if (canvas?.tokens) {
+      const token = canvas.tokens.get(tokenOrActorId);
+      if (token) return token.actor;
+    }
 
     return game.actors.get(tokenOrActorId);
   }
@@ -572,7 +598,7 @@ export class PF2eUtils {
 
     return context.type === "attack-roll" ||
            context.action === "strike" ||
-           message.flags.pf2e.modifierName === "Attack Roll";
+           flags.modifierName === "Attack Roll";
   }
 
   /**

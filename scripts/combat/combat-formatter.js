@@ -73,7 +73,7 @@ export class CombatFormatter {
    */
   static generateMinimalHTML(description) {
     const escapedDescription = StringUtils.escapeHTML(description);
-    const autoApply = game.settings.get("pf2e-narrative-seeds", "autoApplyComplications");
+    const autoApply = NarrativeSeedsSettings.get("autoApplyComplications", false);
     const regenerateButton = autoApply ? '' : '<button class="regenerate-icon" data-action="regenerate" title="Generate new narrative">🔄</button>';
 
     return `
@@ -100,7 +100,7 @@ export class CombatFormatter {
       outcome
     } = seed;
 
-    const autoApply = game.settings.get("pf2e-narrative-seeds", "autoApplyComplications");
+    const autoApply = NarrativeSeedsSettings.get("autoApplyComplications", false);
     const escapedDescription = StringUtils.escapeHTML(description);
     const complicationHTML = complication ? this.generateComplicationHTML(complication, outcome) : '';
     const dismembermentHTML = dismemberment ? this.generateDismembermentHTML(dismemberment) : '';
@@ -201,33 +201,43 @@ export class CombatFormatter {
   static generateComplicationHTML(complication, outcome) {
     if (!complication) return '';
 
-    const autoApply = game.settings.get("pf2e-narrative-seeds", "autoApplyComplications");
+    const autoApply = NarrativeSeedsSettings.get("autoApplyComplications", false);
     const escapedName = StringUtils.escapeHTML(complication.name);
     const escapedDescription = StringUtils.escapeHTML(complication.description || '');
     const durationText = complication.duration
       ? `${complication.duration} round${complication.duration > 1 ? 's' : ''}`
       : 'Permanent';
 
-    // Get mechanical effect from effect object
-    let conditionName = '';
-    let conditionValue = '';
+    // Get mechanical effect details
     let mechanics = '';
+    let effectTitle = escapedName;
 
-    if (complication.effect?.condition) {
-      conditionName = StringUtils.capitalizeFirst(complication.effect.condition);
-      conditionValue = complication.effect.value || '';
-      mechanics = this.getConditionMechanics(complication.effect.condition, conditionValue);
-    } else if (complication.conditionSlug) {
-      // Fallback to old format
-      conditionName = StringUtils.capitalizeFirst(complication.conditionSlug);
-      conditionValue = complication.conditionValue || '';
-      mechanics = this.getConditionMechanics(complication.conditionSlug, conditionValue);
+    if (complication.effect) {
+      const effect = complication.effect;
+
+      switch (effect.type) {
+        case 'condition':
+          const condName = StringUtils.capitalizeFirst(effect.condition);
+          effectTitle = effect.value ? `${condName} ${effect.value}` : condName;
+          mechanics = this.getConditionMechanics(effect.condition, effect.value || '');
+          break;
+
+        case 'persistent-damage':
+          effectTitle = `${effect.value} ${effect.damageType} Persistent`;
+          mechanics = `Take ${effect.value} ${effect.damageType} damage at the end of your turn (DC ${effect.dc} flat check to end)`;
+          break;
+
+        case 'penalty':
+          effectTitle = `${effect.value} ${effect.stat}`;
+          mechanics = `${effect.value} circumstance penalty to ${effect.stat}`;
+          break;
+
+        case 'speed-penalty':
+          effectTitle = `${effect.value}ft Speed Penalty`;
+          mechanics = `${effect.value}-foot penalty to ${effect.movementType || 'all movement speeds'}`;
+          break;
+      }
     }
-
-    // Build effect display
-    const effectTitle = conditionValue
-      ? `${conditionName} ${conditionValue}`
-      : conditionName;
 
     // If auto-apply is enabled, show effect was applied automatically
     const applyButton = autoApply
@@ -240,7 +250,7 @@ export class CombatFormatter {
         <div class="effect-header">
           <strong>${effectTitle}</strong> <span class="effect-duration">(${durationText})</span>
         </div>
-        <div class="effect-mechanics">${mechanics}</div>
+        ${mechanics ? `<div class="effect-mechanics">${mechanics}</div>` : ''}
         ${escapedDescription ? `<div class="effect-description">${escapedDescription}</div>` : ''}
         <div class="effect-actions">
           ${applyButton}
@@ -322,7 +332,7 @@ export class CombatFormatter {
   static async narrateToChat(description) {
     await ChatMessage.create({
       content: description,
-      type: CONST.CHAT_MESSAGE_TYPES.IC
+      style: CONST.CHAT_MESSAGE_STYLES.IC
     });
   }
 
@@ -333,25 +343,40 @@ export class CombatFormatter {
   static copyToClipboard(text) {
     if (navigator.clipboard) {
       navigator.clipboard.writeText(text).then(() => {
-        ui.notifications.info("Copied to clipboard!");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.info("Copied to clipboard!");
+        }
       }).catch(err => {
         console.error("Failed to copy:", err);
-        ui.notifications.error("Failed to copy to clipboard");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.error("Failed to copy to clipboard");
+        }
       });
     } else {
       // Fallback for older browsers
       const textArea = document.createElement("textarea");
       textArea.value = text;
-      document.body.appendChild(textArea);
-      textArea.select();
+      textArea.style.position = 'fixed';
+      textArea.style.opacity = '0';
+
       try {
+        document.body.appendChild(textArea);
+        textArea.select();
         document.execCommand('copy');
-        ui.notifications.info("Copied to clipboard!");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.info("Copied to clipboard!");
+        }
       } catch (err) {
         console.error("Failed to copy:", err);
-        ui.notifications.error("Failed to copy to clipboard");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.error("Failed to copy to clipboard");
+        }
+      } finally {
+        // Safely remove textArea even if appendChild failed
+        if (textArea.parentNode) {
+          document.body.removeChild(textArea);
+        }
       }
-      document.body.removeChild(textArea);
     }
   }
 }

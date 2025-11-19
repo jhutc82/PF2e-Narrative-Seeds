@@ -84,6 +84,12 @@ export class PerformanceMonitor {
    * @param {number} duration - Duration in milliseconds
    */
   static recordMetric(label, duration) {
+    // Prevent prototype pollution
+    if (!label || typeof label !== 'string' || label === '__proto__' || label === 'constructor' || label === 'prototype') {
+      console.warn('PF2e Narrative Seeds | Invalid metric label:', label);
+      return;
+    }
+
     if (!this.metrics[label]) {
       this.metrics[label] = [];
     }

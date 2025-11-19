@@ -65,6 +65,16 @@ export class CombatMemory {
    * @returns {Object} Memory context for narrative generation
    */
   static recordAttack(combatId, attackerId, targetId, outcome) {
+    // Validate inputs to prevent Map key issues
+    if (!attackerId) {
+      console.warn('PF2e Narrative Seeds | recordAttack called with null/undefined attackerId');
+      attackerId = 'unknown-attacker';
+    }
+    if (!targetId) {
+      console.warn('PF2e Narrative Seeds | recordAttack called with null/undefined targetId');
+      targetId = 'unknown-target';
+    }
+
     const session = this.getSession(combatId);
 
     // Update session totals
@@ -294,11 +304,18 @@ export class CombatMemory {
    */
   static cleanupOldSessions() {
     const now = Date.now();
+    // Create array of keys to delete to avoid modifying Map during iteration
+    const toDelete = [];
     for (const [combatId, session] of this.sessions.entries()) {
       if (now - session.lastActivity > this.SESSION_TIMEOUT) {
-        console.log(`PF2e Narrative Seeds | Cleaning up old combat session: ${combatId}`);
-        this.sessions.delete(combatId);
+        toDelete.push(combatId);
       }
+    }
+
+    // Delete sessions after iteration completes
+    for (const combatId of toDelete) {
+      console.log(`PF2e Narrative Seeds | Cleaning up old combat session: ${combatId}`);
+      this.sessions.delete(combatId);
     }
   }
 

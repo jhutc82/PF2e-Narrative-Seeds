@@ -11,31 +11,77 @@ export class EffectApplicator {
      */
     static async applyComplication(actor, complication) {
         if (!actor) {
-            ui.notifications.warn('No valid target for complication effect');
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.warn('No valid target for complication effect');
+            }
+            return false;
+        }
+
+        if (!complication || typeof complication !== 'object') {
+            console.warn('PF2e Narrative Seeds | Invalid complication data');
             return false;
         }
 
         const { effect, name, description, duration } = complication;
 
+        if (!effect || !name) {
+            console.warn('PF2e Narrative Seeds | Complication missing required fields');
+            return false;
+        }
+
+        // Enhance description with mechanical effects
+        const enhancedDescription = this.enhanceComplicationDescription(description, effect, duration);
+
         try {
             switch (effect.type) {
                 case 'condition':
-                    return await this.applyCondition(actor, effect, name, description, duration);
+                    return await this.applyCondition(actor, effect, name, enhancedDescription, duration);
                 case 'persistent-damage':
-                    return await this.applyPersistentDamage(actor, effect, name, description);
+                    return await this.applyPersistentDamage(actor, effect, name, enhancedDescription);
                 case 'penalty':
-                    return await this.applyPenalty(actor, effect, name, description, duration);
+                    return await this.applyPenalty(actor, effect, name, enhancedDescription, duration);
                 case 'speed-penalty':
-                    return await this.applySpeedPenalty(actor, effect, name, description, duration);
+                    return await this.applySpeedPenalty(actor, effect, name, enhancedDescription, duration);
                 default:
                     console.warn(`Unknown complication effect type: ${effect.type}`);
                     return false;
             }
         } catch (error) {
             console.error('PF2e Narrative Seeds | Failed to apply complication:', error);
-            ui.notifications.error(`Failed to apply complication: ${name}`);
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.error(`Failed to apply complication: ${name}`);
+            }
             return false;
         }
+    }
+
+    /**
+     * Enhance complication description with mechanical effect details
+     * @param {string} description - Original description
+     * @param {Object} effect - Effect data
+     * @param {number} duration - Duration in rounds
+     * @returns {string} Enhanced description
+     */
+    static enhanceComplicationDescription(description, effect, duration) {
+        let mechanicsText = '';
+        const durationText = duration ? ` for ${duration} round${duration > 1 ? 's' : ''}` : '';
+
+        switch (effect.type) {
+            case 'condition':
+                mechanicsText = `<p><strong>Effect:</strong> ${effect.condition}${effect.value ? ' ' + effect.value : ''}${durationText}</p>`;
+                break;
+            case 'persistent-damage':
+                mechanicsText = `<p><strong>Effect:</strong> ${effect.value} ${effect.damageType} persistent damage (DC ${effect.dc} flat check to end)</p>`;
+                break;
+            case 'penalty':
+                mechanicsText = `<p><strong>Effect:</strong> ${effect.value} penalty to ${effect.stat}${durationText}</p>`;
+                break;
+            case 'speed-penalty':
+                mechanicsText = `<p><strong>Effect:</strong> ${effect.value} foot penalty to ${effect.movementType || 'all movement'}${durationText}</p>`;
+                break;
+        }
+
+        return `<p>${description}</p>${mechanicsText}`;
     }
 
     /**
@@ -60,19 +106,15 @@ export class EffectApplicator {
                 await actor.increaseCondition(condition);
             }
 
-            ui.notifications.info(`Applied ${name} to ${actor.name}`);
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.info(`Applied ${name} to ${actor.name}`);
+            }
             return true;
         } catch (error) {
             console.error('Failed to apply condition:', error);
-            // Fallback: create a custom effect item
-            return await this.createCustomEffect(actor, name, description, duration, [
-                {
-                    key: 'PF2E.RuleElement.ConditionValue',
-                    path: 'condition.' + condition,
-                    mode: 'add',
-                    value: value || 1
-                }
-            ]);
+            // Fallback: create a custom effect item without rule elements
+            // Just create a descriptive effect since condition application failed
+            return await this.createCustomEffect(actor, name, description, duration, []);
         }
     }
 
@@ -93,22 +135,21 @@ export class EffectApplicator {
 
             // Note: PF2e handles persistent damage through its condition system
             // The damage type and value can be configured through the condition's dialog
-            ui.notifications.info(`Applied ${name} to ${actor.name}`);
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.info(`Applied ${name} to ${actor.name}`);
+            }
             return true;
         } catch (error) {
             console.error('Failed to apply persistent damage:', error);
         }
 
-        // Fallback: create custom effect
+        // Fallback: create custom effect with PersistentDamage rule element
         return await this.createCustomEffect(actor, name, description, null, [
             {
-                key: 'system.attributes.persistentDamage',
-                mode: 'add',
-                value: {
-                    formula: value,
-                    damageType: damageType,
-                    dc: dc
-                }
+                key: 'PersistentDamage',
+                damageType: damageType,
+                formula: value,
+                dc: dc
             }
         ]);
     }
@@ -197,20 +238,21 @@ export class EffectApplicator {
                     show: true
                 },
                 rules: rules,
-                slug: `complication-${name.toLowerCase().replace(/\s+/g, '-')}`,
-                traits: {
-                    value: ['complication']
-                }
+                slug: `complication-${name.toLowerCase().replace(/\s+/g, '-')}`
             }
         };
 
         try {
             await actor.createEmbeddedDocuments('Item', [effectData]);
-            ui.notifications.info(`Applied ${name} to ${actor.name}`);
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.info(`Applied ${name} to ${actor.name}`);
+            }
             return true;
         } catch (error) {
             console.error('Failed to create custom effect:', error);
-            ui.notifications.error(`Failed to apply ${name}`);
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.error(`Failed to apply ${name}`);
+            }
             return false;
         }
     }
@@ -251,11 +293,23 @@ export class EffectApplicator {
      */
     static async applyDismemberment(actor, dismemberment) {
         if (!actor) {
-            ui.notifications.warn('No valid target for dismemberment effect');
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.warn('No valid target for dismemberment effect');
+            }
+            return false;
+        }
+
+        if (!dismemberment || typeof dismemberment !== 'object') {
+            console.warn('PF2e Narrative Seeds | Invalid dismemberment data');
             return false;
         }
 
         const { name, description, effects } = dismemberment;
+
+        if (!name || !effects) {
+            console.warn('PF2e Narrative Seeds | Dismemberment missing required fields');
+            return false;
+        }
 
         try {
             // Create a permanent effect item for the dismemberment
@@ -312,14 +366,17 @@ export class EffectApplicator {
                         } else if (modifier.type === 'fly-speed-reduction') {
                             // Calculate percentage reduction of current fly speed
                             const currentFlySpeed = actor.system?.attributes?.speed?.fly || 0;
-                            const reduction = Math.floor(currentFlySpeed * (modifier.value / 100));
-                            rules.push({
-                                key: 'FlatModifier',
-                                selector: 'fly-speed',
-                                value: -reduction,
-                                type: 'untyped',
-                                label: name
-                            });
+                            // Only apply reduction if actor has a fly speed
+                            if (currentFlySpeed > 0) {
+                                const reduction = Math.floor(currentFlySpeed * (modifier.value / 100));
+                                rules.push({
+                                    key: 'FlatModifier',
+                                    selector: 'fly-speed',
+                                    value: -reduction,
+                                    type: 'untyped',
+                                    label: name
+                                });
+                            }
                         } else if (modifier.type === 'fly-speed-override') {
                             // Set fly speed to specific value (often 0)
                             rules.push({
@@ -364,7 +421,9 @@ export class EffectApplicator {
 
             await actor.createEmbeddedDocuments('Item', [effectData]);
 
-            ui.notifications.warn(`${actor.name} has suffered a permanent injury: ${name}`);
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.warn(`${actor.name} has suffered a permanent injury: ${name}`);
+            }
 
             // Also send a chat message to highlight this major event
             await ChatMessage.create({
@@ -373,14 +432,16 @@ export class EffectApplicator {
                     <p style="margin: 0;"><strong>${actor.name}</strong> has suffered: <strong>${name}</strong></p>
                     <p style="margin: 5px 0 0 0; font-size: 0.9em;">${description}</p>
                 </div>`,
-                type: CONST.CHAT_MESSAGE_TYPES.OTHER,
+                style: CONST.CHAT_MESSAGE_STYLES.OTHER,
                 whisper: game.users.filter(u => u.isGM).map(u => u.id)
             });
 
             return true;
         } catch (error) {
             console.error('PF2e Narrative Seeds | Failed to apply dismemberment:', error);
-            ui.notifications.error(`Failed to apply dismemberment: ${name}`);
+            if (typeof ui !== 'undefined' && ui.notifications) {
+                ui.notifications.error(`Failed to apply dismemberment: ${name}`);
+            }
             return false;
         }
     }

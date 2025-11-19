@@ -21,6 +21,11 @@ export class SkillHooks {
   static generator = null;
 
   /**
+   * Hook IDs for cleanup
+   */
+  static hookIds = [];
+
+  /**
    * Initialize skill hooks
    */
   static initialize() {
@@ -40,14 +45,24 @@ export class SkillHooks {
    */
   static registerHooks() {
     // Hook into chat message creation
-    Hooks.on("createChatMessage", async (message, options, userId) => {
-      await this.onChatMessage(message, options, userId);
+    const createHookId = Hooks.on("createChatMessage", async (message, options, userId) => {
+      try {
+        await this.onChatMessage(message, options, userId);
+      } catch (error) {
+        console.error("PF2e Narrative Seeds | Error in skill createChatMessage hook:", error);
+      }
     });
+    this.hookIds.push(createHookId);
 
     // Hook into chat message rendering to attach event listeners
-    Hooks.on("renderChatMessage", (message, html, data) => {
-      this.onRenderChatMessage(message, html, data);
+    const renderHookId = Hooks.on("renderChatMessage", (message, html, data) => {
+      try {
+        this.onRenderChatMessage(message, html, data);
+      } catch (error) {
+        console.error("PF2e Narrative Seeds | Error in skill renderChatMessage hook:", error);
+      }
     });
+    this.hookIds.push(renderHookId);
   }
 
   /**
@@ -147,14 +162,18 @@ export class SkillHooks {
     try {
       const flags = message.flags?.["pf2e-narrative-seeds"];
       if (!flags || !flags.skillData) {
-        ui.notifications.warn("Cannot regenerate narrative - skill data missing");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Cannot regenerate narrative - skill data missing");
+        }
         return;
       }
 
       // Extract skill data from flags
       const skillData = await this.extractSkillData(message);
       if (!skillData) {
-        ui.notifications.warn("Cannot regenerate narrative - invalid skill data");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Cannot regenerate narrative - invalid skill data");
+        }
         return;
       }
 
@@ -165,7 +184,9 @@ export class SkillHooks {
       // Generate new narrative
       const seed = await this.generator.generate(skillData);
       if (!seed) {
-        ui.notifications.warn("Could not generate new narrative");
+        if (typeof ui !== 'undefined' && ui.notifications) {
+          ui.notifications.warn("Could not generate new narrative");
+        }
         return;
       }
 
@@ -189,11 +210,15 @@ export class SkillHooks {
         }
       });
 
-      ui.notifications.info("Narrative regenerated!");
+      if (typeof ui !== 'undefined' && ui.notifications) {
+        ui.notifications.info("Narrative regenerated!");
+      }
 
     } catch (error) {
       console.error("Failed to regenerate narrative:", error);
-      ui.notifications.error("Failed to regenerate narrative");
+      if (typeof ui !== 'undefined' && ui.notifications) {
+        ui.notifications.error("Failed to regenerate narrative");
+      }
     }
   }
 
@@ -237,7 +262,7 @@ export class SkillHooks {
 
     // Get actor (person performing action)
     let actor = null;
-    if (message.speaker?.actor) {
+    if (message.speaker?.actor && game?.actors) {
       actor = game.actors.get(message.speaker.actor);
     }
     if (!actor && message.speaker?.token) {
@@ -248,7 +273,7 @@ export class SkillHooks {
     // Get target (if applicable)
     let target = null;
     if (context.target) {
-      if (context.target.actor) {
+      if (context.target.actor && game?.actors) {
         target = game.actors.get(context.target.actor);
       } else if (context.target.token) {
         const token = canvas.tokens?.get(context.target.token);
@@ -257,7 +282,7 @@ export class SkillHooks {
     }
 
     // Try to get target from current targets if not in context
-    if (!target && game.user.targets.size > 0) {
+    if (!target && game.user?.targets?.size > 0) {
       const targetToken = game.user.targets.first();
       if (targetToken) target = targetToken.actor;
     }
@@ -341,6 +366,13 @@ export class SkillHooks {
    */
   static shutdown() {
     console.log("PF2e Narrative Seeds | Shutting down skill hooks...");
+
+    // Remove registered Foundry hooks
+    for (const hookId of this.hookIds) {
+      Hooks.off(hookId);
+    }
+    this.hookIds = [];
+
     this.generator = null;
   }
 }

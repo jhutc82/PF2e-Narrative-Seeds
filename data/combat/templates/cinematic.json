@@ -1,27 +1,27 @@
 {
   "criticalSuccess": [
     {
-      "pattern": "${opening} your your ${weaponType} ${verb} ${targetName}'s ${location} with devastating precision! ${effect}!",
+      "pattern": "${opening} your ${weaponType} ${verb} ${targetName}'s ${location} with devastating precision! ${effect}!",
       "weight": 20,
       "grammar": "standard"
     },
     {
-      "pattern": "${effect}! ${opening} In a masterful display, your your your ${weaponType} ${verb} ${targetName}'s ${location} perfectly!",
+      "pattern": "${effect}! ${opening} In a masterful display, your ${weaponType} ${verb} ${targetName}'s ${location} perfectly!",
       "weight": 20,
       "grammar": "dramatic-effect-first"
     },
     {
-      "pattern": "In a moment of perfect clarity, you ${verb} ${targetName}'s ${location}! ${opening} ${effect}! Your your ${weaponType} finds its mark with brutal precision!",
+      "pattern": "In a moment of perfect clarity, you ${verb} ${targetName}'s ${location}! ${opening} ${effect}! Your ${weaponType} finds its mark with brutal precision!",
       "weight": 18,
       "grammar": "epic-moment"
     },
     {
-      "pattern": "${targetName}'s ${location} shatters under the impact! ${opening} your your ${weaponType} ${verb} with unstoppable force! ${effect}!",
+      "pattern": "${targetName}'s ${location} shatters under the impact! ${opening} your ${weaponType} ${verb} with unstoppable force! ${effect}!",
       "weight": 15,
       "grammar": "dramatic-location"
     },
     {
-      "pattern": "Time seems to slow as ${opening} your your ${weaponType} ${verb} ${targetName}'s ${location} with perfect accuracy! ${effect}!",
+      "pattern": "Time seems to slow as ${opening} your ${weaponType} ${verb} ${targetName}'s ${location} with perfect accuracy! ${effect}!",
       "weight": 12,
       "grammar": "slow-motion"
     },
@@ -31,22 +31,22 @@
       "grammar": "perfect-strike"
     },
     {
-      "pattern": "You strike true! ${opening} your your ${weaponType} ${verb} ${targetName}'s ${location}! ${effect}! Critical impact!",
+      "pattern": "You strike true! ${opening} your ${weaponType} ${verb} ${targetName}'s ${location}! ${effect}! Critical impact!",
       "weight": 5,
       "grammar": "triumphant"
     },
     {
-      "pattern": "Flawless execution! ${opening} your your ${weaponType} ${verb} ${targetName}'s ${location} as you achieve mastery! ${effect}!",
+      "pattern": "Flawless execution! ${opening} your ${weaponType} ${verb} ${targetName}'s ${location} as you achieve mastery! ${effect}!",
       "weight": 15,
       "grammar": "mastery"
     },
     {
-      "pattern": "You seize the perfect opening! ${opening} your your ${weaponType} ${verb} ${targetName}'s ${location} with lethal precision! ${effect}!",
+      "pattern": "You seize the perfect opening! ${opening} your ${weaponType} ${verb} ${targetName}'s ${location} with lethal precision! ${effect}!",
       "weight": 14,
       "grammar": "opportunity-seized"
     },
     {
-      "pattern": "${effect}! ${targetName}'s ${location} suffers the full force of your attack! ${opening} your your ${weaponType} ${verb} with devastating effect!",
+      "pattern": "${effect}! ${targetName}'s ${location} suffers the full force of your attack! ${opening} your ${weaponType} ${verb} with devastating effect!",
       "weight": 13,
       "grammar": "full-force"
     },
@@ -56,17 +56,17 @@
       "grammar": "brilliant-strike"
     },
     {
-      "pattern": "${opening} Through perfect form and timing, your your your ${weaponType} ${verb} ${targetName}'s ${location}! ${effect}! Devastating!",
+      "pattern": "${opening} Through perfect form and timing, your ${weaponType} ${verb} ${targetName}'s ${location}! ${effect}! Devastating!",
       "weight": 11,
       "grammar": "perfect-form"
     },
     {
-      "pattern": "${targetName} cannot avoid your strike! ${opening} your your ${weaponType} ${verb} ${location} with unstoppable momentum! ${effect}!",
+      "pattern": "${targetName} cannot avoid your strike! ${opening} your ${weaponType} ${verb} ${location} with unstoppable momentum! ${effect}!",
       "weight": 10,
       "grammar": "unavoidable"
     },
     {
-      "pattern": "Critical strike! Your your ${weaponType} finds ${targetName}'s ${location}! ${opening} ${verb} with maximum force! ${effect}!",
+      "pattern": "Critical strike! Your ${weaponType} finds ${targetName}'s ${location}! ${opening} ${verb} with maximum force! ${effect}!",
       "weight": 9,
       "grammar": "maximum-force"
     },
@@ -78,12 +78,12 @@
   ],
   "success": [
     {
-      "pattern": "${opening} your your ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
+      "pattern": "${opening} your ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
       "weight": 25,
       "grammar": "standard"
     },
     {
-      "pattern": "${effect} ${opening} your your ${weaponType} ${verb} ${targetName}'s ${location} with skilled precision.",
+      "pattern": "${effect} ${opening} your ${weaponType} ${verb} ${targetName}'s ${location} with skilled precision.",
       "weight": 18,
       "grammar": "effect-first"
     },
@@ -93,7 +93,7 @@
       "grammar": "location-focused"
     },
     {
-      "pattern": "With precise aim, you target ${targetName}'s ${location}. ${opening} your your ${weaponType} ${verb}. ${effect}",
+      "pattern": "With precise aim, you target ${targetName}'s ${location}. ${opening} your ${weaponType} ${verb}. ${effect}",
       "weight": 12,
       "grammar": "tactical"
     },
@@ -113,12 +113,12 @@
       "grammar": "battle-context"
     },
     {
-      "pattern": "${opening} you strike decisively! Your your your ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
+      "pattern": "${opening} you strike decisively! Your ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
       "weight": 14,
       "grammar": "decisive"
     },
     {
-      "pattern": "${targetName}'s ${location} suffers the impact! ${opening} your your ${weaponType} ${verb} effectively. ${effect}",
+      "pattern": "${targetName}'s ${location} suffers the impact! ${opening} your ${weaponType} ${verb} effectively. ${effect}",
       "weight": 13,
       "grammar": "impact-focused"
     },
@@ -128,17 +128,17 @@
       "grammar": "successful-connection"
     },
     {
-      "pattern": "Good timing allows you to strike! ${opening} your your ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
+      "pattern": "Good timing allows you to strike! ${opening} your ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
       "weight": 11,
       "grammar": "good-timing"
     },
     {
-      "pattern": "${opening} your attack lands true! Your your your ${weaponType} ${verb} ${location}. ${effect}",
+      "pattern": "${opening} your attack lands true! Your ${weaponType} ${verb} ${location}. ${effect}",
       "weight": 10,
       "grammar": "lands-true"
     },
     {
-      "pattern": "You press the advantage! ${opening} your your ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
+      "pattern": "You press the advantage! ${opening} your ${weaponType} ${verb} ${targetName}'s ${location}. ${effect}",
       "weight": 9,
       "grammar": "press-advantage"
     },
@@ -148,7 +148,7 @@
       "grammar": "controlled-strike"
     },
     {
-      "pattern": "Solid strike! Your your ${weaponType} finds ${targetName}'s ${location}. ${opening} ${verb}. ${effect}",
+      "pattern": "Solid strike! Your ${weaponType} finds ${targetName}'s ${location}. ${opening} ${verb}. ${effect}",
       "weight": 7,
       "grammar": "solid-strike"
     }
