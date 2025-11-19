@@ -53,8 +53,9 @@ export class DismembermentManager {
         const maxHP = target.system?.attributes?.hp?.max || 0;
 
         // Check if target is unconscious (dying or unconscious condition)
-        const isUnconscious = target.hasCondition?.('unconscious') ||
-                             target.hasCondition?.('dying') ||
+        // Use type checking for hasCondition to ensure compatibility with all actor types
+        const isUnconscious = (typeof target.hasCondition === 'function' &&
+                              (target.hasCondition('unconscious') || target.hasCondition('dying'))) ||
                              currentHP <= 0;
 
         // NEW LOGIC: Check damage amount if available
@@ -62,8 +63,9 @@ export class DismembermentManager {
         // 1. Target is unconscious/dying, OR
         // 2. Damage dealt is >= 50% of target's max HP
         const damageAmount = attackData.damageAmount || 0;
-        const damageThreshold = maxHP * 0.5;
-        const isHighDamage = damageAmount >= damageThreshold && maxHP > 0;
+        // Check maxHP > 0 first to avoid division issues and unnecessary calculation
+        const isHighDamage = maxHP > 0 && damageAmount >= (maxHP * 0.5);
+        const damageThreshold = maxHP > 0 ? maxHP * 0.5 : 0;
 
         console.log(`PF2e Narrative Seeds | Dismemberment check: unconscious=${isUnconscious}, damage=${damageAmount}/${damageThreshold} (${maxHP} max HP), highDamage=${isHighDamage}`);
 

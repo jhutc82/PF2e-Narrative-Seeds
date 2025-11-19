@@ -260,18 +260,24 @@ export class SkillNarrativeGenerator {
   /**
    * Check Battle Cry conditions
    * Requires: first action of combat OR first Demoralize of encounter
+   *
+   * LIMITATION: Proper "first action" detection is not currently implemented
+   * because chat messages don't contain sufficient timing information.
+   *
+   * Current implementation uses a simple heuristic:
+   * - Always shows Battle Cry variant in round 1 of combat
+   * - Otherwise allows it (prefers showing the feat over hiding it)
+   *
+   * This may show Battle Cry when technically not valid, but ensures
+   * players with the feat see their narrative variant.
+   *
    * @param {Object} skillData - Skill data
-   * @returns {boolean} True if conditions met
+   * @returns {boolean} True if conditions met (or likely met)
    */
   checkBattleCryConditions(skillData) {
     const { actor, message } = skillData;
 
-    // For now, we'll allow Battle Cry variant any time
-    // TODO: Implement proper "first action of combat" detection
-    // This would require tracking combat state and round/turn info
-    // which isn't easily accessible from chat messages alone
-
-    // Simple heuristic: check if combat just started (round 1, low turn number)
+    // Simple heuristic: check if combat just started (round 1)
     if (game?.combat?.round === 1) {
       return true;
     }

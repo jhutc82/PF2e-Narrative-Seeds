@@ -54,7 +54,7 @@ export class SkillFormatter {
 
     // Regenerate button
     html += '<div class="narrative-controls">';
-    html += '<button class="narrative-regenerate" data-message-id="${messageId}">↻ Regenerate</button>';
+    html += '<button class="narrative-regenerate">↻ Regenerate</button>';
     html += '</div>';
 
     html += '</div>';
