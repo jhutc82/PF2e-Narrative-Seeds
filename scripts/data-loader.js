@@ -451,12 +451,18 @@ export class DataLoader {
   static pruneCache() {
     const now = Date.now();
 
-    // Remove old entries
-    for (const [key, timestamp] of this.cacheTimestamps) {
+    // Remove old entries - collect keys first to avoid modifying Map during iteration
+    const keysToDelete = [];
+    for (const [key, timestamp] of this.cacheTimestamps.entries()) {
       if (now - timestamp > this.MAX_CACHE_AGE) {
-        this.cache.delete(key);
-        this.cacheTimestamps.delete(key);
+        keysToDelete.push(key);
       }
+    }
+
+    // Delete after iteration completes
+    for (const key of keysToDelete) {
+      this.cache.delete(key);
+      this.cacheTimestamps.delete(key);
     }
 
     // Limit size (LRU eviction)
