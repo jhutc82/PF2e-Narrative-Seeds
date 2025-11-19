@@ -36,7 +36,9 @@ export class NarrativeSeedsSettings {
       type: Boolean,
       default: true,
       onChange: value => {
-        ui.notifications.info("PF2e Narrative Seeds | Module " + (value ? "enabled" : "disabled") + ". Reload required.");
+        if (NarrativeSeedsSettings.shouldShowNotifications()) {
+          ui.notifications.info("PF2e Narrative Seeds | Module " + (value ? "enabled" : "disabled") + ". Reload required.");
+        }
       }
     });
 
@@ -87,6 +89,16 @@ export class NarrativeSeedsSettings {
       default: "high"
     });
 
+    // Enable notifications
+    game.settings.register("pf2e-narrative-seeds", "enableNotifications", {
+      name: "Enable Notifications",
+      hint: "Show success and info notifications when settings change or actions complete (errors/warnings always shown)",
+      scope: "world",
+      config: false,
+      type: Boolean,
+      default: true
+    });
+
     // ========================================
     // PHASE 1: COMBAT SETTINGS
     // ========================================
@@ -100,7 +112,9 @@ export class NarrativeSeedsSettings {
       type: Boolean,
       default: true,
       onChange: value => {
-        ui.notifications.info("Combat narration " + (value ? "enabled" : "disabled") + ". Reload required.");
+        if (NarrativeSeedsSettings.shouldShowNotifications()) {
+          ui.notifications.info("Combat narration " + (value ? "enabled" : "disabled") + ". Reload required.");
+        }
       }
     });
 
@@ -143,7 +157,9 @@ export class NarrativeSeedsSettings {
       type: Boolean,
       default: true,
       onChange: value => {
-        ui.notifications.info("Skill action narration " + (value ? "enabled" : "disabled") + ". Reload required.");
+        if (NarrativeSeedsSettings.shouldShowNotifications()) {
+          ui.notifications.info("Skill action narration " + (value ? "enabled" : "disabled") + ". Reload required.");
+        }
       }
     });
 
@@ -186,7 +202,9 @@ export class NarrativeSeedsSettings {
       type: Boolean,
       default: true,
       onChange: value => {
-        ui.notifications.info("Combat complications " + (value ? "enabled" : "disabled"));
+        if (NarrativeSeedsSettings.shouldShowNotifications()) {
+          ui.notifications.info("Combat complications " + (value ? "enabled" : "disabled"));
+        }
       }
     });
 
@@ -222,7 +240,9 @@ export class NarrativeSeedsSettings {
       type: Boolean,
       default: false,
       onChange: value => {
-        ui.notifications.info("Auto-apply complications " + (value ? "enabled" : "disabled"));
+        if (NarrativeSeedsSettings.shouldShowNotifications()) {
+          ui.notifications.info("Auto-apply complications " + (value ? "enabled" : "disabled"));
+        }
       }
     });
 
@@ -328,5 +348,13 @@ export class NarrativeSeedsSettings {
    */
   static isSkillEnabled() {
     return this.isEnabled() && this.get("enableSkills");
+  }
+
+  /**
+   * Check if notifications should be shown
+   * @returns {boolean}
+   */
+  static shouldShowNotifications() {
+    return this.get("enableNotifications", true);
   }
 }

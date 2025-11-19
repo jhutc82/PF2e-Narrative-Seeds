@@ -43,6 +43,14 @@
             {{/select}}
           </select>
         </div>
+
+        <div class="form-group">
+          <label class="setting-label">
+            <span class="setting-name">Enable Notifications</span>
+            <span class="setting-hint">Show success/info notifications (errors/warnings always shown)</span>
+          </label>
+          <input type="checkbox" name="enableNotifications" {{checked settings.enableNotifications}}>
+        </div>
       </div>
 
       <div class="settings-section">
