@@ -6,6 +6,9 @@ export class DismembermentManager {
     static dismemberments = [];
     static initialized = false;
 
+    // Damage threshold for triggering dismemberment (50% of max HP)
+    static DAMAGE_THRESHOLD_PERCENT = 0.5;
+
     /**
      * Initialize the dismemberment manager by loading dismemberment data
      */
@@ -15,13 +18,17 @@ export class DismembermentManager {
         try {
             // Load dismemberment data
             const response = await fetch('modules/pf2e-narrative-seeds/data/combat/dismemberment/dismemberments.json');
+            if (!response.ok) {
+                throw new Error(`Failed to load dismemberment data: HTTP ${response.status}`);
+            }
             const data = await response.json();
-            this.dismemberments = data.dismemberments;
+            this.dismemberments = data.dismemberments || [];
 
             this.initialized = true;
             console.log('PF2e Narrative Seeds | Dismemberment Manager initialized');
         } catch (error) {
             console.error('PF2e Narrative Seeds | Failed to initialize Dismemberment Manager:', error);
+            this.dismemberments = [];  // Ensure array is initialized
         }
     }
 
@@ -61,11 +68,11 @@ export class DismembermentManager {
         // NEW LOGIC: Check damage amount if available
         // Dismemberment triggers on critical hit IF:
         // 1. Target is unconscious/dying, OR
-        // 2. Damage dealt is >= 50% of target's max HP
+        // 2. Damage dealt is >= configured threshold (default 50%) of target's max HP
         const damageAmount = attackData.damageAmount || 0;
         // Check maxHP > 0 first to avoid division issues and unnecessary calculation
-        const isHighDamage = maxHP > 0 && damageAmount >= (maxHP * 0.5);
-        const damageThreshold = maxHP > 0 ? maxHP * 0.5 : 0;
+        const isHighDamage = maxHP > 0 && damageAmount >= (maxHP * this.DAMAGE_THRESHOLD_PERCENT);
+        const damageThreshold = maxHP > 0 ? maxHP * this.DAMAGE_THRESHOLD_PERCENT : 0;
 
         console.log(`PF2e Narrative Seeds | Dismemberment check: unconscious=${isUnconscious}, damage=${damageAmount}/${damageThreshold} (${maxHP} max HP), highDamage=${isHighDamage}`);
 

@@ -20,11 +20,17 @@ export class ComplicationManager {
         try {
             // Load critical success complications
             const critSuccessResponse = await fetch('modules/pf2e-narrative-seeds/data/combat/complications/critical-success.json');
+            if (!critSuccessResponse.ok) {
+                throw new Error(`Failed to load critical success complications: HTTP ${critSuccessResponse.status}`);
+            }
             const critSuccessData = await critSuccessResponse.json();
             this.complications.criticalSuccess = critSuccessData.complications || [];
 
             // Load critical failure complications
             const critFailResponse = await fetch('modules/pf2e-narrative-seeds/data/combat/complications/critical-failure.json');
+            if (!critFailResponse.ok) {
+                throw new Error(`Failed to load critical failure complications: HTTP ${critFailResponse.status}`);
+            }
             const critFailData = await critFailResponse.json();
             this.complications.criticalFailure = critFailData.complications || [];
 
