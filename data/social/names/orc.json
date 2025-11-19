@@ -1,0 +1,29 @@
+{
+  "ancestry": "orc",
+  "description": "Orc names are strong and guttural, often with clan associations",
+  "hasLastNames": true,
+  "clanFirst": false,
+  "structures": [
+    { "type": "syllabic", "weight": 50 },
+    { "type": "clan-name", "weight": 50 }
+  ],
+  "lengthWeights": {
+    "2": 80,
+    "3": 20
+  },
+  "male": {
+    "prefixes": ["Brag", "Drak", "Ghor", "Grak", "Grash", "Grom", "Karg", "Krag", "Morg", "Nak", "Orak", "Ragh", "Thrak", "Urak", "Vrag", "Zar"],
+    "suffixes": ["ag", "ak", "ash", "gar", "gash", "grak", "gruk", "kar", "mok", "nag", "rak", "ug", "uk", "ush"]
+  },
+  "female": {
+    "prefixes": ["Bagra", "Dra", "Gara", "Gora", "Kra", "Moga", "Nara", "Ogra", "Raga", "Shara", "Thra", "Varga", "Yarga", "Zara"],
+    "suffixes": ["ga", "gra", "ka", "na", "ra", "sha", "tha", "za"]
+  },
+  "nonbinary": {
+    "prefixes": ["Brag", "Drak", "Gara", "Ghor", "Krag", "Mog", "Nak", "Ragh", "Shar", "Thrak", "Varg", "Zar"],
+    "suffixes": ["ag", "ak", "ash", "ga", "kar", "na", "rak", "sha", "uk"]
+  },
+  "clanNames": ["Bloodaxe", "Bonecrusher", "Fireborn", "Ironhide", "Nightblade", "Skyshaker", "Stonefist", "Thunderstrike", "Warbringer", "Windwalker"],
+  "clanPrefixes": ["Battle", "Blood", "Bone", "Fire", "Iron", "Night", "Sky", "Stone", "Thunder", "War", "Wind", "Storm"],
+  "clanSuffixes": ["axe", "blade", "born", "breaker", "bringer", "crusher", "fist", "hide", "seeker", "shaker", "strike", "walker"]
+}

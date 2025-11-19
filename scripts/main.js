@@ -13,6 +13,7 @@ import { CombatHooks } from './combat/combat-hooks.js';
 import { SkillHooks } from './skill/skill-hooks.js';
 import { SocialHooks } from './social/social-hooks.js';
 import { NPCGenerator } from './social/npc-generator.js';
+import { NameGenerator } from './social/name-generator.js';
 import { AnatomyDetector } from './combat/anatomy-detector.js';
 import { DamageDetector } from './combat/damage-detector.js';
 import { ActionDetector } from './skill/action-detector.js';
@@ -258,7 +259,9 @@ Hooks.once("ready", () => {
     npc: {
       generate: (params) => NPCGenerator.generate(params),
       clearMemory: () => NPCGenerator.clearMemory(),
-      stats: () => NPCGenerator.getMemoryStats()
+      stats: () => NPCGenerator.getMemoryStats(),
+      generateName: (ancestry, gender) => NameGenerator.generate(ancestry, gender),
+      detectAncestry: (actor) => NameGenerator.detectAncestry(actor)
     },
 
     // Performance monitoring

@@ -1,0 +1,31 @@
+{
+  "ancestry": "human",
+  "description": "Humans have diverse naming conventions across Golarion's many cultures",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 60 },
+    { "type": "first-last", "weight": 40 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Al", "Ber", "Cor", "Dan", "Ed", "Fen", "Gar", "Hal", "Jor", "Kel", "Mar", "Nor", "Ren", "Tar", "Vol", "Wes", "Zar", "Bran", "Dor", "Tor", "Mik", "Kar", "Thom", "Jon", "Rob", "Wil", "And", "Mat", "Luk", "Mar"],
+    "middles": ["an", "ar", "der", "er", "on", "or", "rick", "in", "en", "dan"],
+    "suffixes": ["al", "an", "ar", "as", "el", "en", "er", "in", "is", "on", "or", "us", "ton", "wick", "son", "ford", "ley", "den", "rick", "win"]
+  },
+  "female": {
+    "prefixes": ["Al", "Bel", "Cel", "Del", "El", "Fel", "Jes", "Kat", "Lil", "Mar", "Sar", "Val", "Wen", "Zel", "Ann", "Em", "Is", "Jen", "Ros", "Syl", "Mel", "Ol", "Clar", "Ev", "Gwen", "Lin", "Myr", "Nat", "Ser", "Viv"],
+    "middles": ["an", "ar", "en", "in", "la", "ra", "sa", "na", "va", "ia"],
+    "suffixes": ["a", "ah", "ana", "ara", "ella", "ena", "ia", "ina", "isa", "lyn", "ra", "wen", "ette", "issa", "ora", "essa", "andra", "ice", "anne", "elle"]
+  },
+  "nonbinary": {
+    "prefixes": ["Al", "Ash", "Cam", "Del", "Em", "Fin", "Kel", "Mor", "Ren", "Sash", "Val", "Wyn", "Zar", "Ari", "Bay", "Cor", "Dov", "Kel", "Len", "Mer", "Nic", "Pat", "Quinn", "Rav", "Sam", "Tay", "Van"],
+    "middles": ["an", "ar", "en", "er", "in", "on", "or", "is", "el", "al"],
+    "suffixes": ["an", "ar", "el", "en", "er", "in", "is", "on", "or", "yn", "eth", "wyn", "lin", "ash"]
+  },
+  "lastNames": ["Ironwood", "Blackwater", "Thornhill", "Ashford", "Brightwind", "Darkstone", "Fairhaven", "Goldleaf", "Highbrook", "Longriver", "Silveroak", "Stormcrest", "Swiftwind", "Winterstone", "Redforge", "Greenfield", "Bluewater"],
+  "lastNamePrefixes": ["Ash", "Black", "Bright", "Dark", "Fair", "Gold", "Green", "Grey", "High", "Iron", "Long", "Red", "Silver", "Storm", "Swift", "Thorn", "White", "Winter", "Wolf", "Stone"],
+  "lastNameSuffixes": ["brook", "crest", "field", "ford", "haven", "hill", "leaf", "river", "stone", "water", "wind", "wood", "forge", "vale", "moor", "glen", "dale", "bridge", "gate", "more"]
+}

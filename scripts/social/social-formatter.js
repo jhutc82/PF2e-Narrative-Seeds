@@ -35,15 +35,15 @@ export class SocialFormatter {
    * @returns {string}
    */
   static generateMinimalHTML(seed) {
-    const { mood, personalities, actor } = seed;
+    const { name, ancestry, mood, personalities, actor } = seed;
 
-    const actorName = actor?.name || "NPC";
+    const displayName = name || actor?.name || "NPC";
     const personalityText = personalities.map(p => p.name).join(", ");
 
     return `
       <div class="pf2e-narrative-seed npc-minimal">
         <span class="narrative-icon">🎭</span>
-        <strong>${StringUtils.escapeHTML(actorName)}:</strong>
+        <strong>${StringUtils.escapeHTML(displayName)}:</strong>
         <span class="npc-mood">${mood.name}</span>
         ${personalities.length > 0 ? `• ${StringUtils.escapeHTML(personalityText)}` : ''}
         <button class="regenerate-icon" data-action="regenerate-npc" title="Generate new personality">🔄</button>
@@ -57,10 +57,11 @@ export class SocialFormatter {
    * @returns {string}
    */
   static generateStandardHTML(seed) {
-    const { mood, personalities, mannerisms, motivation, quirks, actor } = seed;
+    const { name, ancestry, mood, personalities, mannerisms, motivation, quirks, actor } = seed;
 
-    const actorName = actor?.name || "NPC";
+    const displayName = name || actor?.name || "NPC";
     const moodClass = this.getMoodClass(mood.id);
+    const ancestryDisplay = ancestry ? ` (${StringUtils.capitalize(ancestry)})` : '';
 
     // Build personality traits section
     const personalitiesHTML = personalities.length > 0
@@ -105,7 +106,7 @@ export class SocialFormatter {
       <div class="pf2e-narrative-seed npc-card">
         <div class="npc-header">
           <span class="npc-icon">🎭</span>
-          <span class="npc-name">${StringUtils.escapeHTML(actorName)}</span>
+          <span class="npc-name">${StringUtils.escapeHTML(displayName)}${ancestryDisplay}</span>
           <span class="npc-mood ${moodClass}">${mood.name}</span>
           <button class="regenerate-btn" title="Regenerate personality">♻️</button>
         </div>
@@ -124,10 +125,11 @@ export class SocialFormatter {
    * @returns {string}
    */
   static generateCinematicHTML(seed) {
-    const { mood, personalities, mannerisms, motivation, quirks, actor } = seed;
+    const { name, ancestry, mood, personalities, mannerisms, motivation, quirks, actor } = seed;
 
-    const actorName = actor?.name || "NPC";
+    const displayName = name || actor?.name || "NPC";
     const moodClass = this.getMoodClass(mood.id);
+    const ancestryDisplay = ancestry ? ` (${StringUtils.capitalize(ancestry)})` : '';
 
     // Build personality traits section with descriptions
     const personalitiesHTML = personalities.length > 0
@@ -192,7 +194,7 @@ export class SocialFormatter {
       <div class="pf2e-narrative-seed npc-card cinematic">
         <div class="npc-header">
           <span class="npc-icon">🎭</span>
-          <span class="npc-name">${StringUtils.escapeHTML(actorName)}</span>
+          <span class="npc-name">${StringUtils.escapeHTML(displayName)}${ancestryDisplay}</span>
           <span class="npc-mood ${moodClass}">${mood.name}</span>
           <button class="regenerate-btn" title="Regenerate personality">♻️</button>
         </div>

@@ -1,0 +1,30 @@
+{
+  "ancestry": "goblin",
+  "description": "Goblin names are short, harsh, and often describe the individual or their actions",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 60 },
+    { "type": "compound", "weight": 40 }
+  ],
+  "lengthWeights": {
+    "1": 30,
+    "2": 70
+  },
+  "male": {
+    "prefixes": ["Bax", "Chet", "Drub", "Flek", "Gral", "Grub", "Krag", "Mog", "Nak", "Poog", "Rax", "Snag", "Snik", "Yark", "Zog"],
+    "suffixes": ["bog", "fang", "gob", "grak", "gub", "krag", "mok", "nag", "rik", "tik", "zok"]
+  },
+  "female": {
+    "prefixes": ["Bix", "Chak", "Friz", "Gix", "Kix", "Lix", "Mik", "Nik", "Pik", "Rix", "Sik", "Tik", "Zik"],
+    "suffixes": ["ba", "cha", "ga", "ka", "la", "na", "ra", "ta", "xa", "za"]
+  },
+  "nonbinary": {
+    "prefixes": ["Bik", "Flek", "Gak", "Kik", "Mik", "Nik", "Pik", "Rik", "Snak", "Tik", "Zak"],
+    "suffixes": ["bog", "fang", "ga", "gob", "ka", "mok", "nak", "rik", "tik", "za"]
+  },
+  "compoundParts": {
+    "prefixes": ["Bite", "Burn", "Chew", "Fang", "Fire", "Gob", "Grub", "Poke", "Snag", "Sneak", "Stab", "Torch", "Trash"],
+    "suffixes": ["bitten", "burn", "cheeks", "ear", "eater", "face", "fang", "finger", "foot", "gobbler", "jaw", "nail", "sneak", "stab", "tail", "tooth"]
+  },
+  "compoundSeparator": ""
+}

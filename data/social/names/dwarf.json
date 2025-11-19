@@ -1,0 +1,29 @@
+{
+  "ancestry": "dwarf",
+  "description": "Dwarven names are strong and often clan-based, with Germanic influences",
+  "hasLastNames": true,
+  "clanFirst": false,
+  "structures": [
+    { "type": "syllabic", "weight": 40 },
+    { "type": "clan-name", "weight": 60 }
+  ],
+  "lengthWeights": {
+    "2": 80,
+    "3": 20
+  },
+  "male": {
+    "prefixes": ["Bar", "Bor", "Bral", "Dor", "Drak", "Drom", "Dun", "Gar", "Gim", "Gor", "Grun", "Har", "Kar", "Mor", "Nor", "Rag", "Thor", "Torg", "Ulf", "Vol"],
+    "suffixes": ["ak", "ar", "dan", "dur", "ek", "grim", "in", "ir", "nar", "rak", "rim", "rin", "thane", "ul", "urn", "vin"]
+  },
+  "female": {
+    "prefixes": ["Agna", "Bar", "Bel", "Dor", "El", "Gret", "Hel", "Ild", "Kar", "Kat", "Kris", "Mar", "Sif", "Thor", "Val"],
+    "suffixes": ["a", "da", "ga", "gna", "hild", "in", "na", "ra", "tha", "va"]
+  },
+  "nonbinary": {
+    "prefixes": ["Bar", "Dor", "Gar", "Kar", "Mor", "Nor", "Skar", "Thor", "Val"],
+    "suffixes": ["ak", "ar", "en", "in", "na", "rak", "rin", "va"]
+  },
+  "clanNames": ["Battlehammer", "Forgefire", "Ironfist", "Goldseeker", "Stoneshield", "Bronzebeard", "Flameforge", "Gemcutter", "Granitefist", "Hammerfell", "Orebreaker", "Runeward", "Steelstrike", "Thunderforge"],
+  "clanPrefixes": ["Battle", "Bronze", "Fire", "Forge", "Gold", "Granite", "Iron", "Rune", "Steel", "Stone", "Thunder", "War", "Flame"],
+  "clanSuffixes": ["anvil", "axe", "beard", "fist", "forge", "guard", "hammer", "helm", "pick", "seeker", "shield", "striker", "ward", "wrought"]
+}

@@ -1,0 +1,31 @@
+{
+  "ancestry": "elf",
+  "description": "Elven names are elegant and flowing, often with nature themes",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 70 },
+    { "type": "first-last", "weight": 30 }
+  ],
+  "lengthWeights": {
+    "2": 50,
+    "3": 50
+  },
+  "male": {
+    "prefixes": ["Ael", "Ara", "Cal", "Elen", "Fae", "Gal", "Hal", "Ilen", "Lae", "Lir", "Nor", "Olen", "Sil", "Thal", "Var", "Ael", "El", "Eth", "Fin", "Gar", "Il", "Kal", "Lor", "Mel", "Nal", "Oren", "Rel", "Sol", "Vel", "Yel"],
+    "middles": ["ad", "al", "an", "ar", "dir", "en", "ian", "on", "or", "van"],
+    "suffixes": ["adan", "adir", "alas", "an", "ar", "dan", "dir", "duil", "en", "ion", "las", "mir", "on", "or", "rion", "than", "thil", "wen"]
+  },
+  "female": {
+    "prefixes": ["Aer", "Al", "Ara", "Cel", "El", "Fael", "Gala", "Il", "Jel", "Lae", "Mera", "Sil", "Thael", "Val", "Yel", "Ari", "Cael", "Ela", "Feli", "Ila", "Kel", "Lira", "Mira", "Nael", "Ora", "Sera", "Tel", "Vara"],
+    "middles": ["an", "ar", "en", "ia", "in", "la", "na", "ra", "va", "wen"],
+    "suffixes": ["a", "ael", "ana", "ara", "ath", "enna", "ia", "iel", "ina", "ira", "is", "ith", "la", "lia", "lyn", "na", "ra", "riel", "wen", "wyn"]
+  },
+  "nonbinary": {
+    "prefixes": ["Ael", "Ara", "Cal", "El", "Fael", "Gal", "Il", "Lae", "Mir", "Nal", "Oren", "Sil", "Thael", "Val", "Yel"],
+    "middles": ["ad", "an", "ar", "en", "ian", "on", "or", "van", "wen"],
+    "suffixes": ["an", "ar", "ath", "dir", "en", "iel", "ion", "ith", "las", "mir", "on", "or", "wen", "wyn"]
+  },
+  "lastNames": ["Autumnleaf", "Brightwood", "Dawnwhisper", "Evergreen", "Moonbrook", "Nightwind", "Silverstream", "Starlight", "Sunblade", "Willowshade"],
+  "lastNamePrefixes": ["Autumn", "Bright", "Dawn", "Ever", "Moon", "Night", "Silver", "Star", "Sun", "Willow", "Shadow", "Light", "Spring", "Winter", "Forest", "River", "Sky", "Storm"],
+  "lastNameSuffixes": ["blade", "bloom", "branch", "brook", "leaf", "light", "runner", "shade", "shadow", "song", "star", "stream", "walker", "whisper", "wind", "wood"]
+}

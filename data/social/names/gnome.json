@@ -1,0 +1,34 @@
+{
+  "ancestry": "gnome",
+  "description": "Gnome names are whimsical and often quite long, sometimes compound or invented",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 50 },
+    { "type": "compound", "weight": 30 },
+    { "type": "single", "weight": 20 }
+  ],
+  "lengthWeights": {
+    "2": 40,
+    "3": 60
+  },
+  "male": {
+    "prefixes": ["Ber", "Boj", "Dim", "Fik", "Gin", "Jig", "Kaz", "Mig", "Nib", "Raz", "Snik", "Tig", "Wob", "Zel", "Zook"],
+    "middles": ["ber", "bik", "dle", "fen", "gil", "jig", "kin", "mer", "nib", "rig", "snik", "tik", "zip"],
+    "suffixes": ["ak", "bo", "fin", "gim", "ix", "kin", "nak", "ok", "wig", "zik"]
+  },
+  "female": {
+    "prefixes": ["Bel", "Bree", "Cara", "Dona", "Ella", "Frizz", "Gin", "Loo", "Mig", "Nessa", "Pip", "Quin", "Rix", "Syl", "Wyn", "Zanna"],
+    "middles": ["ber", "bree", "fee", "leen", "lim", "mer", "na", "syl", "wyn", "zil"],
+    "suffixes": ["a", "bee", "bella", "ella", "fee", "la", "lee", "na", "nock", "pim", "syl", "wyn", "zee"]
+  },
+  "nonbinary": {
+    "prefixes": ["Boj", "Fizz", "Gin", "Jig", "Kaz", "Lim", "Mig", "Nib", "Pip", "Riz", "Snik", "Tig", "Wyn", "Zik"],
+    "middles": ["ber", "bik", "dle", "fee", "gil", "kin", "lim", "mer", "rig", "syl", "tik"],
+    "suffixes": ["ak", "bee", "bo", "fee", "ix", "kin", "la", "ok", "wig", "wyn", "zik"]
+  },
+  "compoundParts": {
+    "prefixes": ["Bright", "Fizz", "Giggle", "Jinx", "Quick", "Spark", "Tink", "Whirl", "Wobble", "Zoom"],
+    "suffixes": ["bottom", "cog", "fiddle", "gigg", "knob", "nock", "spark", "tock", "top", "whisk", "wick", "wiggle"]
+  },
+  "compoundSeparator": ""
+}

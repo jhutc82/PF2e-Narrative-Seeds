@@ -6,6 +6,7 @@
 import { RandomUtils } from '../utils.js';
 import { NarrativeSeedsSettings } from '../settings.js';
 import { DataLoader } from '../data-loader.js';
+import { NameGenerator } from './name-generator.js';
 
 /**
  * NPC personality generator
@@ -73,8 +74,15 @@ export class NPCGenerator {
       const numQuirks = this.getNumQuirks(detailLevel);
       const quirks = numQuirks > 0 ? this.selectUniqueItems(quirksData.quirks, numQuirks) : [];
 
+      // Generate name based on ancestry
+      const ancestry = params.ancestry || (params.actor ? NameGenerator.detectAncestry(params.actor) : "human");
+      const gender = params.gender || null; // null = random
+      const name = await NameGenerator.generate(ancestry, gender);
+
       // Build NPC seed
       const seed = {
+        name,
+        ancestry,
         mood,
         personalities,
         mannerisms,

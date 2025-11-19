@@ -1,0 +1,28 @@
+{
+  "ancestry": "halfling",
+  "description": "Halfling names are friendly and homey, often with nature or comfort themes",
+  "hasLastNames": true,
+  "structures": [
+    { "type": "syllabic", "weight": 50 },
+    { "type": "first-last", "weight": 50 }
+  ],
+  "lengthWeights": {
+    "2": 80,
+    "3": 20
+  },
+  "male": {
+    "prefixes": ["Bil", "Cor", "Fin", "Gar", "Hal", "Lan", "Mer", "Nob", "Per", "Sam", "Tob", "Wil"],
+    "suffixes": ["bo", "by", "do", "fin", "go", "lo", "ry", "son", "ton", "wise", "wyn"]
+  },
+  "female": {
+    "prefixes": ["Am", "Bel", "Cal", "Del", "Hol", "Jas", "Lav", "Mer", "Prim", "Ros", "Tel", "Wil"],
+    "suffixes": ["a", "bella", "da", "la", "lee", "ly", "na", "rose", "wise", "wyn"]
+  },
+  "nonbinary": {
+    "prefixes": ["Ash", "Bran", "Del", "Fen", "Hol", "Lan", "Mer", "Per", "Ros", "Tam", "Wil"],
+    "suffixes": ["by", "da", "fin", "la", "lee", "ly", "son", "ton", "wise", "wyn"]
+  },
+  "lastNames": ["Appleblossom", "Berrybrook", "Brownleaf", "Goodbarrel", "Greenbottle", "Hilltopple", "Meadowbrook", "Nimblefingers", "Quickstep", "Softfoot", "Sweetwater", "Thorngage", "Underbough", "Warmhearth"],
+  "lastNamePrefixes": ["Apple", "Berry", "Brown", "Good", "Green", "Hill", "Meadow", "Nimble", "Quick", "Soft", "Sweet", "Thorn", "Under", "Warm"],
+  "lastNameSuffixes": ["barrel", "blossom", "bottle", "brook", "burrow", "fingers", "foot", "gage", "hearth", "leaf", "step", "topple", "water", "bough"]
+}

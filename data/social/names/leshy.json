@@ -1,0 +1,32 @@
+{
+  "ancestry": "leshy",
+  "description": "Leshy names are nature-based, often referencing plants, seasons, or natural phenomena",
+  "hasLastNames": false,
+  "structures": [
+    { "type": "syllabic", "weight": 40 },
+    { "type": "compound", "weight": 40 },
+    { "type": "single", "weight": 20 }
+  ],
+  "lengthWeights": {
+    "2": 70,
+    "3": 30
+  },
+  "male": {
+    "prefixes": ["Ash", "Bark", "Fern", "Moss", "Pine", "Root", "Sage", "Thorn", "Vine", "Wil"],
+    "suffixes": ["bloom", "branch", "bud", "leaf", "root", "seed", "sprout", "stem", "thorn", "wood"]
+  },
+  "female": {
+    "prefixes": ["Blos", "Clover", "Fern", "Flor", "Ivy", "Lily", "Rose", "Sage", "Vio", "Wil"],
+    "suffixes": ["bloom", "blossom", "flower", "leaf", "petal", "seed", "som", "vine"]
+  },
+  "nonbinary": {
+    "prefixes": ["Ash", "Bark", "Briar", "Fern", "Leaf", "Moss", "Root", "Sage", "Thorn", "Vine", "Wil"],
+    "suffixes": ["bloom", "branch", "bud", "leaf", "moss", "root", "sage", "seed", "sprout", "thorn"]
+  },
+  "compoundParts": {
+    "prefixes": ["Amber", "Autumn", "Berry", "Bloom", "Branch", "Bud", "Cedar", "Clover", "Dew", "Fern", "Flower", "Ivy", "Leaf", "Maple", "Moss", "Oak", "Petal", "Pine", "Root", "Rose", "Sage", "Seed", "Spring", "Stem", "Summer", "Thorn", "Vine", "Willow", "Winter"],
+    "suffixes": ["bark", "bloom", "blossom", "branch", "breeze", "bud", "cap", "dew", "flower", "leaf", "moss", "petal", "root", "seed", "shade", "song", "sprout", "stem", "thorn", "vine", "walker", "whisper", "wind", "wood"]
+  },
+  "compoundSeparator": "",
+  "names": ["Acorn", "Alder", "Aspen", "Basil", "Birch", "Bramble", "Briar", "Cedar", "Clover", "Dandelion", "Elderberry", "Fern", "Hazel", "Heather", "Holly", "Ivy", "Juniper", "Lavender", "Lichen", "Maple", "Moss", "Nettle", "Oak", "Oleander", "Petal", "Pine", "Poppy", "Reed", "Rowan", "Rue", "Sage", "Sorrel", "Spruce", "Thyme", "Thistle", "Thorn", "Willow", "Yarrow"]
+}
