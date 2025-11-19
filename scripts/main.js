@@ -71,7 +71,7 @@ class PF2eNarrativeSeeds {
     console.log(`PF2e Narrative Seeds | Active generators: ${this.generators.size}`);
 
     // Show notification to GM
-    if (game.user.isGM && typeof ui !== 'undefined' && ui.notifications) {
+    if (game.user.isGM && typeof ui !== 'undefined' && ui.notifications && NarrativeSeedsSettings.shouldShowNotifications()) {
       ui.notifications.info("PF2e Narrative Seeds loaded successfully!");
     }
   }

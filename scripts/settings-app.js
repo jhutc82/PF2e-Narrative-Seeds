@@ -43,6 +43,7 @@ export class NarrativeSeedsSettingsApp extends FormApplication {
       visibilityMode: game.settings.get("pf2e-narrative-seeds", "visibilityMode"),
       contentTone: game.settings.get("pf2e-narrative-seeds", "contentTone"),
       varietyMode: game.settings.get("pf2e-narrative-seeds", "varietyMode"),
+      enableNotifications: game.settings.get("pf2e-narrative-seeds", "enableNotifications"),
 
       // Combat Settings
       enableCombat: game.settings.get("pf2e-narrative-seeds", "enableCombat"),
@@ -162,6 +163,7 @@ export class NarrativeSeedsSettingsApp extends FormApplication {
     await game.settings.set("pf2e-narrative-seeds", "visibilityMode", "gm-only");
     await game.settings.set("pf2e-narrative-seeds", "contentTone", "standard");
     await game.settings.set("pf2e-narrative-seeds", "varietyMode", "high");
+    await game.settings.set("pf2e-narrative-seeds", "enableNotifications", true);
     await game.settings.set("pf2e-narrative-seeds", "enableCombat", true);
     await game.settings.set("pf2e-narrative-seeds", "combatDetailLevel", "standard");
     await game.settings.set("pf2e-narrative-seeds", "showAnatomyType", true);
@@ -176,7 +178,9 @@ export class NarrativeSeedsSettingsApp extends FormApplication {
     await game.settings.set("pf2e-narrative-seeds", "skillDetailLevel", "standard");
     await game.settings.set("pf2e-narrative-seeds", "showDetectedFeats", false);
 
-    ui.notifications.info("All settings reset to defaults");
+    if (NarrativeSeedsSettings.shouldShowNotifications()) {
+      ui.notifications.info("All settings reset to defaults");
+    }
     this.render();
   }
 
@@ -186,6 +190,8 @@ export class NarrativeSeedsSettingsApp extends FormApplication {
       await game.settings.set("pf2e-narrative-seeds", key, value);
     }
 
-    ui.notifications.info("PF2e Narrative Seeds settings saved");
+    if (NarrativeSeedsSettings.shouldShowNotifications()) {
+      ui.notifications.info("PF2e Narrative Seeds settings saved");
+    }
   }
 }

@@ -210,7 +210,7 @@ export class SkillHooks {
         }
       });
 
-      if (typeof ui !== 'undefined' && ui.notifications) {
+      if (typeof ui !== 'undefined' && ui.notifications && NarrativeSeedsSettings.shouldShowNotifications()) {
         ui.notifications.info("Narrative regenerated!");
       }
 
