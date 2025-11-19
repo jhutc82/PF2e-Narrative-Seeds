@@ -3,6 +3,8 @@
  * Handles all module settings configuration
  */
 
+import { NarrativeSeedsSettingsApp } from './settings-app.js';
+
 export class NarrativeSeedsSettings {
 
   /**
@@ -10,6 +12,16 @@ export class NarrativeSeedsSettings {
    */
   static registerSettings() {
     console.log("PF2e Narrative Seeds | Registering settings...");
+
+    // Register custom settings menu
+    game.settings.registerMenu("pf2e-narrative-seeds", "settingsMenu", {
+      name: "Configure Narrative Seeds",
+      label: "Open Settings",
+      hint: "Open the improved settings dialog for PF2e Narrative Seeds",
+      icon: "fas fa-cogs",
+      type: NarrativeSeedsSettingsApp,
+      restricted: true
+    });
 
     // ========================================
     // GLOBAL SETTINGS
@@ -20,7 +32,7 @@ export class NarrativeSeedsSettings {
       name: "Enable Narrative Seeds",
       hint: "Master switch for all narrative generation features",
       scope: "world",
-      config: true,
+      config: false,
       type: Boolean,
       default: true,
       onChange: value => {
@@ -33,7 +45,7 @@ export class NarrativeSeedsSettings {
       name: "Narrative Visibility",
       hint: "Who sees the generated narrative seeds?",
       scope: "world",
-      config: true,
+      config: false,
       type: String,
       choices: {
         "gm-only": "GM Only (Whispered)",
@@ -48,7 +60,7 @@ export class NarrativeSeedsSettings {
       name: "Content Tone",
       hint: "How graphic/intense should descriptions be?",
       scope: "world",
-      config: true,
+      config: false,
       type: String,
       choices: {
         "family-friendly": "Family Friendly (PG)",
@@ -64,7 +76,7 @@ export class NarrativeSeedsSettings {
       name: "Variety Level",
       hint: "How much variation in descriptions?",
       scope: "world",
-      config: true,
+      config: false,
       type: String,
       choices: {
         "low": "Low (Familiar, less varied)",
@@ -84,7 +96,7 @@ export class NarrativeSeedsSettings {
       name: "Enable Combat Narration",
       hint: "Generate descriptions for attack rolls",
       scope: "world",
-      config: true,
+      config: false,
       type: Boolean,
       default: true,
       onChange: value => {
@@ -97,7 +109,7 @@ export class NarrativeSeedsSettings {
       name: "Combat Detail Level",
       hint: "How much information to include",
       scope: "world",
-      config: true,
+      config: false,
       type: String,
       choices: {
         "minimal": "Minimal (Location only)",
@@ -113,7 +125,7 @@ export class NarrativeSeedsSettings {
       name: "Show Detected Anatomy",
       hint: "Display detected creature anatomy type in output",
       scope: "world",
-      config: true,
+      config: false,
       type: Boolean,
       default: true
     });
@@ -127,7 +139,7 @@ export class NarrativeSeedsSettings {
       name: "Enable Skill Action Narration",
       hint: "Generate descriptions for skill actions in encounter mode",
       scope: "world",
-      config: true,
+      config: false,
       type: Boolean,
       default: true,
       onChange: value => {
@@ -140,7 +152,7 @@ export class NarrativeSeedsSettings {
       name: "Skill Detail Level",
       hint: "How much information to include in skill narratives",
       scope: "world",
-      config: true,
+      config: false,
       type: String,
       choices: {
         "minimal": "Minimal (Quick description)",
@@ -156,7 +168,7 @@ export class NarrativeSeedsSettings {
       name: "Show Detected Feats",
       hint: "Display which feats were detected in skill narrative output",
       scope: "world",
-      config: true,
+      config: false,
       type: Boolean,
       default: false
     });
@@ -170,7 +182,7 @@ export class NarrativeSeedsSettings {
       name: "Enable Combat Complications",
       hint: "Generate mechanical complications for critical successes and failures",
       scope: "world",
-      config: true,
+      config: false,
       type: Boolean,
       default: true,
       onChange: value => {
@@ -183,7 +195,7 @@ export class NarrativeSeedsSettings {
       name: "Complication Frequency",
       hint: "Percentage chance for a complication to occur on critical outcomes (0-100)",
       scope: "world",
-      config: true,
+      config: false,
       type: Number,
       range: {
         min: 0,
@@ -206,7 +218,7 @@ export class NarrativeSeedsSettings {
       name: "Auto-Apply Complications",
       hint: "Automatically apply complications without requiring the GM to click the apply button. Effects will be applied immediately when a complication is triggered.",
       scope: "world",
-      config: true,
+      config: false,
       type: Boolean,
       default: false,
       onChange: value => {
@@ -223,7 +235,7 @@ export class NarrativeSeedsSettings {
       name: "Enable Dismemberment System",
       hint: "PERMANENT INJURIES: Generate dismemberment effects for devastating critical hits (dealing >50% of max HP or against unconscious targets)",
       scope: "world",
-      config: true,
+      config: false,
       type: Boolean,
       default: false,
       onChange: value => {
@@ -236,7 +248,7 @@ export class NarrativeSeedsSettings {
       name: "Dismemberment Base Chance",
       hint: "Base percentage chance for dismemberment when conditions are met (before level scaling)",
       scope: "world",
-      config: true,
+      config: false,
       type: Number,
       range: {
         min: 0,
@@ -251,7 +263,7 @@ export class NarrativeSeedsSettings {
       name: "Dismemberment Level Scaling",
       hint: "Additional percentage chance per target level (e.g., 0.5 = +0.5% per level)",
       scope: "world",
-      config: true,
+      config: false,
       type: Number,
       range: {
         min: 0,
@@ -266,7 +278,7 @@ export class NarrativeSeedsSettings {
       name: "Dismemberment Maximum Chance",
       hint: "Maximum percentage chance for dismemberment (caps total chance including level scaling)",
       scope: "world",
-      config: true,
+      config: false,
       type: Number,
       range: {
         min: 5,
