@@ -198,6 +198,15 @@ export class NPCGenerator {
       // Generate professional expertise (occupation-specific knowledge)
       const professionalExpertise = this.generateProfessionalExpertise(professionalExpertiseData, occupation, detailLevel);
 
+      // Generate sample dialogue (3-5 example lines in their voice)
+      const dialogueSamples = this.generateDialogueSamples(speechPatterns, personalities, mood, currentSituation, emotionalTriggers, detailLevel);
+
+      // Generate voice template (complete voice guide for GMs)
+      const voiceTemplate = this.generateVoiceTemplate(speechPatterns, personalities, psychology, relationshipDynamics, detailLevel);
+
+      // Generate story hooks (quests they can offer)
+      const storyHooks = this.generateStoryHooks(plotHooks, currentSituation, occupation, relationships, economics, secrets, detailLevel);
+
       // Build NPC seed
       const seed = {
         name,
@@ -228,6 +237,9 @@ export class NPCGenerator {
         health,
         relationshipDynamics,
         professionalExpertise,
+        dialogueSamples,
+        voiceTemplate,
+        storyHooks,
         detailLevel,
         actor: params.actor,
         timestamp: Date.now()
@@ -1591,5 +1603,365 @@ export class NPCGenerator {
       professionalOpinions,
       insiderKnowledge
     };
+  }
+
+  /**
+   * Generate sample dialogue (3-5 example lines in their voice)
+   * @param {Object} speechPatterns - Speech patterns data
+   * @param {Array} personalities - Personality traits
+   * @param {Object} mood - Current mood
+   * @param {Object} currentSituation - Current situation
+   * @param {Object} emotionalTriggers - Emotional triggers
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Dialogue samples
+   */
+  static generateDialogueSamples(speechPatterns, personalities, mood, currentSituation, emotionalTriggers, detailLevel) {
+    if (!speechPatterns || !personalities) return null;
+
+    const numSamples = detailLevel === "cinematic" ? 5 : 3;
+    const samples = [];
+
+    // Sample contexts for dialogue
+    const contexts = [
+      { context: "greeting", description: "Meeting someone for the first time" },
+      { context: "angry", description: "When one of their hot buttons is pressed" },
+      { context: "pleased", description: "When in a good mood or complimented" },
+      { context: "bargaining", description: "Negotiating or making a deal" },
+      { context: "threatening", description: "When they feel threatened or defensive" },
+      { context: "friendly", description: "Talking with someone they trust" },
+      { context: "dismissive", description: "Brushing someone off" },
+      { context: "curious", description: "Asking questions or investigating" }
+    ];
+
+    // Select unique contexts
+    const selectedContexts = this.selectUniqueItems(contexts, numSamples);
+
+    selectedContexts.forEach(ctx => {
+      samples.push({
+        context: ctx.description,
+        line: this.generateDialogueLine(speechPatterns, personalities, mood, ctx.context)
+      });
+    });
+
+    return {
+      samples,
+      notes: "These are examples of how this NPC speaks. Combine their speech patterns, personality, and mood to improvise similar dialogue."
+    };
+  }
+
+  /**
+   * Generate a single line of dialogue
+   * @param {Object} speechPatterns - Speech patterns
+   * @param {Array} personalities - Personality traits
+   * @param {Object} mood - Current mood
+   * @param {string} context - Context for the line
+   * @returns {string} Generated dialogue line
+   */
+  static generateDialogueLine(speechPatterns, personalities, mood, context) {
+    // This creates template-based dialogue that reflects their speech patterns
+    const speed = speechPatterns.speakingSpeed?.speed || "moderate";
+    const style = speechPatterns.conversationStyle?.style || "direct";
+    const accent = speechPatterns.accent?.accent || "neutral";
+
+    // Include verbal tic if they have one
+    const tic = speechPatterns.verbalTics && speechPatterns.verbalTics.length > 0
+      ? speechPatterns.verbalTics[0].tic
+      : "";
+
+    // Include catchphrase occasionally
+    const useCatchphrase = speechPatterns.catchphrases &&
+                          speechPatterns.catchphrases.length > 0 &&
+                          Math.random() < 0.3;
+    const catchphrase = useCatchphrase ? speechPatterns.catchphrases[0].phrase : "";
+
+    // Build dialogue based on context
+    let line = "";
+
+    switch(context) {
+      case "greeting":
+        line = style === "verbose"
+          ? `Ah, greetings and salutations! ${tic} What brings you to my door?`
+          : style === "curt"
+          ? `Yeah? ${tic} What?`
+          : `Hello there. ${tic} Can I help you?`;
+        break;
+      case "angry":
+        line = speed === "rapid"
+          ? `Listen here ${tic} I've had enough of this nonsense, you understand me?`
+          : `I will not ${tic} tolerate this kind of disrespect.`;
+        break;
+      case "pleased":
+        line = style === "verbose"
+          ? `My dear friend, ${tic} you have truly made my day! ${catchphrase}`
+          : `Good. ${tic} I appreciate that. ${catchphrase}`;
+        break;
+      case "bargaining":
+        line = style === "manipulative"
+          ? `Now, ${tic} I'm sure we can come to an... arrangement that benefits us both.`
+          : `Here's what I can offer: ${tic} Fair price, no tricks.`;
+        break;
+      case "threatening":
+        line = style === "curt"
+          ? `${tic} Back off. Now.`
+          : `I would strongly advise ${tic} that you reconsider your current course of action.`;
+        break;
+      case "friendly":
+        line = `You know what? ${tic} I like you. ${catchphrase}`;
+        break;
+      case "dismissive":
+        line = style === "curt"
+          ? `Not interested. ${tic} Move along.`
+          : `I'm afraid I simply don't have time for this ${tic} at the moment.`;
+        break;
+      case "curious":
+        line = speed === "rapid"
+          ? `Wait wait wait ${tic} tell me more about that!`
+          : `Interesting. ${tic} Go on...`;
+        break;
+      default:
+        line = `${tic} Well, that's how it is. ${catchphrase}`;
+    }
+
+    return line.replace(/\s+/g, ' ').trim();
+  }
+
+  /**
+   * Generate voice template (complete voice guide for GMs)
+   * @param {Object} speechPatterns - Speech patterns
+   * @param {Array} personalities - Personality traits
+   * @param {Object} psychology - Psychology data
+   * @param {Object} relationshipDynamics - Relationship dynamics
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Voice template
+   */
+  static generateVoiceTemplate(speechPatterns, personalities, psychology, relationshipDynamics, detailLevel) {
+    if (!speechPatterns || !personalities) return null;
+
+    // Build comprehensive voice guide
+    const template = {
+      overview: this.buildVoiceOverview(speechPatterns, personalities),
+      sentenceStructure: this.buildSentenceStructure(speechPatterns),
+      vocabularyGuidelines: this.buildVocabularyGuidelines(personalities, psychology),
+      topicsToSeek: this.buildTopicsToSeek(personalities, psychology),
+      topicsToAvoid: this.buildTopicsToAvoid(psychology, relationshipDynamics),
+      emotionalExpression: this.buildEmotionalExpression(speechPatterns, personalities),
+      bodyLanguage: this.buildBodyLanguage(personalities, relationshipDynamics)
+    };
+
+    return template;
+  }
+
+  static buildVoiceOverview(speechPatterns, personalities) {
+    const speed = speechPatterns.speakingSpeed?.speed || "moderate";
+    const style = speechPatterns.conversationStyle?.style || "direct";
+    const personality = personalities[0]?.trait || "practical";
+
+    return `This NPC speaks ${speed}ly with a ${style} conversational style. Their ${personality} personality comes through in every interaction.`;
+  }
+
+  static buildSentenceStructure(speechPatterns) {
+    const style = speechPatterns.conversationStyle?.style || "direct";
+
+    const structures = {
+      "verbose": "Uses long, elaborate sentences with multiple clauses. Rarely uses simple statements.",
+      "curt": "Speaks in short, clipped sentences. Often just a few words. Gets to the point.",
+      "rambling": "Sentences tend to wander. Starts one thought, shifts to another. Uses lots of 'and' and 'but'.",
+      "formal": "Uses complete, grammatically correct sentences. Avoids contractions. Proper structure.",
+      "poetic": "Speaks in metaphors and flowing phrases. May use unusual word order for effect.",
+      "direct": "Clear, straightforward sentences. No unnecessary words. Gets message across efficiently.",
+      "storytelling": "Often frames things as narratives. 'It was like...' or 'Reminds me of the time...'",
+      "questioning": "Frequently asks questions. Even statements may end with 'you know?' or 'right?'",
+      "sarcastic": "Uses irony and reverse meaning. Tone is key to understanding their actual intent.",
+      "manipulative": "Carefully chosen words. Implies rather than states. Leaves room for deniability."
+    };
+
+    return structures[style] || structures["direct"];
+  }
+
+  static buildVocabularyGuidelines(personalities, psychology) {
+    const guidelines = [];
+
+    if (personalities.some(p => p.trait === "educated" || p.trait === "scholarly")) {
+      guidelines.push("Uses educated vocabulary, technical terms, and precise language");
+    }
+    if (personalities.some(p => p.trait === "crude" || p.trait === "rough")) {
+      guidelines.push("Uses rough language, slang, and colorful expressions");
+    }
+    if (psychology?.fears?.some(f => f.fear?.includes("appear ignorant"))) {
+      guidelines.push("Avoids admitting not knowing something, may use big words incorrectly");
+    }
+    if (personalities.some(p => p.trait === "humble" || p.trait === "modest")) {
+      guidelines.push("Downplays their own achievements, uses self-deprecating language");
+    }
+
+    if (guidelines.length === 0) {
+      guidelines.push("Uses everyday vocabulary appropriate to their occupation and background");
+    }
+
+    return guidelines;
+  }
+
+  static buildTopicsToSeek(personalities, psychology) {
+    const topics = [];
+
+    if (psychology?.interests && psychology.interests.length > 0) {
+      topics.push(`Loves talking about: ${psychology.interests.map(i => i.interest).join(", ")}`);
+    }
+    if (psychology?.passions && psychology.passions.length > 0) {
+      topics.push(`Passionate about: ${psychology.passions.map(p => p.passion).join(", ")}`);
+    }
+    if (personalities.some(p => p.trait === "gossipy" || p.trait === "curious")) {
+      topics.push("Always wants to hear the latest news and gossip");
+    }
+
+    return topics.length > 0 ? topics : ["Will discuss most topics relevant to their work"];
+  }
+
+  static buildTopicsToAvoid(psychology, relationshipDynamics) {
+    const topics = [];
+
+    if (psychology?.shameSources && psychology.shameSources.length > 0) {
+      topics.push(`Shameful topics: ${psychology.shameSources.map(s => s.source).join(", ")}`);
+    }
+    if (psychology?.fears && psychology.fears.length > 0) {
+      topics.push(`Fearful topics: ${psychology.fears.map(f => f.fear).join(", ")}`);
+    }
+    if (relationshipDynamics?.boundariesWithStrangers?.boundaries?.includes("Closed")) {
+      topics.push("Personal matters, family, feelings");
+    }
+
+    return topics.length > 0 ? topics : ["No particular topics to avoid"];
+  }
+
+  static buildEmotionalExpression(speechPatterns, personalities) {
+    const tells = speechPatterns.emotionalTells || [];
+    const laugh = speechPatterns.laugh?.laugh || "normal laugh";
+
+    return {
+      whenHappy: `${laugh}, may speak faster or more animatedly`,
+      whenAngry: tells.find(t => t.emotion === "Anger")?.tell || "Voice becomes sharper, more clipped",
+      whenSad: tells.find(t => t.emotion === "Sadness")?.tell || "Speaks more quietly, pauses more",
+      whenLying: tells.find(t => t.emotion === "Lying")?.tell || "May avoid eye contact, fidget"
+    };
+  }
+
+  static buildBodyLanguage(personalities, relationshipDynamics) {
+    const language = [];
+
+    if (personalities.some(p => p.trait === "confident" || p.trait === "bold")) {
+      language.push("Stands tall, makes strong eye contact, uses expansive gestures");
+    } else if (personalities.some(p => p.trait === "shy" || p.trait === "timid")) {
+      language.push("Avoids eye contact, closed posture, small gestures");
+    }
+
+    if (relationshipDynamics?.conflictStyle?.style === "Aggressive") {
+      language.push("When angry: leans forward, invades personal space, points");
+    } else if (relationshipDynamics?.conflictStyle?.style === "Avoidant") {
+      language.push("When uncomfortable: backs away, looks for exits, fidgets");
+    }
+
+    return language.length > 0 ? language : ["Body language matches their mood and personality"];
+  }
+
+  /**
+   * Generate story hooks (quests they can offer)
+   * @param {Object} plotHooks - Plot hooks
+   * @param {Object} currentSituation - Current situation
+   * @param {Object} occupation - Occupation
+   * @param {Object} relationships - Relationships
+   * @param {Object} economics - Economic situation
+   * @param {Object} secrets - Secrets
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Story hooks
+   */
+  static generateStoryHooks(plotHooks, currentSituation, occupation, relationships, economics, secrets, detailLevel) {
+    if (!plotHooks) return null;
+
+    const numHooks = detailLevel === "cinematic" ? 3 : 2;
+    const hooks = [];
+
+    // Generate hooks based on their current problems
+    if (currentSituation?.immediateProblems && currentSituation.immediateProblems.length > 0) {
+      const problem = currentSituation.immediateProblems[0];
+      hooks.push({
+        type: "Help Needed",
+        hook: `${problem.problem}`,
+        reward: this.generateQuestReward(economics, occupation),
+        consequence: "May become grateful ally if helped, or desperate enemy if refused",
+        urgency: currentSituation.timeConstraints?.constraint || "No immediate deadline"
+      });
+    }
+
+    // Generate hooks based on their goals
+    if (currentSituation?.shortTermGoals && currentSituation.shortTermGoals.length > 0) {
+      const goal = currentSituation.shortTermGoals[0];
+      hooks.push({
+        type: "Mutual Benefit",
+        hook: `Wants to ${goal.goal.toLowerCase()} and could use assistance`,
+        reward: this.generateQuestReward(economics, occupation),
+        consequence: "Success could lead to ongoing partnership",
+        urgency: "Willing to wait for right opportunity"
+      });
+    }
+
+    // Generate hooks based on their secrets
+    if (secrets?.deepSecrets && secrets.deepSecrets.length > 0 && Math.random() < 0.5) {
+      hooks.push({
+        type: "Hidden Agenda",
+        hook: "Has a secret need they won't immediately reveal",
+        reward: "Will offer significant reward if trust is earned",
+        consequence: "Getting involved may draw unwanted attention",
+        urgency: "Very patient, playing the long game"
+      });
+    }
+
+    // Generate hooks based on relationships
+    if (relationships?.relationshipTypes && relationships.relationshipTypes.length > 0 && hooks.length < numHooks) {
+      const rel = relationships.relationshipTypes[0];
+      hooks.push({
+        type: "Relationship Drama",
+        hook: `Issues with their ${rel.type}: ${rel.description}`,
+        reward: "Gratitude and social connections",
+        consequence: "May create enemies among their associates",
+        urgency: "Situation is ongoing"
+      });
+    }
+
+    // Pad with plot hooks if needed
+    while (hooks.length < numHooks && plotHooks) {
+      const plotHook = plotHooks[0];
+      hooks.push({
+        type: "Adventure Hook",
+        hook: plotHook.hook || "Has information about a local situation",
+        reward: this.generateQuestReward(economics, occupation),
+        consequence: "Standard adventure consequences",
+        urgency: "Flexible timing"
+      });
+    }
+
+    return {
+      availableQuests: hooks.slice(0, numHooks),
+      notes: "These are potential quests this NPC could offer. Availability depends on relationship with PCs and current circumstances."
+    };
+  }
+
+  static generateQuestReward(economics, occupation) {
+    if (!economics?.wealthLevel) {
+      return "Appropriate reward for the task";
+    }
+
+    const wealth = economics.wealthLevel.name || "Moderate wealth";
+    const rewards = {
+      "Destitute": "Heartfelt gratitude, perhaps a small keepsake",
+      "Poor": "A few copper coins, whatever they can spare",
+      "Struggling": "A silver or two, possibly a useful item",
+      "Modest": "Fair payment in silver, or a favor",
+      "Comfortable": "Generous payment in gold",
+      "Wealthy": "Substantial gold reward",
+      "Very Wealthy": "Gold and valuable items",
+      "Extremely Wealthy": "Large sum of gold plus rare items or influence"
+    };
+
+    return rewards[wealth] || "Appropriate reward for the task";
   }
 }
