@@ -6,6 +6,8 @@
 import { NarrativeSeedsSettings } from '../settings.js';
 import { NPCGenerator } from './npc-generator.js';
 import { SocialFormatter } from './social-formatter.js';
+import { NPCManagerApp } from './npc-manager-app.js';
+import { NPCManagerStorage } from './npc-manager-storage.js';
 
 /**
  * Social hooks manager
@@ -18,16 +20,27 @@ export class SocialHooks {
   static hookIds = [];
 
   /**
+   * NPC Manager instance
+   */
+  static npcManager = null;
+
+  /**
    * Initialize social hooks
    */
   static initialize() {
     console.log("PF2e Narrative Seeds | Initializing social hooks...");
+
+    // Initialize NPC Manager storage
+    NPCManagerStorage.initialize();
 
     // Register hooks
     this.registerHooks();
 
     // Add chat command for manual generation
     this.registerChatCommands();
+
+    // Add UI controls
+    this.addUIControls();
 
     console.log("PF2e Narrative Seeds | Social hooks initialized");
   }
@@ -70,8 +83,54 @@ export class SocialHooks {
         return false; // Prevent the message from being sent to chat
       }
 
+      // Open NPC Manager
+      if (command === "/npc-manager" || command === "/npcs") {
+        this.openNPCManager();
+        return false;
+      }
+
       return true;
     });
+  }
+
+  /**
+   * Add UI controls for NPC Manager
+   */
+  static addUIControls() {
+    // Add button to scene controls for GMs
+    Hooks.on("getSceneControlButtons", (controls) => {
+      if (!game.user.isGM) return;
+
+      // Find the notes control group (or create a new one)
+      let notesControl = controls.find(c => c.name === "notes");
+
+      if (notesControl) {
+        notesControl.tools.push({
+          name: "npc-manager",
+          title: "NPC Manager",
+          icon: "fas fa-users",
+          button: true,
+          onClick: () => this.openNPCManager()
+        });
+      }
+    });
+  }
+
+  /**
+   * Open NPC Manager
+   */
+  static openNPCManager() {
+    if (!game.user.isGM) {
+      ui.notifications.warn("Only GMs can access the NPC Manager");
+      return;
+    }
+
+    // Create or show existing instance
+    if (!this.npcManager) {
+      this.npcManager = new NPCManagerApp();
+    }
+
+    this.npcManager.render(true, { focus: true });
   }
 
   /**
@@ -252,6 +311,12 @@ export class SocialHooks {
    */
   static shutdown() {
     console.log("PF2e Narrative Seeds | Shutting down social hooks...");
+
+    // Close NPC Manager if open
+    if (this.npcManager) {
+      this.npcManager.close();
+      this.npcManager = null;
+    }
 
     // Remove all hooks
     for (const hookId of this.hookIds) {

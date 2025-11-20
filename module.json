@@ -19,7 +19,8 @@
   ],
   "styles": [
     "styles/main.css",
-    "styles/settings-app.css"
+    "styles/settings-app.css",
+    "styles/npc-manager.css"
   ],
   "languages": [
     {
