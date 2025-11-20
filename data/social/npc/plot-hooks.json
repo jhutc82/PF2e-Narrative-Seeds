@@ -1,0 +1,409 @@
+{
+  "secrets": [
+    {
+      "id": "secret-debt",
+      "name": "Hidden Debt",
+      "description": "Owes a significant sum to dangerous people",
+      "severity": "moderate",
+      "likelihood": 15
+    },
+    {
+      "id": "secret-identity",
+      "name": "Secret Identity",
+      "description": "Living under a false name",
+      "severity": "high",
+      "likelihood": 10
+    },
+    {
+      "id": "noble-birth",
+      "name": "Noble Birth",
+      "description": "Actually of noble lineage but hiding it",
+      "severity": "moderate",
+      "likelihood": 8
+    },
+    {
+      "id": "witnessed-crime",
+      "name": "Witnessed a Crime",
+      "description": "Saw something they shouldn't have",
+      "severity": "high",
+      "likelihood": 12
+    },
+    {
+      "id": "affair",
+      "name": "Secret Affair",
+      "description": "Having an illicit romance",
+      "severity": "low",
+      "likelihood": 15
+    },
+    {
+      "id": "magical-ability",
+      "name": "Hidden Magic",
+      "description": "Has magical abilities they conceal",
+      "severity": "moderate",
+      "likelihood": 10
+    },
+    {
+      "id": "criminal-past",
+      "name": "Criminal Past",
+      "description": "Committed crimes in the past",
+      "severity": "high",
+      "likelihood": 18
+    },
+    {
+      "id": "spy",
+      "name": "Double Agent",
+      "description": "Working for another faction",
+      "severity": "high",
+      "likelihood": 6
+    },
+    {
+      "id": "illness",
+      "name": "Terminal Illness",
+      "description": "Suffering from a deadly disease",
+      "severity": "high",
+      "likelihood": 8
+    },
+    {
+      "id": "family-secret",
+      "name": "Family Secret",
+      "description": "Their family hides a dark truth",
+      "severity": "moderate",
+      "likelihood": 12
+    },
+    {
+      "id": "forbidden-knowledge",
+      "name": "Forbidden Knowledge",
+      "description": "Knows something dangerous",
+      "severity": "high",
+      "likelihood": 10
+    },
+    {
+      "id": "addiction",
+      "name": "Secret Addiction",
+      "description": "Struggling with substance abuse",
+      "severity": "moderate",
+      "likelihood": 12
+    },
+    {
+      "id": "bastard-child",
+      "name": "Illegitimate Child",
+      "description": "Has a child no one knows about",
+      "severity": "moderate",
+      "likelihood": 10
+    },
+    {
+      "id": "cursed",
+      "name": "Cursed",
+      "description": "Under a magical curse",
+      "severity": "high",
+      "likelihood": 7
+    },
+    {
+      "id": "treasure-map",
+      "name": "Hidden Treasure",
+      "description": "Knows the location of treasure",
+      "severity": "moderate",
+      "likelihood": 8
+    }
+  ],
+  "goals": [
+    {
+      "id": "wealth",
+      "name": "Accumulate Wealth",
+      "description": "Seeking to become rich",
+      "timeframe": "long-term",
+      "likelihood": 20
+    },
+    {
+      "id": "revenge",
+      "name": "Get Revenge",
+      "description": "Wants to settle a score",
+      "timeframe": "variable",
+      "likelihood": 15
+    },
+    {
+      "id": "find-love",
+      "name": "Find True Love",
+      "description": "Searching for a romantic partner",
+      "timeframe": "long-term",
+      "likelihood": 12
+    },
+    {
+      "id": "prove-innocence",
+      "name": "Prove Innocence",
+      "description": "Clear their name of false accusations",
+      "timeframe": "short-term",
+      "likelihood": 10
+    },
+    {
+      "id": "find-family",
+      "name": "Reunite with Family",
+      "description": "Searching for lost relatives",
+      "timeframe": "long-term",
+      "likelihood": 12
+    },
+    {
+      "id": "master-craft",
+      "name": "Perfect Their Craft",
+      "description": "Become the best at what they do",
+      "timeframe": "long-term",
+      "likelihood": 18
+    },
+    {
+      "id": "political-power",
+      "name": "Gain Political Power",
+      "description": "Rise to a position of authority",
+      "timeframe": "long-term",
+      "likelihood": 10
+    },
+    {
+      "id": "cure-disease",
+      "name": "Find a Cure",
+      "description": "Cure themselves or a loved one",
+      "timeframe": "urgent",
+      "likelihood": 8
+    },
+    {
+      "id": "escape",
+      "name": "Escape Their Situation",
+      "description": "Get away from current circumstances",
+      "timeframe": "short-term",
+      "likelihood": 15
+    },
+    {
+      "id": "redemption",
+      "name": "Seek Redemption",
+      "description": "Atone for past mistakes",
+      "timeframe": "long-term",
+      "likelihood": 12
+    },
+    {
+      "id": "knowledge",
+      "name": "Discover Truth",
+      "description": "Uncover hidden knowledge",
+      "timeframe": "variable",
+      "likelihood": 14
+    },
+    {
+      "id": "protect-someone",
+      "name": "Protect a Loved One",
+      "description": "Keep someone safe from danger",
+      "timeframe": "ongoing",
+      "likelihood": 16
+    },
+    {
+      "id": "destroy-enemy",
+      "name": "Destroy an Enemy",
+      "description": "Bring down a powerful foe",
+      "timeframe": "long-term",
+      "likelihood": 10
+    },
+    {
+      "id": "start-business",
+      "name": "Start a Business",
+      "description": "Open their own shop or enterprise",
+      "timeframe": "medium-term",
+      "likelihood": 14
+    },
+    {
+      "id": "retire",
+      "name": "Retire Peacefully",
+      "description": "Leave their current life behind",
+      "timeframe": "long-term",
+      "likelihood": 10
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "debt-conflict",
+      "name": "Crushing Debt",
+      "description": "Deep in debt to dangerous creditors",
+      "severity": "high",
+      "likelihood": 15
+    },
+    {
+      "id": "legal-trouble",
+      "name": "Legal Troubles",
+      "description": "Facing criminal charges",
+      "severity": "high",
+      "likelihood": 12
+    },
+    {
+      "id": "family-feud",
+      "name": "Family Feud",
+      "description": "Caught in a conflict between family members",
+      "severity": "moderate",
+      "likelihood": 14
+    },
+    {
+      "id": "romantic-triangle",
+      "name": "Love Triangle",
+      "description": "Competing for someone's affections",
+      "severity": "low",
+      "likelihood": 10
+    },
+    {
+      "id": "rival-business",
+      "name": "Business Rivalry",
+      "description": "In competition with a rival",
+      "severity": "moderate",
+      "likelihood": 16
+    },
+    {
+      "id": "blackmail",
+      "name": "Being Blackmailed",
+      "description": "Someone holds damaging information over them",
+      "severity": "high",
+      "likelihood": 10
+    },
+    {
+      "id": "political-intrigue",
+      "name": "Political Intrigue",
+      "description": "Caught up in power struggles",
+      "severity": "high",
+      "likelihood": 8
+    },
+    {
+      "id": "monster-threat",
+      "name": "Monster Threat",
+      "description": "A creature threatens them or their community",
+      "severity": "high",
+      "likelihood": 10
+    },
+    {
+      "id": "guild-dispute",
+      "name": "Guild Conflict",
+      "description": "At odds with their professional organization",
+      "severity": "moderate",
+      "likelihood": 12
+    },
+    {
+      "id": "religious-persecution",
+      "name": "Religious Persecution",
+      "description": "Facing discrimination for their beliefs",
+      "severity": "high",
+      "likelihood": 8
+    },
+    {
+      "id": "property-dispute",
+      "name": "Property Dispute",
+      "description": "Fighting over land or inheritance",
+      "severity": "moderate",
+      "likelihood": 12
+    },
+    {
+      "id": "curse-problem",
+      "name": "Magical Affliction",
+      "description": "Suffering from a curse or magical ailment",
+      "severity": "high",
+      "likelihood": 6
+    },
+    {
+      "id": "hunted",
+      "name": "Being Hunted",
+      "description": "Someone is actively pursuing them",
+      "severity": "high",
+      "likelihood": 10
+    },
+    {
+      "id": "moral-dilemma",
+      "name": "Moral Dilemma",
+      "description": "Forced to choose between conflicting values",
+      "severity": "moderate",
+      "likelihood": 14
+    },
+    {
+      "id": "failing-health",
+      "name": "Declining Health",
+      "description": "Physical or mental health deteriorating",
+      "severity": "high",
+      "likelihood": 8
+    }
+  ],
+  "questHooks": [
+    {
+      "id": "lost-item",
+      "name": "Lost Important Item",
+      "description": "Needs help recovering a valuable possession",
+      "reward": "monetary",
+      "likelihood": 18
+    },
+    {
+      "id": "deliver-message",
+      "name": "Urgent Message",
+      "description": "Needs someone to deliver a message safely",
+      "reward": "favor",
+      "likelihood": 15
+    },
+    {
+      "id": "missing-person",
+      "name": "Missing Person",
+      "description": "A loved one has disappeared",
+      "reward": "monetary-and-favor",
+      "likelihood": 12
+    },
+    {
+      "id": "guard-duty",
+      "name": "Need Protection",
+      "description": "Requires bodyguards for a journey",
+      "reward": "monetary",
+      "likelihood": 14
+    },
+    {
+      "id": "retrieve-debt",
+      "name": "Collect Debt",
+      "description": "Needs help collecting money owed",
+      "reward": "percentage",
+      "likelihood": 12
+    },
+    {
+      "id": "investigate-crime",
+      "name": "Solve a Mystery",
+      "description": "Wants to uncover the truth about something",
+      "reward": "monetary",
+      "likelihood": 16
+    },
+    {
+      "id": "escort-mission",
+      "name": "Safe Passage",
+      "description": "Needs escort to dangerous location",
+      "reward": "monetary",
+      "likelihood": 14
+    },
+    {
+      "id": "gather-ingredients",
+      "name": "Rare Components",
+      "description": "Needs specific items gathered",
+      "reward": "monetary-or-item",
+      "likelihood": 12
+    },
+    {
+      "id": "clear-name",
+      "name": "Clear Reputation",
+      "description": "Needs help proving their innocence",
+      "reward": "favor",
+      "likelihood": 10
+    },
+    {
+      "id": "break-curse",
+      "name": "Remove Curse",
+      "description": "Seeks aid in breaking a magical curse",
+      "reward": "generous",
+      "likelihood": 8
+    },
+    {
+      "id": "spy-mission",
+      "name": "Gather Information",
+      "description": "Needs intelligence on rivals or enemies",
+      "reward": "monetary",
+      "likelihood": 10
+    },
+    {
+      "id": "rescue-mission",
+      "name": "Rescue Mission",
+      "description": "Someone needs to be saved",
+      "reward": "generous",
+      "likelihood": 10
+    }
+  ]
+}

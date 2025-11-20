@@ -1,0 +1,514 @@
+{
+  "influenceSkills": [
+    {
+      "id": "accounting-lore",
+      "name": "Accounting Lore",
+      "description": "Discussing financial matters and business",
+      "professions": ["merchant", "bureaucrat", "noble"],
+      "likelihood": 5
+    },
+    {
+      "id": "alcohol-lore",
+      "name": "Alcohol Lore",
+      "description": "Bonding over drinks and tavern knowledge",
+      "professions": ["innkeeper", "sailor", "entertainer"],
+      "likelihood": 8
+    },
+    {
+      "id": "arcana",
+      "name": "Arcana",
+      "description": "Discussing magical theory and arcane knowledge",
+      "professions": ["wizard", "scholar", "alchemist"],
+      "likelihood": 10
+    },
+    {
+      "id": "crafting",
+      "name": "Crafting",
+      "description": "Discussing trade techniques and offering repairs",
+      "professions": ["blacksmith", "carpenter", "artisan", "tailor", "jeweler"],
+      "likelihood": 12
+    },
+    {
+      "id": "deception",
+      "name": "Deception",
+      "description": "Lying or misdirection",
+      "professions": ["thief", "spy", "charlatan"],
+      "likelihood": 8
+    },
+    {
+      "id": "diplomacy",
+      "name": "Diplomacy",
+      "description": "General persuasion and negotiation",
+      "professions": ["all"],
+      "likelihood": 15
+    },
+    {
+      "id": "farming-lore",
+      "name": "Farming Lore",
+      "description": "Discussing agriculture and rural life",
+      "professions": ["farmer", "herbalist"],
+      "likelihood": 6
+    },
+    {
+      "id": "guild-lore",
+      "name": "Guild Lore",
+      "description": "Knowledge of guild politics and trade organizations",
+      "professions": ["merchant", "artisan", "blacksmith"],
+      "likelihood": 7
+    },
+    {
+      "id": "heraldry-lore",
+      "name": "Heraldry Lore",
+      "description": "Knowledge of noble houses and lineages",
+      "professions": ["noble", "herald", "bureaucrat"],
+      "likelihood": 5
+    },
+    {
+      "id": "intimidation",
+      "name": "Intimidation",
+      "description": "Using threats or force of personality",
+      "professions": ["guard", "soldier", "crime-boss"],
+      "likelihood": 10
+    },
+    {
+      "id": "legal-lore",
+      "name": "Legal Lore",
+      "description": "Discussing law and regulations",
+      "professions": ["bureaucrat", "judge", "lawyer"],
+      "likelihood": 6
+    },
+    {
+      "id": "mercantile-lore",
+      "name": "Mercantile Lore",
+      "description": "Discussing trade, commerce, and profit",
+      "professions": ["merchant", "fence"],
+      "likelihood": 8
+    },
+    {
+      "id": "nature",
+      "name": "Nature",
+      "description": "Discussing the natural world",
+      "professions": ["farmer", "hunter", "herbalist", "druid"],
+      "likelihood": 8
+    },
+    {
+      "id": "occultism",
+      "name": "Occultism",
+      "description": "Discussing esoteric and hidden knowledge",
+      "professions": ["fortune-teller", "witch", "cultist"],
+      "likelihood": 6
+    },
+    {
+      "id": "performance",
+      "name": "Performance",
+      "description": "Entertaining or impressing with artistic skill",
+      "professions": ["entertainer", "bard", "actor"],
+      "likelihood": 10
+    },
+    {
+      "id": "religion",
+      "name": "Religion",
+      "description": "Discussing faith and theology",
+      "professions": ["priest", "monk", "acolyte"],
+      "likelihood": 10
+    },
+    {
+      "id": "sailing-lore",
+      "name": "Sailing Lore",
+      "description": "Knowledge of ships and the sea",
+      "professions": ["sailor", "pirate", "merchant"],
+      "likelihood": 6
+    },
+    {
+      "id": "society",
+      "name": "Society",
+      "description": "Knowledge of culture and social norms",
+      "professions": ["noble", "scholar", "bureaucrat"],
+      "likelihood": 12
+    },
+    {
+      "id": "underworld-lore",
+      "name": "Underworld Lore",
+      "description": "Knowledge of criminal networks",
+      "professions": ["thief", "spy", "fence"],
+      "likelihood": 5
+    },
+    {
+      "id": "warfare-lore",
+      "name": "Warfare Lore",
+      "description": "Knowledge of military tactics and combat",
+      "professions": ["soldier", "guard", "mercenary"],
+      "likelihood": 7
+    }
+  ],
+  "resistances": [
+    {
+      "id": "resist-flattery",
+      "name": "Resistant to Flattery",
+      "description": "Finds excessive compliments insincere",
+      "dcModifier": 2,
+      "affects": "diplomacy-flattery",
+      "likelihood": 12
+    },
+    {
+      "id": "resist-intimidation",
+      "name": "Resistant to Intimidation",
+      "description": "Not easily cowed by threats",
+      "dcModifier": 2,
+      "affects": "intimidation",
+      "likelihood": 10
+    },
+    {
+      "id": "resist-lies",
+      "name": "Perceptive to Lies",
+      "description": "Good at spotting deception",
+      "dcModifier": 2,
+      "affects": "deception",
+      "likelihood": 10
+    },
+    {
+      "id": "resist-emotional-appeals",
+      "name": "Resistant to Emotional Appeals",
+      "description": "Thinks practically, not emotionally",
+      "dcModifier": 2,
+      "affects": "diplomacy-emotion",
+      "likelihood": 10
+    },
+    {
+      "id": "resist-bribery",
+      "name": "Resistant to Bribery",
+      "description": "Cannot be easily bought",
+      "dcModifier": 5,
+      "affects": "diplomacy-bribery",
+      "likelihood": 8
+    },
+    {
+      "id": "impatient",
+      "name": "Impatient",
+      "description": "Dislikes long-winded explanations",
+      "dcModifier": 2,
+      "affects": "all-lengthy",
+      "likelihood": 12
+    },
+    {
+      "id": "suspicious-of-magic",
+      "name": "Suspicious of Magic",
+      "description": "Distrusts arcane matters",
+      "dcModifier": 2,
+      "affects": "arcana",
+      "likelihood": 8
+    },
+    {
+      "id": "distrusts-outsiders",
+      "name": "Distrusts Outsiders",
+      "description": "Wary of strangers and foreigners",
+      "dcModifier": 2,
+      "affects": "all-from-outsiders",
+      "likelihood": 10
+    },
+    {
+      "id": "defensive-about-past",
+      "name": "Defensive About Past",
+      "description": "Bristles when past mistakes are mentioned",
+      "dcModifier": 3,
+      "affects": "all-past-references",
+      "likelihood": 8
+    },
+    {
+      "id": "proud",
+      "name": "Prideful",
+      "description": "Takes offense at perceived slights",
+      "dcModifier": 2,
+      "affects": "all-criticism",
+      "likelihood": 12
+    }
+  ],
+  "weaknesses": [
+    {
+      "id": "weak-flattery",
+      "name": "Susceptible to Flattery",
+      "description": "Loves to be complimented",
+      "dcModifier": -2,
+      "affects": "diplomacy-flattery",
+      "likelihood": 15
+    },
+    {
+      "id": "weak-bribery",
+      "name": "Greedy",
+      "description": "Easily swayed by money or gifts",
+      "dcModifier": -3,
+      "affects": "diplomacy-bribery",
+      "likelihood": 12
+    },
+    {
+      "id": "weak-nostalgia",
+      "name": "Nostalgic",
+      "description": "Moved by references to the past",
+      "dcModifier": -2,
+      "affects": "performance-nostalgia",
+      "likelihood": 10
+    },
+    {
+      "id": "weak-family",
+      "name": "Family-Oriented",
+      "description": "Cares deeply about family",
+      "dcModifier": -2,
+      "affects": "all-family-appeals",
+      "likelihood": 12
+    },
+    {
+      "id": "weak-honor",
+      "name": "Honorable",
+      "description": "Responds to appeals to honor and duty",
+      "dcModifier": -2,
+      "affects": "diplomacy-honor",
+      "likelihood": 10
+    },
+    {
+      "id": "weak-religion",
+      "name": "Deeply Religious",
+      "description": "Swayed by religious arguments",
+      "dcModifier": -2,
+      "affects": "religion",
+      "likelihood": 10
+    },
+    {
+      "id": "weak-curiosity",
+      "name": "Curious",
+      "description": "Loves learning new things",
+      "dcModifier": -2,
+      "affects": "all-knowledge",
+      "likelihood": 12
+    },
+    {
+      "id": "weak-vanity",
+      "name": "Vain",
+      "description": "Obsessed with appearance and status",
+      "dcModifier": -3,
+      "affects": "diplomacy-status",
+      "likelihood": 8
+    },
+    {
+      "id": "weak-secret",
+      "name": "Hiding a Secret",
+      "description": "Can be blackmailed",
+      "dcModifier": -5,
+      "affects": "intimidation-blackmail",
+      "likelihood": 8
+    },
+    {
+      "id": "weak-lonely",
+      "name": "Lonely",
+      "description": "Desperate for companionship",
+      "dcModifier": -2,
+      "affects": "diplomacy-friendship",
+      "likelihood": 10
+    },
+    {
+      "id": "weak-ambition",
+      "name": "Ambitious",
+      "description": "Desires power and advancement",
+      "dcModifier": -2,
+      "affects": "diplomacy-power",
+      "likelihood": 12
+    },
+    {
+      "id": "weak-art",
+      "name": "Loves Art",
+      "description": "Passionate about artistic expression",
+      "dcModifier": -2,
+      "affects": "performance",
+      "likelihood": 8
+    }
+  ],
+  "biases": [
+    {
+      "id": "bias-pro-nobility",
+      "name": "Favors Nobility",
+      "description": "Treats nobles with deference",
+      "dcModifier": -2,
+      "target": "noble-characters",
+      "likelihood": 10
+    },
+    {
+      "id": "bias-anti-nobility",
+      "name": "Dislikes Nobility",
+      "description": "Resents the upper class",
+      "dcModifier": 2,
+      "target": "noble-characters",
+      "likelihood": 10
+    },
+    {
+      "id": "bias-pro-magic",
+      "name": "Admires Magic Users",
+      "description": "Respects those with arcane power",
+      "dcModifier": -2,
+      "target": "arcane-characters",
+      "likelihood": 8
+    },
+    {
+      "id": "bias-anti-magic",
+      "name": "Fears Magic Users",
+      "description": "Distrusts spellcasters",
+      "dcModifier": 2,
+      "target": "arcane-characters",
+      "likelihood": 8
+    },
+    {
+      "id": "bias-pro-military",
+      "name": "Respects Military",
+      "description": "Admires soldiers and warriors",
+      "dcModifier": -2,
+      "target": "martial-characters",
+      "likelihood": 10
+    },
+    {
+      "id": "bias-pro-clergy",
+      "name": "Respects Clergy",
+      "description": "Defers to religious figures",
+      "dcModifier": -2,
+      "target": "divine-characters",
+      "likelihood": 10
+    },
+    {
+      "id": "bias-pro-merchants",
+      "name": "Favors Merchants",
+      "description": "Appreciates those in trade",
+      "dcModifier": -2,
+      "target": "merchant-characters",
+      "likelihood": 8
+    },
+    {
+      "id": "bias-anti-criminals",
+      "name": "Dislikes Criminals",
+      "description": "Hostile to known lawbreakers",
+      "dcModifier": 3,
+      "target": "criminal-characters",
+      "likelihood": 12
+    },
+    {
+      "id": "bias-ancestry-specific",
+      "name": "Ancestry Preference",
+      "description": "Favors or disfavors specific ancestries",
+      "dcModifier": 2,
+      "target": "specific-ancestry",
+      "likelihood": 10
+    },
+    {
+      "id": "bias-pro-locals",
+      "name": "Favors Locals",
+      "description": "Trusts those from the same region",
+      "dcModifier": -2,
+      "target": "local-characters",
+      "likelihood": 12
+    }
+  ],
+  "discoverySkills": [
+    {
+      "id": "perception",
+      "name": "Perception",
+      "description": "Observing behavior and mannerisms",
+      "likelihood": 30
+    },
+    {
+      "id": "society",
+      "name": "Society",
+      "description": "Recalling social customs and expectations",
+      "likelihood": 20
+    },
+    {
+      "id": "sense-motive",
+      "name": "Sense Motive",
+      "description": "Reading emotional state",
+      "likelihood": 15
+    },
+    {
+      "id": "profession-lore",
+      "name": "Profession-Specific Lore",
+      "description": "Knowledge about their profession",
+      "likelihood": 15
+    },
+    {
+      "id": "local-lore",
+      "name": "Local Lore",
+      "description": "Knowledge of local affairs and gossip",
+      "likelihood": 12
+    },
+    {
+      "id": "underworld-lore",
+      "name": "Underworld Lore",
+      "description": "Knowledge of criminal connections",
+      "likelihood": 8
+    }
+  ],
+  "influenceThresholds": [
+    {
+      "level": "minor",
+      "points": 2,
+      "description": "Small favor",
+      "examples": ["Answer a question", "Provide minor assistance", "Share non-sensitive information"]
+    },
+    {
+      "level": "moderate",
+      "points": 4,
+      "description": "Significant favor",
+      "examples": ["Provide aid or resources", "Share valuable information", "Make an introduction"]
+    },
+    {
+      "level": "major",
+      "points": 6,
+      "description": "Major commitment",
+      "examples": ["Take a risk on their behalf", "Change a significant decision", "Provide substantial aid"]
+    },
+    {
+      "level": "exceptional",
+      "points": 8,
+      "description": "Extraordinary favor",
+      "examples": ["Become an ally", "Make a life-changing decision", "Sacrifice something important"]
+    }
+  ],
+  "penaltyEvents": [
+    {
+      "id": "waste-time",
+      "name": "Wasting Their Time",
+      "description": "Long-winded or irrelevant conversation",
+      "effect": "Reduce encounter by 1 round",
+      "likelihood": 15
+    },
+    {
+      "id": "insult",
+      "name": "Insulting Them",
+      "description": "Offending the NPC directly",
+      "effect": "Lose 2 Influence Points",
+      "likelihood": 12
+    },
+    {
+      "id": "threaten",
+      "name": "Threatening Them Poorly",
+      "description": "Failed intimidation attempt",
+      "effect": "Lose 1 Influence Point and increase all DCs by 2",
+      "likelihood": 10
+    },
+    {
+      "id": "caught-lying",
+      "name": "Being Caught in a Lie",
+      "description": "Failed deception discovered",
+      "effect": "Lose 2 Influence Points and end encounter",
+      "likelihood": 10
+    },
+    {
+      "id": "trigger-resistance",
+      "name": "Triggering a Resistance",
+      "description": "Repeatedly using a tactic they dislike",
+      "effect": "That approach no longer works",
+      "likelihood": 15
+    },
+    {
+      "id": "violate-values",
+      "name": "Violating Their Values",
+      "description": "Acting against their principles",
+      "effect": "Lose 3 Influence Points",
+      "likelihood": 12
+    }
+  ]
+}

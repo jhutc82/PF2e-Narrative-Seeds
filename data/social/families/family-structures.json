@@ -1,0 +1,138 @@
+{
+  "familyTypes": [
+    {
+      "id": "nuclear",
+      "name": "Nuclear Family",
+      "description": "Parents and children",
+      "typical": "2 parents, 1-4 children",
+      "likelihood": 9
+    },
+    {
+      "id": "extended",
+      "name": "Extended Family",
+      "description": "Multi-generational household",
+      "typical": "Grandparents, parents, children, maybe aunts/uncles",
+      "likelihood": 8
+    },
+    {
+      "id": "single-parent",
+      "name": "Single Parent",
+      "description": "One parent raising children",
+      "typical": "1 parent, 1-3 children",
+      "likelihood": 7
+    },
+    {
+      "id": "clan",
+      "name": "Clan Structure",
+      "description": "Large extended family group",
+      "typical": "Multiple branches, shared leadership",
+      "likelihood": 6
+    },
+    {
+      "id": "orphaned-siblings",
+      "name": "Orphaned Siblings",
+      "description": "Children without parents",
+      "typical": "2-4 siblings supporting each other",
+      "likelihood": 5
+    },
+    {
+      "id": "adopted",
+      "name": "Adopted Family",
+      "description": "Non-blood family bonds",
+      "typical": "Chosen family, adopted children",
+      "likelihood": 6
+    },
+    {
+      "id": "blended",
+      "name": "Blended Family",
+      "description": "Remarried parents with mixed children",
+      "typical": "Step-parents, step-siblings",
+      "likelihood": 7
+    }
+  ],
+  "familyDynamics": [
+    { "id": "close-loving", "dynamic": "Close and Loving", "description": "Supportive, affectionate", "conflict": "Minimal", "likelihood": 7 },
+    { "id": "functional", "dynamic": "Functional", "description": "Get along well enough", "conflict": "Minor disagreements", "likelihood": 9 },
+    { "id": "tense", "dynamic": "Tense", "description": "Underlying conflicts", "conflict": "Frequent arguments", "likelihood": 7 },
+    { "id": "fractured", "dynamic": "Fractured", "description": "Broken relationships", "conflict": "Deep divides", "likelihood": 6 },
+    { "id": "estranged", "dynamic": "Estranged", "description": "Not speaking", "conflict": "Complete breakdown", "likelihood": 5 },
+    { "id": "complicated", "dynamic": "Complicated", "description": "Love and hate mixed", "conflict": "Unpredictable", "likelihood": 8 },
+    { "id": "competitive", "dynamic": "Competitive", "description": "Constantly comparing", "conflict": "Rivalry", "likelihood": 7 },
+    { "id": "codependent", "dynamic": "Codependent", "description": "Unhealthily enmeshed", "conflict": "Boundary issues", "likelihood": 6 }
+  ],
+  "familySecrets": [
+    { "id": "illegitimate-child", "secret": "Illegitimate Child", "who": "One child is not from father", "impact": "Inheritance issues", "likelihood": 6 },
+    { "id": "hidden-wealth", "secret": "Hidden Wealth", "what": "Family has secret fortune", "why": "Protecting it from someone", "likelihood": 5 },
+    { "id": "criminal-past", "secret": "Criminal Past", "who": "Family member was/is criminal", "risk": "Exposure would ruin family", "likelihood": 6 },
+    { "id": "false-nobility", "secret": "False Noble Claim", "what": "Noble title is fraudulent", "danger": "Could lose everything", "likelihood": 4 },
+    { "id": "shameful-ancestor", "secret": "Shameful Ancestor", "who": "Ancestor did terrible thing", "kept": "Hidden for generations", "likelihood": 6 },
+    { "id": "switched-at-birth", "secret": "Switched at Birth", "who": "Child belongs to another family", "complexity": "Multiple families affected", "likelihood": 3 },
+    { "id": "magical-bloodline", "secret": "Magical Bloodline", "what": "Family has magical heritage", "hidden": "To avoid persecution", "likelihood": 5 },
+    { "id": "blood-curse", "secret": "Family Curse", "what": "Supernatural curse on bloodline", "manifestation": "Tragic pattern", "likelihood": 4 },
+    { "id": "murder-coverup", "secret": "Covered Up Murder", "who": "Family member killed someone", "guilt": "Shared burden", "likelihood": 5 },
+    { "id": "affair", "secret": "Ongoing Affair", "who": "Family member cheating", "explosive": "Would destroy family if revealed", "likelihood": 6 },
+    { "id": "disinherited", "secret": "Secret Disinheritance", "who": "Someone cut out of will", "don't-know": "They don't know yet", "likelihood": 5 },
+    { "id": "adoption-secret", "secret": "Hidden Adoption", "who": "Child doesn't know they're adopted", "reason": "Parents afraid to tell", "likelihood": 5 }
+  ],
+  "sharedTraits": [
+    { "id": "physical", "trait": "Distinctive Physical Feature", "examples": "Red hair, height, eye color, chin", "inheritance": "Clearly runs in family", "likelihood": 9 },
+    { "id": "talent", "trait": "Family Talent", "examples": "Musical, magical, athletic ability", "tradition": "Nurtured through generations", "likelihood": 7 },
+    { "id": "temperament", "trait": "Family Temperament", "examples": "Hot-headed, calm, anxious", "pattern": "Personality patterns", "likelihood": 8 },
+    { "id": "vice", "trait": "Family Vice", "examples": "Alcoholism, gambling, pride", "cycle": "Repeating problem", "likelihood": 6 },
+    { "id": "virtue", "trait": "Family Virtue", "examples": "Honesty, loyalty, courage", "pride": "Family is known for this", "likelihood": 8 },
+    { "id": "profession", "trait": "Family Profession", "examples": "Generational craft or trade", "apprentice": "Children trained young", "likelihood": 8 },
+    { "id": "belief", "trait": "Strong Shared Belief", "examples": "Religious, political, philosophical", "identity": "Core to family identity", "likelihood": 7 },
+    { "id": "reputation", "trait": "Family Reputation", "examples": "Honest, criminal, heroic", "burden": "Living up to or down to it", "likelihood": 8 }
+  ],
+  "siblingRelationships": [
+    { "id": "best-friends", "relationship": "Best Friends", "description": "Extremely close", "support": "Always there for each other", "likelihood": 7 },
+    { "id": "friendly", "relationship": "Friendly", "description": "Get along well", "support": "Supportive", "likelihood": 9 },
+    { "id": "distant", "relationship": "Distant", "description": "Not particularly close", "contact": "Occasional", "likelihood": 7 },
+    { "id": "rivals", "relationship": "Rivals", "description": "Competitive", "conflict": "Constant comparison", "likelihood": 7 },
+    { "id": "enemies", "relationship": "Enemies", "description": "Active hatred", "conflict": "Open hostility", "likelihood": 4 },
+    { "id": "protective", "relationship": "Protective/Protected", "description": "One protects the other", "dynamic": "Older protects younger", "likelihood": 8 },
+    { "id": "complicated", "relationship": "Complicated", "description": "Love-hate dynamic", "variable": "Shifts between extremes", "likelihood": 7 }
+  ],
+  "parentChildRelationships": [
+    { "id": "loving", "relationship": "Loving and Close", "description": "Strong bond", "communication": "Open and honest", "likelihood": 7 },
+    { "id": "strained", "relationship": "Strained", "description": "Tension and conflict", "issues": "Unresolved problems", "likelihood": 7 },
+    { "id": "distant", "relationship": "Emotionally Distant", "description": "Lack of connection", "communication": "Formal or minimal", "likelihood": 6 },
+    { "id": "authoritarian", "relationship": "Authoritarian", "description": "Strict control", "rebellion": "Child may rebel or comply", "likelihood": 6 },
+    { "id": "neglectful", "relationship": "Neglectful", "description": "Parent absent or inattentive", "impact": "Child raised themselves", "likelihood": 5 },
+    { "id": "enmeshed", "relationship": "Enmeshed", "description": "Unhealthily close", "boundaries": "No healthy boundaries", "likelihood": 5 },
+    { "id": "disappointing", "relationship": "Disappointment", "description": "Parent disappointed in child", "pressure": "Constant disapproval", "likelihood": 6 },
+    { "id": "favored", "relationship": "Favored Child", "description": "Clearly preferred", "siblings": "Creates sibling resentment", "likelihood": 6 }
+  ],
+  "familyTraditions": [
+    { "id": "annual-gathering", "tradition": "Annual Family Gathering", "when": "Specific holiday or date", "importance": "Mandatory attendance", "likelihood": 8 },
+    { "id": "craft-tradition", "tradition": "Pass Down Craft", "what": "Specific skill or trade", "training": "Eldest teaches youngest", "likelihood": 8 },
+    { "id": "storytelling", "tradition": "Story Tradition", "what": "Oral history passed down", "purpose": "Preserve family history", "likelihood": 7 },
+    { "id": "heirloom", "tradition": "Family Heirloom", "what": "Object passed to each generation", "significance": "Symbol of family", "likelihood": 7 },
+    { "id": "naming", "tradition": "Naming Tradition", "pattern": "Specific naming patterns", "honor": "Honor ancestors", "likelihood": 7 },
+    { "id": "burial-rites", "tradition": "Specific Burial Rites", "what": "Unique funeral practices", "sacred": "Never deviate", "likelihood": 6 },
+    { "id": "apprentice-firstborn", "tradition": "Firstborn Apprenticeship", "who": "Always the eldest", "trade": "Family business", "likelihood": 7 },
+    { "id": "pilgrimage", "tradition": "Family Pilgrimage", "where": "Sacred site", "when": "Once in lifetime", "likelihood": 5 }
+  ],
+  "familyConflicts": [
+    { "id": "inheritance-dispute", "conflict": "Inheritance Dispute", "parties": "Siblings or cousins", "stakes": "Family fortune", "likelihood": 7 },
+    { "id": "marriage-disapproval", "conflict": "Disapproved Marriage", "issue": "Parent hates child's spouse", "division": "Splits family", "likelihood": 7 },
+    { "id": "business-disagreement", "conflict": "Family Business Dispute", "issue": "How to run business", "generations": "Old vs. new ways", "likelihood": 7 },
+    { "id": "political-division", "conflict": "Political Division", "sides": "Family split on issues", "tension": "Avoid discussing politics", "likelihood": 6 },
+    { "id": "religious-schism", "conflict": "Religious Disagreement", "issue": "Different faiths", "pain": "Seen as betrayal", "likelihood": 5 },
+    { "id": "favoritism", "conflict": "Parental Favoritism", "issue": "One child clearly preferred", "resentment": "Deep sibling resentment", "likelihood": 7 },
+    { "id": "money-owed", "conflict": "Unpaid Debt", "who": "Family member owes another", "strain": "Financial and emotional", "likelihood": 7 },
+    { "id": "betrayal", "conflict": "Past Betrayal", "what": "Someone betrayed family trust", "forgiveness": "Never fully forgiven", "likelihood": 6 },
+    { "id": "addiction", "conflict": "Addiction Issue", "who": "Family member struggling", "enabling": "Family divided on how to help", "likelihood": 6 },
+    { "id": "scandal", "conflict": "Family Scandal", "what": "Public embarrassment", "shame": "Family in disgrace", "likelihood": 6 }
+  ],
+  "familyRoles": [
+    { "id": "golden-child", "role": "The Golden Child", "description": "Can do no wrong", "pressure": "High expectations", "likelihood": 6 },
+    { "id": "black-sheep", "role": "The Black Sheep", "description": "Family disappointment", "treatment": "Blamed for everything", "likelihood": 7 },
+    { "id": "peacemaker", "role": "The Peacemaker", "description": "Mediates conflicts", "burden": "Emotional labor", "likelihood": 7 },
+    { "id": "rebel", "role": "The Rebel", "description": "Rejects family expectations", "conflict": "Constant tension", "likelihood": 7 },
+    { "id": "caretaker", "role": "The Caretaker", "description": "Looks after others", "sacrifice": "Gives up own needs", "likelihood": 7 },
+    { "id": "invisible", "role": "The Invisible One", "description": "Overlooked and ignored", "coping": "Stays quiet", "likelihood": 6 },
+    { "id": "hero", "role": "The Hero", "description": "Saves family reputation", "burden": "Carries family honor", "likelihood": 6 },
+    { "id": "clown", "role": "The Clown", "description": "Deflects with humor", "hiding": "Masks pain with jokes", "likelihood": 6 }
+  ]
+}

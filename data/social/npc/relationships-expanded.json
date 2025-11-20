@@ -1,0 +1,96 @@
+{
+  "ancestrySpecificOrganizations": {
+    "dwarf": [
+      { "id": "clan-council", "name": "Clan Council", "description": "Governing body of dwarven clan", "professions": ["noble", "elder", "blacksmith"], "status": ["member", "elder", "petitioner"], "likelihood": 15 },
+      { "id": "stonemasons-guild", "name": "Stonemasons' Guild", "description": "Guild of stone workers", "professions": ["stonesmith", "artisan"], "status": ["apprentice", "journeyman", "master"], "likelihood": 14 },
+      { "id": "forge-brotherhood", "name": "Forge Brotherhood", "description": "Society of master smiths", "professions": ["blacksmith", "forge-master"], "status": ["member", "master", "expelled"], "likelihood": 12 },
+      { "id": "deep-delvers", "name": "Deep Delvers", "description": "Explorers of deepest mines", "professions": ["miner", "mine-overseer"], "status": ["active", "retired", "lost-in-deep"], "likelihood": 10 }
+    ],
+    "elf": [
+      { "id": "moonlit-council", "name": "Moonlit Council", "description": "Elven governing assembly", "professions": ["noble", "lore-keeper"], "status": ["member", "petitioner", "exiled"], "likelihood": 12 },
+      { "id": "green-wardens", "name": "Green Wardens", "description": "Protectors of ancient forests", "professions": ["forest-warden", "hunter"], "status": ["warden", "initiate", "former-warden"], "likelihood": 14 },
+      { "id": "star-seekers", "name": "Star Seekers", "description": "Diviners and astronomers", "professions": ["star-reader", "wizard"], "status": ["member", "student", "departed"], "likelihood": 10 },
+      { "id": "song-weavers", "name": "Song Weavers", "description": "Preservers of elven music and lore", "professions": ["artisan-poet", "entertainer"], "status": ["member", "apprentice", "master"], "likelihood": 11 }
+    ],
+    "goblin": [
+      { "id": "scrap-collective", "name": "Scrap Collective", "description": "Goblin tinkerers and inventors", "professions": ["scrap-tinker", "pyro-specialist"], "status": ["member", "exile", "exploded"], "likelihood": 15 },
+      { "id": "fire-clan", "name": "Fire Clan", "description": "Pyromaniacs and fire keepers", "professions": ["fire-keeper", "pyro-specialist"], "status": ["member", "chief", "burned-out"], "likelihood": 13 },
+      { "id": "pack-raiders", "name": "Pack Raiders", "description": "Organized goblin bandits", "professions": ["pack-chief", "thief"], "status": ["raider", "leader", "escaped"], "likelihood": 12 }
+    ],
+    "halfling": [
+      { "id": "traveling-merchants", "name": "Traveling Merchants' League", "description": "Halfling trader network", "professions": ["merchant", "caravan-guide"], "status": ["member", "route-master", "retired"], "likelihood": 15 },
+      { "id": "kitchen-masters", "name": "Kitchen Masters' Circle", "description": "Elite chef society", "professions": ["master-chef", "cook"], "status": ["apprentice", "master", "retired"], "likelihood": 12 },
+      { "id": "tale-tellers", "name": "Tale Tellers' Guild", "description": "Storytellers and bards", "professions": ["storyteller", "entertainer"], "status": ["member", "master-teller", "forgot-stories"], "likelihood": 11 }
+    ],
+    "gnome": [
+      { "id": "pranksters-guild", "name": "Pranksters' Guild", "description": "Professional tricksters", "professions": ["prank-master", "illusionist"], "status": ["member", "banned", "legendary"], "likelihood": 14 },
+      { "id": "clockwork-society", "name": "Clockwork Society", "description": "Inventors and tinkerers", "professions": ["clockwork-tinker", "artisan"], "status": ["member", "master-tinker", "exploded-workshop"], "likelihood": 13 },
+      { "id": "first-world-embassy", "name": "First World Embassy", "description": "Representatives to fey realm", "professions": ["fey-diplomat", "wizard"], "status": ["ambassador", "visitor", "trapped-in-fey"], "likelihood": 9 }
+    ],
+    "orc": [
+      { "id": "war-band", "name": "War Band", "description": "Organized orc warriors", "professions": ["war-chief", "soldier"], "status": ["warrior", "chief", "outcast"], "likelihood": 15 },
+      { "id": "beast-lodge", "name": "Beast Lodge", "description": "Animal handlers and trainers", "professions": ["beast-caller", "hunter"], "status": ["member", "beast-master", "mauled"], "likelihood": 12 },
+      { "id": "storm-callers", "name": "Storm Callers", "description": "Spiritual leaders", "professions": ["storm-herald", "priest"], "status": ["caller", "prophet", "struck-by-lightning"], "likelihood": 10 }
+    ],
+    "catfolk": [
+      { "id": "nine-lives-company", "name": "Nine Lives Company", "description": "Catfolk adventuring group", "professions": ["acrobat", "tracker"], "status": ["member", "retired", "used-all-nine"], "likelihood": 13 },
+      { "id": "curiosity-seekers", "name": "Curiosity Seekers", "description": "Explorers and treasure hunters", "professions": ["curiosity-seeker", "thief"], "status": ["active", "wealthy", "missing"], "likelihood": 14 }
+    ],
+    "tengu": [
+      { "id": "blade-school", "name": "Blade School", "description": "Sword fighting academy", "professions": ["swordmaster", "soldier"], "status": ["student", "master", "expelled"], "likelihood": 14 },
+      { "id": "scroll-brotherhood", "name": "Scroll Brotherhood", "description": "Preservers of knowledge", "professions": ["scroll-keeper", "scholar"], "status": ["member", "master-scribe", "left"], "likelihood": 12 }
+    ],
+    "kobold": [
+      { "id": "trap-makers-guild", "name": "Trapmakers' Guild", "description": "Trap designers", "professions": ["trap-maker", "artisan"], "status": ["member", "master", "caught-in-own-trap"], "likelihood": 15 },
+      { "id": "dragon-cult", "name": "Dragon Cult", "description": "Dragon worshippers", "professions": ["dragon-speaker", "priest"], "status": ["cultist", "high-priest", "eaten-by-dragon"], "likelihood": 13 }
+    ],
+    "leshy": [
+      { "id": "grove-circle", "name": "Grove Circle", "description": "Plant protectors", "professions": ["grove-guardian", "seed-tender"], "status": ["guardian", "elder", "withered"], "likelihood": 15 },
+      { "id": "bloom-collective", "name": "Bloom Collective", "description": "Plant shapers", "professions": ["bloom-shaper", "herbalist"], "status": ["member", "master-shaper", "overgrown"], "likelihood": 12 }
+    ],
+    "ratfolk": [
+      { "id": "warren-network", "name": "Warren Network", "description": "Underground community", "professions": ["warren-boss", "sewer-guide"], "status": ["member", "boss", "exiled"], "likelihood": 15 },
+      { "id": "plague-doctors", "name": "Plague Doctors' Circle", "description": "Disease healers", "professions": ["plague-doctor", "healer"], "status": ["member", "master-doctor", "infected"], "likelihood": 12 }
+    ],
+    "azarketi": [
+      { "id": "tide-walkers", "name": "Tide Walkers", "description": "Ocean explorers", "professions": ["depth-explorer", "sailor"], "status": ["member", "veteran", "drowned"], "likelihood": 14 },
+      { "id": "coral-artisans", "name": "Coral Artisans", "description": "Undersea crafters", "professions": ["coral-sculptor", "artisan"], "status": ["apprentice", "master", "retired"], "likelihood": 12 }
+    ],
+    "strix": [
+      { "id": "night-roost", "name": "Night Roost", "description": "Strix community", "professions": ["roost-leader", "night-hunter"], "status": ["member", "elder", "exiled"], "likelihood": 15 },
+      { "id": "wing-priests", "name": "Wing Priests", "description": "Spiritual leaders", "professions": ["wing-priest", "priest"], "status": ["acolyte", "high-priest", "fallen"], "likelihood": 11 }
+    ],
+    "automaton": [
+      { "id": "construct-collective", "name": "Construct Collective", "description": "Automaton society", "professions": ["construct-engineer", "logic-solver"], "status": ["member", "elder", "deactivated"], "likelihood": 14 },
+      { "id": "memory-archives", "name": "Memory Archives", "description": "Knowledge preservers", "professions": ["memory-keeper", "scholar"], "status": ["archivist", "master-keeper", "corrupted-data"], "likelihood": 12 }
+    ],
+    "kitsune": [
+      { "id": "shapeshifter-network", "name": "Shapeshifter Network", "description": "Spy organization", "professions": ["shapeshifter-spy", "spy"], "status": ["agent", "master-spy", "identity-lost"], "likelihood": 13 },
+      { "id": "fox-shrine", "name": "Fox Shrine", "description": "Kitsune temple", "professions": ["fox-bride", "priest"], "status": ["devotee", "shrine-keeper", "left-order"], "likelihood": 12 }
+    ],
+    "anadi": [
+      { "id": "silk-weavers-guild", "name": "Silk Weavers' Guild", "description": "Textile artisans", "professions": ["silk-weaver", "artisan"], "status": ["apprentice", "master", "retired"], "likelihood": 15 },
+      { "id": "truth-council", "name": "Truth Council", "description": "Honest mediators", "professions": ["truth-speaker", "bureaucrat"], "status": ["member", "elder", "lied"], "likelihood": 12 }
+    ],
+    "hobgoblin": [
+      { "id": "iron-legion", "name": "Iron Legion", "description": "Military organization", "professions": ["legion-commander", "soldier"], "status": ["soldier", "officer", "dishonorably-discharged"], "likelihood": 15 },
+      { "id": "siege-engineers", "name": "Siege Engineers' Corps", "description": "War machine builders", "professions": ["siege-engineer", "blacksmith"], "status": ["engineer", "master-engineer", "blown-up"], "likelihood": 12 }
+  ]
+  },
+  "additionalOrganizations": [
+    { "id": "monster-hunters", "name": "Monster Hunters' Guild", "description": "Tracks and slays dangerous beasts", "professions": ["hunter", "soldier", "tracker"], "status": ["member", "veteran", "retired"], "likelihood": 12 },
+    { "id": "explorers-society", "name": "Explorers' Society", "description": "Maps unknown lands", "professions": ["scholar", "guide", "sailor"], "status": ["member", "cartographer", "missing"], "likelihood": 10 },
+    { "id": "bounty-hunters", "name": "Bounty Hunters' Association", "description": "Tracks fugitives for pay", "professions": ["guard", "tracker", "thief"], "status": ["member", "licensed", "wanted-self"], "likelihood": 9 },
+    { "id": "bardic-college", "name": "Bardic College", "description": "School of music and lore", "professions": ["entertainer", "scholar"], "status": ["student", "graduate", "expelled"], "likelihood": 11 },
+    { "id": "alchemists-guild", "name": "Alchemists' Guild", "description": "Potion makers and chemists", "professions": ["alchemist", "herbalist"], "status": ["apprentice", "master", "exploded-lab"], "likelihood": 10 },
+    { "id": "cartographers-union", "name": "Cartographers' Union", "description": "Map makers", "professions": ["scholar", "sailor"], "status": ["member", "master-cartographer", "lost"], "likelihood": 8 },
+    { "id": "messenger-service", "name": "Messenger Service", "description": "Delivers letters and packages", "professions": ["courier", "guide"], "status": ["runner", "veteran", "retired"], "likelihood": 10 },
+    { "id": "healers-circle", "name": "Healers' Circle", "description": "Medical practitioners", "professions": ["healer", "herbalist"], "status": ["member", "master-healer", "lost-patient"], "likelihood": 12 },
+    { "id": "private-investigators", "name": "Private Investigators", "description": "Solves mysteries for hire", "professions": ["spy", "bureaucrat"], "status": ["member", "renowned", "missing"], "likelihood": 9 },
+    { "id": "banking-consortium", "name": "Banking Consortium", "description": "Money lenders", "professions": ["merchant", "bureaucrat"], "status": ["member", "investor", "bankrupt"], "likelihood": 10 },
+    { "id": "gladiator-pits", "name": "Gladiator Pits", "description": "Arena fighters", "professions": ["soldier", "athlete"], "status": ["active", "champion", "retired"], "likelihood": 9 },
+    { "id": "spy-network", "name": "Shadow Network", "description": "Intelligence gathering", "professions": ["spy", "thief"], "status": ["agent", "handler", "compromised"], "likelihood": 8 },
+    { "id": "monster-scholars", "name": "Monster Scholars", "description": "Studies dangerous creatures", "professions": ["scholar", "wizard"], "status": ["member", "expert", "eaten"], "likelihood": 8 },
+    { "id": "item-appraisers", "name": "Item Appraisers' Guild", "description": "Values magical items", "professions": ["wizard", "merchant"], "status": ["member", "master", "cursed"], "likelihood": 9 }
+  ]
+}

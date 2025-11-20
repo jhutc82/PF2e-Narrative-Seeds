@@ -1,0 +1,244 @@
+{
+  "wealthLevels": [
+    {
+      "id": "destitute",
+      "name": "Destitute",
+      "description": "Has almost nothing of value",
+      "coinRange": "0-1 sp",
+      "likelihood": 10
+    },
+    {
+      "id": "poor",
+      "name": "Poor",
+      "description": "Struggles to make ends meet",
+      "coinRange": "2-20 sp",
+      "likelihood": 25
+    },
+    {
+      "id": "modest",
+      "name": "Modest",
+      "description": "Has enough for basic needs",
+      "coinRange": "1-5 gp",
+      "likelihood": 35
+    },
+    {
+      "id": "comfortable",
+      "name": "Comfortable",
+      "description": "Lives well with some luxuries",
+      "coinRange": "5-20 gp",
+      "likelihood": 20
+    },
+    {
+      "id": "wealthy",
+      "name": "Wealthy",
+      "description": "Has significant resources",
+      "coinRange": "20-100 gp",
+      "likelihood": 8
+    },
+    {
+      "id": "rich",
+      "name": "Rich",
+      "description": "Commands great wealth",
+      "coinRange": "100+ gp",
+      "likelihood": 2
+    }
+  ],
+  "carriedItems": [
+    {
+      "id": "coin-purse",
+      "name": "Coin Purse",
+      "description": "A small pouch containing coins",
+      "commonFor": ["merchant", "noble", "guard"],
+      "likelihood": 40
+    },
+    {
+      "id": "dagger",
+      "name": "Dagger",
+      "description": "A small blade",
+      "commonFor": ["guard", "thief", "soldier", "merchant"],
+      "likelihood": 30
+    },
+    {
+      "id": "lucky-charm",
+      "name": "Lucky Charm",
+      "description": "A personal talisman or trinket",
+      "commonFor": ["all"],
+      "likelihood": 25
+    },
+    {
+      "id": "holy-symbol",
+      "name": "Holy Symbol",
+      "description": "A religious icon",
+      "commonFor": ["priest", "healer"],
+      "likelihood": 20
+    },
+    {
+      "id": "tools",
+      "name": "Trade Tools",
+      "description": "Tools of their profession",
+      "commonFor": ["blacksmith", "carpenter", "artisan", "jeweler"],
+      "likelihood": 35
+    },
+    {
+      "id": "writing-kit",
+      "name": "Writing Kit",
+      "description": "Ink, quill, and parchment",
+      "commonFor": ["scholar", "scribe", "bureaucrat"],
+      "likelihood": 30
+    },
+    {
+      "id": "pipe",
+      "name": "Smoking Pipe",
+      "description": "A pipe and tobacco",
+      "commonFor": ["all"],
+      "likelihood": 15
+    },
+    {
+      "id": "dice",
+      "name": "Gaming Dice",
+      "description": "Dice for gambling",
+      "commonFor": ["sailor", "soldier", "thief"],
+      "likelihood": 12
+    },
+    {
+      "id": "flask",
+      "name": "Flask",
+      "description": "A flask of spirits",
+      "commonFor": ["sailor", "soldier", "laborer"],
+      "likelihood": 18
+    },
+    {
+      "id": "jewelry",
+      "name": "Jewelry",
+      "description": "Rings, necklaces, or other adornments",
+      "commonFor": ["noble", "merchant", "entertainer"],
+      "likelihood": 20
+    },
+    {
+      "id": "family-heirloom",
+      "name": "Family Heirloom",
+      "description": "A cherished family possession",
+      "commonFor": ["all"],
+      "likelihood": 15
+    },
+    {
+      "id": "musical-instrument",
+      "name": "Musical Instrument",
+      "description": "A small instrument",
+      "commonFor": ["entertainer"],
+      "likelihood": 10
+    },
+    {
+      "id": "rope",
+      "name": "Rope",
+      "description": "50 feet of rope",
+      "commonFor": ["sailor", "hunter", "guard"],
+      "likelihood": 12
+    },
+    {
+      "id": "rations",
+      "name": "Rations",
+      "description": "Preserved food",
+      "commonFor": ["hunter", "sailor", "soldier"],
+      "likelihood": 20
+    },
+    {
+      "id": "book",
+      "name": "Book",
+      "description": "A book on their area of expertise",
+      "commonFor": ["scholar", "wizard", "priest"],
+      "likelihood": 15
+    },
+    {
+      "id": "potion",
+      "name": "Healing Potion",
+      "description": "A minor healing potion",
+      "commonFor": ["healer", "alchemist", "guard"],
+      "likelihood": 10
+    },
+    {
+      "id": "waterskin",
+      "name": "Waterskin",
+      "description": "A container for water",
+      "commonFor": ["all"],
+      "likelihood": 25
+    },
+    {
+      "id": "lock-picks",
+      "name": "Lock Picks",
+      "description": "Thieves' tools",
+      "commonFor": ["thief", "spy"],
+      "likelihood": 8
+    },
+    {
+      "id": "map",
+      "name": "Map",
+      "description": "A map of the region",
+      "commonFor": ["merchant", "sailor", "hunter"],
+      "likelihood": 12
+    },
+    {
+      "id": "magnifying-glass",
+      "name": "Magnifying Glass",
+      "description": "A lens for close inspection",
+      "commonFor": ["scholar", "jeweler"],
+      "likelihood": 8
+    }
+  ],
+  "specialItems": [
+    {
+      "id": "magic-item-minor",
+      "name": "Minor Magic Item",
+      "description": "A simple enchanted object",
+      "minLevel": 3,
+      "likelihood": 5
+    },
+    {
+      "id": "rare-book",
+      "name": "Rare Book",
+      "description": "A valuable tome",
+      "professions": ["scholar", "wizard"],
+      "likelihood": 8
+    },
+    {
+      "id": "stolen-goods",
+      "name": "Stolen Goods",
+      "description": "Something they shouldn't have",
+      "professions": ["thief", "fence"],
+      "likelihood": 10
+    },
+    {
+      "id": "love-letter",
+      "name": "Love Letter",
+      "description": "A romantic correspondence",
+      "likelihood": 12
+    },
+    {
+      "id": "wanted-poster",
+      "name": "Wanted Poster",
+      "description": "A bounty notice",
+      "professions": ["guard", "bounty-hunter"],
+      "likelihood": 8
+    },
+    {
+      "id": "deed",
+      "name": "Property Deed",
+      "description": "Ownership papers",
+      "professions": ["noble", "merchant"],
+      "likelihood": 10
+    },
+    {
+      "id": "contract",
+      "name": "Signed Contract",
+      "description": "A legal agreement",
+      "professions": ["merchant", "bureaucrat"],
+      "likelihood": 12
+    },
+    {
+      "id": "cryptic-note",
+      "name": "Cryptic Note",
+      "description": "A mysterious message",
+      "likelihood": 8
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+{
+  "treatmentOfNobles": [
+    { "id": "deferential", "treatment": "Deferential and respectful", "behavior": "Bows, uses titles, obeys", "reason": "Respects hierarchy", "likelihood": 8 },
+    { "id": "resentful", "treatment": "Resentful but obedient", "behavior": "Forced politeness", "reason": "Hates inequality", "likelihood": 7 },
+    { "id": "familiar", "treatment": "Inappropriately familiar", "behavior": "Treats as equals", "reason": "Doesn't understand or care about rank", "likelihood": 5 },
+    { "id": "contemptuous", "treatment": "Barely concealed contempt", "behavior": "Minimal courtesy", "reason": "Despises nobility", "likelihood": 6 },
+    { "id": "calculating", "treatment": "Calculating and manipulative", "behavior": "Plays the game", "reason": "Sees opportunities", "likelihood": 6 },
+    { "id": "natural-ease", "treatment": "Natural ease", "behavior": "Comfortable around nobility", "reason": "Used to their company", "likelihood": 5 }
+  ],
+  "treatmentOfCommoners": [
+    { "id": "kind", "treatment": "Kind and helpful", "behavior": "Goes out of their way", "reason": "Remembers their roots", "likelihood": 8 },
+    { "id": "dismissive", "treatment": "Dismissive", "behavior": "Doesn't see them as important", "reason": "Social climber", "likelihood": 6 },
+    { "id": "equal", "treatment": "Treats as equals", "behavior": "No pretense", "reason": "Common background", "likelihood": 9 },
+    { "id": "suspicious", "treatment": "Suspicious", "behavior": "Watches for threats or thieves", "reason": "Trust issues", "likelihood": 6 },
+    { "id": "superior", "treatment": "Feels superior", "behavior": "Condescending", "reason": "Insecurity", "likelihood": 6 },
+    { "id": "protective", "treatment": "Protective", "behavior": "Looks out for them", "reason": "Sees them as needing help", "likelihood": 7 }
+  ],
+  "treatmentOfChildren": [
+    { "id": "warm", "treatment": "Warm and playful", "behavior": "Loves children", "reason": "Natural affinity", "likelihood": 8 },
+    { "id": "awkward", "treatment": "Awkward and uncomfortable", "behavior": "Doesn't know how to act", "reason": "No experience with kids", "likelihood": 7 },
+    { "id": "stern", "treatment": "Stern but fair", "behavior": "Expects good behavior", "reason": "Believes in discipline", "likelihood": 7 },
+    { "id": "avoidant", "treatment": "Avoids children", "behavior": "Actively stays away", "reason": "Dislikes or fears them", "likelihood": 5 },
+    { "id": "protective", "treatment": "Fiercely protective", "behavior": "Won't tolerate harm", "reason": "Lost a child or traumatic past", "likelihood": 7 },
+    { "id": "indulgent", "treatment": "Overly indulgent", "behavior": "Spoils them", "reason": "Wants to be liked", "likelihood": 6 }
+  ],
+  "treatmentOfElderly": [
+    { "id": "respectful", "treatment": "Deeply respectful", "behavior": "Defers to their wisdom", "reason": "Cultural values", "likelihood": 9 },
+    { "id": "impatient", "treatment": "Impatient", "behavior": "Rushes them along", "reason": "Youth-focused", "likelihood": 5 },
+    { "id": "caring", "treatment": "Extra caring", "behavior": "Helps without being asked", "reason": "Empathy", "likelihood": 8 },
+    { "id": "dismissive", "treatment": "Dismissive", "behavior": "Ignores their advice", "reason": "Thinks they're outdated", "likelihood": 5 },
+    { "id": "fearful", "treatment": "Uncomfortable around", "behavior": "Reminder of mortality", "reason": "Death anxiety", "likelihood": 4 },
+    { "id": "reverent", "treatment": "Reverent", "behavior": "Seeks their counsel", "reason": "Values experience", "likelihood": 8 }
+  ],
+  "treatmentOfForeigners": [
+    { "id": "curious", "treatment": "Curious and welcoming", "behavior": "Asks questions, helpful", "reason": "Loves learning", "likelihood": 7 },
+    { "id": "suspicious", "treatment": "Suspicious", "behavior": "Watches closely", "reason": "Distrusts outsiders", "likelihood": 7 },
+    { "id": "hostile", "treatment": "Hostile", "behavior": "Wants them gone", "reason": "Xenophobia", "likelihood": 5 },
+    { "id": "exploitative", "treatment": "Sees opportunity", "behavior": "Overcharges or tricks", "reason": "Greed", "likelihood": 5 },
+    { "id": "fascinated", "treatment": "Fascinated", "behavior": "Can't stop asking about their culture", "reason": "Worldly interest", "likelihood": 6 },
+    { "id": "indifferent", "treatment": "Indifferent", "behavior": "Same as anyone else", "reason": "Practical mindset", "likelihood": 8 }
+  ],
+  "treatmentOfAuthority": [
+    { "id": "obedient", "treatment": "Instantly obedient", "behavior": "Follows orders", "reason": "Respects authority", "likelihood": 7 },
+    { "id": "rebellious", "treatment": "Rebellious", "behavior": "Questions everything", "reason": "Antiauthoritarian", "likelihood": 6 },
+    { "id": "manipulative", "treatment": "Manipulative", "behavior": "Appears compliant, undermines", "reason": "Resents control", "likelihood": 5 },
+    { "id": "fearful", "treatment": "Fearful", "behavior": "Overly compliant", "reason": "Past trauma", "likelihood": 6 },
+    { "id": "conditional", "treatment": "Conditional respect", "behavior": "Respects competent authority only", "reason": "Pragmatic", "likelihood": 8 },
+    { "id": "challenging", "treatment": "Constantly challenging", "behavior": "Tests limits", "reason": "Needs to prove worth", "likelihood": 5 }
+  ],
+  "treatmentOfCriminals": [
+    { "id": "sympathetic", "treatment": "Sympathetic", "behavior": "Understands desperation", "reason": "Been there", "likelihood": 7 },
+    { "id": "harsh", "treatment": "Harsh and judgmental", "behavior": "No tolerance", "reason": "Law and order mindset", "likelihood": 7 },
+    { "id": "practical", "treatment": "Practical", "behavior": "Depends on the crime", "reason": "Context matters", "likelihood": 8 },
+    { "id": "helpful", "treatment": "Secretly helpful", "behavior": "Helps them escape or reform", "reason": "Believes in redemption", "likelihood": 6 },
+    { "id": "opportunistic", "treatment": "Opportunistic", "behavior": "Will use or turn them in for reward", "reason": "Self-interest", "likelihood": 6 },
+    { "id": "uncomfortable", "treatment": "Extremely uncomfortable", "behavior": "Avoids all contact", "reason": "Fear or moral rigidity", "likelihood": 6 }
+  ],
+  "treatmentOfReligious": [
+    { "id": "reverent", "treatment": "Deeply reverent", "behavior": "Seeks blessings, obeys", "reason": "Devout", "likelihood": 7 },
+    { "id": "skeptical", "treatment": "Skeptical", "behavior": "Polite but doubting", "reason": "Not religious", "likelihood": 7 },
+    { "id": "hostile", "treatment": "Hostile to clergy", "behavior": "Blames religion for problems", "reason": "Bad experience", "likelihood": 5 },
+    { "id": "respectful", "treatment": "Respectful distance", "behavior": "Courteous but not involved", "reason": "Cultural respect", "likelihood": 8 },
+    { "id": "seeking", "treatment": "Seeking guidance", "behavior": "Asks questions, wants answers", "reason": "Spiritual search", "likelihood": 6 },
+    { "id": "manipulative", "treatment": "Uses religion", "behavior": "Fake piety for advantage", "reason": "Cynical", "likelihood": 4 }
+  ],
+  "treatmentOfWealthy": [
+    { "id": "envious", "treatment": "Envious", "behavior": "Barely hides jealousy", "reason": "Wants what they have", "likelihood": 7 },
+    { "id": "admiring", "treatment": "Admiring", "behavior": "Aspires to be like them", "reason": "Sees wealth as success", "likelihood": 7 },
+    { "id": "resentful", "treatment": "Resentful", "behavior": "Believes wealth is theft", "reason": "Class consciousness", "likelihood": 6 },
+    { "id": "calculating", "treatment": "Calculating", "behavior": "Sees potential targets or patrons", "reason": "Opportunistic", "likelihood": 7 },
+    { "id": "indifferent", "treatment": "Genuinely indifferent", "behavior": "Money doesn't impress them", "reason": "Values other things", "likelihood": 6 },
+    { "id": "contemptuous", "treatment": "Contemptuous", "behavior": "Thinks they're soft and corrupt", "reason": "Moral superiority", "likelihood": 5 }
+  ],
+  "treatmentOfPoor": [
+    { "id": "generous", "treatment": "Generous", "behavior": "Gives freely", "reason": "Remembers poverty", "likelihood": 7 },
+    { "id": "contemptuous", "treatment": "Contemptuous", "behavior": "Thinks they're lazy", "reason": "Pulled themselves up", "likelihood": 5 },
+    { "id": "pitying", "treatment": "Pitying", "behavior": "Charity with condescension", "reason": "Feels superior", "likelihood": 6 },
+    { "id": "protective", "treatment": "Protective", "behavior": "Defends and advocates", "reason": "Empathy", "likelihood": 7 },
+    { "id": "uncomfortable", "treatment": "Uncomfortable", "behavior": "Avoids them", "reason": "Guilt or fear", "likelihood": 6 },
+    { "id": "practical-help", "treatment": "Practical help", "behavior": "Offers work or resources", "reason": "Believes in action", "likelihood": 8 }
+  ],
+  "socialMasks": [
+    { "id": "professional-face", "mask": "Professional Face", "context": "At work", "different": "Serious vs. playful at home", "likelihood": 9 },
+    { "id": "noble-mask", "mask": "Noble Persona", "context": "Around upper class", "different": "Refined vs. rough normally", "likelihood": 7 },
+    { "id": "tough-exterior", "mask": "Tough Exterior", "context": "In public", "different": "Hard vs. soft with loved ones", "likelihood": 8 },
+    { "id": "happy-mask", "mask": "Always Happy", "context": "Around others", "different": "Cheerful vs. depressed alone", "likelihood": 7 },
+    { "id": "competent-mask", "mask": "Overly Competent", "context": "Professional settings", "different": "Confident vs. insecure privately", "likelihood": 7 },
+    { "id": "no-mask", "mask": "No Mask", "context": "Always authentic", "different": "Same in all contexts", "likelihood": 6 }
+  ],
+  "genuineWith": [
+    { "id": "family-only", "genuine": "Only with family", "guard": "Up with everyone else", "reason": "Trust issues", "likelihood": 7 },
+    { "id": "close-friends", "genuine": "Close friends only", "small-circle": "Very selective", "reason": "Been burned before", "likelihood": 8 },
+    { "id": "strangers", "genuine": "Oddly, with strangers", "irony": "Not with people who know them", "reason": "No consequences", "likelihood": 5 },
+    { "id": "everyone", "genuine": "With everyone", "open-book": "What you see is what you get", "reason": "Honesty is policy", "likelihood": 6 },
+    { "id": "animals", "genuine": "Only with animals", "people": "Can't trust people", "reason": "Misanthropic", "likelihood": 4 },
+    { "id": "no-one", "genuine": "With no one", "always-performing": "Always wearing a mask", "reason": "Deeply guarded", "likelihood": 5 }
+  ],
+  "conflictStyle": [
+    { "id": "aggressive", "style": "Aggressive", "approach": "Attacks directly", "escalation": "Quick to violence", "likelihood": 6 },
+    { "id": "passive-aggressive", "style": "Passive-Aggressive", "approach": "Indirect hostility", "behavior": "Undermines subtly", "likelihood": 7 },
+    { "id": "avoidant", "style": "Avoidant", "approach": "Runs from conflict", "problem": "Issues never resolve", "likelihood": 7 },
+    { "id": "diplomatic", "style": "Diplomatic", "approach": "Seeks compromise", "goal": "Win-win solutions", "likelihood": 8 },
+    { "id": "manipulative", "style": "Manipulative", "approach": "Uses others", "tactics": "Plays people against each other", "likelihood": 5 },
+    { "id": "direct", "style": "Direct Communication", "approach": "Honest and clear", "result": "Quick resolution", "likelihood": 7 }
+  ],
+  "boundariesWithStrangers": [
+    { "id": "very-open", "boundaries": "Very Open", "shares": "Everything immediately", "risk": "Oversharing", "likelihood": 6 },
+    { "id": "friendly-guarded", "boundaries": "Friendly but Guarded", "shares": "Pleasant, reveals little", "balance": "Good boundaries", "likelihood": 8 },
+    { "id": "suspicious", "boundaries": "Suspicious and Closed", "shares": "Almost nothing", "barrier": "Hard to befriend", "likelihood": 6 },
+    { "id": "professional", "boundaries": "Professional Distance", "shares": "Keeps it business", "approach": "Cordial but formal", "likelihood": 7 },
+    { "id": "hostile", "boundaries": "Hostile to Outsiders", "shares": "Actively pushes away", "xenophobia": "Distrusts newcomers", "likelihood": 5 }
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "factionTypes": [
+    {
+      "id": "merchant-guild",
+      "name": "Merchant Guild",
+      "description": "Organization controlling trade in specific goods",
+      "typicalSize": "50-200 members",
+      "structure": "Hierarchical with elected leadership",
+      "powerBase": "Economic control",
+      "likelihood": 9
+    },
+    {
+      "id": "craft-guild",
+      "name": "Craft Guild",
+      "description": "Association of artisans in specific trade",
+      "typicalSize": "30-150 members",
+      "structure": "Master, journeyman, apprentice ranks",
+      "powerBase": "Monopoly on skilled labor",
+      "likelihood": 10
+    },
+    {
+      "id": "noble-house",
+      "name": "Noble House",
+      "description": "Aristocratic family with hereditary power",
+      "typicalSize": "10-50 core family, 100-500 retainers",
+      "structure": "Hereditary with head of house",
+      "powerBase": "Land, titles, political influence",
+      "likelihood": 8
+    },
+    {
+      "id": "thieves-guild",
+      "name": "Thieves' Guild",
+      "description": "Organized criminal syndicate",
+      "typicalSize": "20-200 members",
+      "structure": "Cell-based with shadowy leadership",
+      "powerBase": "Fear, extortion, information",
+      "likelihood": 7
+    },
+    {
+      "id": "religious-order",
+      "name": "Religious Order",
+      "description": "Organized faith with devoted followers",
+      "typicalSize": "Varies widely",
+      "structure": "Hierarchical clergy",
+      "powerBase": "Spiritual authority, followers",
+      "likelihood": 9
+    },
+    {
+      "id": "military-order",
+      "name": "Military Order",
+      "description": "Knightly or martial organization",
+      "typicalSize": "50-500 members",
+      "structure": "Strict military hierarchy",
+      "powerBase": "Martial prowess, discipline",
+      "likelihood": 6
+    },
+    {
+      "id": "secret-society",
+      "name": "Secret Society",
+      "description": "Clandestine group with hidden agenda",
+      "typicalSize": "10-100 members",
+      "structure": "Secretive cells, need-to-know",
+      "powerBase": "Secrets, infiltration",
+      "likelihood": 6
+    },
+    {
+      "id": "political-party",
+      "name": "Political Faction",
+      "description": "Group seeking political power",
+      "typicalSize": "20-200 active members",
+      "structure": "Leadership council",
+      "powerBase": "Votes, public support",
+      "likelihood": 7
+    },
+    {
+      "id": "scholarly-society",
+      "name": "Scholarly Society",
+      "description": "Academic or magical research group",
+      "typicalSize": "15-100 members",
+      "structure": "Meritocratic with senior scholars",
+      "powerBase": "Knowledge, expertise",
+      "likelihood": 6
+    },
+    {
+      "id": "mercenary-company",
+      "name": "Mercenary Company",
+      "description": "Professional soldiers for hire",
+      "typicalSize": "50-500 soldiers",
+      "structure": "Military with captain/general",
+      "powerBase": "Military force, reputation",
+      "likelihood": 6
+    },
+    {
+      "id": "cult",
+      "name": "Cult",
+      "description": "Fringe religious or ideological group",
+      "typicalSize": "10-100 members",
+      "structure": "Centered on charismatic leader",
+      "powerBase": "Devotion, secrecy",
+      "likelihood": 5
+    },
+    {
+      "id": "revolutionary-movement",
+      "name": "Revolutionary Movement",
+      "description": "Group seeking to overthrow current order",
+      "typicalSize": "20-500 members",
+      "structure": "Cell-based with central committee",
+      "powerBase": "Popular support, desperation",
+      "likelihood": 5
+    }
+  ],
+  "factionGoals": [
+    { "id": "wealth", "goal": "Accumulate Wealth", "methods": "Trade, extortion, investment", "likelihood": 9 },
+    { "id": "power", "goal": "Gain Political Power", "methods": "Influence, elections, coup", "likelihood": 9 },
+    { "id": "knowledge", "goal": "Acquire Knowledge", "methods": "Research, espionage, exploration", "likelihood": 7 },
+    { "id": "religious-spread", "goal": "Spread Faith", "methods": "Conversion, charity, force", "likelihood": 8 },
+    { "id": "protect-interests", "goal": "Protect Member Interests", "methods": "Lobbying, contracts, force", "likelihood": 10 },
+    { "id": "overthrow", "goal": "Overthrow Current Order", "methods": "Revolution, assassination, propaganda", "likelihood": 5 },
+    { "id": "maintain-monopoly", "goal": "Maintain Monopoly", "methods": "Exclusion, sabotage, law", "likelihood": 8 },
+    { "id": "revenge", "goal": "Seek Revenge", "methods": "Varies by target", "likelihood": 6 },
+    { "id": "preserve-tradition", "goal": "Preserve Tradition", "methods": "Resist change, education", "likelihood": 7 },
+    { "id": "expand-influence", "goal": "Expand Influence", "methods": "Recruitment, alliances, conquest", "likelihood": 9 }
+  ],
+  "factionResources": [
+    { "id": "vast-wealth", "resource": "Vast Wealth", "advantage": "Can buy almost anything", "likelihood": 6 },
+    { "id": "political-connections", "resource": "Political Connections", "advantage": "Access to power", "likelihood": 8 },
+    { "id": "military-force", "resource": "Private Army/Guards", "advantage": "Enforce will with violence", "likelihood": 7 },
+    { "id": "information-network", "resource": "Spy Network", "advantage": "Knows secrets", "likelihood": 7 },
+    { "id": "magical-power", "resource": "Powerful Mages", "advantage": "Arcane capabilities", "likelihood": 5 },
+    { "id": "popular-support", "resource": "Popular Support", "advantage": "People power", "likelihood": 7 },
+    { "id": "sacred-relics", "resource": "Holy Relics/Sites", "advantage": "Spiritual authority", "likelihood": 6 },
+    { "id": "trade-monopoly", "resource": "Trade Monopoly", "advantage": "Economic leverage", "likelihood": 7 },
+    { "id": "blackmail-material", "resource": "Blackmail Material", "advantage": "Coerce powerful people", "likelihood": 6 },
+    { "id": "skilled-members", "resource": "Highly Skilled Members", "advantage": "Expertise in field", "likelihood": 8 }
+  ],
+  "factionWeaknesses": [
+    { "id": "internal-division", "weakness": "Internal Divisions", "vulnerability": "Easily fractured", "likelihood": 8 },
+    { "id": "corrupt-leadership", "weakness": "Corrupt Leadership", "vulnerability": "Can be exposed or bribed", "likelihood": 7 },
+    { "id": "overextended", "weakness": "Overextended", "vulnerability": "Spread too thin", "likelihood": 7 },
+    { "id": "unpopular", "weakness": "Unpopular with Public", "vulnerability": "Public backlash possible", "likelihood": 7 },
+    { "id": "dependent-leader", "weakness": "Dependent on Single Leader", "vulnerability": "Remove leader, faction crumbles", "likelihood": 6 },
+    { "id": "legal-trouble", "weakness": "Operating Illegally", "vulnerability": "Law enforcement threat", "likelihood": 6 },
+    { "id": "financial-problems", "weakness": "Financial Difficulties", "vulnerability": "Running out of money", "likelihood": 7 },
+    { "id": "infiltrated", "weakness": "Infiltrated by Enemies", "vulnerability": "Spies within ranks", "likelihood": 6 },
+    { "id": "outdated-methods", "weakness": "Outdated Methods", "vulnerability": "Losing relevance", "likelihood": 6 },
+    { "id": "powerful-enemy", "weakness": "Powerful Enemy", "vulnerability": "Threat from rival", "likelihood": 8 }
+  ],
+  "leadershipStyles": [
+    { "id": "authoritarian", "style": "Authoritarian", "description": "Single leader, absolute power", "stability": "Stable but brittle", "likelihood": 7 },
+    { "id": "council", "style": "Council", "description": "Leadership council makes decisions", "stability": "Slow but thoughtful", "likelihood": 8 },
+    { "id": "democratic", "style": "Democratic", "description": "Members vote on major decisions", "stability": "Chaotic but engaged", "likelihood": 6 },
+    { "id": "hereditary", "style": "Hereditary", "description": "Leadership passes through bloodline", "stability": "Traditional but can be weak", "likelihood": 7 },
+    { "id": "meritocratic", "style": "Meritocratic", "description": "Most capable rise to lead", "stability": "Competitive", "likelihood": 7 },
+    { "id": "oligarchic", "style": "Oligarchic", "description": "Small elite group rules", "stability": "Stable but exclusive", "likelihood": 7 },
+    { "id": "shadowy", "style": "Shadowy", "description": "True leaders unknown", "stability": "Mysterious and paranoid", "likelihood": 5 }
+  ],
+  "recruitmentMethods": [
+    { "id": "birth", "method": "By Birth", "selectivity": "Exclusive", "members": "Born into it", "likelihood": 7 },
+    { "id": "invitation", "method": "Invitation Only", "selectivity": "Very selective", "members": "Hand-picked", "likelihood": 7 },
+    { "id": "apprenticeship", "method": "Apprenticeship", "selectivity": "Selective", "members": "Trained from young age", "likelihood": 8 },
+    { "id": "application", "method": "Open Application", "selectivity": "Moderate", "members": "Must meet standards", "likelihood": 8 },
+    { "id": "conquest", "method": "Forced Membership", "selectivity": "None", "members": "Conquered or coerced", "likelihood": 5 },
+    { "id": "conversion", "method": "Religious Conversion", "selectivity": "Anyone who believes", "members": "Faithful", "likelihood": 7 },
+    { "id": "purchase", "method": "Buy Membership", "selectivity": "Can afford it", "members": "Wealthy", "likelihood": 6 }
+  ],
+  "publicPerception": [
+    { "id": "respected", "perception": "Widely Respected", "opinion": "Trusted and admired", "likelihood": 7 },
+    { "id": "feared", "perception": "Feared", "opinion": "Dangerous, avoid crossing", "likelihood": 7 },
+    { "id": "despised", "perception": "Despised", "opinion": "Hated by common folk", "likelihood": 6 },
+    { "id": "unknown", "perception": "Unknown to Public", "opinion": "Secret existence", "likelihood": 5 },
+    { "id": "mixed", "perception": "Mixed Opinions", "opinion": "Loved by some, hated by others", "likelihood": 9 },
+    { "id": "irrelevant", "perception": "Seen as Irrelevant", "opinion": "Ignored, losing influence", "likelihood": 5 },
+    { "id": "necessary-evil", "perception": "Necessary Evil", "opinion": "Don't like them but need them", "likelihood": 7 }
+  ]
+}
