@@ -664,7 +664,7 @@ export class NameGenerator {
       for (const [length, weight] of Object.entries(patterns.lengthWeights)) {
         cumulative += weight;
         if (roll < cumulative) {
-          return parseInt(length);
+          return parseInt(length, 10);
         }
       }
     }

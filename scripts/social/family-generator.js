@@ -75,7 +75,7 @@ export class FamilyGenerator {
       const reputation = this.generateFamilyReputation();
 
       return {
-        id: `family-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        id: `family-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`,
         surname,
         ancestry: params.ancestry || "human",
         type: familyType,
@@ -268,11 +268,11 @@ export class FamilyGenerator {
    * @param {Object} family - Existing family object
    * @param {string} role - Role in family (parent, child, sibling, etc.)
    * @param {Object} baseNPC - Optional: existing NPC to add to family
-   * @returns {Object} Family member reference
+   * @returns {Promise<Object>} Family member reference
    */
-  static generateFamilyMember(family, role, baseNPC = null) {
+  static async generateFamilyMember(family, role, baseNPC = null) {
     const member = {
-      id: baseNPC?.id || `npc-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      id: baseNPC?.id || `npc-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`,
       role,
       surname: family.surname,
       ancestry: family.ancestry,
@@ -285,8 +285,10 @@ export class FamilyGenerator {
 
     // 40% chance to have a specific family role
     if (Math.random() < 0.4) {
-      const familyData = require('../data/social/families/family-structures.json');
-      member.familyRole = RandomUtils.selectWeighted(familyData.familyRoles, "likelihood");
+      const familyData = await DataLoader.loadJSON('data/social/families/family-structures.json');
+      if (familyData && familyData.familyRoles) {
+        member.familyRole = RandomUtils.selectWeighted(familyData.familyRoles, "likelihood");
+      }
     }
 
     return member;

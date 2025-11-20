@@ -724,7 +724,14 @@ export class NPCManagerApp extends Application {
     const stubData = event.target.dataset.stub;
     if (!stubData) return;
 
-    const stub = JSON.parse(stubData);
+    let stub;
+    try {
+      stub = JSON.parse(stubData);
+    } catch (error) {
+      console.error("PF2e Narrative Seeds | Invalid NPC stub data:", error);
+      ui.notifications?.error("Failed to load NPC data");
+      return;
+    }
 
     // Show stub information in a dialog
     new Dialog({
@@ -760,7 +767,15 @@ export class NPCManagerApp extends Application {
     const stubData = event.target.dataset.stub;
     if (!stubData) return;
 
-    const stub = JSON.parse(stubData);
+    let stub;
+    try {
+      stub = JSON.parse(stubData);
+    } catch (error) {
+      console.error("PF2e Narrative Seeds | Invalid NPC stub data:", error);
+      ui.notifications?.error("Failed to load NPC data");
+      return;
+    }
+
     await this._generateRelatedNPC(stub);
   }
 

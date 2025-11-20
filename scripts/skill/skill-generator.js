@@ -147,7 +147,7 @@ export class SkillNarrativeGenerator {
    */
   async loadActionData(actionSlug) {
     try {
-      const data = await DataLoader.load(`skill/actions/${actionSlug}.json`);
+      const data = await DataLoader.loadJSON(`data/skill/actions/${actionSlug}.json`);
       return data;
     } catch (error) {
       console.error(`Failed to load action data for ${actionSlug}:`, error);

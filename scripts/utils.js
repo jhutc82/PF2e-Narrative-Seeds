@@ -230,6 +230,119 @@ export class RandomUtils {
   }
 
   /**
+   * Alias for selectRandom() - provides compatibility with existing code
+   * @param {Array} array - Array to select from
+   * @param {string} varietyMode - Variety setting (low, medium, high, extreme)
+   * @param {string} category - Category key for tracking (e.g., "location:humanoid:success")
+   * @returns {*} Random element
+   */
+  static selectFrom(array, varietyMode = 'high', category = null) {
+    return this.selectRandom(array, varietyMode, category);
+  }
+
+  /**
+   * Select a weighted random element from an array
+   * @param {Array} array - Array of objects with weight property
+   * @param {string} weightProperty - Property name for weight (default: 'likelihood')
+   * @returns {*} Weighted random element, or null if array is empty
+   */
+  static selectWeighted(array, weightProperty = 'likelihood') {
+    if (!array || array.length === 0) return null;
+
+    // Calculate total weight
+    const totalWeight = array.reduce((sum, item) =>
+      sum + Math.max(0, item[weightProperty] || 0), 0);
+
+    // If no weights, fall back to uniform random
+    if (totalWeight <= 0) {
+      return array[Math.floor(Math.random() * array.length)];
+    }
+
+    // Select weighted random
+    let random = Math.random() * totalWeight;
+    for (const item of array) {
+      const weight = item[weightProperty] || 0;
+      if (random < weight) return item;
+      random -= weight;
+    }
+
+    // Fallback to last item (shouldn't happen but protects against floating point errors)
+    return array[array.length - 1];
+  }
+
+  /**
+   * Select multiple unique random elements from an array without replacement
+   * @param {Array} array - Array to select from
+   * @param {number} count - Number of elements to select
+   * @returns {Array} Array of selected elements (may be shorter if count > array.length)
+   */
+  static selectMultiple(array, count) {
+    if (!array || array.length === 0) return [];
+    if (count <= 0) return [];
+
+    const selected = [];
+    const copy = [...array];
+
+    for (let i = 0; i < Math.min(count, copy.length); i++) {
+      const index = Math.floor(Math.random() * copy.length);
+      selected.push(copy.splice(index, 1)[0]);
+    }
+
+    return selected;
+  }
+
+  /**
+   * Select multiple weighted random elements from an array without replacement
+   * @param {Array} array - Array of objects with weight property
+   * @param {string} weightProperty - Property name for weight (default: 'likelihood')
+   * @param {number} count - Number of elements to select
+   * @returns {Array} Array of weighted random elements (may be shorter if count > array.length)
+   */
+  static selectWeightedMultiple(array, weightProperty = 'likelihood', count = 1) {
+    if (!array || array.length === 0) return [];
+    if (count <= 0) return [];
+
+    const selected = [];
+    const remaining = [...array];
+
+    for (let i = 0; i < Math.min(count, array.length); i++) {
+      // Calculate total weight of remaining items
+      const totalWeight = remaining.reduce((sum, item) =>
+        sum + Math.max(0, item[weightProperty] || 0), 0);
+
+      // If no weights, fall back to uniform random
+      if (totalWeight <= 0) {
+        const index = Math.floor(Math.random() * remaining.length);
+        selected.push(remaining.splice(index, 1)[0]);
+        continue;
+      }
+
+      // Select weighted random
+      let random = Math.random() * totalWeight;
+      let selectedIndex = -1;
+
+      for (let j = 0; j < remaining.length; j++) {
+        const weight = remaining[j][weightProperty] || 0;
+        if (random < weight) {
+          selectedIndex = j;
+          break;
+        }
+        random -= weight;
+      }
+
+      // Fallback to last item if needed (floating point errors)
+      if (selectedIndex === -1) {
+        selectedIndex = remaining.length - 1;
+      }
+
+      // Remove and add to selected
+      selected.push(remaining.splice(selectedIndex, 1)[0]);
+    }
+
+    return selected;
+  }
+
+  /**
    * Clear all usage history (useful for testing or resetting)
    */
   static clearHistory() {

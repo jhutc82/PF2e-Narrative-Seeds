@@ -558,4 +558,58 @@ export class DataLoader {
       inFlight: this.loading.size
     };
   }
+
+  /**
+   * Generic JSON loader for any module data file
+   * @param {string} filePath - Path relative to module root (e.g., 'data/social/names/human.json')
+   * @returns {Promise<any>} Parsed JSON data, or null on error
+   */
+  static async loadJSON(filePath) {
+    const cacheKey = `json:${filePath}`;
+
+    // Check cache
+    if (this.cache.has(cacheKey)) {
+      PerformanceMonitor.recordCacheHit();
+      return this.cache.get(cacheKey);
+    }
+
+    PerformanceMonitor.recordCacheMiss();
+
+    // Check if already loading
+    if (this.loading.has(cacheKey)) {
+      return await this.loading.get(cacheKey);
+    }
+
+    // Load data
+    const loadPromise = this.loadJSONData(filePath);
+    this.loading.set(cacheKey, loadPromise);
+
+    try {
+      const data = await loadPromise;
+      this.setCacheData(cacheKey, data);
+      return data;
+    } finally {
+      this.loading.delete(cacheKey);
+    }
+  }
+
+  /**
+   * Load JSON data from file
+   * @private
+   */
+  static async loadJSONData(filePath) {
+    return await PerformanceMonitor.measureAsync('data-load-json', async () => {
+      try {
+        const response = await fetch(`modules/pf2e-narrative-seeds/${filePath}`);
+        if (!response.ok) {
+          console.warn(`PF2e Narrative Seeds | Failed to load ${filePath}: HTTP ${response.status}`);
+          return null;
+        }
+        return await response.json();
+      } catch (error) {
+        console.error(`PF2e Narrative Seeds | Error loading ${filePath}:`, error);
+        return null;
+      }
+    });
+  }
 }

@@ -110,8 +110,8 @@ export class CombatFormatter {
     console.log("PF2e Narrative Seeds | Generating HTML with:", {
       hasComplication: !!complication,
       hasDismemberment: !!dismemberment,
-      complicationHTML: complicationHTML.substring(0, 100),
-      dismembermentHTML: dismembermentHTML.substring(0, 100)
+      complicationHTML: complicationHTML.slice(0, 100),
+      dismembermentHTML: dismembermentHTML.slice(0, 100)
     });
 
     // Simple box design - narrative text with regenerate button

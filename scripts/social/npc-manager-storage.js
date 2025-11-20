@@ -73,13 +73,13 @@ export class NPCManagerStorage {
 
   /**
    * Generate unique ID
-   * @returns {string}
+   * @returns {Promise<string>}
    */
-  static generateId() {
+  static async generateId() {
     const data = this.getData();
     const id = `npc-${data.nextId}`;
     data.nextId++;
-    this.saveData(data);
+    await this.saveData(data);
     return id;
   }
 
@@ -97,7 +97,7 @@ export class NPCManagerStorage {
 
     // Generate ID if not present
     if (!npc.id) {
-      npc.id = this.generateId();
+      npc.id = await this.generateId();
     }
 
     // Add metadata
