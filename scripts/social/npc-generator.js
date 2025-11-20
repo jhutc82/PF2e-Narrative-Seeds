@@ -2486,4 +2486,199 @@ export class NPCGenerator {
       impact
     });
   }
+
+  /**
+   * Export NPC to Foundry VTT actor
+   * @param {Object} npc - NPC seed object
+   * @param {Object} options - Export options
+   * @returns {Promise<Actor>} Created Foundry actor
+   */
+  static async exportToFoundry(npc, options = {}) {
+    if (!npc) return null;
+
+    const actorData = {
+      name: npc.name,
+      type: "npc",
+      system: {
+        details: {
+          level: { value: options.level || 1 },
+          ancestry: npc.ancestry?.name || "Unknown",
+          background: npc.occupation?.name || "Commoner",
+          biography: {
+            value: this.buildFoundryBiography(npc),
+            public: options.publicBio || ""
+          }
+        },
+        attributes: this.buildFoundryAttributes(npc),
+        traits: {
+          size: { value: npc.physicalDetails?.build?.size || "med" },
+          languages: this.buildFoundryLanguages(npc)
+        }
+      },
+      items: this.buildFoundryItems(npc),
+      flags: {
+        "pf2e-narrative-seeds": {
+          fullNPCSeed: options.includeFullSeed ? npc : null,
+          npcId: npc.timestamp,
+          detailLevel: npc.detailLevel,
+          generatedDate: new Date(npc.timestamp).toISOString()
+        }
+      }
+    };
+
+    // Create the actor
+    try {
+      const actor = await Actor.create(actorData, { renderSheet: options.openSheet !== false });
+      console.log("PF2e Narrative Seeds | Created Foundry actor:", actor.name);
+      return actor;
+    } catch (error) {
+      console.error("PF2e Narrative Seeds | Error creating Foundry actor:", error);
+      return null;
+    }
+  }
+
+  /**
+   * Build Foundry biography from NPC data
+   */
+  static buildFoundryBiography(npc) {
+    let bio = `<h2>${npc.name}</h2>\n`;
+    bio += `<p><strong>${npc.ancestry?.name} ${npc.occupation?.name}</strong></p>\n`;
+
+    if (npc.appearance) {
+      bio += `<h3>Appearance</h3>\n<p>${npc.appearance.description}</p>\n`;
+    }
+
+    if (npc.personalities && npc.personalities.length > 0) {
+      bio += `<h3>Personality</h3>\n<p>${npc.personalities.map(p => p.trait).join(", ")}</p>\n`;
+    }
+
+    if (npc.motivation) {
+      bio += `<h3>Motivation</h3>\n<p>${npc.motivation.motivation}</p>\n`;
+    }
+
+    if (npc.occupation?.description) {
+      bio += `<h3>Occupation</h3>\n<p>${npc.occupation.description}</p>\n`;
+    }
+
+    if (npc.plotHooks && npc.plotHooks.length > 0) {
+      bio += `<h3>Plot Hooks</h3>\n<ul>\n`;
+      npc.plotHooks.forEach(hook => {
+        bio += `<li>${hook.hook}</li>\n`;
+      });
+      bio += `</ul>\n`;
+    }
+
+    if (npc.currentSituation?.immediateProblems && npc.currentSituation.immediateProblems.length > 0) {
+      bio += `<h3>Current Situation</h3>\n`;
+      npc.currentSituation.immediateProblems.forEach(problem => {
+        bio += `<p>${problem.problem}</p>\n`;
+      });
+    }
+
+    return bio;
+  }
+
+  /**
+   * Build Foundry attributes from NPC abilities
+   */
+  static buildFoundryAttributes(npc) {
+    if (!npc.abilities) {
+      return {
+        perception: { value: 0 },
+        hp: { max: 20, value: 20 }
+      };
+    }
+
+    // Convert text abilities to rough modifiers
+    const getModifier = (abilityText) => {
+      if (!abilityText) return 0;
+      const lower = abilityText.toLowerCase();
+      if (lower.includes("very high") || lower.includes("exceptional")) return 4;
+      if (lower.includes("high") || lower.includes("above average")) return 2;
+      if (lower.includes("average") || lower.includes("moderate")) return 0;
+      if (lower.includes("low") || lower.includes("below average")) return -2;
+      if (lower.includes("very low") || lower.includes("poor")) return -4;
+      return 0;
+    };
+
+    return {
+      perception: {
+        value: getModifier(npc.abilities.wisdom)
+      },
+      hp: {
+        max: 20,
+        value: 20
+      }
+    };
+  }
+
+  /**
+   * Build Foundry languages from NPC data
+   */
+  static buildFoundryLanguages(npc) {
+    const languages = [];
+
+    // Add common by default
+    languages.push({ value: "common" });
+
+    // Add ancestry language
+    if (npc.ancestry?.name) {
+      const ancestryLangs = {
+        "Human": ["common"],
+        "Elf": ["elven"],
+        "Dwarf": ["dwarven"],
+        "Gnome": ["gnomish"],
+        "Halfling": ["halfling"],
+        "Goblin": ["goblin"],
+        "Leshy": ["sylvan"],
+        "Orc": ["orcish"]
+      };
+
+      const lang = ancestryLangs[npc.ancestry.name];
+      if (lang && !languages.find(l => l.value === lang[0])) {
+        languages.push({ value: lang[0] });
+      }
+    }
+
+    return languages;
+  }
+
+  /**
+   * Build Foundry items (possessions, equipment)
+   */
+  static buildFoundryItems(npc) {
+    const items = [];
+
+    if (npc.possessions?.notable && npc.possessions.notable.length > 0) {
+      npc.possessions.notable.forEach(item => {
+        items.push({
+          name: item.possession || "Item",
+          type: "equipment",
+          system: {
+            description: {
+              value: item.possession
+            },
+            quantity: 1,
+            equipped: true
+          }
+        });
+      });
+    }
+
+    return items;
+  }
+
+  /**
+   * Create a quick Foundry actor with minimal data
+   * @param {Object} npc - NPC seed object
+   * @returns {Promise<Actor>} Created actor
+   */
+  static async quickExportToFoundry(npc) {
+    return this.exportToFoundry(npc, {
+      level: 1,
+      openSheet: true,
+      includeFullSeed: false,
+      publicBio: ""
+    });
+  }
 }
