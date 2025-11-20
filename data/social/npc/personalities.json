@@ -149,6 +149,534 @@
       "name": "Altruistic",
       "description": "Selflessly concerned for others' wellbeing",
       "tags": ["personality-trait"]
+    },
+    {
+      "id": "ambitious",
+      "name": "Ambitious",
+      "description": "Driven to achieve power and success",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "content",
+      "name": "Content",
+      "description": "Satisfied with their lot in life",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "competitive",
+      "name": "Competitive",
+      "description": "Must win at everything",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "collaborative",
+      "name": "Collaborative",
+      "description": "Prefers working with others",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "rebellious",
+      "name": "Rebellious",
+      "description": "Questions authority and breaks rules",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "obedient",
+      "name": "Obedient",
+      "description": "Follows orders without question",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "vindictive",
+      "name": "Vindictive",
+      "description": "Never forgets a slight, seeks revenge",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "forgiving",
+      "name": "Forgiving",
+      "description": "Quick to let go of grudges",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "judgmental",
+      "name": "Judgmental",
+      "description": "Quick to criticize others",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "accepting",
+      "name": "Accepting",
+      "description": "Non-judgmental and open-minded",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "perfectionist",
+      "name": "Perfectionist",
+      "description": "Nothing is ever good enough",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "easygoing",
+      "name": "Easygoing",
+      "description": "Relaxed about standards and outcomes",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "responsible",
+      "name": "Responsible",
+      "description": "Takes duties seriously",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "carefree",
+      "name": "Carefree",
+      "description": "Lives without worry or planning",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "disciplined",
+      "name": "Disciplined",
+      "description": "Maintains strict self-control",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "hedonistic",
+      "name": "Hedonistic",
+      "description": "Seeks pleasure above all else",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "ascetic",
+      "name": "Ascetic",
+      "description": "Rejects material comforts",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "materialistic",
+      "name": "Materialistic",
+      "description": "Values possessions highly",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "spiritual",
+      "name": "Spiritual",
+      "description": "Focused on matters of faith and soul",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "skeptical",
+      "name": "Skeptical",
+      "description": "Questions claims and demands proof",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "credulous",
+      "name": "Credulous",
+      "description": "Believes things easily",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "analytical",
+      "name": "Analytical",
+      "description": "Breaks everything down logically",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "intuitive",
+      "name": "Intuitive",
+      "description": "Trusts gut feelings over logic",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "creative",
+      "name": "Creative",
+      "description": "Thinks outside the box",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "conventional",
+      "name": "Conventional",
+      "description": "Prefers traditional approaches",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "adaptable",
+      "name": "Adaptable",
+      "description": "Adjusts easily to change",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "rigid",
+      "name": "Rigid",
+      "description": "Resists change and new ideas",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "patient",
+      "name": "Patient",
+      "description": "Can wait calmly for long periods",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "impatient",
+      "name": "Impatient",
+      "description": "Wants things done immediately",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "empathetic",
+      "name": "Empathetic",
+      "description": "Deeply feels others' emotions",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "callous",
+      "name": "Callous",
+      "description": "Insensitive to others' suffering",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "generous",
+      "name": "Generous",
+      "description": "Gives freely of resources",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "stingy",
+      "name": "Stingy",
+      "description": "Reluctant to spend or share",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "courageous",
+      "name": "Courageous",
+      "description": "Faces danger without hesitation",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "cowardly",
+      "name": "Cowardly",
+      "description": "Avoids risk and danger",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "confident",
+      "name": "Confident",
+      "description": "Assured in their abilities",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "insecure",
+      "name": "Insecure",
+      "description": "Doubts themselves constantly",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "independent",
+      "name": "Independent",
+      "description": "Prefers to work alone",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "dependent",
+      "name": "Dependent",
+      "description": "Needs others for support",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "assertive",
+      "name": "Assertive",
+      "description": "States opinions confidently",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "passive",
+      "name": "Passive",
+      "description": "Avoids confrontation and conflict",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "spontaneous",
+      "name": "Spontaneous",
+      "description": "Acts on the spur of the moment",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "calculating",
+      "name": "Calculating",
+      "description": "Plans every move carefully",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "energetic",
+      "name": "Energetic",
+      "description": "Always in motion, full of vitality",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "lethargic",
+      "name": "Lethargic",
+      "description": "Slow-moving and low energy",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "cheerful",
+      "name": "Cheerful",
+      "description": "Naturally upbeat and happy",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "gloomy",
+      "name": "Gloomy",
+      "description": "Tends toward sadness and despair",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "witty",
+      "name": "Witty",
+      "description": "Quick with clever remarks",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "earnest",
+      "name": "Earnest",
+      "description": "Serious and sincere",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "sarcastic",
+      "name": "Sarcastic",
+      "description": "Uses irony and mockery",
+      "tags": ["speech-pattern"]
+    },
+    {
+      "id": "literal",
+      "name": "Literal",
+      "description": "Takes everything at face value",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "dramatic",
+      "name": "Dramatic",
+      "description": "Makes everything into a big production",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "understated",
+      "name": "Understated",
+      "description": "Downplays everything",
+      "tags": ["speech-pattern"]
+    },
+    {
+      "id": "passionate",
+      "name": "Passionate",
+      "description": "Feels and expresses emotions intensely",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "reserved",
+      "name": "Reserved",
+      "description": "Keeps emotions private",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "loyal",
+      "name": "Loyal",
+      "description": "Devoted to people and causes",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "fickle",
+      "name": "Fickle",
+      "description": "Changes allegiances easily",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "traditional",
+      "name": "Traditional",
+      "description": "Values customs and heritage",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "progressive",
+      "name": "Progressive",
+      "description": "Embraces new ideas and change",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "nurturing",
+      "name": "Nurturing",
+      "description": "Cares for and protects others",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "detached",
+      "name": "Detached",
+      "description": "Emotionally uninvolved",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "diplomatic",
+      "name": "Diplomatic",
+      "description": "Skilled at mediation and tact",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "blunt",
+      "name": "Blunt",
+      "description": "Says exactly what they think",
+      "tags": ["speech-pattern"]
+    },
+    {
+      "id": "philosophical",
+      "name": "Philosophical",
+      "description": "Contemplates deep questions",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "simple",
+      "name": "Simple",
+      "description": "Prefers straightforward thinking",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "worldly",
+      "name": "Worldly",
+      "description": "Experienced and sophisticated",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "naive",
+      "name": "Naive",
+      "description": "Innocent and inexperienced",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "jaded",
+      "name": "Jaded",
+      "description": "Worn down by experience",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "enthusiastic",
+      "name": "Enthusiastic",
+      "description": "Excited about everything",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "apathetic",
+      "name": "Apathetic",
+      "description": "Lacks interest in most things",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "curious",
+      "name": "Curious",
+      "description": "Wants to know everything",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "incurious",
+      "name": "Incurious",
+      "description": "Uninterested in learning",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "fastidious",
+      "name": "Fastidious",
+      "description": "Extremely particular about details",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "slovenly",
+      "name": "Slovenly",
+      "description": "Careless about appearance and order",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "eloquent",
+      "name": "Eloquent",
+      "description": "Speaks beautifully and persuasively",
+      "tags": ["speech-pattern"]
+    },
+    {
+      "id": "inarticulate",
+      "name": "Inarticulate",
+      "description": "Struggles to express thoughts",
+      "tags": ["speech-pattern"]
+    },
+    {
+      "id": "meticulous",
+      "name": "Meticulous",
+      "description": "Extremely careful and precise",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "haphazard",
+      "name": "Haphazard",
+      "description": "Disorganized and random",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "dignified",
+      "name": "Dignified",
+      "description": "Carries themselves with grace",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "undignified",
+      "name": "Undignified",
+      "description": "Lacks decorum and refinement",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "mysterious",
+      "name": "Mysterious",
+      "description": "Deliberately enigmatic",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "transparent",
+      "name": "Transparent",
+      "description": "Easy to read, wears heart on sleeve",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "ruthless",
+      "name": "Ruthless",
+      "description": "Willing to do anything to win",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "merciful",
+      "name": "Merciful",
+      "description": "Shows compassion even to enemies",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "irreverent",
+      "name": "Irreverent",
+      "description": "Mocks sacred things",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "pious",
+      "name": "Pious",
+      "description": "Deeply religious and devout",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "practical",
+      "name": "Practical",
+      "description": "Focused on what works",
+      "tags": ["personality-trait"]
+    },
+    {
+      "id": "whimsical",
+      "name": "Whimsical",
+      "description": "Guided by fancy and caprice",
+      "tags": ["personality-trait"]
     }
   ]
 }

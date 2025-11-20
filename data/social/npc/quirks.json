@@ -174,6 +174,481 @@
       "id": "dramatic-pauses",
       "description": "Takes long, dramatic pauses while speaking",
       "category": "speech"
+    },
+    {
+      "id": "draws-on-things",
+      "description": "Doodles on any available surface",
+      "category": "behavior"
+    },
+    {
+      "id": "samples-everything",
+      "description": "Tastes or smells everything they encounter",
+      "category": "behavior"
+    },
+    {
+      "id": "carries-specific-tool",
+      "description": "Always has an unusual tool or implement handy",
+      "category": "possession"
+    },
+    {
+      "id": "never-sits",
+      "description": "Refuses to sit in chairs, always stands or squats",
+      "category": "behavior"
+    },
+    {
+      "id": "backwards-walker",
+      "description": "Occasionally walks backwards for no apparent reason",
+      "category": "behavior"
+    },
+    {
+      "id": "sleeps-anywhere",
+      "description": "Falls asleep in odd moments and positions",
+      "category": "behavior"
+    },
+    {
+      "id": "hears-voices",
+      "description": "Responds to voices others can't hear",
+      "category": "behavior"
+    },
+    {
+      "id": "ritualistic",
+      "description": "Performs elaborate rituals before simple tasks",
+      "category": "obsession"
+    },
+    {
+      "id": "symmetry-obsessed",
+      "description": "Must have everything perfectly symmetrical",
+      "category": "obsession"
+    },
+    {
+      "id": "number-fixation",
+      "description": "Everything must be done in specific numbers",
+      "category": "obsession"
+    },
+    {
+      "id": "color-coded",
+      "description": "Organizes entire life by colors",
+      "category": "obsession"
+    },
+    {
+      "id": "compulsive-cleaner",
+      "description": "Can't stop cleaning things they touch",
+      "category": "obsession"
+    },
+    {
+      "id": "hoarder",
+      "description": "Pockets anything small and portable",
+      "category": "obsession"
+    },
+    {
+      "id": "gift-giver",
+      "description": "Constantly gives small gifts to everyone",
+      "category": "behavior"
+    },
+    {
+      "id": "toucher",
+      "description": "Must physically touch everything discussed",
+      "category": "behavior"
+    },
+    {
+      "id": "mimic",
+      "description": "Unconsciously mimics others' gestures and speech",
+      "category": "behavior"
+    },
+    {
+      "id": "personal-narrator",
+      "description": "Narrates their own actions in third person",
+      "category": "speech"
+    },
+    {
+      "id": "song-speaker",
+      "description": "Communicates partially through song lyrics",
+      "category": "speech"
+    },
+    {
+      "id": "translator",
+      "description": "Repeats everything in multiple languages",
+      "category": "speech"
+    },
+    {
+      "id": "defines-words",
+      "description": "Defines common words as they use them",
+      "category": "speech"
+    },
+    {
+      "id": "spells-aloud",
+      "description": "Spells out important words when speaking",
+      "category": "speech"
+    },
+    {
+      "id": "acronym-speaker",
+      "description": "Turns everything into acronyms",
+      "category": "speech"
+    },
+    {
+      "id": "chain-thinker",
+      "description": "Must verbalize entire chain of thought",
+      "category": "speech"
+    },
+    {
+      "id": "question-everything",
+      "description": "Asks 'why?' about every statement",
+      "category": "speech"
+    },
+    {
+      "id": "agrees-with-everyone",
+      "description": "Agrees with contradictory statements",
+      "category": "speech"
+    },
+    {
+      "id": "never-agrees",
+      "description": "Must find something to disagree with",
+      "category": "speech"
+    },
+    {
+      "id": "always-cold",
+      "description": "Constantly complains about being cold",
+      "category": "complaint"
+    },
+    {
+      "id": "always-hungry",
+      "description": "Mentions hunger in every conversation",
+      "category": "complaint"
+    },
+    {
+      "id": "always-tired",
+      "description": "Constantly yawning and mentioning fatigue",
+      "category": "complaint"
+    },
+    {
+      "id": "aches-and-pains",
+      "description": "Describes various pains in detail",
+      "category": "complaint"
+    },
+    {
+      "id": "health-tracker",
+      "description": "Monitors and announces bodily functions",
+      "category": "behavior"
+    },
+    {
+      "id": "dream-sharer",
+      "description": "Recounts dreams in excessive detail",
+      "category": "speech"
+    },
+    {
+      "id": "future-planner",
+      "description": "Makes elaborate plans aloud for every possibility",
+      "category": "speech"
+    },
+    {
+      "id": "past-dweller",
+      "description": "References everything that happened 'back when'",
+      "category": "speech"
+    },
+    {
+      "id": "comparator",
+      "description": "Compares everything to something else",
+      "category": "speech"
+    },
+    {
+      "id": "estimator",
+      "description": "Provides numerical estimates for everything",
+      "category": "speech"
+    },
+    {
+      "id": "fact-checker",
+      "description": "Verifies every claimed fact aloud",
+      "category": "speech"
+    },
+    {
+      "id": "devil-advocate",
+      "description": "Always argues the opposite position",
+      "category": "speech"
+    },
+    {
+      "id": "hypothesizer",
+      "description": "Proposes wild hypotheses constantly",
+      "category": "speech"
+    },
+    {
+      "id": "connects-everything",
+      "description": "Finds conspiracies linking unrelated events",
+      "category": "belief"
+    },
+    {
+      "id": "sign-seeker",
+      "description": "Interprets everything as an omen",
+      "category": "belief"
+    },
+    {
+      "id": "numerologist",
+      "description": "Finds significance in numbers everywhere",
+      "category": "belief"
+    },
+    {
+      "id": "astrologer",
+      "description": "Explains everything through celestial positions",
+      "category": "belief"
+    },
+    {
+      "id": "karma-believer",
+      "description": "Attributes everything to cosmic justice",
+      "category": "belief"
+    },
+    {
+      "id": "fate-follower",
+      "description": "Believes everything is predetermined",
+      "category": "belief"
+    },
+    {
+      "id": "pattern-finder",
+      "description": "Sees patterns in random events",
+      "category": "belief"
+    },
+    {
+      "id": "anthropomorphizer",
+      "description": "Attributes emotions to inanimate objects",
+      "category": "belief"
+    },
+    {
+      "id": "plant-talker",
+      "description": "Converses with plants",
+      "category": "behavior"
+    },
+    {
+      "id": "stone-collector",
+      "description": "Picks up interesting rocks everywhere",
+      "category": "obsession"
+    },
+    {
+      "id": "string-saver",
+      "description": "Saves every piece of string or rope",
+      "category": "obsession"
+    },
+    {
+      "id": "paper-keeper",
+      "description": "Never throws away any written material",
+      "category": "obsession"
+    },
+    {
+      "id": "container-collector",
+      "description": "Keeps every box, jar, and container",
+      "category": "obsession"
+    },
+    {
+      "id": "refuse-waste",
+      "description": "Finds uses for everything, rejects nothing",
+      "category": "obsession"
+    },
+    {
+      "id": "perfectionist-speech",
+      "description": "Restarts sentences if not perfectly worded",
+      "category": "speech"
+    },
+    {
+      "id": "synonym-user",
+      "description": "Provides multiple synonyms for every word",
+      "category": "speech"
+    },
+    {
+      "id": "example-giver",
+      "description": "Must give three examples of everything",
+      "category": "speech"
+    },
+    {
+      "id": "clarifier",
+      "description": "Over-explains simple concepts",
+      "category": "speech"
+    },
+    {
+      "id": "tangent-taker",
+      "description": "Goes off on wild tangents mid-thought",
+      "category": "speech"
+    },
+    {
+      "id": "parenthetical-speaker",
+      "description": "Inserts excessive parenthetical remarks",
+      "category": "speech"
+    },
+    {
+      "id": "footnote-provider",
+      "description": "Adds verbal footnotes to statements",
+      "category": "speech"
+    },
+    {
+      "id": "citation-giver",
+      "description": "Credits sources for every piece of information",
+      "category": "speech"
+    },
+    {
+      "id": "disclaimer-adder",
+      "description": "Adds disclaimers to every statement",
+      "category": "speech"
+    },
+    {
+      "id": "caveat-master",
+      "description": "Follows every statement with 'but...'",
+      "category": "speech"
+    },
+    {
+      "id": "hedge-speaker",
+      "description": "Uses 'maybe,' 'perhaps,' 'possibly' constantly",
+      "category": "speech"
+    },
+    {
+      "id": "certainty-claimer",
+      "description": "Asserts absolute certainty about everything",
+      "category": "speech"
+    },
+    {
+      "id": "probability-speaker",
+      "description": "Assigns percentage likelihoods to everything",
+      "category": "speech"
+    },
+    {
+      "id": "ranker",
+      "description": "Ranks everything on various scales",
+      "category": "speech"
+    },
+    {
+      "id": "grader",
+      "description": "Assigns letter grades to experiences",
+      "category": "speech"
+    },
+    {
+      "id": "reviewer",
+      "description": "Provides star ratings for everything",
+      "category": "speech"
+    },
+    {
+      "id": "critic",
+      "description": "Offers unsolicited critiques constantly",
+      "category": "speech"
+    },
+    {
+      "id": "compliment-giver",
+      "description": "Finds something nice to say about everything",
+      "category": "speech"
+    },
+    {
+      "id": "encourager",
+      "description": "Offers constant encouragement and praise",
+      "category": "speech"
+    },
+    {
+      "id": "worrier",
+      "description": "Expresses concern about every action",
+      "category": "speech"
+    },
+    {
+      "id": "permission-seeker",
+      "description": "Asks permission for every action",
+      "category": "behavior"
+    },
+    {
+      "id": "apologizer",
+      "description": "Apologizes preemptively for everything",
+      "category": "speech"
+    },
+    {
+      "id": "thanker",
+      "description": "Thanks people excessively",
+      "category": "speech"
+    },
+    {
+      "id": "blesser",
+      "description": "Blesses everyone constantly",
+      "category": "speech"
+    },
+    {
+      "id": "curser",
+      "description": "Jokingly curses people and objects",
+      "category": "speech"
+    },
+    {
+      "id": "nickname-giver",
+      "description": "Assigns nicknames to everyone immediately",
+      "category": "behavior"
+    },
+    {
+      "id": "title-user",
+      "description": "Insists on using full titles always",
+      "category": "speech"
+    },
+    {
+      "id": "formality-switcher",
+      "description": "Alternates between formal and casual speech",
+      "category": "speech"
+    },
+    {
+      "id": "accent-shifter",
+      "description": "Accent changes based on who they're talking to",
+      "category": "speech"
+    },
+    {
+      "id": "volume-irregular",
+      "description": "Volume varies wildly without reason",
+      "category": "speech"
+    },
+    {
+      "id": "whisper-shouter",
+      "description": "Whispers some words, shouts others",
+      "category": "speech"
+    },
+    {
+      "id": "pace-changer",
+      "description": "Speaking speed changes mid-sentence",
+      "category": "speech"
+    },
+    {
+      "id": "backwards-talker",
+      "description": "Occasionally speaks words in reverse order",
+      "category": "speech"
+    },
+    {
+      "id": "letter-skipper",
+      "description": "Drops certain letters from words",
+      "category": "speech"
+    },
+    {
+      "id": "word-replacer",
+      "description": "Substitutes unusual words for common ones",
+      "category": "speech"
+    },
+    {
+      "id": "euphemism-user",
+      "description": "Uses elaborate euphemisms for simple things",
+      "category": "speech"
+    },
+    {
+      "id": "technical-speaker",
+      "description": "Uses technical jargon for everything",
+      "category": "speech"
+    },
+    {
+      "id": "baby-animal-namer",
+      "description": "Calls everything by baby animal names",
+      "category": "speech"
+    },
+    {
+      "id": "food-metaphor",
+      "description": "Describes everything in food terms",
+      "category": "speech"
+    },
+    {
+      "id": "weather-comparer",
+      "description": "Relates everything to weather phenomena",
+      "category": "speech"
+    },
+    {
+      "id": "war-metaphor",
+      "description": "Frames everything as a battle",
+      "category": "speech"
+    },
+    {
+      "id": "journey-framer",
+      "description": "Describes everything as a journey",
+      "category": "speech"
     }
   ]
 }

@@ -169,6 +169,436 @@
       "id": "poker-face",
       "description": "Maintains an expressionless poker face",
       "category": "expression"
+    },
+    {
+      "id": "wrings-hands",
+      "description": "Wrings hands when anxious",
+      "category": "gesture"
+    },
+    {
+      "id": "stands-too-close",
+      "description": "Invades personal space when talking",
+      "category": "gesture"
+    },
+    {
+      "id": "keeps-distance",
+      "description": "Maintains unusually large distance from others",
+      "category": "gesture"
+    },
+    {
+      "id": "touches-arm",
+      "description": "Touches people's arms while talking",
+      "category": "gesture"
+    },
+    {
+      "id": "points",
+      "description": "Points at things and people frequently",
+      "category": "gesture"
+    },
+    {
+      "id": "shoulder-shrug",
+      "description": "Shrugs shoulders constantly",
+      "category": "gesture"
+    },
+    {
+      "id": "head-tilt",
+      "description": "Tilts head when listening",
+      "category": "gesture"
+    },
+    {
+      "id": "nods-constantly",
+      "description": "Nods agreement even when disagreeing",
+      "category": "gesture"
+    },
+    {
+      "id": "shakes-head",
+      "description": "Shakes head unconsciously",
+      "category": "gesture"
+    },
+    {
+      "id": "leans-forward",
+      "description": "Leans in close when engaged",
+      "category": "gesture"
+    },
+    {
+      "id": "leans-back",
+      "description": "Leans away from conversations",
+      "category": "gesture"
+    },
+    {
+      "id": "rocks-on-heels",
+      "description": "Rocks back and forth on heels",
+      "category": "gesture"
+    },
+    {
+      "id": "shifts-weight",
+      "description": "Constantly shifts weight foot to foot",
+      "category": "gesture"
+    },
+    {
+      "id": "plays-with-jewelry",
+      "description": "Fidgets with rings or necklaces",
+      "category": "gesture"
+    },
+    {
+      "id": "twirls-hair",
+      "description": "Twirls or plays with their hair",
+      "category": "gesture"
+    },
+    {
+      "id": "scratches-head",
+      "description": "Scratches head when thinking",
+      "category": "gesture"
+    },
+    {
+      "id": "rubs-neck",
+      "description": "Rubs back of neck frequently",
+      "category": "gesture"
+    },
+    {
+      "id": "massages-temples",
+      "description": "Massages temples when stressed",
+      "category": "gesture"
+    },
+    {
+      "id": "pinches-bridge-of-nose",
+      "description": "Pinches bridge of nose when frustrated",
+      "category": "gesture"
+    },
+    {
+      "id": "covers-mouth",
+      "description": "Covers mouth when laughing or surprised",
+      "category": "gesture"
+    },
+    {
+      "id": "clenches-fists",
+      "description": "Clenches fists when angry",
+      "category": "gesture"
+    },
+    {
+      "id": "steeples-fingers",
+      "description": "Steeples fingers when contemplating",
+      "category": "gesture"
+    },
+    {
+      "id": "looks-at-hands",
+      "description": "Frequently examines their own hands",
+      "category": "gesture"
+    },
+    {
+      "id": "checks-nails",
+      "description": "Inspects or picks at fingernails",
+      "category": "gesture"
+    },
+    {
+      "id": "stretches",
+      "description": "Constantly stretching or rolling shoulders",
+      "category": "gesture"
+    },
+    {
+      "id": "cracks-neck",
+      "description": "Cracks neck periodically",
+      "category": "gesture"
+    },
+    {
+      "id": "smooths-clothes",
+      "description": "Constantly smooths or straightens clothes",
+      "category": "gesture"
+    },
+    {
+      "id": "checks-reflection",
+      "description": "Checks their reflection in any surface",
+      "category": "gesture"
+    },
+    {
+      "id": "picks-lint",
+      "description": "Picks invisible lint off clothing",
+      "category": "gesture"
+    },
+    {
+      "id": "lip-biting",
+      "description": "Bites lower lip when concentrating",
+      "category": "habit"
+    },
+    {
+      "id": "tongue-click",
+      "description": "Makes clicking sounds with tongue",
+      "category": "habit"
+    },
+    {
+      "id": "teeth-sucking",
+      "description": "Sucks teeth in thought or disapproval",
+      "category": "habit"
+    },
+    {
+      "id": "chews-cheek",
+      "description": "Chews inside of cheek",
+      "category": "habit"
+    },
+    {
+      "id": "bounces-knee",
+      "description": "Bounces knee rapidly when seated",
+      "category": "habit"
+    },
+    {
+      "id": "taps-foot",
+      "description": "Taps foot impatiently",
+      "category": "habit"
+    },
+    {
+      "id": "swings-leg",
+      "description": "Swings leg when seated",
+      "category": "habit"
+    },
+    {
+      "id": "pops-joints",
+      "description": "Pops various joints habitually",
+      "category": "habit"
+    },
+    {
+      "id": "plays-with-pen",
+      "description": "Fidgets with writing implements",
+      "category": "habit"
+    },
+    {
+      "id": "spins-objects",
+      "description": "Spins coins or objects on tables",
+      "category": "habit"
+    },
+    {
+      "id": "arranges-things",
+      "description": "Compulsively arranges objects symmetrically",
+      "category": "habit"
+    },
+    {
+      "id": "picks-at-food",
+      "description": "Picks at food rather than eating",
+      "category": "habit"
+    },
+    {
+      "id": "drinks-frequently",
+      "description": "Takes small sips constantly",
+      "category": "habit"
+    },
+    {
+      "id": "checks-time",
+      "description": "Constantly checking time or sun position",
+      "category": "habit"
+    },
+    {
+      "id": "looks-around",
+      "description": "Always scanning surroundings",
+      "category": "habit"
+    },
+    {
+      "id": "watches-door",
+      "description": "Keeps eyes on exits and entrances",
+      "category": "habit"
+    },
+    {
+      "id": "counts-things",
+      "description": "Silently counts objects or people",
+      "category": "habit"
+    },
+    {
+      "id": "organizes-coins",
+      "description": "Arranges coins by value",
+      "category": "habit"
+    },
+    {
+      "id": "names-things",
+      "description": "Names inanimate objects",
+      "category": "habit"
+    },
+    {
+      "id": "talks-to-self",
+      "description": "Mutters to themselves",
+      "category": "speech"
+    },
+    {
+      "id": "finishes-sentences",
+      "description": "Finishes other people's sentences",
+      "category": "speech"
+    },
+    {
+      "id": "interrupts",
+      "description": "Frequently interrupts others",
+      "category": "speech"
+    },
+    {
+      "id": "long-pauses",
+      "description": "Takes long pauses mid-sentence",
+      "category": "speech"
+    },
+    {
+      "id": "trails-off",
+      "description": "Sentences trail off incomplete",
+      "category": "speech"
+    },
+    {
+      "id": "asks-questions",
+      "description": "Ends statements as questions",
+      "category": "speech"
+    },
+    {
+      "id": "rhetorical-questions",
+      "description": "Uses rhetorical questions constantly",
+      "category": "speech"
+    },
+    {
+      "id": "corrects-self",
+      "description": "Constantly corrects own word choices",
+      "category": "speech"
+    },
+    {
+      "id": "corrects-others",
+      "description": "Corrects others' grammar and facts",
+      "category": "speech"
+    },
+    {
+      "id": "uses-analogies",
+      "description": "Explains everything through analogies",
+      "category": "speech"
+    },
+    {
+      "id": "quotes-people",
+      "description": "Frequently quotes famous people",
+      "category": "speech"
+    },
+    {
+      "id": "name-drops",
+      "description": "Drops important names constantly",
+      "category": "speech"
+    },
+    {
+      "id": "exaggerates",
+      "description": "Exaggerates every story",
+      "category": "speech"
+    },
+    {
+      "id": "understates",
+      "description": "Minimizes everything",
+      "category": "speech"
+    },
+    {
+      "id": "speaks-third-person",
+      "description": "Refers to self in third person",
+      "category": "speech"
+    },
+    {
+      "id": "uses-we",
+      "description": "Uses 'we' instead of 'I'",
+      "category": "speech"
+    },
+    {
+      "id": "baby-talk",
+      "description": "Slips into childish speech",
+      "category": "speech"
+    },
+    {
+      "id": "mixed-languages",
+      "description": "Mixes words from multiple languages",
+      "category": "speech"
+    },
+    {
+      "id": "makes-sounds",
+      "description": "Makes sound effects while talking",
+      "category": "speech"
+    },
+    {
+      "id": "sing-song",
+      "description": "Speaks in a sing-song rhythm",
+      "category": "speech"
+    },
+    {
+      "id": "monotone",
+      "description": "Speaks without inflection",
+      "category": "speech"
+    },
+    {
+      "id": "dramatic-pauses",
+      "description": "Uses theatrical pauses for effect",
+      "category": "speech"
+    },
+    {
+      "id": "voice-cracks",
+      "description": "Voice cracks under emotion",
+      "category": "speech"
+    },
+    {
+      "id": "grins-widely",
+      "description": "Grins too widely, unsettling",
+      "category": "expression"
+    },
+    {
+      "id": "tight-smile",
+      "description": "Smiles with lips pressed tight",
+      "category": "expression"
+    },
+    {
+      "id": "scowls",
+      "description": "Default expression is a scowl",
+      "category": "expression"
+    },
+    {
+      "id": "blank-stare",
+      "description": "Stares blankly at nothing",
+      "category": "expression"
+    },
+    {
+      "id": "wide-eyes",
+      "description": "Eyes always wide with surprise",
+      "category": "expression"
+    },
+    {
+      "id": "half-lidded",
+      "description": "Eyes half-closed, looking bored",
+      "category": "expression"
+    },
+    {
+      "id": "winks",
+      "description": "Winks frequently, perhaps inappropriately",
+      "category": "expression"
+    },
+    {
+      "id": "eyeroll",
+      "description": "Rolls eyes at everything",
+      "category": "expression"
+    },
+    {
+      "id": "lip-purse",
+      "description": "Purses lips in disapproval",
+      "category": "expression"
+    },
+    {
+      "id": "nose-wrinkle",
+      "description": "Wrinkles nose at unpleasant things",
+      "category": "expression"
+    },
+    {
+      "id": "jaw-clenches",
+      "description": "Clenches jaw when upset",
+      "category": "expression"
+    },
+    {
+      "id": "forehead-vein",
+      "description": "Vein throbs in forehead when angry",
+      "category": "expression"
+    },
+    {
+      "id": "flared-nostrils",
+      "description": "Nostrils flare when emotional",
+      "category": "expression"
+    },
+    {
+      "id": "rapid-blinking",
+      "description": "Blinks rapidly when lying",
+      "category": "expression"
+    },
+    {
+      "id": "thousand-yard-stare",
+      "description": "Stares into distance, lost in thought",
+      "category": "expression"
     }
   ]
 }

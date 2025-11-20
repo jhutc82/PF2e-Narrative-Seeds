@@ -119,6 +119,270 @@
       "name": "Duty Bound",
       "description": "Performing their job or fulfilling an obligation",
       "gmGuidance": "They'll be professional but may lack personal investment"
+    },
+    {
+      "id": "sizing-up",
+      "name": "Sizing Up",
+      "description": "Assessing if the party could be useful later",
+      "gmGuidance": "They'll probe for skills and connections"
+    },
+    {
+      "id": "deflecting-attention",
+      "name": "Deflecting Attention",
+      "description": "Trying to keep the party from noticing something",
+      "gmGuidance": "They'll redirect conversation away from certain topics"
+    },
+    {
+      "id": "stalling",
+      "name": "Stalling for Time",
+      "description": "Keeping the party occupied while something else happens",
+      "gmGuidance": "They'll drag out the conversation with digressions"
+    },
+    {
+      "id": "gathering-allies",
+      "name": "Gathering Support",
+      "description": "Building a coalition for an upcoming conflict",
+      "gmGuidance": "They'll emphasize common enemies and shared interests"
+    },
+    {
+      "id": "making-impression",
+      "name": "Making an Impression",
+      "description": "Wants to be remembered favorably",
+      "gmGuidance": "They'll try to seem impressive and generous"
+    },
+    {
+      "id": "earning-trust",
+      "name": "Earning Trust",
+      "description": "Building credibility for future requests",
+      "gmGuidance": "They'll be helpful and honest to establish rapport"
+    },
+    {
+      "id": "discrediting-rival",
+      "name": "Discrediting a Rival",
+      "description": "Planting seeds of doubt about someone else",
+      "gmGuidance": "They'll drop subtle negative hints about their target"
+    },
+    {
+      "id": "spreading-rumor",
+      "name": "Spreading Information",
+      "description": "Making sure certain news gets around",
+      "gmGuidance": "They'll casually mention the information repeatedly"
+    },
+    {
+      "id": "seeking-approval",
+      "name": "Seeking Approval",
+      "description": "Wants validation from impressive strangers",
+      "gmGuidance": "They'll share accomplishments and fish for compliments"
+    },
+    {
+      "id": "covering-tracks",
+      "name": "Covering Their Tracks",
+      "description": "Creating an alibi or false narrative",
+      "gmGuidance": "They'll volunteer information that paints them favorably"
+    },
+    {
+      "id": "scoping-threat",
+      "name": "Assessing a Threat",
+      "description": "Determining if the party is dangerous",
+      "gmGuidance": "They'll ask about capabilities and recent activities"
+    },
+    {
+      "id": "buying-silence",
+      "name": "Buying Silence",
+      "description": "Hoping to ensure the party won't talk",
+      "gmGuidance": "They'll offer rewards for discretion"
+    },
+    {
+      "id": "planting-evidence",
+      "name": "Setting Up a Frame",
+      "description": "Arranging for the party to be blamed later",
+      "gmGuidance": "They'll ensure the party is seen in specific places"
+    },
+    {
+      "id": "escaping-boredom",
+      "name": "Relieving Boredom",
+      "description": "Just wants something interesting to happen",
+      "gmGuidance": "They'll encourage the party to share wild stories"
+    },
+    {
+      "id": "practicing-lies",
+      "name": "Rehearsing Deception",
+      "description": "Testing a cover story on strangers",
+      "gmGuidance": "They'll tell an elaborate tale and gauge reactions"
+    },
+    {
+      "id": "seeking-muscle",
+      "name": "Finding Enforcers",
+      "description": "Looking for people who can handle violence",
+      "gmGuidance": "They'll probe for willingness to use force"
+    },
+    {
+      "id": "avoiding-someone",
+      "name": "Hiding from Someone",
+      "description": "Using the party as cover or distraction",
+      "gmGuidance": "They'll stick close and seem nervous about surroundings"
+    },
+    {
+      "id": "marking-targets",
+      "name": "Identifying Marks",
+      "description": "Assessing if the party is worth robbing",
+      "gmGuidance": "They'll casually observe wealth and awareness"
+    },
+    {
+      "id": "gauging-morals",
+      "name": "Testing Ethics",
+      "description": "Determining the party's moral boundaries",
+      "gmGuidance": "They'll present hypothetical moral dilemmas"
+    },
+    {
+      "id": "finding-scapegoat",
+      "name": "Finding a Scapegoat",
+      "description": "Looking for someone to blame",
+      "gmGuidance": "They'll suggest the party handle dangerous tasks"
+    },
+    {
+      "id": "vetting-investment",
+      "name": "Assessing Investment",
+      "description": "Determining if backing the party would pay off",
+      "gmGuidance": "They'll ask about plans and track record"
+    },
+    {
+      "id": "gathering-blackmail",
+      "name": "Collecting Leverage",
+      "description": "Looking for secrets to exploit later",
+      "gmGuidance": "They'll encourage the party to confide in them"
+    },
+    {
+      "id": "establishing-alibi",
+      "name": "Creating Witnesses",
+      "description": "Making sure they're seen here at this time",
+      "gmGuidance": "They'll make the interaction memorable"
+    },
+    {
+      "id": "scouting-competition",
+      "name": "Evaluating Competition",
+      "description": "Sizing up potential rivals",
+      "gmGuidance": "They'll probe for skills and goals"
+    },
+    {
+      "id": "fishing-information",
+      "name": "Extracting Intel",
+      "description": "Trying to learn specific facts without seeming interested",
+      "gmGuidance": "They'll circle around the topic with indirect questions"
+    },
+    {
+      "id": "currying-favor",
+      "name": "Building Credit",
+      "description": "Doing favors to cash in later",
+      "gmGuidance": "They'll be helpful and remind the party they owe them"
+    },
+    {
+      "id": "distracting-from-guilt",
+      "name": "Appearing Normal",
+      "description": "Acting natural to avoid suspicion",
+      "gmGuidance": "They'll seem overly casual about serious matters"
+    },
+    {
+      "id": "fulfilling-dare",
+      "name": "Completing a Dare",
+      "description": "Proving they're brave enough to approach strangers",
+      "gmGuidance": "They'll seem nervous but determined"
+    },
+    {
+      "id": "following-orders",
+      "name": "Following Orders",
+      "description": "Someone told them to make contact",
+      "gmGuidance": "They'll be mechanical and stick to a script"
+    },
+    {
+      "id": "satisfying-curiosity",
+      "name": "Indulging Curiosity",
+      "description": "Heard about the party and wants to see for themselves",
+      "gmGuidance": "They'll ask direct questions about rumors"
+    },
+    {
+      "id": "networking",
+      "name": "Expanding Network",
+      "description": "Building professional connections",
+      "gmGuidance": "They'll exchange contact information and names"
+    },
+    {
+      "id": "sensing-opportunity",
+      "name": "Spotting Opportunity",
+      "description": "Thinks the party might be useful somehow",
+      "gmGuidance": "They'll ask open-ended questions about needs"
+    },
+    {
+      "id": "avoiding-work",
+      "name": "Procrastinating",
+      "description": "Using the conversation to avoid their duties",
+      "gmGuidance": "They'll stretch out any interaction"
+    },
+    {
+      "id": "making-contact",
+      "name": "Establishing Contact",
+      "description": "First step in a longer plan",
+      "gmGuidance": "They'll ensure the party knows how to find them"
+    },
+    {
+      "id": "paying-forward",
+      "name": "Paying It Forward",
+      "description": "Someone helped them once, now helping others",
+      "gmGuidance": "They'll share useful information freely"
+    },
+    {
+      "id": "testing-waters",
+      "name": "Testing the Waters",
+      "description": "Seeing if the party is receptive to an idea",
+      "gmGuidance": "They'll float proposals hypothetically"
+    },
+    {
+      "id": "seeking-redemption",
+      "name": "Attempting Redemption",
+      "description": "Trying to balance past wrongs with good deeds",
+      "gmGuidance": "They'll be overly helpful and mention past regrets"
+    },
+    {
+      "id": "building-legend",
+      "name": "Creating Their Legend",
+      "description": "Wants to be part of the party's story",
+      "gmGuidance": "They'll make the interaction dramatic and memorable"
+    },
+    {
+      "id": "issuing-challenge",
+      "name": "Issuing a Challenge",
+      "description": "Wants to prove they're better than the party",
+      "gmGuidance": "They'll suggest competitions or contests"
+    },
+    {
+      "id": "preventing-mistake",
+      "name": "Preventing an Error",
+      "description": "Knows the party is about to make a wrong move",
+      "gmGuidance": "They'll try to warn without revealing too much"
+    },
+    {
+      "id": "fulfilling-prophecy",
+      "name": "Following Prophecy",
+      "description": "Believes fate requires this meeting",
+      "gmGuidance": "They'll make cryptic references to destiny"
+    },
+    {
+      "id": "conducting-experiment",
+      "name": "Running an Experiment",
+      "description": "Testing a theory about people or magic",
+      "gmGuidance": "They'll observe reactions carefully"
+    },
+    {
+      "id": "repaying-debt",
+      "name": "Honoring a Debt",
+      "description": "Owes someone who asked them to help the party",
+      "gmGuidance": "They'll mention they were asked to assist"
+    },
+    {
+      "id": "last-chance",
+      "name": "Seizing Last Chance",
+      "description": "This is their final opportunity for something",
+      "gmGuidance": "They'll seem urgent and slightly desperate"
     }
   ]
 }
