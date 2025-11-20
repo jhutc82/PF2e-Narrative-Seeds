@@ -4,6 +4,7 @@
  */
 
 import { NameGenerator } from './name-generator.js';
+import { HeritageNameGenerator } from './heritage-name-generator.js';
 import { RandomUtils } from '../utils.js';
 import { DataLoader } from '../data-loader.js';
 
@@ -22,7 +23,7 @@ export class AdvancedNameGenerator extends NameGenerator {
 
   /**
    * Generate an advanced name with context
-   * @param {string} ancestry - Ancestry slug
+   * @param {string} ancestry - Ancestry slug (or versatile heritage)
    * @param {string} gender - Gender
    * @param {Object} context - Generation context
    * @param {string} context.region - Regional variant (e.g., "chelaxian", "taldan")
@@ -33,6 +34,10 @@ export class AdvancedNameGenerator extends NameGenerator {
    * @param {boolean} context.includeTitle - Force title generation
    * @param {boolean} context.includeEpithet - Force epithet generation
    * @param {boolean} context.includeMeaning - Include name etymology
+   * @param {string} context.heritage - Versatile heritage (if applicable)
+   * @param {string} context.primaryAncestry - Primary ancestry for heritage blending
+   * @param {string} context.blendStrategy - Specific blending strategy
+   * @param {number} context.blendRatio - Heritage blending ratio (0-1)
    * @returns {Promise<Object>} Generated name with metadata
    */
   static async generateAdvanced(ancestry, gender = null, context = {}) {
@@ -44,14 +49,51 @@ export class AdvancedNameGenerator extends NameGenerator {
       level = 1,
       includeTitle = null,
       includeEpithet = null,
-      includeMeaning = false
+      includeMeaning = false,
+      heritage = null,
+      primaryAncestry = null,
+      blendStrategy = null,
+      blendRatio = 0.5
     } = context;
 
-    // Generate base name (with or without region)
+    // List of versatile heritages
+    const versatileHeritages = [
+      'half-elf', 'half-orc', 'tiefling', 'aasimar', 'dhampir',
+      'changeling', 'ganzi', 'aphorite', 'duskwalker'
+    ];
+
+    // Generate base name
     let baseName;
-    if (region && ancestry === 'human') {
+
+    // Check if this is a versatile heritage
+    if (heritage && versatileHeritages.includes(heritage)) {
+      baseName = await HeritageNameGenerator.generateHeritageName(
+        heritage,
+        gender,
+        {
+          primaryAncestry: primaryAncestry || ancestry,
+          region,
+          strategy: blendStrategy,
+          blendRatio
+        }
+      );
+    } else if (versatileHeritages.includes(ancestry)) {
+      // Ancestry IS a versatile heritage
+      baseName = await HeritageNameGenerator.generateHeritageName(
+        ancestry,
+        gender,
+        {
+          primaryAncestry,
+          region,
+          strategy: blendStrategy,
+          blendRatio
+        }
+      );
+    } else if (region && ancestry === 'human') {
+      // Regional human variant
       baseName = await this.generateRegionalName(region, gender);
     } else {
+      // Standard ancestry
       baseName = await this.generate(ancestry, gender);
     }
 
@@ -96,12 +138,16 @@ export class AdvancedNameGenerator extends NameGenerator {
       meaning,
       metadata: {
         ancestry,
+        heritage: heritage || (versatileHeritages.includes(ancestry) ? ancestry : null),
         gender,
         region,
+        primaryAncestry,
         class: charClass,
         deity,
         background,
-        level
+        level,
+        blendStrategy,
+        blendRatio
       }
     };
   }
