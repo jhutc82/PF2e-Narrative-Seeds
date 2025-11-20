@@ -1,0 +1,92 @@
+{
+  "wealthLevels": [
+    { "id": "destitute", "name": "Destitute", "copper": "0-50", "description": "Can barely afford food", "lifestyle": "Sleeping rough or cheapest lodging", "likelihood": 6 },
+    { "id": "poor", "name": "Poor", "copper": "50-200", "description": "Scraping by day to day", "lifestyle": "Shared room, simple meals", "likelihood": 8 },
+    { "id": "struggling", "name": "Struggling", "copper": "200-500", "description": "Making ends meet with difficulty", "lifestyle": "Small room, basic necessities", "likelihood": 9 },
+    { "id": "modest", "name": "Modest", "copper": "500-1000", "description": "Comfortable but not affluent", "lifestyle": "Decent lodging, regular meals", "likelihood": 10 },
+    { "id": "comfortable", "name": "Comfortable", "copper": "1000-5000", "description": "Financially secure", "lifestyle": "Good housing, quality goods", "likelihood": 8 },
+    { "id": "prosperous", "name": "Prosperous", "copper": "5000-20000", "description": "Well-off, some luxuries", "lifestyle": "Fine home, servants", "likelihood": 6 },
+    { "id": "wealthy", "name": "Wealthy", "copper": "20000-100000", "description": "Rich, want for little", "lifestyle": "Estate, staff, luxuries", "likelihood": 4 },
+    { "id": "opulent", "name": "Opulent", "copper": "100000+", "description": "Extremely rich", "lifestyle": "Multiple properties, extravagant", "likelihood": 2 }
+  ],
+  "incomeSourceTypes": [
+    { "id": "wages", "source": "Wages from employment", "stability": "Stable", "likelihood": 10 },
+    { "id": "business-profits", "source": "Profits from business", "stability": "Variable", "likelihood": 8 },
+    { "id": "investments", "source": "Investment returns", "stability": "Variable", "likelihood": 5 },
+    { "id": "rental-income", "source": "Property rentals", "stability": "Stable", "likelihood": 6 },
+    { "id": "inheritance", "source": "Living off inheritance", "stability": "Depleting", "likelihood": 4 },
+    { "id": "commissions", "source": "Commission-based work", "stability": "Unstable", "likelihood": 7 },
+    { "id": "illegal-activity", "source": "Illicit activities", "stability": "Risky", "likelihood": 5 },
+    { "id": "patronage", "source": "Supported by patron", "stability": "Conditional", "likelihood": 4 },
+    { "id": "begging", "source": "Begging and charity", "stability": "Unreliable", "likelihood": 3 },
+    { "id": "piecework", "source": "Day labor and odd jobs", "stability": "Inconsistent", "likelihood": 7 }
+  ],
+  "debtSituations": [
+    { "id": "no-debt", "description": "Debt-free", "amount": "0 cp", "pressure": "None", "likelihood": 6 },
+    { "id": "minor-debt", "description": "Small debts to friends/merchants", "amount": "10-50 cp", "pressure": "Low", "likelihood": 8 },
+    { "id": "moderate-debt", "description": "Significant debt", "amount": "50-500 cp", "pressure": "Moderate", "likelihood": 7 },
+    { "id": "major-debt", "description": "Large debt becoming problematic", "amount": "500-2000 cp", "pressure": "High", "likelihood": 6 },
+    { "id": "crushing-debt", "description": "Overwhelming debt", "amount": "2000+ cp", "pressure": "Desperate", "likelihood": 5 },
+    { "id": "dangerous-debt", "description": "Debt to dangerous people", "amount": "Variable", "pressure": "Life-threatening", "likelihood": 4 }
+  ],
+  "creditorTypes": [
+    { "id": "bank", "creditor": "Legitimate bank or moneylender", "threat": "Legal action, repossession", "likelihood": 7 },
+    { "id": "merchant-guild", "creditor": "Merchant guild", "threat": "Loss of business privileges", "likelihood": 6 },
+    { "id": "crime-boss", "creditor": "Crime boss or gang", "threat": "Violence, intimidation", "likelihood": 5 },
+    { "id": "noble", "creditor": "Noble family", "threat": "Social ruin, servitude", "likelihood": 5 },
+    { "id": "friend", "creditor": "Friend or family member", "threat": "Damaged relationship", "likelihood": 7 },
+    { "id": "loan-shark", "creditor": "Predatory loan shark", "threat": "Escalating interest, violence", "likelihood": 5 },
+    { "id": "church", "creditor": "Religious institution", "threat": "Spiritual consequences, excommunication", "likelihood": 4 },
+    { "id": "former-employer", "creditor": "Previous employer", "threat": "Reputation damage", "likelihood": 5 },
+    { "id": "gambling-den", "creditor": "Gambling establishment", "threat": "Broken limbs, slavery", "likelihood": 4 },
+    { "id": "mysterious", "creditor": "Mysterious benefactor", "threat": "Unknown but ominous", "likelihood": 3 }
+  ],
+  "financialPressures": [
+    { "id": "medical-bills", "pressure": "Expensive medical treatment needed", "urgency": "High", "likelihood": 6 },
+    { "id": "supporting-family", "pressure": "Supporting extended family", "urgency": "Ongoing", "likelihood": 8 },
+    { "id": "business-failing", "pressure": "Business losing money", "urgency": "Moderate", "likelihood": 6 },
+    { "id": "taxes-due", "pressure": "Heavy taxes coming due", "urgency": "Deadline approaching", "likelihood": 7 },
+    { "id": "rent-increase", "pressure": "Rent or expenses increased", "urgency": "Monthly", "likelihood": 7 },
+    { "id": "dowry-needed", "pressure": "Need dowry for marriage", "urgency": "Time-sensitive", "likelihood": 5 },
+    { "id": "legal-fees", "pressure": "Ongoing legal costs", "urgency": "Moderate", "likelihood": 5 },
+    { "id": "blackmail", "pressure": "Being blackmailed for money", "urgency": "Recurring", "likelihood": 4 },
+    { "id": "gambling-losses", "pressure": "Mounting gambling debts", "urgency": "Escalating", "likelihood": 5 },
+    { "id": "failed-investment", "pressure": "Investment went bad", "urgency": "Loss already occurred", "likelihood": 5 },
+    { "id": "supporting-habit", "pressure": "Expensive vice or addiction", "urgency": "Daily", "likelihood": 5 },
+    { "id": "tool-replacement", "pressure": "Need to replace work tools/equipment", "urgency": "Moderate", "likelihood": 6 }
+  ],
+  "financialGoals": [
+    { "id": "buy-property", "goal": "Save to buy property", "amount": "Large sum", "timeframe": "Years", "likelihood": 7 },
+    { "id": "start-business", "goal": "Capital to start business", "amount": "Moderate to large", "timeframe": "Months to years", "likelihood": 6 },
+    { "id": "escape-debt", "goal": "Pay off all debts", "amount": "Variable", "timeframe": "As soon as possible", "likelihood": 8 },
+    { "id": "retirement-fund", "goal": "Save for old age", "amount": "Large sum", "timeframe": "Years", "likelihood": 7 },
+    { "id": "education", "goal": "Pay for education (self or family)", "amount": "Moderate", "timeframe": "Specific date", "likelihood": 6 },
+    { "id": "escape-poverty", "goal": "Rise above current station", "amount": "Ongoing", "timeframe": "Lifetime", "likelihood": 8 },
+    { "id": "specific-purchase", "goal": "Save for specific expensive item", "amount": "Moderate", "timeframe": "Months", "likelihood": 7 },
+    { "id": "dowry", "goal": "Provide dowry for child", "amount": "Significant", "timeframe": "Years", "likelihood": 5 },
+    { "id": "pilgrimage", "goal": "Fund religious pilgrimage", "amount": "Moderate", "timeframe": "Years", "likelihood": 4 },
+    { "id": "revenge-fund", "goal": "Save money to enable revenge", "amount": "Variable", "timeframe": "However long it takes", "likelihood": 3 }
+  ],
+  "attitudeTowardMoney": [
+    { "id": "generous", "attitude": "Generous", "behavior": "Gives freely, poor with money", "likelihood": 6 },
+    { "id": "frugal", "attitude": "Frugal", "behavior": "Saves every copper", "likelihood": 8 },
+    { "id": "greedy", "attitude": "Greedy", "behavior": "Never has enough", "likelihood": 6 },
+    { "id": "careless", "attitude": "Careless", "behavior": "Spends without thinking", "likelihood": 6 },
+    { "id": "anxious", "attitude": "Anxious", "behavior": "Constant worry about money", "likelihood": 7 },
+    { "id": "balanced", "attitude": "Balanced", "behavior": "Reasonable with finances", "likelihood": 8 },
+    { "id": "status-seeking", "attitude": "Status-Seeking", "behavior": "Spends to appear wealthy", "likelihood": 6 },
+    { "id": "strategic", "attitude": "Strategic", "behavior": "Every purchase calculated", "likelihood": 6 },
+    { "id": "fatalistic", "attitude": "Fatalistic", "behavior": "Money comes and goes", "likelihood": 5 },
+    { "id": "traumatized", "attitude": "Traumatized by Poverty", "behavior": "Hoards obsessively", "likelihood": 5 }
+  ],
+  "hiddenAssets": [
+    { "id": "emergency-fund", "asset": "Secret emergency money stash", "amount": "Moderate", "location": "Hidden", "likelihood": 7 },
+    { "id": "valuable-heirloom", "asset": "Valuable family heirloom", "worth": "Significant", "willingness": "Won't sell unless desperate", "likelihood": 6 },
+    { "id": "property-elsewhere", "asset": "Property in another city", "value": "Variable", "reason": "Inheritance or investment", "likelihood": 4 },
+    { "id": "hidden-inventory", "asset": "Undeclared business inventory", "purpose": "Tax evasion", "risk": "Legal trouble", "likelihood": 5 },
+    { "id": "treasure-knowledge", "asset": "Knowledge of hidden treasure", "accessibility": "Difficult to retrieve", "obstacle": "Danger or ownership issues", "likelihood": 3 },
+    { "id": "valuable-information", "asset": "Information worth selling", "buyers": "Multiple interested parties", "risk": "Dangerous to reveal", "likelihood": 4 },
+    { "id": "blackmail-material", "asset": "Blackmail material on someone rich", "potential": "Significant payoff", "using": "Moral qualms", "likelihood": 3 },
+    { "id": "debt-owed-to-them", "asset": "Someone owes them a large debt", "collection": "Difficult to collect", "amount": "Significant", "likelihood": 5 }
+  ]
+}

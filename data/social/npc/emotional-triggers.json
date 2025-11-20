@@ -1,0 +1,86 @@
+{
+  "emotionalTriggers": [
+    { "id": "disrespect", "trigger": "Being disrespected or insulted", "reaction": "Becomes defensive and hostile", "likelihood": 9 },
+    { "id": "mention-family", "trigger": "Questions about their family", "reaction": "Either warms up or shuts down completely", "likelihood": 8 },
+    { "id": "their-craft", "trigger": "Criticism of their work", "reaction": "Takes it very personally", "likelihood": 8 },
+    { "id": "past-failure", "trigger": "Mention of their past mistakes", "reaction": "Visible pain and anger", "likelihood": 7 },
+    { "id": "betrayal-talk", "trigger": "Discussion of betrayal or loyalty", "reaction": "Intense emotional response", "likelihood": 7 },
+    { "id": "wealth-display", "trigger": "Ostentatious displays of wealth", "reaction": "Resentment or envy", "likelihood": 7 },
+    { "id": "authority-challenge", "trigger": "Questioning their authority", "reaction": "Asserts dominance", "likelihood": 7 },
+    { "id": "religious-mockery", "trigger": "Mockery of their faith", "reaction": "Deeply offended", "likelihood": 6 },
+    { "id": "homeland-insult", "trigger": "Insults to their homeland or people", "reaction": "Patriotic anger", "likelihood": 8 },
+    { "id": "lost-love", "trigger": "Reminders of lost loved one", "reaction": "Grief resurfaces", "likelihood": 6 }
+  ],
+  "hotButtons": [
+    { "id": "injustice", "topic": "Injustice and unfairness", "response": "Becomes passionately angry", "likelihood": 8 },
+    { "id": "waste", "topic": "Wastefulness", "response": "Lectures about responsibility", "likelihood": 7 },
+    { "id": "cowardice", "topic": "Cowardly behavior", "response": "Shows contempt", "likelihood": 7 },
+    { "id": "dishonesty", "topic": "Lies and deception", "response": "Loses all trust", "likelihood": 8 },
+    { "id": "cruelty-weak", "topic": "Cruelty to the weak", "response": "Intervenes forcefully", "likelihood": 7 },
+    { "id": "broken-promises", "topic": "Breaking promises", "response": "Never forgives", "likelihood": 8 },
+    { "id": "incompetence", "topic": "Incompetence in important matters", "response": "Frustrated and angry", "likelihood": 7 },
+    { "id": "disrespect-elders", "topic": "Disrespect to elders", "response": "Traditional values triggered", "likelihood": 6 },
+    { "id": "harm-innocent", "topic": "Harm to innocents", "response": "Moral outrage", "likelihood": 8 },
+    { "id": "their-enemy", "topic": "Praise of their enemies", "response": "Feels betrayed", "likelihood": 7 }
+  ],
+  "softSpots": [
+    { "id": "children", "weakness": "Children in need", "effect": "Will do almost anything to help", "likelihood": 8 },
+    { "id": "animals", "weakness": "Suffering animals", "effect": "Compassion overrides other concerns", "likelihood": 7 },
+    { "id": "genuine-praise", "weakness": "Sincere compliments about their work", "effect": "Warms to the speaker", "likelihood": 8 },
+    { "id": "shared-origin", "weakness": "People from their homeland", "effect": "Instant camaraderie", "likelihood": 7 },
+    { "id": "shared-loss", "weakness": "Others who've suffered similar loss", "effect": "Opens up emotionally", "likelihood": 7 },
+    { "id": "respect-shown", "weakness": "Genuine respect and deference", "effect": "Becomes helpful and generous", "likelihood": 8 },
+    { "id": "old-songs", "weakness": "Traditional songs or stories", "effect": "Nostalgic and sentimental", "likelihood": 6 },
+    { "id": "favorite-food", "weakness": "Their favorite food or drink", "effect": "Relaxes and becomes friendly", "likelihood": 7 },
+    { "id": "skilled-work", "weakness": "Appreciation of skilled craftsmanship", "effect": "Enthusiastic sharing of knowledge", "likelihood": 7 },
+    { "id": "acts-kindness", "weakness": "Unexpected acts of kindness", "effect": "Deeply moved", "likelihood": 8 }
+  ],
+  "trustBuilders": [
+    { "id": "keep-promise", "action": "Keeping a promise to them", "impact": "Earns significant trust", "likelihood": 9 },
+    { "id": "protect-them", "action": "Protecting them from danger", "impact": "Creates loyalty", "likelihood": 8 },
+    { "id": "share-secret", "action": "Confiding a secret", "impact": "Reciprocal trust", "likelihood": 7 },
+    { "id": "defend-honor", "action": "Defending their honor when they're not present", "impact": "Deep respect earned", "likelihood": 7 },
+    { "id": "help-freely", "action": "Helping without asking for payment", "impact": "Owes a debt", "likelihood": 8 },
+    { "id": "respect-boundaries", "action": "Respecting their boundaries", "impact": "Feels safe with you", "likelihood": 8 },
+    { "id": "skilled-demonstration", "action": "Demonstrating competence in shared skill", "impact": "Professional respect", "likelihood": 7 },
+    { "id": "shared-meal", "action": "Breaking bread together", "impact": "Cultural bonding", "likelihood": 7 },
+    { "id": "save-loved-one", "action": "Helping someone they care about", "impact": "Eternal gratitude", "likelihood": 8 },
+    { "id": "validate-feelings", "action": "Validating their feelings/experiences", "impact": "Feels understood", "likelihood": 7 }
+  ],
+  "dealbreakers": [
+    { "id": "harm-family", "line": "Harming their family", "consequence": "Becomes implacable enemy", "likelihood": 9 },
+    { "id": "betray-trust", "line": "Betraying their confidence", "consequence": "Trust never restored", "likelihood": 9 },
+    { "id": "dishonor-dead", "line": "Disrespecting their dead", "consequence": "Unforgivable offense", "likelihood": 8 },
+    { "id": "force-compromise", "line": "Forcing them to compromise core values", "consequence": "Will die first", "likelihood": 7 },
+    { "id": "threaten-loved-ones", "line": "Threatening people they protect", "consequence": "Immediate violent response", "likelihood": 8 },
+    { "id": "humiliate-publicly", "line": "Public humiliation", "consequence": "Vendetta begins", "likelihood": 7 },
+    { "id": "destroy-lifework", "line": "Destroying their life's work", "consequence": "Nothing left to lose", "likelihood": 6 },
+    { "id": "force-dark-act", "line": "Forcing them to do something evil", "consequence": "Would rather die", "likelihood": 7 },
+    { "id": "abandon-need", "line": "Abandoning them in dire need", "consequence": "Permanent enmity", "likelihood": 8 },
+    { "id": "break-sacred-oath", "line": "Asking them to break a sacred oath", "consequence": "Refuses absolutely", "likelihood": 7 }
+  ],
+  "loyaltyConditions": [
+    { "id": "unwavering", "type": "Unwavering", "description": "Once loyal, always loyal", "likelihood": 6 },
+    { "id": "conditional", "type": "Conditional", "description": "Loyalty while interests align", "likelihood": 8 },
+    { "id": "bought", "type": "Bought", "description": "Loyal to the highest bidder", "likelihood": 5 },
+    { "id": "earned", "type": "Must Be Earned", "description": "Loyalty requires proof over time", "likelihood": 8 },
+    { "id": "duty-bound", "type": "Duty-Bound", "description": "Loyal due to obligation", "likelihood": 7 },
+    { "id": "emotional", "type": "Emotional", "description": "Loyal to those they care about", "likelihood": 8 },
+    { "id": "fearful", "type": "Fear-Based", "description": "Loyal because afraid not to be", "likelihood": 5 },
+    { "id": "temporary", "type": "Temporary", "description": "Loyal until a better option appears", "likelihood": 6 },
+    { "id": "tested", "type": "Constantly Testing", "description": "Always testing if you deserve loyalty", "likelihood": 6 },
+    { "id": "reciprocal", "type": "Reciprocal", "description": "Loyal in exact measure as shown to them", "likelihood": 8 }
+  ],
+  "persuasionVulnerabilities": [
+    { "id": "flattery", "vulnerability": "Susceptible to flattery", "exploitBy": "Genuine-sounding compliments", "likelihood": 7 },
+    { "id": "authority", "vulnerability": "Defers to authority", "exploitBy": "Official titles or commands", "likelihood": 6 },
+    { "id": "greed", "vulnerability": "Tempted by wealth", "exploitBy": "Offer of money or treasure", "likelihood": 8 },
+    { "id": "fear", "vulnerability": "Motivated by fear", "exploitBy": "Threats or intimidation", "likelihood": 7 },
+    { "id": "pride", "vulnerability": "Pride goeth before fall", "exploitBy": "Challenges to their ego", "likelihood": 7 },
+    { "id": "compassion", "vulnerability": "Can't resist helping", "exploitBy": "Sob stories", "likelihood": 7 },
+    { "id": "curiosity", "vulnerability": "Driven by curiosity", "exploitBy": "Mysteries and secrets", "likelihood": 6 },
+    { "id": "duty", "vulnerability": "Bound by duty", "exploitBy": "Appeals to obligation", "likelihood": 7 },
+    { "id": "loneliness", "vulnerability": "Desperately lonely", "exploitBy": "Offer of companionship", "likelihood": 6 },
+    { "id": "ideology", "vulnerability": "Ideological zealot", "exploitBy": "Appeals to their cause", "likelihood": 6 }
+  ]
+}
