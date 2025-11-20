@@ -1,0 +1,262 @@
+{
+  "description": "Versatile heritage naming patterns for mixed-ancestry characters",
+  "version": "1.1",
+  "remasterNote": "Nephilim is the remaster consolidation of Aasimar, Tiefling, Ganzi, and Aphorite. Legacy names supported for backward compatibility.",
+  "heritages": {
+    "nephilim": {
+      "description": "Nephilim with planar lineages (Remaster consolidation)",
+      "isRemasterHeritage": true,
+      "lineages": {
+        "celestial": {
+          "description": "Nephilim with celestial (angelic) lineage - formerly Aasimar",
+          "legacyName": "aasimar",
+          "reference": "aasimar"
+        },
+        "fiendish": {
+          "description": "Nephilim with fiendish (infernal) lineage - formerly Tiefling",
+          "legacyName": "tiefling",
+          "reference": "tiefling"
+        },
+        "protean": {
+          "description": "Nephilim with protean (chaotic) lineage - formerly Ganzi",
+          "legacyName": "ganzi",
+          "reference": "ganzi"
+        },
+        "inevitable": {
+          "description": "Nephilim with inevitable (lawful) lineage - formerly Aphorite",
+          "legacyName": "aphorite",
+          "reference": "aphorite"
+        }
+      },
+      "culturalNotes": "Nephilim inherit planar essence through various means. Names often reflect their specific lineage."
+    },
+    "half-elf": {
+      "description": "Half-elves blend human and elven naming traditions",
+      "blendingRules": {
+        "humanWeight": 0.5,
+        "elfWeight": 0.5,
+        "strategies": [
+          "blend_syllables",
+          "human_first_elf_last",
+          "elf_first_human_last",
+          "hybrid_construction"
+        ]
+      },
+      "infernalPrefixes": ["Ash", "Cinder", "Ember", "Flame", "Infern", "Pyro", "Scorch", "Sear"],
+      "infernalSuffixes": ["ael", "azoth", "balos", "dan", "goras", "iel", "monus", "rax", "thar", "xis"],
+      "infernalNames": {
+        "male": ["Ashael", "Cinderax", "Emberiel", "Flamegoras", "Infernos", "Pyraxiel", "Scorchdan", "Searthar"],
+        "female": ["Ashara", "Cindralis", "Embera", "Flamyra", "Inferna", "Pyrallis", "Scorchia", "Seraphyx"]
+      },
+      "culturalNotes": "Half-elves often choose names that honor both parents, or adopt names from their raised culture"
+    },
+    "half-orc": {
+      "description": "Half-orcs blend human and orcish naming",
+      "blendingRules": {
+        "humanWeight": 0.4,
+        "orcWeight": 0.6,
+        "strategies": [
+          "harsh_human",
+          "softened_orc",
+          "compound"
+        ]
+      },
+      "orcishPrefixes": ["Grak", "Throk", "Brug", "Morg", "Drog", "Urk", "Gruk", "Shak", "Vorg", "Krag"],
+      "orcishSuffixes": ["ash", "ug", "ok", "ar", "ush", "ak", "or", "osh", "uk", "ag"],
+      "humanizingPatterns": {
+        "softenConsonants": true,
+        "addVowels": true,
+        "reduceHarshness": true
+      },
+      "names": {
+        "male": ["Grakash", "Throknar", "Brugash", "Morguk", "Drogash", "Urkash", "Gruktar", "Shakash", "Vorgak", "Kragor"],
+        "female": ["Graka", "Throkna", "Bruga", "Morga", "Droga", "Urka", "Grukta", "Shaka", "Vorga", "Kraga"]
+      },
+      "culturalNotes": "Half-orcs may use human names in cities, orc names in tribes, or blended names"
+    },
+    "tiefling": {
+      "description": "Tieflings with infernal heritage, often with virtue/vice names",
+      "namingPatterns": {
+        "infernal": {
+          "weight": 40,
+          "description": "Traditional infernal-sounding names"
+        },
+        "virtue": {
+          "weight": 35,
+          "description": "Virtue names (ironic or aspirational)"
+        },
+        "human": {
+          "weight": 25,
+          "description": "Human names from their culture"
+        }
+      },
+      "infernalPrefixes": ["Ash", "Bal", "Cind", "Damm", "Emb", "Fel", "Grim", "Hel", "Inf", "Mal", "Nef", "Pyr", "Rav", "Sab", "Torm", "Vex", "Zar"],
+      "infernalSuffixes": ["ael", "amon", "azoth", "baal", "deus", "fera", "goras", "iel", "monus", "nox", "rax", "thar", "xes", "ziel"],
+      "infernalNames": {
+        "male": ["Ashael", "Balamon", "Cindrax", "Dammeus", "Emberiel", "Felgoras", "Grimnox", "Helrax", "Inferthar", "Malbaal", "Nefziel", "Pyrazon", "Ravgoras", "Sabthar", "Tormrax", "Vexael", "Zarxes"],
+        "female": ["Ashara", "Balmora", "Cindria", "Dammara", "Embera", "Felgora", "Grimara", "Helara", "Inferra", "Malbara", "Nefara", "Pyralis", "Ravenna", "Sabara", "Tormara", "Vexara", "Zareth"]
+      },
+      "virtueNames": {
+        "aspirational": ["Hope", "Faith", "Grace", "Joy", "Peace", "Truth", "Valor", "Justice", "Honor", "Mercy", "Charity", "Patience", "Prudence", "Temperance", "Fortitude", "Wisdom", "Courage"],
+        "ironic": ["Despair", "Doubt", "Sorrow", "Pain", "Strife", "Lies", "Coward", "Cruelty", "Shame", "Wrath", "Greed", "Envy", "Pride", "Gluttony", "Lust", "Sloth", "Vanity"],
+        "abstract": ["Ash", "Ember", "Shadow", "Thorn", "Raven", "Storm", "Night", "Dusk", "Crimson", "Obsidian", "Onyx", "Eclipse"]
+      },
+      "culturalNotes": "Many tieflings choose virtue names to define themselves, rejecting infernal heritage"
+    },
+    "aasimar": {
+      "description": "Aasimars with celestial heritage, often with blessed/holy names",
+      "namingPatterns": {
+        "celestial": {
+          "weight": 40,
+          "description": "Celestial-sounding names"
+        },
+        "virtue": {
+          "weight": 35,
+          "description": "Virtue and holy names"
+        },
+        "human": {
+          "weight": 25,
+          "description": "Human names from their culture"
+        }
+      },
+      "celestialPrefixes": ["Ael", "Cael", "Celes", "Div", "Elas", "Eur", "Glor", "Hal", "Lum", "Nor", "Rad", "Sal", "Ser", "Thel", "Val", "Zel"],
+      "celestialSuffixes": ["ael", "aria", "arion", "diel", "driel", "iel", "ion", "ith", "miel", "rael", "riel", "thiel", "uril", "viel"],
+      "celestialNames": {
+        "male": ["Aelion", "Caelriel", "Celestion", "Divael", "Elasion", "Euron", "Gloriel", "Haluril", "Lumiel", "Noradiel", "Radion", "Salriel", "Serion", "Thelion", "Valrael", "Zeldriel"],
+        "female": ["Aelaria", "Caelaria", "Celestia", "Divaria", "Elasaria", "Euriel", "Gloria", "Halaria", "Lumaria", "Noriel", "Radiant", "Salaria", "Seraphia", "Thelaria", "Valaria", "Zelaria"]
+      },
+      "virtueNames": {
+        "blessed": ["Grace", "Hope", "Faith", "Mercy", "Charity", "Light", "Dawn", "Radiance", "Serenity", "Harmony", "Peace", "Joy"],
+        "holy": ["Angel", "Blessed", "Divine", "Hallowed", "Sanctified", "Sacred", "Holy", "Pure", "Righteous", "Consecrated"],
+        "celestial": ["Star", "Aurora", "Celestia", "Lumina", "Radiance", "Glory", "Heaven", "Zenith", "Ascendant"]
+      },
+      "culturalNotes": "Aasimars often have human names with celestial middle names or epithets"
+    },
+    "dhampir": {
+      "description": "Dhampirs with vampiric heritage, gothic names",
+      "namingPatterns": {
+        "gothic": {
+          "weight": 50,
+          "description": "Dark, gothic names"
+        },
+        "human": {
+          "weight": 50,
+          "description": "Human names from their culture"
+        }
+      },
+      "gothicPrefixes": ["Drac", "Vlad", "Vamp", "Mort", "Noc", "Umbr", "Shad", "Crim", "Sang", "Pale", "Dark", "Nox", "Tene", "Obsid"],
+      "gothicSuffixes": ["ul", "ian", "ius", "imir", "aven", "ius", "us", "oth", "or", "ix", "us", "an", "on"],
+      "names": {
+        "male": ["Dracul", "Vladian", "Vampius", "Mortimer", "Nocturne", "Umbral", "Shadow", "Crimson", "Sanguine", "Paleth", "Darkness", "Noxian", "Tenebrius", "Obsidian"],
+        "female": ["Dracula", "Vladimira", "Vampira", "Morticia", "Noctavia", "Umbra", "Shadowa", "Crimsa", "Sangria", "Paleth", "Darkess", "Noxia", "Tenebra", "Obsida"]
+      },
+      "culturalNotes": "Dhampirs often hide their nature with normal names, or embrace it with gothic ones"
+    },
+    "changeling": {
+      "description": "Changelings (hag-touched), often with nature or fey names",
+      "namingPatterns": {
+        "fey": {
+          "weight": 40,
+          "description": "Fey-touched names"
+        },
+        "nature": {
+          "weight": 30,
+          "description": "Nature-based names"
+        },
+        "human": {
+          "weight": 30,
+          "description": "Human disguise names"
+        }
+      },
+      "feyPrefixes": ["Wil", "Thorn", "Shad", "Mist", "Moon", "Star", "Twi", "Dusk", "Fae", "Syl", "Nim", "Pix", "Glim", "Shim"],
+      "feySuffixes": ["low", "thorn", "mist", "shade", "light", "glow", "whisper", "walker", "weaver", "dancer"],
+      "names": {
+        "neutral": ["Willow", "Thorn", "Shadow", "Mist", "Moonlight", "Starshine", "Twilight", "Duskwalker", "Faeweaver", "Sylph", "Nimble", "Pixie", "Glimmer", "Shimmer"]
+      },
+      "culturalNotes": "Changelings often have multiple names for different identities"
+    },
+    "ganzi": {
+      "description": "Ganzi (chaos-touched), chaotic and unusual names",
+      "namingPatterns": {
+        "chaotic": {
+          "weight": 60,
+          "description": "Chaotic, unusual combinations"
+        },
+        "abstract": {
+          "weight": 40,
+          "description": "Abstract concept names"
+        }
+      },
+      "chaoticPrefixes": ["Zyx", "Qaz", "Xyr", "Vyx", "Kaz", "Nyx", "Zeph", "Prism", "Flux", "Shift", "Morph", "Twist", "Warp", "Bend"],
+      "chaoticSuffixes": ["ax", "ix", "ox", "yx", "zyx", "ar", "or", "ir"],
+      "names": {
+        "neutral": ["Zyxar", "Qazyx", "Xyrix", "Vyxor", "Kazir", "Nyxar", "Zephyx", "Prismar", "Fluxor", "Shiftar", "Morphyx", "Twistar", "Warpix", "Bendor"]
+      },
+      "culturalNotes": "Ganzi names often sound nonsensical but have deep meaning to the bearer"
+    },
+    "aphorite": {
+      "description": "Aphorites (axis-touched), ordered and logical names",
+      "namingPatterns": {
+        "ordered": {
+          "weight": 60,
+          "description": "Orderly, mathematical names"
+        },
+        "abstract": {
+          "weight": 40,
+          "description": "Abstract order concepts"
+        }
+      },
+      "orderedPrefixes": ["Orth", "Axi", "Ord", "Log", "Sym", "Equ", "Bal", "Har", "Unit", "Prec", "Form", "Struct"],
+      "orderedSuffixes": ["on", "us", "is", "ium", "ix", "al", "ion"],
+      "names": {
+        "neutral": ["Orthon", "Axius", "Ordis", "Logix", "Symus", "Equion", "Balus", "Harius", "Unitus", "Precis", "Formion", "Structus"]
+      },
+      "culturalNotes": "Aphorite names often reflect mathematical or geometric concepts"
+    },
+    "duskwalker": {
+      "description": "Duskwalkers (returned from death), often memorial names",
+      "namingPatterns": {
+        "memorial": {
+          "weight": 50,
+          "description": "Names honoring the dead"
+        },
+        "purpose": {
+          "weight": 30,
+          "description": "Names reflecting their purpose"
+        },
+        "human": {
+          "weight": 20,
+          "description": "Original mortal names"
+        }
+      },
+      "memorialPrefixes": ["Rem", "Mem", "Echo", "Vestig", "Shad", "Ghost", "Spec", "Wraith", "Rev", "Resurg"],
+      "memorialSuffixes": ["ember", "ory", "ent", "ral", "ow", "ly", "ter", "ant", "enant", "ent"],
+      "names": {
+        "neutral": ["Remember", "Memory", "Echoes", "Vestige", "Shadow", "Ghost", "Spectre", "Wraith", "Revenant", "Resurgent"]
+      },
+      "culturalNotes": "Duskwalkers often take names that reflect their mission to prevent undeath"
+    }
+  },
+  "blendingStrategies": {
+    "syllable_blend": {
+      "description": "Blend syllables from both ancestries",
+      "weight": 30
+    },
+    "prefix_from_one_suffix_from_other": {
+      "description": "Take prefix from one ancestry, suffix from another",
+      "weight": 25
+    },
+    "alternate_syllables": {
+      "description": "Alternate syllables between ancestries",
+      "weight": 20
+    },
+    "weighted_markov": {
+      "description": "Use Markov chain trained on both with weighted ratio",
+      "weight": 15
+    },
+    "compound": {
+      "description": "Compound names from both ancestries",
+      "weight": 10
+    }
+  }
+}

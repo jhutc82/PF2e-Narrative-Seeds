@@ -1,0 +1,396 @@
+{
+  "description": "Comprehensive Golarion human ethnicity naming conventions - All major cultures",
+  "version": "2.0",
+  "regions": {
+    "azlanti": {
+      "description": "Ancient Azlanti - Always begin with a vowel, no surnames, extinct culture",
+      "extinct": true,
+      "nameRules": {
+        "alwaysVowelStart": true,
+        "noSurnames": true
+      },
+      "male": {
+        "names": ["Akorian", "Olhas", "Ureste", "Aroden", "Azatas", "Ezren", "Iliad", "Omos", "Ulric", "Azlant", "Eron", "Irad", "Omnas", "Uther", "Azgaar", "Eldrin", "Imrae", "Orion", "Ushas", "Azimar", "Eolis", "Indris", "Orath", "Uthor"],
+        "prefixes": ["A", "E", "I", "O", "U", "Ak", "Al", "Am", "Ar", "As", "Az", "El", "Em", "Er", "Es", "Ez", "Il", "Im", "Ir", "Is", "Ol", "Om", "Or", "Os", "Ul", "Um", "Ur", "Us"],
+        "suffixes": ["rian", "has", "este", "den", "tas", "ren", "iad", "mos", "ric", "lant", "ron", "rad", "nas", "ther", "gaar", "drin", "rae", "ion", "shas", "mar", "lis", "dris", "ath", "thor"]
+      },
+      "female": {
+        "names": ["Iaome", "Ommarra", "Ulionestria", "Isoria", "Azuria", "Elysia", "Amara", "Iliana", "Oria", "Usara", "Azalea", "Elara", "Imara", "Osara", "Uthara", "Azira", "Eris", "Issa", "Olara", "Umara"],
+        "prefixes": ["I", "O", "U", "A", "E", "Ia", "Il", "Im", "Ir", "Is", "Oa", "Ol", "Om", "Or", "Os", "Ua", "Ul", "Um", "Ur", "Us", "Az", "El", "Am"],
+        "suffixes": ["ome", "marra", "ionestria", "oria", "uria", "lysia", "mara", "liana", "ria", "sara", "zalea", "lara", "mara", "sara", "thara", "zira", "ris", "ssa", "lara", "mara"]
+      },
+      "culturalTraits": ["ancient", "magical", "extinct", "purple-eyed"],
+      "physicalMarkers": ["purple eyes", "widow's peak", "tall", "regal bearing"]
+    },
+    "chelaxian": {
+      "description": "Chelaxian - Imperial Roman/Italian with infernal influences, lawful evil empire",
+      "male": {
+        "prefixes": ["Aero", "Alex", "Georg", "Lor", "Marcel", "Caes", "Claud", "Domin", "Flav", "Hadr", "Jul", "Luc", "Marc", "Ner", "Octav", "Regul", "Tit", "Val", "Vikt", "Basil", "Const", "Dar", "Erasm", "Gregor", "Maxi", "Quint", "Sept", "Valer", "Cornel", "Demet", "Faust", "Gaius", "Horatius", "Justinian", "Kassius", "Leon", "Magnus", "Nero", "Ovidius", "Paulus", "Quintus", "Rufus", "Servius", "Tiberius", "Vespasian"],
+        "suffixes": ["dus", "ite", "gis", "an", "ano", "ius", "us", "ian", "on", "el", "os", "in", "or", "im", "us", "anus", "icus", "eus", "ous"],
+        "names": ["Aerodus", "Alexite", "Georgis", "Loran", "Marcellano", "Caesar", "Claudius", "Domitian", "Flavius", "Hadrian", "Julius", "Lucius", "Marcus", "Nero", "Octavius", "Regulus", "Titus", "Valen", "Viktor", "Basilius", "Constantine", "Darius", "Erasmus", "Gregorius", "Maximus", "Quintilian", "Septimus", "Valerius", "Cornelius", "Demetrius", "Faustus", "Gaius", "Horatius", "Justinian", "Kassius", "Leonidas", "Magnus", "Nero", "Ovidius", "Paulus", "Quintus", "Rufus", "Servius", "Tiberius", "Vespasian"]
+      },
+      "female": {
+        "prefixes": ["Asmod", "Aspex", "Aul", "Boudr", "Chammad", "Drul", "Imper", "Ileos", "Korv", "Norav", "Noven", "Pavan", "Pont", "Quint", "Rull", "Valer", "Vib", "Abroga", "Cassi", "Claud", "Corneli", "Domin", "Flav", "Julian", "Liv", "Marcell", "Octav", "Paol", "Sabin", "Valeri", "Apoll", "August", "Catul", "Dian", "Emil", "Grat", "Helen", "Lavin", "Mart", "Prisci"],
+        "suffixes": ["ia", "a", "ya", "ella", "ana", "ina", "issa", "iana"],
+        "names": ["Asmodia", "Aspexia", "Aula", "Boudra", "Chammady", "Drulia", "Imperia", "Ileosa", "Korva", "Noravia", "Novennia", "Pavanna", "Pontia", "Quinta", "Rulla", "Valeria", "Vibia", "Abrogail", "Cassia", "Claudia", "Cornelia", "Domitia", "Flavia", "Juliana", "Livia", "Marcella", "Octavia", "Paola", "Sabina", "Valeria", "Apollonia", "Augusta", "Catullina", "Diana", "Emilia", "Gratiana", "Helena", "Lavinia", "Martina", "Priscilla"]
+      },
+      "lastNames": ["Alazario", "Albus", "Ambusta", "Baradin", "Charthagnion", "Crispin", "Drovenge", "Fullonna", "Galonnica", "Jeggare", "Krupt", "Leroung", "Ratarion", "Rugatonn", "Tauranor", "Thrune", "Voralius", "Wardroxan", "Wintrish", "Sarini", "Vex", "Drov", "Kath", "Rax", "Vitt", "Henderthane", "Mord", "Argentus", "Blackros", "Crispin", "Dartmoor", "Endrin", "Fordyce", "Greyven", "Hellknight", "Infernal", "Jaxis", "Kroft", "Lamm", "Mantis", "Nox", "Obsidian", "Peltarch", "Quill", "Razmiran", "Shadowcount", "Torvan", "Umbral", "Vencarlo", "Wyrmwood"],
+      "lastNamePrefixes": ["Thrune", "Vex", "Drov", "Kath", "Rax", "Sarini", "Vitt", "Hender", "Mord", "Jegg", "Alaz", "Alb", "Ambust", "Barad", "Charth", "Crisp", "Drov", "Full", "Galon", "Krup", "Ler", "Ratar", "Rugat", "Taur", "Voral", "Wardr", "Wintr"],
+      "lastNameSuffixes": ["ario", "us", "a", "in", "agnion", "in", "enge", "onna", "nica", "are", "t", "oung", "ion", "onn", "anor", "une", "ius", "oxan", "ish"],
+      "culturalTraits": ["infernal", "aristocratic", "lawful", "imperial", "diabolic"],
+      "hasLastNames": true
+    },
+    "taldan": {
+      "description": "Taldan - Classical Greco-Roman, declining empire, birthplace of Common tongue",
+      "male": {
+        "prefixes": ["Alex", "Ambr", "Cassi", "Dav", "Eliand", "Gai", "Max", "Quint", "Taldaris", "Theod", "Vari", "Xanth", "Pav", "Stavi", "Eutrop", "Marc", "Decim", "Flav", "Tit", "Cassi", "Aure", "Claud", "Lucre", "Pompei", "Scipi", "Adrian", "August", "Benedict", "Camillus", "Dominic", "Emilian", "Fabian", "Galen", "Honorius", "Julian", "Leonid", "Marius", "Nicolaus", "Orestes", "Philippus"],
+        "suffixes": ["is", "us", "os", "ian", "ius", "or", "an", "on", "en", "ius", "anus", "icus", "eus"],
+        "names": ["Alexis", "Ambrus", "Cassian", "Davin", "Eliander", "Gaius", "Maxim", "Quintus", "Taldaris", "Theoden", "Varian", "Xanthus", "Pavo", "Stavian", "Eutropia", "Marcus", "Decimus", "Flavius", "Titus", "Cassius", "Aurelius", "Claudius", "Lucretius", "Pompeius", "Scipio", "Adrianus", "Augustus", "Benedictus", "Camillus", "Dominicus", "Emilianus", "Fabianus", "Galenus", "Honorius", "Julianus", "Leonidas", "Marius", "Nicolaus", "Orestes", "Philippus"]
+      },
+      "female": {
+        "prefixes": ["Alar", "Brian", "Cassi", "Deli", "Eutrop", "Gwendol", "Helen", "Isador", "Julian", "Lyr", "Martell", "Nyr", "Porti", "Ser", "Jul", "Liv", "Claud", "Octav", "Aurel", "Corn", "Emil", "Faust", "Grac", "Honor", "Lavin", "Marc", "Paulin", "Quint", "Sever", "Tertull", "Vale", "Virgi"],
+        "suffixes": ["a", "ia", "ella", "lyn", "ana", "ina", "ya", "ra", "ssa"],
+        "names": ["Alara", "Brianna", "Cassia", "Delia", "Eutropia", "Gwendolyn", "Helena", "Isadora", "Juliana", "Lyra", "Martella", "Nyra", "Portia", "Sera", "Julia", "Livia", "Claudia", "Octavia", "Aurelia", "Cornelia", "Emilia", "Faustina", "Gratiana", "Honoria", "Lavinia", "Marcella", "Paulina", "Quintilla", "Severina", "Tertulla", "Valeria", "Virginia"]
+      },
+      "lastNames": ["Stavian", "Pavo", "Gal", "Mar", "Kenten", "Lebeda", "Medvyed", "Orlovsky", "Surtova", "Garess", "Aldori", "Balas", "Corcina", "Drelev", "Esemir", "Fordyce", "Greymas", "Havenguard", "Ionacu", "Janush", "Khavortorov", "Lodovka", "Mevergal", "Nikolai", "Orlovsky", "Pavlova", "Quintus", "Roganov", "Stavros", "Taldaris", "Uresti", "Vintner", "Westcrown"],
+      "lastNamePrefixes": ["Stav", "Pav", "Gal", "Mar", "Kent", "Leb", "Medv", "Orlov", "Surt", "Gar", "Ald", "Bal", "Corc", "Drel", "Esem", "Ford", "Grey", "Hav", "Ion", "Jan", "Khav", "Lod", "Mev", "Nik", "Orlo", "Pavl", "Quint", "Rog", "Stav", "Tald", "Ures", "Vint", "West"],
+      "lastNameSuffixes": ["ian", "o", "us", "en", "eda", "yed", "sky", "ova", "ess", "ori", "as", "ina", "ev", "ir", "yce", "mas", "guard", "acu", "ush", "torov", "ovka", "ergal", "olai", "ovsky", "ova", "us", "anov", "ros", "aris", "sti", "ner", "crown"],
+      "culturalTraits": ["noble", "classical", "declining", "imperial legacy", "common tongue"],
+      "hasLastNames": true
+    },
+    "kellid": {
+      "description": "Kellid - Harsh, guttural, short 1-2 syllables, Celtic/Cimmerian barbarian culture",
+      "male": {
+        "names": ["Amiri", "Kul", "Kevoth", "Bran", "Grul", "Throk", "Gorm", "Krag", "Vrok", "Drak", "Brok", "Thrak", "Gruk", "Krom", "Vorg", "Drog", "Brog", "Thrax", "Grax", "Krax", "Vorsh", "Drosh", "Brosh", "Thul", "Grul", "Krul", "Vul", "Dul", "Bul", "Thurn", "Gurn", "Kurn", "Varn", "Durn", "Burn"],
+        "prefixes": ["Am", "Br", "Dr", "Gr", "Kr", "Th", "Tr", "Vr", "Bl", "Kl", "Vl", "Fl", "Gl", "Sk", "Sl", "Str"],
+        "suffixes": ["ul", "ok", "urn", "ax", "or", "og", "osh", "ash", "ag", "ug", "an", "on", "in", "un", "ar", "ur", "ir"]
+      },
+      "female": {
+        "names": ["Amiri", "Jura", "Kara", "Vala", "Brenna", "Grun", "Thora", "Vora", "Dara", "Kura", "Shura", "Gruna", "Kruna", "Vruna", "Druna", "Bruna", "Thruna", "Yura", "Lura", "Mura"],
+        "prefixes": ["Am", "Ju", "Ka", "Va", "Br", "Gr", "Th", "Vr", "Dr", "Kr", "Sh", "Yr", "Lr", "Mr"],
+        "suffixes": ["iri", "ra", "a", "la", "na", "ta", "da", "ka", "sha", "tha", "una"]
+      },
+      "lastNames": [],
+      "culturalTraits": ["tribal", "warrior", "harsh", "barbarian", "mammoth lords"],
+      "hasLastNames": false,
+      "nameRules": {
+        "shortNames": true,
+        "harshConsonants": true,
+        "maxSyllables": 2
+      }
+    },
+    "shoanti": {
+      "description": "Shoanti - Native American-inspired, descriptive names based on deeds/nature",
+      "quahs": ["Lyrune-Quah (Moon Clan)", "Shadde-Quah (Axe Clan)", "Shriikirri-Quah (Hawk Clan)", "Shundar-Quah (Spire Clan)", "Sklar-Quah (Sun Clan)", "Skoan-Quah (Skull Clan)", "Tamiir-Quah (Wind Clan)"],
+      "male": {
+        "descriptiveNames": ["Thousand Bones", "Craw", "Stonefist", "Red Crow", "Iron Wolf", "Thunder Voice", "Bear Claw", "Running Water", "Dark Sky", "Burning Arrow", "Stone Heart", "Wind Runner", "Shadow Walker", "Fire Eyes", "Black Hawk", "White Buffalo", "Gray Wolf", "Swift Eagle", "Strong Oak", "Broken Arrow", "Morning Star", "Night Hunter"],
+        "prefixes": ["Thousand", "Stone", "Red", "Iron", "Thunder", "Bear", "Running", "Dark", "Burning", "Wind", "Shadow", "Fire", "Black", "White", "Gray", "Swift", "Strong", "Broken", "Morning", "Night"],
+        "suffixes": ["Bones", "Craw", "fist", "Crow", "Wolf", "Voice", "Claw", "Water", "Sky", "Arrow", "Heart", "Runner", "Walker", "Eyes", "Hawk", "Buffalo", "Eagle", "Oak", "Star", "Hunter"]
+      },
+      "female": {
+        "descriptiveNames": ["Moon Maiden", "Red Crow", "Gentle Rain", "White Feather", "Morning Dove", "Silver Stream", "Bright Star", "Soft Wind", "Clear Water", "Dancing Flame", "Quiet Snow", "Sweet Grass", "Wise Owl", "Silent Moon", "Golden Sun", "Dark Cloud", "Running Deer", "Singing Bird", "Falling Leaf", "Rising Dawn"],
+        "prefixes": ["Moon", "Red", "Gentle", "White", "Morning", "Silver", "Bright", "Soft", "Clear", "Dancing", "Quiet", "Sweet", "Wise", "Silent", "Golden", "Dark", "Running", "Singing", "Falling", "Rising"],
+        "suffixes": ["Maiden", "Crow", "Rain", "Feather", "Dove", "Stream", "Star", "Wind", "Water", "Flame", "Snow", "Grass", "Owl", "Moon", "Sun", "Cloud", "Deer", "Bird", "Leaf", "Dawn"]
+      },
+      "culturalTraits": ["tribal", "nature-based", "deed-names", "quah-based"],
+      "hasLastNames": false,
+      "nameRules": {
+        "descriptive": true,
+        "deedBased": true,
+        "natureBased": true
+      }
+    },
+    "ulfen": {
+      "description": "Ulfen - Norse/Viking culture from the frozen north",
+      "male": {
+        "names": ["Bjorn", "Sven", "Ragnar", "Erik", "Olaf", "Gunnar", "Leif", "Thor", "Ingvar", "Harald", "Ivar", "Knut", "Magnus", "Sigurd", "Thorvald", "Ulf", "Viggo", "Asgeir", "Bjarni", "Egil", "Einar", "Finn", "Geir", "Hakon", "Halfdan", "Hjalmar", "Hrolf", "Jorund", "Karl", "Kolbjorn", "Orm", "Rolf", "Rorik", "Skald", "Snorri", "Sten", "Sturla", "Thorfinn", "Torsten", "Tryggvi", "Unn", "Vali", "Vidar", "Yngvar"],
+        "prefixes": ["Bj", "Sv", "Ragn", "Er", "Ol", "Gunn", "Le", "Th", "Ingv", "Har", "Iv", "Kn", "Magn", "Sig", "Thorv", "Ulf", "Vigg", "Asg", "Bjarn", "Eg", "Ein", "F", "Ge", "Hak", "Halfd", "Hjalm", "Hr", "J", "K", "Kolbj", "Orm", "R", "Sk", "Sn", "St", "Th", "Torst", "Tryggv", "V", "Yngv"],
+        "suffixes": ["orn", "en", "ar", "ik", "af", "nar", "if", "or", "var", "ald", "ut", "us", "urd", "ald", "o", "ir", "i", "il", "ar", "ir", "nn", "alm", "olf", "orund", "arl", "jorn", "m", "olf", "orik", "ald", "orri", "en", "urla", "orfinn", "sten", "yggvi", "nn", "ali", "idar", "ngvar"]
+      },
+      "female": {
+        "names": ["Freya", "Astrid", "Sigrid", "Ingrid", "Helga", "Brynhild", "Gudrun", "Thyra", "Liv", "Ragna", "Solveig", "Aud", "Bergljot", "Bodil", "Dagny", "Eira", "Gerd", "Hilda", "Jorunn", "Kari", "Lagertha", "Margret", "Nanna", "Oddny", "Ragnhild", "Sassa", "Thora", "Torunn", "Unn", "Vigdis", "Ylva", "Alfhild", "Aslaug", "Bothild", "Dagmar", "Eydis", "Fastny", "Geirrid", "Hallbera", "Ingibjorg", "Jorunn", "Kadlin", "Ljot", "Oddny"],
+        "prefixes": ["Fr", "Astr", "Sigr", "Ingr", "Helg", "Brynh", "Gudr", "Thyr", "L", "Ragn", "Solv", "Aud", "Berglj", "Bod", "Dagn", "E", "Gerd", "Hild", "Jor", "Kar", "Lagerth", "Margr", "Nann", "Oddn", "Ragnh", "Sass", "Thor", "Tor", "Unn", "Vigd", "Ylv", "Alfh", "Asl", "Both", "Dagm", "Eyd", "Fastn", "Geirr", "Hallb", "Ingibj", "Jor", "Kadl", "Lj", "Oddn"],
+        "suffixes": ["eya", "id", "id", "id", "a", "ild", "un", "a", "iv", "na", "eig", "", "ot", "il", "y", "ira", "", "a", "unn", "i", "a", "et", "a", "y", "ild", "a", "a", "unn", "", "is", "a", "ild", "aug", "ild", "ar", "is", "y", "id", "era", "org", "unn", "in", "ot", "y"]
+      },
+      "lastNames": ["Stormborn", "Ironhand", "Iverson", "Bjornson", "Eriksdottir", "Ragnarsson", "Bloodaxe", "Frostbeard", "Shieldbreaker", "Wavewalker", "Iceheart", "Wolfsbane", "Raveneye", "Bearslayer", "Winterborn", "Snowmane", "Fireforge", "Stonefist", "Steelhand", "Goldenhair", "Blackbeard", "Whitefang", "Graycloak", "Redfist", "Blueice"],
+      "lastNamePrefixes": ["Storm", "Iron", "Frost", "Wave", "Ice", "Wolf", "Raven", "Bear", "Winter", "Snow", "Fire", "Stone", "Steel", "Golden", "Black", "White", "Gray", "Red", "Blue"],
+      "lastNameSuffixes": ["born", "hand", "beard", "breaker", "walker", "heart", "bane", "eye", "slayer", "mane", "forge", "fist", "hair", "fang", "cloak", "ice"],
+      "patronymics": ["son", "dottir", "sen"],
+      "culturalTraits": ["norse", "viking", "raider", "warrior", "harsh climate"],
+      "hasLastNames": true,
+      "nameRules": {
+        "patronymic": true,
+        "descriptiveSurnames": true
+      }
+    },
+    "varisian": {
+      "description": "Varisian - Romanian/Roma-inspired wanderers and harrow readers",
+      "male": {
+        "names": ["Andrei", "Nicolae", "Vasile", "Ion", "Radu", "Mihai", "Alexandru", "Stefan", "Constantin", "Pavel", "Radovan", "Sajan", "Thorn", "Vestin", "Zavi", "Balazar", "Garros", "Alesio", "Borvius", "Drago", "Ilyus", "Marco", "Dorian", "Emil", "Florin", "Gabriel", "Liviu", "Marius", "Petru", "Sorin", "Traian", "Victor", "Vlad"],
+        "prefixes": ["Andr", "Nicol", "Vasil", "I", "Rad", "Miha", "Alexand", "Stef", "Constant", "Pav", "Radov", "Saj", "Thorn", "Vest", "Zav", "Balaz", "Garr", "Ales", "Borv", "Drag", "Ily", "Marc", "Dor", "Em", "Flor", "Gabr", "Liv", "Mar", "Petr", "Sor", "Tra", "Vict", "Vl"],
+        "suffixes": ["ei", "ae", "e", "on", "u", "i", "ru", "an", "in", "el", "an", "os", "io", "ius", "o", "us", "o", "ian", "il", "in", "iel", "iu", "ius", "u", "in", "ian", "or", "ad"]
+      },
+      "female": {
+        "names": ["Ana", "Elena", "Maria", "Ileana", "Sasha", "Zellara", "Alika", "Camila", "Desna", "Esmeralda", "Galina", "Katarina", "Liana", "Mira", "Nesta", "Petra", "Raisa", "Savina", "Zeldana", "Viarra", "Adriana", "Bogdana", "Cristina", "Dana", "Felicia", "Georgiana", "Ioana", "Larisa", "Magdalena", "Natalia", "Oana", "Raluca", "Simona", "Tamara", "Valentina"],
+        "prefixes": ["An", "Elen", "Mar", "Ilean", "Sash", "Zellar", "Alik", "Camil", "Desn", "Esmerald", "Galin", "Katarin", "Lian", "Mir", "Nest", "Petr", "Rais", "Savin", "Zeldan", "Viarr", "Adrian", "Bogdan", "Cristin", "Dan", "Felic", "Georgian", "Ioan", "Laris", "Magdalen", "Natal", "Oan", "Raluc", "Simon", "Tamar", "Valentin"],
+        "suffixes": ["a", "a", "ia", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "ia", "a", "a", "a", "a", "ia", "a", "a", "a", "a", "a"]
+      },
+      "lastNames": ["Minev", "Vaspira", "Esmeranda", "Moonwhisper", "Stargazer", "Harrow", "Roadwalker", "Windchaser", "Cardreader", "Fortuneteller", "Dancemaker", "Songweaver", "Pathfinder", "Wanderfoot", "Nightsinger", "Dawnwalker", "Storykeeper", "Dreamweaver", "Fatebound", "Luckchaser", "Joymaker", "Heartfriend", "Soulseeker"],
+      "lastNamePrefixes": ["Min", "Vasp", "Esmer", "Moon", "Star", "Harr", "Road", "Wind", "Card", "Fortune", "Dance", "Song", "Path", "Wander", "Night", "Dawn", "Story", "Dream", "Fate", "Luck", "Joy", "Heart", "Soul"],
+      "lastNameSuffixes": ["ev", "ira", "anda", "whisper", "gazer", "ow", "walker", "chaser", "reader", "teller", "maker", "weaver", "finder", "foot", "singer", "walker", "keeper", "weaver", "bound", "chaser", "maker", "friend", "seeker"],
+      "culturalTraits": ["wanderer", "musical", "harrow", "fortune-telling", "free-spirited"],
+      "hasLastNames": true
+    },
+    "garundi": {
+      "description": "Garundi - Ethiopian/North African, Amharic-based naming",
+      "male": {
+        "names": ["Amare", "Melaku", "Tewodros", "Yohannes", "Hakim", "Tariq", "Jabari", "Kwame", "Kofi", "Rahim", "Salim", "Bashir", "Farid", "Rashid", "Zahir", "Amadi", "Baraka", "Desta", "Habib", "Idris", "Jamal", "Kamal", "Malik", "Nasir", "Omar", "Qadir", "Rashad", "Samir", "Talib", "Umar", "Wasim", "Yusuf", "Zuberi"],
+        "prefixes": ["Am", "Mel", "Tewodr", "Yohann", "Hak", "Tar", "Jab", "Kwam", "Kof", "Rah", "Sal", "Bash", "Far", "Rash", "Zah", "Amad", "Bar", "Dest", "Hab", "Idr", "Jam", "Kam", "Mal", "Nas", "Om", "Qad", "Rash", "Sam", "Tal", "Um", "Was", "Yus", "Zuber"],
+        "suffixes": ["are", "aku", "os", "es", "im", "iq", "ari", "e", "i", "im", "im", "ir", "id", "id", "ir", "i", "aka", "a", "ib", "is", "al", "al", "ik", "ir", "ar", "ir", "ad", "ir", "ib", "ar", "im", "uf", "i"]
+      },
+      "female": {
+        "names": ["Aster", "Senait", "Makeda", "Aziza", "Zuri", "Amara", "Aisha", "Fatima", "Halima", "Jamila", "Layla", "Maryam", "Nadia", "Rashida", "Safiya", "Yasmin", "Zainab", "Adanna", "Ama", "Bahati", "Desta", "Eshe", "Farai", "Imani", "Kali", "Nala", "Nia", "Sahara", "Zara"],
+        "prefixes": ["Ast", "Sen", "Maked", "Aziz", "Zur", "Amar", "Aish", "Fatim", "Halim", "Jamil", "Layl", "Mary", "Nadi", "Rashid", "Safiy", "Yasm", "Zain", "Adann", "Am", "Bahat", "Dest", "Esh", "Far", "Iman", "Kal", "Nal", "Ni", "Sahar", "Zar"],
+        "suffixes": ["er", "ait", "a", "a", "i", "a", "a", "a", "a", "a", "a", "am", "a", "a", "a", "in", "ab", "a", "a", "i", "a", "e", "ai", "i", "i", "a", "a", "a", "a"]
+      },
+      "lastNames": ["M'Nket", "Oba", "Zin", "Kete", "Mwangi", "Baraka", "Desta", "Hakim", "Jabari", "Kofi", "Malik", "Nasir", "Omar", "Qadir", "Rashid", "Salim", "Tariq", "Umar", "Wasim", "Yusuf", "Zahir", "Zuberi"],
+      "lastNamePrefixes": ["M'", "N", "Z", "K", "Mw", "Bar", "Dest", "Hak", "Jab", "Kof", "Mal", "Nas", "Om", "Qad", "Rash", "Sal", "Tar", "Um", "Was", "Yus", "Zah", "Zuber"],
+      "culturalTraits": ["diverse", "ancient", "proud", "scholarly"],
+      "hasLastNames": true
+    },
+    "mwangi": {
+      "description": "Mwangi - Sub-Saharan African diversity, varies by subgroup",
+      "subgroups": {
+        "bekyar": {
+          "description": "Slaver culture - harsh, aggressive names",
+          "male": ["Katako", "Mavuru", "Nsombo", "Takala", "Vumbi"],
+          "female": ["Kamala", "Mavura", "Nseka", "Takara", "Vumba"]
+        },
+        "bonuwat": {
+          "description": "Coastal traders - Swahili-inspired",
+          "male": ["Mwanajuma", "Baraka", "Juma", "Faraji", "Hamisi"],
+          "female": ["Nia", "Zuri", "Amara", "Bahati", "Asha"]
+        },
+        "zenj": {
+          "description": "West African inspired",
+          "male": ["Kwame", "Kofi", "Yaw", "Kwabena", "Kwaku"],
+          "female": ["Ama", "Efua", "Yaa", "Abena", "Akua"]
+        },
+        "mauxi": {
+          "description": "Central African inspired",
+          "male": ["Bomani", "Jabari", "Tau", "Sefu", "Kamau"],
+          "female": ["Kibibi", "Ife", "Zola", "Adanna", "Chiamaka"]
+        }
+      },
+      "male": {
+        "names": ["Ekujae", "Bas'o", "Nkechi", "Kwame", "Kofi", "Juma", "Baraka", "Jabari", "Tau", "Kamau", "Bomani", "Faraji", "Hamisi", "Sefu", "Mwanajuma", "Katako", "Mavuru", "Nsombo", "Takala", "Vumbi"],
+        "prefixes": ["Ek", "Bas", "Nk", "Kw", "Kof", "Jum", "Bar", "Jab", "T", "Kam", "Bom", "Far", "Ham", "Sef", "Mwan", "Kat", "Mav", "Ns", "Tak", "Vumb"],
+        "suffixes": ["ujae", "'o", "echi", "ame", "i", "a", "aka", "ari", "au", "au", "ani", "aji", "isi", "u", "ajuma", "ako", "uru", "ombo", "ala", "i"]
+      },
+      "female": {
+        "names": ["Amavarwe", "Oba", "Zula", "Ama", "Efua", "Nia", "Zuri", "Bahati", "Asha", "Kibibi", "Ife", "Zola", "Adanna", "Chiamaka", "Kamala", "Mavura", "Nseka", "Takara", "Vumba"],
+        "prefixes": ["Amav", "Ob", "Zul", "Am", "Efu", "Ni", "Zur", "Bahat", "Ash", "Kibib", "If", "Zol", "Adann", "Chiam", "Kamal", "Mavur", "Nsek", "Takar", "Vumb"],
+        "suffixes": ["arwe", "a", "a", "a", "a", "a", "i", "i", "a", "i", "e", "a", "a", "aka", "a", "a", "a", "a", "a"]
+      },
+      "culturalTraits": ["diverse", "tribal", "varies by region"],
+      "hasLastNames": false
+    },
+    "keleshite": {
+      "description": "Keleshite - Persian/Arabian/Middle Eastern blend from the Kelesh Empire",
+      "male": {
+        "names": ["Ik-Hanan", "Ik-Ramiz", "Akhmet", "Farid", "Harun", "Jalal", "Rashid", "Zahir", "Amir", "Karim", "Nasir", "Omar", "Qadir", "Samir", "Tariq", "Umar", "Wasim", "Yusuf", "Aziz", "Bashir", "Dawud", "Faisal", "Hamid", "Ibrahim", "Jafar", "Khalil", "Latif", "Mahir", "Nadir", "Qasim", "Rafiq", "Salim", "Talib", "Zaid"],
+        "prefixes": ["Ik-", "Akh", "Far", "Har", "Jal", "Rash", "Zah", "Am", "Kar", "Nas", "Om", "Qad", "Sam", "Tar", "Um", "Was", "Yus", "Az", "Bash", "Daw", "Fais", "Ham", "Ibrah", "Jaf", "Khal", "Lat", "Mah", "Nad", "Qas", "Raf", "Sal", "Tal", "Za"],
+        "suffixes": ["anan", "amiz", "met", "id", "un", "al", "id", "ir", "ir", "im", "ir", "ar", "ir", "ir", "iq", "ar", "ar", "im", "uf", "iz", "ir", "ud", "al", "id", "im", "ar", "il", "if", "ir", "ir", "im", "iq", "im", "ib", "id"]
+      },
+      "female": {
+        "names": ["Aisha", "Farah", "Layla", "Rashida", "Zahra", "Yasmin", "Amina", "Fatima", "Halima", "Jamila", "Karima", "Latifa", "Maryam", "Nadia", "Qamar", "Safiya", "Samira", "Tahira", "Zainab", "Aziza", "Basma", "Dalila", "Fadila", "Habiba", "Iman", "Jalila", "Khadija", "Leila", "Malika", "Nawal", "Rania", "Salma", "Zaynab"],
+        "prefixes": ["Aish", "Far", "Layl", "Rashid", "Zahr", "Yasm", "Amin", "Fatim", "Halim", "Jamil", "Karim", "Latif", "Mary", "Nadi", "Qam", "Safiy", "Samir", "Tahir", "Zain", "Aziz", "Basm", "Dalil", "Fadil", "Habib", "Iman", "Jalil", "Khadij", "Leil", "Malik", "Nawal", "Rani", "Salm", "Zayn"],
+        "suffixes": ["a", "ah", "a", "a", "a", "in", "a", "a", "a", "a", "a", "a", "am", "a", "ar", "a", "a", "a", "ab", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "ab"]
+      },
+      "lastNames": ["ibn Rashid", "al-Din", "al-Qadir", "al-Hakim", "ibn Fadlan", "al-Zahir", "ibn Malik", "al-Nasir"],
+      "lastNamePrefixes": ["ibn", "al-", "bint"],
+      "lastNameSuffixes": ["Rashid", "Din", "Qadir", "Hakim", "Fadlan", "Zahir", "Malik", "Nasir"],
+      "culturalTraits": ["persian", "arabian", "trade", "mystical"],
+      "hasLastNames": true,
+      "nameRules": {
+        "patronymic": true,
+        "optional Surnames": true
+      }
+    },
+    "vudrani": {
+      "description": "Vudrani - Indian/Hindu naming from distant Vudra",
+      "male": {
+        "names": ["Amar", "Rajan", "Kumar", "Dev", "Prakash", "Vijay", "Arjun", "Kiran", "Mohan", "Ravi", "Sanjay", "Sunil", "Anil", "Deepak", "Gopal", "Hari", "Jagdish", "Krishna", "Mahesh", "Naresh", "Pawan", "Ramesh", "Satish", "Umesh", "Vinod", "Yash", "Ajay", "Bharat", "Chandra", "Dinesh", "Ganesh"],
+        "prefixes": ["Am", "Raj", "Kum", "D", "Prak", "Vij", "Arj", "Kir", "Moh", "Rav", "Sanj", "Sun", "An", "Deep", "Gop", "Har", "Jagd", "Krish", "Mahesh", "Nar", "Paw", "Ram", "Sat", "Um", "Vin", "Y", "Aj", "Bhar", "Chandr", "Din", "Gan"],
+        "suffixes": ["ar", "an", "ar", "ev", "ash", "ay", "un", "an", "an", "i", "ay", "il", "il", "ak", "al", "i", "ish", "na", "", "esh", "an", "esh", "ish", "esh", "od", "ash", "ay", "at", "a", "esh", "esh"]
+      },
+      "female": {
+        "names": ["Lakshmi", "Priya", "Anjali", "Devi", "Meena", "Padma", "Kavita", "Radha", "Sita", "Uma", "Asha", "Geeta", "Indira", "Kamala", "Nisha", "Rekha", "Sarita", "Tara", "Vimala", "Anita", "Deepa", "Gita", "Hema", "Jaya", "Kala", "Lata", "Maya", "Neela", "Pooja", "Rani", "Savita"],
+        "prefixes": ["Lakshm", "Priy", "Anjal", "Dev", "Meen", "Padm", "Kavit", "Radh", "Sit", "Um", "Ash", "Geet", "Indir", "Kamal", "Nish", "Rekh", "Sarit", "Tar", "Vimal", "Anit", "Deep", "Git", "Hem", "Jay", "Kal", "Lat", "May", "Neel", "Pooj", "Ran", "Savit"],
+        "suffixes": ["i", "a", "i", "i", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "i", "a"]
+      },
+      "lastNames": ["Kumar", "Chatterjee", "Desai", "Gupta", "Joshi", "Mehta", "Patel", "Rao", "Sharma", "Singh", "Verma"],
+      "lastNamePrefixes": ["Kum", "Chatter", "Des", "Gupt", "Josh", "Meht", "Pat", "R", "Sharm", "S", "Verm"],
+      "lastNameSuffixes": ["ar", "jee", "ai", "a", "i", "a", "el", "ao", "a", "ingh", "a"],
+      "culturalTraits": ["indian", "hindu", "dharmic", "caste-based"],
+      "hasLastNames": true
+    },
+    "tian-shu": {
+      "description": "Tian-Shu - Chinese-inspired, family name first",
+      "male": {
+        "names": ["Wei Chen", "Li Zhang", "Liu Wang", "Chen Li", "Zhang Wei", "Wang Chen", "Huang Li", "Zhao Wang", "Zhou Chen", "Wu Zhang", "Xu Li", "Sun Wang", "Ma Chen", "Zhu Li", "Hu Zhang", "Guo Wang", "He Chen", "Gao Li", "Lin Zhang", "Yang Wang"],
+        "givenNames": ["Wei", "Li", "Chen", "Zhang", "Wang", "Liu", "Huang", "Zhao", "Ming", "Jian", "Long", "Feng", "Bo", "Tao", "Kai", "Rui", "Jun", "Hao", "Yu", "Xin"],
+        "familyNames": ["Chen", "Li", "Zhang", "Wang", "Liu", "Huang", "Zhao", "Zhou", "Wu", "Xu", "Sun", "Ma", "Zhu", "Hu", "Guo", "He", "Gao", "Lin", "Yang", "Zheng"],
+        "prefixes": ["W", "L", "Ch", "Zh", "W", "L", "Hu", "Zh", "M", "J", "L", "F", "B", "T", "K", "R", "J", "H", "Y", "X"],
+        "suffixes": ["ei", "i", "en", "ang", "ang", "iu", "ang", "ao", "ing", "ian", "ong", "eng", "o", "ao", "ai", "ui", "un", "ao", "u", "in"]
+      },
+      "female": {
+        "names": ["Mei Lin", "Ling Wang", "Xiu Chen", "Jing Li", "Yan Zhang", "Fang Liu", "Hui Huang", "Qing Zhao", "Ying Zhou", "Na Wu"],
+        "givenNames": ["Mei", "Ling", "Xiu", "Jing", "Yan", "Fang", "Hui", "Qing", "Ying", "Na", "Xia", "Yue", "Lan", "Shu", "Wen", "Xin", "Yu", "Zhen", "Li", "Min"],
+        "familyNames": ["Lin", "Wang", "Chen", "Li", "Zhang", "Liu", "Huang", "Zhao", "Zhou", "Wu", "Xu", "Sun", "Ma", "Zhu", "Hu", "Guo", "He", "Gao", "Yang", "Zheng"],
+        "prefixes": ["M", "L", "X", "J", "Y", "F", "H", "Q", "Y", "N", "X", "Y", "L", "Sh", "W", "X", "Y", "Zh", "L", "M"],
+        "suffixes": ["ei", "ing", "iu", "ing", "an", "ang", "ui", "ing", "ing", "a", "ia", "ue", "an", "u", "en", "in", "u", "en", "i", "in"]
+      },
+      "culturalTraits": ["chinese", "confucian", "family-first"],
+      "hasLastNames": true,
+      "nameRules": {
+        "familyNameFirst": true
+      }
+    },
+    "tian-min": {
+      "description": "Tian-Min - Korean-inspired",
+      "male": {
+        "names": ["Jin Park", "Sung Kim", "Min-ho Lee", "Tae-yang Choi", "Ji-woo Jung"],
+        "givenNames": ["Jin", "Sung", "Min-ho", "Tae-yang", "Ji-woo", "Seung", "Hyun", "Joon", "Dong", "Young", "Woo", "Hoon", "Jun", "Ho", "Soo", "Chan", "Bin", "Kwon"],
+        "familyNames": ["Kim", "Lee", "Park", "Choi", "Jung", "Kang", "Cho", "Yoon", "Jang", "Lim", "Han", "Oh", "Seo", "Shin", "Kwon", "Song", "Hong", "Baek"],
+        "prefixes": ["J", "S", "M", "T", "J", "S", "H", "J", "D", "Y", "W", "H", "J", "H", "S", "Ch", "B", "Kw"],
+        "suffixes": ["in", "ung", "in-ho", "ae-yang", "i-woo", "eung", "yun", "oon", "ong", "oung", "oo", "oon", "un", "o", "oo", "an", "in", "on"]
+      },
+      "female": {
+        "names": ["Hye Kim", "Min-ji Lee", "Soo-jin Park", "Ji-woo Choi", "Eun-ji Jung"],
+        "givenNames": ["Hye", "Min-ji", "Soo-jin", "Ji-woo", "Eun-ji", "Yeon", "Seo", "Ha", "Na", "Ye", "Ji", "Seung", "Hee", "Young", "Sun", "Mi", "Kyung", "Jin"],
+        "familyNames": ["Kim", "Lee", "Park", "Choi", "Jung", "Kang", "Cho", "Yoon", "Jang", "Lim", "Han", "Oh", "Seo", "Shin", "Kwon", "Song", "Hong", "Baek"],
+        "prefixes": ["H", "M", "S", "J", "E", "Y", "S", "H", "N", "Y", "J", "S", "H", "Y", "S", "M", "K", "J"],
+        "suffixes": ["ye", "in-ji", "oo-jin", "i-woo", "un-ji", "eon", "eo", "a", "a", "e", "i", "eung", "ee", "oung", "un", "i", "yung", "in"]
+      },
+      "culturalTraits": ["korean", "hierarchical", "respectful"],
+      "hasLastNames": true,
+      "nameRules": {
+        "familyNameFirst": true
+      }
+    },
+    "tian-dan": {
+      "description": "Tian-Dan - Japanese-inspired",
+      "male": {
+        "names": ["Hiroshi", "Kenji", "Takeshi", "Akira", "Yuki", "Satoshi", "Ryu", "Kaito", "Haruto", "Daiki", "Sora", "Ren", "Hayato", "Ryota", "Kenta", "Shota", "Yuto", "Sota", "Taichi", "Yuji"],
+        "prefixes": ["Hir", "Kenj", "Takesh", "Akir", "Yuk", "Satosh", "Ry", "Kait", "Harut", "Daik", "Sor", "R", "Hayat", "Ryot", "Kent", "Shot", "Yut", "Sot", "Taich", "Yuj"],
+        "suffixes": ["oshi", "i", "i", "a", "i", "i", "u", "o", "o", "i", "a", "en", "o", "a", "a", "a", "o", "a", "i", "i"]
+      },
+      "female": {
+        "names": ["Yuki", "Sakura", "Ami", "Haruko", "Hana", "Aiko", "Emi", "Kaori", "Misaki", "Nanami", "Yui", "Hinata", "Rin", "Mei", "Nana", "Saki", "Kana", "Yuna", "Mio", "Ayaka"],
+        "prefixes": ["Yuk", "Sakur", "Am", "Haruk", "Han", "Aik", "Em", "Kaor", "Misak", "Nanam", "Yu", "Hinat", "R", "M", "Nan", "Sak", "Kan", "Yun", "Mi", "Ayak"],
+        "suffixes": ["i", "a", "i", "o", "a", "o", "i", "i", "i", "i", "i", "a", "in", "ei", "a", "i", "a", "a", "o", "a"]
+      },
+      "lastNames": ["Tanaka", "Yamamoto", "Sato", "Suzuki", "Takahashi", "Watanabe", "Ito", "Nakamura", "Kobayashi", "Kato", "Yoshida", "Yamada", "Sasaki", "Yamaguchi", "Matsumoto", "Inoue", "Kimura", "Hayashi", "Shimizu", "Mori"],
+      "culturalTraits": ["japanese", "honor-based", "samurai heritage"],
+      "hasLastNames": true
+    },
+    "tian-dtang": {
+      "description": "Tian-Dtang - Mongolian-inspired",
+      "male": {
+        "names": ["Temur", "Batu", "Kublai", "Genghis", "Ogedei", "Chagatai", "Jochi", "Tolui", "Mongke", "Hulagu", "Khaidu", "Nogai", "Timur", "Borte", "Subutai"],
+        "prefixes": ["Tem", "Bat", "Kubl", "Gengh", "Oged", "Chagat", "Joch", "Tol", "Mongk", "Hulag", "Khaid", "Nog", "Tim", "Bort", "Subut"],
+        "suffixes": ["ur", "u", "ai", "is", "ei", "ai", "i", "ui", "e", "u", "u", "ai", "ur", "e", "ai"]
+      },
+      "female": {
+        "names": ["Altani", "Naran", "Enkh", "Saran", "Tuya", "Oyuun", "Sarangerel", "Mandukhai", "Borte", "Sorghaghtani"],
+        "prefixes": ["Alt", "Nar", "Enkh", "Sar", "Tuy", "Oyuu", "Sarang", "Mandukh", "Bort", "Sorghaght"],
+        "suffixes": ["ani", "an", "", "an", "a", "n", "erel", "ai", "e", "ani"]
+      },
+      "culturalTraits": ["mongolian", "nomadic", "warrior"],
+      "hasLastNames": false
+    },
+    "tian-la": {
+      "description": "Tian-La - Southeast Asian (Thai/Vietnamese)",
+      "male": {
+        "names": ["Somchai", "Nguyen", "Thanh", "Kiet", "Phong", "Tran", "Le", "Hoang", "Minh", "Duc", "Thuy", "Hai", "Quan", "Tuan", "Vinh"],
+        "prefixes": ["Somch", "Nguy", "Than", "Ki", "Phon", "Tr", "L", "Hoan", "Min", "D", "Thu", "Ha", "Qu", "Tu", "Vin"],
+        "suffixes": ["ai", "en", "h", "et", "g", "an", "e", "g", "h", "c", "y", "i", "an", "an", "h"]
+      },
+      "female": {
+        "names": ["Mali", "Lien", "Dao", "Lan", "Mai", "Hoa", "Phuong", "Thao", "Nhi", "Anh", "Linh", "Huong", "Nga", "Trang", "Yen"],
+        "prefixes": ["Mal", "Li", "Da", "La", "Ma", "Ho", "Phuo", "Tha", "Nh", "An", "Lin", "Huo", "Ng", "Tran", "Ye"],
+        "suffixes": ["i", "en", "o", "n", "i", "a", "ng", "o", "i", "h", "h", "ng", "a", "g", "n"]
+      },
+      "culturalTraits": ["southeast asian", "buddhist", "agricultural"],
+      "hasLastNames": true
+    },
+    "tian-sing": {
+      "description": "Tian-Sing - Pacific Islander",
+      "male": {
+        "names": ["Koa", "Makoa", "Kaleo", "Keanu", "Kalani", "Ikaika", "Keoni", "Kekoa", "Kai", "Nalu"],
+        "prefixes": ["Ko", "Mako", "Kale", "Kean", "Kalan", "Ikaik", "Keon", "Keko", "Ka", "Nal"],
+        "suffixes": ["a", "a", "o", "u", "i", "a", "i", "a", "i", "u"]
+      },
+      "female": {
+        "names": ["Lani", "Moana", "Kiana", "Leilani", "Nalani", "Mahina", "Kailani", "Alani", "Noelani", "Keala"],
+        "prefixes": ["Lan", "Moan", "Kian", "Leilan", "Nalan", "Mahin", "Kailan", "Alan", "Noelan", "Keal"],
+        "suffixes": ["i", "a", "a", "i", "i", "a", "i", "i", "i", "a"]
+      },
+      "culturalTraits": ["pacific islander", "oceanic", "voyaging"],
+      "hasLastNames": false
+    },
+    "nidalese": {
+      "description": "Nidalese - Gothic/dark Eastern European, Zon-Kuthon worship",
+      "male": {
+        "names": ["Dragomir", "Vlad", "Viktor", "Raven", "Mortimer", "Dorian", "Lucian", "Damien", "Corvus", "Nero", "Shade", "Umbra", "Dusk", "Thorn", "Nocturne", "Vesper", "Shadow", "Grimm", "Dread", "Void"],
+        "prefixes": ["Drag", "Vl", "Vikt", "Rav", "Mort", "Dor", "Luci", "Dami", "Corv", "Ner", "Shad", "Umbr", "Dusk", "Thorn", "Noct", "Vesp", "Shad", "Grimm", "Dread", "Vo"],
+        "suffixes": ["omir", "ad", "or", "en", "imer", "ian", "an", "en", "us", "o", "e", "a", "", "", "urne", "er", "ow", "", "", "id"]
+      },
+      "female": {
+        "names": ["Morgana", "Noctavia", "Umbra", "Lenore", "Morticia", "Ravenna", "Selene", "Lilith", "Nocturna", "Vesper", "Shade", "Tenebra", "Eclipse", "Midnight", "Raven", "Shadow", "Twilight", "Morbida", "Crepus", "Nyx"],
+        "prefixes": ["Morg", "Noct", "Umbr", "Len", "Mort", "Rav", "Selen", "Lilit", "Noct", "Vesp", "Shad", "Tenebr", "Eclips", "Midn", "Rav", "Shad", "Twil", "Morb", "Crep", "Ny"],
+        "suffixes": ["ana", "avia", "a", "ore", "icia", "enna", "e", "h", "urna", "er", "e", "a", "e", "ight", "en", "ow", "ight", "ida", "us", "x"]
+      },
+      "lastNames": ["Shadowbane", "Nightfall", "Darkmore", "Grimshade", "Duskwood", "Thornheart", "Voidwalker", "Painheart", "Sufferborn", "Tormentis"],
+      "culturalTraits": ["gothic", "dark", "zon-kuthon", "shadowy", "pain-worship"],
+      "hasLastNames": true
+    },
+    "jadwiga": {
+      "description": "Jadwiga - Russian from Irrisen, ruled by Baba Yaga's daughters",
+      "male": {
+        "names": ["Boris", "Dimitri", "Ivan", "Alexei", "Nikolai", "Vasily", "Mikhail", "Pavel", "Sergei", "Vladimir", "Igor", "Yuri", "Andrei", "Leonid", "Viktor", "Grigori", "Pyotr", "Konstantin", "Maxim", "Roman"],
+        "prefixes": ["Bor", "Dimitr", "Iv", "Alex", "Nikol", "Vasil", "Mikha", "Pav", "Serg", "Vladim", "Ig", "Yur", "Andr", "Leon", "Vikt", "Grigor", "Pyot", "Constant", "Max", "Rom"],
+        "suffixes": ["is", "i", "an", "ei", "ai", "y", "il", "el", "ei", "ir", "or", "i", "ei", "id", "or", "i", "r", "in", "im", "an"]
+      },
+      "female": {
+        "names": ["Anastasia", "Natasha", "Irina", "Yelena", "Olga", "Tatiana", "Svetlana", "Marina", "Katerina", "Ludmilla", "Elvanna", "Baba Yaga", "Viktoria", "Elena", "Daria", "Sofia", "Galina", "Nadia", "Zoya", "Vera"],
+        "prefixes": ["Anast", "Natash", "Irin", "Yelen", "Olg", "Tatian", "Svetlan", "Marin", "Katerin", "Ludmill", "Elvann", "Bab", "Viktor", "Elen", "Dar", "Sof", "Galin", "Nadi", "Zoy", "Ver"],
+        "suffixes": ["asia", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a", "a Yaga", "ia", "a", "ia", "ia", "a", "a", "a", "a"]
+      },
+      "lastNames": ["Ivanovich", "Petrov", "Volkov", "Sokolov", "Lebedev", "Romanov", "Fedorov", "Morozov"],
+      "lastNamePrefixes": ["Ivan", "Petr", "Volk", "Sokol", "Lebed", "Roman", "Fedor", "Moroz"],
+      "lastNameSuffixes": ["ovich", "ov", "ov", "ov", "ev", "ov", "ov", "ov"],
+      "culturalTraits": ["russian", "witch-ruled", "frozen", "fey"],
+      "hasLastNames": true,
+      "nameRules": {
+        "patronymic": true
+      }
+    },
+    "erutaki": {
+      "description": "Erutaki - Inuit-inspired from the Crown of the World",
+      "male": {
+        "names": ["Amaruq", "Nanuk", "Tulok", "Siku", "Nuka", "Aput", "Tikaani", "Tulugaq", "Pakak", "Qannik"],
+        "prefixes": ["Amar", "Nan", "Tul", "Sik", "Nuk", "Aput", "Tikaan", "Tulug", "Pak", "Qann"],
+        "suffixes": ["uq", "uk", "ok", "u", "a", "", "i", "aq", "ak", "ik"]
+      },
+      "female": {
+        "names": ["Nuna", "Siku", "Akna", "Yura", "Nukka", "Atiqtalik", "Kaya", "Sesi", "Tulok", "Anana"],
+        "prefixes": ["Nun", "Sik", "Akn", "Yur", "Nukk", "Atiqtal", "Kay", "Ses", "Tul", "Anan"],
+        "suffixes": ["a", "u", "a", "a", "a", "ik", "a", "i", "ok", "a"]
+      },
+      "culturalTraits": ["inuit", "arctic", "hunting", "survival"],
+      "hasLastNames": false
+    }
+  }
+}

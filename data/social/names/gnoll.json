@@ -18,16 +18,21 @@
   },
   "male": {
     "prefixes": [
-      "Ghak",
-      "Gnar",
-      "Hraka",
-      "Krak",
-      "Marak",
-      "Rak",
-      "Shak",
-      "Thak",
-      "Vrak",
-      "Yaka"
+      "Ghak", "Gnar", "Hraka", "Krak", "Marak", "Rak", "Shak", "Thak", "Vrak", "Yaka",
+      "Akhak", "Arrak", "Bakrak", "Brakk", "Chakk", "Dhak", "Drak", "Gharr", "Ghrok", "Grakk",
+      "Grakh", "Hakk", "Hrak", "Hrok", "Jhak", "Khar", "Khrak", "Krakk", "Krash", "Krazh",
+      "Makk", "Mhak", "Nhak", "Qarak", "Ragh", "Rakk", "Rhak", "Rrak", "Shakh", "Shakk",
+      "Shrak", "Thrak", "Vakk", "Vhak", "Vkrak", "Vrak", "Vrakor", "Yagh", "Yakh", "Zakk",
+      "Zhak", "Barak", "Dakk", "Frak", "Gakk", "Hakrak", "Jakk", "Kakk", "Lakk", "Nakk",
+      "Pakk", "Rakhar", "Sakk", "Takk", "Urak", "Vakhar", "Wakk", "Xakk", "Yarak", "Zarak",
+      "Aghar", "Bhak", "Chakkar", "Dharak", "Ekrak", "Fhak", "Gharak", "Harrak", "Ikrak", "Jharak",
+      "Kharak", "Lhak", "Mharak", "Nharak", "Ohrak", "Phak", "Qharak", "Rharak", "Sharak", "Tharak",
+      "Uhrak", "Vharak", "Whak", "Xharak", "Yharak", "Zharak", "Arkhan", "Bakhan", "Chakhan", "Drakhan",
+      "Erkhan", "Frakhan", "Grakhan", "Hrakhan", "Irkhan", "Jrakhan", "Krakhan", "Lrakhan", "Mrakhan", "Nrakhan",
+      "Orkhan", "Prakhan", "Qrakhan", "Rrakhan", "Srakhan", "Trakhan", "Urakhan", "Vrakhan", "Wrakhan", "Xrakhan",
+      "Yrakhan", "Zrakhan", "Akhar", "Bkhar", "Ckhar", "Dkhar", "Ekhar", "Fkhar", "Gkhar", "Hkhar",
+      "Ikhar", "Jkhar", "Kkhar", "Lkhar", "Mkhar", "Nkhar", "Okhar", "Pkhar", "Qkhar", "Rkhar",
+      "Skhar", "Tkhar", "Ukhar", "Vkhar", "Wkhar", "Xkhar", "Ykhar", "Zkhar", "Gharrak", "Kharrak"
     ],
     "suffixes": [
       "agh",
@@ -130,16 +135,21 @@
   },
   "female": {
     "prefixes": [
-      "Ghara",
-      "Gnara",
-      "Hraka",
-      "Kraka",
-      "Mara",
-      "Raka",
-      "Shara",
-      "Thaka",
-      "Vraka",
-      "Yara"
+      "Ghara", "Gnara", "Hraka", "Kraka", "Mara", "Raka", "Shara", "Thaka", "Vraka", "Yara",
+      "Akhara", "Arraka", "Bakra", "Brakka", "Chakka", "Dhara", "Draka", "Gharra", "Ghroka", "Grakka",
+      "Grakha", "Hakka", "Hraka", "Hroka", "Jhara", "Khara", "Khraka", "Krakka", "Krasha", "Krazha",
+      "Makka", "Mhara", "Nhara", "Qaraka", "Ragha", "Rakka", "Rhara", "Rraka", "Shakha", "Shakka",
+      "Shraka", "Thraka", "Vakka", "Vhara", "Vkraka", "Vraka", "Vrakara", "Yagha", "Yakha", "Zakka",
+      "Zhara", "Baraka", "Dakka", "Fraka", "Gakka", "Hakraka", "Jakka", "Kakka", "Lakka", "Nakka",
+      "Pakka", "Rakhara", "Sakka", "Takka", "Uraka", "Vakhara", "Wakka", "Xakka", "Yaraka", "Zaraka",
+      "Aghara", "Bhara", "Chakkara", "Dharaka", "Ekraka", "Fhara", "Gharaka", "Harraka", "Ikraka", "Jharaka",
+      "Kharaka", "Lhara", "Mharaka", "Nharaka", "Ohraka", "Phara", "Qharaka", "Rharaka", "Sharaka", "Tharaka",
+      "Uhraka", "Vharaka", "Whara", "Xharaka", "Yharaka", "Zharaka", "Arkhana", "Bakhana", "Chakhana", "Drakhana",
+      "Erkhana", "Frakhana", "Grakhana", "Hrakhana", "Irkhana", "Jrakhana", "Krakhana", "Lrakhana", "Mrakhana", "Nrakhana",
+      "Orkhana", "Prakhana", "Qrakhana", "Rrakhana", "Srakhana", "Trakhana", "Urakhana", "Vrakhana", "Wrakhana", "Xrakhana",
+      "Yrakhana", "Zrakhana", "Akhara", "Bkhara", "Ckhara", "Dkhara", "Ekhara", "Fkhara", "Gkhara", "Hkhara",
+      "Ikhara", "Jkhara", "Kkhara", "Lkhara", "Mkhara", "Nkhara", "Okhara", "Pkhara", "Qkhara", "Rkhara",
+      "Skhara", "Tkhara", "Ukhara", "Vkhara", "Wkhara", "Xkhara", "Ykhara", "Zkhara", "Gharraka", "Kharraka"
     ],
     "suffixes": [
       "a",
@@ -357,32 +367,32 @@
     ]
   },
   "clanNames": [
-    "Bonegnawer",
-    "Carrionpack",
-    "Dustrunner",
-    "Fleshripper",
-    "Moonhowler",
-    "Sandstrider",
-    "Sunscreamer"
+    "Bonegnawer", "Carrionpack", "Dustrunner", "Fleshripper", "Moonhowler", "Sandstrider", "Sunscreamer",
+    "Bloodfang", "Deathstalker", "Duskprowler", "Flamecackle", "Ghosthowl", "Grimpack", "Ironjaw",
+    "Nighthunter", "Ravenpack", "Redmaw", "Shadowstrider", "Skullcrusher", "Spiritgnawer", "Stormhowler",
+    "Thornfang", "Windwalker", "Ashgnawer", "Blackfur", "Bonecrusher", "Deadrunner", "Earthshaker",
+    "Feverhowl", "Goldfang", "Hardpack", "Icefang", "Jaguarpack", "Killhowl", "Longtooth", "Madcackle",
+    "Nightpack", "Omenwalker", "Plainstrider", "Quickclaw", "Redpack", "Savagepack", "Terrorfang",
+    "Undeadgnawer", "Vilepack", "Warprowler", "Yellowfang", "Zealotpack", "Ashrunner", "Blackhowler",
+    "Bloodpack", "Burntfur", "Clawpack", "Crimsonhowl", "Darkstrider", "Dreadpack", "Evilgnawer"
   ],
   "clanPrefixes": [
-    "Bone",
-    "Carrion",
-    "Dust",
-    "Flesh",
-    "Moon",
-    "Sand",
-    "Sun",
-    "Wind"
+    "Bone", "Carrion", "Dust", "Flesh", "Moon", "Sand", "Sun", "Wind",
+    "Blood", "Death", "Dusk", "Flame", "Ghost", "Grim", "Iron", "Night",
+    "Raven", "Red", "Shadow", "Skull", "Spirit", "Storm", "Thorn", "Ash",
+    "Black", "Dead", "Earth", "Fever", "Gold", "Hard", "Ice", "Jaguar",
+    "Kill", "Long", "Mad", "Omen", "Plain", "Quick", "Savage", "Terror",
+    "Undead", "Vile", "War", "Yellow", "Zealot", "Burnt", "Claw", "Crimson",
+    "Dark", "Dread", "Evil", "Fire", "Grey", "Hate", "Jade", "Keen",
+    "Lost", "Mist", "Null", "Old", "Pale", "Rage", "Rot", "Scar",
+    "Snarl", "Spike", "Stone", "Tomb", "Venom", "Waste", "Wild", "Wraith"
   ],
   "clanSuffixes": [
-    "gnawer",
-    "howler",
-    "pack",
-    "ripper",
-    "runner",
-    "screamer",
-    "strider",
-    "tooth"
+    "gnawer", "howler", "pack", "ripper", "runner", "screamer", "strider", "tooth",
+    "fang", "stalker", "prowler", "cackle", "howl", "jaw", "hunter", "maw",
+    "crusher", "walker", "fur", "claw", "gnawer", "shaker", "strider", "walker",
+    "bone", "blood", "death", "doom", "eye", "fire", "ghost", "grin",
+    "hand", "heart", "hide", "horn", "killer", "mouth", "paw", "rage",
+    "scream", "shadow", "snarl", "soul", "spirit", "tail", "venom", "wail"
   ]
 }

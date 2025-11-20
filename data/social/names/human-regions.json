@@ -1,0 +1,115 @@
+{
+  "description": "Regional human naming conventions for Golarion",
+  "regions": {
+    "chelaxian": {
+      "description": "Chelish names - Infernal influences, aristocratic, often classical",
+      "male": {
+        "prefixes": ["Abadar", "Cassius", "Domitian", "Flavius", "Hadrian", "Julius", "Lucius", "Marcus", "Nero", "Octavius", "Regulus", "Titus", "Valen", "Viktor", "Thrune", "Basilius", "Constantine", "Darius", "Erasmus", "Gregorius"],
+        "suffixes": ["us", "ian", "ius", "ous", "an", "on", "el", "os"]
+      },
+      "female": {
+        "prefixes": ["Abrogail", "Aspex", "Cassia", "Claudia", "Domitia", "Flavia", "Juliana", "Livia", "Marcella", "Octavia", "Paola", "Sabina", "Thrune", "Valeria", "Cornelia", "Domina", "Gratiana", "Lavinia"],
+        "suffixes": ["a", "ia", "ina", "ella", "ana", "issa", "iana"]
+      },
+      "lastNamePrefixes": ["Thrune", "Vex", "Drov", "Kath", "Rax", "Sarini", "Vitt", "Henderthane", "Mord", "Jeggare"],
+      "culturalTraits": ["infernal", "aristocratic", "lawful"]
+    },
+    "taldan": {
+      "description": "Taldan names - Classical, noble, declining empire",
+      "male": {
+        "prefixes": ["Alexis", "Ambrus", "Cassian", "Davin", "Eliander", "Gaius", "Maxim", "Quintus", "Taldaris", "Theoden", "Varian", "Xanthus", "Pavo", "Stavian", "Eutropia"],
+        "suffixes": ["us", "is", "os", "ian", "ius", "or"]
+      },
+      "female": {
+        "prefixes": ["Alara", "Brianna", "Cassia", "Delia", "Eutropia", "Gwendolyn", "Helena", "Isadora", "Juliana", "Lyra", "Martella", "Nyra", "Portia", "Sera"],
+        "suffixes": ["a", "ia", "ella", "lyn", "ana", "ina"]
+      },
+      "lastNamePrefixes": ["Stavian", "Pavo", "Gal", "Mar", "Kenten", "Lebeda", "Medvyed", "Orlovsky", "Surtova", "Garess"],
+      "culturalTraits": ["noble", "classical", "declining"]
+    },
+    "osirian": {
+      "description": "Osirion names - Ancient Egyptian influences, desert culture",
+      "male": {
+        "prefixes": ["Akhom", "Amenef", "Anok", "Deka", "Hap", "Khem", "Menes", "Nef", "Ptah", "Ra", "Sebek", "Set", "Tem", "Thoth", "Khemet", "Hakotep", "Rahotep"],
+        "suffixes": ["hotep", "ef", "mes", "ra", "mon", "tep", "ath", "en", "is"]
+      },
+      "female": {
+        "prefixes": ["Akar", "Bastet", "Chisisi", "Hathor", "Isis", "Keket", "Maat", "Nefret", "Rashida", "Sekhmet", "Taweret", "Ubasti", "Zahra", "Nefertiti", "Ahmose"],
+        "suffixes": ["et", "is", "ra", "isi", "tep", "ida", "ara", "ti"]
+      },
+      "lastNamePrefixes": ["Ruby", "Muminofrah", "Seb", "Akhom", "Kefer", "Khaf", "Djet"],
+      "culturalTraits": ["ancient", "desert", "scholarly"]
+    },
+    "varisian": {
+      "description": "Varisian names - Romani/traveler influences, musical quality",
+      "male": {
+        "prefixes": ["Alesio", "Borvius", "Drago", "Ilyus", "Marco", "Pavel", "Radovan", "Sajan", "Thorn", "Vestin", "Zavi", "Balazar", "Garros"],
+        "suffixes": ["io", "us", "an", "ov", "in", "os"]
+      },
+      "female": {
+        "prefixes": ["Alika", "Camila", "Desna", "Esmeralda", "Galina", "Katarina", "Liana", "Mira", "Nesta", "Petra", "Raisa", "Savina", "Zeldana", "Viarra"],
+        "suffixes": ["a", "ina", "ana", "ara", "ia", "ella"]
+      },
+      "lastNamePrefixes": ["Moon", "Star", "Road", "Wind", "Song", "Dance", "Card", "Harrow"],
+      "culturalTraits": ["wanderer", "musical", "harrow"]
+    },
+    "ulfen": {
+      "description": "Ulfen names - Norse/Viking influences, harsh climate",
+      "male": {
+        "prefixes": ["Bjorn", "Erik", "Gunnar", "Harald", "Ivar", "Jarl", "Korvald", "Leif", "Magnus", "Olaf", "Ragnar", "Sven", "Thor", "Ulfar", "Viggo"],
+        "suffixes": ["sson", "sen", "var", "olf", "born", "mund", "red", "gar"]
+      },
+      "female": {
+        "prefixes": ["Astrid", "Brenna", "Freya", "Gudrun", "Helga", "Inga", "Kara", "Liv", "Ragna", "Sigrid", "Thyra", "Ulfhild", "Vigdis"],
+        "suffixes": ["a", "rid", "dis", "na", "run", "hild", "borg"]
+      },
+      "lastNamePrefixes": ["Storm", "Bear", "Wolf", "Raven", "Ice", "Snow", "Axe", "Shield"],
+      "culturalTraits": ["raider", "harsh", "warrior"]
+    },
+    "tian": {
+      "description": "Tian names - East Asian influences (varies by specific region)",
+      "male": {
+        "prefixes": ["Akira", "Chen", "Daichi", "Feng", "Hiro", "Jin", "Kenji", "Li", "Ming", "Ryo", "Shen", "Takeshi", "Wei", "Yuki", "Zhao"],
+        "suffixes": ["shi", "ro", "chi", "to", "ki", "en", "ao"]
+      },
+      "female": {
+        "prefixes": ["Aiko", "Chin", "Emi", "Fei", "Hana", "Jia", "Kasumi", "Ling", "Mei", "Nami", "Rei", "Sakura", "Yui", "Zhen"],
+        "suffixes": ["ko", "mi", "na", "ka", "ri", "ying", "lan"]
+      },
+      "lastNamePrefixes": ["Hwan", "Shung", "Chang", "Long", "Feng", "Yun", "Xu", "Song"],
+      "culturalTraits": ["honorable", "structured", "ancient"]
+    },
+    "garundi": {
+      "description": "Garundi names - African influences, diverse cultures",
+      "male": {
+        "prefixes": ["Akachi", "Bolanle", "Chike", "Desta", "Ekon", "Jabari", "Kamau", "Kofi", "Malik", "Nuru", "Omari", "Sefu", "Tau", "Zuberi"],
+        "suffixes": ["i", "o", "e", "u", "ri", "mu", "si"]
+      },
+      "female": {
+        "prefixes": ["Adanna", "Ama", "Bahati", "Desta", "Eshe", "Farai", "Imani", "Jamila", "Kali", "Nala", "Nia", "Sahara", "Zara", "Amara"],
+        "suffixes": ["a", "i", "ra", "na", "la", "sha"]
+      },
+      "lastNamePrefixes": ["M'", "Nket", "Oba", "Zin", "Kete", "Mwangi"],
+      "culturalTraits": ["diverse", "ancient", "proud"]
+    },
+    "kellid": {
+      "description": "Kellid names - Tribal, harsh, proto-Germanic",
+      "male": {
+        "prefixes": ["Amiri", "Brok", "Conan", "Drax", "Gorum", "Kord", "Thrag", "Urgon", "Vrag", "Zokar", "Grul", "Morg"],
+        "suffixes": ["ak", "ug", "gor", "rok", "ash", "ar"]
+      },
+      "female": {
+        "prefixes": ["Amiri", "Brenna", "Droga", "Halgra", "Kelda", "Narga", "Thora", "Ulga", "Vala", "Yara"],
+        "suffixes": ["a", "ra", "ga", "ka", "na"]
+      },
+      "lastNamePrefixes": ["Blood", "Skull", "Iron", "Stone", "War", "Death"],
+      "culturalTraits": ["tribal", "warrior", "harsh"]
+    }
+  },
+  "metadata": {
+    "version": "1.0",
+    "source": "Pathfinder 2e Inner Sea Lore",
+    "ancestryCompatibility": ["human"],
+    "defaultRegion": "taldan"
+  }
+}
