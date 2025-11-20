@@ -1,0 +1,236 @@
+{
+  "levelRanges": [
+    {
+      "id": "common-folk",
+      "name": "Common Folk",
+      "description": "Ordinary townspeople and laborers",
+      "levels": [0, 1],
+      "likelihood": 40
+    },
+    {
+      "id": "skilled",
+      "name": "Skilled Individual",
+      "description": "Experienced in their trade or calling",
+      "levels": [2, 3, 4],
+      "likelihood": 30
+    },
+    {
+      "id": "expert",
+      "name": "Expert",
+      "description": "Highly skilled and accomplished",
+      "levels": [5, 6, 7],
+      "likelihood": 15
+    },
+    {
+      "id": "renowned",
+      "name": "Renowned",
+      "description": "Well-known for their abilities",
+      "levels": [8, 9, 10],
+      "likelihood": 10
+    },
+    {
+      "id": "legendary",
+      "name": "Legendary",
+      "description": "One of the best in the region",
+      "levels": [11, 12, 13, 14, 15],
+      "likelihood": 5
+    }
+  ],
+  "abilityScoreProfiles": [
+    {
+      "id": "average",
+      "name": "Average",
+      "description": "Unremarkable abilities",
+      "pattern": "Most scores 10-12",
+      "likelihood": 35
+    },
+    {
+      "id": "physically-gifted",
+      "name": "Physically Gifted",
+      "description": "Strong and hardy",
+      "pattern": "High Str/Con, average others",
+      "likelihood": 15
+    },
+    {
+      "id": "agile",
+      "name": "Agile",
+      "description": "Quick and nimble",
+      "pattern": "High Dex, average others",
+      "likelihood": 12
+    },
+    {
+      "id": "intelligent",
+      "name": "Intelligent",
+      "description": "Sharp-minded and knowledgeable",
+      "pattern": "High Int, average others",
+      "likelihood": 12
+    },
+    {
+      "id": "charismatic",
+      "name": "Charismatic",
+      "description": "Naturally charming and persuasive",
+      "pattern": "High Cha, average others",
+      "likelihood": 12
+    },
+    {
+      "id": "perceptive",
+      "name": "Perceptive",
+      "description": "Wise and aware",
+      "pattern": "High Wis, average others",
+      "likelihood": 10
+    },
+    {
+      "id": "frail",
+      "name": "Frail",
+      "description": "Physically weak or sickly",
+      "pattern": "Low Str/Con, average others",
+      "likelihood": 4
+    }
+  ],
+  "notableSkills": [
+    {
+      "id": "acrobatics",
+      "name": "Acrobatics",
+      "ability": "Dexterity",
+      "professions": ["performer", "thief", "entertainer", "athlete"],
+      "likelihood": 8
+    },
+    {
+      "id": "arcana",
+      "name": "Arcana",
+      "ability": "Intelligence",
+      "professions": ["scholar", "wizard", "librarian", "sage"],
+      "likelihood": 10
+    },
+    {
+      "id": "athletics",
+      "name": "Athletics",
+      "ability": "Strength",
+      "professions": ["guard", "laborer", "blacksmith", "soldier", "athlete"],
+      "likelihood": 12
+    },
+    {
+      "id": "crafting",
+      "name": "Crafting",
+      "ability": "Intelligence",
+      "professions": ["blacksmith", "carpenter", "jeweler", "tailor", "artisan"],
+      "likelihood": 15
+    },
+    {
+      "id": "deception",
+      "name": "Deception",
+      "ability": "Charisma",
+      "professions": ["merchant", "thief", "spy", "charlatan"],
+      "likelihood": 10
+    },
+    {
+      "id": "diplomacy",
+      "name": "Diplomacy",
+      "ability": "Charisma",
+      "professions": ["noble", "merchant", "diplomat", "innkeeper"],
+      "likelihood": 15
+    },
+    {
+      "id": "intimidation",
+      "name": "Intimidation",
+      "ability": "Charisma",
+      "professions": ["guard", "soldier", "bounty-hunter", "crime-boss"],
+      "likelihood": 10
+    },
+    {
+      "id": "medicine",
+      "name": "Medicine",
+      "ability": "Wisdom",
+      "professions": ["healer", "priest", "herbalist", "doctor"],
+      "likelihood": 10
+    },
+    {
+      "id": "nature",
+      "name": "Nature",
+      "ability": "Wisdom",
+      "professions": ["farmer", "hunter", "herbalist", "druid"],
+      "likelihood": 8
+    },
+    {
+      "id": "occultism",
+      "name": "Occultism",
+      "ability": "Intelligence",
+      "professions": ["fortune-teller", "witch", "cultist", "medium"],
+      "likelihood": 6
+    },
+    {
+      "id": "performance",
+      "name": "Performance",
+      "ability": "Charisma",
+      "professions": ["bard", "entertainer", "performer", "actor"],
+      "likelihood": 10
+    },
+    {
+      "id": "religion",
+      "name": "Religion",
+      "ability": "Wisdom",
+      "professions": ["priest", "monk", "acolyte", "theologian"],
+      "likelihood": 10
+    },
+    {
+      "id": "society",
+      "name": "Society",
+      "ability": "Intelligence",
+      "professions": ["noble", "bureaucrat", "merchant", "scholar"],
+      "likelihood": 12
+    },
+    {
+      "id": "stealth",
+      "name": "Stealth",
+      "ability": "Dexterity",
+      "professions": ["thief", "spy", "hunter", "assassin"],
+      "likelihood": 8
+    },
+    {
+      "id": "survival",
+      "name": "Survival",
+      "ability": "Wisdom",
+      "professions": ["hunter", "guide", "scout", "tracker"],
+      "likelihood": 8
+    },
+    {
+      "id": "thievery",
+      "name": "Thievery",
+      "ability": "Dexterity",
+      "professions": ["thief", "locksmith", "spy"],
+      "likelihood": 6
+    }
+  ],
+  "proficiencyLevels": [
+    {
+      "id": "untrained",
+      "name": "Untrained",
+      "description": "No particular training",
+      "bonus": 0
+    },
+    {
+      "id": "trained",
+      "name": "Trained",
+      "description": "Basic professional competence",
+      "bonus": 2
+    },
+    {
+      "id": "expert",
+      "name": "Expert",
+      "description": "Highly skilled",
+      "bonus": 4
+    },
+    {
+      "id": "master",
+      "name": "Master",
+      "description": "Among the best",
+      "bonus": 6
+    },
+    {
+      "id": "legendary",
+      "name": "Legendary",
+      "description": "World-class expertise",
+      "bonus": 8
+    }
+  ]
+}

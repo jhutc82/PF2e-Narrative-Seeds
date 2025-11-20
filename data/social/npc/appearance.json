@@ -1,0 +1,303 @@
+{
+  "ageCategories": [
+    {
+      "id": "young-adult",
+      "name": "Young Adult",
+      "description": "In the early years of adulthood",
+      "likelihood": 25
+    },
+    {
+      "id": "adult",
+      "name": "Adult",
+      "description": "In their prime years",
+      "likelihood": 35
+    },
+    {
+      "id": "middle-aged",
+      "name": "Middle-Aged",
+      "description": "Showing signs of age and experience",
+      "likelihood": 25
+    },
+    {
+      "id": "elderly",
+      "name": "Elderly",
+      "description": "Advanced in years",
+      "likelihood": 15
+    }
+  ],
+  "builds": [
+    {
+      "id": "slender",
+      "name": "Slender",
+      "description": "Thin and delicate frame",
+      "likelihood": 15
+    },
+    {
+      "id": "lean",
+      "name": "Lean",
+      "description": "Athletic and wiry",
+      "likelihood": 20
+    },
+    {
+      "id": "average",
+      "name": "Average",
+      "description": "Typical build for their ancestry",
+      "likelihood": 30
+    },
+    {
+      "id": "stocky",
+      "name": "Stocky",
+      "description": "Solid and compact",
+      "likelihood": 15
+    },
+    {
+      "id": "muscular",
+      "name": "Muscular",
+      "description": "Well-built and strong",
+      "likelihood": 12
+    },
+    {
+      "id": "heavyset",
+      "name": "Heavyset",
+      "description": "Large and robust",
+      "likelihood": 8
+    }
+  ],
+  "heights": [
+    {
+      "id": "very-short",
+      "name": "Very Short",
+      "description": "Noticeably shorter than average",
+      "likelihood": 10
+    },
+    {
+      "id": "short",
+      "name": "Short",
+      "description": "Below average height",
+      "likelihood": 20
+    },
+    {
+      "id": "average",
+      "name": "Average Height",
+      "description": "Typical for their ancestry",
+      "likelihood": 40
+    },
+    {
+      "id": "tall",
+      "name": "Tall",
+      "description": "Above average height",
+      "likelihood": 20
+    },
+    {
+      "id": "very-tall",
+      "name": "Very Tall",
+      "description": "Noticeably taller than average",
+      "likelihood": 10
+    }
+  ],
+  "hairColors": [
+    { "id": "black", "name": "Black", "likelihood": 20 },
+    { "id": "dark-brown", "name": "Dark Brown", "likelihood": 18 },
+    { "id": "brown", "name": "Brown", "likelihood": 15 },
+    { "id": "light-brown", "name": "Light Brown", "likelihood": 12 },
+    { "id": "blonde", "name": "Blonde", "likelihood": 10 },
+    { "id": "red", "name": "Red", "likelihood": 8 },
+    { "id": "auburn", "name": "Auburn", "likelihood": 7 },
+    { "id": "gray", "name": "Gray", "likelihood": 5 },
+    { "id": "white", "name": "White", "likelihood": 3 },
+    { "id": "bald", "name": "Bald", "likelihood": 2 }
+  ],
+  "exoticHairColors": [
+    { "id": "silver", "name": "Silver", "ancestries": ["elf", "azarketi"], "likelihood": 15 },
+    { "id": "platinum", "name": "Platinum", "ancestries": ["elf"], "likelihood": 10 },
+    { "id": "green", "name": "Green", "ancestries": ["gnome", "leshy"], "likelihood": 15 },
+    { "id": "blue", "name": "Blue", "ancestries": ["gnome", "undine"], "likelihood": 12 },
+    { "id": "purple", "name": "Purple", "ancestries": ["gnome"], "likelihood": 10 },
+    { "id": "orange", "name": "Orange", "ancestries": ["gnome", "ifrit"], "likelihood": 8 },
+    { "id": "copper", "name": "Copper", "ancestries": ["dwarf"], "likelihood": 12 },
+    { "id": "brass", "name": "Brass", "ancestries": ["dwarf"], "likelihood": 8 }
+  ],
+  "eyeColors": [
+    { "id": "brown", "name": "Brown", "likelihood": 30 },
+    { "id": "dark-brown", "name": "Dark Brown", "likelihood": 20 },
+    { "id": "hazel", "name": "Hazel", "likelihood": 15 },
+    { "id": "blue", "name": "Blue", "likelihood": 12 },
+    { "id": "green", "name": "Green", "likelihood": 10 },
+    { "id": "gray", "name": "Gray", "likelihood": 8 },
+    { "id": "amber", "name": "Amber", "likelihood": 5 }
+  ],
+  "exoticEyeColors": [
+    { "id": "gold", "name": "Gold", "ancestries": ["elf", "ifrit", "nephilim"], "likelihood": 15 },
+    { "id": "silver", "name": "Silver", "ancestries": ["elf", "nephilim"], "likelihood": 12 },
+    { "id": "violet", "name": "Violet", "ancestries": ["elf", "suli"], "likelihood": 10 },
+    { "id": "red", "name": "Red", "ancestries": ["orc", "nephilim", "dhampir"], "likelihood": 8 },
+    { "id": "orange", "name": "Orange", "ancestries": ["catfolk", "ifrit"], "likelihood": 8 },
+    { "id": "yellow", "name": "Yellow", "ancestries": ["catfolk", "goblin"], "likelihood": 8 },
+    { "id": "pale-blue", "name": "Pale Blue", "ancestries": ["undine", "fetchling"], "likelihood": 10 },
+    { "id": "black", "name": "Solid Black", "ancestries": ["fetchling", "strix"], "likelihood": 8 }
+  ],
+  "skinTones": [
+    { "id": "pale", "name": "Pale", "likelihood": 15 },
+    { "id": "fair", "name": "Fair", "likelihood": 18 },
+    { "id": "light", "name": "Light", "likelihood": 15 },
+    { "id": "olive", "name": "Olive", "likelihood": 12 },
+    { "id": "tan", "name": "Tan", "likelihood": 10 },
+    { "id": "brown", "name": "Brown", "likelihood": 12 },
+    { "id": "dark-brown", "name": "Dark Brown", "likelihood": 10 },
+    { "id": "deep-brown", "name": "Deep Brown", "likelihood": 8 }
+  ],
+  "exoticSkinTones": [
+    { "id": "gray", "name": "Gray", "ancestries": ["orc", "fetchling", "automaton"], "likelihood": 15 },
+    { "id": "green", "name": "Green", "ancestries": ["orc", "goblin", "leshy"], "likelihood": 15 },
+    { "id": "blue", "name": "Blue", "ancestries": ["hobgoblin", "undine"], "likelihood": 12 },
+    { "id": "red", "name": "Red", "ancestries": ["ifrit", "nephilim"], "likelihood": 10 },
+    { "id": "purple", "name": "Purple", "ancestries": ["nephilim"], "likelihood": 8 },
+    { "id": "golden", "name": "Golden", "ancestries": ["ifrit", "nephilim"], "likelihood": 10 },
+    { "id": "copper", "name": "Copper", "ancestries": ["ifrit"], "likelihood": 8 },
+    { "id": "bronze", "name": "Bronze", "ancestries": ["automaton"], "likelihood": 8 },
+    { "id": "silver", "name": "Silver", "ancestries": ["automaton"], "likelihood": 8 },
+    { "id": "pale-white", "name": "Pale White", "ancestries": ["dhampir", "fetchling"], "likelihood": 10 }
+  ],
+  "distinguishingFeatures": [
+    {
+      "id": "scar-face",
+      "name": "Facial Scar",
+      "description": "A prominent scar across their face",
+      "category": "scars",
+      "likelihood": 10
+    },
+    {
+      "id": "scar-hand",
+      "name": "Scarred Hands",
+      "description": "Hands marked by old wounds",
+      "category": "scars",
+      "likelihood": 8
+    },
+    {
+      "id": "tattoo-arm",
+      "name": "Arm Tattoo",
+      "description": "An intricate tattoo on their arm",
+      "category": "tattoos",
+      "likelihood": 12
+    },
+    {
+      "id": "tattoo-face",
+      "name": "Facial Tattoo",
+      "description": "A distinctive facial tattoo",
+      "category": "tattoos",
+      "likelihood": 8
+    },
+    {
+      "id": "tattoo-neck",
+      "name": "Neck Tattoo",
+      "description": "A tattoo visible on their neck",
+      "category": "tattoos",
+      "likelihood": 7
+    },
+    {
+      "id": "birthmark",
+      "name": "Distinctive Birthmark",
+      "description": "An unusual birthmark",
+      "category": "natural",
+      "likelihood": 8
+    },
+    {
+      "id": "missing-finger",
+      "name": "Missing Finger",
+      "description": "Missing one or more fingers",
+      "category": "injury",
+      "likelihood": 5
+    },
+    {
+      "id": "eye-patch",
+      "name": "Eye Patch",
+      "description": "Wears an eye patch",
+      "category": "injury",
+      "likelihood": 4
+    },
+    {
+      "id": "limp",
+      "name": "Noticeable Limp",
+      "description": "Walks with a pronounced limp",
+      "category": "injury",
+      "likelihood": 6
+    },
+    {
+      "id": "crooked-nose",
+      "name": "Crooked Nose",
+      "description": "A nose broken and healed crooked",
+      "category": "injury",
+      "likelihood": 8
+    },
+    {
+      "id": "piercing-ear",
+      "name": "Multiple Ear Piercings",
+      "description": "Numerous earrings",
+      "category": "adornment",
+      "likelihood": 10
+    },
+    {
+      "id": "piercing-nose",
+      "name": "Nose Piercing",
+      "description": "A distinctive nose ring or stud",
+      "category": "adornment",
+      "likelihood": 8
+    },
+    {
+      "id": "unusual-teeth",
+      "name": "Unusual Teeth",
+      "description": "Notably sharp, missing, or gold teeth",
+      "category": "natural",
+      "likelihood": 7
+    },
+    {
+      "id": "heterochromia",
+      "name": "Different Colored Eyes",
+      "description": "Each eye is a different color",
+      "category": "natural",
+      "likelihood": 3
+    },
+    {
+      "id": "burn-scar",
+      "name": "Burn Scars",
+      "description": "Visible burn scarring",
+      "category": "scars",
+      "likelihood": 6
+    },
+    {
+      "id": "perfect-skin",
+      "name": "Unblemished Skin",
+      "description": "Remarkably perfect, unmarked skin",
+      "category": "natural",
+      "likelihood": 5
+    },
+    {
+      "id": "weathered-skin",
+      "name": "Weathered Skin",
+      "description": "Skin marked by years of outdoor work",
+      "category": "natural",
+      "likelihood": 12
+    },
+    {
+      "id": "distinctive-beard",
+      "name": "Distinctive Beard",
+      "description": "An elaborate or unusual beard style",
+      "category": "grooming",
+      "likelihood": 10
+    },
+    {
+      "id": "unusual-hair",
+      "name": "Unusual Hairstyle",
+      "description": "A striking or unconventional hairstyle",
+      "category": "grooming",
+      "likelihood": 12
+    },
+    {
+      "id": "jewelry",
+      "name": "Prominent Jewelry",
+      "description": "Wears notable rings, necklaces, or other jewelry",
+      "category": "adornment",
+      "likelihood": 15
+    }
+  ]
+}

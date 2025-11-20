@@ -1,0 +1,302 @@
+{
+  "familyStatus": [
+    {
+      "id": "single-no-family",
+      "name": "Alone",
+      "description": "No close family ties",
+      "likelihood": 15
+    },
+    {
+      "id": "single-with-family",
+      "name": "Single",
+      "description": "Unmarried but has family",
+      "likelihood": 20
+    },
+    {
+      "id": "married-no-children",
+      "name": "Married",
+      "description": "Married without children",
+      "likelihood": 15
+    },
+    {
+      "id": "married-with-children",
+      "name": "Married with Children",
+      "description": "Has a spouse and children",
+      "likelihood": 25
+    },
+    {
+      "id": "widowed",
+      "name": "Widowed",
+      "description": "Lost their spouse",
+      "likelihood": 10
+    },
+    {
+      "id": "divorced",
+      "name": "Divorced",
+      "description": "Separated from spouse",
+      "likelihood": 8
+    },
+    {
+      "id": "orphan",
+      "name": "Orphan",
+      "description": "Lost parents at a young age",
+      "likelihood": 7
+    }
+  ],
+  "familyMembers": [
+    {
+      "id": "parent-elderly",
+      "name": "Elderly Parent",
+      "description": "An aging mother or father who depends on them",
+      "likelihood": 15
+    },
+    {
+      "id": "sibling-younger",
+      "name": "Younger Sibling",
+      "description": "A brother or sister they look after",
+      "likelihood": 12
+    },
+    {
+      "id": "sibling-older",
+      "name": "Older Sibling",
+      "description": "A brother or sister in a different station",
+      "likelihood": 12
+    },
+    {
+      "id": "child-young",
+      "name": "Young Child",
+      "description": "A son or daughter still at home",
+      "likelihood": 18
+    },
+    {
+      "id": "child-adult",
+      "name": "Adult Child",
+      "description": "A grown son or daughter",
+      "likelihood": 10
+    },
+    {
+      "id": "cousin",
+      "name": "Cousin",
+      "description": "An extended family member",
+      "likelihood": 8
+    },
+    {
+      "id": "nephew-niece",
+      "name": "Nephew/Niece",
+      "description": "Child of their sibling",
+      "likelihood": 8
+    },
+    {
+      "id": "grandparent",
+      "name": "Grandparent",
+      "description": "A living grandparent",
+      "likelihood": 5
+    }
+  ],
+  "allies": [
+    {
+      "id": "childhood-friend",
+      "name": "Childhood Friend",
+      "description": "A friend from their youth",
+      "likelihood": 20
+    },
+    {
+      "id": "mentor",
+      "name": "Mentor",
+      "description": "Someone who taught them their trade",
+      "likelihood": 15
+    },
+    {
+      "id": "former-colleague",
+      "name": "Former Colleague",
+      "description": "Someone they used to work with",
+      "likelihood": 18
+    },
+    {
+      "id": "business-partner",
+      "name": "Business Partner",
+      "description": "A professional associate",
+      "likelihood": 15
+    },
+    {
+      "id": "saved-their-life",
+      "name": "Life Saver",
+      "description": "Someone who saved their life",
+      "likelihood": 10
+    },
+    {
+      "id": "romantic-interest",
+      "name": "Romantic Interest",
+      "description": "Someone they're attracted to",
+      "likelihood": 12
+    },
+    {
+      "id": "patron",
+      "name": "Patron",
+      "description": "A wealthy supporter",
+      "likelihood": 10
+    },
+    {
+      "id": "drinking-buddy",
+      "name": "Drinking Buddy",
+      "description": "A companion at the tavern",
+      "likelihood": 15
+    },
+    {
+      "id": "informant",
+      "name": "Informant",
+      "description": "Someone who provides them information",
+      "likelihood": 8
+    },
+    {
+      "id": "protege",
+      "name": "Protégé",
+      "description": "Someone they're training",
+      "likelihood": 10
+    }
+  ],
+  "enemies": [
+    {
+      "id": "rival",
+      "name": "Rival",
+      "description": "A competitor in their field",
+      "likelihood": 25
+    },
+    {
+      "id": "former-friend",
+      "name": "Former Friend",
+      "description": "A friendship that turned sour",
+      "likelihood": 15
+    },
+    {
+      "id": "creditor",
+      "name": "Creditor",
+      "description": "Someone they owe money to",
+      "likelihood": 18
+    },
+    {
+      "id": "wronged-person",
+      "name": "Someone They Wronged",
+      "description": "A person seeking revenge",
+      "likelihood": 20
+    },
+    {
+      "id": "corrupt-official",
+      "name": "Corrupt Official",
+      "description": "A government figure who opposes them",
+      "likelihood": 12
+    },
+    {
+      "id": "criminal-gang",
+      "name": "Criminal Gang",
+      "description": "An organized crime group",
+      "likelihood": 10
+    },
+    {
+      "id": "ex-lover",
+      "name": "Ex-Lover",
+      "description": "A former romantic partner",
+      "likelihood": 12
+    },
+    {
+      "id": "family-enemy",
+      "name": "Family Enemy",
+      "description": "Someone with a grudge against their family",
+      "likelihood": 8
+    },
+    {
+      "id": "jealous-colleague",
+      "name": "Jealous Colleague",
+      "description": "A coworker who envies their success",
+      "likelihood": 15
+    },
+    {
+      "id": "bounty-hunter",
+      "name": "Bounty Hunter",
+      "description": "Someone tracking them for a reward",
+      "likelihood": 5
+    }
+  ],
+  "organizations": [
+    {
+      "id": "merchant-guild",
+      "name": "Merchant's Guild",
+      "description": "A trade organization",
+      "professions": ["merchant", "artisan", "blacksmith"],
+      "status": ["member", "applicant", "rejected"],
+      "likelihood": 15
+    },
+    {
+      "id": "thieves-guild",
+      "name": "Thieves' Guild",
+      "description": "A criminal organization",
+      "professions": ["thief", "spy"],
+      "status": ["member", "former-member", "on-the-run"],
+      "likelihood": 8
+    },
+    {
+      "id": "church",
+      "name": "Religious Order",
+      "description": "A faith-based organization",
+      "professions": ["priest", "healer"],
+      "status": ["member", "devoted", "lapsed"],
+      "likelihood": 18
+    },
+    {
+      "id": "military",
+      "name": "Military Company",
+      "description": "An armed force",
+      "professions": ["soldier", "guard"],
+      "status": ["active", "veteran", "deserter"],
+      "likelihood": 12
+    },
+    {
+      "id": "arcane-academy",
+      "name": "Arcane Academy",
+      "description": "A school of magic",
+      "professions": ["wizard", "scholar"],
+      "status": ["student", "graduate", "expelled"],
+      "likelihood": 6
+    },
+    {
+      "id": "noble-house",
+      "name": "Noble House",
+      "description": "An aristocratic family",
+      "professions": ["noble", "servant", "guard"],
+      "status": ["member", "servant", "former-servant"],
+      "likelihood": 10
+    },
+    {
+      "id": "adventurers-guild",
+      "name": "Adventurers' Guild",
+      "description": "Organization for mercenaries and heroes",
+      "professions": ["soldier", "guard"],
+      "status": ["member", "applicant"],
+      "likelihood": 8
+    },
+    {
+      "id": "secret-society",
+      "name": "Secret Society",
+      "description": "A clandestine organization",
+      "professions": ["spy", "scholar", "noble"],
+      "status": ["member", "initiate", "left"],
+      "likelihood": 5
+    },
+    {
+      "id": "artisan-guild",
+      "name": "Artisan's Guild",
+      "description": "A craftspeople's organization",
+      "professions": ["blacksmith", "carpenter", "tailor", "jeweler"],
+      "status": ["apprentice", "journeyman", "master"],
+      "likelihood": 15
+    },
+    {
+      "id": "criminal-network",
+      "name": "Criminal Network",
+      "description": "Organized crime syndicate",
+      "professions": ["thief", "spy", "merchant"],
+      "status": ["associate", "debtor", "informant"],
+      "likelihood": 8
+    }
+  ]
+}

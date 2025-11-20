@@ -32,13 +32,31 @@ export class NPCGenerator {
       // Get detail level
       const detailLevel = params.detailLevel || NarrativeSeedsSettings.get("npcDetailLevel", "standard");
 
-      // Load data
-      const [moodsData, personalitiesData, mannerismsData, motivationsData, quirksData] = await Promise.all([
+      // Load data - including new data files
+      const [
+        moodsData,
+        personalitiesData,
+        mannerismsData,
+        motivationsData,
+        quirksData,
+        appearanceData,
+        abilitiesData,
+        occupationsData,
+        possessionsData,
+        relationshipsData,
+        plotHooksData
+      ] = await Promise.all([
         DataLoader.loadJSON("data/social/npc/moods.json"),
         DataLoader.loadJSON("data/social/npc/personalities.json"),
         DataLoader.loadJSON("data/social/npc/mannerisms.json"),
         DataLoader.loadJSON("data/social/npc/motivations.json"),
-        DataLoader.loadJSON("data/social/npc/quirks.json")
+        DataLoader.loadJSON("data/social/npc/quirks.json"),
+        DataLoader.loadJSON("data/social/npc/appearance.json"),
+        DataLoader.loadJSON("data/social/npc/abilities.json"),
+        DataLoader.loadJSON("data/social/npc/occupations.json"),
+        DataLoader.loadJSON("data/social/npc/possessions.json"),
+        DataLoader.loadJSON("data/social/npc/relationships.json"),
+        DataLoader.loadJSON("data/social/npc/plot-hooks.json")
       ]);
 
       if (!moodsData || !personalitiesData || !mannerismsData || !motivationsData || !quirksData) {
@@ -79,6 +97,24 @@ export class NPCGenerator {
       const gender = params.gender || null; // null = random
       const name = await NameGenerator.generate(ancestry, gender);
 
+      // Generate physical appearance
+      const appearance = this.generateAppearance(appearanceData, ancestry, detailLevel);
+
+      // Generate occupation and social class
+      const occupation = this.generateOccupation(occupationsData, detailLevel);
+
+      // Generate abilities based on level and occupation
+      const abilities = this.generateAbilities(abilitiesData, occupation, detailLevel);
+
+      // Generate possessions based on occupation and social class
+      const possessions = this.generatePossessions(possessionsData, occupation, abilities.level, detailLevel);
+
+      // Generate relationships
+      const relationships = this.generateRelationships(relationshipsData, occupation, detailLevel);
+
+      // Generate plot hooks
+      const plotHooks = this.generatePlotHooks(plotHooksData, occupation, relationships, detailLevel);
+
       // Build NPC seed
       const seed = {
         name,
@@ -88,6 +124,12 @@ export class NPCGenerator {
         mannerisms,
         motivation,
         quirks,
+        appearance,
+        occupation,
+        abilities,
+        possessions,
+        relationships,
+        plotHooks,
         detailLevel,
         actor: params.actor,
         timestamp: Date.now()
@@ -253,5 +295,319 @@ export class NPCGenerator {
       maxSize: this.MAX_MEMORY_SIZE,
       npcs: this.recentNPCs
     };
+  }
+
+  /**
+   * Generate physical appearance
+   * @param {Object} appearanceData - Appearance data
+   * @param {string} ancestry - NPC ancestry
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Generated appearance
+   */
+  static generateAppearance(appearanceData, ancestry, detailLevel) {
+    if (!appearanceData) return null;
+
+    const appearance = {
+      age: RandomUtils.selectWeighted(appearanceData.ageCategories, "likelihood"),
+      build: RandomUtils.selectWeighted(appearanceData.builds, "likelihood"),
+      height: RandomUtils.selectWeighted(appearanceData.heights, "likelihood")
+    };
+
+    // Select hair color (check for exotic options based on ancestry)
+    const exoticHairOptions = appearanceData.exoticHairColors?.filter(h =>
+      h.ancestries.includes(ancestry)
+    ) || [];
+
+    if (exoticHairOptions.length > 0 && Math.random() < 0.3) {
+      appearance.hairColor = RandomUtils.selectWeighted(exoticHairOptions, "likelihood");
+    } else {
+      appearance.hairColor = RandomUtils.selectWeighted(appearanceData.hairColors, "likelihood");
+    }
+
+    // Select eye color (check for exotic options based on ancestry)
+    const exoticEyeOptions = appearanceData.exoticEyeColors?.filter(e =>
+      e.ancestries.includes(ancestry)
+    ) || [];
+
+    if (exoticEyeOptions.length > 0 && Math.random() < 0.3) {
+      appearance.eyeColor = RandomUtils.selectWeighted(exoticEyeOptions, "likelihood");
+    } else {
+      appearance.eyeColor = RandomUtils.selectWeighted(appearanceData.eyeColors, "likelihood");
+    }
+
+    // Select skin tone (check for exotic options based on ancestry)
+    const exoticSkinOptions = appearanceData.exoticSkinTones?.filter(s =>
+      s.ancestries.includes(ancestry)
+    ) || [];
+
+    if (exoticSkinOptions.length > 0 && Math.random() < 0.3) {
+      appearance.skinTone = RandomUtils.selectWeighted(exoticSkinOptions, "likelihood");
+    } else {
+      appearance.skinTone = RandomUtils.selectWeighted(appearanceData.skinTones, "likelihood");
+    }
+
+    // Add distinguishing features based on detail level
+    const numFeatures = this.getNumDistinguishingFeatures(detailLevel);
+    if (numFeatures > 0) {
+      appearance.distinguishingFeatures = this.selectUniqueItems(
+        appearanceData.distinguishingFeatures,
+        numFeatures
+      );
+    }
+
+    return appearance;
+  }
+
+  /**
+   * Generate occupation and social class
+   * @param {Object} occupationsData - Occupations data
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Generated occupation
+   */
+  static generateOccupation(occupationsData, detailLevel) {
+    if (!occupationsData) return null;
+
+    const profession = RandomUtils.selectWeighted(occupationsData.professions, "likelihood");
+
+    // Select social class compatible with profession
+    const compatibleClasses = occupationsData.socialClasses.filter(sc =>
+      profession.socialClass.includes(sc.id)
+    );
+
+    const socialClass = compatibleClasses.length > 0
+      ? RandomUtils.selectWeighted(compatibleClasses, "likelihood")
+      : RandomUtils.selectWeighted(occupationsData.socialClasses, "likelihood");
+
+    return {
+      profession,
+      socialClass
+    };
+  }
+
+  /**
+   * Generate abilities
+   * @param {Object} abilitiesData - Abilities data
+   * @param {Object} occupation - NPC occupation
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Generated abilities
+   */
+  static generateAbilities(abilitiesData, occupation, detailLevel) {
+    if (!abilitiesData) return null;
+
+    // Select level range
+    const levelRange = RandomUtils.selectWeighted(abilitiesData.levelRanges, "likelihood");
+    const level = RandomUtils.selectFrom(levelRange.levels);
+
+    // Select ability score profile
+    const abilityProfile = RandomUtils.selectWeighted(abilitiesData.abilityScoreProfiles, "likelihood");
+
+    // Select notable skills based on profession
+    const professionSkills = occupation?.profession?.skills || [];
+    const relevantSkills = abilitiesData.notableSkills.filter(skill =>
+      professionSkills.includes(skill.id)
+    );
+
+    // Add some random skills for variety
+    const numSkills = detailLevel === "minimal" ? 1 : detailLevel === "standard" ? 2 : 3;
+    const allSkills = [...relevantSkills];
+
+    // Add random skills if we don't have enough profession-relevant ones
+    while (allSkills.length < numSkills && abilitiesData.notableSkills.length > 0) {
+      const randomSkill = RandomUtils.selectFrom(abilitiesData.notableSkills);
+      if (!allSkills.find(s => s.id === randomSkill.id)) {
+        allSkills.push(randomSkill);
+      }
+    }
+
+    const skills = this.selectUniqueItems(allSkills, Math.min(numSkills, allSkills.length));
+
+    return {
+      level,
+      levelRange,
+      abilityProfile,
+      skills
+    };
+  }
+
+  /**
+   * Generate possessions
+   * @param {Object} possessionsData - Possessions data
+   * @param {Object} occupation - NPC occupation
+   * @param {number} level - NPC level
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Generated possessions
+   */
+  static generatePossessions(possessionsData, occupation, level, detailLevel) {
+    if (!possessionsData) return null;
+
+    // Select wealth level based on social class
+    const socialClassId = occupation?.socialClass?.id || "lower-class";
+    const wealthWeights = {
+      "destitute": [80, 15, 5, 0, 0, 0],
+      "lower-class": [20, 50, 25, 5, 0, 0],
+      "middle-class": [5, 25, 45, 20, 5, 0],
+      "upper-class": [0, 5, 20, 40, 25, 10],
+      "nobility": [0, 0, 5, 20, 40, 35]
+    };
+
+    const weights = wealthWeights[socialClassId] || wealthWeights["lower-class"];
+    const wealthLevel = this.selectByWeightArray(possessionsData.wealthLevels, weights);
+
+    // Select carried items
+    const professionId = occupation?.profession?.id || "laborer";
+    const numItems = detailLevel === "minimal" ? 2 : detailLevel === "standard" ? 3 : 5;
+
+    // Prioritize items common for this profession
+    const relevantItems = possessionsData.carriedItems.filter(item =>
+      item.commonFor.includes(professionId) || item.commonFor.includes("all")
+    );
+
+    const items = this.selectUniqueItems(
+      relevantItems.length > 0 ? relevantItems : possessionsData.carriedItems,
+      numItems
+    );
+
+    // Add special items based on detail level and level
+    const specialItems = [];
+    if (detailLevel !== "minimal" && Math.random() < 0.3) {
+      const eligibleSpecial = possessionsData.specialItems.filter(item =>
+        !item.minLevel || level >= item.minLevel
+      );
+      if (eligibleSpecial.length > 0) {
+        specialItems.push(RandomUtils.selectWeighted(eligibleSpecial, "likelihood"));
+      }
+    }
+
+    return {
+      wealthLevel,
+      carriedItems: items,
+      specialItems
+    };
+  }
+
+  /**
+   * Generate relationships
+   * @param {Object} relationshipsData - Relationships data
+   * @param {Object} occupation - NPC occupation
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Generated relationships
+   */
+  static generateRelationships(relationshipsData, occupation, detailLevel) {
+    if (!relationshipsData) return null;
+
+    const relationships = {
+      familyStatus: RandomUtils.selectWeighted(relationshipsData.familyStatus, "likelihood")
+    };
+
+    // Generate family members based on detail level
+    const numFamily = detailLevel === "minimal" ? 0 : detailLevel === "standard" ? 1 : 2;
+    if (numFamily > 0 && Math.random() < 0.6) {
+      relationships.family = this.selectUniqueItems(relationshipsData.familyMembers,
+        Math.floor(Math.random() * numFamily) + 1);
+    }
+
+    // Generate allies
+    const numAllies = detailLevel === "minimal" ? 0 : detailLevel === "standard" ? 1 : 2;
+    if (numAllies > 0 && Math.random() < 0.7) {
+      relationships.allies = this.selectUniqueItems(relationshipsData.allies,
+        Math.floor(Math.random() * numAllies) + 1);
+    }
+
+    // Generate enemies
+    const numEnemies = detailLevel === "minimal" ? 0 : detailLevel === "standard" ? 1 : 2;
+    if (numEnemies > 0 && Math.random() < 0.5) {
+      relationships.enemies = this.selectUniqueItems(relationshipsData.enemies,
+        Math.floor(Math.random() * numEnemies) + 1);
+    }
+
+    // Generate organization affiliations
+    const professionId = occupation?.profession?.id || "laborer";
+    const relevantOrgs = relationshipsData.organizations.filter(org =>
+      org.professions.includes(professionId)
+    );
+
+    if (detailLevel !== "minimal" && Math.random() < 0.4) {
+      const orgPool = relevantOrgs.length > 0 ? relevantOrgs : relationshipsData.organizations;
+      const org = RandomUtils.selectWeighted(orgPool, "likelihood");
+      relationships.organization = {
+        ...org,
+        status: RandomUtils.selectFrom(org.status)
+      };
+    }
+
+    return relationships;
+  }
+
+  /**
+   * Generate plot hooks
+   * @param {Object} plotHooksData - Plot hooks data
+   * @param {Object} occupation - NPC occupation
+   * @param {Object} relationships - NPC relationships
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Generated plot hooks
+   */
+  static generatePlotHooks(plotHooksData, occupation, relationships, detailLevel) {
+    if (!plotHooksData) return null;
+
+    const hooks = {};
+
+    // Add secret based on detail level
+    if (detailLevel !== "minimal" && Math.random() < 0.4) {
+      hooks.secret = RandomUtils.selectWeighted(plotHooksData.secrets, "likelihood");
+    }
+
+    // Add goal (more likely in detailed modes)
+    const goalChance = detailLevel === "minimal" ? 0.3 : detailLevel === "standard" ? 0.6 : 0.8;
+    if (Math.random() < goalChance) {
+      hooks.goal = RandomUtils.selectWeighted(plotHooksData.goals, "likelihood");
+    }
+
+    // Add conflict
+    const conflictChance = detailLevel === "minimal" ? 0.2 : detailLevel === "standard" ? 0.5 : 0.7;
+    if (Math.random() < conflictChance) {
+      hooks.conflict = RandomUtils.selectWeighted(plotHooksData.conflicts, "likelihood");
+    }
+
+    // Add quest hook (only in detailed/cinematic, and only sometimes)
+    if ((detailLevel === "detailed" || detailLevel === "cinematic") && Math.random() < 0.3) {
+      hooks.questHook = RandomUtils.selectWeighted(plotHooksData.questHooks, "likelihood");
+    }
+
+    return Object.keys(hooks).length > 0 ? hooks : null;
+  }
+
+  /**
+   * Get number of distinguishing features based on detail level
+   * @param {string} detailLevel
+   * @returns {number}
+   */
+  static getNumDistinguishingFeatures(detailLevel) {
+    switch (detailLevel) {
+      case "minimal": return 0;
+      case "standard": return Math.random() < 0.5 ? 1 : 0;
+      case "detailed": return 1;
+      case "cinematic": return Math.random() < 0.5 ? 2 : 1;
+      default: return 0;
+    }
+  }
+
+  /**
+   * Select item by weight array
+   * @param {Array} items - Items to select from
+   * @param {Array} weights - Weight for each item
+   * @returns {Object} Selected item
+   */
+  static selectByWeightArray(items, weights) {
+    const totalWeight = weights.reduce((sum, w) => sum + w, 0);
+    let random = Math.random() * totalWeight;
+
+    for (let i = 0; i < items.length; i++) {
+      random -= weights[i];
+      if (random <= 0) {
+        return items[i];
+      }
+    }
+
+    return items[items.length - 1];
   }
 }
