@@ -32,7 +32,7 @@ export class NPCGenerator {
       // Get detail level
       const detailLevel = params.detailLevel || NarrativeSeedsSettings.get("npcDetailLevel", "standard");
 
-      // Load data - including new data files
+      // Load data - including new expanded data files
       const [
         moodsData,
         personalitiesData,
@@ -40,11 +40,16 @@ export class NPCGenerator {
         motivationsData,
         quirksData,
         appearanceData,
+        appearanceAncestryData,
         abilitiesData,
         occupationsData,
+        occupationsAncestryData,
         possessionsData,
         relationshipsData,
-        plotHooksData
+        relationshipsExpandedData,
+        plotHooksData,
+        plotHooksExpandedData,
+        influenceData
       ] = await Promise.all([
         DataLoader.loadJSON("data/social/npc/moods.json"),
         DataLoader.loadJSON("data/social/npc/personalities.json"),
@@ -52,11 +57,16 @@ export class NPCGenerator {
         DataLoader.loadJSON("data/social/npc/motivations.json"),
         DataLoader.loadJSON("data/social/npc/quirks.json"),
         DataLoader.loadJSON("data/social/npc/appearance.json"),
+        DataLoader.loadJSON("data/social/npc/appearance-ancestry-specific.json"),
         DataLoader.loadJSON("data/social/npc/abilities.json"),
         DataLoader.loadJSON("data/social/npc/occupations.json"),
+        DataLoader.loadJSON("data/social/npc/occupations-ancestry-specific.json"),
         DataLoader.loadJSON("data/social/npc/possessions.json"),
         DataLoader.loadJSON("data/social/npc/relationships.json"),
-        DataLoader.loadJSON("data/social/npc/plot-hooks.json")
+        DataLoader.loadJSON("data/social/npc/relationships-expanded.json"),
+        DataLoader.loadJSON("data/social/npc/plot-hooks.json"),
+        DataLoader.loadJSON("data/social/npc/plot-hooks-expanded.json"),
+        DataLoader.loadJSON("data/social/npc/influence.json")
       ]);
 
       if (!moodsData || !personalitiesData || !mannerismsData || !motivationsData || !quirksData) {
@@ -97,11 +107,11 @@ export class NPCGenerator {
       const gender = params.gender || null; // null = random
       const name = await NameGenerator.generate(ancestry, gender);
 
-      // Generate physical appearance
-      const appearance = this.generateAppearance(appearanceData, ancestry, detailLevel);
+      // Generate physical appearance with ancestry-specific features
+      const appearance = this.generateAppearance(appearanceData, appearanceAncestryData, ancestry, detailLevel);
 
-      // Generate occupation and social class
-      const occupation = this.generateOccupation(occupationsData, detailLevel);
+      // Generate occupation and social class with ancestry-specific options
+      const occupation = this.generateOccupation(occupationsData, occupationsAncestryData, ancestry, detailLevel);
 
       // Generate abilities based on level and occupation
       const abilities = this.generateAbilities(abilitiesData, occupation, detailLevel);
@@ -109,11 +119,14 @@ export class NPCGenerator {
       // Generate possessions based on occupation and social class
       const possessions = this.generatePossessions(possessionsData, occupation, abilities.level, detailLevel);
 
-      // Generate relationships
-      const relationships = this.generateRelationships(relationshipsData, occupation, detailLevel);
+      // Generate relationships with expanded options
+      const relationships = this.generateRelationships(relationshipsData, relationshipsExpandedData, occupation, ancestry, detailLevel);
 
-      // Generate plot hooks
-      const plotHooks = this.generatePlotHooks(plotHooksData, occupation, relationships, detailLevel);
+      // Generate plot hooks with expanded variety
+      const plotHooks = this.generatePlotHooks(plotHooksData, plotHooksExpandedData, occupation, relationships, detailLevel);
+
+      // Generate Influence stat block
+      const influence = this.generateInfluence(influenceData, occupation, abilities, mood, personalities, plotHooks);
 
       // Build NPC seed
       const seed = {
@@ -130,6 +143,7 @@ export class NPCGenerator {
         possessions,
         relationships,
         plotHooks,
+        influence,
         detailLevel,
         actor: params.actor,
         timestamp: Date.now()
@@ -299,12 +313,13 @@ export class NPCGenerator {
 
   /**
    * Generate physical appearance
-   * @param {Object} appearanceData - Appearance data
+   * @param {Object} appearanceData - Base appearance data
+   * @param {Object} appearanceAncestryData - Ancestry-specific appearance data
    * @param {string} ancestry - NPC ancestry
    * @param {string} detailLevel - Detail level
    * @returns {Object} Generated appearance
    */
-  static generateAppearance(appearanceData, ancestry, detailLevel) {
+  static generateAppearance(appearanceData, appearanceAncestryData, ancestry, detailLevel) {
     if (!appearanceData) return null;
 
     const appearance = {
@@ -346,13 +361,32 @@ export class NPCGenerator {
       appearance.skinTone = RandomUtils.selectWeighted(appearanceData.skinTones, "likelihood");
     }
 
-    // Add distinguishing features based on detail level
+    // Combine base distinguishing features with ancestry-specific ones and additional features
+    const allFeatures = [...appearanceData.distinguishingFeatures];
+
+    // Add ancestry-specific features
+    if (appearanceAncestryData?.ancestrySpecificFeatures?.[ancestry]) {
+      allFeatures.push(...appearanceAncestryData.ancestrySpecificFeatures[ancestry]);
+    }
+
+    // Add additional distinguishing features
+    if (appearanceAncestryData?.additionalDistinguishingFeatures) {
+      allFeatures.push(...appearanceAncestryData.additionalDistinguishingFeatures);
+    }
+
+    // Add cultural adornments
+    const culturalAdornments = appearanceAncestryData?.culturalAdornments?.filter(a =>
+      a.ancestries.includes("all") || a.ancestries.includes(ancestry)
+    ) || [];
+
+    if (culturalAdornments.length > 0) {
+      allFeatures.push(...culturalAdornments);
+    }
+
+    // Select distinguishing features based on detail level
     const numFeatures = this.getNumDistinguishingFeatures(detailLevel);
-    if (numFeatures > 0) {
-      appearance.distinguishingFeatures = this.selectUniqueItems(
-        appearanceData.distinguishingFeatures,
-        numFeatures
-      );
+    if (numFeatures > 0 && allFeatures.length > 0) {
+      appearance.distinguishingFeatures = this.selectUniqueItems(allFeatures, numFeatures);
     }
 
     return appearance;
@@ -360,14 +394,38 @@ export class NPCGenerator {
 
   /**
    * Generate occupation and social class
-   * @param {Object} occupationsData - Occupations data
+   * @param {Object} occupationsData - Base occupations data
+   * @param {Object} occupationsAncestryData - Ancestry-specific occupations
+   * @param {string} ancestry - NPC ancestry
    * @param {string} detailLevel - Detail level
    * @returns {Object} Generated occupation
    */
-  static generateOccupation(occupationsData, detailLevel) {
+  static generateOccupation(occupationsData, occupationsAncestryData, ancestry, detailLevel) {
     if (!occupationsData) return null;
 
-    const profession = RandomUtils.selectWeighted(occupationsData.professions, "likelihood");
+    // Combine base professions with ancestry-specific ones
+    const allProfessions = [...occupationsData.professions];
+
+    // Add ancestry-specific professions if available (30% chance to use ancestry-specific)
+    if (occupationsAncestryData?.ancestrySpecificProfessions?.[ancestry] && Math.random() < 0.3) {
+      const ancestryProfs = occupationsAncestryData.ancestrySpecificProfessions[ancestry];
+      // Prefer ancestry-specific professions
+      const profession = RandomUtils.selectWeighted(ancestryProfs, "likelihood");
+
+      // Select compatible social class
+      const compatibleClasses = occupationsData.socialClasses.filter(sc =>
+        profession.socialClass.includes(sc.id)
+      );
+
+      const socialClass = compatibleClasses.length > 0
+        ? RandomUtils.selectWeighted(compatibleClasses, "likelihood")
+        : RandomUtils.selectWeighted(occupationsData.socialClasses, "likelihood");
+
+      return { profession, socialClass };
+    }
+
+    // Use base professions
+    const profession = RandomUtils.selectWeighted(allProfessions, "likelihood");
 
     // Select social class compatible with profession
     const compatibleClasses = occupationsData.socialClasses.filter(sc =>
@@ -487,12 +545,14 @@ export class NPCGenerator {
 
   /**
    * Generate relationships
-   * @param {Object} relationshipsData - Relationships data
+   * @param {Object} relationshipsData - Base relationships data
+   * @param {Object} relationshipsExpandedData - Expanded relationships data
    * @param {Object} occupation - NPC occupation
+   * @param {string} ancestry - NPC ancestry
    * @param {string} detailLevel - Detail level
    * @returns {Object} Generated relationships
    */
-  static generateRelationships(relationshipsData, occupation, detailLevel) {
+  static generateRelationships(relationshipsData, relationshipsExpandedData, occupation, ancestry, detailLevel) {
     if (!relationshipsData) return null;
 
     const relationships = {
@@ -520,14 +580,41 @@ export class NPCGenerator {
         Math.floor(Math.random() * numEnemies) + 1);
     }
 
-    // Generate organization affiliations
+    // Generate organization affiliations - prefer ancestry-specific organizations
     const professionId = occupation?.profession?.id || "laborer";
-    const relevantOrgs = relationshipsData.organizations.filter(org =>
+
+    // Combine base organizations with expanded ones
+    let allOrgs = [...relationshipsData.organizations];
+    if (relationshipsExpandedData?.additionalOrganizations) {
+      allOrgs.push(...relationshipsExpandedData.additionalOrganizations);
+    }
+
+    // Check for ancestry-specific organizations
+    if (relationshipsExpandedData?.ancestrySpecificOrganizations?.[ancestry]) {
+      const ancestryOrgs = relationshipsExpandedData.ancestrySpecificOrganizations[ancestry];
+      // 40% chance to use ancestry-specific organization
+      if (Math.random() < 0.4) {
+        const relevantAncestryOrgs = ancestryOrgs.filter(org =>
+          org.professions.includes(professionId)
+        );
+        if (relevantAncestryOrgs.length > 0 && detailLevel !== "minimal" && Math.random() < 0.5) {
+          const org = RandomUtils.selectWeighted(relevantAncestryOrgs, "likelihood");
+          relationships.organization = {
+            ...org,
+            status: RandomUtils.selectFrom(org.status)
+          };
+          return relationships;
+        }
+      }
+    }
+
+    // Use general organizations
+    const relevantOrgs = allOrgs.filter(org =>
       org.professions.includes(professionId)
     );
 
     if (detailLevel !== "minimal" && Math.random() < 0.4) {
-      const orgPool = relevantOrgs.length > 0 ? relevantOrgs : relationshipsData.organizations;
+      const orgPool = relevantOrgs.length > 0 ? relevantOrgs : allOrgs;
       const org = RandomUtils.selectWeighted(orgPool, "likelihood");
       relationships.organization = {
         ...org,
@@ -540,37 +627,62 @@ export class NPCGenerator {
 
   /**
    * Generate plot hooks
-   * @param {Object} plotHooksData - Plot hooks data
+   * @param {Object} plotHooksData - Base plot hooks data
+   * @param {Object} plotHooksExpandedData - Expanded plot hooks data
    * @param {Object} occupation - NPC occupation
    * @param {Object} relationships - NPC relationships
    * @param {string} detailLevel - Detail level
    * @returns {Object} Generated plot hooks
    */
-  static generatePlotHooks(plotHooksData, occupation, relationships, detailLevel) {
+  static generatePlotHooks(plotHooksData, plotHooksExpandedData, occupation, relationships, detailLevel) {
     if (!plotHooksData) return null;
 
     const hooks = {};
 
+    // Combine base and expanded secrets
+    const allSecrets = [...plotHooksData.secrets];
+    if (plotHooksExpandedData?.additionalSecrets) {
+      allSecrets.push(...plotHooksExpandedData.additionalSecrets);
+    }
+
     // Add secret based on detail level
     if (detailLevel !== "minimal" && Math.random() < 0.4) {
-      hooks.secret = RandomUtils.selectWeighted(plotHooksData.secrets, "likelihood");
+      hooks.secret = RandomUtils.selectWeighted(allSecrets, "likelihood");
+    }
+
+    // Combine base and expanded goals
+    const allGoals = [...plotHooksData.goals];
+    if (plotHooksExpandedData?.additionalGoals) {
+      allGoals.push(...plotHooksExpandedData.additionalGoals);
     }
 
     // Add goal (more likely in detailed modes)
     const goalChance = detailLevel === "minimal" ? 0.3 : detailLevel === "standard" ? 0.6 : 0.8;
     if (Math.random() < goalChance) {
-      hooks.goal = RandomUtils.selectWeighted(plotHooksData.goals, "likelihood");
+      hooks.goal = RandomUtils.selectWeighted(allGoals, "likelihood");
+    }
+
+    // Combine base and expanded conflicts
+    const allConflicts = [...plotHooksData.conflicts];
+    if (plotHooksExpandedData?.additionalConflicts) {
+      allConflicts.push(...plotHooksExpandedData.additionalConflicts);
     }
 
     // Add conflict
     const conflictChance = detailLevel === "minimal" ? 0.2 : detailLevel === "standard" ? 0.5 : 0.7;
     if (Math.random() < conflictChance) {
-      hooks.conflict = RandomUtils.selectWeighted(plotHooksData.conflicts, "likelihood");
+      hooks.conflict = RandomUtils.selectWeighted(allConflicts, "likelihood");
+    }
+
+    // Combine base and expanded quest hooks
+    const allQuestHooks = [...plotHooksData.questHooks];
+    if (plotHooksExpandedData?.additionalQuestHooks) {
+      allQuestHooks.push(...plotHooksExpandedData.additionalQuestHooks);
     }
 
     // Add quest hook (only in detailed/cinematic, and only sometimes)
     if ((detailLevel === "detailed" || detailLevel === "cinematic") && Math.random() < 0.3) {
-      hooks.questHook = RandomUtils.selectWeighted(plotHooksData.questHooks, "likelihood");
+      hooks.questHook = RandomUtils.selectWeighted(allQuestHooks, "likelihood");
     }
 
     return Object.keys(hooks).length > 0 ? hooks : null;
@@ -609,5 +721,134 @@ export class NPCGenerator {
     }
 
     return items[items.length - 1];
+  }
+
+  /**
+   * Generate PF2e Influence stat block
+   * @param {Object} influenceData - Influence system data
+   * @param {Object} occupation - NPC occupation
+   * @param {Object} abilities - NPC abilities
+   * @param {Object} mood - NPC mood
+   * @param {Array} personalities - NPC personality traits
+   * @param {Object} plotHooks - NPC plot hooks
+   * @returns {Object} Influence stat block
+   */
+  static generateInfluence(influenceData, occupation, abilities, mood, personalities, plotHooks) {
+    if (!influenceData) return null;
+
+    const level = abilities?.level || 0;
+    const professionId = occupation?.profession?.id || "laborer";
+
+    // Base DCs based on level (PF2e rules)
+    const baseDC = 14 + level;  // Standard DC for level
+    const hardDC = baseDC + 2;
+    const veryHardDC = baseDC + 5;
+    const easyDC = baseDC - 2;
+    const veryEasyDC = baseDC - 5;
+
+    // Will modifier (typically level + 2-4)
+    const willMod = level + Math.floor(Math.random() * 3) + 2;
+
+    // Perception modifier (typically level + 2-4)
+    const perceptionMod = level + Math.floor(Math.random() * 3) + 2;
+
+    // Discovery DC (usually a bit easier than influence)
+    const discoveryDC = baseDC - 1;
+
+    // Select discovery skills
+    const numDiscoverySkills = Math.floor(Math.random() * 2) + 1; // 1-2 skills
+    const discoverySkills = this.selectUniqueItems(influenceData.discoverySkills, numDiscoverySkills);
+
+    // Select influence skills based on profession
+    const professionRelevantSkills = influenceData.influenceSkills.filter(skill =>
+      skill.professions.includes("all") || skill.professions.includes(professionId)
+    );
+
+    // Always include Diplomacy, but it shouldn't be the best skill
+    const diplomacySkill = influenceData.influenceSkills.find(s => s.id === "diplomacy");
+
+    // Select 3-5 influence skills
+    const numInfluenceSkills = Math.floor(Math.random() * 3) + 3; // 3-5 skills
+    const selectedSkills = [];
+
+    // Add profession-relevant skills first
+    if (professionRelevantSkills.length > 0) {
+      const relevant = this.selectUniqueItems(professionRelevantSkills, Math.min(2, professionRelevantSkills.length));
+      selectedSkills.push(...relevant);
+    }
+
+    // Add Diplomacy if not already included
+    if (!selectedSkills.find(s => s.id === "diplomacy") && diplomacySkill) {
+      selectedSkills.push(diplomacySkill);
+    }
+
+    // Fill remaining slots with random skills
+    while (selectedSkills.length < numInfluenceSkills) {
+      const randomSkill = RandomUtils.selectFrom(influenceData.influenceSkills);
+      if (!selectedSkills.find(s => s.id === randomSkill.id)) {
+        selectedSkills.push(randomSkill);
+      }
+    }
+
+    // Assign DCs to skills (best skill gets easy DC, worst gets hard DC)
+    const influenceSkills = selectedSkills.map((skill, index) => {
+      let dc;
+      if (index === 0) {
+        dc = easyDC; // Best skill
+      } else if (index === 1) {
+        dc = baseDC; // Second best
+      } else if (index === selectedSkills.length - 1) {
+        dc = hardDC; // Worst skill
+      } else {
+        dc = baseDC; // Middle skills
+      }
+
+      return {
+        ...skill,
+        dc
+      };
+    });
+
+    // Select resistances (0-2 based on personality)
+    const numResistances = Math.floor(Math.random() * 3); // 0-2
+    const resistances = numResistances > 0 ? this.selectUniqueItems(influenceData.resistances, numResistances) : [];
+
+    // Select weaknesses (1-3, most NPCs have at least one)
+    const numWeaknesses = Math.floor(Math.random() * 3) + 1; // 1-3
+    const weaknesses = this.selectUniqueItems(influenceData.weaknesses, numWeaknesses);
+
+    // Select biases (0-2)
+    const numBiases = Math.floor(Math.random() * 3); // 0-2
+    const biases = numBiases > 0 ? this.selectUniqueItems(influenceData.biases, numBiases) : [];
+
+    // Determine influence thresholds based on level
+    // Lower level NPCs need fewer points
+    const thresholdMultiplier = level < 3 ? 1 : level < 7 ? 1.5 : 2;
+    const thresholds = influenceData.influenceThresholds.map(t => ({
+      ...t,
+      points: Math.ceil(t.points * thresholdMultiplier)
+    }));
+
+    // Select potential penalty if antagonized
+    const penalty = Math.random() < 0.6 ? RandomUtils.selectFrom(influenceData.penaltyEvents) : null;
+
+    // Determine number of rounds (time available)
+    const rounds = Math.floor(Math.random() * 3) + 3; // 3-5 rounds typical
+
+    return {
+      perception: perceptionMod,
+      will: willMod,
+      discovery: {
+        dc: discoveryDC,
+        skills: discoverySkills
+      },
+      influenceSkills,
+      thresholds,
+      resistances,
+      weaknesses,
+      biases,
+      penalty,
+      rounds
+    };
   }
 }

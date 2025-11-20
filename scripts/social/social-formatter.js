@@ -58,7 +58,7 @@ export class SocialFormatter {
    * @returns {string}
    */
   static generateStandardHTML(seed) {
-    const { name, ancestry, mood, personalities, mannerisms, motivation, quirks, appearance, occupation, abilities, possessions, relationships, plotHooks, actor } = seed;
+    const { name, ancestry, mood, personalities, mannerisms, motivation, quirks, appearance, occupation, abilities, possessions, relationships, plotHooks, influence, actor } = seed;
 
     const displayName = name || actor?.name || "NPC";
     const moodClass = this.getMoodClass(mood.id);
@@ -110,6 +110,9 @@ export class SocialFormatter {
     // Build plot hooks section
     const plotHooksHTML = plotHooks ? this.formatPlotHooks(plotHooks, "standard") : '';
 
+    // Build influence section
+    const influenceHTML = influence ? this.formatInfluence(influence, "standard") : '';
+
     // Social DC modifier
     const dcModifier = mood.socialDC;
     const dcHTML = dcModifier !== 0
@@ -136,6 +139,7 @@ export class SocialFormatter {
         ${possessionsHTML}
         ${relationshipsHTML}
         ${plotHooksHTML}
+        ${influenceHTML}
       </div>
     `;
   }
@@ -146,7 +150,7 @@ export class SocialFormatter {
    * @returns {string}
    */
   static generateCinematicHTML(seed) {
-    const { name, ancestry, mood, personalities, mannerisms, motivation, quirks, appearance, occupation, abilities, possessions, relationships, plotHooks, actor } = seed;
+    const { name, ancestry, mood, personalities, mannerisms, motivation, quirks, appearance, occupation, abilities, possessions, relationships, plotHooks, influence, actor } = seed;
 
     const displayName = name || actor?.name || "NPC";
     const moodClass = this.getMoodClass(mood.id);
@@ -208,6 +212,9 @@ export class SocialFormatter {
     // Build plot hooks section
     const plotHooksHTML = plotHooks ? this.formatPlotHooks(plotHooks, "cinematic") : '';
 
+    // Build influence section
+    const influenceHTML = influence ? this.formatInfluence(influence, "cinematic") : '';
+
     // Social DC modifier with expanded explanation
     const dcModifier = mood.socialDC;
     const dcHTML = dcModifier !== 0
@@ -246,6 +253,7 @@ export class SocialFormatter {
         ${possessionsHTML}
         ${relationshipsHTML}
         ${plotHooksHTML}
+        ${influenceHTML}
       </div>
     `;
   }
@@ -484,6 +492,94 @@ export class SocialFormatter {
         </div>
       `;
     }
+  }
+
+  /**
+   * Format influence stat block
+   * @param {Object} influence - Influence data
+   * @param {string} detailLevel - Detail level
+   * @returns {string} HTML string
+   */
+  static formatInfluence(influence, detailLevel) {
+    if (!influence || detailLevel === "minimal") return '';
+
+    // Basic influence info for standard
+    if (detailLevel === "standard") {
+      const bestSkill = influence.influenceSkills[0];
+      const weaknessText = influence.weaknesses.length > 0 ? influence.weaknesses[0].name : "None evident";
+
+      return `
+        <div class="npc-section npc-influence">
+          <strong>Influence:</strong> Best approach: ${bestSkill.name} (DC ${bestSkill.dc}) | Weakness: ${weaknessText}
+        </div>
+      `;
+    }
+
+    // Full influence stat block for cinematic
+    const skillsList = influence.influenceSkills
+      .map(s => `${s.name} (DC ${s.dc})`)
+      .join(', ');
+
+    const weaknessesList = influence.weaknesses
+      .map(w => `<li><strong>${w.name}:</strong> ${StringUtils.escapeHTML(w.description)} (DC ${w.dcModifier < 0 ? w.dcModifier : '-' + Math.abs(w.dcModifier)})</li>`)
+      .join('');
+
+    const resistancesList = influence.resistances.length > 0
+      ? `<div class="influence-resistances">
+           <strong>Resistances:</strong>
+           <ul class="trait-list">
+             ${influence.resistances.map(r => `<li><strong>${r.name}:</strong> ${StringUtils.escapeHTML(r.description)} (DC +${r.dcModifier})</li>`).join('')}
+           </ul>
+         </div>`
+      : '';
+
+    const biasesList = influence.biases.length > 0
+      ? `<div class="influence-biases">
+           <strong>Biases:</strong>
+           <ul class="trait-list">
+             ${influence.biases.map(b => `<li><strong>${b.name}:</strong> ${StringUtils.escapeHTML(b.description)}</li>`).join('')}
+           </ul>
+         </div>`
+      : '';
+
+    const thresholdsList = influence.thresholds
+      .map(t => `<li><strong>${t.points} Points (${StringUtils.capitalize(t.level)}):</strong> ${StringUtils.escapeHTML(t.description)}</li>`)
+      .join('');
+
+    const penaltyHTML = influence.penalty
+      ? `<div class="influence-penalty">
+           <strong>Penalty for ${StringUtils.escapeHTML(influence.penalty.name)}:</strong> ${StringUtils.escapeHTML(influence.penalty.effect)}
+         </div>`
+      : '';
+
+    return `
+      <div class="npc-section npc-influence-block">
+        <strong>⚡ Influence Subsystem</strong>
+        <div class="influence-stats">
+          <div><strong>Perception:</strong> +${influence.perception} | <strong>Will:</strong> +${influence.will}</div>
+          <div><strong>Discovery DC:</strong> ${influence.discovery.dc} (${influence.discovery.skills.map(s => s.name).join(', ')})</div>
+          <div><strong>Rounds Available:</strong> ${influence.rounds}</div>
+        </div>
+        <div class="influence-skills">
+          <strong>Influence Skills:</strong> ${skillsList}
+        </div>
+        <div class="influence-weaknesses">
+          <strong>Weaknesses:</strong>
+          <ul class="trait-list">
+            ${weaknessesList}
+          </ul>
+        </div>
+        ${resistancesList}
+        ${biasesList}
+        <div class="influence-thresholds">
+          <strong>Influence Thresholds:</strong>
+          <ul class="trait-list">
+            ${thresholdsList}
+          </ul>
+        </div>
+        ${penaltyHTML}
+      </div>
+    `;
   }
 
   /**

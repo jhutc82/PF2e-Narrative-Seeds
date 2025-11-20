@@ -1,0 +1,119 @@
+{
+  "ancestrySpecificProfessions": {
+    "dwarf": [
+      { "id": "stonesmith", "name": "Stonesmith", "description": "Expert in working stone and gems", "socialClass": ["lower-class", "middle-class"], "skills": ["crafting", "society"], "likelihood": 12 },
+      { "id": "forge-master", "name": "Forge Master", "description": "Master weaponsmith and armorer", "socialClass": ["middle-class", "upper-class"], "skills": ["crafting", "athletics"], "likelihood": 10 },
+      { "id": "clan-elder", "name": "Clan Elder", "description": "Respected keeper of clan traditions", "socialClass": ["upper-class"], "skills": ["society", "diplomacy"], "likelihood": 6 },
+      { "id": "mine-overseer", "name": "Mine Overseer", "description": "Manages mining operations", "socialClass": ["middle-class"], "skills": ["survival", "intimidation"], "likelihood": 8 },
+      { "id": "runelord", "name": "Runelord", "description": "Carves magical runes", "socialClass": ["middle-class", "upper-class"], "skills": ["arcana", "crafting"], "likelihood": 5 },
+      { "id": "brewmaster", "name": "Brewmaster", "description": "Creates legendary dwarven ales", "socialClass": ["middle-class"], "skills": ["crafting", "society"], "likelihood": 9 }
+    ],
+    "elf": [
+      { "id": "bowyer", "name": "Bowyer", "description": "Crafts exquisite elven bows", "socialClass": ["middle-class"], "skills": ["crafting", "nature"], "likelihood": 10 },
+      { "id": "tree-singer", "name": "Tree Singer", "description": "Shapes living wood with magic", "socialClass": ["middle-class", "upper-class"], "skills": ["nature", "arcana"], "likelihood": 7 },
+      { "id": "lore-keeper", "name": "Lore Keeper", "description": "Preserves ancient elven knowledge", "socialClass": ["upper-class"], "skills": ["society", "arcana"], "likelihood": 8 },
+      { "id": "star-reader", "name": "Star Reader", "description": "Divines fate from celestial patterns", "socialClass": ["middle-class", "upper-class"], "skills": ["occultism", "nature"], "likelihood": 6 },
+      { "id": "forest-warden", "name": "Forest Warden", "description": "Protects ancient groves", "socialClass": ["middle-class"], "skills": ["nature", "survival"], "likelihood": 10 },
+      { "id": "artisan-poet", "name": "Artisan Poet", "description": "Creates works of lasting beauty", "socialClass": ["middle-class", "upper-class"], "skills": ["performance", "society"], "likelihood": 8 }
+    ],
+    "goblin": [
+      { "id": "scrap-tinker", "name": "Scrap Tinker", "description": "Builds contraptions from junk", "socialClass": ["destitute", "lower-class"], "skills": ["crafting", "thievery"], "likelihood": 12 },
+      { "id": "fire-keeper", "name": "Fire Keeper", "description": "Manages communal fires and explosives", "socialClass": ["lower-class"], "skills": ["crafting", "survival"], "likelihood": 10 },
+      { "id": "pack-chief", "name": "Pack Chief", "description": "Leads a goblin group", "socialClass": ["lower-class", "middle-class"], "skills": ["intimidation", "society"], "likelihood": 8 },
+      { "id": "junk-trader", "name": "Junk Trader", "description": "Deals in salvaged goods", "socialClass": ["destitute", "lower-class"], "skills": ["deception", "society"], "likelihood": 10 },
+      { "id": "pyro-specialist", "name": "Pyro Specialist", "description": "Expert with fire and explosives", "socialClass": ["lower-class"], "skills": ["crafting"], "likelihood": 8 }
+    ],
+    "halfling": [
+      { "id": "caravan-guide", "name": "Caravan Guide", "description": "Leads merchant caravans", "socialClass": ["middle-class"], "skills": ["survival", "diplomacy"], "likelihood": 10 },
+      { "id": "master-chef", "name": "Master Chef", "description": "Creates culinary masterpieces", "socialClass": ["middle-class"], "skills": ["crafting", "society"], "likelihood": 10 },
+      { "id": "storyteller", "name": "Storyteller", "description": "Preserves tales through performance", "socialClass": ["lower-class", "middle-class"], "skills": ["performance", "society"], "likelihood": 9 },
+      { "id": "luck-keeper", "name": "Luck Keeper", "description": "Blessed with good fortune", "socialClass": ["middle-class"], "skills": ["occultism", "diplomacy"], "likelihood": 6 },
+      { "id": "master-vintner", "name": "Master Vintner", "description": "Produces fine wines", "socialClass": ["middle-class", "upper-class"], "skills": ["crafting", "society"], "likelihood": 8 }
+    ],
+    "gnome": [
+      { "id": "illusionist", "name": "Illusionist", "description": "Creates magical illusions for entertainment", "socialClass": ["middle-class"], "skills": ["arcana", "performance"], "likelihood": 10 },
+      { "id": "color-chemist", "name": "Color Chemist", "description": "Creates dyes and pigments", "socialClass": ["middle-class"], "skills": ["crafting", "arcana"], "likelihood": 9 },
+      { "id": "clockwork-tinker", "name": "Clockwork Tinker", "description": "Builds intricate clockwork devices", "socialClass": ["middle-class"], "skills": ["crafting"], "likelihood": 10 },
+      { "id": "prank-master", "name": "Prank Master", "description": "Professional trickster and entertainer", "socialClass": ["lower-class", "middle-class"], "skills": ["deception", "performance"], "likelihood": 8 },
+      { "id": "fey-diplomat", "name": "Fey Diplomat", "description": "Mediates with First World beings", "socialClass": ["middle-class", "upper-class"], "skills": ["diplomacy", "occultism"], "likelihood": 6 }
+    ],
+    "orc": [
+      { "id": "war-chief", "name": "War Chief", "description": "Leads warriors in battle", "socialClass": ["upper-class"], "skills": ["intimidation", "athletics"], "likelihood": 7 },
+      { "id": "beast-caller", "name": "Beast Caller", "description": "Commands animal companions", "socialClass": ["middle-class"], "skills": ["nature", "intimidation"], "likelihood": 9 },
+      { "id": "bone-carver", "name": "Bone Carver", "description": "Creates tools and art from bone", "socialClass": ["lower-class", "middle-class"], "skills": ["crafting"], "likelihood": 9 },
+      { "id": "trial-master", "name": "Trial Master", "description": "Oversees tests of strength", "socialClass": ["middle-class"], "skills": ["athletics", "intimidation"], "likelihood": 8 },
+      { "id": "storm-herald", "name": "Storm Herald", "description": "Spiritual leader and weather prophet", "socialClass": ["upper-class"], "skills": ["religion", "nature"], "likelihood": 6 }
+    ],
+    "catfolk": [
+      { "id": "acrobat", "name": "Acrobat", "description": "Performs daring feats of agility", "socialClass": ["lower-class", "middle-class"], "skills": ["acrobatics", "performance"], "likelihood": 10 },
+      { "id": "tracker", "name": "Tracker", "description": "Expert hunter and guide", "socialClass": ["lower-class", "middle-class"], "skills": ["survival", "stealth"], "likelihood": 10 },
+      { "id": "curiosity-seeker", "name": "Curiosity Seeker", "description": "Explores ruins and mysteries", "socialClass": ["middle-class"], "skills": ["society", "thievery"], "likelihood": 8 },
+      { "id": "tail-dancer", "name": "Tail Dancer", "description": "Performs traditional catfolk dances", "socialClass": ["middle-class"], "skills": ["performance", "acrobatics"], "likelihood": 8 }
+    ],
+    "tengu": [
+      { "id": "swordmaster", "name": "Swordmaster", "description": "Master of blade techniques", "socialClass": ["middle-class", "upper-class"], "skills": ["athletics", "intimidation"], "likelihood": 9 },
+      { "id": "scroll-keeper", "name": "Scroll Keeper", "description": "Preserves and copies texts", "socialClass": ["middle-class"], "skills": ["society", "arcana"], "likelihood": 9 },
+      { "id": "trinket-collector", "name": "Trinket Collector", "description": "Acquires rare and shiny objects", "socialClass": ["lower-class", "middle-class"], "skills": ["society", "thievery"], "likelihood": 10 },
+      { "id": "wind-caller", "name": "Wind Caller", "description": "Commands air and weather", "socialClass": ["middle-class", "upper-class"], "skills": ["nature", "occultism"], "likelihood": 6 }
+    ],
+    "kobold": [
+      { "id": "trap-maker", "name": "Trap Maker", "description": "Designs clever traps and snares", "socialClass": ["lower-class", "middle-class"], "skills": ["crafting", "thievery"], "likelihood": 11 },
+      { "id": "dragon-speaker", "name": "Dragon Speaker", "description": "Claims lineage from dragons", "socialClass": ["middle-class"], "skills": ["intimidation", "society"], "likelihood": 7 },
+      { "id": "tunnel-digger", "name": "Tunnel Digger", "description": "Expert at underground construction", "socialClass": ["lower-class"], "skills": ["survival", "athletics"], "likelihood": 10 },
+      { "id": "gem-appraiser", "name": "Gem Appraiser", "description": "Identifies and values precious stones", "socialClass": ["middle-class"], "skills": ["crafting", "society"], "likelihood": 8 }
+    ],
+    "leshy": [
+      { "id": "seed-tender", "name": "Seed Tender", "description": "Cultivates magical plants", "socialClass": ["lower-class", "middle-class"], "skills": ["nature", "medicine"], "likelihood": 11 },
+      { "id": "grove-guardian", "name": "Grove Guardian", "description": "Protects sacred natural spaces", "socialClass": ["middle-class"], "skills": ["nature", "intimidation"], "likelihood": 9 },
+      { "id": "bloom-shaper", "name": "Bloom Shaper", "description": "Shapes plants into useful forms", "socialClass": ["middle-class"], "skills": ["nature", "crafting"], "likelihood": 9 },
+      { "id": "root-speaker", "name": "Root Speaker", "description": "Communicates with plants", "socialClass": ["middle-class"], "skills": ["nature", "diplomacy"], "likelihood": 7 }
+    ],
+    "ratfolk": [
+      { "id": "warren-boss", "name": "Warren Boss", "description": "Leads ratfolk community", "socialClass": ["middle-class"], "skills": ["intimidation", "society"], "likelihood": 8 },
+      { "id": "sewer-guide", "name": "Sewer Guide", "description": "Navigates underground passages", "socialClass": ["lower-class", "middle-class"], "skills": ["survival", "stealth"], "likelihood": 10 },
+      { "id": "plague-doctor", "name": "Plague Doctor", "description": "Treats diseases and ailments", "socialClass": ["middle-class"], "skills": ["medicine", "society"], "likelihood": 8 },
+      { "id": "scavenger-king", "name": "Scavenger King", "description": "Expert at finding valuables in refuse", "socialClass": ["lower-class", "middle-class"], "skills": ["survival", "thievery"], "likelihood": 9 }
+    ],
+    "azarketi": [
+      { "id": "pearl-diver", "name": "Pearl Diver", "description": "Harvests treasures from ocean depths", "socialClass": ["lower-class", "middle-class"], "skills": ["athletics", "survival"], "likelihood": 10 },
+      { "id": "tide-caller", "name": "Tide Caller", "description": "Commands water and waves", "socialClass": ["middle-class", "upper-class"], "skills": ["nature", "occultism"], "likelihood": 7 },
+      { "id": "coral-sculptor", "name": "Coral Sculptor", "description": "Shapes living coral into art", "socialClass": ["middle-class"], "skills": ["crafting", "nature"], "likelihood": 8 },
+      { "id": "depth-explorer", "name": "Depth Explorer", "description": "Maps the ocean floor", "socialClass": ["middle-class"], "skills": ["survival", "society"], "likelihood": 9 }
+    ],
+    "strix": [
+      { "id": "night-hunter", "name": "Night Hunter", "description": "Aerial predator and scout", "socialClass": ["lower-class", "middle-class"], "skills": ["stealth", "survival"], "likelihood": 10 },
+      { "id": "sky-dancer", "name": "Sky Dancer", "description": "Performs aerial acrobatics", "socialClass": ["middle-class"], "skills": ["acrobatics", "performance"], "likelihood": 8 },
+      { "id": "roost-leader", "name": "Roost Leader", "description": "Commands a strix community", "socialClass": ["middle-class", "upper-class"], "skills": ["intimidation", "society"], "likelihood": 7 },
+      { "id": "wing-priest", "name": "Wing Priest", "description": "Spiritual leader of the flock", "socialClass": ["upper-class"], "skills": ["religion", "diplomacy"], "likelihood": 6 }
+    ],
+    "automaton": [
+      { "id": "relic-guardian", "name": "Relic Guardian", "description": "Protects ancient artifacts", "socialClass": ["middle-class"], "skills": ["athletics", "society"], "likelihood": 9 },
+      { "id": "logic-solver", "name": "Logic Solver", "description": "Analyzes complex problems", "socialClass": ["middle-class", "upper-class"], "skills": ["society", "arcana"], "likelihood": 8 },
+      { "id": "construct-engineer", "name": "Construct Engineer", "description": "Repairs and maintains automatons", "socialClass": ["middle-class"], "skills": ["crafting", "arcana"], "likelihood": 9 },
+      { "id": "memory-keeper", "name": "Memory Keeper", "description": "Stores historical records", "socialClass": ["upper-class"], "skills": ["society"], "likelihood": 7 }
+    ],
+    "kitsune": [
+      { "id": "shapeshifter-spy", "name": "Shapeshifter Spy", "description": "Uses form-changing for espionage", "socialClass": ["middle-class"], "skills": ["deception", "stealth"], "likelihood": 9 },
+      { "id": "illusion-weaver", "name": "Illusion Weaver", "description": "Master of deceptive magic", "socialClass": ["middle-class", "upper-class"], "skills": ["arcana", "deception"], "likelihood": 8 },
+      { "id": "sake-master", "name": "Sake Master", "description": "Brews traditional spirits", "socialClass": ["middle-class"], "skills": ["crafting", "diplomacy"], "likelihood": 8 },
+      { "id": "fox-bride", "name": "Fox Bride/Groom", "description": "Performs traditional ceremonies", "socialClass": ["middle-class", "upper-class"], "skills": ["religion", "performance"], "likelihood": 6 }
+    ],
+    "anadi": [
+      { "id": "silk-weaver", "name": "Silk Weaver", "description": "Creates exquisite silk textiles", "socialClass": ["middle-class"], "skills": ["crafting"], "likelihood": 11 },
+      { "id": "web-dancer", "name": "Web Dancer", "description": "Performs on aerial silks", "socialClass": ["middle-class"], "skills": ["acrobatics", "performance"], "likelihood": 8 },
+      { "id": "truth-speaker", "name": "Truth Speaker", "description": "Acts as honest mediator", "socialClass": ["middle-class", "upper-class"], "skills": ["diplomacy", "society"], "likelihood": 9 },
+      { "id": "trap-spinner", "name": "Trap Spinner", "description": "Creates web-based traps", "socialClass": ["lower-class", "middle-class"], "skills": ["crafting", "stealth"], "likelihood": 8 }
+    ],
+    "nephilim": [
+      { "id": "planar-scholar", "name": "Planar Scholar", "description": "Studies the outer planes", "socialClass": ["middle-class", "upper-class"], "skills": ["arcana", "religion"], "likelihood": 8 },
+      { "id": "divine-touched", "name": "Divine Touched", "description": "Bearer of celestial/infernal power", "socialClass": ["middle-class"], "skills": ["religion", "intimidation"], "likelihood": 8 },
+      { "id": "oath-keeper", "name": "Oath Keeper", "description": "Enforces sacred vows", "socialClass": ["middle-class", "upper-class"], "skills": ["religion", "diplomacy"], "likelihood": 7 }
+    ],
+    "hobgoblin": [
+      { "id": "legion-commander", "name": "Legion Commander", "description": "Leads military units", "socialClass": ["upper-class"], "skills": ["intimidation", "society"], "likelihood": 8 },
+      { "id": "discipline-master", "name": "Discipline Master", "description": "Trains soldiers", "socialClass": ["middle-class"], "skills": ["intimidation", "athletics"], "likelihood": 9 },
+      { "id": "siege-engineer", "name": "Siege Engineer", "description": "Builds war machines", "socialClass": ["middle-class"], "skills": ["crafting"], "likelihood": 8 },
+      { "id": "honor-guard", "name": "Honor Guard", "description": "Elite bodyguard", "socialClass": ["middle-class", "upper-class"], "skills": ["athletics", "intimidation"], "likelihood": 8 }
+    ]
+  }
+}
