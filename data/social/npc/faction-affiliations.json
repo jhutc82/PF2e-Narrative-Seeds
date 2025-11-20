@@ -1,0 +1,311 @@
+{
+  "factions": [
+    {
+      "id": "pathfinder-society",
+      "name": "Pathfinder Society",
+      "description": "Explorers and archaeologists seeking ancient knowledge",
+      "politicalLean": "neutral",
+      "influence": "international",
+      "reputation": "respected",
+      "ancestries": ["all"],
+      "likelihood": 8
+    },
+    {
+      "id": "aspis-consortium",
+      "name": "Aspis Consortium",
+      "description": "Ruthless mercantile organization",
+      "politicalLean": "lawful-evil",
+      "influence": "international",
+      "reputation": "feared",
+      "ancestries": ["all"],
+      "likelihood": 5
+    },
+    {
+      "id": "hellknights",
+      "name": "Hellknights",
+      "description": "Law enforcement through diabolical means",
+      "politicalLean": "lawful-neutral",
+      "influence": "regional",
+      "reputation": "feared",
+      "ancestries": ["all"],
+      "likelihood": 6
+    },
+    {
+      "id": "eagles-watch",
+      "name": "Eagle's Watch",
+      "description": "Andoran's elite military force promoting freedom",
+      "politicalLean": "chaotic-good",
+      "influence": "national",
+      "reputation": "heroic",
+      "ancestries": ["all"],
+      "likelihood": 5
+    },
+    {
+      "id": "lion-blades",
+      "name": "Lion Blades",
+      "description": "Taldor's elite spy network",
+      "politicalLean": "lawful-neutral",
+      "influence": "national",
+      "reputation": "mysterious",
+      "ancestries": ["all"],
+      "likelihood": 3
+    },
+    {
+      "id": "grey-maidens",
+      "name": "Grey Maidens",
+      "description": "Elite female warriors of Korvosa",
+      "politicalLean": "lawful-neutral",
+      "influence": "local",
+      "reputation": "respected",
+      "ancestries": ["human", "elf", "half-elf"],
+      "likelihood": 4
+    },
+    {
+      "id": "red-mantis",
+      "name": "Red Mantis Assassins",
+      "description": "Religious assassins serving Achaekek",
+      "politicalLean": "lawful-evil",
+      "influence": "international",
+      "reputation": "feared",
+      "ancestries": ["all"],
+      "likelihood": 2
+    },
+    {
+      "id": "magaambya",
+      "name": "Magaambya",
+      "description": "Ancient magical academy of the Mwangi Expanse",
+      "politicalLean": "neutral-good",
+      "influence": "regional",
+      "reputation": "respected",
+      "ancestries": ["all"],
+      "likelihood": 4
+    },
+    {
+      "id": "knights-of-ozem",
+      "name": "Knights of Ozem",
+      "description": "Holy warriors who defeated the Whispering Tyrant",
+      "politicalLean": "lawful-good",
+      "influence": "regional",
+      "reputation": "heroic",
+      "ancestries": ["all"],
+      "likelihood": 5
+    },
+    {
+      "id": "whispering-way",
+      "name": "Whispering Way",
+      "description": "Necromantic cult seeking undead ascension",
+      "politicalLean": "neutral-evil",
+      "influence": "underground",
+      "reputation": "feared",
+      "ancestries": ["all"],
+      "likelihood": 3
+    },
+    {
+      "id": "bellflower-network",
+      "name": "Bellflower Network",
+      "description": "Halfling abolitionists freeing slaves",
+      "politicalLean": "chaotic-good",
+      "influence": "underground",
+      "reputation": "heroic",
+      "ancestries": ["halfling", "human", "gnome"],
+      "likelihood": 4
+    },
+    {
+      "id": "esoteric-order",
+      "name": "Esoteric Order of the Palatine Eye",
+      "description": "Secret society of diviners and scholars",
+      "politicalLean": "lawful-neutral",
+      "influence": "underground",
+      "reputation": "mysterious",
+      "ancestries": ["all"],
+      "likelihood": 3
+    },
+    {
+      "id": "firebrands",
+      "name": "Firebrands",
+      "description": "Rebels and freedom fighters",
+      "politicalLean": "chaotic-good",
+      "influence": "regional",
+      "reputation": "controversial",
+      "ancestries": ["all"],
+      "likelihood": 7
+    },
+    {
+      "id": "lumber-consortium",
+      "name": "Lumber Consortium",
+      "description": "Powerful logging and lumber trade organization",
+      "politicalLean": "neutral",
+      "influence": "regional",
+      "reputation": "controversial",
+      "ancestries": ["all"],
+      "likelihood": 6
+    },
+    {
+      "id": "river-kingdoms-outlaws",
+      "name": "River Kingdoms Outlaws",
+      "description": "Bandits and raiders of the lawless River Kingdoms",
+      "politicalLean": "chaotic-neutral",
+      "influence": "regional",
+      "reputation": "feared",
+      "ancestries": ["all"],
+      "likelihood": 6
+    },
+    {
+      "id": "sczarni",
+      "name": "Sczarni",
+      "description": "Varisian criminal gangs and scam artists",
+      "politicalLean": "chaotic-neutral",
+      "influence": "regional",
+      "reputation": "disliked",
+      "ancestries": ["human", "halfling", "gnome"],
+      "likelihood": 7
+    },
+    {
+      "id": "night-scales",
+      "name": "Night Scales",
+      "description": "Thieves' guild operating in major cities",
+      "politicalLean": "neutral-evil",
+      "influence": "urban",
+      "reputation": "feared",
+      "ancestries": ["all"],
+      "likelihood": 5
+    },
+    {
+      "id": "prophets-of-kalistrade",
+      "name": "Prophets of Kalistrade",
+      "description": "Merchants following strict ascetic code for wealth",
+      "politicalLean": "lawful-neutral",
+      "influence": "international",
+      "reputation": "wealthy",
+      "ancestries": ["human"],
+      "likelihood": 5
+    },
+    {
+      "id": "redeemers",
+      "name": "Order of the Redeemers",
+      "description": "Knights seeking to redeem the fallen",
+      "politicalLean": "neutral-good",
+      "influence": "regional",
+      "reputation": "respected",
+      "ancestries": ["all"],
+      "likelihood": 4
+    },
+    {
+      "id": "mana-wastes-mutants",
+      "name": "Mana Wastes Outcasts",
+      "description": "Mutants and survivors from magical wastelands",
+      "politicalLean": "chaotic-neutral",
+      "influence": "regional",
+      "reputation": "pitied",
+      "ancestries": ["all"],
+      "likelihood": 3
+    }
+  ],
+  "politicalLeanings": [
+    {
+      "id": "monarchist",
+      "name": "Monarchist",
+      "description": "Supports rule by hereditary monarchy",
+      "ancestries": ["all"],
+      "likelihood": 15
+    },
+    {
+      "id": "republican",
+      "name": "Republican",
+      "description": "Favors representative government",
+      "ancestries": ["all"],
+      "likelihood": 12
+    },
+    {
+      "id": "anarchist",
+      "name": "Anarchist",
+      "description": "Opposes all forms of hierarchical authority",
+      "ancestries": ["all"],
+      "likelihood": 5
+    },
+    {
+      "id": "theocrat",
+      "name": "Theocrat",
+      "description": "Believes in religious rule",
+      "ancestries": ["all"],
+      "likelihood": 10
+    },
+    {
+      "id": "oligarchist",
+      "name": "Oligarchist",
+      "description": "Supports rule by wealthy elite",
+      "ancestries": ["all"],
+      "likelihood": 8
+    },
+    {
+      "id": "populist",
+      "name": "Populist",
+      "description": "Champions the common people against elites",
+      "ancestries": ["all"],
+      "likelihood": 12
+    },
+    {
+      "id": "isolationist",
+      "name": "Isolationist",
+      "description": "Believes nation should avoid foreign entanglements",
+      "ancestries": ["all"],
+      "likelihood": 8
+    },
+    {
+      "id": "expansionist",
+      "name": "Expansionist",
+      "description": "Supports territorial and influence expansion",
+      "ancestries": ["all"],
+      "likelihood": 10
+    },
+    {
+      "id": "abolitionist",
+      "name": "Abolitionist",
+      "description": "Actively opposes slavery and bondage",
+      "ancestries": ["all"],
+      "likelihood": 8
+    },
+    {
+      "id": "traditionalist",
+      "name": "Traditionalist",
+      "description": "Seeks to preserve old ways and customs",
+      "ancestries": ["all"],
+      "likelihood": 14
+    },
+    {
+      "id": "reformist",
+      "name": "Reformist",
+      "description": "Seeks gradual change to existing systems",
+      "ancestries": ["all"],
+      "likelihood": 11
+    },
+    {
+      "id": "revolutionary",
+      "name": "Revolutionary",
+      "description": "Seeks radical overthrow of current order",
+      "ancestries": ["all"],
+      "likelihood": 6
+    },
+    {
+      "id": "nationalist",
+      "name": "Nationalist",
+      "description": "Prioritizes national interests above all",
+      "ancestries": ["all"],
+      "likelihood": 13
+    },
+    {
+      "id": "cosmopolitan",
+      "name": "Cosmopolitan",
+      "description": "Values international cooperation and diversity",
+      "ancestries": ["all"],
+      "likelihood": 9
+    },
+    {
+      "id": "apolitical",
+      "name": "Apolitical",
+      "description": "Avoids political involvement",
+      "ancestries": ["all"],
+      "likelihood": 18
+    }
+  ]
+}

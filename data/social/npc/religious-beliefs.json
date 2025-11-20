@@ -1,0 +1,420 @@
+{
+  "deities": [
+    {
+      "id": "iomedae",
+      "name": "Iomedae",
+      "alignment": "LG",
+      "domains": ["Glory", "Honor", "Justice", "Rulership", "War"],
+      "description": "Goddess of honor, justice, and valor",
+      "ancestries": ["all"],
+      "likelihood": 12
+    },
+    {
+      "id": "sarenrae",
+      "name": "Sarenrae",
+      "alignment": "NG",
+      "domains": ["Fire", "Glory", "Good", "Healing", "Sun"],
+      "description": "Goddess of the sun, redemption, honesty, and healing",
+      "ancestries": ["all"],
+      "likelihood": 15
+    },
+    {
+      "id": "desna",
+      "name": "Desna",
+      "alignment": "CG",
+      "domains": ["Chaos", "Good", "Liberation", "Luck", "Travel"],
+      "description": "Goddess of dreams, stars, travelers, and luck",
+      "ancestries": ["all"],
+      "likelihood": 13
+    },
+    {
+      "id": "cayden-cailean",
+      "name": "Cayden Cailean",
+      "alignment": "CG",
+      "domains": ["Chaos", "Charm", "Good", "Strength", "Travel"],
+      "description": "God of freedom, ale, wine, and bravery",
+      "ancestries": ["all"],
+      "likelihood": 11
+    },
+    {
+      "id": "abadar",
+      "name": "Abadar",
+      "alignment": "LN",
+      "domains": ["Earth", "Law", "Nobility", "Protection", "Travel"],
+      "description": "God of cities, wealth, merchants, and law",
+      "ancestries": ["all"],
+      "likelihood": 14
+    },
+    {
+      "id": "pharasma",
+      "name": "Pharasma",
+      "alignment": "N",
+      "domains": ["Death", "Healing", "Knowledge", "Repose", "Water"],
+      "description": "Goddess of fate, death, prophecy, and birth",
+      "ancestries": ["all"],
+      "likelihood": 10
+    },
+    {
+      "id": "gozreh",
+      "name": "Gozreh",
+      "alignment": "N",
+      "domains": ["Air", "Animal", "Plant", "Water", "Weather"],
+      "description": "God of nature, the sea, and weather",
+      "ancestries": ["all"],
+      "likelihood": 8
+    },
+    {
+      "id": "calistria",
+      "name": "Calistria",
+      "alignment": "CN",
+      "domains": ["Chaos", "Charm", "Knowledge", "Luck", "Trickery"],
+      "description": "Goddess of trickery, lust, and revenge",
+      "ancestries": ["elf", "human", "halfling", "gnome"],
+      "likelihood": 7
+    },
+    {
+      "id": "shelyn",
+      "name": "Shelyn",
+      "alignment": "NG",
+      "domains": ["Air", "Charm", "Good", "Luck", "Protection"],
+      "description": "Goddess of beauty, art, love, and music",
+      "ancestries": ["all"],
+      "likelihood": 9
+    },
+    {
+      "id": "erastil",
+      "name": "Erastil",
+      "alignment": "LG",
+      "domains": ["Animal", "Community", "Good", "Law", "Plant"],
+      "description": "God of farming, hunting, trade, and family",
+      "ancestries": ["all"],
+      "likelihood": 11
+    },
+    {
+      "id": "torag",
+      "name": "Torag",
+      "alignment": "LG",
+      "domains": ["Artifice", "Earth", "Good", "Law", "Protection"],
+      "description": "God of the forge, protection, and strategy",
+      "ancestries": ["dwarf", "human", "half-orc"],
+      "likelihood": 8
+    },
+    {
+      "id": "gorum",
+      "name": "Gorum",
+      "alignment": "CN",
+      "domains": ["Chaos", "Destruction", "Glory", "Strength", "War"],
+      "description": "God of strength, battle, and weapons",
+      "ancestries": ["all"],
+      "likelihood": 9
+    },
+    {
+      "id": "nethys",
+      "name": "Nethys",
+      "alignment": "N",
+      "domains": ["Destruction", "Knowledge", "Magic", "Protection", "Rune"],
+      "description": "God of magic in all its forms",
+      "ancestries": ["all"],
+      "likelihood": 7
+    },
+    {
+      "id": "irori",
+      "name": "Irori",
+      "alignment": "LN",
+      "domains": ["Healing", "Knowledge", "Law", "Rune", "Strength"],
+      "description": "God of enlightenment, self-perfection, and knowledge",
+      "ancestries": ["all"],
+      "likelihood": 6
+    },
+    {
+      "id": "asmodeus",
+      "name": "Asmodeus",
+      "alignment": "LE",
+      "domains": ["Evil", "Fire", "Law", "Magic", "Trickery"],
+      "description": "God of tyranny, slavery, pride, and contracts",
+      "ancestries": ["all"],
+      "likelihood": 5
+    },
+    {
+      "id": "zon-kuthon",
+      "name": "Zon-Kuthon",
+      "alignment": "LE",
+      "domains": ["Darkness", "Death", "Destruction", "Evil", "Law"],
+      "description": "God of envy, pain, darkness, and loss",
+      "ancestries": ["all"],
+      "likelihood": 3
+    },
+    {
+      "id": "urgathoa",
+      "name": "Urgathoa",
+      "alignment": "NE",
+      "domains": ["Death", "Evil", "Magic", "Strength", "War"],
+      "description": "Goddess of gluttony, disease, and undeath",
+      "ancestries": ["all"],
+      "likelihood": 3
+    },
+    {
+      "id": "norgorber",
+      "name": "Norgorber",
+      "alignment": "NE",
+      "domains": ["Charm", "Death", "Evil", "Knowledge", "Trickery"],
+      "description": "God of greed, secrets, poison, and murder",
+      "ancestries": ["all"],
+      "likelihood": 4
+    },
+    {
+      "id": "lamashtu",
+      "name": "Lamashtu",
+      "alignment": "CE",
+      "domains": ["Chaos", "Evil", "Madness", "Strength", "Trickery"],
+      "description": "Goddess of madness, monsters, and nightmares",
+      "ancestries": ["all"],
+      "likelihood": 3
+    },
+    {
+      "id": "rovagug",
+      "name": "Rovagug",
+      "alignment": "CE",
+      "domains": ["Chaos", "Destruction", "Evil", "War", "Weather"],
+      "description": "God of wrath, disaster, and destruction",
+      "ancestries": ["all"],
+      "likelihood": 2
+    }
+  ],
+  "devotionLevel": [
+    {
+      "id": "fanatical",
+      "name": "Fanatical",
+      "description": "Obsessively devoted, faith defines their life",
+      "likelihood": 5
+    },
+    {
+      "id": "devout",
+      "name": "Devout",
+      "description": "Deeply religious, practices daily",
+      "likelihood": 15
+    },
+    {
+      "id": "observant",
+      "name": "Observant",
+      "description": "Regularly attends services and follows teachings",
+      "likelihood": 25
+    },
+    {
+      "id": "casual",
+      "name": "Casual",
+      "description": "Believes but doesn't practice regularly",
+      "likelihood": 30
+    },
+    {
+      "id": "nominal",
+      "name": "Nominal",
+      "description": "Claims faith culturally but rarely thinks about it",
+      "likelihood": 15
+    },
+    {
+      "id": "questioning",
+      "name": "Questioning",
+      "description": "Doubts their faith, struggling with belief",
+      "likelihood": 8
+    },
+    {
+      "id": "lapsed",
+      "name": "Lapsed",
+      "description": "Was religious but stopped practicing",
+      "likelihood": 10
+    },
+    {
+      "id": "convert",
+      "name": "Recent Convert",
+      "description": "Newly devoted, enthusiastic about faith",
+      "likelihood": 7
+    },
+    {
+      "id": "syncretic",
+      "name": "Syncretic",
+      "description": "Blends multiple religious traditions",
+      "likelihood": 6
+    },
+    {
+      "id": "heretical",
+      "name": "Heretical",
+      "description": "Follows unorthodox interpretation",
+      "likelihood": 4
+    }
+  ],
+  "religiousAttitudes": [
+    {
+      "id": "evangelical",
+      "name": "Evangelical",
+      "description": "Actively tries to convert others",
+      "likelihood": 8
+    },
+    {
+      "id": "tolerant",
+      "name": "Tolerant",
+      "description": "Respects other faiths",
+      "likelihood": 25
+    },
+    {
+      "id": "exclusive",
+      "name": "Exclusive",
+      "description": "Believes only their faith is true",
+      "likelihood": 12
+    },
+    {
+      "id": "private",
+      "name": "Private",
+      "description": "Keeps faith personal, doesn't discuss",
+      "likelihood": 18
+    },
+    {
+      "id": "vocal",
+      "name": "Vocal",
+      "description": "Openly discusses and references faith",
+      "likelihood": 15
+    },
+    {
+      "id": "judgmental",
+      "name": "Judgmental",
+      "description": "Uses faith to condemn others",
+      "likelihood": 9
+    },
+    {
+      "id": "hypocritical",
+      "name": "Hypocritical",
+      "description": "Preaches but doesn't follow own teachings",
+      "likelihood": 11
+    },
+    {
+      "id": "scholarly",
+      "name": "Scholarly",
+      "description": "Studies religious texts and theology",
+      "likelihood": 8
+    },
+    {
+      "id": "mystical",
+      "name": "Mystical",
+      "description": "Seeks direct spiritual experiences",
+      "likelihood": 10
+    },
+    {
+      "id": "pragmatic",
+      "name": "Pragmatic",
+      "description": "Views religion as social structure",
+      "likelihood": 14
+    },
+    {
+      "id": "superstitious",
+      "name": "Superstitious",
+      "description": "Focuses on omens and rituals over theology",
+      "likelihood": 16
+    }
+  ],
+  "nonBelievers": [
+    {
+      "id": "atheist",
+      "name": "Atheist",
+      "description": "Doesn't believe gods exist despite evidence",
+      "likelihood": 3
+    },
+    {
+      "id": "agnostic",
+      "name": "Agnostic",
+      "description": "Uncertain about divine nature",
+      "likelihood": 8
+    },
+    {
+      "id": "misotheist",
+      "name": "Misotheist",
+      "description": "Believes gods exist but opposes them",
+      "likelihood": 4
+    },
+    {
+      "id": "apatheist",
+      "name": "Apatheist",
+      "description": "Doesn't care about religious matters",
+      "likelihood": 10
+    },
+    {
+      "id": "secular",
+      "name": "Secular",
+      "description": "Spiritual but not religious",
+      "likelihood": 12
+    }
+  ],
+  "religiousPractices": [
+    {
+      "id": "daily-prayer",
+      "name": "Daily Prayer",
+      "description": "Prays at set times each day",
+      "likelihood": 20
+    },
+    {
+      "id": "weekly-service",
+      "name": "Weekly Services",
+      "description": "Attends temple regularly",
+      "likelihood": 25
+    },
+    {
+      "id": "pilgrimage",
+      "name": "Pilgrimage",
+      "description": "Has made or plans to make sacred journey",
+      "likelihood": 8
+    },
+    {
+      "id": "fasting",
+      "name": "Regular Fasting",
+      "description": "Observes ritual fasts",
+      "likelihood": 12
+    },
+    {
+      "id": "meditation",
+      "name": "Meditation",
+      "description": "Practices contemplative prayer",
+      "likelihood": 14
+    },
+    {
+      "id": "charity",
+      "name": "Religious Charity",
+      "description": "Gives alms as religious duty",
+      "likelihood": 18
+    },
+    {
+      "id": "proselytizing",
+      "name": "Proselytizing",
+      "description": "Actively recruits new believers",
+      "likelihood": 9
+    },
+    {
+      "id": "ritual-sacrifice",
+      "name": "Ritual Offerings",
+      "description": "Makes regular sacrifices to deity",
+      "likelihood": 15
+    },
+    {
+      "id": "scripture-study",
+      "name": "Scripture Study",
+      "description": "Regularly reads holy texts",
+      "likelihood": 16
+    },
+    {
+      "id": "festival-observance",
+      "name": "Festival Observance",
+      "description": "Celebrates all holy days",
+      "likelihood": 22
+    },
+    {
+      "id": "missionary-work",
+      "name": "Missionary Work",
+      "description": "Travels to spread faith",
+      "likelihood": 5
+    },
+    {
+      "id": "asceticism",
+      "name": "Ascetic Practices",
+      "description": "Practices self-denial for spiritual growth",
+      "likelihood": 7
+    }
+  ]
+}

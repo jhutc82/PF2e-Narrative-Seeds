@@ -1,0 +1,538 @@
+{
+  "magicalAbility": [
+    {
+      "id": "none",
+      "name": "No Magical Ability",
+      "description": "Completely non-magical",
+      "likelihood": 60
+    },
+    {
+      "id": "latent",
+      "name": "Latent Talent",
+      "description": "Has potential but no training",
+      "likelihood": 12
+    },
+    {
+      "id": "minor-cantrips",
+      "name": "Minor Cantrips",
+      "description": "Knows a few simple tricks",
+      "likelihood": 10
+    },
+    {
+      "id": "apprentice",
+      "name": "Apprentice Caster",
+      "description": "Learning magic basics",
+      "likelihood": 6
+    },
+    {
+      "id": "competent",
+      "name": "Competent Caster",
+      "description": "Reliable magical abilities",
+      "likelihood": 5
+    },
+    {
+      "id": "skilled",
+      "name": "Skilled Practitioner",
+      "description": "Above-average magical talent",
+      "likelihood": 3
+    },
+    {
+      "id": "expert",
+      "name": "Expert Mage",
+      "description": "Highly accomplished caster",
+      "likelihood": 2
+    },
+    {
+      "id": "master",
+      "name": "Master of Magic",
+      "description": "One of the best in their field",
+      "likelihood": 1
+    },
+    {
+      "id": "wild-talent",
+      "name": "Wild Talent",
+      "description": "Untrained but powerful",
+      "likelihood": 4
+    },
+    {
+      "id": "fading-power",
+      "name": "Fading Power",
+      "description": "Once powerful, now diminished",
+      "likelihood": 2
+    }
+  ],
+  "magicalTradition": [
+    {
+      "id": "arcane",
+      "name": "Arcane",
+      "description": "Studies scholarly magic through logic",
+      "likelihood": 30
+    },
+    {
+      "id": "divine",
+      "name": "Divine",
+      "description": "Channels power from deity",
+      "likelihood": 25
+    },
+    {
+      "id": "occult",
+      "name": "Occult",
+      "description": "Draws on esoteric and psychic forces",
+      "likelihood": 15
+    },
+    {
+      "id": "primal",
+      "name": "Primal",
+      "description": "Connects to nature and instinct",
+      "likelihood": 20
+    },
+    {
+      "id": "mixed",
+      "name": "Mixed Tradition",
+      "description": "Combines multiple traditions",
+      "likelihood": 10
+    }
+  ],
+  "magicSource": [
+    {
+      "id": "study",
+      "name": "Studied Magic",
+      "description": "Learned through books and practice",
+      "likelihood": 25
+    },
+    {
+      "id": "inherited",
+      "name": "Inherited Power",
+      "description": "Born with magical bloodline",
+      "likelihood": 18
+    },
+    {
+      "id": "divine-gift",
+      "name": "Divine Gift",
+      "description": "Granted by deity",
+      "likelihood": 15
+    },
+    {
+      "id": "pact",
+      "name": "Pact",
+      "description": "Bargained for power",
+      "likelihood": 8
+    },
+    {
+      "id": "accident",
+      "name": "Magical Accident",
+      "description": "Gained through mishap or curse",
+      "likelihood": 7
+    },
+    {
+      "id": "artifact",
+      "name": "Artifact Dependence",
+      "description": "Power comes from magical item",
+      "likelihood": 6
+    },
+    {
+      "id": "natural-talent",
+      "name": "Natural Talent",
+      "description": "Inexplicable innate ability",
+      "likelihood": 12
+    },
+    {
+      "id": "awakened",
+      "name": "Awakened",
+      "description": "Trauma or experience unlocked power",
+      "likelihood": 9
+    },
+    {
+      "id": "stolen",
+      "name": "Stolen Power",
+      "description": "Took magic from another source",
+      "likelihood": 4
+    },
+    {
+      "id": "dragon-blood",
+      "name": "Draconic Heritage",
+      "description": "Descended from dragons",
+      "likelihood": 5
+    },
+    {
+      "id": "fey-touched",
+      "name": "Fey-Touched",
+      "description": "Influenced by fey magic",
+      "likelihood": 6
+    },
+    {
+      "id": "elemental",
+      "name": "Elemental Affinity",
+      "description": "Connected to elemental forces",
+      "likelihood": 7
+    },
+    {
+      "id": "undead-touched",
+      "name": "Touched by Undeath",
+      "description": "Magic from death and shadow",
+      "likelihood": 4
+    },
+    {
+      "id": "star-blessed",
+      "name": "Star-Blessed",
+      "description": "Power from celestial bodies",
+      "likelihood": 3
+    },
+    {
+      "id": "ritual-initiation",
+      "name": "Ritual Initiation",
+      "description": "Awakened through ceremony",
+      "likelihood": 8
+    }
+  ],
+  "attitudeTowardMagic": [
+    {
+      "id": "fascinated",
+      "name": "Fascinated",
+      "description": "Obsessed with magical knowledge",
+      "likelihood": 12
+    },
+    {
+      "id": "fearful",
+      "name": "Fearful",
+      "description": "Distrusts and fears magic",
+      "likelihood": 18
+    },
+    {
+      "id": "pragmatic",
+      "name": "Pragmatic",
+      "description": "Sees magic as tool like any other",
+      "likelihood": 22
+    },
+    {
+      "id": "reverent",
+      "name": "Reverent",
+      "description": "Treats magic as sacred",
+      "likelihood": 11
+    },
+    {
+      "id": "envious",
+      "name": "Envious",
+      "description": "Wishes they had magical power",
+      "likelihood": 14
+    },
+    {
+      "id": "contemptuous",
+      "name": "Contemptuous",
+      "description": "Looks down on magic users",
+      "likelihood": 9
+    },
+    {
+      "id": "curious",
+      "name": "Curious",
+      "description": "Interested but cautious",
+      "likelihood": 16
+    },
+    {
+      "id": "indifferent",
+      "name": "Indifferent",
+      "description": "Doesn't care about magic",
+      "likelihood": 15
+    },
+    {
+      "id": "hostile",
+      "name": "Hostile",
+      "description": "Actively opposes magic",
+      "likelihood": 7
+    },
+    {
+      "id": "dependent",
+      "name": "Dependent",
+      "description": "Relies heavily on magic",
+      "likelihood": 10
+    },
+    {
+      "id": "traumatized",
+      "name": "Traumatized",
+      "description": "Hurt by magic in past",
+      "likelihood": 8
+    },
+    {
+      "id": "academic",
+      "name": "Academic Interest",
+      "description": "Studies magic intellectually",
+      "likelihood": 13
+    }
+  ],
+  "supernaturalConnections": [
+    {
+      "id": "haunted",
+      "name": "Haunted",
+      "description": "Followed by ghost or spirit",
+      "likelihood": 7
+    },
+    {
+      "id": "cursed",
+      "name": "Cursed",
+      "description": "Suffers from magical curse",
+      "likelihood": 8
+    },
+    {
+      "id": "blessed",
+      "name": "Blessed",
+      "description": "Touched by divine favor",
+      "likelihood": 6
+    },
+    {
+      "id": "prophetic-dreams",
+      "name": "Prophetic Dreams",
+      "description": "Receives visions in sleep",
+      "likelihood": 9
+    },
+    {
+      "id": "spirit-medium",
+      "name": "Spirit Medium",
+      "description": "Can communicate with dead",
+      "likelihood": 5
+    },
+    {
+      "id": "fey-marked",
+      "name": "Fey Marked",
+      "description": "Bears mark of fey encounter",
+      "likelihood": 6
+    },
+    {
+      "id": "demon-marked",
+      "name": "Demon Marked",
+      "description": "Touched by fiendish power",
+      "likelihood": 4
+    },
+    {
+      "id": "angel-touched",
+      "name": "Angel Touched",
+      "description": "Blessed by celestial being",
+      "likelihood": 5
+    },
+    {
+      "id": "destined",
+      "name": "Destined",
+      "description": "Subject of prophecy",
+      "likelihood": 4
+    },
+    {
+      "id": "reincarnated",
+      "name": "Reincarnated Soul",
+      "description": "Memories of past lives",
+      "likelihood": 3
+    },
+    {
+      "id": "familiar",
+      "name": "Has Familiar",
+      "description": "Bonded with magical creature",
+      "likelihood": 6
+    },
+    {
+      "id": "lycanthropy",
+      "name": "Lycanthrope",
+      "description": "Cursed or blessed with shapeshifting",
+      "likelihood": 2
+    },
+    {
+      "id": "vampire-spawn",
+      "name": "Vampire Spawn",
+      "description": "Turned into vampire thrall",
+      "likelihood": 1
+    },
+    {
+      "id": "lich-apprentice",
+      "name": "Lich's Apprentice",
+      "description": "Studies under undead master",
+      "likelihood": 1
+    },
+    {
+      "id": "dragon-sworn",
+      "name": "Dragon Sworn",
+      "description": "Serves dragon patron",
+      "likelihood": 3
+    },
+    {
+      "id": "elemental-bonded",
+      "name": "Elemental Bonded",
+      "description": "Connection to elemental plane",
+      "likelihood": 4
+    },
+    {
+      "id": "psychic-sensitive",
+      "name": "Psychic Sensitive",
+      "description": "Senses thoughts and emotions",
+      "likelihood": 7
+    },
+    {
+      "id": "aura-sight",
+      "name": "Aura Sight",
+      "description": "Can see magical auras",
+      "likelihood": 5
+    },
+    {
+      "id": "magic-null",
+      "name": "Magic Null",
+      "description": "Suppresses nearby magic",
+      "likelihood": 3
+    },
+    {
+      "id": "wild-magic",
+      "name": "Wild Magic Touched",
+      "description": "Causes magical anomalies",
+      "likelihood": 4
+    }
+  ],
+  "magicalEducation": [
+    {
+      "id": "academy-trained",
+      "name": "Academy Trained",
+      "description": "Formal magical education",
+      "likelihood": 25
+    },
+    {
+      "id": "apprenticed",
+      "name": "Apprenticed",
+      "description": "Learned from master",
+      "likelihood": 30
+    },
+    {
+      "id": "self-taught",
+      "name": "Self-Taught",
+      "description": "Learned from books alone",
+      "likelihood": 15
+    },
+    {
+      "id": "oral-tradition",
+      "name": "Oral Tradition",
+      "description": "Cultural magical practices",
+      "likelihood": 12
+    },
+    {
+      "id": "divine-instruction",
+      "name": "Divine Instruction",
+      "description": "Taught directly by deity or agent",
+      "likelihood": 8
+    },
+    {
+      "id": "trial-error",
+      "name": "Trial and Error",
+      "description": "Learned through experimentation",
+      "likelihood": 10
+    },
+    {
+      "id": "forbidden-knowledge",
+      "name": "Forbidden Knowledge",
+      "description": "Learned dark or banned magic",
+      "likelihood": 5
+    },
+    {
+      "id": "incomplete-training",
+      "name": "Incomplete Training",
+      "description": "Started but never finished education",
+      "likelihood": 8
+    },
+    {
+      "id": "ancient-texts",
+      "name": "Ancient Texts",
+      "description": "Deciphered old magical writings",
+      "likelihood": 7
+    },
+    {
+      "id": "dream-lessons",
+      "name": "Dream Lessons",
+      "description": "Learns magic in dreams",
+      "likelihood": 4
+    }
+  ],
+  "magicalSpecialization": [
+    {
+      "id": "evocation",
+      "name": "Evocation",
+      "description": "Specializes in destructive magic",
+      "likelihood": 16
+    },
+    {
+      "id": "illusion",
+      "name": "Illusion",
+      "description": "Master of deception magic",
+      "likelihood": 12
+    },
+    {
+      "id": "divination",
+      "name": "Divination",
+      "description": "Sees past and future",
+      "likelihood": 10
+    },
+    {
+      "id": "enchantment",
+      "name": "Enchantment",
+      "description": "Controls minds and emotions",
+      "likelihood": 11
+    },
+    {
+      "id": "necromancy",
+      "name": "Necromancy",
+      "description": "Commands death and undeath",
+      "likelihood": 8
+    },
+    {
+      "id": "transmutation",
+      "name": "Transmutation",
+      "description": "Changes and alters reality",
+      "likelihood": 13
+    },
+    {
+      "id": "conjuration",
+      "name": "Conjuration",
+      "description": "Summons and creates",
+      "likelihood": 14
+    },
+    {
+      "id": "abjuration",
+      "name": "Abjuration",
+      "description": "Protects and wards",
+      "likelihood": 12
+    },
+    {
+      "id": "healing",
+      "name": "Healing Magic",
+      "description": "Focuses on restoration",
+      "likelihood": 15
+    },
+    {
+      "id": "elemental",
+      "name": "Elemental Magic",
+      "description": "Commands elements",
+      "likelihood": 14
+    },
+    {
+      "id": "chronomancy",
+      "name": "Chronomancy",
+      "description": "Manipulates time",
+      "likelihood": 4
+    },
+    {
+      "id": "dimensional",
+      "name": "Dimensional Magic",
+      "description": "Opens portals and travels planes",
+      "likelihood": 6
+    },
+    {
+      "id": "generalist",
+      "name": "Generalist",
+      "description": "No particular focus",
+      "likelihood": 18
+    },
+    {
+      "id": "ritual-magic",
+      "name": "Ritual Magic",
+      "description": "Specializes in ceremonies",
+      "likelihood": 9
+    },
+    {
+      "id": "wild-magic",
+      "name": "Wild Magic",
+      "description": "Chaotic and unpredictable",
+      "likelihood": 5
+    }
+  ]
+}

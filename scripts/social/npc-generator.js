@@ -63,7 +63,19 @@ export class NPCGenerator {
         sensorySignatureData,
         healthConditionsData,
         relationshipDynamicsData,
-        professionalExpertiseData
+        professionalExpertiseData,
+        factionAffiliationsData,
+        romanticPreferencesData,
+        religiousBeliefsData,
+        hobbiesData,
+        educationData,
+        combatStyleData,
+        magicalTraditionsData,
+        familyGenerationData,
+        groupDynamicsData,
+        characterDevelopmentData,
+        questChainsData,
+        relationshipProgressionData
       ] = await Promise.all([
         DataLoader.loadJSON("data/social/npc/moods.json"),
         DataLoader.loadJSON("data/social/npc/personalities.json"),
@@ -94,7 +106,19 @@ export class NPCGenerator {
         DataLoader.loadJSON("data/social/npc/sensory-signature.json"),
         DataLoader.loadJSON("data/social/npc/health-conditions.json"),
         DataLoader.loadJSON("data/social/npc/relationship-dynamics.json"),
-        DataLoader.loadJSON("data/social/npc/professional-expertise.json")
+        DataLoader.loadJSON("data/social/npc/professional-expertise.json"),
+        DataLoader.loadJSON("data/social/npc/faction-affiliations.json"),
+        DataLoader.loadJSON("data/social/npc/romantic-preferences.json"),
+        DataLoader.loadJSON("data/social/npc/religious-beliefs.json"),
+        DataLoader.loadJSON("data/social/npc/hobbies.json"),
+        DataLoader.loadJSON("data/social/npc/education.json"),
+        DataLoader.loadJSON("data/social/npc/combat-style.json"),
+        DataLoader.loadJSON("data/social/npc/magical-traditions.json"),
+        DataLoader.loadJSON("data/social/npc/family-generation.json"),
+        DataLoader.loadJSON("data/social/npc/group-dynamics.json"),
+        DataLoader.loadJSON("data/social/npc/character-development.json"),
+        DataLoader.loadJSON("data/social/npc/quest-chains.json"),
+        DataLoader.loadJSON("data/social/npc/relationship-progression.json")
       ]);
 
       if (!moodsData || !personalitiesData || !mannerismsData || !motivationsData || !quirksData) {
@@ -231,6 +255,42 @@ export class NPCGenerator {
       // Generate story hooks (quests they can offer)
       const storyHooks = this.generateStoryHooks(plotHooks, currentSituation, occupation, relationships, economics, secrets, detailLevel);
 
+      // Generate faction affiliations and political leanings
+      const factionInfo = this.generateFactionAffiliations(factionAffiliationsData, occupation, psychology, lifeHistory, detailLevel);
+
+      // Generate romantic preferences and relationship history
+      const romanticInfo = this.generateRomanticPreferences(romanticPreferencesData, age, psychology, lifeHistory, detailLevel);
+
+      // Generate religious beliefs and practices
+      const religiousInfo = this.generateReligiousBeliefs(religiousBeliefsData, ancestry, occupation, psychology, detailLevel);
+
+      // Generate hobbies and recreational activities
+      const hobbies = this.generateHobbies(hobbiesData, occupation, psychology, economics, detailLevel);
+
+      // Generate education and learning background
+      const education = this.generateEducation(educationData, occupation, socialClass, ancestry, detailLevel);
+
+      // Generate combat style and fighting philosophy
+      const combatStyle = this.generateCombatStyle(combatStyleData, occupation, psychology, lifeHistory, detailLevel);
+
+      // Generate magical traditions and supernatural connections
+      const magicalInfo = this.generateMagicalTraditions(magicalTraditionsData, occupation, ancestry, psychology, detailLevel);
+
+      // Generate family information
+      const family = this.generateFamily(familyGenerationData, age, occupation, lifeHistory, ancestry, detailLevel);
+
+      // Generate potential group role (if part of organization)
+      const groupRole = this.generateGroupRole(groupDynamicsData, occupation, personalities, detailLevel);
+
+      // Initialize character development tracking
+      const developmentTracking = this.initializeDevelopmentTracking(characterDevelopmentData, psychology, plotHooks, detailLevel);
+
+      // Generate potential quest they can offer
+      const questInfo = this.generateQuestInfo(questChainsData, occupation, plotHooks, currentSituation, detailLevel);
+
+      // Initialize relationship progression system
+      const relationshipTracking = this.initializeRelationshipTracking(relationshipProgressionData, personalities, emotionalTriggers);
+
       // Build NPC seed
       const seed = {
         name,
@@ -264,6 +324,18 @@ export class NPCGenerator {
         dialogueSamples,
         voiceTemplate,
         storyHooks,
+        factionInfo,
+        romanticInfo,
+        religiousInfo,
+        hobbies,
+        education,
+        combatStyle,
+        magicalInfo,
+        family,
+        groupRole,
+        developmentTracking,
+        questInfo,
+        relationshipTracking,
         sessionTracking: this.initializeSessionTracking(),
         detailLevel,
         actor: params.actor,
@@ -3017,5 +3089,541 @@ export class NPCGenerator {
       includeFullSeed: false,
       publicBio: ""
     });
+  }
+
+  /**
+   * Generate faction affiliations and political leanings
+   * @param {Object} data - Faction affiliations data
+   * @param {Object} occupation - Character occupation
+   * @param {Object} psychology - Character psychology
+   * @param {Object} lifeHistory - Character life history
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Faction affiliations and political leanings
+   */
+  static generateFactionAffiliations(data, occupation, psychology, lifeHistory, detailLevel) {
+    if (!data) return null;
+
+    // 70% chance of having a faction affiliation
+    const hasFaction = Math.random() < 0.7;
+    const faction = hasFaction ? RandomUtils.selectWeighted(data.factions, "likelihood") : null;
+
+    // Everyone has some political leaning, even if apolitical
+    const politicalLeaning = RandomUtils.selectWeighted(data.politicalLeanings, "likelihood");
+
+    // Determine loyalty level if affiliated with faction
+    let loyaltyLevel = null;
+    if (hasFaction) {
+      const loyaltyLevels = ["devoted", "loyal", "committed", "casual", "wavering", "conflicted"];
+      loyaltyLevel = RandomUtils.selectFromArray(loyaltyLevels);
+    }
+
+    return {
+      faction,
+      politicalLeaning,
+      loyaltyLevel,
+      hasHiddenAffiliation: hasFaction && Math.random() < 0.15 // 15% chance of secret membership
+    };
+  }
+
+  /**
+   * Generate romantic preferences and relationship history
+   * @param {Object} data - Romantic preferences data
+   * @param {number} age - Character age
+   * @param {Object} psychology - Character psychology
+   * @param {Object} lifeHistory - Character life history
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Romantic preferences and history
+   */
+  static generateRomanticPreferences(data, age, psychology, lifeHistory, detailLevel) {
+    if (!data) return null;
+
+    const orientation = RandomUtils.selectWeighted(data.romanticOrientation, "likelihood");
+    const relationshipHistory = RandomUtils.selectWeighted(data.relationshipHistory, "likelihood");
+
+    // Select attraction types based on detail level
+    const numAttractionTypes = detailLevel === "cinematic" ? 2 : 1;
+    const attractionTypes = RandomUtils.selectWeighted(data.attractionTypes, "likelihood", numAttractionTypes);
+
+    // 40% chance of having a past heartbreak that still affects them
+    const pastHeartbreak = Math.random() < 0.4 ? RandomUtils.selectWeighted(data.pastHeartbreak, "likelihood") : null;
+
+    // Current relationship status
+    let currentStatus = "single";
+    if (relationshipHistory.id === "married" || relationshipHistory.id === "widowed" ||
+        relationshipHistory.id === "complicated" || relationshipHistory.id === "polyamorous") {
+      currentStatus = relationshipHistory.id;
+    } else if (Math.random() < 0.3) {
+      currentStatus = RandomUtils.selectFromArray(["single", "dating", "courting", "engaged"]);
+    }
+
+    return {
+      orientation,
+      relationshipHistory,
+      attractionTypes: Array.isArray(attractionTypes) ? attractionTypes : [attractionTypes],
+      pastHeartbreak,
+      currentStatus,
+      openToRomance: Math.random() < 0.6 // 60% are open to romantic interactions
+    };
+  }
+
+  /**
+   * Generate religious beliefs and practices
+   * @param {Object} data - Religious beliefs data
+   * @param {string} ancestry - Character ancestry
+   * @param {Object} occupation - Character occupation
+   * @param {Object} psychology - Character psychology
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Religious beliefs and practices
+   */
+  static generateReligiousBeliefs(data, ancestry, occupation, psychology, detailLevel) {
+    if (!data) return null;
+
+    // 85% chance of having some religious belief
+    const hasReligion = Math.random() < 0.85;
+
+    let deity = null;
+    let devotionLevel = null;
+    let religiousAttitude = null;
+    let practices = [];
+
+    if (hasReligion) {
+      // Filter deities by ancestry if they have ancestry preferences
+      const filteredDeities = data.deities.filter(d =>
+        d.ancestries.includes("all") || d.ancestries.includes(ancestry)
+      );
+      deity = RandomUtils.selectWeighted(filteredDeities, "likelihood");
+      devotionLevel = RandomUtils.selectWeighted(data.devotionLevel, "likelihood");
+      religiousAttitude = RandomUtils.selectWeighted(data.religiousAttitudes, "likelihood");
+
+      // Select practices based on devotion level
+      let numPractices = 1;
+      if (devotionLevel.id === "fanatical" || devotionLevel.id === "devout") {
+        numPractices = detailLevel === "cinematic" ? 3 : 2;
+      } else if (devotionLevel.id === "observant") {
+        numPractices = 2;
+      }
+      practices = RandomUtils.selectWeighted(data.religiousPractices, "likelihood", numPractices);
+      practices = Array.isArray(practices) ? practices : [practices];
+    } else {
+      // Non-believer
+      const nonBeliever = RandomUtils.selectWeighted(data.nonBelievers, "likelihood");
+      deity = null;
+      devotionLevel = nonBeliever;
+      religiousAttitude = null;
+      practices = [];
+    }
+
+    return {
+      deity,
+      devotionLevel,
+      religiousAttitude,
+      practices,
+      hasReligion
+    };
+  }
+
+  /**
+   * Generate hobbies and recreational activities
+   * @param {Object} data - Hobbies data
+   * @param {Object} occupation - Character occupation
+   * @param {Object} psychology - Character psychology
+   * @param {Object} economics - Character economic status
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Hobbies and recreational activities
+   */
+  static generateHobbies(data, occupation, psychology, economics, detailLevel) {
+    if (!data) return null;
+
+    // Number of hobbies based on detail level and social class
+    let numHobbies = detailLevel === "cinematic" ? 3 : 2;
+
+    // Poor people might have fewer hobbies due to time/money constraints
+    if (economics?.wealthLevel?.id === "destitute" || economics?.wealthLevel?.id === "poor") {
+      numHobbies = Math.max(1, numHobbies - 1);
+    }
+
+    const hobbies = RandomUtils.selectWeighted(data.hobbies, "likelihood", numHobbies);
+    const hobbiesArray = Array.isArray(hobbies) ? hobbies : [hobbies];
+
+    return {
+      hobbies: hobbiesArray,
+      primaryHobby: hobbiesArray[0], // The one they're most passionate about
+      hasTimeForHobbies: economics?.wealthLevel?.id !== "destitute"
+    };
+  }
+
+  /**
+   * Generate education and learning background
+   * @param {Object} data - Education data
+   * @param {Object} occupation - Character occupation
+   * @param {Object} socialClass - Character social class
+   * @param {string} ancestry - Character ancestry
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Education and learning background
+   */
+  static generateEducation(data, occupation, socialClass, ancestry, detailLevel) {
+    if (!data) return null;
+
+    // Education level somewhat influenced by social class
+    let educationLevel = RandomUtils.selectWeighted(data.educationLevel, "likelihood");
+
+    // Select areas of knowledge based on occupation and education
+    const numKnowledgeAreas = detailLevel === "cinematic" ? 3 : 2;
+    const knowledgeAreas = RandomUtils.selectWeighted(data.areasOfKnowledge, "likelihood", numKnowledgeAreas);
+
+    const learningStyle = RandomUtils.selectWeighted(data.learningStyles, "likelihood");
+    const teachingAbility = RandomUtils.selectWeighted(data.teachingAbility, "likelihood");
+    const curiosity = RandomUtils.selectWeighted(data.intellectualCuriosity, "likelihood");
+
+    return {
+      educationLevel,
+      knowledgeAreas: Array.isArray(knowledgeAreas) ? knowledgeAreas : [knowledgeAreas],
+      learningStyle,
+      teachingAbility,
+      curiosity,
+      isScholar: educationLevel.id === "university-scholar" || educationLevel.id === "specialized-expert"
+    };
+  }
+
+  /**
+   * Generate combat style and fighting philosophy
+   * @param {Object} data - Combat style data
+   * @param {Object} occupation - Character occupation
+   * @param {Object} psychology - Character psychology
+   * @param {Object} lifeHistory - Character life history
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Combat style and fighting philosophy
+   */
+  static generateCombatStyle(data, occupation, psychology, lifeHistory, detailLevel) {
+    if (!data) return null;
+
+    const combatTraining = RandomUtils.selectWeighted(data.combatTraining, "likelihood");
+
+    // Only generate detailed combat info if they have some training
+    let fightingStyle = null;
+    let weaponPreference = null;
+    let combatPhilosophy = null;
+    let combatMentality = null;
+    let combatExperience = null;
+
+    if (combatTraining.id !== "untrained" && combatTraining.id !== "basic-survival") {
+      fightingStyle = RandomUtils.selectWeighted(data.fightingStyles, "likelihood");
+      weaponPreference = RandomUtils.selectWeighted(data.weaponPreferences, "likelihood");
+      combatPhilosophy = RandomUtils.selectWeighted(data.combatPhilosophy, "likelihood");
+      combatMentality = RandomUtils.selectWeighted(data.combatMentality, "likelihood");
+      combatExperience = RandomUtils.selectWeighted(data.combatExperience, "likelihood");
+    }
+
+    return {
+      combatTraining,
+      fightingStyle,
+      weaponPreference,
+      combatPhilosophy,
+      combatMentality,
+      combatExperience,
+      isCombatant: combatTraining.id !== "untrained"
+    };
+  }
+
+  /**
+   * Generate magical traditions and supernatural connections
+   * @param {Object} data - Magical traditions data
+   * @param {Object} occupation - Character occupation
+   * @param {string} ancestry - Character ancestry
+   * @param {Object} psychology - Character psychology
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Magical traditions and supernatural connections
+   */
+  static generateMagicalTraditions(data, occupation, ancestry, psychology, detailLevel) {
+    if (!data) return null;
+
+    const magicalAbility = RandomUtils.selectWeighted(data.magicalAbility, "likelihood");
+
+    let tradition = null;
+    let source = null;
+    let education = null;
+    let specialization = null;
+    let supernaturalConnection = null;
+
+    // Only generate detailed magical info if they have magical ability
+    if (magicalAbility.id !== "none") {
+      tradition = RandomUtils.selectWeighted(data.magicalTradition, "likelihood");
+      source = RandomUtils.selectWeighted(data.magicSource, "likelihood");
+
+      if (magicalAbility.id !== "latent" && magicalAbility.id !== "wild-talent") {
+        education = RandomUtils.selectWeighted(data.magicalEducation, "likelihood");
+        specialization = RandomUtils.selectWeighted(data.magicalSpecialization, "likelihood");
+      }
+    }
+
+    // 20% chance of having some supernatural connection regardless of magical ability
+    if (Math.random() < 0.2) {
+      supernaturalConnection = RandomUtils.selectWeighted(data.supernaturalConnections, "likelihood");
+    }
+
+    const attitudeTowardMagic = RandomUtils.selectWeighted(data.attitudeTowardMagic, "likelihood");
+
+    return {
+      magicalAbility,
+      tradition,
+      source,
+      education,
+      specialization,
+      supernaturalConnection,
+      attitudeTowardMagic,
+      isCaster: magicalAbility.id !== "none" && magicalAbility.id !== "latent"
+    };
+  }
+
+  /**
+   * Generate family information
+   * @param {Object} data - Family generation data
+   * @param {number} age - Character age
+   * @param {Object} occupation - Character occupation
+   * @param {Object} lifeHistory - Character life history
+   * @param {string} ancestry - Character ancestry
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Family information
+   */
+  static generateFamily(data, age, occupation, lifeHistory, ancestry, detailLevel) {
+    if (!data) return null;
+
+    const familyStatus = RandomUtils.selectWeighted(data.familyStatus, "likelihood");
+    const siblings = RandomUtils.selectWeighted(data.siblings, "likelihood");
+    const siblingRelationship = siblings.id !== "only-child" ?
+      RandomUtils.selectWeighted(data.siblingRelationships, "likelihood") : null;
+
+    // Parent relationships
+    const parentalRelationship = RandomUtils.selectWeighted(data.parentalRelationships, "likelihood");
+
+    // Children (age dependent)
+    let childrenStatus = null;
+    if (age >= 20) {
+      childrenStatus = RandomUtils.selectWeighted(data.childrenStatus, "likelihood");
+    } else {
+      childrenStatus = { id: "no-children", name: "No Children" };
+    }
+
+    // Parenting style if they have children
+    let parentingStyle = null;
+    if (childrenStatus.id !== "no-children" && childrenStatus.id !== "expecting") {
+      parentingStyle = RandomUtils.selectWeighted(data.parentingStyles, "likelihood");
+    }
+
+    // 30% chance of having a family secret
+    const familySecret = Math.random() < 0.3 ?
+      RandomUtils.selectWeighted(data.familySecrets, "likelihood") : null;
+
+    const familyTradition = RandomUtils.selectWeighted(data.familyTraditions, "likelihood");
+    const familyReputation = RandomUtils.selectWeighted(data.familyReputation, "likelihood");
+
+    return {
+      familyStatus,
+      siblings,
+      siblingRelationship,
+      parentalRelationship,
+      childrenStatus,
+      parentingStyle,
+      familySecret,
+      familyTradition,
+      familyReputation,
+      hasLivingFamily: familyStatus.id !== "orphan" && familyStatus.id !== "lone-survivor"
+    };
+  }
+
+  /**
+   * Generate group role (if part of an organization)
+   * @param {Object} data - Group dynamics data
+   * @param {Object} occupation - Character occupation
+   * @param {Array} personalities - Character personalities
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Group role information
+   */
+  static generateGroupRole(data, occupation, personalities, detailLevel) {
+    if (!data) return null;
+
+    // 60% chance of being part of some group
+    const isPartOfGroup = Math.random() < 0.6;
+
+    if (!isPartOfGroup) {
+      return {
+        isPartOfGroup: false,
+        role: null,
+        cohesion: null,
+        conflict: null,
+        bond: null
+      };
+    }
+
+    const role = RandomUtils.selectWeighted(data.groupRoles, "likelihood");
+    const cohesion = RandomUtils.selectWeighted(data.groupCohesion, "likelihood");
+
+    // 50% chance of having inter-group conflict
+    const conflict = Math.random() < 0.5 ?
+      RandomUtils.selectWeighted(data.interGroupConflicts, "likelihood") : null;
+
+    const bond = RandomUtils.selectWeighted(data.groupBonds, "likelihood");
+    const purpose = RandomUtils.selectWeighted(data.groupPurposes, "likelihood");
+
+    // Leadership style if they're a leader
+    let leadershipStyle = null;
+    if (role.id === "leader" || role.id === "commander" || role.id === "coordinator") {
+      leadershipStyle = RandomUtils.selectWeighted(data.leadershipStyles, "likelihood");
+    }
+
+    // 25% chance of the group having a secret
+    const groupSecret = Math.random() < 0.25 ?
+      RandomUtils.selectWeighted(data.groupSecrets, "likelihood") : null;
+
+    return {
+      isPartOfGroup: true,
+      role,
+      cohesion,
+      conflict,
+      bond,
+      purpose,
+      leadershipStyle,
+      groupSecret
+    };
+  }
+
+  /**
+   * Initialize character development tracking
+   * @param {Object} data - Character development data
+   * @param {Object} psychology - Character psychology
+   * @param {Array} plotHooks - Character plot hooks
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Development tracking information
+   */
+  static initializeDevelopmentTracking(data, psychology, plotHooks, detailLevel) {
+    if (!data) return null;
+
+    // Select a potential development arc for this character
+    const potentialArc = RandomUtils.selectWeighted(data.developmentArcs, "likelihood");
+
+    // Select relationship progression type
+    const relationshipProgression = RandomUtils.selectWeighted(data.relationshipProgressions, "likelihood");
+
+    // 40% chance of being open to belief change
+    const beliefChange = Math.random() < 0.4 ?
+      RandomUtils.selectWeighted(data.beliefChanges, "likelihood") : null;
+
+    // Skill progression
+    const skillProgression = RandomUtils.selectWeighted(data.skillProgression, "likelihood");
+
+    // 30% chance of active reputation change
+    const reputationChange = Math.random() < 0.3 ?
+      RandomUtils.selectWeighted(data.reputationChanges, "likelihood") : null;
+
+    const personalGrowth = RandomUtils.selectWeighted(data.personalGrowthAreas, "likelihood");
+
+    return {
+      potentialArc,
+      currentStage: potentialArc.stages ? potentialArc.stages[0] : "beginning",
+      relationshipProgression,
+      beliefChange,
+      skillProgression,
+      reputationChange,
+      personalGrowth,
+      milestoneReached: [],
+      arcProgress: 0 // 0-100 scale
+    };
+  }
+
+  /**
+   * Generate quest information
+   * @param {Object} data - Quest chains data
+   * @param {Object} occupation - Character occupation
+   * @param {Array} plotHooks - Character plot hooks
+   * @param {Object} currentSituation - Character's current situation
+   * @param {string} detailLevel - Detail level
+   * @returns {Object} Quest information
+   */
+  static generateQuestInfo(data, occupation, plotHooks, currentSituation, detailLevel) {
+    if (!data) return null;
+
+    // 70% chance of being able to offer a quest
+    const canOfferQuest = Math.random() < 0.7;
+
+    if (!canOfferQuest) {
+      return {
+        canOfferQuest: false,
+        questType: null,
+        motivation: null
+      };
+    }
+
+    const questType = RandomUtils.selectWeighted(data.questTypes, "likelihood");
+    const chainStructure = RandomUtils.selectWeighted(data.questChainStructures, "likelihood");
+    const rewardType = RandomUtils.selectWeighted(data.questRewards, "likelihood");
+
+    // 40% chance of quest having complications
+    const complication = Math.random() < 0.4 ?
+      RandomUtils.selectWeighted(data.questComplications, "likelihood") : null;
+
+    const motivation = RandomUtils.selectWeighted(data.questGiverMotivations, "likelihood");
+
+    // Determine current quest status if they've already given out a quest
+    const hasOngoingQuest = Math.random() < 0.3; // 30% chance
+    const ongoingStatus = hasOngoingQuest ?
+      RandomUtils.selectWeighted(data.ongoingQuestStatus, "likelihood") : null;
+
+    return {
+      canOfferQuest: true,
+      questType,
+      chainStructure,
+      rewardType,
+      complication,
+      motivation,
+      hasOngoingQuest,
+      ongoingStatus,
+      questsCompleted: hasOngoingQuest ? Math.floor(Math.random() * 3) : 0
+    };
+  }
+
+  /**
+   * Initialize relationship progression tracking
+   * @param {Object} data - Relationship progression data
+   * @param {Array} personalities - Character personalities
+   * @param {Object} emotionalTriggers - Character emotional triggers
+   * @returns {Object} Relationship tracking information
+   */
+  static initializeRelationshipTracking(data, personalities, emotionalTriggers) {
+    if (!data) return null;
+
+    // Start at indifferent by default
+    const initialAttitude = data.attitudeLevels.find(a => a.id === "indifferent");
+
+    // Select trust level (starts cautious or neutral)
+    const trustOptions = data.trustLevels.filter(t =>
+      t.id === "cautious" || t.id === "neutral-trust"
+    );
+    const initialTrust = RandomUtils.selectFromArray(trustOptions);
+
+    // Determine what might trigger loyalty
+    const loyaltyTrigger = RandomUtils.selectWeighted(data.loyaltyTriggers, "likelihood");
+
+    // Determine what might trigger betrayal
+    const betrayalTrigger = RandomUtils.selectWeighted(data.betrayalTriggers, "likelihood");
+
+    // How easy are they to reconcile with if wronged?
+    const reconciliationPath = RandomUtils.selectWeighted(data.reconciliationPaths, "likelihood");
+
+    return {
+      currentAttitude: initialAttitude,
+      currentTrust: initialTrust,
+      relationshipPoints: 0, // Starts at 0
+      loyaltyTrigger,
+      betrayalTrigger,
+      reconciliationPath,
+      milestones: [], // Track which milestones have been hit
+      attitudeHistory: [
+        {
+          attitude: initialAttitude.id,
+          timestamp: Date.now(),
+          reason: "Initial meeting"
+        }
+      ]
+    };
   }
 }

@@ -1,0 +1,309 @@
+{
+  "questTypes": [
+    {
+      "id": "fetch-quest",
+      "name": "Fetch Quest",
+      "description": "Retrieve item or information",
+      "stages": 3,
+      "rewards": ["gold", "item", "information"]
+    },
+    {
+      "id": "escort-mission",
+      "name": "Escort Mission",
+      "description": "Protect someone on journey",
+      "stages": 4,
+      "rewards": ["gold", "reputation", "ally"]
+    },
+    {
+      "id": "investigation",
+      "name": "Investigation",
+      "description": "Solve mystery or crime",
+      "stages": 5,
+      "rewards": ["information", "reputation", "enemies"]
+    },
+    {
+      "id": "assassination",
+      "name": "Assassination",
+      "description": "Eliminate specific target",
+      "stages": 4,
+      "rewards": ["gold", "infamy", "enemies"]
+    },
+    {
+      "id": "rescue-mission",
+      "name": "Rescue Mission",
+      "description": "Save someone from danger",
+      "stages": 4,
+      "rewards": ["ally", "reputation", "information"]
+    },
+    {
+      "id": "heist",
+      "name": "Heist",
+      "description": "Steal valuable object",
+      "stages": 5,
+      "rewards": ["treasure", "infamy", "enemies"]
+    },
+    {
+      "id": "diplomatic-mission",
+      "name": "Diplomatic Mission",
+      "description": "Negotiate between factions",
+      "stages": 4,
+      "rewards": ["reputation", "allies", "gold"]
+    },
+    {
+      "id": "monster-hunt",
+      "name": "Monster Hunt",
+      "description": "Track and slay dangerous creature",
+      "stages": 3,
+      "rewards": ["gold", "reputation", "trophy"]
+    },
+    {
+      "id": "dungeon-delve",
+      "name": "Dungeon Delve",
+      "description": "Explore dangerous location",
+      "stages": 5,
+      "rewards": ["treasure", "magic-items", "knowledge"]
+    },
+    {
+      "id": "faction-war",
+      "name": "Faction Conflict",
+      "description": "Choose side in ongoing conflict",
+      "stages": 6,
+      "rewards": ["power", "allies", "enemies"]
+    }
+  ],
+  "questChainStructures": [
+    {
+      "id": "linear-escalation",
+      "name": "Linear Escalation",
+      "description": "Each quest bigger than last",
+      "structure": ["Small favor", "Medium task", "Major mission", "Epic conclusion"]
+    },
+    {
+      "id": "branching-paths",
+      "name": "Branching Paths",
+      "description": "Player choices change quest direction",
+      "structure": ["Initial quest", "Choice A or B", "Path-specific quests", "Convergent finale"]
+    },
+    {
+      "id": "mystery-unfolding",
+      "name": "Unfolding Mystery",
+      "description": "Each quest reveals more of larger plot",
+      "structure": ["Strange occurrence", "Clues discovered", "Conspiracy revealed", "Confronting mastermind"]
+    },
+    {
+      "id": "relationship-building",
+      "name": "Relationship Building",
+      "description": "Quests deepen bond with NPC",
+      "structure": ["Meet NPC", "Small favor", "Personal quest", "Life-or-death stakes", "Permanent ally"]
+    },
+    {
+      "id": "timed-sequence",
+      "name": "Timed Sequence",
+      "description": "Must complete quests before deadline",
+      "structure": ["Prophecy/Warning", "Gathering resources", "Preparation montage", "Final confrontation"]
+    }
+  ],
+  "questRewards": [
+    {
+      "id": "gold",
+      "name": "Gold Reward",
+      "description": "Monetary payment",
+      "amounts": ["small", "moderate", "generous", "fortune"]
+    },
+    {
+      "id": "magic-item",
+      "name": "Magic Item",
+      "description": "Enchanted equipment",
+      "tiers": ["common", "uncommon", "rare", "legendary"]
+    },
+    {
+      "id": "information",
+      "name": "Information",
+      "description": "Valuable knowledge",
+      "types": ["rumor", "secret", "location", "weakness"]
+    },
+    {
+      "id": "reputation",
+      "name": "Reputation Boost",
+      "description": "Improved standing",
+      "scope": ["local", "regional", "national", "legendary"]
+    },
+    {
+      "id": "ally",
+      "name": "Loyal Ally",
+      "description": "NPC becomes available helper",
+      "types": ["information-broker", "fighter", "spellcaster", "craftsman"]
+    },
+    {
+      "id": "property",
+      "name": "Property",
+      "description": "Gain building or land",
+      "types": ["house", "shop", "fortress", "estate"]
+    },
+    {
+      "id": "title",
+      "name": "Title/Position",
+      "description": "Social advancement",
+      "ranks": ["knight", "officer", "noble", "ruler"]
+    },
+    {
+      "id": "curse-removal",
+      "name": "Curse Removal",
+      "description": "Breaking magical affliction",
+      "effect": "Removes ongoing penalty"
+    },
+    {
+      "id": "training",
+      "name": "Special Training",
+      "description": "Learn unique ability",
+      "types": ["combat-technique", "spell", "skill", "language"]
+    },
+    {
+      "id": "artifact",
+      "name": "Artifact Fragment",
+      "description": "Piece of powerful item",
+      "note": "Part of larger collection quest"
+    }
+  ],
+  "questComplications": [
+    {
+      "id": "rival-party",
+      "name": "Rival Adventurers",
+      "description": "Another group seeking same goal"
+    },
+    {
+      "id": "time-limit",
+      "name": "Time Pressure",
+      "description": "Must complete quickly"
+    },
+    {
+      "id": "betrayal",
+      "name": "Quest Giver Betrays",
+      "description": "NPC had ulterior motive"
+    },
+    {
+      "id": "moral-dilemma",
+      "name": "Moral Choice",
+      "description": "No clearly right answer"
+    },
+    {
+      "id": "innocent-involved",
+      "name": "Innocents at Risk",
+      "description": "Collateral damage possible"
+    },
+    {
+      "id": "incomplete-information",
+      "name": "Missing Information",
+      "description": "Quest giver didn't know full truth"
+    },
+    {
+      "id": "cursed-reward",
+      "name": "Cursed Reward",
+      "description": "Reward comes with price"
+    },
+    {
+      "id": "political-consequences",
+      "name": "Political Fallout",
+      "description": "Success angers powerful faction"
+    },
+    {
+      "id": "personal-connection",
+      "name": "Personal Stakes",
+      "description": "Target is related to party member"
+    },
+    {
+      "id": "false-target",
+      "name": "Wrong Target",
+      "description": "Real enemy was someone else"
+    }
+  ],
+  "questGiverMotivations": [
+    {
+      "id": "genuine-need",
+      "name": "Genuine Need",
+      "description": "Honestly needs help"
+    },
+    {
+      "id": "testing-party",
+      "name": "Testing Party",
+      "description": "Evaluating for bigger mission"
+    },
+    {
+      "id": "frame-party",
+      "name": "Setting Up",
+      "description": "Wants party to take blame"
+    },
+    {
+      "id": "eliminate-rival",
+      "name": "Eliminate Rival",
+      "description": "Using party as weapon"
+    },
+    {
+      "id": "recruit-cult",
+      "name": "Cult Recruitment",
+      "description": "First step in indoctrination"
+    },
+    {
+      "id": "distraction",
+      "name": "Distraction",
+      "description": "Keeps party busy elsewhere"
+    },
+    {
+      "id": "redemption",
+      "name": "Seeking Redemption",
+      "description": "Trying to right past wrong"
+    },
+    {
+      "id": "desperation",
+      "name": "Desperate",
+      "description": "Out of options"
+    },
+    {
+      "id": "tradition",
+      "name": "Tradition",
+      "description": "Cultural or religious obligation"
+    },
+    {
+      "id": "prophecy",
+      "name": "Fulfilling Prophecy",
+      "description": "Believes party is destined"
+    }
+  ],
+  "ongoingQuestStatus": [
+    {
+      "id": "accepted",
+      "name": "Accepted",
+      "description": "Party agreed to quest"
+    },
+    {
+      "id": "in-progress",
+      "name": "In Progress",
+      "description": "Actively working on it"
+    },
+    {
+      "id": "stalled",
+      "name": "Stalled",
+      "description": "Stuck or delayed"
+    },
+    {
+      "id": "failed",
+      "name": "Failed",
+      "description": "Unable to complete"
+    },
+    {
+      "id": "completed",
+      "name": "Completed",
+      "description": "Successfully finished"
+    },
+    {
+      "id": "betrayed",
+      "name": "Betrayed Quest Giver",
+      "description": "Turned against employer"
+    },
+    {
+      "id": "abandoned",
+      "name": "Abandoned",
+      "description": "Party gave up"
+    }
+  ]
+}
