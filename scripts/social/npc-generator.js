@@ -240,6 +240,7 @@ export class NPCGenerator {
         dialogueSamples,
         voiceTemplate,
         storyHooks,
+        sessionTracking: this.initializeSessionTracking(),
         detailLevel,
         actor: params.actor,
         timestamp: Date.now()
@@ -2317,5 +2318,172 @@ export class NPCGenerator {
   static selectRandom(array) {
     if (!array || array.length === 0) return null;
     return array[Math.floor(Math.random() * array.length)];
+  }
+
+  /**
+   * Initialize session tracking fields for GM use
+   * @returns {Object} Session tracking object
+   */
+  static initializeSessionTracking() {
+    return {
+      gmNotes: "",
+      pcRelationships: {
+        // Will be populated with PC names as keys
+        // Each PC gets: { attitude: 0, trust: 0, notes: "" }
+        // attitude: -10 (hostile) to +10 (friendly), default 0 (neutral)
+        // trust: 0 (no trust) to 10 (complete trust)
+      },
+      promisesMade: [],
+      // { promise: "description", to: "PC name", date: timestamp, kept: false }
+      threatsMade: [],
+      // { threat: "description", to: "PC name", date: timestamp, carried_out: false }
+      informationRevealed: [],
+      // { info: "description", to: "PC name", date: timestamp, tier: "surface/personal/intimate/deep" }
+      questsGiven: [],
+      // { quest: "description", to: "PC name", date: timestamp, status: "active/completed/failed/abandoned" }
+      sessionHistory: [],
+      // { session: number, date: timestamp, summary: "what happened", attitude_change: 0 }
+      lastSeen: null,
+      // timestamp of last interaction
+      currentDisposition: "neutral",
+      // current overall disposition: hostile/unfriendly/neutral/friendly/helpful
+      importantEvents: []
+      // { event: "description", date: timestamp, impact: "positive/negative/neutral" }
+    };
+  }
+
+  /**
+   * Update NPC attitude towards a PC
+   * @param {Object} npc - NPC seed object
+   * @param {string} pcName - Name of the PC
+   * @param {number} attitudeChange - Change in attitude (-10 to +10)
+   * @param {string} reason - Reason for the change
+   */
+  static updateAttitude(npc, pcName, attitudeChange, reason = "") {
+    if (!npc?.sessionTracking) return;
+
+    if (!npc.sessionTracking.pcRelationships[pcName]) {
+      npc.sessionTracking.pcRelationships[pcName] = {
+        attitude: 0,
+        trust: 0,
+        notes: ""
+      };
+    }
+
+    const rel = npc.sessionTracking.pcRelationships[pcName];
+    rel.attitude = Math.max(-10, Math.min(10, rel.attitude + attitudeChange));
+
+    if (reason) {
+      rel.notes += `\n[${new Date().toISOString().split('T')[0]}] ${reason} (${attitudeChange > 0 ? '+' : ''}${attitudeChange})`;
+    }
+
+    // Update overall disposition based on average attitude
+    this.updateOverallDisposition(npc);
+  }
+
+  /**
+   * Update overall disposition based on PC relationships
+   */
+  static updateOverallDisposition(npc) {
+    if (!npc?.sessionTracking?.pcRelationships) return;
+
+    const relationships = Object.values(npc.sessionTracking.pcRelationships);
+    if (relationships.length === 0) {
+      npc.sessionTracking.currentDisposition = "neutral";
+      return;
+    }
+
+    const avgAttitude = relationships.reduce((sum, rel) => sum + rel.attitude, 0) / relationships.length;
+
+    if (avgAttitude <= -6) npc.sessionTracking.currentDisposition = "hostile";
+    else if (avgAttitude <= -2) npc.sessionTracking.currentDisposition = "unfriendly";
+    else if (avgAttitude <= 2) npc.sessionTracking.currentDisposition = "neutral";
+    else if (avgAttitude <= 6) npc.sessionTracking.currentDisposition = "friendly";
+    else npc.sessionTracking.currentDisposition = "helpful";
+  }
+
+  /**
+   * Record a promise made by the NPC
+   */
+  static recordPromise(npc, promise, to, kept = false) {
+    if (!npc?.sessionTracking) return;
+
+    npc.sessionTracking.promisesMade.push({
+      promise,
+      to,
+      date: Date.now(),
+      kept
+    });
+  }
+
+  /**
+   * Record a threat made by the NPC
+   */
+  static recordThreat(npc, threat, to, carriedOut = false) {
+    if (!npc?.sessionTracking) return;
+
+    npc.sessionTracking.threatsMade.push({
+      threat,
+      to,
+      date: Date.now(),
+      carried_out: carriedOut
+    });
+  }
+
+  /**
+   * Record information revealed to a PC
+   */
+  static recordInformation(npc, info, to, tier = "surface") {
+    if (!npc?.sessionTracking) return;
+
+    npc.sessionTracking.informationRevealed.push({
+      info,
+      to,
+      date: Date.now(),
+      tier
+    });
+  }
+
+  /**
+   * Record a quest given
+   */
+  static recordQuest(npc, quest, to, status = "active") {
+    if (!npc?.sessionTracking) return;
+
+    npc.sessionTracking.questsGiven.push({
+      quest,
+      to,
+      date: Date.now(),
+      status
+    });
+  }
+
+  /**
+   * Record session interaction
+   */
+  static recordSession(npc, sessionNumber, summary, attitudeChange = 0) {
+    if (!npc?.sessionTracking) return;
+
+    npc.sessionTracking.sessionHistory.push({
+      session: sessionNumber,
+      date: Date.now(),
+      summary,
+      attitude_change: attitudeChange
+    });
+
+    npc.sessionTracking.lastSeen = Date.now();
+  }
+
+  /**
+   * Record an important event
+   */
+  static recordEvent(npc, event, impact = "neutral") {
+    if (!npc?.sessionTracking) return;
+
+    npc.sessionTracking.importantEvents.push({
+      event,
+      date: Date.now(),
+      impact
+    });
   }
 }
