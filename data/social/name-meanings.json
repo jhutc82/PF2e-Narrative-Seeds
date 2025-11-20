@@ -1,0 +1,138 @@
+{
+  "description": "Etymology and meaning components for Golarion names",
+  "syllableMeanings": {
+    "dwarf": {
+      "prefixes": {
+        "Thar": "stone",
+        "Brok": "forge",
+        "Grim": "stern",
+        "Thor": "thunder",
+        "Bar": "mountain",
+        "Durn": "enduring",
+        "Gor": "strong",
+        "Krag": "cliff",
+        "Mor": "dark",
+        "Val": "worthy"
+      },
+      "suffixes": {
+        "din": "warrior",
+        "gar": "protector",
+        "rim": "keeper",
+        "ak": "born of",
+        "in": "of the",
+        "grim": "iron",
+        "stone": "foundation",
+        "helm": "guardian"
+      }
+    },
+    "elf": {
+      "prefixes": {
+        "Ael": "star",
+        "Cal": "light",
+        "El": "high",
+        "Fae": "grace",
+        "Gal": "song",
+        "Sil": "silver",
+        "Var": "green",
+        "Thel": "wisdom"
+      },
+      "suffixes": {
+        "riel": "daughter/son of stars",
+        "wen": "maiden",
+        "ion": "son",
+        "aith": "shadow",
+        "andra": "moon",
+        "in": "of the",
+        "las": "leaf"
+      }
+    },
+    "halfling": {
+      "prefixes": {
+        "Lil": "happy",
+        "Mer": "merry",
+        "Bel": "fair",
+        "Hor": "hearth",
+        "Pip": "small",
+        "Sam": "simple"
+      },
+      "suffixes": {
+        "kin": "family",
+        "foot": "traveler",
+        "brand": "brave",
+        "wise": "learned"
+      }
+    },
+    "gnome": {
+      "prefixes": {
+        "Zook": "curious",
+        "Nim": "quick",
+        "Fob": "friendly",
+        "Dim": "bright",
+        "Rig": "clever"
+      },
+      "suffixes": {
+        "nocket": "tinkerer",
+        "widget": "maker",
+        "sprocket": "inventor"
+      }
+    }
+  },
+  "meaningTemplates": {
+    "compound": "{prefix_meaning} {suffix_meaning}",
+    "possessive": "{suffix_meaning} of the {prefix_meaning}",
+    "descriptive": "One who is {prefix_meaning} and {suffix_meaning}",
+    "birthright": "Born of {prefix_meaning}, keeper of {suffix_meaning}",
+    "destiny": "Destined to be {suffix_meaning} like the {prefix_meaning}"
+  },
+  "clanMeanings": {
+    "dwarf": {
+      "Battlehammer": "Warriors of the forge, protectors of the deep",
+      "Ironhelm": "Guardians who never waver",
+      "Stoneshield": "Defenders as immovable as the mountain",
+      "Forgefire": "Masters of the eternal flame"
+    },
+    "elf": {
+      "Starwhisper": "Those who speak with celestial beings",
+      "Moonblade": "Defenders under the silver light",
+      "Greenleaf": "Keepers of the ancient forests"
+    }
+  },
+  "regionalMeanings": {
+    "chelaxian": {
+      "themes": ["law", "order", "contract", "devil", "nobility"],
+      "commonElements": {
+        "Thrune": "throne",
+        "Vex": "vexation/torment",
+        "Drov": "drove/forced",
+        "Sarini": "serpent"
+      }
+    },
+    "osirian": {
+      "themes": ["eternity", "knowledge", "sand", "sun", "pyramid"],
+      "commonElements": {
+        "hotep": "peace/offering",
+        "ra": "sun",
+        "ptah": "creator",
+        "thoth": "wisdom"
+      }
+    }
+  },
+  "contextualMeanings": {
+    "prophecy": [
+      "The {meaning} shall rise when darkness falls",
+      "{meaning}, foretold in ancient texts",
+      "Born under the sign of {meaning}",
+      "Marked by fate as the {meaning}"
+    ],
+    "legend": [
+      "In songs, they are remembered as {meaning}",
+      "Chronicles speak of {meaning}",
+      "The {meaning}, whose deeds echo through ages"
+    ],
+    "simple": [
+      "Meaning: {meaning}",
+      "Known as '{meaning}' in the old tongue",
+      "Their name speaks of {meaning}"
+    ]
+  }
+}

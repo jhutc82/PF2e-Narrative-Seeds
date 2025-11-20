@@ -1,0 +1,170 @@
+{
+  "description": "Titles, epithets, and honorifics for Golarion NPCs",
+  "honorifics": {
+    "noble": {
+      "prefix": ["Lord", "Lady", "Ser", "Dame", "Baron", "Baroness", "Count", "Countess", "Duke", "Duchess", "Prince", "Princess", "Marquis", "Marquesa"],
+      "weight": 30
+    },
+    "religious": {
+      "prefix": ["Father", "Mother", "Brother", "Sister", "Priest", "Priestess", "High Priest", "High Priestess", "Cleric", "Oracle", "Prophet", "Prophetess", "Blessed"],
+      "weight": 25
+    },
+    "military": {
+      "prefix": ["Captain", "Commander", "General", "Marshal", "Warden", "Champion", "Knight", "Paladin", "Sentinel"],
+      "weight": 20
+    },
+    "arcane": {
+      "prefix": ["Archmage", "Magister", "Sage", "Scholar", "Master", "Adept", "Wizard", "Sorcerer"],
+      "weight": 15
+    },
+    "common": {
+      "prefix": ["Elder", "Goodman", "Goodwife", "Merchant", "Trader"],
+      "weight": 10
+    }
+  },
+  "epithets": {
+    "descriptive": {
+      "physical": ["the Tall", "the Short", "the Stout", "the Slim", "the Red", "the Pale", "the Dark", "the Fair", "the Scarred", "the Bearded", "the Bald", "Ironhand", "Goldfinger", "Silvertongue", "Quickfoot"],
+      "personality": ["the Wise", "the Bold", "the Cunning", "the Just", "the Brave", "the Merciful", "the Ruthless", "the Silent", "the Gentle", "the Fierce", "the Patient", "the Swift"],
+      "reputation": ["the Honorable", "the Infamous", "the Legendary", "the Renowned", "the Feared", "the Beloved", "the Mysterious", "the Wanderer", "the Exile"],
+      "weight": 30
+    },
+    "heroic": {
+      "deeds": ["Dragonslayer", "Demonbane", "Oathkeeper", "Lightbringer", "Shadowhunter", "Stormcaller", "Earthshaker", "Flameheart", "Frostborn", "Ironwill", "Steelnerve"],
+      "victories": ["Undefeated", "Victorious", "Triumphant", "Unconquered", "Invincible"],
+      "monsters": ["Goblinbane", "Giantslayer", "Wyrmslayer", "Lichbane", "Devilhunter", "Demonslayer"],
+      "weight": 25
+    },
+    "origin": {
+      "places": ["of Absalom", "of Cheliax", "of the Shining Crusade", "of Taldor", "of the Worldwound", "of Osirion", "of Varisia", "of the Mwangi", "of Tian Xia", "of Qadira"],
+      "landmarks": ["of the High Tower", "of the Deep Roads", "of the Shining Spire", "of Dragonfall", "of Shadowkeep", "of Starwatch", "of Irongate"],
+      "families": ["of House Thrune", "of the Ruby Prince", "of the Fallen Star", "Firstborn", "Lastborn", "Oathbound"],
+      "weight": 20
+    },
+    "mystical": {
+      "divine": ["Godsblessed", "Touched by Fate", "Starkissed", "Moonborn", "Sunfavored", "Chosen", "Prophesied", "Destined", "Marked"],
+      "arcane": ["Spellwoven", "Runebound", "Stargazer", "Dreamwalker", "Veilwalker", "Shadowweaver", "Lightweaver"],
+      "nature": ["Stormborn", "Earthborn", "Fireborn", "Waterborn", "Windborn", "Beastfriend", "Greenspeaker"],
+      "weight": 15
+    },
+    "profession": {
+      "craft": ["the Smith", "the Brewer", "the Merchant", "the Trader", "the Healer", "the Scholar", "the Scribe", "the Artisan"],
+      "combat": ["the Blade", "the Shield", "the Archer", "the Axe", "the Hammer", "the Spear"],
+      "roguish": ["the Quick", "the Shadow", "the Fox", "the Raven", "the Spider", "the Ghost"],
+      "weight": 10
+    }
+  },
+  "titleFormats": [
+    "{honorific} {name}",
+    "{name} {epithet}",
+    "{honorific} {name} {epithet}",
+    "{name}, {epithet}",
+    "{name} of {origin}"
+  ],
+  "ancestrySpecificEpithets": {
+    "dwarf": {
+      "craft": ["Forgemaster", "Stonebreaker", "Oathkeeper", "Clanfather", "Clanmother", "Runescribe", "Deepdelver", "Mountainheart", "Hammerhand", "Ironbeard"],
+      "war": ["Shieldwall", "Grudgebearer", "Demonbane", "Trollslayer", "Dragonhelm", "Battleborn"],
+      "honor": ["Trueheart", "Ironoath", "Steadfast", "Unyielding", "Stoneheart"]
+    },
+    "elf": {
+      "magic": ["Starweaver", "Moonwhisper", "Spellsinger", "Dreamwalker", "Gatewarden", "Veilkeeper", "Shadowdancer"],
+      "nature": ["Greenspeaker", "Leafwhisper", "Thornkeeper", "Rootwalker", "Wildrunner", "Forestfriend"],
+      "time": ["Ageless", "Timeworn", "Ancient One", "the Undying", "Longmemory", "Firstborn"]
+    },
+    "halfling": {
+      "luck": ["Lucky", "Fortunate", "Blessed", "Charmed", "Fateweaver"],
+      "journey": ["Farstrider", "Pathfinder", "Wanderer", "Roadwalker", "Horizonseeker"],
+      "hearth": ["Goodfellow", "Merrymaker", "Hearthkeeper", "Storyteller", "Friendmaker"]
+    },
+    "gnome": {
+      "curiosity": ["Wonderseeker", "Riddlemaker", "Questioner", "Tinkerer", "Inventor", "Explorer"],
+      "magic": ["Illusionist", "Trickweaver", "Colorkeeper", "Prismbound", "Sparkweaver"],
+      "bleaching": ["Everchanging", "Vibrant", "Colorfast", "Lifeseeker", "Passionborn"]
+    },
+    "goblin": {
+      "fire": ["Firemaker", "Burntooth", "Ashface", "Flamelover", "Sparkseeker"],
+      "chaos": ["Chaosborn", "Wildrunner", "Scrapper", "Bitey", "Loud"],
+      "survival": ["Ratcatcher", "Scavenger", "Scrounger", "Survivor", "Sneaky"]
+    },
+    "orc": {
+      "strength": ["Strongarm", "Ironjaw", "Bonecrusher", "Skullbreaker", "Mightyfist"],
+      "battle": ["Warborn", "Bloodied", "Scarred", "Veteran", "Raider"],
+      "honor": ["Honorbound", "Oathkeeper", "Trueborn", "Clanproud", "Worthy"]
+    }
+  },
+  "contextualTitles": {
+    "byClass": {
+      "wizard": ["the Arcane", "the Learned", "Spellweaver", "the Scholar"],
+      "fighter": ["the Blade", "the Shield", "the Warrior", "the Veteran"],
+      "cleric": ["the Blessed", "the Holy", "the Pious", "the Faithful"],
+      "rogue": ["the Shadow", "the Silent", "the Quick", "the Sly"],
+      "ranger": ["the Tracker", "the Hunter", "the Wanderer", "the Scout"],
+      "barbarian": ["the Wild", "the Raging", "the Fierce", "the Savage"],
+      "bard": ["the Minstrel", "the Storyteller", "the Singer", "the Charismatic"],
+      "druid": ["the Green", "the Wild", "Naturefriend", "Earthspeaker"],
+      "monk": ["the Serene", "the Disciplined", "the Enlightened", "the Centered"],
+      "paladin": ["the Just", "the Righteous", "the Valiant", "Oathbound"],
+      "sorcerer": ["Bloodborn", "the Gifted", "the Touched", "Powerborn"],
+      "alchemist": ["the Brewer", "the Mixologist", "the Transmuter", "the Experimenter"],
+      "champion": ["the Crusader", "the Defender", "the Devoted", "the Stalwart"],
+      "investigator": ["the Sleuth", "the Detective", "the Inquisitive", "the Deductive"],
+      "oracle": ["the Seer", "the Prophetic", "the Cursed", "the Fated"],
+      "swashbuckler": ["the Dashing", "the Flamboyant", "the Daring", "the Stylish"],
+      "witch": ["the Hexed", "the Coven-bound", "the Cursed", "the Patched"],
+      "summoner": ["the Caller", "the Bonded", "Eidolonbound", "the Summoner"],
+      "magus": ["the Spellblade", "the Arcane Knight", "the Striker", "Runebound"],
+      "gunslinger": ["the Deadeye", "the Quick-draw", "the Gunner", "the Marksman"],
+      "inventor": ["the Tinkerer", "the Gadgeteer", "the Innovator", "the Builder"],
+      "thaumaturge": ["the Esoteric", "the Collector", "the Implementer", "the Ritualist"],
+      "psychic": ["the Mindful", "the Conscious", "the Telepath", "the Mental"],
+      "kineticist": ["the Elemental", "the Channeler", "the Wielder", "Stormborn"]
+    },
+    "byDeity": {
+      "Abadar": ["the Just", "the Lawful", "Goldkeeper", "the Merchant"],
+      "Asmodeus": ["the Infernal", "the Bound", "the Damned", "Hellsworn"],
+      "Calistria": ["the Vengeful", "the Passionate", "the Seductive", "the Savored"],
+      "Cayden Cailean": ["the Drunk", "the Lucky", "the Free", "the Brave"],
+      "Desna": ["Starborn", "the Wanderer", "Dreamwalker", "the Fortunate"],
+      "Erastil": ["the Hunter", "the Just", "Familybound", "the Provider"],
+      "Gorum": ["the Warrior", "Battleborn", "the Fierce", "Warforged"],
+      "Gozreh": ["Stormcaller", "the Wild", "Seafriend", "Windborne"],
+      "Iomedae": ["the Righteous", "the Valiant", "Lightbringer", "the Just"],
+      "Irori": ["the Enlightened", "the Perfected", "the Disciplined", "the Centered"],
+      "Lamashtu": ["the Cursed", "the Twisted", "the Monstrous", "the Mad"],
+      "Nethys": ["the Balanced", "the Arcane", "the All-Seeing", "Magicborn"],
+      "Norgorber": "the Hidden", "the Silent", "the Masked", "the Secret"],
+      "Pharasma": ["the Seer", "Deathwatcher", "Fatebound", "the Prophetic"],
+      "Rovagug": ["the Destroyer", "the Ruiner", "Chaosborn", "the Doomed"],
+      "Sarenrae": ["the Merciful", "the Radiant", "Lightbringer", "the Redeemed"],
+      "Shelyn": ["the Beautiful", "the Artist", "the Loving", "the Creative"],
+      "Torag": ["the Forger", "the Builder", "the Defender", "the Stalwart"],
+      "Urgathoa": ["the Undying", "the Pallid", "the Hungry", "Deathless"],
+      "Zon-Kuthon": ["the Tortured", "the Shadowed", "the Pained", "the Darkened"]
+    },
+    "byBackground": {
+      "noble": ["of High Birth", "the Aristocrat", "the Blue-blooded", "Highborn"],
+      "criminal": ["the Shady", "the Wanted", "the Outlaw", "the Rogue"],
+      "scholar": ["the Learned", "the Wise", "the Bookish", "the Educated"],
+      "martial": ["the Soldier", "the Veteran", "the Disciplined", "the Trained"],
+      "street_urchin": ["Streetwise", "the Survivor", "the Scrappy", "Lowborn"],
+      "entertainer": ["the Charming", "the Performer", "the Crowd-pleaser", "the Beloved"],
+      "sailor": ["Seasoned", "the Seafarer", "Saltborn", "the Navigator"],
+      "merchant": ["the Trader", "the Wealthy", "the Shrewd", "the Prosperous"]
+    }
+  },
+  "generationRules": {
+    "probabilityByLevel": {
+      "1-3": { "none": 70, "simple": 25, "complex": 5 },
+      "4-7": { "none": 40, "simple": 45, "complex": 15 },
+      "8-12": { "none": 20, "simple": 50, "complex": 30 },
+      "13-16": { "none": 10, "simple": 40, "complex": 50 },
+      "17-20": { "none": 5, "simple": 25, "complex": 70 }
+    },
+    "complexityDefinition": {
+      "none": "Just the name",
+      "simple": "Honorific OR epithet",
+      "complex": "Honorific AND epithet, or multiple epithets"
+    }
+  }
+}
