@@ -22,19 +22,46 @@ export class HeritageNameGenerator extends NameGenerator {
 
   /**
    * Generate a name for a versatile heritage
-   * @param {string} heritage - Heritage type (e.g., 'tiefling', 'half-elf')
+   * @param {string} heritage - Heritage type (e.g., 'tiefling', 'half-elf', 'nephilim')
    * @param {string} gender - Gender ('male', 'female', 'neutral', or null for random)
    * @param {Object} options - Additional options
    * @param {string} options.primaryAncestry - For blended heritages (e.g., 'human' for half-elf)
    * @param {string} options.region - Regional variant for humans
    * @param {string} options.strategy - Specific blending strategy to use
    * @param {number} options.blendRatio - Ratio for blending (0-1)
+   * @param {string} options.lineage - For nephilim: 'celestial', 'fiendish', 'protean', 'inevitable'
    * @returns {Promise<string>} Generated name
    */
   static async generateHeritageName(heritage, gender = null, options = {}) {
     // Load heritage data if not cached
     if (!this.heritageData) {
       this.heritageData = await DataLoader.loadJSON('data/social/names/versatile-heritages.json');
+    }
+
+    // Handle Nephilim with lineages (Remaster)
+    if (heritage === 'nephilim') {
+      const lineage = options.lineage || 'fiendish'; // Default to fiendish if not specified
+      const nephilimInfo = this.heritageData.heritages.nephilim;
+
+      if (nephilimInfo && nephilimInfo.lineages[lineage]) {
+        // Route to the legacy heritage name
+        const legacyHeritage = nephilimInfo.lineages[lineage].legacyName;
+        console.log(`PF2e Narrative Seeds | Routing Nephilim (${lineage}) to ${legacyHeritage}`);
+        heritage = legacyHeritage;
+      }
+    }
+
+    // Legacy name support - map old names to nephilim lineages for consistency
+    const legacyToLineage = {
+      'aasimar': 'celestial',
+      'tiefling': 'fiendish',
+      'ganzi': 'protean',
+      'aphorite': 'inevitable'
+    };
+
+    // If a lineage wasn't specified but we have a legacy heritage, note the lineage for metadata
+    if (!options.lineage && legacyToLineage[heritage]) {
+      options.lineage = legacyToLineage[heritage];
     }
 
     const heritageInfo = this.heritageData.heritages[heritage];

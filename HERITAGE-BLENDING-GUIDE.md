@@ -17,18 +17,29 @@ This guide covers the advanced heritage blending and Markov chain name generatio
 
 ## Versatile Heritages
 
-The system now supports **9 versatile heritages** with specialized naming patterns:
+The system now supports **9+ versatile heritages** with specialized naming patterns, including **Pathfinder Remaster** support:
 
-### Supported Heritages
+### Remaster Support: Nephilim
+
+**Nephilim** is the remaster consolidation of four planar-touched heritages. The system supports both the new nephilim lineages and legacy names:
+
+- **Nephilim (Celestial Lineage)** - Formerly Aasimar
+- **Nephilim (Fiendish Lineage)** - Formerly Tiefling
+- **Nephilim (Protean Lineage)** - Formerly Ganzi
+- **Nephilim (Inevitable Lineage)** - Formerly Aphorite
+
+**Backward Compatibility**: Legacy names (`tiefling`, `aasimar`, `ganzi`, `aphorite`) are fully supported and automatically map to the appropriate nephilim lineage.
+
+### Supported Heritages (All Versions)
 
 1. **Half-Elf** - Blends human and elven naming traditions
 2. **Half-Orc** - Blends human and orcish naming with phonetic adjustments
-3. **Tiefling** - Infernal names, virtue names, or human names
-4. **Aasimar** - Celestial names, virtue names, or human names
-5. **Dhampir** - Gothic vampiric names or human names
-6. **Changeling** - Fey-touched, nature-based, or human names
-7. **Ganzi** - Chaotic, unusual name combinations
-8. **Aphorite** - Ordered, mathematical name patterns
+3. **Nephilim / Tiefling** - Infernal names, virtue names, or human names (Fiendish lineage)
+4. **Nephilim / Aasimar** - Celestial names, virtue names, or human names (Celestial lineage)
+5. **Nephilim / Ganzi** - Chaotic, unusual name combinations (Protean lineage)
+6. **Nephilim / Aphorite** - Ordered, mathematical name patterns (Inevitable lineage)
+7. **Dhampir** - Gothic vampiric names or human names
+8. **Changeling** - Fey-touched, nature-based, or human names
 9. **Duskwalker** - Memorial names honoring the dead
 
 ### Heritage-Specific Features
@@ -265,12 +276,28 @@ const name = await AdvancedNameGenerator.generateAdvanced(
 ```javascript
 import { HeritageNameGenerator } from './scripts/social/heritage-name-generator.js';
 
-// Generate a tiefling name
+// Generate a tiefling name (legacy style)
 const tieflingName = await HeritageNameGenerator.generateHeritageName(
   'tiefling',
   'female'
 );
 // Possible results: "Ashara", "Hope", "Emberiel", "Cindria"
+
+// Generate using Remaster Nephilim with fiendish lineage
+const nephilimName = await HeritageNameGenerator.generateHeritageName(
+  'nephilim',
+  'female',
+  { lineage: 'fiendish' }
+);
+// Same results as tiefling (routes to legacy implementation)
+
+// Generate Nephilim with celestial lineage (formerly Aasimar)
+const celestialName = await HeritageNameGenerator.generateHeritageName(
+  'nephilim',
+  'male',
+  { lineage: 'celestial' }
+);
+// Possible results: "Aelion", "Grace", "Gloriel", "Radiant"
 
 // Generate a half-elf name with specific strategy
 const halfElfName = await HeritageNameGenerator.generateHeritageName(

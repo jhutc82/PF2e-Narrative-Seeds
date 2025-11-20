@@ -1,7 +1,35 @@
 {
   "description": "Versatile heritage naming patterns for mixed-ancestry characters",
-  "version": "1.0",
+  "version": "1.1",
+  "remasterNote": "Nephilim is the remaster consolidation of Aasimar, Tiefling, Ganzi, and Aphorite. Legacy names supported for backward compatibility.",
   "heritages": {
+    "nephilim": {
+      "description": "Nephilim with planar lineages (Remaster consolidation)",
+      "isRemasterHeritage": true,
+      "lineages": {
+        "celestial": {
+          "description": "Nephilim with celestial (angelic) lineage - formerly Aasimar",
+          "legacyName": "aasimar",
+          "reference": "aasimar"
+        },
+        "fiendish": {
+          "description": "Nephilim with fiendish (infernal) lineage - formerly Tiefling",
+          "legacyName": "tiefling",
+          "reference": "tiefling"
+        },
+        "protean": {
+          "description": "Nephilim with protean (chaotic) lineage - formerly Ganzi",
+          "legacyName": "ganzi",
+          "reference": "ganzi"
+        },
+        "inevitable": {
+          "description": "Nephilim with inevitable (lawful) lineage - formerly Aphorite",
+          "legacyName": "aphorite",
+          "reference": "aphorite"
+        }
+      },
+      "culturalNotes": "Nephilim inherit planar essence through various means. Names often reflect their specific lineage."
+    },
     "half-elf": {
       "description": "Half-elves blend human and elven naming traditions",
       "blendingRules": {

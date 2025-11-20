@@ -38,6 +38,7 @@ export class AdvancedNameGenerator extends NameGenerator {
    * @param {string} context.primaryAncestry - Primary ancestry for heritage blending
    * @param {string} context.blendStrategy - Specific blending strategy
    * @param {number} context.blendRatio - Heritage blending ratio (0-1)
+   * @param {string} context.lineage - For nephilim: 'celestial', 'fiendish', 'protean', 'inevitable'
    * @returns {Promise<Object>} Generated name with metadata
    */
   static async generateAdvanced(ancestry, gender = null, context = {}) {
@@ -53,13 +54,16 @@ export class AdvancedNameGenerator extends NameGenerator {
       heritage = null,
       primaryAncestry = null,
       blendStrategy = null,
-      blendRatio = 0.5
+      blendRatio = 0.5,
+      lineage = null
     } = context;
 
-    // List of versatile heritages
+    // List of versatile heritages (includes both remaster and legacy names)
     const versatileHeritages = [
-      'half-elf', 'half-orc', 'tiefling', 'aasimar', 'dhampir',
-      'changeling', 'ganzi', 'aphorite', 'duskwalker'
+      'half-elf', 'half-orc',
+      'nephilim',  // Remaster heritage with lineages
+      'tiefling', 'aasimar', 'ganzi', 'aphorite',  // Legacy names (map to nephilim lineages)
+      'dhampir', 'changeling', 'duskwalker'
     ];
 
     // Generate base name
@@ -74,7 +78,8 @@ export class AdvancedNameGenerator extends NameGenerator {
           primaryAncestry: primaryAncestry || ancestry,
           region,
           strategy: blendStrategy,
-          blendRatio
+          blendRatio,
+          lineage
         }
       );
     } else if (versatileHeritages.includes(ancestry)) {
@@ -86,7 +91,8 @@ export class AdvancedNameGenerator extends NameGenerator {
           primaryAncestry,
           region,
           strategy: blendStrategy,
-          blendRatio
+          blendRatio,
+          lineage
         }
       );
     } else if (region && ancestry === 'human') {
@@ -139,6 +145,7 @@ export class AdvancedNameGenerator extends NameGenerator {
       metadata: {
         ancestry,
         heritage: heritage || (versatileHeritages.includes(ancestry) ? ancestry : null),
+        lineage,
         gender,
         region,
         primaryAncestry,
