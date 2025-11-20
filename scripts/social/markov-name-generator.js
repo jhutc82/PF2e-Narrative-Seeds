@@ -48,12 +48,12 @@ export class MarkovNameGenerator {
       const processed = `${'#'.repeat(order)}${name.toLowerCase()}#`;
 
       // Record start patterns
-      const start = processed.substring(0, order);
+      const start = processed.slice(0, order);
       chain.starts.push(start);
 
       // Build transition probabilities
       for (let i = 0; i < processed.length - order; i++) {
-        const context = processed.substring(i, i + order);
+        const context = processed.slice(i, i + order);
         const next = processed[i + order];
 
         if (!chain.transitions.has(context)) {
@@ -114,7 +114,7 @@ export class MarkovNameGenerator {
         }
 
         name += next;
-        context = (context + next).substring(1); // Slide window
+        context = (context + next).slice(1); // Slide window
       }
 
       // If we generated something valid, return it
@@ -278,13 +278,13 @@ export class MarkovNameGenerator {
 
       // Bigrams
       for (let i = 0; i < lower.length - 1; i++) {
-        const bigram = lower.substring(i, i + 2);
+        const bigram = lower.slice(i, i + 2);
         stats.commonBigrams[bigram] = (stats.commonBigrams[bigram] || 0) + 1;
       }
 
       // Trigrams
       for (let i = 0; i < lower.length - 2; i++) {
-        const trigram = lower.substring(i, i + 3);
+        const trigram = lower.slice(i, i + 3);
         stats.commonTrigrams[trigram] = (stats.commonTrigrams[trigram] || 0) + 1;
       }
     }

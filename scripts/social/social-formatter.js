@@ -615,7 +615,7 @@ export class SocialFormatter {
       .join(', ');
 
     const weaknessesList = influence.weaknesses
-      .map(w => `<li><strong>${w.name}:</strong> ${StringUtils.escapeHTML(w.description)} (DC ${w.dcModifier < 0 ? w.dcModifier : '-' + Math.abs(w.dcModifier)})</li>`)
+      .map(w => `<li><strong>${w.name}:</strong> ${StringUtils.escapeHTML(w.description)} (DC ${w.dcModifier < 0 ? w.dcModifier : '+' + w.dcModifier})</li>`)
       .join('');
 
     const resistancesList = influence.resistances.length > 0
@@ -963,8 +963,8 @@ export class SocialFormatter {
 
     if (detailLevel === "standard") {
       const parts = [];
-      if (hotButtons.length > 0) parts.push(`Hot Button: ${hotButtons[0].trigger}`);
-      if (softSpots.length > 0) parts.push(`Soft Spot: ${softSpots[0].softSpot}`);
+      if (hotButtons.length > 0) parts.push(`Hot Button: ${hotButtons[0].topic}`);
+      if (softSpots.length > 0) parts.push(`Soft Spot: ${softSpots[0].weakness}`);
       return parts.length > 0 ? `<div class="npc-section"><strong>Emotional Profile:</strong> ${parts.join(' | ')}</div>` : '';
     }
 
@@ -972,11 +972,11 @@ export class SocialFormatter {
     return `
       <div class="npc-section npc-emotions">
         <strong>Emotional Profile:</strong>
-        ${hotButtons.length > 0 ? `<div><em>Hot Buttons:</em> ${hotButtons.map(h => StringUtils.escapeHTML(h.trigger)).join('; ')}</div>` : ''}
-        ${softSpots.length > 0 ? `<div><em>Soft Spots:</em> ${softSpots.map(s => StringUtils.escapeHTML(s.softSpot)).join('; ')}</div>` : ''}
+        ${hotButtons.length > 0 ? `<div><em>Hot Buttons:</em> ${hotButtons.map(h => StringUtils.escapeHTML(h.topic)).join('; ')}</div>` : ''}
+        ${softSpots.length > 0 ? `<div><em>Soft Spots:</em> ${softSpots.map(s => StringUtils.escapeHTML(s.weakness)).join('; ')}</div>` : ''}
         <div><em>Trust Builders:</em> ${trustBuilders.map(t => StringUtils.escapeHTML(t.action)).join('; ')}</div>
-        ${dealbreakers.length > 0 ? `<div class="warning"><em>Dealbreakers:</em> ${dealbreakers.map(d => StringUtils.escapeHTML(d.dealbreaker)).join('; ')}</div>` : ''}
-        <div><em>Persuasion:</em> ${persuasionVulnerabilities.map(p => StringUtils.escapeHTML(p.method)).join('; ')}</div>
+        ${dealbreakers.length > 0 ? `<div class="warning"><em>Dealbreakers:</em> ${dealbreakers.map(d => StringUtils.escapeHTML(d.line)).join('; ')}</div>` : ''}
+        <div><em>Persuasion:</em> ${persuasionVulnerabilities.map(p => StringUtils.escapeHTML(p.vulnerability)).join('; ')}</div>
       </div>
     `;
   }

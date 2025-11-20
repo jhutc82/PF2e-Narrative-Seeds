@@ -75,7 +75,7 @@ export class FamilyGenerator {
       const reputation = this.generateFamilyReputation();
 
       return {
-        id: `family-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        id: `family-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`,
         surname,
         ancestry: params.ancestry || "human",
         type: familyType,
@@ -272,7 +272,7 @@ export class FamilyGenerator {
    */
   static async generateFamilyMember(family, role, baseNPC = null) {
     const member = {
-      id: baseNPC?.id || `npc-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+      id: baseNPC?.id || `npc-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`,
       role,
       surname: family.surname,
       ancestry: family.ancestry,

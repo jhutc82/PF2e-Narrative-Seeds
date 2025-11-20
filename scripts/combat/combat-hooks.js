@@ -760,7 +760,7 @@ export class CombatHooks {
     try {
       // Determine if this is an embedded narrative or a separate whispered message
       const flags = message.flags?.["pf2e-narrative-seeds"];
-      const isWhisperedMessage = flags?.originalMessageId != null;
+      const isWhisperedMessage = flags?.originalMessageId !== null;
       const storedData = flags?.attackData;
 
       if (!storedData) {

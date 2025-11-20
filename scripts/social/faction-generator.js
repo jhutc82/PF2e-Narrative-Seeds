@@ -79,7 +79,7 @@ export class FactionGenerator {
       const influenceLevel = this.determineInfluenceLevel(resources.length, weaknesses.length);
 
       return {
-        id: `faction-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        id: `faction-${Date.now()}-${Math.random().toString(36).slice(2, 11)}`,
         name: factionName,
         type: factionType,
         goals,
@@ -163,8 +163,8 @@ export class FactionGenerator {
     const numbers = sizeStr.match(/\d+/g);
 
     if (numbers && numbers.length >= 2) {
-      const min = parseInt(numbers[0]);
-      const max = parseInt(numbers[1]);
+      const min = parseInt(numbers[0], 10);
+      const max = parseInt(numbers[1], 10);
       const size = Math.floor(Math.random() * (max - min + 1)) + min;
 
       if (size < 20) return "tiny";

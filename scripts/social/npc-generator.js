@@ -530,7 +530,7 @@ export class NPCGenerator {
     let modifiedOptions = options;
 
     // 1. Filter by ancestry first
-    if (context.ancestry && context.category !== 'skipAncestr') {
+    if (context.ancestry && context.category !== 'skipAncestry') {
       modifiedOptions = this.filterByAncestry(modifiedOptions, context.ancestry);
     }
 
