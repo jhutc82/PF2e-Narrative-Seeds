@@ -464,9 +464,9 @@ export class CombatHooks {
 
       // Check if this is Force Barrage or another damage-only spell
       const itemName = item.name?.toLowerCase() || "";
-      const isForcBarrage = itemName.includes("force barrage") || itemName.includes("magic missile");
+      const isForceBarrage = itemName.includes("force barrage") || itemName.includes("magic missile");
 
-      if (!isForcBarrage) {
+      if (!isForceBarrage) {
         // Not a damage-only spell we handle, skip
         console.log(`PF2e Narrative Seeds | Skipping non-force-barrage damage spell: ${item.name}`);
         return;
@@ -566,7 +566,7 @@ export class CombatHooks {
             seed: seed,
             visibilityMode: visibilityMode,
             damageMessageId: message.id,
-            isForcBarrage: true
+            isForceBarrage: true
           }
         }
       });

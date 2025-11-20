@@ -343,18 +343,3 @@ export class MarkovNameGenerator {
     this.config = { ...this.config, ...options };
   }
 }
-
-// Utility for multiple selection (if not in RandomUtils)
-if (!RandomUtils.selectMultiple) {
-  RandomUtils.selectMultiple = function(array, count) {
-    const selected = [];
-    const copy = [...array];
-
-    for (let i = 0; i < Math.min(count, copy.length); i++) {
-      const index = Math.floor(Math.random() * copy.length);
-      selected.push(copy.splice(index, 1)[0]);
-    }
-
-    return selected;
-  };
-}

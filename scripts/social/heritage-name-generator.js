@@ -38,10 +38,16 @@ export class HeritageNameGenerator extends NameGenerator {
       this.heritageData = await DataLoader.loadJSON('data/social/names/versatile-heritages.json');
     }
 
+    // If data failed to load, return null
+    if (!this.heritageData) {
+      console.error("PF2e Narrative Seeds | Failed to load heritage data");
+      return null;
+    }
+
     // Handle Nephilim with lineages (Remaster)
     if (heritage === 'nephilim') {
       const lineage = options.lineage || 'fiendish'; // Default to fiendish if not specified
-      const nephilimInfo = this.heritageData.heritages.nephilim;
+      const nephilimInfo = this.heritageData.heritages?.nephilim;
 
       if (nephilimInfo && nephilimInfo.lineages[lineage]) {
         // Route to the legacy heritage name

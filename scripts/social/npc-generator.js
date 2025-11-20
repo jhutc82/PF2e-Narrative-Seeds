@@ -1265,11 +1265,11 @@ export class NPCGenerator {
 
     // Select fears (1-2) - filtered by ancestry
     const filteredFears = this.filterByAncestry(data.fears, ancestry);
-    const fears = this.selectUniqueItems(RandomUtils.selectWeighted(filteredFears, "likelihood", numItems));
+    const fears = RandomUtils.selectWeightedMultiple(filteredFears, "likelihood", numItems);
 
     // Select desires (1-2) - filtered by ancestry
     const filteredDesires = this.filterByAncestry(data.desires, ancestry);
-    const desires = this.selectUniqueItems(RandomUtils.selectWeighted(filteredDesires, "likelihood", numItems));
+    const desires = RandomUtils.selectWeightedMultiple(filteredDesires, "likelihood", numItems);
 
     // Select regrets (0-1, not everyone has notable regrets) - filtered by ancestry
     const filteredRegrets = this.filterByAncestry(data.regrets, ancestry);
@@ -1277,12 +1277,12 @@ export class NPCGenerator {
 
     // Select vices (1-2) - filtered by ancestry
     const filteredVices = this.filterByAncestry(data.vices, ancestry);
-    const vices = this.selectUniqueItems(RandomUtils.selectWeighted(filteredVices, "likelihood", numItems));
+    const vices = RandomUtils.selectWeightedMultiple(filteredVices, "likelihood", numItems);
 
     // Select virtues (1-3, most people have some virtues) - filtered by ancestry
     const numVirtues = detailLevel === "cinematic" ? 3 : 2;
     const filteredVirtues = this.filterByAncestry(data.virtues, ancestry);
-    const virtues = this.selectUniqueItems(RandomUtils.selectWeighted(filteredVirtues, "likelihood", numVirtues));
+    const virtues = RandomUtils.selectWeightedMultiple(filteredVirtues, "likelihood", numVirtues);
 
     return {
       fears,
@@ -3114,7 +3114,7 @@ export class NPCGenerator {
     let loyaltyLevel = null;
     if (hasFaction) {
       const loyaltyLevels = ["devoted", "loyal", "committed", "casual", "wavering", "conflicted"];
-      loyaltyLevel = RandomUtils.selectFromArray(loyaltyLevels);
+      loyaltyLevel = RandomUtils.selectFrom(loyaltyLevels);
     }
 
     return {
@@ -3142,7 +3142,7 @@ export class NPCGenerator {
 
     // Select attraction types based on detail level
     const numAttractionTypes = detailLevel === "cinematic" ? 2 : 1;
-    const attractionTypes = RandomUtils.selectWeighted(data.attractionTypes, "likelihood", numAttractionTypes);
+    const attractionTypes = RandomUtils.selectWeightedMultiple(data.attractionTypes, "likelihood", numAttractionTypes);
 
     // 40% chance of having a past heartbreak that still affects them
     const pastHeartbreak = Math.random() < 0.4 ? RandomUtils.selectWeighted(data.pastHeartbreak, "likelihood") : null;
@@ -3153,7 +3153,7 @@ export class NPCGenerator {
         relationshipHistory.id === "complicated" || relationshipHistory.id === "polyamorous") {
       currentStatus = relationshipHistory.id;
     } else if (Math.random() < 0.3) {
-      currentStatus = RandomUtils.selectFromArray(["single", "dating", "courting", "engaged"]);
+      currentStatus = RandomUtils.selectFrom(["single", "dating", "courting", "engaged"]);
     }
 
     return {
@@ -3202,8 +3202,7 @@ export class NPCGenerator {
       } else if (devotionLevel.id === "observant") {
         numPractices = 2;
       }
-      practices = RandomUtils.selectWeighted(data.religiousPractices, "likelihood", numPractices);
-      practices = Array.isArray(practices) ? practices : [practices];
+      practices = RandomUtils.selectWeightedMultiple(data.religiousPractices, "likelihood", numPractices);
     } else {
       // Non-believer
       const nonBeliever = RandomUtils.selectWeighted(data.nonBelievers, "likelihood");
@@ -3242,12 +3241,11 @@ export class NPCGenerator {
       numHobbies = Math.max(1, numHobbies - 1);
     }
 
-    const hobbies = RandomUtils.selectWeighted(data.hobbies, "likelihood", numHobbies);
-    const hobbiesArray = Array.isArray(hobbies) ? hobbies : [hobbies];
+    const hobbies = RandomUtils.selectWeightedMultiple(data.hobbies, "likelihood", numHobbies);
 
     return {
-      hobbies: hobbiesArray,
-      primaryHobby: hobbiesArray[0], // The one they're most passionate about
+      hobbies: hobbies,
+      primaryHobby: hobbies[0], // The one they're most passionate about
       hasTimeForHobbies: economics?.wealthLevel?.id !== "destitute"
     };
   }
@@ -3269,7 +3267,7 @@ export class NPCGenerator {
 
     // Select areas of knowledge based on occupation and education
     const numKnowledgeAreas = detailLevel === "cinematic" ? 3 : 2;
-    const knowledgeAreas = RandomUtils.selectWeighted(data.areasOfKnowledge, "likelihood", numKnowledgeAreas);
+    const knowledgeAreas = RandomUtils.selectWeightedMultiple(data.areasOfKnowledge, "likelihood", numKnowledgeAreas);
 
     const learningStyle = RandomUtils.selectWeighted(data.learningStyles, "likelihood");
     const teachingAbility = RandomUtils.selectWeighted(data.teachingAbility, "likelihood");
@@ -3277,7 +3275,7 @@ export class NPCGenerator {
 
     return {
       educationLevel,
-      knowledgeAreas: Array.isArray(knowledgeAreas) ? knowledgeAreas : [knowledgeAreas],
+      knowledgeAreas: knowledgeAreas,
       learningStyle,
       teachingAbility,
       curiosity,
@@ -3598,7 +3596,7 @@ export class NPCGenerator {
     const trustOptions = data.trustLevels.filter(t =>
       t.id === "cautious" || t.id === "neutral-trust"
     );
-    const initialTrust = RandomUtils.selectFromArray(trustOptions);
+    const initialTrust = RandomUtils.selectFrom(trustOptions);
 
     // Determine what might trigger loyalty
     const loyaltyTrigger = RandomUtils.selectWeighted(data.loyaltyTriggers, "likelihood");
