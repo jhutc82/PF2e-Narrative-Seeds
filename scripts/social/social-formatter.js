@@ -58,7 +58,7 @@ export class SocialFormatter {
    * @returns {string}
    */
   static generateStandardHTML(seed) {
-    const { name, ancestry, mood, personalities, mannerisms, motivation, quirks, appearance, occupation, abilities, possessions, relationships, plotHooks, influence, actor } = seed;
+    const { name, ancestry, mood, personalities, mannerisms, motivation, quirks, appearance, occupation, abilities, possessions, relationships, plotHooks, influence, psychology, physicalDetails, lifeHistory, dailyLife, speechPatterns, complexity, currentSituation, actor } = seed;
 
     const displayName = name || actor?.name || "NPC";
     const moodClass = this.getMoodClass(mood.id);
@@ -113,6 +113,13 @@ export class SocialFormatter {
     // Build influence section
     const influenceHTML = influence ? this.formatInfluence(influence, "standard") : '';
 
+    // Build new sections for realism
+    const psychologyHTML = psychology ? this.formatPsychology(psychology, "standard") : '';
+    const physicalDetailsHTML = physicalDetails ? this.formatPhysicalDetails(physicalDetails, "standard") : '';
+    const speechPatternsHTML = speechPatterns ? this.formatSpeechPatterns(speechPatterns, "standard") : '';
+    const complexityHTML = complexity ? this.formatComplexity(complexity, "standard") : '';
+    const currentSituationHTML = currentSituation ? this.formatCurrentSituation(currentSituation, "standard") : '';
+
     // Social DC modifier
     const dcModifier = mood.socialDC;
     const dcHTML = dcModifier !== 0
@@ -131,11 +138,16 @@ export class SocialFormatter {
         </div>
         ${dcHTML}
         ${appearanceHTML}
+        ${physicalDetailsHTML}
         ${occupationHTML}
         ${personalitiesHTML}
+        ${psychologyHTML}
         ${mannerismsHTML}
+        ${speechPatternsHTML}
         ${motivationHTML}
         ${quirksHTML}
+        ${currentSituationHTML}
+        ${complexityHTML}
         ${possessionsHTML}
         ${relationshipsHTML}
         ${plotHooksHTML}
@@ -150,7 +162,7 @@ export class SocialFormatter {
    * @returns {string}
    */
   static generateCinematicHTML(seed) {
-    const { name, ancestry, mood, personalities, mannerisms, motivation, quirks, appearance, occupation, abilities, possessions, relationships, plotHooks, influence, actor } = seed;
+    const { name, ancestry, mood, personalities, mannerisms, motivation, quirks, appearance, occupation, abilities, possessions, relationships, plotHooks, influence, psychology, physicalDetails, lifeHistory, dailyLife, speechPatterns, complexity, currentSituation, actor } = seed;
 
     const displayName = name || actor?.name || "NPC";
     const moodClass = this.getMoodClass(mood.id);
@@ -215,6 +227,15 @@ export class SocialFormatter {
     // Build influence section
     const influenceHTML = influence ? this.formatInfluence(influence, "cinematic") : '';
 
+    // Build new sections for realism - cinematic detail
+    const psychologyHTML = psychology ? this.formatPsychology(psychology, "cinematic") : '';
+    const physicalDetailsHTML = physicalDetails ? this.formatPhysicalDetails(physicalDetails, "cinematic") : '';
+    const lifeHistoryHTML = lifeHistory ? this.formatLifeHistory(lifeHistory, "cinematic") : '';
+    const dailyLifeHTML = dailyLife ? this.formatDailyLife(dailyLife, "cinematic") : '';
+    const speechPatternsHTML = speechPatterns ? this.formatSpeechPatterns(speechPatterns, "cinematic") : '';
+    const complexityHTML = complexity ? this.formatComplexity(complexity, "cinematic") : '';
+    const currentSituationHTML = currentSituation ? this.formatCurrentSituation(currentSituation, "cinematic") : '';
+
     // Social DC modifier with expanded explanation
     const dcModifier = mood.socialDC;
     const dcHTML = dcModifier !== 0
@@ -245,11 +266,18 @@ export class SocialFormatter {
         ${dcHTML}
         ${attitudesHTML}
         ${appearanceHTML}
+        ${physicalDetailsHTML}
         ${occupationHTML}
         ${personalitiesHTML}
+        ${psychologyHTML}
         ${mannerismsHTML}
+        ${speechPatternsHTML}
         ${motivationHTML}
         ${quirksHTML}
+        ${currentSituationHTML}
+        ${lifeHistoryHTML}
+        ${dailyLifeHTML}
+        ${complexityHTML}
         ${possessionsHTML}
         ${relationshipsHTML}
         ${plotHooksHTML}
@@ -665,5 +693,197 @@ export class SocialFormatter {
         </div>
       `;
     }
+  }
+
+  /**
+   * Format psychology section
+   */
+  static formatPsychology(psychology, detailLevel) {
+    if (!psychology) return '';
+
+    const { fears, desires, regrets, vices, virtues } = psychology;
+
+    if (detailLevel === "standard") {
+      // Compact display - just names
+      const parts = [];
+      if (fears.length > 0) parts.push(`Fears: ${fears.map(f => f.name).join(', ')}`);
+      if (desires.length > 0) parts.push(`Desires: ${desires.map(d => d.name).join(', ')}`);
+      if (vices.length > 0) parts.push(`Vices: ${vices.map(v => v.name).join(', ')}`);
+
+      return `<div class="npc-section npc-psychology"><strong>Psychology:</strong> ${parts.join(' | ')}</div>`;
+    }
+
+    // Cinematic - full details
+    return `
+      <div class="npc-section npc-psychology">
+        <strong>Psychological Profile:</strong>
+        ${fears.length > 0 ? `<div class="psych-fears"><em>Fears:</em> ${fears.map(f => `<strong>${f.name}</strong> - ${StringUtils.escapeHTML(f.manifestation)}`).join('; ')}</div>` : ''}
+        ${desires.length > 0 ? `<div class="psych-desires"><em>Desires:</em> ${desires.map(d => `<strong>${d.name}</strong> - ${StringUtils.escapeHTML(d.motivation)}`).join('; ')}</div>` : ''}
+        ${regrets.length > 0 ? `<div class="psych-regrets"><em>Regrets:</em> ${regrets.map(r => `<strong>${r.name}</strong> - ${StringUtils.escapeHTML(r.impact)}`).join('; ')}</div>` : ''}
+        ${vices.length > 0 ? `<div class="psych-vices"><em>Vices:</em> ${vices.map(v => v.name).join(', ')}</div>` : ''}
+        ${virtues.length > 0 ? `<div class="psych-virtues"><em>Virtues:</em> ${virtues.map(v => v.name).join(', ')}</div>` : ''}
+      </div>
+    `;
+  }
+
+  /**
+   * Format physical details section
+   */
+  static formatPhysicalDetails(details, detailLevel) {
+    if (!details) return '';
+
+    const { voice, scars, tattoos, clothing, jewelry, physicalQuirks, posture, hygiene } = details;
+
+    if (detailLevel === "standard") {
+      const parts = [];
+      parts.push(voice.description);
+      if (scars.length > 0) parts.push(scars[0].description);
+      if (clothing) parts.push(clothing.description);
+
+      return `<div class="npc-section npc-physical"><strong>Physical Details:</strong> ${parts.join('; ')}</div>`;
+    }
+
+    // Cinematic
+    return `
+      <div class="npc-section npc-physical">
+        <strong>Physical Details:</strong>
+        <div><em>Voice:</em> ${StringUtils.escapeHTML(voice.description)}</div>
+        ${scars.length > 0 ? `<div><em>Scars:</em> ${scars.map(s => `${StringUtils.escapeHTML(s.description)} (${StringUtils.escapeHTML(s.origin)})`).join('; ')}</div>` : ''}
+        ${tattoos.length > 0 ? `<div><em>Tattoos:</em> ${tattoos.map(t => `${StringUtils.escapeHTML(t.description)} on ${t.location} - ${StringUtils.escapeHTML(t.meaning)}`).join('; ')}</div>` : ''}
+        <div><em>Clothing:</em> ${StringUtils.escapeHTML(clothing.description)}</div>
+        ${jewelry.length > 0 ? `<div><em>Jewelry:</em> ${jewelry.map(j => `${StringUtils.escapeHTML(j.description)} (${StringUtils.escapeHTML(j.significance)})`).join('; ')}</div>` : ''}
+        <div><em>Posture:</em> ${StringUtils.escapeHTML(posture.description)}</div>
+        <div><em>Hygiene:</em> ${StringUtils.escapeHTML(hygiene.description)}</div>
+        ${physicalQuirks.length > 0 ? `<div><em>Quirks:</em> ${physicalQuirks.map(q => q.description).join('; ')}</div>` : ''}
+      </div>
+    `;
+  }
+
+  /**
+   * Format life history section
+   */
+  static formatLifeHistory(history, detailLevel) {
+    if (!history) return '';
+
+    const { childhoodEvents, formativeExperiences, majorLifeEvents, education, travelHistory } = history;
+
+    return `
+      <div class="npc-section npc-history">
+        <strong>Life History:</strong>
+        ${childhoodEvents.length > 0 ? `<div><em>Childhood:</em> ${childhoodEvents.map(e => StringUtils.escapeHTML(e.description)).join('; ')}</div>` : ''}
+        <div><em>Formative Experience:</em> ${formativeExperiences.map(e => StringUtils.escapeHTML(e.description)).join('; ')}</div>
+        ${majorLifeEvents.length > 0 ? `<div><em>Major Events:</em> ${majorLifeEvents.map(e => StringUtils.escapeHTML(e.description)).join('; ')}</div>` : ''}
+        <div><em>Education:</em> ${StringUtils.escapeHTML(education.description)}</div>
+      </div>
+    `;
+  }
+
+  /**
+   * Format daily life section
+   */
+  static formatDailyLife(dailyLife, detailLevel) {
+    if (!dailyLife) return '';
+
+    const { habits, hobbies, favoriteThings, petPeeves, morningRoutine, eveningRoutine } = dailyLife;
+
+    if (detailLevel === "standard") {
+      return '';  // Skip for standard to keep it manageable
+    }
+
+    return `
+      <div class="npc-section npc-daily-life">
+        <strong>Daily Life:</strong>
+        <div><em>Habits:</em> ${habits.map(h => StringUtils.escapeHTML(h.description)).join('; ')}</div>
+        ${hobbies.length > 0 ? `<div><em>Hobbies:</em> ${hobbies.map(h => StringUtils.escapeHTML(h.description)).join(', ')}</div>` : ''}
+        <div><em>Pet Peeves:</em> ${petPeeves.map(p => StringUtils.escapeHTML(p.description)).join('; ')}</div>
+      </div>
+    `;
+  }
+
+  /**
+   * Format speech patterns section
+   */
+  static formatSpeechPatterns(speech, detailLevel) {
+    if (!speech) return '';
+
+    const { catchphrases, verbalTics, conversationStyle, accent, speakingSpeed, laugh } = speech;
+
+    if (detailLevel === "standard") {
+      const parts = [];
+      parts.push(conversationStyle.description);
+      if (catchphrases.length > 0) parts.push(`Says "${catchphrases[0].phrase}"`);
+
+      return `<div class="npc-section npc-speech"><strong>Speech:</strong> ${parts.join('; ')}</div>`;
+    }
+
+    // Cinematic
+    return `
+      <div class="npc-section npc-speech">
+        <strong>Speech Patterns:</strong>
+        <div><em>Style:</em> ${StringUtils.escapeHTML(conversationStyle.description)} | <em>Accent:</em> ${StringUtils.escapeHTML(accent.description)}</div>
+        <div><em>Catchphrases:</em> "${catchphrases.map(c => c.phrase).join('", "')}"</div>
+        ${verbalTics.length > 0 ? `<div><em>Verbal Tics:</em> ${verbalTics.map(t => t.description).join('; ')}</div>` : ''}
+        <div><em>Laugh:</em> ${StringUtils.escapeHTML(laugh.description)}</div>
+      </div>
+    `;
+  }
+
+  /**
+   * Format character complexity section
+   */
+  static formatComplexity(complexity, detailLevel) {
+    if (!complexity) return '';
+
+    const { contradictions, internalConflicts, hiddenDepths, characterArcs, moralComplexity } = complexity;
+
+    if (detailLevel === "standard") {
+      const parts = [];
+      if (contradictions.length > 0) parts.push(`${contradictions[0].primary} but ${contradictions[0].secondary}`);
+      if (internalConflicts.length > 0) parts.push(`Conflicted: ${internalConflicts[0].conflict}`);
+
+      return parts.length > 0 ? `<div class="npc-section npc-complexity"><strong>Complexity:</strong> ${parts.join('; ')}</div>` : '';
+    }
+
+    // Cinematic
+    return `
+      <div class="npc-section npc-complexity">
+        <strong>Character Depth:</strong>
+        ${contradictions.length > 0 ? `<div><em>Contradiction:</em> ${contradictions.map(c => `${StringUtils.escapeHTML(c.primary)} yet ${StringUtils.escapeHTML(c.secondary)}`).join('; ')}</div>` : ''}
+        ${internalConflicts.length > 0 ? `<div><em>Internal Conflict:</em> ${internalConflicts.map(c => StringUtils.escapeHTML(c.description)).join('; ')}</div>` : ''}
+        ${hiddenDepths.length > 0 ? `<div><em>Hidden Depth:</em> ${hiddenDepths.map(h => `${StringUtils.escapeHTML(h.surface)} (Actually: ${StringUtils.escapeHTML(h.hidden)})`).join('; ')}</div>` : ''}
+        ${characterArcs.length > 0 ? `<div><em>Current Arc:</em> ${characterArcs.map(a => `${StringUtils.escapeHTML(a.current)} - Goal: ${StringUtils.escapeHTML(a.goal)}`).join('; ')}</div>` : ''}
+        ${moralComplexity ? `<div><em>Moral Stance:</em> ${StringUtils.escapeHTML(moralComplexity.belief)}</div>` : ''}
+      </div>
+    `;
+  }
+
+  /**
+   * Format current situation section
+   */
+  static formatCurrentSituation(situation, detailLevel) {
+    if (!situation) return '';
+
+    const { immediateProblems, shortTermGoals, recentEvents, currentMood, stakes, timeConstraints } = situation;
+
+    if (detailLevel === "standard") {
+      const parts = [];
+      if (immediateProblems.length > 0) parts.push(`Problem: ${immediateProblems[0].problem}`);
+      if (shortTermGoals.length > 0) parts.push(`Goal: ${shortTermGoals[0].goal}`);
+
+      return parts.length > 0 ? `<div class="npc-section npc-situation"><strong>Current Situation:</strong> ${parts.join(' | ')}</div>` : '';
+    }
+
+    // Cinematic
+    return `
+      <div class="npc-section npc-situation">
+        <strong>Current Situation:</strong>
+        <div><em>Current Mood:</em> ${StringUtils.escapeHTML(currentMood.mood)} - ${StringUtils.escapeHTML(currentMood.behavior)}</div>
+        ${immediateProblems.length > 0 ? `<div class="situation-urgent"><em>Immediate Problem:</em> ${immediateProblems.map(p => `${StringUtils.escapeHTML(p.problem)} (${p.urgency})`).join('; ')}</div>` : ''}
+        <div><em>Short-Term Goals:</em> ${shortTermGoals.map(g => StringUtils.escapeHTML(g.goal)).join('; ')}</div>
+        ${recentEvents.length > 0 ? `<div><em>Recent Event:</em> ${recentEvents.map(e => StringUtils.escapeHTML(e.event)).join('; ')}</div>` : ''}
+        ${stakes ? `<div><em>Stakes:</em> ${StringUtils.escapeHTML(stakes.stakes)} at risk</div>` : ''}
+        ${timeConstraints ? `<div><em>Time Constraint:</em> ${StringUtils.escapeHTML(timeConstraints.constraint)}</div>` : ''}
+      </div>
+    `;
   }
 }

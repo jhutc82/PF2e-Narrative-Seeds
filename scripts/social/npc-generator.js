@@ -49,7 +49,14 @@ export class NPCGenerator {
         relationshipsExpandedData,
         plotHooksData,
         plotHooksExpandedData,
-        influenceData
+        influenceData,
+        psychologicalDepthData,
+        physicalDetailsData,
+        lifeHistoryData,
+        dailyLifeData,
+        speechPatternsData,
+        characterComplexityData,
+        currentSituationData
       ] = await Promise.all([
         DataLoader.loadJSON("data/social/npc/moods.json"),
         DataLoader.loadJSON("data/social/npc/personalities.json"),
@@ -66,7 +73,14 @@ export class NPCGenerator {
         DataLoader.loadJSON("data/social/npc/relationships-expanded.json"),
         DataLoader.loadJSON("data/social/npc/plot-hooks.json"),
         DataLoader.loadJSON("data/social/npc/plot-hooks-expanded.json"),
-        DataLoader.loadJSON("data/social/npc/influence.json")
+        DataLoader.loadJSON("data/social/npc/influence.json"),
+        DataLoader.loadJSON("data/social/npc/psychological-depth.json"),
+        DataLoader.loadJSON("data/social/npc/physical-details.json"),
+        DataLoader.loadJSON("data/social/npc/life-history.json"),
+        DataLoader.loadJSON("data/social/npc/daily-life.json"),
+        DataLoader.loadJSON("data/social/npc/speech-patterns.json"),
+        DataLoader.loadJSON("data/social/npc/character-complexity.json"),
+        DataLoader.loadJSON("data/social/npc/current-situation.json")
       ]);
 
       if (!moodsData || !personalitiesData || !mannerismsData || !motivationsData || !quirksData) {
@@ -128,6 +142,27 @@ export class NPCGenerator {
       // Generate Influence stat block
       const influence = this.generateInfluence(influenceData, occupation, abilities, mood, personalities, plotHooks);
 
+      // Generate psychological depth
+      const psychology = this.generatePsychology(psychologicalDepthData, personalities, occupation, plotHooks, detailLevel);
+
+      // Generate physical details with ancestry and occupation influences
+      const physicalDetails = this.generatePhysicalDetails(physicalDetailsData, ancestry, occupation, psychology, detailLevel);
+
+      // Generate life history shaped by ancestry and occupation
+      const lifeHistory = this.generateLifeHistory(lifeHistoryData, ancestry, occupation, psychology, detailLevel);
+
+      // Generate daily life patterns
+      const dailyLife = this.generateDailyLife(dailyLifeData, occupation, psychology, lifeHistory, detailLevel);
+
+      // Generate speech patterns influenced by background
+      const speechPatterns = this.generateSpeechPatterns(speechPatternsData, occupation, lifeHistory, personalities, detailLevel);
+
+      // Generate character complexity (contradictions, conflicts, hidden depths)
+      const complexity = this.generateComplexity(characterComplexityData, personalities, psychology, plotHooks, detailLevel);
+
+      // Generate current situation they're dealing with
+      const currentSituation = this.generateCurrentSituation(currentSituationData, occupation, plotHooks, psychology, detailLevel);
+
       // Build NPC seed
       const seed = {
         name,
@@ -144,6 +179,13 @@ export class NPCGenerator {
         relationships,
         plotHooks,
         influence,
+        psychology,
+        physicalDetails,
+        lifeHistory,
+        dailyLife,
+        speechPatterns,
+        complexity,
+        currentSituation,
         detailLevel,
         actor: params.actor,
         timestamp: Date.now()
@@ -849,6 +891,315 @@ export class NPCGenerator {
       biases,
       penalty,
       rounds
+    };
+  }
+
+  /**
+   * Generate psychological depth (fears, desires, regrets, vices, virtues)
+   * @param {Object} data - Psychological depth data
+   * @param {Array} personalities - Selected personality traits
+   * @param {Object} occupation - Occupation data
+   * @param {Object} plotHooks - Plot hooks (for consistency)
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Psychology data
+   */
+  static generatePsychology(data, personalities, occupation, plotHooks, detailLevel) {
+    if (!data) return null;
+
+    const numItems = detailLevel === "cinematic" ? 2 : 1;
+
+    // Select fears (1-2)
+    const fears = this.selectUniqueItems(RandomUtils.selectWeighted(data.fears, "likelihood", numItems));
+
+    // Select desires (1-2)
+    const desires = this.selectUniqueItems(RandomUtils.selectWeighted(data.desires, "likelihood", numItems));
+
+    // Select regrets (0-1, not everyone has notable regrets)
+    const regrets = Math.random() < 0.7 ? [RandomUtils.selectWeighted(data.regrets, "likelihood")] : [];
+
+    // Select vices (1-2)
+    const vices = this.selectUniqueItems(RandomUtils.selectWeighted(data.vices, "likelihood", numItems));
+
+    // Select virtues (1-3, most people have some virtues)
+    const numVirtues = detailLevel === "cinematic" ? 3 : 2;
+    const virtues = this.selectUniqueItems(RandomUtils.selectWeighted(data.virtues, "likelihood", numVirtues));
+
+    return {
+      fears,
+      desires,
+      regrets,
+      vices,
+      virtues
+    };
+  }
+
+  /**
+   * Generate physical details (voice, scars, tattoos, clothing, quirks)
+   * @param {Object} data - Physical details data
+   * @param {string} ancestry - Character ancestry
+   * @param {Object} occupation - Occupation data
+   * @param {Object} psychology - Psychology data (for consistency)
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Physical details
+   */
+  static generatePhysicalDetails(data, ancestry, occupation, psychology, detailLevel) {
+    if (!data) return null;
+
+    // Voice quality
+    const voice = RandomUtils.selectWeighted(data.voiceQualities, "likelihood");
+
+    // Scars/markings (40% chance, higher for certain occupations)
+    const hasScars = Math.random() < (occupation.socialClass?.includes("lower-class") ? 0.6 : 0.4);
+    const scars = hasScars ? [RandomUtils.selectWeighted(data.scarsAndMarkings, "likelihood")] : [];
+
+    // Tattoos (30% chance, varies by culture)
+    const hasTattoos = Math.random() < 0.3;
+    const tattoos = hasTattoos ? [RandomUtils.selectWeighted(data.tattoos, "likelihood")] : [];
+
+    // Clothing style (always have one)
+    const clothing = RandomUtils.selectWeighted(data.clothingStyles, "likelihood");
+
+    // Jewelry (50% chance)
+    const hasJewelry = Math.random() < 0.5;
+    const jewelry = hasJewelry ? [RandomUtils.selectWeighted(data.jewelry, "likelihood")] : [];
+
+    // Physical quirks (1-2 for detailed/cinematic)
+    const numQuirks = detailLevel === "minimal" || detailLevel === "standard" ? 1 : 2;
+    const physicalQuirks = this.selectUniqueItems(data.physicalQuirks, numQuirks);
+
+    // Posture
+    const posture = RandomUtils.selectWeighted(data.posture, "likelihood");
+
+    // Hygiene
+    const hygiene = RandomUtils.selectWeighted(data.hygiene, "likelihood");
+
+    return {
+      voice,
+      scars,
+      tattoos,
+      clothing,
+      jewelry,
+      physicalQuirks,
+      posture,
+      hygiene
+    };
+  }
+
+  /**
+   * Generate life history
+   * @param {Object} data - Life history data
+   * @param {string} ancestry - Character ancestry
+   * @param {Object} occupation - Occupation data
+   * @param {Object} psychology - Psychology data (for consistency)
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Life history
+   */
+  static generateLifeHistory(data, ancestry, occupation, psychology, detailLevel) {
+    if (!data) return null;
+
+    // Childhood event (70% chance of notable event)
+    const childhoodEvents = Math.random() < 0.7 ? [RandomUtils.selectWeighted(data.childhoodEvents, "likelihood")] : [];
+
+    // Formative experience (always at least one)
+    const numFormative = detailLevel === "cinematic" ? 2 : 1;
+    const formativeExperiences = this.selectUniqueItems(data.formativeExperiences, numFormative);
+
+    // Major life events (0-2)
+    const numMajor = detailLevel === "cinematic" ? 2 : (Math.random() < 0.6 ? 1 : 0);
+    const majorLifeEvents = numMajor > 0 ? this.selectUniqueItems(data.majorLifeEvents, numMajor) : [];
+
+    // Education
+    const education = RandomUtils.selectWeighted(data.education, "likelihood");
+
+    // Travel history
+    const travelHistory = RandomUtils.selectWeighted(data.travelHistory, "likelihood");
+
+    return {
+      childhoodEvents,
+      formativeExperiences,
+      majorLifeEvents,
+      education,
+      travelHistory
+    };
+  }
+
+  /**
+   * Generate daily life patterns
+   * @param {Object} data - Daily life data
+   * @param {Object} occupation - Occupation data
+   * @param {Object} psychology - Psychology data
+   * @param {Object} lifeHistory - Life history (for consistency)
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Daily life details
+   */
+  static generateDailyLife(data, occupation, psychology, lifeHistory, detailLevel) {
+    if (!data) return null;
+
+    // Habits (1-2)
+    const numHabits = detailLevel === "cinematic" ? 2 : 1;
+    const habits = this.selectUniqueItems(data.habits, numHabits);
+
+    // Hobbies (0-2)
+    const numHobbies = detailLevel === "minimal" ? 0 : (detailLevel === "cinematic" ? 2 : 1);
+    const hobbies = numHobbies > 0 ? this.selectUniqueItems(data.hobbies, numHobbies) : [];
+
+    // Favorite things (1-2 for detailed/cinematic)
+    const numFavorites = detailLevel === "detailed" || detailLevel === "cinematic" ? 2 : 1;
+    const favoriteThings = this.selectUniqueItems(data.favoritethings, numFavorites);
+
+    // Pet peeves (1-2)
+    const numPeeves = detailLevel === "cinematic" ? 2 : 1;
+    const petPeeves = this.selectUniqueItems(data.petPeeves, numPeeves);
+
+    // Morning routine
+    const morningRoutine = RandomUtils.selectWeighted(data.morningRoutines, "likelihood");
+
+    // Evening routine
+    const eveningRoutine = RandomUtils.selectWeighted(data.eveningRoutines, "likelihood");
+
+    // Social patterns
+    const socialPatterns = RandomUtils.selectWeighted(data.socialPatterns, "likelihood");
+
+    return {
+      habits,
+      hobbies,
+      favoriteThings,
+      petPeeves,
+      morningRoutine,
+      eveningRoutine,
+      socialPatterns
+    };
+  }
+
+  /**
+   * Generate speech patterns
+   * @param {Object} data - Speech patterns data
+   * @param {Object} occupation - Occupation data
+   * @param {Object} lifeHistory - Life history (for consistency)
+   * @param {Array} personalities - Personality traits
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Speech patterns
+   */
+  static generateSpeechPatterns(data, occupation, lifeHistory, personalities, detailLevel) {
+    if (!data) return null;
+
+    // Catchphrases (1-2)
+    const numCatchphrases = detailLevel === "cinematic" ? 2 : 1;
+    const catchphrases = this.selectUniqueItems(data.catchphrases, numCatchphrases);
+
+    // Verbal tics (0-2, not everyone has them)
+    const hasVerbals = Math.random() < 0.6;
+    const numVerbalTics = hasVerbals ? (detailLevel === "cinematic" ? 2 : 1) : 0;
+    const verbalTics = numVerbalTics > 0 ? this.selectUniqueItems(data.verbalTics, numVerbalTics) : [];
+
+    // Conversation style
+    const conversationStyle = RandomUtils.selectWeighted(data.conversationStyles, "likelihood");
+
+    // Accent (based on background)
+    const accent = RandomUtils.selectWeighted(data.accents, "likelihood");
+
+    // Speaking speed
+    const speakingSpeed = RandomUtils.selectWeighted(data.speakingSpeed, "likelihood");
+
+    // Laugh type
+    const laugh = RandomUtils.selectWeighted(data.laughTypes, "likelihood");
+
+    // Emotional tells (1-2)
+    const numTells = detailLevel === "cinematic" ? 2 : 1;
+    const emotionalTells = this.selectUniqueItems(data.emotionalTells, numTells);
+
+    return {
+      catchphrases,
+      verbalTics,
+      conversationStyle,
+      accent,
+      speakingSpeed,
+      laugh,
+      emotionalTells
+    };
+  }
+
+  /**
+   * Generate character complexity (contradictions, conflicts, hidden depths)
+   * @param {Object} data - Character complexity data
+   * @param {Array} personalities - Personality traits
+   * @param {Object} psychology - Psychology data
+   * @param {Object} plotHooks - Plot hooks (for consistency)
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Character complexity
+   */
+  static generateComplexity(data, personalities, psychology, plotHooks, detailLevel) {
+    if (!data) return null;
+
+    // Contradictions (0-1, makes characters more real)
+    const hasContradiction = Math.random() < 0.6;
+    const contradictions = hasContradiction ? [RandomUtils.selectWeighted(data.contradictions, "likelihood")] : [];
+
+    // Internal conflicts (0-1)
+    const hasConflict = Math.random() < 0.7;
+    const internalConflicts = hasConflict ? [RandomUtils.selectWeighted(data.internalConflicts, "likelihood")] : [];
+
+    // Hidden depths (0-1, 50% of people have secrets)
+    const hasHiddenDepth = Math.random() < 0.5;
+    const hiddenDepths = hasHiddenDepth ? [RandomUtils.selectWeighted(data.hiddenDepths, "likelihood")] : [];
+
+    // Character arc (80% are working through something)
+    const hasArc = Math.random() < 0.8;
+    const characterArcs = hasArc ? [RandomUtils.selectWeighted(data.characterArcs, "likelihood")] : [];
+
+    // Moral complexity (always have one)
+    const moralComplexity = RandomUtils.selectWeighted(data.moralComplexity, "likelihood");
+
+    return {
+      contradictions,
+      internalConflicts,
+      hiddenDepths,
+      characterArcs,
+      moralComplexity
+    };
+  }
+
+  /**
+   * Generate current situation (what they're dealing with right now)
+   * @param {Object} data - Current situation data
+   * @param {Object} occupation - Occupation data
+   * @param {Object} plotHooks - Plot hooks (for consistency)
+   * @param {Object} psychology - Psychology data
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Current situation
+   */
+  static generateCurrentSituation(data, occupation, plotHooks, psychology, detailLevel) {
+    if (!data) return null;
+
+    // Immediate problems (0-1, not everyone has pressing issues)
+    const hasProblem = Math.random() < 0.6;
+    const immediateProblems = hasProblem ? [RandomUtils.selectWeighted(data.immediateProblems, "likelihood")] : [];
+
+    // Short-term goals (always at least one)
+    const numGoals = detailLevel === "cinematic" ? 2 : 1;
+    const shortTermGoals = this.selectUniqueItems(data.shortTermGoals, numGoals);
+
+    // Recent events (0-1, 70% have something recent)
+    const hasRecentEvent = Math.random() < 0.7;
+    const recentEvents = hasRecentEvent ? [RandomUtils.selectWeighted(data.recentEvents, "likelihood")] : [];
+
+    // Current mood (always)
+    const currentMood = RandomUtils.selectWeighted(data.currentMood, "likelihood");
+
+    // Stakes (what's at risk for them)
+    const stakes = Math.random() < 0.8 ? RandomUtils.selectWeighted(data.stakes, "likelihood") : null;
+
+    // Time constraints (if they have problems or goals)
+    const hasTimeConstraint = immediateProblems.length > 0 || shortTermGoals.length > 0;
+    const timeConstraints = hasTimeConstraint ? RandomUtils.selectWeighted(data.timeConstraints, "likelihood") : null;
+
+    return {
+      immediateProblems,
+      shortTermGoals,
+      recentEvents,
+      currentMood,
+      stakes,
+      timeConstraints
     };
   }
 }
