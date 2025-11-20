@@ -36,745 +36,1570 @@
       "id": "farmer",
       "name": "Farmer",
       "description": "Works the land, growing crops or raising livestock",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["nature", "athletics", "survival"],
-      "likelihood": 15
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "nature",
+        "athletics",
+        "survival"
+      ],
+      "likelihood": 15,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "merchant",
       "name": "Merchant",
       "description": "Buys and sells goods",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["diplomacy", "society", "deception"],
-      "likelihood": 12
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "diplomacy",
+        "society",
+        "deception"
+      ],
+      "likelihood": 12,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "blacksmith",
       "name": "Blacksmith",
       "description": "Forges metal goods and weapons",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting", "athletics"],
-      "likelihood": 8
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "athletics"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "innkeeper",
       "name": "Innkeeper",
       "description": "Runs a tavern or inn",
-      "socialClass": ["middle-class"],
-      "skills": ["diplomacy", "society"],
-      "likelihood": 10
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "diplomacy",
+        "society"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "guard",
       "name": "Guard",
       "description": "Protects a location or person",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["athletics", "intimidation"],
-      "likelihood": 12
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "athletics",
+        "intimidation"
+      ],
+      "likelihood": 12,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "priest",
       "name": "Priest",
       "description": "Serves a deity or faith",
-      "socialClass": ["lower-class", "middle-class", "upper-class"],
-      "skills": ["religion", "diplomacy", "medicine"],
-      "likelihood": 10
+      "socialClass": [
+        "lower-class",
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "religion",
+        "diplomacy",
+        "medicine"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "scholar",
       "name": "Scholar",
       "description": "Studies and teaches knowledge",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["arcana", "society"],
-      "likelihood": 7
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "arcana",
+        "society"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "laborer",
       "name": "Laborer",
       "description": "Does physical work for wages",
-      "socialClass": ["destitute", "lower-class"],
-      "skills": ["athletics"],
-      "likelihood": 15
+      "socialClass": [
+        "destitute",
+        "lower-class"
+      ],
+      "skills": [
+        "athletics"
+      ],
+      "likelihood": 15,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "artisan",
       "name": "Artisan",
       "description": "Creates crafted goods",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting"],
-      "likelihood": 10
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "noble",
       "name": "Noble",
       "description": "Member of the aristocracy",
-      "socialClass": ["upper-class", "nobility"],
-      "skills": ["society", "diplomacy"],
-      "likelihood": 5
+      "socialClass": [
+        "upper-class",
+        "nobility"
+      ],
+      "skills": [
+        "society",
+        "diplomacy"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "thief",
       "name": "Thief",
       "description": "Steals for a living",
-      "socialClass": ["destitute", "lower-class", "middle-class"],
-      "skills": ["thievery", "stealth", "deception"],
-      "likelihood": 6
+      "socialClass": [
+        "destitute",
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "thievery",
+        "stealth",
+        "deception"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "sailor",
       "name": "Sailor",
       "description": "Works on ships",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["athletics", "survival"],
-      "likelihood": 7
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "athletics",
+        "survival"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "hunter",
       "name": "Hunter",
       "description": "Tracks and kills game",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["survival", "nature", "stealth"],
-      "likelihood": 8
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "survival",
+        "nature",
+        "stealth"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "healer",
       "name": "Healer",
       "description": "Treats the sick and injured",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["medicine", "nature"],
-      "likelihood": 7
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "medicine",
+        "nature"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "entertainer",
       "name": "Entertainer",
       "description": "Performs for audiences",
-      "socialClass": ["destitute", "lower-class", "middle-class"],
-      "skills": ["performance", "acrobatics"],
-      "likelihood": 8
+      "socialClass": [
+        "destitute",
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "performance",
+        "acrobatics"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "soldier",
       "name": "Soldier",
       "description": "Serves in a military force",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["athletics", "intimidation"],
-      "likelihood": 10
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "athletics",
+        "intimidation"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "scribe",
       "name": "Scribe",
       "description": "Copies and records documents",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["society"],
-      "likelihood": 6
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "society"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "cook",
       "name": "Cook",
       "description": "Prepares food professionally",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting"],
-      "likelihood": 8
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "servant",
       "name": "Servant",
       "description": "Works in a household",
-      "socialClass": ["destitute", "lower-class"],
-      "skills": ["society"],
-      "likelihood": 10
+      "socialClass": [
+        "destitute",
+        "lower-class"
+      ],
+      "skills": [
+        "society"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "beggar",
       "name": "Beggar",
       "description": "Lives by asking for charity",
-      "socialClass": ["destitute"],
-      "skills": ["deception", "stealth"],
-      "likelihood": 5
+      "socialClass": [
+        "destitute"
+      ],
+      "skills": [
+        "deception",
+        "stealth"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "wizard",
       "name": "Wizard",
       "description": "Studies arcane magic",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["arcana", "society"],
-      "likelihood": 4
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "arcana",
+        "society"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "herbalist",
       "name": "Herbalist",
       "description": "Gathers and sells medicinal plants",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["nature", "medicine"],
-      "likelihood": 6
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "nature",
+        "medicine"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "miner",
       "name": "Miner",
       "description": "Extracts ore and minerals",
-      "socialClass": ["lower-class"],
-      "skills": ["athletics", "survival"],
-      "likelihood": 6
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "athletics",
+        "survival"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "tailor",
       "name": "Tailor",
       "description": "Makes and repairs clothing",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting"],
-      "likelihood": 7
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "carpenter",
       "name": "Carpenter",
       "description": "Works with wood",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting", "athletics"],
-      "likelihood": 8
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "athletics"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "jeweler",
       "name": "Jeweler",
       "description": "Crafts jewelry and precious items",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["crafting", "society"],
-      "likelihood": 5
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "crafting",
+        "society"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "alchemist",
       "name": "Alchemist",
       "description": "Creates potions and elixirs",
-      "socialClass": ["middle-class"],
-      "skills": ["crafting", "arcana"],
-      "likelihood": 5
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "arcana"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "bureaucrat",
       "name": "Bureaucrat",
       "description": "Works in government administration",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["society", "diplomacy"],
-      "likelihood": 6
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "society",
+        "diplomacy"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "spy",
       "name": "Spy",
       "description": "Gathers intelligence secretly",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["deception", "stealth", "society"],
-      "likelihood": 3
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "deception",
+        "stealth",
+        "society"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "fortune-teller",
       "name": "Fortune Teller",
       "description": "Claims to predict the future",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["occultism", "deception", "performance"],
-      "likelihood": 4
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "occultism",
+        "deception",
+        "performance"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "cartographer",
       "name": "Cartographer",
       "description": "Creates maps and charts",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["crafting", "society", "nature"],
-      "likelihood": 4
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "crafting",
+        "society",
+        "nature"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "brewer",
       "name": "Brewer",
       "description": "Produces alcoholic beverages",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting", "society"],
-      "likelihood": 7
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "society"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "fisherman",
       "name": "Fisherman",
       "description": "Catches fish for a living",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["athletics", "survival", "nature"],
-      "likelihood": 8
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "athletics",
+        "survival",
+        "nature"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "shepherd",
       "name": "Shepherd",
       "description": "Tends flocks of sheep or goats",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["nature", "survival"],
-      "likelihood": 7
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "nature",
+        "survival"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "banker",
       "name": "Banker",
       "description": "Manages money and extends credit",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["society", "diplomacy", "deception"],
-      "likelihood": 5
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "society",
+        "diplomacy",
+        "deception"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "lawyer",
       "name": "Lawyer",
       "description": "Practices law and represents clients",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["society", "diplomacy", "deception"],
-      "likelihood": 5
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "society",
+        "diplomacy",
+        "deception"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "judge",
       "name": "Judge",
       "description": "Presides over legal matters",
-      "socialClass": ["upper-class", "nobility"],
-      "skills": ["society", "intimidation"],
-      "likelihood": 3
+      "socialClass": [
+        "upper-class",
+        "nobility"
+      ],
+      "skills": [
+        "society",
+        "intimidation"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "executioner",
       "name": "Executioner",
       "description": "Carries out death sentences",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["intimidation", "athletics"],
-      "likelihood": 2
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "intimidation",
+        "athletics"
+      ],
+      "likelihood": 2,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "jailer",
       "name": "Jailer",
       "description": "Guards prisoners",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["intimidation", "athletics"],
-      "likelihood": 5
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "intimidation",
+        "athletics"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "diplomat",
       "name": "Diplomat",
       "description": "Represents a faction or nation",
-      "socialClass": ["upper-class", "nobility"],
-      "skills": ["diplomacy", "society", "deception"],
-      "likelihood": 3
+      "socialClass": [
+        "upper-class",
+        "nobility"
+      ],
+      "skills": [
+        "diplomacy",
+        "society",
+        "deception"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "courier",
       "name": "Courier",
       "description": "Delivers messages and packages",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["athletics", "society"],
-      "likelihood": 7
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "athletics",
+        "society"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "librarian",
       "name": "Librarian",
       "description": "Maintains collections of books",
-      "socialClass": ["middle-class"],
-      "skills": ["society", "arcana"],
-      "likelihood": 5
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "society",
+        "arcana"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "architect",
       "name": "Architect",
       "description": "Designs buildings and structures",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["crafting", "society"],
-      "likelihood": 4
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "crafting",
+        "society"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "engineer",
       "name": "Engineer",
       "description": "Designs mechanisms and infrastructure",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["crafting", "arcana"],
-      "likelihood": 4
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "crafting",
+        "arcana"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "mason",
       "name": "Mason",
       "description": "Works with stone and brick",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting", "athletics"],
-      "likelihood": 7
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "athletics"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "glassblower",
       "name": "Glassblower",
       "description": "Creates glass items",
-      "socialClass": ["middle-class"],
-      "skills": ["crafting"],
-      "likelihood": 4
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "potter",
       "name": "Potter",
       "description": "Makes ceramic vessels",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting"],
-      "likelihood": 6
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "cobbler",
       "name": "Cobbler",
       "description": "Makes and repairs shoes",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting"],
-      "likelihood": 7
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "tanner",
       "name": "Tanner",
       "description": "Prepares leather from hides",
-      "socialClass": ["lower-class"],
-      "skills": ["crafting"],
-      "likelihood": 6
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "chandler",
       "name": "Chandler",
       "description": "Makes candles and soap",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting"],
-      "likelihood": 5
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "cooper",
       "name": "Cooper",
       "description": "Makes barrels and casks",
-      "socialClass": ["middle-class"],
-      "skills": ["crafting"],
-      "likelihood": 5
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "fletcher",
       "name": "Fletcher",
       "description": "Makes arrows and bows",
-      "socialClass": ["middle-class"],
-      "skills": ["crafting"],
-      "likelihood": 5
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "locksmith",
       "name": "Locksmith",
       "description": "Creates and repairs locks",
-      "socialClass": ["middle-class"],
-      "skills": ["crafting", "thievery"],
-      "likelihood": 5
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "thievery"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "bookbinder",
       "name": "Bookbinder",
       "description": "Binds and repairs books",
-      "socialClass": ["middle-class"],
-      "skills": ["crafting"],
-      "likelihood": 4
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "miller",
       "name": "Miller",
       "description": "Grinds grain into flour",
-      "socialClass": ["middle-class"],
-      "skills": ["crafting", "athletics"],
-      "likelihood": 6
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "athletics"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "baker",
       "name": "Baker",
       "description": "Bakes bread and pastries",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting"],
-      "likelihood": 8
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "butcher",
       "name": "Butcher",
       "description": "Prepares and sells meat",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting", "intimidation"],
-      "likelihood": 8
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "intimidation"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "bard",
       "name": "Bard",
       "description": "Traveling musician and storyteller",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["performance", "occultism", "society"],
-      "likelihood": 6
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "performance",
+        "occultism",
+        "society"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "actor",
       "name": "Actor",
       "description": "Performs in theatrical productions",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["performance", "deception"],
-      "likelihood": 5
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "performance",
+        "deception"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "acrobat",
       "name": "Acrobat",
       "description": "Performs physical feats",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["acrobatics", "performance"],
-      "likelihood": 5
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "acrobatics",
+        "performance"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "gambler",
       "name": "Gambler",
       "description": "Makes living through games of chance",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["deception", "society"],
-      "likelihood": 5
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "deception",
+        "society"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "prostitute",
       "name": "Courtesan",
       "description": "Sells companionship",
-      "socialClass": ["destitute", "lower-class", "middle-class"],
-      "skills": ["diplomacy", "deception", "society"],
-      "likelihood": 4
+      "socialClass": [
+        "destitute",
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "diplomacy",
+        "deception",
+        "society"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "gladiator",
       "name": "Gladiator",
       "description": "Fights for entertainment",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["athletics", "intimidation", "performance"],
-      "likelihood": 3
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "athletics",
+        "intimidation",
+        "performance"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "bounty-hunter",
       "name": "Bounty Hunter",
       "description": "Tracks down fugitives for reward",
-      "socialClass": ["middle-class"],
-      "skills": ["survival", "intimidation", "society"],
-      "likelihood": 4
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "survival",
+        "intimidation",
+        "society"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "mercenary",
       "name": "Mercenary",
       "description": "Sells combat skills",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["athletics", "intimidation"],
-      "likelihood": 6
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "athletics",
+        "intimidation"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "smuggler",
       "name": "Smuggler",
       "description": "Illegally transports goods",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["deception", "stealth", "society"],
-      "likelihood": 4
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "deception",
+        "stealth",
+        "society"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "fence",
       "name": "Fence",
       "description": "Buys and sells stolen goods",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["deception", "society", "thievery"],
-      "likelihood": 4
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "deception",
+        "society",
+        "thievery"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "con-artist",
       "name": "Con Artist",
       "description": "Makes living through deception",
-      "socialClass": ["lower-class", "middle-class", "upper-class"],
-      "skills": ["deception", "society", "performance"],
-      "likelihood": 3
+      "socialClass": [
+        "lower-class",
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "deception",
+        "society",
+        "performance"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "pickpocket",
       "name": "Pickpocket",
       "description": "Steals from people's pockets",
-      "socialClass": ["destitute", "lower-class"],
-      "skills": ["thievery", "stealth"],
-      "likelihood": 4
+      "socialClass": [
+        "destitute",
+        "lower-class"
+      ],
+      "skills": [
+        "thievery",
+        "stealth"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "burglar",
       "name": "Burglar",
       "description": "Breaks into buildings to steal",
-      "socialClass": ["lower-class"],
-      "skills": ["thievery", "stealth", "athletics"],
-      "likelihood": 3
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "thievery",
+        "stealth",
+        "athletics"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "assassin",
       "name": "Assassin",
       "description": "Kills for money",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["stealth", "deception", "society"],
-      "likelihood": 2
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "stealth",
+        "deception",
+        "society"
+      ],
+      "likelihood": 2,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "tax-collector",
       "name": "Tax Collector",
       "description": "Collects taxes for authorities",
-      "socialClass": ["middle-class"],
-      "skills": ["society", "intimidation"],
-      "likelihood": 4
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "society",
+        "intimidation"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "town-crier",
       "name": "Town Crier",
       "description": "Announces news publicly",
-      "socialClass": ["lower-class"],
-      "skills": ["performance", "society"],
-      "likelihood": 5
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "performance",
+        "society"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "gravedigger",
       "name": "Gravedigger",
       "description": "Buries the dead",
-      "socialClass": ["lower-class"],
-      "skills": ["athletics"],
-      "likelihood": 5
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "athletics"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "undertaker",
       "name": "Undertaker",
       "description": "Prepares bodies for burial",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["medicine", "society"],
-      "likelihood": 5
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "medicine",
+        "society"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "midwife",
       "name": "Midwife",
       "description": "Assists in childbirth",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["medicine", "nature"],
-      "likelihood": 6
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "medicine",
+        "nature"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "veterinarian",
       "name": "Veterinarian",
       "description": "Treats sick and injured animals",
-      "socialClass": ["middle-class"],
-      "skills": ["medicine", "nature"],
-      "likelihood": 5
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "medicine",
+        "nature"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "stable-hand",
       "name": "Stable Hand",
       "description": "Cares for horses and livestock",
-      "socialClass": ["lower-class"],
-      "skills": ["nature", "athletics"],
-      "likelihood": 7
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "nature",
+        "athletics"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "animal-trainer",
       "name": "Animal Trainer",
       "description": "Trains animals for work or performance",
-      "socialClass": ["middle-class"],
-      "skills": ["nature", "performance"],
-      "likelihood": 5
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "nature",
+        "performance"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "rat-catcher",
       "name": "Rat Catcher",
       "description": "Eliminates vermin",
-      "socialClass": ["lower-class"],
-      "skills": ["survival", "nature"],
-      "likelihood": 4
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "survival",
+        "nature"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "nightsoil-collector",
       "name": "Nightsoil Collector",
       "description": "Collects human waste",
-      "socialClass": ["destitute", "lower-class"],
-      "skills": ["athletics"],
-      "likelihood": 3
+      "socialClass": [
+        "destitute",
+        "lower-class"
+      ],
+      "skills": [
+        "athletics"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "chimney-sweep",
       "name": "Chimney Sweep",
       "description": "Cleans chimneys",
-      "socialClass": ["lower-class"],
-      "skills": ["athletics", "acrobatics"],
-      "likelihood": 4
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "athletics",
+        "acrobatics"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "lamplighter",
       "name": "Lamplighter",
       "description": "Lights and maintains street lamps",
-      "socialClass": ["lower-class"],
-      "skills": ["athletics"],
-      "likelihood": 5
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "athletics"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "watchman",
       "name": "Watchman",
       "description": "Patrols and watches for trouble",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["perception", "intimidation"],
-      "likelihood": 7
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "perception",
+        "intimidation"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "herald",
       "name": "Herald",
       "description": "Official messenger and announcer",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["diplomacy", "society", "performance"],
-      "likelihood": 4
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "diplomacy",
+        "society",
+        "performance"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "steward",
       "name": "Steward",
       "description": "Manages a noble's household or estate",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["society", "diplomacy"],
-      "likelihood": 4
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "society",
+        "diplomacy"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "ranger",
       "name": "Ranger",
       "description": "Patrols wilderness areas",
-      "socialClass": ["middle-class"],
-      "skills": ["survival", "nature", "stealth"],
-      "likelihood": 5
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "survival",
+        "nature",
+        "stealth"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "druid",
       "name": "Druid",
       "description": "Nature-focused religious practitioner",
-      "socialClass": ["middle-class"],
-      "skills": ["nature", "religion", "survival"],
-      "likelihood": 3
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "nature",
+        "religion",
+        "survival"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "monk",
       "name": "Monk",
       "description": "Member of religious order",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["religion", "society"],
-      "likelihood": 5
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "religion",
+        "society"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "inquisitor",
       "name": "Inquisitor",
       "description": "Investigates heresy and corruption",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["religion", "intimidation", "society"],
-      "likelihood": 3
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "religion",
+        "intimidation",
+        "society"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "oracle",
       "name": "Oracle",
       "description": "Divines the future through divine insight",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["occultism", "religion"],
-      "likelihood": 2
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "occultism",
+        "religion"
+      ],
+      "likelihood": 2,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "charlatan",
       "name": "Charlatan",
       "description": "Pretends to have powers or knowledge",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["deception", "performance"],
-      "likelihood": 4
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "deception",
+        "performance"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "antiquarian",
       "name": "Antiquarian",
       "description": "Collects and studies ancient artifacts",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["society", "arcana", "occultism"],
-      "likelihood": 3
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "society",
+        "arcana",
+        "occultism"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
     }
   ]
 }

@@ -5,210 +5,240 @@
       "name": "Hidden Debt",
       "description": "Owes a significant sum to dangerous people",
       "severity": "moderate",
-      "likelihood": 15
+      "likelihood": 15,
+      "ancestries": ["all"]
     },
     {
       "id": "secret-identity",
       "name": "Secret Identity",
       "description": "Living under a false name",
       "severity": "high",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "noble-birth",
       "name": "Noble Birth",
       "description": "Actually of noble lineage but hiding it",
       "severity": "moderate",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "witnessed-crime",
       "name": "Witnessed a Crime",
       "description": "Saw something they shouldn't have",
       "severity": "high",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "affair",
       "name": "Secret Affair",
       "description": "Having an illicit romance",
       "severity": "low",
-      "likelihood": 15
+      "likelihood": 15,
+      "ancestries": ["all"]
     },
     {
       "id": "magical-ability",
       "name": "Hidden Magic",
       "description": "Has magical abilities they conceal",
       "severity": "moderate",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "criminal-past",
       "name": "Criminal Past",
       "description": "Committed crimes in the past",
       "severity": "high",
-      "likelihood": 18
+      "likelihood": 18,
+      "ancestries": ["all"]
     },
     {
       "id": "spy",
       "name": "Double Agent",
       "description": "Working for another faction",
       "severity": "high",
-      "likelihood": 6
+      "likelihood": 6,
+      "ancestries": ["all"]
     },
     {
       "id": "illness",
       "name": "Terminal Illness",
       "description": "Suffering from a deadly disease",
       "severity": "high",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "family-secret",
       "name": "Family Secret",
       "description": "Their family hides a dark truth",
       "severity": "moderate",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "forbidden-knowledge",
       "name": "Forbidden Knowledge",
       "description": "Knows something dangerous",
       "severity": "high",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "addiction",
       "name": "Secret Addiction",
       "description": "Struggling with substance abuse",
       "severity": "moderate",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "bastard-child",
       "name": "Illegitimate Child",
       "description": "Has a child no one knows about",
       "severity": "moderate",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "cursed",
       "name": "Cursed",
       "description": "Under a magical curse",
       "severity": "high",
-      "likelihood": 7
+      "likelihood": 7,
+      "ancestries": ["all"]
     },
     {
       "id": "treasure-map",
       "name": "Hidden Treasure",
       "description": "Knows the location of treasure",
       "severity": "moderate",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "fake-credentials",
       "name": "Fake Credentials",
       "description": "Their qualifications are fraudulent",
       "severity": "moderate",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "murdered-someone",
       "name": "Committed Murder",
       "description": "Killed someone and got away with it",
       "severity": "high",
-      "likelihood": 6
+      "likelihood": 6,
+      "ancestries": ["all"]
     },
     {
       "id": "secret-cult",
       "name": "Cult Member",
       "description": "Part of a forbidden religious organization",
       "severity": "high",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "embezzlement",
       "name": "Embezzling Funds",
       "description": "Stealing from their employer or organization",
       "severity": "high",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "informant",
       "name": "Secret Informant",
       "description": "Feeding information to authorities or enemies",
       "severity": "high",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "switched-at-birth",
       "name": "Wrong Identity",
       "description": "Not actually who they believe they are",
       "severity": "high",
-      "likelihood": 4
+      "likelihood": 4,
+      "ancestries": ["all"]
     },
     {
       "id": "dark-pact",
       "name": "Fiendish Pact",
       "description": "Made a deal with dark powers",
       "severity": "high",
-      "likelihood": 5
+      "likelihood": 5,
+      "ancestries": ["all"]
     },
     {
       "id": "fake-death",
       "name": "Faked Death",
       "description": "Someone thinks they're dead",
       "severity": "moderate",
-      "likelihood": 6
+      "likelihood": 6,
+      "ancestries": ["all"]
     },
     {
       "id": "two-families",
       "name": "Double Life",
       "description": "Maintaining two separate families",
       "severity": "moderate",
-      "likelihood": 6
+      "likelihood": 6,
+      "ancestries": ["all"]
     },
     {
       "id": "stolen-identity",
       "name": "Stolen Identity",
       "description": "Living as someone else entirely",
       "severity": "high",
-      "likelihood": 7
+      "likelihood": 7,
+      "ancestries": ["all"]
     },
     {
       "id": "war-crimes",
       "name": "War Crimes",
       "description": "Committed atrocities during conflict",
       "severity": "high",
-      "likelihood": 5
+      "likelihood": 5,
+      "ancestries": ["all"]
     },
     {
       "id": "plague-carrier",
       "name": "Disease Carrier",
       "description": "Unknowingly spreading illness",
       "severity": "high",
-      "likelihood": 4
+      "likelihood": 4,
+      "ancestries": ["all"]
     },
     {
       "id": "prophecy-subject",
       "name": "Prophesied Doom",
       "description": "Subject of a dark prophecy",
       "severity": "high",
-      "likelihood": 5
+      "likelihood": 5,
+      "ancestries": ["all"]
     },
     {
       "id": "smuggling",
       "name": "Smuggler",
       "description": "Running illegal goods",
       "severity": "moderate",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "royal-bastard",
       "name": "Royal Bastard",
       "description": "Illegitimate heir to throne",
       "severity": "high",
-      "likelihood": 3
+      "likelihood": 3,
+      "ancestries": ["all"]
     }
   ],
   "goals": [
@@ -217,210 +247,240 @@
       "name": "Accumulate Wealth",
       "description": "Seeking to become rich",
       "timeframe": "long-term",
-      "likelihood": 20
+      "likelihood": 20,
+      "ancestries": ["all"]
     },
     {
       "id": "revenge",
       "name": "Get Revenge",
       "description": "Wants to settle a score",
       "timeframe": "variable",
-      "likelihood": 15
+      "likelihood": 15,
+      "ancestries": ["all"]
     },
     {
       "id": "find-love",
       "name": "Find True Love",
       "description": "Searching for a romantic partner",
       "timeframe": "long-term",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "prove-innocence",
       "name": "Prove Innocence",
       "description": "Clear their name of false accusations",
       "timeframe": "short-term",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "find-family",
       "name": "Reunite with Family",
       "description": "Searching for lost relatives",
       "timeframe": "long-term",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "master-craft",
       "name": "Perfect Their Craft",
       "description": "Become the best at what they do",
       "timeframe": "long-term",
-      "likelihood": 18
+      "likelihood": 18,
+      "ancestries": ["all"]
     },
     {
       "id": "political-power",
       "name": "Gain Political Power",
       "description": "Rise to a position of authority",
       "timeframe": "long-term",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "cure-disease",
       "name": "Find a Cure",
       "description": "Cure themselves or a loved one",
       "timeframe": "urgent",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "escape",
       "name": "Escape Their Situation",
       "description": "Get away from current circumstances",
       "timeframe": "short-term",
-      "likelihood": 15
+      "likelihood": 15,
+      "ancestries": ["all"]
     },
     {
       "id": "redemption",
       "name": "Seek Redemption",
       "description": "Atone for past mistakes",
       "timeframe": "long-term",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "knowledge",
       "name": "Discover Truth",
       "description": "Uncover hidden knowledge",
       "timeframe": "variable",
-      "likelihood": 14
+      "likelihood": 14,
+      "ancestries": ["all"]
     },
     {
       "id": "protect-someone",
       "name": "Protect a Loved One",
       "description": "Keep someone safe from danger",
       "timeframe": "ongoing",
-      "likelihood": 16
+      "likelihood": 16,
+      "ancestries": ["all"]
     },
     {
       "id": "destroy-enemy",
       "name": "Destroy an Enemy",
       "description": "Bring down a powerful foe",
       "timeframe": "long-term",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "start-business",
       "name": "Start a Business",
       "description": "Open their own shop or enterprise",
       "timeframe": "medium-term",
-      "likelihood": 14
+      "likelihood": 14,
+      "ancestries": ["all"]
     },
     {
       "id": "retire",
       "name": "Retire Peacefully",
       "description": "Leave their current life behind",
       "timeframe": "long-term",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "restore-honor",
       "name": "Restore Family Honor",
       "description": "Repair damaged family reputation",
       "timeframe": "long-term",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "build-legacy",
       "name": "Build a Legacy",
       "description": "Create something to be remembered by",
       "timeframe": "long-term",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "break-free",
       "name": "Break Free",
       "description": "Escape from control or servitude",
       "timeframe": "urgent",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "unite-factions",
       "name": "Unite Divided Groups",
       "description": "Bring together warring factions",
       "timeframe": "long-term",
-      "likelihood": 6
+      "likelihood": 6,
+      "ancestries": ["all"]
     },
     {
       "id": "discover-origins",
       "name": "Discover Origins",
       "description": "Learn about their true heritage",
       "timeframe": "variable",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "overthrow-tyrant",
       "name": "Overthrow Tyrant",
       "description": "Remove an oppressive ruler",
       "timeframe": "long-term",
-      "likelihood": 6
+      "likelihood": 6,
+      "ancestries": ["all"]
     },
     {
       "id": "train-successor",
       "name": "Train a Successor",
       "description": "Pass on their knowledge and skills",
       "timeframe": "medium-term",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "recover-artifact",
       "name": "Recover Lost Artifact",
       "description": "Find a powerful or precious item",
       "timeframe": "variable",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "end-war",
       "name": "End a War",
       "description": "Bring peace to conflicting parties",
       "timeframe": "long-term",
-      "likelihood": 5
+      "likelihood": 5,
+      "ancestries": ["all"]
     },
     {
       "id": "prove-theory",
       "name": "Prove a Theory",
       "description": "Validate their research or beliefs",
       "timeframe": "variable",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "establish-sanctuary",
       "name": "Create Sanctuary",
       "description": "Build a safe haven for the persecuted",
       "timeframe": "long-term",
-      "likelihood": 6
+      "likelihood": 6,
+      "ancestries": ["all"]
     },
     {
       "id": "expose-conspiracy",
       "name": "Expose Conspiracy",
       "description": "Reveal a hidden plot",
       "timeframe": "urgent",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "lift-curse",
       "name": "Break Their Curse",
       "description": "Free themselves from magical affliction",
       "timeframe": "urgent",
-      "likelihood": 7
+      "likelihood": 7,
+      "ancestries": ["all"]
     },
     {
       "id": "fulfill-prophecy",
       "name": "Fulfill Prophecy",
       "description": "Complete their destined role",
       "timeframe": "variable",
-      "likelihood": 5
+      "likelihood": 5,
+      "ancestries": ["all"]
     },
     {
       "id": "expand-influence",
       "name": "Expand Influence",
       "description": "Grow their network and connections",
       "timeframe": "ongoing",
-      "likelihood": 14
+      "likelihood": 14,
+      "ancestries": ["all"]
     }
   ],
   "conflicts": [
@@ -429,210 +489,240 @@
       "name": "Crushing Debt",
       "description": "Deep in debt to dangerous creditors",
       "severity": "high",
-      "likelihood": 15
+      "likelihood": 15,
+      "ancestries": ["all"]
     },
     {
       "id": "legal-trouble",
       "name": "Legal Troubles",
       "description": "Facing criminal charges",
       "severity": "high",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "family-feud",
       "name": "Family Feud",
       "description": "Caught in a conflict between family members",
       "severity": "moderate",
-      "likelihood": 14
+      "likelihood": 14,
+      "ancestries": ["all"]
     },
     {
       "id": "romantic-triangle",
       "name": "Love Triangle",
       "description": "Competing for someone's affections",
       "severity": "low",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "rival-business",
       "name": "Business Rivalry",
       "description": "In competition with a rival",
       "severity": "moderate",
-      "likelihood": 16
+      "likelihood": 16,
+      "ancestries": ["all"]
     },
     {
       "id": "blackmail",
       "name": "Being Blackmailed",
       "description": "Someone holds damaging information over them",
       "severity": "high",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "political-intrigue",
       "name": "Political Intrigue",
       "description": "Caught up in power struggles",
       "severity": "high",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "monster-threat",
       "name": "Monster Threat",
       "description": "A creature threatens them or their community",
       "severity": "high",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "guild-dispute",
       "name": "Guild Conflict",
       "description": "At odds with their professional organization",
       "severity": "moderate",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "religious-persecution",
       "name": "Religious Persecution",
       "description": "Facing discrimination for their beliefs",
       "severity": "high",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "property-dispute",
       "name": "Property Dispute",
       "description": "Fighting over land or inheritance",
       "severity": "moderate",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "curse-problem",
       "name": "Magical Affliction",
       "description": "Suffering from a curse or magical ailment",
       "severity": "high",
-      "likelihood": 6
+      "likelihood": 6,
+      "ancestries": ["all"]
     },
     {
       "id": "hunted",
       "name": "Being Hunted",
       "description": "Someone is actively pursuing them",
       "severity": "high",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "moral-dilemma",
       "name": "Moral Dilemma",
       "description": "Forced to choose between conflicting values",
       "severity": "moderate",
-      "likelihood": 14
+      "likelihood": 14,
+      "ancestries": ["all"]
     },
     {
       "id": "failing-health",
       "name": "Declining Health",
       "description": "Physical or mental health deteriorating",
       "severity": "high",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "extortion",
       "name": "Being Extorted",
       "description": "Forced to pay protection money",
       "severity": "moderate",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "custody-battle",
       "name": "Custody Battle",
       "description": "Fighting for custody of a child",
       "severity": "moderate",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "rival-suitor",
       "name": "Romantic Rival",
       "description": "Competing for someone's hand",
       "severity": "low",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "oath-conflict",
       "name": "Conflicting Oaths",
       "description": "Sworn to incompatible duties",
       "severity": "high",
-      "likelihood": 6
+      "likelihood": 6,
+      "ancestries": ["all"]
     },
     {
       "id": "exile-threat",
       "name": "Threat of Exile",
       "description": "At risk of being banished",
       "severity": "high",
-      "likelihood": 6
+      "likelihood": 6,
+      "ancestries": ["all"]
     },
     {
       "id": "addiction-struggle",
       "name": "Fighting Addiction",
       "description": "Battling substance dependency",
       "severity": "high",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "enemy-within",
       "name": "Traitor in Midst",
       "description": "Someone close is working against them",
       "severity": "high",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "natural-disaster",
       "name": "Natural Disaster",
       "description": "Home or business destroyed",
       "severity": "high",
-      "likelihood": 6
+      "likelihood": 6,
+      "ancestries": ["all"]
     },
     {
       "id": "reputation-damage",
       "name": "Damaged Reputation",
       "description": "False rumors ruining their standing",
       "severity": "moderate",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "haunting",
       "name": "Haunted",
       "description": "Plagued by supernatural entity",
       "severity": "high",
-      "likelihood": 5
+      "likelihood": 5,
+      "ancestries": ["all"]
     },
     {
       "id": "time-pressure",
       "name": "Deadline Approaching",
       "description": "Running out of time for crucial task",
       "severity": "high",
-      "likelihood": 14
+      "likelihood": 14,
+      "ancestries": ["all"]
     },
     {
       "id": "cultural-conflict",
       "name": "Cultural Clash",
       "description": "Traditions conflicting with new society",
       "severity": "moderate",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "supply-shortage",
       "name": "Resource Shortage",
       "description": "Can't get needed materials",
       "severity": "moderate",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "apprentice-trouble",
       "name": "Problematic Apprentice",
       "description": "Student causing issues",
       "severity": "low",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "split-loyalty",
       "name": "Divided Loyalties",
       "description": "Torn between two factions",
       "severity": "high",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     }
   ],
   "questHooks": [
@@ -641,168 +731,192 @@
       "name": "Lost Important Item",
       "description": "Needs help recovering a valuable possession",
       "reward": "monetary",
-      "likelihood": 18
+      "likelihood": 18,
+      "ancestries": ["all"]
     },
     {
       "id": "deliver-message",
       "name": "Urgent Message",
       "description": "Needs someone to deliver a message safely",
       "reward": "favor",
-      "likelihood": 15
+      "likelihood": 15,
+      "ancestries": ["all"]
     },
     {
       "id": "missing-person",
       "name": "Missing Person",
       "description": "A loved one has disappeared",
       "reward": "monetary-and-favor",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "guard-duty",
       "name": "Need Protection",
       "description": "Requires bodyguards for a journey",
       "reward": "monetary",
-      "likelihood": 14
+      "likelihood": 14,
+      "ancestries": ["all"]
     },
     {
       "id": "retrieve-debt",
       "name": "Collect Debt",
       "description": "Needs help collecting money owed",
       "reward": "percentage",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "investigate-crime",
       "name": "Solve a Mystery",
       "description": "Wants to uncover the truth about something",
       "reward": "monetary",
-      "likelihood": 16
+      "likelihood": 16,
+      "ancestries": ["all"]
     },
     {
       "id": "escort-mission",
       "name": "Safe Passage",
       "description": "Needs escort to dangerous location",
       "reward": "monetary",
-      "likelihood": 14
+      "likelihood": 14,
+      "ancestries": ["all"]
     },
     {
       "id": "gather-ingredients",
       "name": "Rare Components",
       "description": "Needs specific items gathered",
       "reward": "monetary-or-item",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "clear-name",
       "name": "Clear Reputation",
       "description": "Needs help proving their innocence",
       "reward": "favor",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "break-curse",
       "name": "Remove Curse",
       "description": "Seeks aid in breaking a magical curse",
       "reward": "generous",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "spy-mission",
       "name": "Gather Information",
       "description": "Needs intelligence on rivals or enemies",
       "reward": "monetary",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "rescue-mission",
       "name": "Rescue Mission",
       "description": "Someone needs to be saved",
       "reward": "generous",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "track-monster",
       "name": "Hunt Creature",
       "description": "Track and deal with dangerous beast",
       "reward": "monetary-and-trophy",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "diplomatic-mission",
       "name": "Diplomatic Errand",
       "description": "Represent them in negotiations",
       "reward": "favor-and-monetary",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "smuggle-goods",
       "name": "Move Contraband",
       "description": "Transport illegal or sensitive cargo",
       "reward": "generous",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "locate-person",
       "name": "Find Someone",
       "description": "Track down a specific individual",
       "reward": "monetary",
-      "likelihood": 14
+      "likelihood": 14,
+      "ancestries": ["all"]
     },
     {
       "id": "steal-item",
       "name": "Acquire Item",
       "description": "Obtain something by questionable means",
       "reward": "monetary",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "verify-rumor",
       "name": "Confirm Intelligence",
       "description": "Check if rumors are true",
       "reward": "favor",
-      "likelihood": 12
+      "likelihood": 12,
+      "ancestries": ["all"]
     },
     {
       "id": "sabotage-rival",
       "name": "Undermine Competition",
       "description": "Disrupt a rival's operations",
       "reward": "monetary",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "translate-document",
       "name": "Decipher Text",
       "description": "Find someone to translate ancient writing",
       "reward": "favor",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "test-product",
       "name": "Field Test",
       "description": "Try out new item or potion",
       "reward": "item-and-monetary",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "settle-dispute",
       "name": "Mediate Conflict",
       "description": "Help resolve an argument",
       "reward": "favor-from-both",
-      "likelihood": 10
+      "likelihood": 10,
+      "ancestries": ["all"]
     },
     {
       "id": "recover-body",
       "name": "Retrieve Remains",
       "description": "Recover a body for proper burial",
       "reward": "favor-and-monetary",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     },
     {
       "id": "start-distraction",
       "name": "Create Diversion",
       "description": "Draw attention away from something",
       "reward": "monetary",
-      "likelihood": 8
+      "likelihood": 8,
+      "ancestries": ["all"]
     }
   ]
 }

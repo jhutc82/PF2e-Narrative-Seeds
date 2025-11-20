@@ -4,385 +4,577 @@
       "id": "wants-information",
       "name": "Wants Information",
       "description": "Trying to learn something from the party",
-      "gmGuidance": "They'll ask probing questions and steer conversation to their topic of interest"
+      "gmGuidance": "They'll ask probing questions and steer conversation to their topic of interest",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "hiding-something",
       "name": "Hiding Something",
       "description": "Concealing important information or a secret",
-      "gmGuidance": "They'll deflect certain topics and may lie if pressed"
+      "gmGuidance": "They'll deflect certain topics and may lie if pressed",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "needs-help",
       "name": "Needs Help",
       "description": "Requires assistance but may be reluctant to ask directly",
-      "gmGuidance": "They're hoping the party will offer aid or notice their plight"
+      "gmGuidance": "They're hoping the party will offer aid or notice their plight",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "testing-party",
       "name": "Testing the Party",
       "description": "Evaluating the party's capabilities, morals, or intentions",
-      "gmGuidance": "They'll present hypotheticals or small challenges to gauge responses"
+      "gmGuidance": "They'll present hypotheticals or small challenges to gauge responses",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "making-sale",
       "name": "Making a Sale",
       "description": "Trying to sell goods, services, or an idea",
-      "gmGuidance": "They'll highlight benefits and downplay drawbacks"
+      "gmGuidance": "They'll highlight benefits and downplay drawbacks",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "seeking-allies",
       "name": "Seeking Allies",
       "description": "Looking for people to join their cause or faction",
-      "gmGuidance": "They'll emphasize shared goals and mutual benefits"
+      "gmGuidance": "They'll emphasize shared goals and mutual benefits",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "delivering-message",
       "name": "Delivering a Message",
       "description": "Has specific information to convey to the party",
-      "gmGuidance": "They'll try to get to their message, but may build rapport first"
+      "gmGuidance": "They'll try to get to their message, but may build rapport first",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "seeking-revenge",
       "name": "Seeking Revenge",
       "description": "Wants retribution against someone or something",
-      "gmGuidance": "They may try to manipulate the party into helping with their vendetta"
+      "gmGuidance": "They may try to manipulate the party into helping with their vendetta",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "lonely",
       "name": "Lonely",
       "description": "Simply wants companionship and conversation",
-      "gmGuidance": "They'll try to prolong the interaction and share stories"
+      "gmGuidance": "They'll try to prolong the interaction and share stories",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "suspicious",
       "name": "Suspicious of Party",
       "description": "Doesn't trust the party and wants to assess the threat",
-      "gmGuidance": "They'll be cautious and watch for signs of danger"
+      "gmGuidance": "They'll be cautious and watch for signs of danger",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "hurried",
       "name": "In a Hurry",
       "description": "Has urgent business elsewhere",
-      "gmGuidance": "They'll try to keep the interaction brief and to the point"
+      "gmGuidance": "They'll try to keep the interaction brief and to the point",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "showing-off",
       "name": "Showing Off",
       "description": "Wants to impress the party or demonstrate superiority",
-      "gmGuidance": "They'll boast about accomplishments and drop names"
+      "gmGuidance": "They'll boast about accomplishments and drop names",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "seeking-validation",
       "name": "Seeking Validation",
       "description": "Wants approval or reassurance from others",
-      "gmGuidance": "They'll share concerns and look for affirmation"
+      "gmGuidance": "They'll share concerns and look for affirmation",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "warning-party",
       "name": "Warning the Party",
       "description": "Knows of a danger and wants to alert them",
-      "gmGuidance": "They may be cryptic if fearful of being overheard"
+      "gmGuidance": "They may be cryptic if fearful of being overheard",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "entertainment",
       "name": "Seeking Entertainment",
       "description": "Bored and looking for amusement or gossip",
-      "gmGuidance": "They'll ask about the party's adventures and share local rumors"
+      "gmGuidance": "They'll ask about the party's adventures and share local rumors",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "recruiting",
       "name": "Recruiting",
       "description": "Trying to hire the party for a job",
-      "gmGuidance": "They'll assess the party's skills and discuss terms"
+      "gmGuidance": "They'll assess the party's skills and discuss terms",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "intimidating",
       "name": "Intimidating",
       "description": "Trying to scare the party away or establish dominance",
-      "gmGuidance": "They'll make veiled threats or show of strength"
+      "gmGuidance": "They'll make veiled threats or show of strength",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "genuine-interest",
       "name": "Genuine Interest",
       "description": "Actually curious about the party and their stories",
-      "gmGuidance": "They'll ask thoughtful questions and engage authentically"
+      "gmGuidance": "They'll ask thoughtful questions and engage authentically",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "protecting-someone",
       "name": "Protecting Someone",
       "description": "Trying to keep someone else safe from the party",
-      "gmGuidance": "They'll misdirect or lie to protect their charge"
+      "gmGuidance": "They'll misdirect or lie to protect their charge",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "duty-bound",
       "name": "Duty Bound",
       "description": "Performing their job or fulfilling an obligation",
-      "gmGuidance": "They'll be professional but may lack personal investment"
+      "gmGuidance": "They'll be professional but may lack personal investment",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "sizing-up",
       "name": "Sizing Up",
       "description": "Assessing if the party could be useful later",
-      "gmGuidance": "They'll probe for skills and connections"
+      "gmGuidance": "They'll probe for skills and connections",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "deflecting-attention",
       "name": "Deflecting Attention",
       "description": "Trying to keep the party from noticing something",
-      "gmGuidance": "They'll redirect conversation away from certain topics"
+      "gmGuidance": "They'll redirect conversation away from certain topics",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "stalling",
       "name": "Stalling for Time",
       "description": "Keeping the party occupied while something else happens",
-      "gmGuidance": "They'll drag out the conversation with digressions"
+      "gmGuidance": "They'll drag out the conversation with digressions",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "gathering-allies",
       "name": "Gathering Support",
       "description": "Building a coalition for an upcoming conflict",
-      "gmGuidance": "They'll emphasize common enemies and shared interests"
+      "gmGuidance": "They'll emphasize common enemies and shared interests",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "making-impression",
       "name": "Making an Impression",
       "description": "Wants to be remembered favorably",
-      "gmGuidance": "They'll try to seem impressive and generous"
+      "gmGuidance": "They'll try to seem impressive and generous",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "earning-trust",
       "name": "Earning Trust",
       "description": "Building credibility for future requests",
-      "gmGuidance": "They'll be helpful and honest to establish rapport"
+      "gmGuidance": "They'll be helpful and honest to establish rapport",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "discrediting-rival",
       "name": "Discrediting a Rival",
       "description": "Planting seeds of doubt about someone else",
-      "gmGuidance": "They'll drop subtle negative hints about their target"
+      "gmGuidance": "They'll drop subtle negative hints about their target",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "spreading-rumor",
       "name": "Spreading Information",
       "description": "Making sure certain news gets around",
-      "gmGuidance": "They'll casually mention the information repeatedly"
+      "gmGuidance": "They'll casually mention the information repeatedly",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "seeking-approval",
       "name": "Seeking Approval",
       "description": "Wants validation from impressive strangers",
-      "gmGuidance": "They'll share accomplishments and fish for compliments"
+      "gmGuidance": "They'll share accomplishments and fish for compliments",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "covering-tracks",
       "name": "Covering Their Tracks",
       "description": "Creating an alibi or false narrative",
-      "gmGuidance": "They'll volunteer information that paints them favorably"
+      "gmGuidance": "They'll volunteer information that paints them favorably",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "scoping-threat",
       "name": "Assessing a Threat",
       "description": "Determining if the party is dangerous",
-      "gmGuidance": "They'll ask about capabilities and recent activities"
+      "gmGuidance": "They'll ask about capabilities and recent activities",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "buying-silence",
       "name": "Buying Silence",
       "description": "Hoping to ensure the party won't talk",
-      "gmGuidance": "They'll offer rewards for discretion"
+      "gmGuidance": "They'll offer rewards for discretion",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "planting-evidence",
       "name": "Setting Up a Frame",
       "description": "Arranging for the party to be blamed later",
-      "gmGuidance": "They'll ensure the party is seen in specific places"
+      "gmGuidance": "They'll ensure the party is seen in specific places",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "escaping-boredom",
       "name": "Relieving Boredom",
       "description": "Just wants something interesting to happen",
-      "gmGuidance": "They'll encourage the party to share wild stories"
+      "gmGuidance": "They'll encourage the party to share wild stories",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "practicing-lies",
       "name": "Rehearsing Deception",
       "description": "Testing a cover story on strangers",
-      "gmGuidance": "They'll tell an elaborate tale and gauge reactions"
+      "gmGuidance": "They'll tell an elaborate tale and gauge reactions",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "seeking-muscle",
       "name": "Finding Enforcers",
       "description": "Looking for people who can handle violence",
-      "gmGuidance": "They'll probe for willingness to use force"
+      "gmGuidance": "They'll probe for willingness to use force",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "avoiding-someone",
       "name": "Hiding from Someone",
       "description": "Using the party as cover or distraction",
-      "gmGuidance": "They'll stick close and seem nervous about surroundings"
+      "gmGuidance": "They'll stick close and seem nervous about surroundings",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "marking-targets",
       "name": "Identifying Marks",
       "description": "Assessing if the party is worth robbing",
-      "gmGuidance": "They'll casually observe wealth and awareness"
+      "gmGuidance": "They'll casually observe wealth and awareness",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "gauging-morals",
       "name": "Testing Ethics",
       "description": "Determining the party's moral boundaries",
-      "gmGuidance": "They'll present hypothetical moral dilemmas"
+      "gmGuidance": "They'll present hypothetical moral dilemmas",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "finding-scapegoat",
       "name": "Finding a Scapegoat",
       "description": "Looking for someone to blame",
-      "gmGuidance": "They'll suggest the party handle dangerous tasks"
+      "gmGuidance": "They'll suggest the party handle dangerous tasks",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "vetting-investment",
       "name": "Assessing Investment",
       "description": "Determining if backing the party would pay off",
-      "gmGuidance": "They'll ask about plans and track record"
+      "gmGuidance": "They'll ask about plans and track record",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "gathering-blackmail",
       "name": "Collecting Leverage",
       "description": "Looking for secrets to exploit later",
-      "gmGuidance": "They'll encourage the party to confide in them"
+      "gmGuidance": "They'll encourage the party to confide in them",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "establishing-alibi",
       "name": "Creating Witnesses",
       "description": "Making sure they're seen here at this time",
-      "gmGuidance": "They'll make the interaction memorable"
+      "gmGuidance": "They'll make the interaction memorable",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "scouting-competition",
       "name": "Evaluating Competition",
       "description": "Sizing up potential rivals",
-      "gmGuidance": "They'll probe for skills and goals"
+      "gmGuidance": "They'll probe for skills and goals",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "fishing-information",
       "name": "Extracting Intel",
       "description": "Trying to learn specific facts without seeming interested",
-      "gmGuidance": "They'll circle around the topic with indirect questions"
+      "gmGuidance": "They'll circle around the topic with indirect questions",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "currying-favor",
       "name": "Building Credit",
       "description": "Doing favors to cash in later",
-      "gmGuidance": "They'll be helpful and remind the party they owe them"
+      "gmGuidance": "They'll be helpful and remind the party they owe them",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "distracting-from-guilt",
       "name": "Appearing Normal",
       "description": "Acting natural to avoid suspicion",
-      "gmGuidance": "They'll seem overly casual about serious matters"
+      "gmGuidance": "They'll seem overly casual about serious matters",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "fulfilling-dare",
       "name": "Completing a Dare",
       "description": "Proving they're brave enough to approach strangers",
-      "gmGuidance": "They'll seem nervous but determined"
+      "gmGuidance": "They'll seem nervous but determined",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "following-orders",
       "name": "Following Orders",
       "description": "Someone told them to make contact",
-      "gmGuidance": "They'll be mechanical and stick to a script"
+      "gmGuidance": "They'll be mechanical and stick to a script",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "satisfying-curiosity",
       "name": "Indulging Curiosity",
       "description": "Heard about the party and wants to see for themselves",
-      "gmGuidance": "They'll ask direct questions about rumors"
+      "gmGuidance": "They'll ask direct questions about rumors",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "networking",
       "name": "Expanding Network",
       "description": "Building professional connections",
-      "gmGuidance": "They'll exchange contact information and names"
+      "gmGuidance": "They'll exchange contact information and names",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "sensing-opportunity",
       "name": "Spotting Opportunity",
       "description": "Thinks the party might be useful somehow",
-      "gmGuidance": "They'll ask open-ended questions about needs"
+      "gmGuidance": "They'll ask open-ended questions about needs",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "avoiding-work",
       "name": "Procrastinating",
       "description": "Using the conversation to avoid their duties",
-      "gmGuidance": "They'll stretch out any interaction"
+      "gmGuidance": "They'll stretch out any interaction",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "making-contact",
       "name": "Establishing Contact",
       "description": "First step in a longer plan",
-      "gmGuidance": "They'll ensure the party knows how to find them"
+      "gmGuidance": "They'll ensure the party knows how to find them",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "paying-forward",
       "name": "Paying It Forward",
       "description": "Someone helped them once, now helping others",
-      "gmGuidance": "They'll share useful information freely"
+      "gmGuidance": "They'll share useful information freely",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "testing-waters",
       "name": "Testing the Waters",
       "description": "Seeing if the party is receptive to an idea",
-      "gmGuidance": "They'll float proposals hypothetically"
+      "gmGuidance": "They'll float proposals hypothetically",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "seeking-redemption",
       "name": "Attempting Redemption",
       "description": "Trying to balance past wrongs with good deeds",
-      "gmGuidance": "They'll be overly helpful and mention past regrets"
+      "gmGuidance": "They'll be overly helpful and mention past regrets",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "building-legend",
       "name": "Creating Their Legend",
       "description": "Wants to be part of the party's story",
-      "gmGuidance": "They'll make the interaction dramatic and memorable"
+      "gmGuidance": "They'll make the interaction dramatic and memorable",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "issuing-challenge",
       "name": "Issuing a Challenge",
       "description": "Wants to prove they're better than the party",
-      "gmGuidance": "They'll suggest competitions or contests"
+      "gmGuidance": "They'll suggest competitions or contests",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "preventing-mistake",
       "name": "Preventing an Error",
       "description": "Knows the party is about to make a wrong move",
-      "gmGuidance": "They'll try to warn without revealing too much"
+      "gmGuidance": "They'll try to warn without revealing too much",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "fulfilling-prophecy",
       "name": "Following Prophecy",
       "description": "Believes fate requires this meeting",
-      "gmGuidance": "They'll make cryptic references to destiny"
+      "gmGuidance": "They'll make cryptic references to destiny",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "conducting-experiment",
       "name": "Running an Experiment",
       "description": "Testing a theory about people or magic",
-      "gmGuidance": "They'll observe reactions carefully"
+      "gmGuidance": "They'll observe reactions carefully",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "repaying-debt",
       "name": "Honoring a Debt",
       "description": "Owes someone who asked them to help the party",
-      "gmGuidance": "They'll mention they were asked to assist"
+      "gmGuidance": "They'll mention they were asked to assist",
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "last-chance",
       "name": "Seizing Last Chance",
       "description": "This is their final opportunity for something",
-      "gmGuidance": "They'll seem urgent and slightly desperate"
+      "gmGuidance": "They'll seem urgent and slightly desperate",
+      "ancestries": [
+        "all"
+      ]
     }
   ]
 }
