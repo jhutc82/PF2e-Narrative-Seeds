@@ -104,6 +104,111 @@
       "description": "Knows the location of treasure",
       "severity": "moderate",
       "likelihood": 8
+    },
+    {
+      "id": "fake-credentials",
+      "name": "Fake Credentials",
+      "description": "Their qualifications are fraudulent",
+      "severity": "moderate",
+      "likelihood": 12
+    },
+    {
+      "id": "murdered-someone",
+      "name": "Committed Murder",
+      "description": "Killed someone and got away with it",
+      "severity": "high",
+      "likelihood": 6
+    },
+    {
+      "id": "secret-cult",
+      "name": "Cult Member",
+      "description": "Part of a forbidden religious organization",
+      "severity": "high",
+      "likelihood": 8
+    },
+    {
+      "id": "embezzlement",
+      "name": "Embezzling Funds",
+      "description": "Stealing from their employer or organization",
+      "severity": "high",
+      "likelihood": 10
+    },
+    {
+      "id": "informant",
+      "name": "Secret Informant",
+      "description": "Feeding information to authorities or enemies",
+      "severity": "high",
+      "likelihood": 8
+    },
+    {
+      "id": "switched-at-birth",
+      "name": "Wrong Identity",
+      "description": "Not actually who they believe they are",
+      "severity": "high",
+      "likelihood": 4
+    },
+    {
+      "id": "dark-pact",
+      "name": "Fiendish Pact",
+      "description": "Made a deal with dark powers",
+      "severity": "high",
+      "likelihood": 5
+    },
+    {
+      "id": "fake-death",
+      "name": "Faked Death",
+      "description": "Someone thinks they're dead",
+      "severity": "moderate",
+      "likelihood": 6
+    },
+    {
+      "id": "two-families",
+      "name": "Double Life",
+      "description": "Maintaining two separate families",
+      "severity": "moderate",
+      "likelihood": 6
+    },
+    {
+      "id": "stolen-identity",
+      "name": "Stolen Identity",
+      "description": "Living as someone else entirely",
+      "severity": "high",
+      "likelihood": 7
+    },
+    {
+      "id": "war-crimes",
+      "name": "War Crimes",
+      "description": "Committed atrocities during conflict",
+      "severity": "high",
+      "likelihood": 5
+    },
+    {
+      "id": "plague-carrier",
+      "name": "Disease Carrier",
+      "description": "Unknowingly spreading illness",
+      "severity": "high",
+      "likelihood": 4
+    },
+    {
+      "id": "prophecy-subject",
+      "name": "Prophesied Doom",
+      "description": "Subject of a dark prophecy",
+      "severity": "high",
+      "likelihood": 5
+    },
+    {
+      "id": "smuggling",
+      "name": "Smuggler",
+      "description": "Running illegal goods",
+      "severity": "moderate",
+      "likelihood": 12
+    },
+    {
+      "id": "royal-bastard",
+      "name": "Royal Bastard",
+      "description": "Illegitimate heir to throne",
+      "severity": "high",
+      "likelihood": 3
     }
   ],
   "goals": [
@@ -211,6 +316,111 @@
       "description": "Leave their current life behind",
       "timeframe": "long-term",
       "likelihood": 10
+    },
+    {
+      "id": "restore-honor",
+      "name": "Restore Family Honor",
+      "description": "Repair damaged family reputation",
+      "timeframe": "long-term",
+      "likelihood": 10
+    },
+    {
+      "id": "build-legacy",
+      "name": "Build a Legacy",
+      "description": "Create something to be remembered by",
+      "timeframe": "long-term",
+      "likelihood": 12
+    },
+    {
+      "id": "break-free",
+      "name": "Break Free",
+      "description": "Escape from control or servitude",
+      "timeframe": "urgent",
+      "likelihood": 12
+    },
+    {
+      "id": "unite-factions",
+      "name": "Unite Divided Groups",
+      "description": "Bring together warring factions",
+      "timeframe": "long-term",
+      "likelihood": 6
+    },
+    {
+      "id": "discover-origins",
+      "name": "Discover Origins",
+      "description": "Learn about their true heritage",
+      "timeframe": "variable",
+      "likelihood": 10
+    },
+    {
+      "id": "overthrow-tyrant",
+      "name": "Overthrow Tyrant",
+      "description": "Remove an oppressive ruler",
+      "timeframe": "long-term",
+      "likelihood": 6
+    },
+    {
+      "id": "train-successor",
+      "name": "Train a Successor",
+      "description": "Pass on their knowledge and skills",
+      "timeframe": "medium-term",
+      "likelihood": 8
+    },
+    {
+      "id": "recover-artifact",
+      "name": "Recover Lost Artifact",
+      "description": "Find a powerful or precious item",
+      "timeframe": "variable",
+      "likelihood": 10
+    },
+    {
+      "id": "end-war",
+      "name": "End a War",
+      "description": "Bring peace to conflicting parties",
+      "timeframe": "long-term",
+      "likelihood": 5
+    },
+    {
+      "id": "prove-theory",
+      "name": "Prove a Theory",
+      "description": "Validate their research or beliefs",
+      "timeframe": "variable",
+      "likelihood": 8
+    },
+    {
+      "id": "establish-sanctuary",
+      "name": "Create Sanctuary",
+      "description": "Build a safe haven for the persecuted",
+      "timeframe": "long-term",
+      "likelihood": 6
+    },
+    {
+      "id": "expose-conspiracy",
+      "name": "Expose Conspiracy",
+      "description": "Reveal a hidden plot",
+      "timeframe": "urgent",
+      "likelihood": 8
+    },
+    {
+      "id": "lift-curse",
+      "name": "Break Their Curse",
+      "description": "Free themselves from magical affliction",
+      "timeframe": "urgent",
+      "likelihood": 7
+    },
+    {
+      "id": "fulfill-prophecy",
+      "name": "Fulfill Prophecy",
+      "description": "Complete their destined role",
+      "timeframe": "variable",
+      "likelihood": 5
+    },
+    {
+      "id": "expand-influence",
+      "name": "Expand Influence",
+      "description": "Grow their network and connections",
+      "timeframe": "ongoing",
+      "likelihood": 14
     }
   ],
   "conflicts": [
@@ -318,6 +528,111 @@
       "description": "Physical or mental health deteriorating",
       "severity": "high",
       "likelihood": 8
+    },
+    {
+      "id": "extortion",
+      "name": "Being Extorted",
+      "description": "Forced to pay protection money",
+      "severity": "moderate",
+      "likelihood": 12
+    },
+    {
+      "id": "custody-battle",
+      "name": "Custody Battle",
+      "description": "Fighting for custody of a child",
+      "severity": "moderate",
+      "likelihood": 8
+    },
+    {
+      "id": "rival-suitor",
+      "name": "Romantic Rival",
+      "description": "Competing for someone's hand",
+      "severity": "low",
+      "likelihood": 10
+    },
+    {
+      "id": "oath-conflict",
+      "name": "Conflicting Oaths",
+      "description": "Sworn to incompatible duties",
+      "severity": "high",
+      "likelihood": 6
+    },
+    {
+      "id": "exile-threat",
+      "name": "Threat of Exile",
+      "description": "At risk of being banished",
+      "severity": "high",
+      "likelihood": 6
+    },
+    {
+      "id": "addiction-struggle",
+      "name": "Fighting Addiction",
+      "description": "Battling substance dependency",
+      "severity": "high",
+      "likelihood": 8
+    },
+    {
+      "id": "enemy-within",
+      "name": "Traitor in Midst",
+      "description": "Someone close is working against them",
+      "severity": "high",
+      "likelihood": 10
+    },
+    {
+      "id": "natural-disaster",
+      "name": "Natural Disaster",
+      "description": "Home or business destroyed",
+      "severity": "high",
+      "likelihood": 6
+    },
+    {
+      "id": "reputation-damage",
+      "name": "Damaged Reputation",
+      "description": "False rumors ruining their standing",
+      "severity": "moderate",
+      "likelihood": 12
+    },
+    {
+      "id": "haunting",
+      "name": "Haunted",
+      "description": "Plagued by supernatural entity",
+      "severity": "high",
+      "likelihood": 5
+    },
+    {
+      "id": "time-pressure",
+      "name": "Deadline Approaching",
+      "description": "Running out of time for crucial task",
+      "severity": "high",
+      "likelihood": 14
+    },
+    {
+      "id": "cultural-conflict",
+      "name": "Cultural Clash",
+      "description": "Traditions conflicting with new society",
+      "severity": "moderate",
+      "likelihood": 10
+    },
+    {
+      "id": "supply-shortage",
+      "name": "Resource Shortage",
+      "description": "Can't get needed materials",
+      "severity": "moderate",
+      "likelihood": 12
+    },
+    {
+      "id": "apprentice-trouble",
+      "name": "Problematic Apprentice",
+      "description": "Student causing issues",
+      "severity": "low",
+      "likelihood": 8
+    },
+    {
+      "id": "split-loyalty",
+      "name": "Divided Loyalties",
+      "description": "Torn between two factions",
+      "severity": "high",
+      "likelihood": 10
     }
   ],
   "questHooks": [
@@ -404,6 +719,90 @@
       "description": "Someone needs to be saved",
       "reward": "generous",
       "likelihood": 10
+    },
+    {
+      "id": "track-monster",
+      "name": "Hunt Creature",
+      "description": "Track and deal with dangerous beast",
+      "reward": "monetary-and-trophy",
+      "likelihood": 12
+    },
+    {
+      "id": "diplomatic-mission",
+      "name": "Diplomatic Errand",
+      "description": "Represent them in negotiations",
+      "reward": "favor-and-monetary",
+      "likelihood": 8
+    },
+    {
+      "id": "smuggle-goods",
+      "name": "Move Contraband",
+      "description": "Transport illegal or sensitive cargo",
+      "reward": "generous",
+      "likelihood": 8
+    },
+    {
+      "id": "locate-person",
+      "name": "Find Someone",
+      "description": "Track down a specific individual",
+      "reward": "monetary",
+      "likelihood": 14
+    },
+    {
+      "id": "steal-item",
+      "name": "Acquire Item",
+      "description": "Obtain something by questionable means",
+      "reward": "monetary",
+      "likelihood": 10
+    },
+    {
+      "id": "verify-rumor",
+      "name": "Confirm Intelligence",
+      "description": "Check if rumors are true",
+      "reward": "favor",
+      "likelihood": 12
+    },
+    {
+      "id": "sabotage-rival",
+      "name": "Undermine Competition",
+      "description": "Disrupt a rival's operations",
+      "reward": "monetary",
+      "likelihood": 8
+    },
+    {
+      "id": "translate-document",
+      "name": "Decipher Text",
+      "description": "Find someone to translate ancient writing",
+      "reward": "favor",
+      "likelihood": 8
+    },
+    {
+      "id": "test-product",
+      "name": "Field Test",
+      "description": "Try out new item or potion",
+      "reward": "item-and-monetary",
+      "likelihood": 10
+    },
+    {
+      "id": "settle-dispute",
+      "name": "Mediate Conflict",
+      "description": "Help resolve an argument",
+      "reward": "favor-from-both",
+      "likelihood": 10
+    },
+    {
+      "id": "recover-body",
+      "name": "Retrieve Remains",
+      "description": "Recover a body for proper burial",
+      "reward": "favor-and-monetary",
+      "likelihood": 8
+    },
+    {
+      "id": "start-distraction",
+      "name": "Create Diversion",
+      "description": "Draw attention away from something",
+      "reward": "monetary",
+      "likelihood": 8
     }
   ]
 }
