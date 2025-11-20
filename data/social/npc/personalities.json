@@ -1554,6 +1554,325 @@
       "ancestries": [
         "all"
       ]
+    },
+    {
+      "id": "brooding",
+      "name": "Brooding",
+      "description": "Dwells on dark thoughts and troubles",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "vivacious",
+      "name": "Vivacious",
+      "description": "Lively, animated, and full of spirit",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "austere",
+      "name": "Austere",
+      "description": "Severe, stern, and without excess",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "sardonic",
+      "name": "Sardonic",
+      "description": "Mocking, cynical sense of humor",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "eccentric",
+      "name": "Eccentric",
+      "description": "Unconventional and slightly strange",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "sullen",
+      "name": "Sullen",
+      "description": "Bad-tempered and sullenly resentful",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "effervescent",
+      "name": "Effervescent",
+      "description": "Bubbly, vivacious, and enthusiastic",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "taciturn-brooding",
+      "name": "Taciturn and Brooding",
+      "description": "Silent and moody",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "imperious",
+      "name": "Imperious",
+      "description": "Domineering and overbearing",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "diffident",
+      "name": "Diffident",
+      "description": "Modest, shy, lacking self-confidence",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "boisterous",
+      "name": "Boisterous",
+      "description": "Noisy, energetic, and cheerful",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "circumspect",
+      "name": "Circumspect",
+      "description": "Wary, cautious, and unwilling to take risks",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "truculent",
+      "name": "Truculent",
+      "description": "Eager to argue or fight, aggressively defiant",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "magnanimous",
+      "name": "Magnanimous",
+      "description": "Generous and forgiving, especially toward rivals",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "petulant",
+      "name": "Petulant",
+      "description": "Childishly sulky or bad-tempered",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "garrulous",
+      "name": "Garrulous",
+      "description": "Excessively talkative about trivial matters",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "laconic",
+      "name": "Laconic",
+      "description": "Using very few words, terse",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "sanguine",
+      "name": "Sanguine",
+      "description": "Optimistic and positive in difficult situations",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "morose",
+      "name": "Morose",
+      "description": "Sullen and ill-tempered",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "officious",
+      "name": "Officious",
+      "description": "Assertively interfering with offers of help",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "reticent",
+      "name": "Reticent",
+      "description": "Not revealing thoughts or feelings readily",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "ebullient",
+      "name": "Ebullient",
+      "description": "Cheerful and full of energy",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "phlegmatic",
+      "name": "Phlegmatic",
+      "description": "Calm and unemotional",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "irascible",
+      "name": "Irascible",
+      "description": "Hot-tempered, easily angered",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "affable",
+      "name": "Affable",
+      "description": "Friendly, good-natured, easy to talk to",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "bellicose",
+      "name": "Bellicose",
+      "description": "Demonstrating aggression and willingness to fight",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "pacific",
+      "name": "Pacific",
+      "description": "Peaceful in character or intent",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "querulous",
+      "name": "Querulous",
+      "description": "Complaining in an irritating way",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "complaisant",
+      "name": "Complaisant",
+      "description": "Willing to please others, agreeable",
+      "tags": [
+        "personality-trait"
+      ],
+      "ancestries": [
+        "all"
+      ]
     }
   ]
 }

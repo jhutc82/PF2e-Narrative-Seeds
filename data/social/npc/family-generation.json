@@ -1,0 +1,527 @@
+{
+  "familyStatus": [
+    {
+      "id": "nuclear-family",
+      "name": "Nuclear Family",
+      "description": "Lives with spouse and children",
+      "likelihood": 25
+    },
+    {
+      "id": "extended-family",
+      "name": "Extended Family",
+      "description": "Multiple generations living together",
+      "likelihood": 20
+    },
+    {
+      "id": "single-parent",
+      "name": "Single Parent",
+      "description": "Raising children alone",
+      "likelihood": 12
+    },
+    {
+      "id": "orphan",
+      "name": "Orphan",
+      "description": "Both parents deceased",
+      "likelihood": 10
+    },
+    {
+      "id": "estranged",
+      "name": "Estranged",
+      "description": "Has family but no contact",
+      "likelihood": 8
+    },
+    {
+      "id": "childless-couple",
+      "name": "Childless Couple",
+      "description": "Married/partnered without children",
+      "likelihood": 15
+    },
+    {
+      "id": "lone-individual",
+      "name": "Lone Individual",
+      "description": "No close family ties",
+      "likelihood": 14
+    },
+    {
+      "id": "ward",
+      "name": "Ward/Foster",
+      "description": "Raised by non-biological family",
+      "likelihood": 7
+    },
+    {
+      "id": "commune",
+      "name": "Communal Living",
+      "description": "Raised collectively",
+      "likelihood": 5
+    },
+    {
+      "id": "chosen-family",
+      "name": "Chosen Family",
+      "description": "Close-knit non-blood relations",
+      "likelihood": 12
+    }
+  ],
+  "siblings": [
+    {
+      "id": "only-child",
+      "name": "Only Child",
+      "likelihood": 25
+    },
+    {
+      "id": "eldest",
+      "name": "Eldest Sibling",
+      "likelihood": 18
+    },
+    {
+      "id": "middle-child",
+      "name": "Middle Child",
+      "likelihood": 16
+    },
+    {
+      "id": "youngest",
+      "name": "Youngest Sibling",
+      "likelihood": 18
+    },
+    {
+      "id": "twin",
+      "name": "Twin",
+      "likelihood": 8
+    },
+    {
+      "id": "many-siblings",
+      "name": "One of Many (5+)",
+      "likelihood": 12
+    },
+    {
+      "id": "half-siblings",
+      "name": "Has Half-Siblings",
+      "likelihood": 10
+    },
+    {
+      "id": "step-siblings",
+      "name": "Has Step-Siblings",
+      "likelihood": 9
+    }
+  ],
+  "siblingRelationships": [
+    {
+      "id": "close-bond",
+      "name": "Very Close",
+      "description": "Best friends with siblings",
+      "likelihood": 22
+    },
+    {
+      "id": "friendly",
+      "name": "Friendly",
+      "description": "Get along well",
+      "likelihood": 28
+    },
+    {
+      "id": "distant",
+      "name": "Distant",
+      "description": "Rarely interact",
+      "likelihood": 18
+    },
+    {
+      "id": "rivalry",
+      "name": "Rivalry",
+      "description": "Competitive relationship",
+      "likelihood": 15
+    },
+    {
+      "id": "hostile",
+      "name": "Hostile",
+      "description": "Actively dislike each other",
+      "likelihood": 10
+    },
+    {
+      "id": "protective",
+      "name": "Protective",
+      "description": "Fiercely guards siblings",
+      "likelihood": 16
+    },
+    {
+      "id": "jealous",
+      "name": "Jealous",
+      "description": "Envious of sibling success",
+      "likelihood": 12
+    },
+    {
+      "id": "estranged",
+      "name": "Estranged",
+      "description": "No longer speak",
+      "likelihood": 11
+    }
+  ],
+  "parentalRelationship": [
+    {
+      "id": "loving",
+      "name": "Loving",
+      "description": "Warm, supportive relationship",
+      "likelihood": 30
+    },
+    {
+      "id": "strained",
+      "name": "Strained",
+      "description": "Difficult relationship",
+      "likelihood": 18
+    },
+    {
+      "id": "absent",
+      "name": "Absent",
+      "description": "Parents were distant or gone",
+      "likelihood": 15
+    },
+    {
+      "id": "deceased",
+      "name": "Deceased",
+      "description": "Parents are dead",
+      "likelihood": 14
+    },
+    {
+      "id": "abusive",
+      "name": "Abusive",
+      "description": "Suffered parental abuse",
+      "likelihood": 8
+    },
+    {
+      "id": "idolizing",
+      "name": "Idolizing",
+      "description": "Puts parents on pedestal",
+      "likelihood": 12
+    },
+    {
+      "id": "disappointed",
+      "name": "Disappointed",
+      "description": "Parents disapprove of life choices",
+      "likelihood": 14
+    },
+    {
+      "id": "unknown",
+      "name": "Unknown",
+      "description": "Never knew parents",
+      "likelihood": 9
+    },
+    {
+      "id": "complicated",
+      "name": "Complicated",
+      "description": "Mix of love and resentment",
+      "likelihood": 16
+    },
+    {
+      "id": "role-reversed",
+      "name": "Role Reversed",
+      "description": "Takes care of parents",
+      "likelihood": 10
+    }
+  ],
+  "childrenStatus": [
+    {
+      "id": "no-children",
+      "name": "No Children",
+      "likelihood": 45
+    },
+    {
+      "id": "one-child",
+      "name": "One Child",
+      "likelihood": 18
+    },
+    {
+      "id": "two-children",
+      "name": "Two Children",
+      "likelihood": 15
+    },
+    {
+      "id": "many-children",
+      "name": "Many Children (3+)",
+      "likelihood": 12
+    },
+    {
+      "id": "adopted-children",
+      "name": "Adopted Children",
+      "likelihood": 6
+    },
+    {
+      "id": "children-died",
+      "name": "Lost Children",
+      "description": "Had children who died",
+      "likelihood": 8
+    },
+    {
+      "id": "estranged-children",
+      "name": "Estranged from Children",
+      "likelihood": 7
+    },
+    {
+      "id": "expecting",
+      "name": "Expecting Child",
+      "likelihood": 5
+    }
+  ],
+  "parentingStyle": [
+    {
+      "id": "nurturing",
+      "name": "Nurturing",
+      "description": "Warm and supportive parent",
+      "likelihood": 25
+    },
+    {
+      "id": "strict",
+      "name": "Strict",
+      "description": "Firm disciplinarian",
+      "likelihood": 18
+    },
+    {
+      "id": "permissive",
+      "name": "Permissive",
+      "description": "Lets children do as they please",
+      "likelihood": 14
+    },
+    {
+      "id": "absent-parent",
+      "name": "Absent",
+      "description": "Work or choices keep them away",
+      "likelihood": 12
+    },
+    {
+      "id": "overprotective",
+      "name": "Overprotective",
+      "description": "Shields children excessively",
+      "likelihood": 15
+    },
+    {
+      "id": "demanding",
+      "name": "Demanding",
+      "description": "High expectations",
+      "likelihood": 16
+    },
+    {
+      "id": "friend-parent",
+      "name": "Friend-Parent",
+      "description": "Tries to be child's friend",
+      "likelihood": 11
+    },
+    {
+      "id": "traditional",
+      "name": "Traditional",
+      "description": "Follows cultural norms strictly",
+      "likelihood": 17
+    },
+    {
+      "id": "neglectful",
+      "name": "Neglectful",
+      "description": "Fails to meet children's needs",
+      "likelihood": 8
+    },
+    {
+      "id": "struggling",
+      "name": "Struggling",
+      "description": "Tries but overwhelmed",
+      "likelihood": 14
+    }
+  ],
+  "familySecrets": [
+    {
+      "id": "illegitimacy",
+      "name": "Illegitimate Birth",
+      "description": "Born outside marriage",
+      "likelihood": 12
+    },
+    {
+      "id": "adoption-secret",
+      "name": "Secret Adoption",
+      "description": "Doesn't know they're adopted",
+      "likelihood": 8
+    },
+    {
+      "id": "switched-birth",
+      "name": "Switched at Birth",
+      "description": "Raised by wrong family",
+      "likelihood": 3
+    },
+    {
+      "id": "hidden-sibling",
+      "name": "Hidden Sibling",
+      "description": "Has unknown brother/sister",
+      "likelihood": 9
+    },
+    {
+      "id": "parent-criminal",
+      "name": "Parent's Crime",
+      "description": "Parent committed serious crime",
+      "likelihood": 11
+    },
+    {
+      "id": "noble-blood",
+      "name": "Secret Noble Blood",
+      "description": "Descended from nobility",
+      "likelihood": 7
+    },
+    {
+      "id": "monster-heritage",
+      "name": "Monstrous Heritage",
+      "description": "Has non-human ancestor",
+      "likelihood": 6
+    },
+    {
+      "id": "family-curse",
+      "name": "Family Curse",
+      "description": "Bloodline is cursed",
+      "likelihood": 8
+    },
+    {
+      "id": "inheritance-dispute",
+      "name": "Inheritance Dispute",
+      "description": "Family fighting over wealth",
+      "likelihood": 10
+    },
+    {
+      "id": "affair",
+      "name": "Parental Affair",
+      "description": "Parent had affair",
+      "likelihood": 13
+    },
+    {
+      "id": "murder",
+      "name": "Family Murder",
+      "description": "Someone killed family member",
+      "likelihood": 9
+    },
+    {
+      "id": "debt",
+      "name": "Hidden Debt",
+      "description": "Family owes dangerous people",
+      "likelihood": 12
+    },
+    {
+      "id": "false-identity",
+      "name": "False Identity",
+      "description": "Family living under assumed names",
+      "likelihood": 7
+    },
+    {
+      "id": "magical-experiment",
+      "name": "Magical Experiment",
+      "description": "Family member of magical creation",
+      "likelihood": 4
+    },
+    {
+      "id": "prophecy",
+      "name": "Family Prophecy",
+      "description": "Destined for something significant",
+      "likelihood": 6
+    }
+  ],
+  "familyTradition": [
+    {
+      "id": "craft-tradition",
+      "name": "Craft Tradition",
+      "description": "Multi-generational trade or craft",
+      "likelihood": 25
+    },
+    {
+      "id": "military-service",
+      "name": "Military Service",
+      "description": "Family tradition of serving",
+      "likelihood": 18
+    },
+    {
+      "id": "religious-calling",
+      "name": "Religious Calling",
+      "description": "Expected to serve deity",
+      "likelihood": 15
+    },
+    {
+      "id": "magical-lineage",
+      "name": "Magical Lineage",
+      "description": "Magic runs in family",
+      "likelihood": 12
+    },
+    {
+      "id": "arranged-marriages",
+      "name": "Arranged Marriages",
+      "description": "Marriages are arranged",
+      "likelihood": 16
+    },
+    {
+      "id": "exploration",
+      "name": "Exploration",
+      "description": "Family of adventurers",
+      "likelihood": 10
+    },
+    {
+      "id": "scholarly",
+      "name": "Scholarly",
+      "description": "Emphasis on education",
+      "likelihood": 14
+    },
+    {
+      "id": "criminal",
+      "name": "Criminal Enterprise",
+      "description": "Family business is crime",
+      "likelihood": 9
+    },
+    {
+      "id": "nobility-service",
+      "name": "Noble Service",
+      "description": "Generations serving noble house",
+      "likelihood": 13
+    },
+    {
+      "id": "none",
+      "name": "No Traditions",
+      "description": "Family has no particular tradition",
+      "likelihood": 22
+    }
+  ],
+  "familyReputation": [
+    {
+      "id": "respected",
+      "name": "Respected",
+      "description": "Family is well-regarded",
+      "likelihood": 22
+    },
+    {
+      "id": "disgraced",
+      "name": "Disgraced",
+      "description": "Family name is tarnished",
+      "likelihood": 14
+    },
+    {
+      "id": "feared",
+      "name": "Feared",
+      "description": "Family is intimidating",
+      "likelihood": 12
+    },
+    {
+      "id": "pitied",
+      "name": "Pitied",
+      "description": "Family is seen as unfortunate",
+      "likelihood": 11
+    },
+    {
+      "id": "powerful",
+      "name": "Powerful",
+      "description": "Family has significant influence",
+      "likelihood": 15
+    },
+    {
+      "id": "unknown",
+      "name": "Unknown",
+      "description": "Family is obscure",
+      "likelihood": 26
+    },
+    {
+      "id": "notorious",
+      "name": "Notorious",
+      "description": "Family is infamous",
+      "likelihood": 10
+    },
+    {
+      "id": "eccentric",
+      "name": "Eccentric",
+      "description": "Family is known as strange",
+      "likelihood": 13
+    }
+  ]
+}

@@ -1,0 +1,304 @@
+{
+  "developmentArcs": [
+    {
+      "id": "redemption",
+      "name": "Redemption Arc",
+      "description": "Seeking to atone for past wrongs",
+      "stages": [
+        "Denial of wrongdoing",
+        "Recognition of harm caused",
+        "Attempt to make amends",
+        "Backsliding to old ways",
+        "Final choice: redemption or damnation"
+      ]
+    },
+    {
+      "id": "corruption",
+      "name": "Corruption Arc",
+      "description": "Gradual descent into darkness",
+      "stages": [
+        "Idealistic and good",
+        "First moral compromise",
+        "Justifying worse actions",
+        "Embracing darker methods",
+        "Complete moral collapse"
+      ]
+    },
+    {
+      "id": "coming-of-age",
+      "name": "Coming of Age",
+      "description": "Journey from youth to maturity",
+      "stages": [
+        "Naive and inexperienced",
+        "First major challenge",
+        "Learning from failure",
+        "Developing wisdom",
+        "Accepting adult responsibilities"
+      ]
+    },
+    {
+      "id": "love-interest",
+      "name": "Love Interest Arc",
+      "description": "Romantic relationship development",
+      "stages": [
+        "Initial attraction",
+        "Getting to know each other",
+        "Conflict or obstacle",
+        "Crisis point",
+        "Resolution (together or apart)"
+      ]
+    },
+    {
+      "id": "mentor-student",
+      "name": "Mentor to Student",
+      "description": "Guiding another's growth",
+      "stages": [
+        "Taking on student",
+        "Teaching basics",
+        "Student challenges teacher",
+        "Role reversal moment",
+        "Student surpasses teacher"
+      ]
+    },
+    {
+      "id": "revenge-quest",
+      "name": "Revenge Quest",
+      "description": "Seeking vengeance",
+      "stages": [
+        "Suffering injustice",
+        "Planning revenge",
+        "Early victories",
+        "Moral questioning",
+        "Revenge or forgiveness"
+      ]
+    },
+    {
+      "id": "self-discovery",
+      "name": "Self-Discovery",
+      "description": "Finding true identity",
+      "stages": [
+        "Living false life",
+        "Questioning identity",
+        "Exploring alternatives",
+        "Resistance from others",
+        "Embracing true self"
+      ]
+    },
+    {
+      "id": "tragic-decline",
+      "name": "Tragic Decline",
+      "description": "Inevitable fall from grace",
+      "stages": [
+        "At peak of success",
+        "Fatal flaw emerges",
+        "Making bad choices",
+        "Point of no return",
+        "Tragic end"
+      ]
+    },
+    {
+      "id": "rise-to-power",
+      "name": "Rise to Power",
+      "description": "Climbing social/political ladder",
+      "stages": [
+        "Starting from nothing",
+        "First taste of success",
+        "Making necessary compromises",
+        "Defeating rivals",
+        "Achieving power"
+      ]
+    },
+    {
+      "id": "loss-and-grief",
+      "name": "Loss and Grief",
+      "description": "Coping with tragedy",
+      "stages": [
+        "Denial",
+        "Anger",
+        "Bargaining",
+        "Depression",
+        "Acceptance"
+      ]
+    }
+  ],
+  "relationshipProgression": [
+    {
+      "id": "stranger-to-friend",
+      "name": "Stranger to Friend",
+      "milestones": [
+        "First meeting",
+        "Shared experience",
+        "Personal revelation",
+        "Helping in crisis",
+        "Deep friendship"
+      ]
+    },
+    {
+      "id": "enemy-to-ally",
+      "name": "Enemy to Ally",
+      "milestones": [
+        "Initial conflict",
+        "Forced cooperation",
+        "Grudging respect",
+        "Common enemy",
+        "Trusted ally"
+      ]
+    },
+    {
+      "id": "friend-to-enemy",
+      "name": "Friend to Enemy",
+      "milestones": [
+        "Close friendship",
+        "Minor disagreement",
+        "Betrayal or hurt",
+        "Open conflict",
+        "Bitter enemies"
+      ]
+    },
+    {
+      "id": "professional-to-personal",
+      "name": "Professional to Personal",
+      "milestones": [
+        "Work relationship",
+        "After-hours interaction",
+        "Personal crisis shared",
+        "Boundary blurring",
+        "Close personal bond"
+      ]
+    },
+    {
+      "id": "mentor-mentee",
+      "name": "Mentor-Mentee",
+      "milestones": [
+        "Taking under wing",
+        "Early lessons",
+        "Student proves self",
+        "Becoming peers",
+        "Student independence"
+      ]
+    }
+  ],
+  "beliefChanges": [
+    {
+      "id": "loss-of-faith",
+      "name": "Loss of Faith",
+      "description": "Abandoning religious beliefs",
+      "triggers": ["Unanswered prayers", "Theological crisis", "Betrayal by clergy"]
+    },
+    {
+      "id": "conversion",
+      "name": "Religious Conversion",
+      "description": "Adopting new faith",
+      "triggers": ["Miracle witnessed", "Philosophical revelation", "Love interest influence"]
+    },
+    {
+      "id": "political-awakening",
+      "name": "Political Awakening",
+      "description": "Developing political consciousness",
+      "triggers": ["Witnessing injustice", "Personal oppression", "Inspiring leader"]
+    },
+    {
+      "id": "disillusionment",
+      "name": "Disillusionment",
+      "description": "Losing naive beliefs",
+      "triggers": ["Betrayal", "Harsh reality", "Idol's fall"]
+    },
+    {
+      "id": "radicalization",
+      "name": "Radicalization",
+      "description": "Adopting extreme views",
+      "triggers": ["Persecution", "Charismatic leader", "Personal loss"]
+    }
+  ],
+  "skillProgression": [
+    {
+      "id": "novice",
+      "name": "Novice",
+      "description": "Just beginning to learn"
+    },
+    {
+      "id": "apprentice",
+      "name": "Apprentice",
+      "description": "Basic competence achieved"
+    },
+    {
+      "id": "journeyman",
+      "name": "Journeyman",
+      "description": "Solid practitioner"
+    },
+    {
+      "id": "expert",
+      "name": "Expert",
+      "description": "Highly skilled"
+    },
+    {
+      "id": "master",
+      "name": "Master",
+      "description": "One of the best"
+    },
+    {
+      "id": "legendary",
+      "name": "Legendary",
+      "description": "Renowned across lands"
+    }
+  ],
+  "reputationChanges": [
+    {
+      "id": "hero-to-villain",
+      "name": "Hero to Villain",
+      "description": "Public opinion turns against them"
+    },
+    {
+      "id": "villain-to-hero",
+      "name": "Villain to Hero",
+      "description": "Redeems public image"
+    },
+    {
+      "id": "unknown-to-famous",
+      "name": "Unknown to Famous",
+      "description": "Gains widespread recognition"
+    },
+    {
+      "id": "famous-to-forgotten",
+      "name": "Famous to Forgotten",
+      "description": "Fades into obscurity"
+    },
+    {
+      "id": "respected-to-laughingstock",
+      "name": "Respected to Laughingstock",
+      "description": "Public humiliation"
+    }
+  ],
+  "personalGrowth": [
+    {
+      "id": "overcoming-fear",
+      "name": "Overcoming Fear",
+      "description": "Conquering personal phobia",
+      "milestones": ["Acknowledging fear", "Small exposure", "Major test", "Triumph"]
+    },
+    {
+      "id": "learning-trust",
+      "name": "Learning to Trust",
+      "description": "Opening up after betrayal",
+      "milestones": ["Total isolation", "Tentative connection", "Test of faith", "Full trust"]
+    },
+    {
+      "id": "accepting-loss",
+      "name": "Accepting Loss",
+      "description": "Moving past tragedy",
+      "milestones": ["Fresh grief", "Anger stage", "Bargaining", "Acceptance"]
+    },
+    {
+      "id": "finding-purpose",
+      "name": "Finding Purpose",
+      "description": "Discovering life's meaning",
+      "milestones": ["Aimless drifting", "Glimpse of meaning", "Commitment", "Fulfillment"]
+    },
+    {
+      "id": "breaking-addiction",
+      "name": "Breaking Addiction",
+      "description": "Overcoming dependency",
+      "milestones": ["Denial", "Admitting problem", "Relapse", "Recovery"]
+    }
+  ]
+}

@@ -1,0 +1,384 @@
+{
+  "attitudeLevels": [
+    {
+      "id": "hostile",
+      "name": "Hostile",
+      "value": -3,
+      "description": "Actively wants to harm party",
+      "behavior": "Attacks on sight or plots against party",
+      "dcModifier": "+5"
+    },
+    {
+      "id": "unfriendly",
+      "name": "Unfriendly",
+      "value": -2,
+      "description": "Dislikes party",
+      "behavior": "Uncooperative, may sabotage",
+      "dcModifier": "+3"
+    },
+    {
+      "id": "indifferent",
+      "name": "Indifferent",
+      "value": 0,
+      "description": "Neutral toward party",
+      "behavior": "Won't go out of way either direction",
+      "dcModifier": "+0"
+    },
+    {
+      "id": "friendly",
+      "name": "Friendly",
+      "value": 2,
+      "description": "Likes party",
+      "behavior": "Willing to help within reason",
+      "dcModifier": "-2"
+    },
+    {
+      "id": "helpful",
+      "name": "Helpful",
+      "value": 4,
+      "description": "Devoted to party",
+      "behavior": "Goes out of way to assist",
+      "dcModifier": "-4"
+    }
+  ],
+  "relationshipMilestones": [
+    {
+      "id": "first-meeting",
+      "name": "First Meeting",
+      "impact": "Sets initial impression",
+      "pointsAvailable": 5
+    },
+    {
+      "id": "shared-danger",
+      "name": "Survived Danger Together",
+      "impact": "Bonds through adversity",
+      "pointsGained": 3
+    },
+    {
+      "id": "kept-promise",
+      "name": "Kept Promise",
+      "impact": "Builds trust",
+      "pointsGained": 2
+    },
+    {
+      "id": "broke-promise",
+      "name": "Broke Promise",
+      "impact": "Damages trust",
+      "pointsLost": 3
+    },
+    {
+      "id": "gift-given",
+      "name": "Meaningful Gift",
+      "impact": "Shows consideration",
+      "pointsGained": 1
+    },
+    {
+      "id": "saved-life",
+      "name": "Saved Life",
+      "impact": "Creates debt",
+      "pointsGained": 5
+    },
+    {
+      "id": "betrayed",
+      "name": "Betrayed Trust",
+      "impact": "Severe damage",
+      "pointsLost": 8
+    },
+    {
+      "id": "defended-honor",
+      "name": "Defended Honor",
+      "impact": "Stood up for them",
+      "pointsGained": 3
+    },
+    {
+      "id": "insulted",
+      "name": "Insulted Them",
+      "impact": "Caused offense",
+      "pointsLost": 2
+    },
+    {
+      "id": "shared-secret",
+      "name": "Shared Secret",
+      "impact": "Deepens bond",
+      "pointsGained": 4
+    },
+    {
+      "id": "revealed-secret",
+      "name": "Revealed Their Secret",
+      "impact": "Broken confidence",
+      "pointsLost": 6
+    },
+    {
+      "id": "helped-family",
+      "name": "Helped Family Member",
+      "impact": "Shows care for what matters to them",
+      "pointsGained": 4
+    },
+    {
+      "id": "harmed-family",
+      "name": "Harmed Family Member",
+      "impact": "Unforgivable act",
+      "pointsLost": 10
+    },
+    {
+      "id": "shared-meal",
+      "name": "Shared Meal",
+      "impact": "Social bonding",
+      "pointsGained": 1
+    },
+    {
+      "id": "fought-together",
+      "name": "Fought Side by Side",
+      "impact": "Proves reliability",
+      "pointsGained": 2
+    }
+  ],
+  "influenceActions": [
+    {
+      "id": "diplomacy-check",
+      "name": "Diplomatic Approach",
+      "skill": "Diplomacy",
+      "baseDC": 15,
+      "success": "+1 relationship point",
+      "criticalSuccess": "+2 relationship points",
+      "failure": "No change",
+      "criticalFailure": "-1 relationship point"
+    },
+    {
+      "id": "intimidation-check",
+      "name": "Intimidation",
+      "skill": "Intimidation",
+      "baseDC": 15,
+      "success": "Comply but -1 relationship",
+      "criticalSuccess": "Comply, no relationship loss",
+      "failure": "Resist and -1 relationship",
+      "criticalFailure": "Resist and attitude worsens"
+    },
+    {
+      "id": "deception-check",
+      "name": "Deception",
+      "skill": "Deception",
+      "baseDC": 18,
+      "success": "Believe lie, no relationship change",
+      "criticalSuccess": "Believe and impressed, +1",
+      "failure": "Doubt story, -1 relationship",
+      "criticalFailure": "Caught in lie, -3 relationship"
+    },
+    {
+      "id": "request-favor",
+      "name": "Request Favor",
+      "skill": "Diplomacy",
+      "baseDC": 20,
+      "success": "Grant favor",
+      "criticalSuccess": "Grant favor eagerly",
+      "failure": "Refuse politely",
+      "criticalFailure": "Refuse and offended"
+    },
+    {
+      "id": "share-information",
+      "name": "Share Information",
+      "skill": "None",
+      "effect": "+1 relationship if valuable, +2 if secret"
+    },
+    {
+      "id": "offer-gift",
+      "name": "Offer Gift",
+      "skill": "None",
+      "effect": "+1 if appropriate, -1 if offensive, +3 if perfect"
+    }
+  ],
+  "trustLevels": [
+    {
+      "id": "distrusted",
+      "name": "Distrusted",
+      "description": "Actively suspicious",
+      "willingToShare": "Nothing important"
+    },
+    {
+      "id": "cautious",
+      "name": "Cautious",
+      "description": "Wary but not hostile",
+      "willingToShare": "Surface information only"
+    },
+    {
+      "id": "neutral-trust",
+      "name": "Neutral",
+      "description": "No strong feelings",
+      "willingToShare": "Public knowledge"
+    },
+    {
+      "id": "trusting",
+      "name": "Trusting",
+      "description": "Believes party is honest",
+      "willingToShare": "Personal but not intimate"
+    },
+    {
+      "id": "confiding",
+      "name": "Confiding",
+      "description": "Shares freely",
+      "willingToShare": "Deep secrets"
+    }
+  ],
+  "loyaltyTriggers": [
+    {
+      "id": "life-debt",
+      "name": "Life Debt",
+      "description": "Party saved their life",
+      "effect": "Will risk much to repay"
+    },
+    {
+      "id": "shared-values",
+      "name": "Shared Values",
+      "description": "Party shares their beliefs",
+      "effect": "Natural alliance"
+    },
+    {
+      "id": "mutual-benefit",
+      "name": "Mutual Benefit",
+      "description": "Helping each other succeed",
+      "effect": "Reliable but transactional"
+    },
+    {
+      "id": "fear",
+      "name": "Fear-Based",
+      "description": "Afraid of party",
+      "effect": "Comply but seek to escape"
+    },
+    {
+      "id": "love",
+      "name": "Love",
+      "description": "Romantic attachment",
+      "effect": "Extreme loyalty, may be blind"
+    },
+    {
+      "id": "duty",
+      "name": "Duty-Bound",
+      "description": "Sworn oath or obligation",
+      "effect": "Loyal until duty discharged"
+    },
+    {
+      "id": "admiration",
+      "name": "Admiration",
+      "description": "Inspired by party's deeds",
+      "effect": "Wants to emulate"
+    },
+    {
+      "id": "blackmail",
+      "name": "Blackmailed",
+      "description": "Party holds damaging information",
+      "effect": "Comply but resent"
+    },
+    {
+      "id": "family-bond",
+      "name": "Family Bond",
+      "description": "Blood or chosen family",
+      "effect": "Deep, enduring loyalty"
+    },
+    {
+      "id": "prophecy",
+      "name": "Prophesied Connection",
+      "description": "Believe they're destined to serve",
+      "effect": "Unshakeable faith"
+    }
+  ],
+  "betrayalTriggers": [
+    {
+      "id": "better-offer",
+      "name": "Better Offer",
+      "description": "Someone offers more",
+      "likelihood": "High if mercenary"
+    },
+    {
+      "id": "endangered-family",
+      "name": "Family Threatened",
+      "description": "Enemy threatens loved ones",
+      "likelihood": "Very high"
+    },
+    {
+      "id": "moral-line",
+      "name": "Moral Line Crossed",
+      "description": "Party does something unforgivable",
+      "likelihood": "Depends on alignment"
+    },
+    {
+      "id": "revealed-lie",
+      "name": "Major Lie Revealed",
+      "description": "Party's deception exposed",
+      "likelihood": "High"
+    },
+    {
+      "id": "jealousy",
+      "name": "Jealousy",
+      "description": "Envious of party's success",
+      "likelihood": "Medium"
+    },
+    {
+      "id": "manipulation",
+      "name": "Enemy Manipulation",
+      "description": "Convinced party is enemy",
+      "likelihood": "Depends on trust level"
+    },
+    {
+      "id": "mind-control",
+      "name": "Mind Control",
+      "description": "Magically compelled",
+      "likelihood": "Automatic if fails save"
+    },
+    {
+      "id": "redemption-arc",
+      "name": "Seeking Redemption",
+      "description": "Believes betraying party rights past wrong",
+      "likelihood": "Low unless specific circumstances"
+    },
+    {
+      "id": "true-allegiance",
+      "name": "True Allegiance Revealed",
+      "description": "Was always working for enemy",
+      "likelihood": "Predetermined"
+    },
+    {
+      "id": "self-preservation",
+      "name": "Self-Preservation",
+      "description": "Sees party as doomed",
+      "likelihood": "Medium if cowardly"
+    }
+  ],
+  "reconciliationPaths": [
+    {
+      "id": "sincere-apology",
+      "name": "Sincere Apology",
+      "requirements": ["Diplomacy DC 20", "Genuine remorse"],
+      "outcome": "Relationship partially restored"
+    },
+    {
+      "id": "grand-gesture",
+      "name": "Grand Gesture",
+      "requirements": ["Significant sacrifice", "Public declaration"],
+      "outcome": "Relationship fully restored"
+    },
+    {
+      "id": "time-healing",
+      "name": "Time and Distance",
+      "requirements": ["Wait 1d6 months", "No further offenses"],
+      "outcome": "Gradual improvement"
+    },
+    {
+      "id": "mutual-enemy",
+      "name": "Common Enemy",
+      "requirements": ["Face shared threat", "Fight together"],
+      "outcome": "Grudging reconciliation"
+    },
+    {
+      "id": "mediation",
+      "name": "Third-Party Mediation",
+      "requirements": ["Trusted mutual friend", "Both willing to talk"],
+      "outcome": "Possible reconciliation"
+    },
+    {
+      "id": "impossible",
+      "name": "Impossible",
+      "requirements": ["None"],
+      "outcome": "Some acts cannot be forgiven"
+    }
+  ]
+}

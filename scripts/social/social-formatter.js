@@ -178,7 +178,7 @@ export class SocialFormatter {
    * @returns {string}
    */
   static generateCinematicHTML(seed) {
-    const { name, ancestry, mood, personalities, mannerisms, motivation, quirks, appearance, occupation, abilities, possessions, relationships, plotHooks, influence, psychology, physicalDetails, lifeHistory, dailyLife, speechPatterns, complexity, currentSituation, emotionalTriggers, secrets, economics, sensory, health, relationshipDynamics, professionalExpertise, dialogueSamples, voiceTemplate, storyHooks, sessionTracking, actor } = seed;
+    const { name, ancestry, mood, personalities, mannerisms, motivation, quirks, appearance, occupation, abilities, possessions, relationships, plotHooks, influence, psychology, physicalDetails, lifeHistory, dailyLife, speechPatterns, complexity, currentSituation, emotionalTriggers, secrets, economics, sensory, health, relationshipDynamics, professionalExpertise, dialogueSamples, voiceTemplate, storyHooks, sessionTracking, factionInfo, romanticInfo, religiousInfo, hobbies, education, combatStyle, magicalInfo, family, groupRole, developmentTracking, questInfo, relationshipTracking, actor } = seed;
 
     const displayName = name || actor?.name || "NPC";
     const moodClass = this.getMoodClass(mood.id);
@@ -265,6 +265,20 @@ export class SocialFormatter {
     const storyHooksHTML = storyHooks ? this.formatStoryHooks(storyHooks, "cinematic") : '';
     const sessionTrackingHTML = sessionTracking ? this.formatSessionTracking(sessionTracking, "cinematic") : '';
 
+    // Build new expansion systems - cinematic detail
+    const factionInfoHTML = factionInfo ? this.formatFactionInfo(factionInfo, "cinematic") : '';
+    const romanticInfoHTML = romanticInfo ? this.formatRomanticInfo(romanticInfo, "cinematic") : '';
+    const religiousInfoHTML = religiousInfo ? this.formatReligiousInfo(religiousInfo, "cinematic") : '';
+    const hobbiesHTML = hobbies ? this.formatHobbies(hobbies, "cinematic") : '';
+    const educationHTML = education ? this.formatEducation(education, "cinematic") : '';
+    const combatStyleHTML = combatStyle ? this.formatCombatStyle(combatStyle, "cinematic") : '';
+    const magicalInfoHTML = magicalInfo ? this.formatMagicalInfo(magicalInfo, "cinematic") : '';
+    const familyHTML = family ? this.formatFamily(family, "cinematic") : '';
+    const groupRoleHTML = groupRole ? this.formatGroupRole(groupRole, "cinematic") : '';
+    const developmentTrackingHTML = developmentTracking ? this.formatDevelopmentTracking(developmentTracking, "cinematic") : '';
+    const questInfoHTML = questInfo ? this.formatQuestInfo(questInfo, "cinematic") : '';
+    const relationshipTrackingHTML = relationshipTracking ? this.formatRelationshipTracking(relationshipTracking, "cinematic") : '';
+
     // Social DC modifier with expanded explanation
     const dcModifier = mood.socialDC;
     const dcHTML = dcModifier !== 0
@@ -321,6 +335,18 @@ export class SocialFormatter {
         ${dialogueSamplesHTML}
         ${voiceTemplateHTML}
         ${storyHooksHTML}
+        ${factionInfoHTML}
+        ${romanticInfoHTML}
+        ${religiousInfoHTML}
+        ${hobbiesHTML}
+        ${educationHTML}
+        ${combatStyleHTML}
+        ${magicalInfoHTML}
+        ${familyHTML}
+        ${groupRoleHTML}
+        ${developmentTrackingHTML}
+        ${questInfoHTML}
+        ${relationshipTrackingHTML}
         ${sessionTrackingHTML}
       </div>
     `;
@@ -1195,6 +1221,357 @@ export class SocialFormatter {
         ${tracking.promisesMade.length > 0 ? `<div><em>Promises:</em> ${tracking.promisesMade.length} made</div>` : ''}
         ${tracking.questsGiven.length > 0 ? `<div><em>Quests Given:</em> ${tracking.questsGiven.length}</div>` : ''}
         ${hasHistory ? `<div><em>Last Seen:</em> ${new Date(tracking.lastSeen).toLocaleDateString()}</div>` : ''}
+      </div>
+    `;
+  }
+
+  /**
+   * Format faction affiliations section
+   */
+  static formatFactionInfo(info, detailLevel) {
+    if (!info) return '';
+
+    const { faction, politicalLeaning, loyaltyLevel, hasHiddenAffiliation } = info;
+
+    if (detailLevel === "standard") {
+      const parts = [];
+      if (faction) parts.push(`Faction: ${faction.name}`);
+      if (politicalLeaning) parts.push(`Politics: ${politicalLeaning.name}`);
+      return parts.length > 0 ? `<div class="npc-section npc-factions"><strong>Affiliations:</strong> ${parts.join(' | ')}</div>` : '';
+    }
+
+    // Cinematic
+    return `
+      <div class="npc-section npc-faction-info">
+        <strong>Faction Affiliations:</strong>
+        ${faction ? `<div><em>Member of:</em> ${StringUtils.escapeHTML(faction.name)} ${hasHiddenAffiliation ? '(secret membership)' : ''}</div>` : '<div><em>No formal faction affiliation</em></div>'}
+        ${faction ? `<div class="faction-desc">${StringUtils.escapeHTML(faction.description)}</div>` : ''}
+        ${loyaltyLevel ? `<div><em>Loyalty:</em> ${StringUtils.capitalize(loyaltyLevel)}</div>` : ''}
+        <div><em>Political Leaning:</em> ${StringUtils.escapeHTML(politicalLeaning.name)} - ${StringUtils.escapeHTML(politicalLeaning.description)}</div>
+      </div>
+    `;
+  }
+
+  /**
+   * Format romantic preferences section
+   */
+  static formatRomanticInfo(info, detailLevel) {
+    if (!info) return '';
+
+    const { orientation, relationshipHistory, attractionTypes, pastHeartbreak, currentStatus, openToRomance } = info;
+
+    if (detailLevel === "standard") {
+      return `<div class="npc-section npc-romance"><strong>Relationship Status:</strong> ${StringUtils.capitalize(currentStatus)}${orientation ? `, ${orientation.name}` : ''}</div>`;
+    }
+
+    // Cinematic
+    return `
+      <div class="npc-section npc-romantic-info">
+        <strong>Romantic Profile:</strong>
+        <div><em>Orientation:</em> ${StringUtils.escapeHTML(orientation.name)} - ${StringUtils.escapeHTML(orientation.description)}</div>
+        <div><em>Current Status:</em> ${StringUtils.capitalize(currentStatus)}</div>
+        <div><em>Relationship History:</em> ${StringUtils.escapeHTML(relationshipHistory.name)} - ${StringUtils.escapeHTML(relationshipHistory.description)}</div>
+        <div><em>Attracted to:</em> ${attractionTypes.map(a => a.name).join(', ')}</div>
+        ${pastHeartbreak ? `<div><em>Past Heartbreak:</em> ${StringUtils.escapeHTML(pastHeartbreak.name)} - ${StringUtils.escapeHTML(pastHeartbreak.impact)}</div>` : ''}
+        <div><em>Open to Romance:</em> ${openToRomance ? 'Yes' : 'Not currently'}</div>
+      </div>
+    `;
+  }
+
+  /**
+   * Format religious beliefs section
+   */
+  static formatReligiousInfo(info, detailLevel) {
+    if (!info) return '';
+
+    const { deity, devotionLevel, religiousAttitude, practices, hasReligion } = info;
+
+    if (detailLevel === "standard") {
+      if (!hasReligion) return `<div class="npc-section npc-religion"><strong>Religion:</strong> ${devotionLevel.name}</div>`;
+      return `<div class="npc-section npc-religion"><strong>Religion:</strong> ${deity.name} (${devotionLevel.name})</div>`;
+    }
+
+    // Cinematic
+    if (!hasReligion) {
+      return `
+        <div class="npc-section npc-religious-info">
+          <strong>Religious Beliefs:</strong>
+          <div><em>Non-believer:</em> ${StringUtils.escapeHTML(devotionLevel.name)} - ${StringUtils.escapeHTML(devotionLevel.description)}</div>
+        </div>
+      `;
+    }
+
+    return `
+      <div class="npc-section npc-religious-info">
+        <strong>Religious Beliefs:</strong>
+        <div><em>Deity:</em> ${StringUtils.escapeHTML(deity.name)} (${deity.alignment}) - ${StringUtils.escapeHTML(deity.description)}</div>
+        <div><em>Domains:</em> ${deity.domains.join(', ')}</div>
+        <div><em>Devotion Level:</em> ${StringUtils.escapeHTML(devotionLevel.name)} - ${StringUtils.escapeHTML(devotionLevel.description)}</div>
+        ${religiousAttitude ? `<div><em>Attitude:</em> ${StringUtils.escapeHTML(religiousAttitude.name)} - ${StringUtils.escapeHTML(religiousAttitude.description)}</div>` : ''}
+        ${practices.length > 0 ? `<div><em>Practices:</em> ${practices.map(p => p.name).join(', ')}</div>` : ''}
+      </div>
+    `;
+  }
+
+  /**
+   * Format hobbies section
+   */
+  static formatHobbies(info, detailLevel) {
+    if (!info) return '';
+
+    const { hobbies, primaryHobby, hasTimeForHobbies } = info;
+
+    if (detailLevel === "standard") {
+      return `<div class="npc-section npc-hobbies"><strong>Hobbies:</strong> ${hobbies.map(h => h.name).join(', ')}</div>`;
+    }
+
+    // Cinematic
+    return `
+      <div class="npc-section npc-hobbies-info">
+        <strong>Hobbies & Recreation:</strong>
+        ${hobbies.map(h => `
+          <div class="hobby-item">
+            <strong>${StringUtils.escapeHTML(h.name)}</strong> (${h.category}) - ${StringUtils.escapeHTML(h.description)}
+            <div class="hobby-details"><em>Time commitment:</em> ${h.timeCommitment}, <em>Social:</em> ${h.socializing ? 'Yes' : 'No'}</div>
+          </div>
+        `).join('')}
+        ${!hasTimeForHobbies ? `<div class="warning"><em>Currently has little time for hobbies due to circumstances</em></div>` : ''}
+      </div>
+    `;
+  }
+
+  /**
+   * Format education section
+   */
+  static formatEducation(info, detailLevel) {
+    if (!info) return '';
+
+    const { educationLevel, knowledgeAreas, learningStyle, teachingAbility, curiosity, isScholar } = info;
+
+    if (detailLevel === "standard") {
+      return `<div class="npc-section npc-education"><strong>Education:</strong> ${educationLevel.name}, knows ${knowledgeAreas.map(k => k.name).join(', ')}</div>`;
+    }
+
+    // Cinematic
+    return `
+      <div class="npc-section npc-education-info">
+        <strong>Education & Learning:</strong>
+        <div><em>Education Level:</em> ${StringUtils.escapeHTML(educationLevel.name)} - ${StringUtils.escapeHTML(educationLevel.description)}</div>
+        ${isScholar ? '<div class="scholar-tag"><strong>Scholar</strong> - Highly educated and knowledgeable</div>' : ''}
+        <div><em>Areas of Knowledge:</em> ${knowledgeAreas.map(k => `<strong>${k.name}</strong> (${k.description})`).join('; ')}</div>
+        <div><em>Learning Style:</em> ${StringUtils.escapeHTML(learningStyle.name)} - ${StringUtils.escapeHTML(learningStyle.description)}</div>
+        <div><em>Teaching Ability:</em> ${StringUtils.escapeHTML(teachingAbility.name)} - ${StringUtils.escapeHTML(teachingAbility.description)}</div>
+        <div><em>Intellectual Curiosity:</em> ${StringUtils.escapeHTML(curiosity.name)} - ${StringUtils.escapeHTML(curiosity.description)}</div>
+      </div>
+    `;
+  }
+
+  /**
+   * Format combat style section
+   */
+  static formatCombatStyle(info, detailLevel) {
+    if (!info) return '';
+
+    const { combatTraining, fightingStyle, weaponPreference, combatPhilosophy, combatMentality, combatExperience, isCombatant } = info;
+
+    if (detailLevel === "standard") {
+      if (!isCombatant) return `<div class="npc-section npc-combat"><strong>Combat:</strong> ${combatTraining.name}</div>`;
+      return `<div class="npc-section npc-combat"><strong>Combat:</strong> ${combatTraining.name}, ${fightingStyle.name}</div>`;
+    }
+
+    // Cinematic
+    if (!isCombatant) {
+      return `
+        <div class="npc-section npc-combat-style">
+          <strong>Combat Capability:</strong>
+          <div><em>Training:</em> ${StringUtils.escapeHTML(combatTraining.name)} - ${StringUtils.escapeHTML(combatTraining.description)}</div>
+          <div class="warning"><em>Not a combatant</em></div>
+        </div>
+      `;
+    }
+
+    return `
+      <div class="npc-section npc-combat-style">
+        <strong>Combat Style & Philosophy:</strong>
+        <div><em>Training:</em> ${StringUtils.escapeHTML(combatTraining.name)} - ${StringUtils.escapeHTML(combatTraining.description)}</div>
+        ${fightingStyle ? `<div><em>Fighting Style:</em> ${StringUtils.escapeHTML(fightingStyle.name)} - ${StringUtils.escapeHTML(fightingStyle.description)}</div>` : ''}
+        ${weaponPreference ? `<div><em>Weapon Preference:</em> ${StringUtils.escapeHTML(weaponPreference.name)} - ${StringUtils.escapeHTML(weaponPreference.description)}</div>` : ''}
+        ${combatPhilosophy ? `<div><em>Combat Philosophy:</em> ${StringUtils.escapeHTML(combatPhilosophy.name)} - ${StringUtils.escapeHTML(combatPhilosophy.description)}</div>` : ''}
+        ${combatMentality ? `<div><em>Combat Mentality:</em> ${StringUtils.escapeHTML(combatMentality.name)} - ${StringUtils.escapeHTML(combatMentality.description)}</div>` : ''}
+        ${combatExperience ? `<div><em>Experience:</em> ${StringUtils.escapeHTML(combatExperience.name)} - ${StringUtils.escapeHTML(combatExperience.description)}</div>` : ''}
+      </div>
+    `;
+  }
+
+  /**
+   * Format magical traditions section
+   */
+  static formatMagicalInfo(info, detailLevel) {
+    if (!info) return '';
+
+    const { magicalAbility, tradition, source, education, specialization, supernaturalConnection, attitudeTowardMagic, isCaster } = info;
+
+    if (detailLevel === "standard") {
+      const parts = [];
+      parts.push(`Magic: ${magicalAbility.name}`);
+      parts.push(`Attitude: ${attitudeTowardMagic.name}`);
+      return `<div class="npc-section npc-magic"><strong>Magical Profile:</strong> ${parts.join(' | ')}</div>`;
+    }
+
+    // Cinematic
+    return `
+      <div class="npc-section npc-magical-info">
+        <strong>Magical Traditions & Supernatural:</strong>
+        <div><em>Magical Ability:</em> ${StringUtils.escapeHTML(magicalAbility.name)} - ${StringUtils.escapeHTML(magicalAbility.description)}</div>
+        ${isCaster ? '<div class="caster-tag"><strong>Spellcaster</strong></div>' : ''}
+        ${tradition ? `<div><em>Tradition:</em> ${StringUtils.escapeHTML(tradition.name)} - ${StringUtils.escapeHTML(tradition.description)}</div>` : ''}
+        ${source ? `<div><em>Magic Source:</em> ${StringUtils.escapeHTML(source.name)} - ${StringUtils.escapeHTML(source.description)}</div>` : ''}
+        ${education ? `<div><em>Magical Education:</em> ${StringUtils.escapeHTML(education.name)} - ${StringUtils.escapeHTML(education.description)}</div>` : ''}
+        ${specialization ? `<div><em>Specialization:</em> ${StringUtils.escapeHTML(specialization.name)} - ${StringUtils.escapeHTML(specialization.description)}</div>` : ''}
+        ${supernaturalConnection ? `<div><em>Supernatural Connection:</em> ${StringUtils.escapeHTML(supernaturalConnection.name)} - ${StringUtils.escapeHTML(supernaturalConnection.description)}</div>` : ''}
+        <div><em>Attitude Toward Magic:</em> ${StringUtils.escapeHTML(attitudeTowardMagic.name)} - ${StringUtils.escapeHTML(attitudeTowardMagic.description)}</div>
+      </div>
+    `;
+  }
+
+  /**
+   * Format family section
+   */
+  static formatFamily(info, detailLevel) {
+    if (!info) return '';
+
+    const { familyStatus, siblings, siblingRelationship, parentalRelationship, childrenStatus, parentingStyle, familySecret, familyTradition, familyReputation, hasLivingFamily } = info;
+
+    if (detailLevel === "standard") {
+      const parts = [];
+      parts.push(familyStatus.name);
+      if (siblings.id !== "only-child") parts.push(siblings.name);
+      if (childrenStatus && childrenStatus.id !== "no-children") parts.push(childrenStatus.name);
+      return `<div class="npc-section npc-family"><strong>Family:</strong> ${parts.join(', ')}</div>`;
+    }
+
+    // Cinematic
+    return `
+      <div class="npc-section npc-family-info">
+        <strong>Family Background:</strong>
+        <div><em>Family Status:</em> ${StringUtils.escapeHTML(familyStatus.name)} - ${StringUtils.escapeHTML(familyStatus.description)}</div>
+        ${!hasLivingFamily ? '<div class="warning"><em>No living family</em></div>' : ''}
+        <div><em>Siblings:</em> ${StringUtils.escapeHTML(siblings.name)} ${siblingRelationship ? `(${siblingRelationship.name})` : ''}</div>
+        <div><em>Parental Relationship:</em> ${StringUtils.escapeHTML(parentalRelationship.name)} - ${StringUtils.escapeHTML(parentalRelationship.description)}</div>
+        ${childrenStatus ? `<div><em>Children:</em> ${StringUtils.escapeHTML(childrenStatus.name)} - ${StringUtils.escapeHTML(childrenStatus.description)}</div>` : ''}
+        ${parentingStyle ? `<div><em>Parenting Style:</em> ${StringUtils.escapeHTML(parentingStyle.name)} - ${StringUtils.escapeHTML(parentingStyle.description)}</div>` : ''}
+        ${familySecret ? `<div class="family-secret"><em>Family Secret:</em> ${StringUtils.escapeHTML(familySecret.name)} - ${StringUtils.escapeHTML(familySecret.description)}</div>` : ''}
+        <div><em>Family Tradition:</em> ${StringUtils.escapeHTML(familyTradition.name)} - ${StringUtils.escapeHTML(familyTradition.description)}</div>
+        <div><em>Family Reputation:</em> ${StringUtils.escapeHTML(familyReputation.name)} - ${StringUtils.escapeHTML(familyReputation.description)}</div>
+      </div>
+    `;
+  }
+
+  /**
+   * Format group role section
+   */
+  static formatGroupRole(info, detailLevel) {
+    if (!info) return '';
+
+    const { isPartOfGroup, role, cohesion, conflict, bond, purpose, leadershipStyle, groupSecret } = info;
+
+    if (!isPartOfGroup) {
+      if (detailLevel === "cinematic") {
+        return `<div class="npc-section npc-group-role"><strong>Group Affiliation:</strong> <em>Not currently part of any formal group</em></div>`;
+      }
+      return '';
+    }
+
+    if (detailLevel === "standard") {
+      return `<div class="npc-section npc-group"><strong>Group Role:</strong> ${role.name}</div>`;
+    }
+
+    // Cinematic
+    return `
+      <div class="npc-section npc-group-role">
+        <strong>Group Dynamics:</strong>
+        <div><em>Role in Group:</em> ${StringUtils.escapeHTML(role.name)} - ${StringUtils.escapeHTML(role.description)}</div>
+        ${leadershipStyle ? `<div><em>Leadership Style:</em> ${StringUtils.escapeHTML(leadershipStyle.name)} - ${StringUtils.escapeHTML(leadershipStyle.description)}</div>` : ''}
+        <div><em>Group Purpose:</em> ${StringUtils.escapeHTML(purpose.name)} - ${StringUtils.escapeHTML(purpose.description)}</div>
+        <div><em>Group Cohesion:</em> ${StringUtils.escapeHTML(cohesion.name)} - ${StringUtils.escapeHTML(cohesion.description)}</div>
+        <div><em>Bond with Group:</em> ${StringUtils.escapeHTML(bond.name)} - ${StringUtils.escapeHTML(bond.description)}</div>
+        ${conflict ? `<div><em>Internal Conflict:</em> ${StringUtils.escapeHTML(conflict.name)} - ${StringUtils.escapeHTML(conflict.description)}</div>` : ''}
+        ${groupSecret ? `<div class="group-secret"><em>Group Secret:</em> ${StringUtils.escapeHTML(groupSecret.name)} - ${StringUtils.escapeHTML(groupSecret.description)}</div>` : ''}
+      </div>
+    `;
+  }
+
+  /**
+   * Format development tracking section
+   */
+  static formatDevelopmentTracking(info, detailLevel) {
+    if (!info || detailLevel !== "cinematic") return '';
+
+    const { potentialArc, currentStage, relationshipProgression, beliefChange, skillProgression, reputationChange, personalGrowth, arcProgress } = info;
+
+    return `
+      <div class="npc-section npc-development-tracking gm-only">
+        <strong>Character Development (GM Guide):</strong>
+        <div><em>Potential Arc:</em> ${StringUtils.escapeHTML(potentialArc.name)} - ${StringUtils.escapeHTML(potentialArc.description)}</div>
+        <div><em>Current Stage:</em> ${StringUtils.capitalize(currentStage)} (${arcProgress}% complete)</div>
+        ${potentialArc.stages ? `<div><em>Arc Stages:</em> ${potentialArc.stages.join(' → ')}</div>` : ''}
+        <div><em>Relationship Progression:</em> ${StringUtils.escapeHTML(relationshipProgression.name)} - ${StringUtils.escapeHTML(relationshipProgression.description)}</div>
+        ${beliefChange ? `<div><em>Belief Change Potential:</em> ${StringUtils.escapeHTML(beliefChange.name)} - ${StringUtils.escapeHTML(beliefChange.description)}</div>` : ''}
+        <div><em>Skill Progression:</em> ${StringUtils.escapeHTML(skillProgression.name)}</div>
+        ${reputationChange ? `<div><em>Reputation Change:</em> ${StringUtils.escapeHTML(reputationChange.name)}</div>` : ''}
+        <div><em>Personal Growth Focus:</em> ${StringUtils.escapeHTML(personalGrowth.name)} - ${StringUtils.escapeHTML(personalGrowth.description)}</div>
+      </div>
+    `;
+  }
+
+  /**
+   * Format quest info section
+   */
+  static formatQuestInfo(info, detailLevel) {
+    if (!info || detailLevel !== "cinematic") return '';
+
+    const { canOfferQuest, questType, chainStructure, rewardType, complication, motivation, hasOngoingQuest, ongoingStatus, questsCompleted } = info;
+
+    if (!canOfferQuest) {
+      return `<div class="npc-section npc-quest-info gm-only"><strong>Quest Potential (GM Guide):</strong> <em>This NPC is unlikely to offer quests</em></div>`;
+    }
+
+    return `
+      <div class="npc-section npc-quest-info gm-only">
+        <strong>Quest Potential (GM Guide):</strong>
+        <div><em>Quest Type:</em> ${StringUtils.escapeHTML(questType.name)} - ${StringUtils.escapeHTML(questType.description)}</div>
+        ${questType.stages ? `<div><em>Quest Stages:</em> ${questType.stages.join(' → ')}</div>` : ''}
+        <div><em>Chain Structure:</em> ${StringUtils.escapeHTML(chainStructure.name)} - ${StringUtils.escapeHTML(chainStructure.description)}</div>
+        <div><em>Typical Reward:</em> ${StringUtils.escapeHTML(rewardType.name)} - ${StringUtils.escapeHTML(rewardType.description)}</div>
+        ${complication ? `<div><em>Potential Complication:</em> ${StringUtils.escapeHTML(complication.name)} - ${StringUtils.escapeHTML(complication.description)}</div>` : ''}
+        <div><em>Quest Giver Motivation:</em> ${StringUtils.escapeHTML(motivation.name)} - ${StringUtils.escapeHTML(motivation.description)}</div>
+        ${hasOngoingQuest ? `<div class="ongoing-quest"><em>Ongoing Quest Status:</em> ${StringUtils.escapeHTML(ongoingStatus.name)} (${questsCompleted} completed so far)</div>` : ''}
+      </div>
+    `;
+  }
+
+  /**
+   * Format relationship tracking section
+   */
+  static formatRelationshipTracking(info, detailLevel) {
+    if (!info || detailLevel !== "cinematic") return '';
+
+    const { currentAttitude, currentTrust, relationshipPoints, loyaltyTrigger, betrayalTrigger, reconciliationPath, attitudeHistory } = info;
+
+    return `
+      <div class="npc-section npc-relationship-tracking gm-only">
+        <strong>Relationship System (GM Guide):</strong>
+        <div><em>Starting Attitude:</em> ${StringUtils.escapeHTML(currentAttitude.name)} (${currentAttitude.value}) - ${StringUtils.escapeHTML(currentAttitude.description)}</div>
+        <div><em>Behavior:</em> ${StringUtils.escapeHTML(currentAttitude.behavior)}</div>
+        <div><em>Social DC Modifier:</em> ${currentAttitude.dcModifier}</div>
+        <div><em>Trust Level:</em> ${StringUtils.escapeHTML(currentTrust.name)} - ${StringUtils.escapeHTML(currentTrust.description)}</div>
+        <div><em>Will Share:</em> ${StringUtils.escapeHTML(currentTrust.willingToShare)}</div>
+        <div><em>Relationship Points:</em> ${relationshipPoints} (affects attitude changes)</div>
+        <div><em>Loyalty Trigger:</em> ${StringUtils.escapeHTML(loyaltyTrigger.name)} - ${StringUtils.escapeHTML(loyaltyTrigger.description)}</div>
+        <div><em>Effect:</em> ${StringUtils.escapeHTML(loyaltyTrigger.effect)}</div>
+        <div><em>Betrayal Risk:</em> ${StringUtils.escapeHTML(betrayalTrigger.name)} - ${StringUtils.escapeHTML(betrayalTrigger.description)}</div>
+        <div><em>Likelihood:</em> ${StringUtils.escapeHTML(betrayalTrigger.likelihood)}</div>
+        <div><em>If Wronged:</em> ${StringUtils.escapeHTML(reconciliationPath.name)} - ${StringUtils.escapeHTML(reconciliationPath.outcome)}</div>
       </div>
     `;
   }

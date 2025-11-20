@@ -1,0 +1,330 @@
+{
+  "romanticOrientation": [
+    {
+      "id": "heterosexual",
+      "name": "Heterosexual",
+      "description": "Attracted to opposite gender",
+      "ancestries": ["all"],
+      "likelihood": 35
+    },
+    {
+      "id": "homosexual",
+      "name": "Homosexual",
+      "description": "Attracted to same gender",
+      "ancestries": ["all"],
+      "likelihood": 8
+    },
+    {
+      "id": "bisexual",
+      "name": "Bisexual",
+      "description": "Attracted to multiple genders",
+      "ancestries": ["all"],
+      "likelihood": 12
+    },
+    {
+      "id": "pansexual",
+      "name": "Pansexual",
+      "description": "Attracted regardless of gender",
+      "ancestries": ["all"],
+      "likelihood": 8
+    },
+    {
+      "id": "asexual",
+      "name": "Asexual",
+      "description": "Little to no sexual attraction",
+      "ancestries": ["all"],
+      "likelihood": 5
+    },
+    {
+      "id": "demisexual",
+      "name": "Demisexual",
+      "description": "Only attracted after emotional bond forms",
+      "ancestries": ["all"],
+      "likelihood": 7
+    },
+    {
+      "id": "aromantic",
+      "name": "Aromantic",
+      "description": "Experiences little to no romantic attraction",
+      "ancestries": ["all"],
+      "likelihood": 4
+    },
+    {
+      "id": "polyamorous",
+      "name": "Polyamorous",
+      "description": "Open to multiple simultaneous relationships",
+      "ancestries": ["all"],
+      "likelihood": 6
+    },
+    {
+      "id": "monogamous",
+      "name": "Monogamous",
+      "description": "Prefers exclusive partnerships",
+      "ancestries": ["all"],
+      "likelihood": 40
+    },
+    {
+      "id": "celibate",
+      "name": "Celibate",
+      "description": "Chooses to abstain from romantic/sexual relationships",
+      "ancestries": ["all"],
+      "likelihood": 8
+    }
+  ],
+  "relationshipHistory": [
+    {
+      "id": "never-partnered",
+      "name": "Never Partnered",
+      "description": "Has never been in a romantic relationship",
+      "likelihood": 15
+    },
+    {
+      "id": "currently-single",
+      "name": "Currently Single",
+      "description": "Not in a relationship but has been in the past",
+      "likelihood": 25
+    },
+    {
+      "id": "married",
+      "name": "Married",
+      "description": "Currently married or in committed partnership",
+      "likelihood": 30
+    },
+    {
+      "id": "widowed",
+      "name": "Widowed",
+      "description": "Spouse or partner died",
+      "likelihood": 8
+    },
+    {
+      "id": "divorced",
+      "name": "Divorced",
+      "description": "Previously married, now separated",
+      "likelihood": 10
+    },
+    {
+      "id": "engaged",
+      "name": "Engaged",
+      "description": "Betrothed to be married",
+      "likelihood": 6
+    },
+    {
+      "id": "complicated",
+      "name": "It's Complicated",
+      "description": "In an undefined or difficult relationship status",
+      "likelihood": 12
+    },
+    {
+      "id": "secret-affair",
+      "name": "Secret Affair",
+      "description": "In a hidden relationship",
+      "likelihood": 5
+    },
+    {
+      "id": "long-distance",
+      "name": "Long Distance",
+      "description": "Partner is far away",
+      "likelihood": 6
+    },
+    {
+      "id": "arranged-marriage",
+      "name": "Arranged Marriage",
+      "description": "In a relationship arranged by others",
+      "likelihood": 8
+    },
+    {
+      "id": "heartbroken",
+      "name": "Recently Heartbroken",
+      "description": "Just ended a significant relationship",
+      "likelihood": 7
+    },
+    {
+      "id": "serial-romantic",
+      "name": "Serial Romantic",
+      "description": "Moves quickly from one relationship to another",
+      "likelihood": 5
+    },
+    {
+      "id": "pining",
+      "name": "Unrequited Love",
+      "description": "In love with someone who doesn't reciprocate",
+      "likelihood": 6
+    },
+    {
+      "id": "forbidden-love",
+      "name": "Forbidden Love",
+      "description": "In love with someone society disapproves of",
+      "likelihood": 4
+    },
+    {
+      "id": "divorced-multiple",
+      "name": "Multiple Divorces",
+      "description": "Married and divorced several times",
+      "likelihood": 3
+    }
+  ],
+  "attractedTo": [
+    {
+      "id": "intelligence",
+      "name": "Intelligence",
+      "description": "Drawn to clever, intellectual partners",
+      "likelihood": 15
+    },
+    {
+      "id": "strength",
+      "name": "Physical Strength",
+      "description": "Attracted to physically powerful partners",
+      "likelihood": 12
+    },
+    {
+      "id": "kindness",
+      "name": "Kindness",
+      "description": "Values compassion and empathy",
+      "likelihood": 18
+    },
+    {
+      "id": "confidence",
+      "name": "Confidence",
+      "description": "Drawn to self-assured individuals",
+      "likelihood": 14
+    },
+    {
+      "id": "humor",
+      "name": "Sense of Humor",
+      "description": "Loves partners who can make them laugh",
+      "likelihood": 16
+    },
+    {
+      "id": "mystery",
+      "name": "Mystery",
+      "description": "Intrigued by enigmatic partners",
+      "likelihood": 10
+    },
+    {
+      "id": "wealth",
+      "name": "Wealth",
+      "description": "Attracted to financial security",
+      "likelihood": 8
+    },
+    {
+      "id": "power",
+      "name": "Power",
+      "description": "Drawn to influential, powerful partners",
+      "likelihood": 9
+    },
+    {
+      "id": "creativity",
+      "name": "Creativity",
+      "description": "Values artistic and creative minds",
+      "likelihood": 11
+    },
+    {
+      "id": "adventure",
+      "name": "Adventurous Spirit",
+      "description": "Wants exciting, daring partners",
+      "likelihood": 13
+    },
+    {
+      "id": "stability",
+      "name": "Stability",
+      "description": "Seeks reliable, grounded partners",
+      "likelihood": 15
+    },
+    {
+      "id": "appearance",
+      "name": "Physical Beauty",
+      "description": "Primarily attracted to looks",
+      "likelihood": 10
+    },
+    {
+      "id": "shared-values",
+      "name": "Shared Values",
+      "description": "Must have similar beliefs and principles",
+      "likelihood": 17
+    },
+    {
+      "id": "opposites",
+      "name": "Opposites Attract",
+      "description": "Drawn to very different personalities",
+      "likelihood": 8
+    },
+    {
+      "id": "danger",
+      "name": "Dangerous Types",
+      "description": "Attracted to bad boys/girls and rebels",
+      "likelihood": 7
+    }
+  ],
+  "pastHeartbreak": [
+    {
+      "id": "betrayal",
+      "name": "Betrayed by Lover",
+      "description": "Partner cheated or deceived them",
+      "gmGuidance": "They may have trust issues",
+      "likelihood": 12
+    },
+    {
+      "id": "abandoned",
+      "name": "Abandoned",
+      "description": "Partner left without explanation",
+      "gmGuidance": "Fear of abandonment affects relationships",
+      "likelihood": 10
+    },
+    {
+      "id": "death-of-spouse",
+      "name": "Spouse Died",
+      "description": "Lost their life partner",
+      "gmGuidance": "May feel guilty moving on",
+      "likelihood": 8
+    },
+    {
+      "id": "forced-separation",
+      "name": "Forced Apart",
+      "description": "Circumstances separated them from love",
+      "gmGuidance": "Still holds onto hope of reunion",
+      "likelihood": 7
+    },
+    {
+      "id": "rejected",
+      "name": "Rejected",
+      "description": "Confessed love and was turned down",
+      "gmGuidance": "Struggles with romantic vulnerability",
+      "likelihood": 11
+    },
+    {
+      "id": "married-another",
+      "name": "Love Married Another",
+      "description": "Their love chose someone else",
+      "gmGuidance": "Compares new partners to lost love",
+      "likelihood": 9
+    },
+    {
+      "id": "toxic-relationship",
+      "name": "Escaped Toxic Relationship",
+      "description": "Was in an abusive or manipulative partnership",
+      "gmGuidance": "Recognizes red flags, slow to trust",
+      "likelihood": 10
+    },
+    {
+      "id": "war-separated",
+      "name": "Lost to War",
+      "description": "Partner died in battle or conflict",
+      "gmGuidance": "May avoid military types or seek them out",
+      "likelihood": 6
+    },
+    {
+      "id": "cursed-love",
+      "name": "Cursed Romance",
+      "description": "Relationship ended due to magic or curse",
+      "gmGuidance": "May seek magical solution",
+      "likelihood": 3
+    },
+    {
+      "id": "forbidden-ended",
+      "name": "Forbidden Love Ended",
+      "description": "Had to end relationship due to social pressure",
+      "gmGuidance": "Resents authority and social norms",
+      "likelihood": 7
+    }
+  ]
+}

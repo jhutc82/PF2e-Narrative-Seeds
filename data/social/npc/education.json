@@ -1,0 +1,402 @@
+{
+  "educationLevel": [
+    {
+      "id": "illiterate",
+      "name": "Illiterate",
+      "description": "Cannot read or write",
+      "likelihood": 25
+    },
+    {
+      "id": "basic-literacy",
+      "name": "Basic Literacy",
+      "description": "Can read and write simple text",
+      "likelihood": 30
+    },
+    {
+      "id": "apprentice-trained",
+      "name": "Apprentice Trained",
+      "description": "Learned a trade through apprenticeship",
+      "likelihood": 20
+    },
+    {
+      "id": "self-taught",
+      "name": "Self-Taught",
+      "description": "Educated themselves through books and observation",
+      "likelihood": 12
+    },
+    {
+      "id": "tutored",
+      "name": "Privately Tutored",
+      "description": "Received one-on-one education",
+      "likelihood": 8
+    },
+    {
+      "id": "academy",
+      "name": "Academy Educated",
+      "description": "Attended formal school or academy",
+      "likelihood": 15
+    },
+    {
+      "id": "university",
+      "name": "University Scholar",
+      "description": "Completed higher education at university",
+      "likelihood": 6
+    },
+    {
+      "id": "bardic-college",
+      "name": "Bardic College",
+      "description": "Trained at a college of bards",
+      "likelihood": 3
+    },
+    {
+      "id": "military-academy",
+      "name": "Military Academy",
+      "description": "Trained at military institution",
+      "likelihood": 5
+    },
+    {
+      "id": "magical-academy",
+      "name": "Magical Academy",
+      "description": "Studied at institution of arcane learning",
+      "likelihood": 4
+    },
+    {
+      "id": "religious-seminary",
+      "name": "Religious Seminary",
+      "description": "Trained in theological studies",
+      "likelihood": 7
+    },
+    {
+      "id": "street-smart",
+      "name": "Street Educated",
+      "description": "Learned through hard experience",
+      "likelihood": 18
+    },
+    {
+      "id": "monastery",
+      "name": "Monastery Raised",
+      "description": "Educated in religious monastery",
+      "likelihood": 5
+    },
+    {
+      "id": "noble-finishing",
+      "name": "Noble Finishing School",
+      "description": "Trained in etiquette and refined arts",
+      "likelihood": 3
+    },
+    {
+      "id": "incomplete",
+      "name": "Incomplete Education",
+      "description": "Started but didn't finish formal schooling",
+      "likelihood": 10
+    }
+  ],
+  "areasOfKnowledge": [
+    {
+      "id": "history",
+      "name": "History",
+      "description": "Well-versed in historical events",
+      "likelihood": 12
+    },
+    {
+      "id": "arcana",
+      "name": "Arcane Lore",
+      "description": "Knowledgeable about magic",
+      "likelihood": 10
+    },
+    {
+      "id": "religion",
+      "name": "Religious Studies",
+      "description": "Expert in theological matters",
+      "likelihood": 14
+    },
+    {
+      "id": "nature",
+      "name": "Natural Sciences",
+      "description": "Understands plants, animals, and environment",
+      "likelihood": 13
+    },
+    {
+      "id": "occultism",
+      "name": "Occult Knowledge",
+      "description": "Familiar with esoteric and forbidden lore",
+      "likelihood": 7
+    },
+    {
+      "id": "medicine",
+      "name": "Medicine",
+      "description": "Trained in healing arts",
+      "likelihood": 11
+    },
+    {
+      "id": "law",
+      "name": "Legal Studies",
+      "description": "Knows laws and legal systems",
+      "likelihood": 9
+    },
+    {
+      "id": "engineering",
+      "name": "Engineering",
+      "description": "Understands construction and mechanics",
+      "likelihood": 8
+    },
+    {
+      "id": "alchemy",
+      "name": "Alchemical Knowledge",
+      "description": "Skilled in alchemical processes",
+      "likelihood": 6
+    },
+    {
+      "id": "geography",
+      "name": "Geography",
+      "description": "Extensive knowledge of lands and places",
+      "likelihood": 10
+    },
+    {
+      "id": "nobility",
+      "name": "Heraldry and Nobility",
+      "description": "Knows noble houses and etiquette",
+      "likelihood": 7
+    },
+    {
+      "id": "military",
+      "name": "Military Strategy",
+      "description": "Understands tactics and warfare",
+      "likelihood": 9
+    },
+    {
+      "id": "economics",
+      "name": "Economics and Trade",
+      "description": "Knowledgeable about commerce",
+      "likelihood": 11
+    },
+    {
+      "id": "arts",
+      "name": "Arts and Culture",
+      "description": "Well-versed in artistic traditions",
+      "likelihood": 8
+    },
+    {
+      "id": "languages",
+      "name": "Linguistics",
+      "description": "Multilingual and language expert",
+      "likelihood": 10
+    },
+    {
+      "id": "underworld",
+      "name": "Criminal Underworld",
+      "description": "Knows thieves' cant and criminal networks",
+      "likelihood": 8
+    },
+    {
+      "id": "monsters",
+      "name": "Monster Lore",
+      "description": "Identifies and knows about creatures",
+      "likelihood": 7
+    },
+    {
+      "id": "planes",
+      "name": "Planar Knowledge",
+      "description": "Understands other planes of existence",
+      "likelihood": 5
+    },
+    {
+      "id": "craft-expertise",
+      "name": "Craft Mastery",
+      "description": "Deep knowledge of specific craft",
+      "likelihood": 15
+    },
+    {
+      "id": "local-lore",
+      "name": "Local Expertise",
+      "description": "Encyclopedic knowledge of local area",
+      "likelihood": 18
+    }
+  ],
+  "learningStyle": [
+    {
+      "id": "bookish",
+      "name": "Bookish",
+      "description": "Learns best through reading",
+      "likelihood": 15
+    },
+    {
+      "id": "hands-on",
+      "name": "Hands-On",
+      "description": "Learns by doing",
+      "likelihood": 25
+    },
+    {
+      "id": "visual",
+      "name": "Visual Learner",
+      "description": "Needs to see demonstrations",
+      "likelihood": 18
+    },
+    {
+      "id": "auditory",
+      "name": "Auditory Learner",
+      "description": "Learns through listening",
+      "likelihood": 16
+    },
+    {
+      "id": "social-learner",
+      "name": "Social Learner",
+      "description": "Learns through discussion and debate",
+      "likelihood": 14
+    },
+    {
+      "id": "reflective",
+      "name": "Reflective",
+      "description": "Needs time to contemplate and process",
+      "likelihood": 12
+    },
+    {
+      "id": "competitive",
+      "name": "Competitive Learner",
+      "description": "Motivated by competition",
+      "likelihood": 10
+    },
+    {
+      "id": "imitative",
+      "name": "Imitative",
+      "description": "Learns by copying others",
+      "likelihood": 17
+    },
+    {
+      "id": "trial-error",
+      "name": "Trial and Error",
+      "description": "Learns through experimentation",
+      "likelihood": 13
+    },
+    {
+      "id": "structured",
+      "name": "Structured",
+      "description": "Needs organized, step-by-step instruction",
+      "likelihood": 14
+    }
+  ],
+  "teachingAbility": [
+    {
+      "id": "natural-teacher",
+      "name": "Natural Teacher",
+      "description": "Gift for explaining concepts clearly",
+      "likelihood": 12
+    },
+    {
+      "id": "patient-instructor",
+      "name": "Patient Instructor",
+      "description": "Can work with struggling students",
+      "likelihood": 15
+    },
+    {
+      "id": "demanding-teacher",
+      "name": "Demanding Teacher",
+      "description": "Pushes students hard",
+      "likelihood": 10
+    },
+    {
+      "id": "inspiring-mentor",
+      "name": "Inspiring Mentor",
+      "description": "Motivates through enthusiasm",
+      "likelihood": 11
+    },
+    {
+      "id": "poor-teacher",
+      "name": "Poor Teacher",
+      "description": "Struggles to explain what they know",
+      "likelihood": 14
+    },
+    {
+      "id": "reluctant-teacher",
+      "name": "Reluctant Teacher",
+      "description": "Knows things but doesn't want to teach",
+      "likelihood": 13
+    },
+    {
+      "id": "cryptic-teacher",
+      "name": "Cryptic Teacher",
+      "description": "Teaches through riddles and challenges",
+      "likelihood": 7
+    },
+    {
+      "id": "by-example",
+      "name": "Teaches by Example",
+      "description": "Demonstrates rather than explains",
+      "likelihood": 18
+    },
+    {
+      "id": "strict-disciplinarian",
+      "name": "Strict Disciplinarian",
+      "description": "Enforces rigid learning structure",
+      "likelihood": 9
+    },
+    {
+      "id": "casual-mentor",
+      "name": "Casual Mentor",
+      "description": "Teaches informally as opportunities arise",
+      "likelihood": 16
+    }
+  ],
+  "intellectualCuriosity": [
+    {
+      "id": "voraciously-curious",
+      "name": "Voraciously Curious",
+      "description": "Constantly seeks new knowledge",
+      "likelihood": 12
+    },
+    {
+      "id": "specialized-focus",
+      "name": "Specialized Focus",
+      "description": "Deep interest in one specific area",
+      "likelihood": 16
+    },
+    {
+      "id": "practical-only",
+      "name": "Practical Only",
+      "description": "Only interested in useful knowledge",
+      "likelihood": 22
+    },
+    {
+      "id": "incurious",
+      "name": "Incurious",
+      "description": "Little interest in learning",
+      "likelihood": 18
+    },
+    {
+      "id": "dabbler",
+      "name": "Dabbler",
+      "description": "Interested in many things superficially",
+      "likelihood": 15
+    },
+    {
+      "id": "questioning",
+      "name": "Constantly Questioning",
+      "description": "Challenges accepted wisdom",
+      "likelihood": 10
+    },
+    {
+      "id": "absorbs-everything",
+      "name": "Absorbs Everything",
+      "description": "Retains information effortlessly",
+      "likelihood": 7
+    },
+    {
+      "id": "selective-interest",
+      "name": "Selective Interest",
+      "description": "Only engages with topics that fascinate them",
+      "likelihood": 14
+    },
+    {
+      "id": "wisdom-seeker",
+      "name": "Wisdom Seeker",
+      "description": "Values understanding over facts",
+      "likelihood": 11
+    },
+    {
+      "id": "anti-intellectual",
+      "name": "Anti-Intellectual",
+      "description": "Distrusts book learning",
+      "likelihood": 9
+    }
+  ]
+}

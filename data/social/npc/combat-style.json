@@ -1,0 +1,512 @@
+{
+  "combatTraining": [
+    {
+      "id": "untrained",
+      "name": "Untrained",
+      "description": "No formal combat training",
+      "likelihood": 40
+    },
+    {
+      "id": "self-taught",
+      "name": "Self-Taught Fighter",
+      "description": "Learned through brawls and experience",
+      "likelihood": 18
+    },
+    {
+      "id": "militia",
+      "name": "Militia Training",
+      "description": "Basic military training",
+      "likelihood": 15
+    },
+    {
+      "id": "military-veteran",
+      "name": "Military Veteran",
+      "description": "Experienced soldier",
+      "likelihood": 10
+    },
+    {
+      "id": "mercenary",
+      "name": "Mercenary",
+      "description": "Fought for pay across many conflicts",
+      "likelihood": 7
+    },
+    {
+      "id": "guard-training",
+      "name": "Guard Training",
+      "description": "Trained for law enforcement",
+      "likelihood": 12
+    },
+    {
+      "id": "gladiator",
+      "name": "Gladiator",
+      "description": "Fought in arenas for entertainment",
+      "likelihood": 3
+    },
+    {
+      "id": "knight-trained",
+      "name": "Knight Training",
+      "description": "Formal chivalric combat education",
+      "likelihood": 4
+    },
+    {
+      "id": "duel-trained",
+      "name": "Duel Training",
+      "description": "Specialist in one-on-one combat",
+      "likelihood": 5
+    },
+    {
+      "id": "assassin-trained",
+      "name": "Assassin Training",
+      "description": "Trained in lethal precision",
+      "likelihood": 3
+    },
+    {
+      "id": "monk-trained",
+      "name": "Monastic Training",
+      "description": "Unarmed combat and discipline",
+      "likelihood": 4
+    },
+    {
+      "id": "ranger-trained",
+      "name": "Wilderness Fighter",
+      "description": "Trained for combat in nature",
+      "likelihood": 6
+    },
+    {
+      "id": "pirate",
+      "name": "Pirate Fighting",
+      "description": "Naval and boarding combat experience",
+      "likelihood": 4
+    },
+    {
+      "id": "street-fighter",
+      "name": "Street Fighter",
+      "description": "Dirty fighting from the streets",
+      "likelihood": 12
+    },
+    {
+      "id": "tournament-fighter",
+      "name": "Tournament Champion",
+      "description": "Trained for sporting combat",
+      "likelihood": 5
+    }
+  ],
+  "fightingStyle": [
+    {
+      "id": "aggressive",
+      "name": "Aggressive",
+      "description": "Favors all-out offense",
+      "likelihood": 18
+    },
+    {
+      "id": "defensive",
+      "name": "Defensive",
+      "description": "Prioritizes protection and survival",
+      "likelihood": 16
+    },
+    {
+      "id": "tactical",
+      "name": "Tactical",
+      "description": "Thinks several moves ahead",
+      "likelihood": 14
+    },
+    {
+      "id": "reckless",
+      "name": "Reckless",
+      "description": "Fights without regard for safety",
+      "likelihood": 12
+    },
+    {
+      "id": "calculated",
+      "name": "Calculated",
+      "description": "Waits for perfect opening",
+      "likelihood": 11
+    },
+    {
+      "id": "dirty-fighter",
+      "name": "Dirty Fighter",
+      "description": "Uses any advantage, fair or not",
+      "likelihood": 13
+    },
+    {
+      "id": "honorable",
+      "name": "Honorable",
+      "description": "Follows codes of combat",
+      "likelihood": 10
+    },
+    {
+      "id": "adaptive",
+      "name": "Adaptive",
+      "description": "Changes tactics to match opponent",
+      "likelihood": 12
+    },
+    {
+      "id": "berserker",
+      "name": "Berserker",
+      "description": "Loses control in battle rage",
+      "likelihood": 7
+    },
+    {
+      "id": "precise",
+      "name": "Precise",
+      "description": "Focuses on accuracy over power",
+      "likelihood": 11
+    },
+    {
+      "id": "overwhelming",
+      "name": "Overwhelming",
+      "description": "Uses raw power and strength",
+      "likelihood": 14
+    },
+    {
+      "id": "evasive",
+      "name": "Evasive",
+      "description": "Relies on mobility and dodging",
+      "likelihood": 10
+    },
+    {
+      "id": "opportunistic",
+      "name": "Opportunistic",
+      "description": "Waits for enemy mistakes",
+      "likelihood": 13
+    },
+    {
+      "id": "showboating",
+      "name": "Showboating",
+      "description": "Fights with flair and style",
+      "likelihood": 6
+    },
+    {
+      "id": "brutal",
+      "name": "Brutal",
+      "description": "Seeks to maim and terrify",
+      "likelihood": 9
+    },
+    {
+      "id": "efficient",
+      "name": "Efficient",
+      "description": "Wastes no motion or energy",
+      "likelihood": 12
+    }
+  ],
+  "weaponPreference": [
+    {
+      "id": "sword-shield",
+      "name": "Sword and Shield",
+      "description": "Classic sword and board fighter",
+      "likelihood": 16
+    },
+    {
+      "id": "two-handed",
+      "name": "Two-Handed Weapon",
+      "description": "Wields greatswords, axes, or mauls",
+      "likelihood": 14
+    },
+    {
+      "id": "dual-wield",
+      "name": "Dual Wielding",
+      "description": "Fights with weapon in each hand",
+      "likelihood": 10
+    },
+    {
+      "id": "polearm",
+      "name": "Polearm",
+      "description": "Uses spears, halberds, or glaives",
+      "likelihood": 12
+    },
+    {
+      "id": "archery",
+      "name": "Archery",
+      "description": "Prefers bow and arrows",
+      "likelihood": 13
+    },
+    {
+      "id": "crossbow",
+      "name": "Crossbow",
+      "description": "Uses crossbows",
+      "likelihood": 9
+    },
+    {
+      "id": "thrown",
+      "name": "Thrown Weapons",
+      "description": "Specializes in throwing weapons",
+      "likelihood": 6
+    },
+    {
+      "id": "unarmed",
+      "name": "Unarmed Combat",
+      "description": "Fights with fists and body",
+      "likelihood": 8
+    },
+    {
+      "id": "dagger",
+      "name": "Daggers and Knives",
+      "description": "Quick with small blades",
+      "likelihood": 11
+    },
+    {
+      "id": "whip-chain",
+      "name": "Whips or Chains",
+      "description": "Uses flexible weapons",
+      "likelihood": 4
+    },
+    {
+      "id": "axe",
+      "name": "Axes",
+      "description": "Prefers axes",
+      "likelihood": 10
+    },
+    {
+      "id": "hammer-mace",
+      "name": "Hammers or Maces",
+      "description": "Uses bludgeoning weapons",
+      "likelihood": 9
+    },
+    {
+      "id": "rapier-finesse",
+      "name": "Rapier or Finesse",
+      "description": "Uses precision weapons",
+      "likelihood": 8
+    },
+    {
+      "id": "exotic",
+      "name": "Exotic Weapons",
+      "description": "Trained in unusual weapons",
+      "likelihood": 5
+    },
+    {
+      "id": "improvised",
+      "name": "Improvised Weapons",
+      "description": "Uses whatever's at hand",
+      "likelihood": 7
+    }
+  ],
+  "combatPhilosophy": [
+    {
+      "id": "necessary-evil",
+      "name": "Necessary Evil",
+      "description": "Fights only when absolutely required",
+      "likelihood": 22
+    },
+    {
+      "id": "way-of-life",
+      "name": "Way of Life",
+      "description": "Combat defines their existence",
+      "likelihood": 10
+    },
+    {
+      "id": "last-resort",
+      "name": "Last Resort",
+      "description": "Tries everything before violence",
+      "likelihood": 18
+    },
+    {
+      "id": "problem-solver",
+      "name": "Problem Solver",
+      "description": "Violence is a practical tool",
+      "likelihood": 16
+    },
+    {
+      "id": "art-form",
+      "name": "Art Form",
+      "description": "Sees combat as beautiful expression",
+      "likelihood": 7
+    },
+    {
+      "id": "survival-skill",
+      "name": "Survival Skill",
+      "description": "Fights to stay alive",
+      "likelihood": 20
+    },
+    {
+      "id": "sacred-duty",
+      "name": "Sacred Duty",
+      "description": "Fighting is religious obligation",
+      "likelihood": 8
+    },
+    {
+      "id": "sport",
+      "name": "Sport",
+      "description": "Enjoys combat as competition",
+      "likelihood": 9
+    },
+    {
+      "id": "addiction",
+      "name": "Addiction",
+      "description": "Craves the thrill of battle",
+      "likelihood": 6
+    },
+    {
+      "id": "regretful-necessity",
+      "name": "Regretful Necessity",
+      "description": "Good at it but hates violence",
+      "likelihood": 12
+    },
+    {
+      "id": "protective",
+      "name": "Protective",
+      "description": "Fights only to defend others",
+      "likelihood": 15
+    },
+    {
+      "id": "vengeance",
+      "name": "Vengeance",
+      "description": "Uses combat to right wrongs",
+      "likelihood": 10
+    },
+    {
+      "id": "prove-worth",
+      "name": "Prove Worth",
+      "description": "Seeks validation through combat",
+      "likelihood": 11
+    },
+    {
+      "id": "test-limits",
+      "name": "Test Limits",
+      "description": "Fights to challenge themselves",
+      "likelihood": 8
+    },
+    {
+      "id": "terrified",
+      "name": "Terrified",
+      "description": "Fears combat deeply",
+      "likelihood": 14
+    }
+  ],
+  "combatMentality": [
+    {
+      "id": "ice-cold",
+      "name": "Ice Cold",
+      "description": "Completely calm in battle",
+      "likelihood": 12
+    },
+    {
+      "id": "battle-joy",
+      "name": "Battle Joy",
+      "description": "Exhilarated by fighting",
+      "likelihood": 10
+    },
+    {
+      "id": "focused-concentration",
+      "name": "Focused Concentration",
+      "description": "Enters intense focus",
+      "likelihood": 15
+    },
+    {
+      "id": "panicked",
+      "name": "Panicked",
+      "description": "Terror-driven reactions",
+      "likelihood": 11
+    },
+    {
+      "id": "grim-determination",
+      "name": "Grim Determination",
+      "description": "Resolute but joyless",
+      "likelihood": 16
+    },
+    {
+      "id": "calculated-detachment",
+      "name": "Calculated Detachment",
+      "description": "Treats it like a puzzle",
+      "likelihood": 10
+    },
+    {
+      "id": "righteous-fury",
+      "name": "Righteous Fury",
+      "description": "Fueled by moral conviction",
+      "likelihood": 11
+    },
+    {
+      "id": "playful-teasing",
+      "name": "Playful Teasing",
+      "description": "Jokes and taunts",
+      "likelihood": 8
+    },
+    {
+      "id": "silent-intensity",
+      "name": "Silent Intensity",
+      "description": "Wordless and focused",
+      "likelihood": 13
+    },
+    {
+      "id": "chatty",
+      "name": "Chatty",
+      "description": "Talks constantly during fights",
+      "likelihood": 7
+    },
+    {
+      "id": "traumatic-flashback",
+      "name": "Traumatic Flashbacks",
+      "description": "Combat triggers past trauma",
+      "likelihood": 6
+    },
+    {
+      "id": "mercenary-mindset",
+      "name": "Mercenary Mindset",
+      "description": "Just doing a job",
+      "likelihood": 14
+    }
+  ],
+  "combatExperience": [
+    {
+      "id": "never-fought",
+      "name": "Never Fought",
+      "description": "No real combat experience",
+      "likelihood": 30
+    },
+    {
+      "id": "few-scraps",
+      "name": "A Few Scraps",
+      "description": "Been in handful of fights",
+      "likelihood": 25
+    },
+    {
+      "id": "veteran-brawler",
+      "name": "Veteran Brawler",
+      "description": "Many street fights",
+      "likelihood": 15
+    },
+    {
+      "id": "war-veteran",
+      "name": "War Veteran",
+      "description": "Survived major battles",
+      "likelihood": 10
+    },
+    {
+      "id": "hardened-killer",
+      "name": "Hardened Killer",
+      "description": "Killed many people",
+      "likelihood": 8
+    },
+    {
+      "id": "one-kill",
+      "name": "One Kill",
+      "description": "Killed once, haunted by it",
+      "likelihood": 9
+    },
+    {
+      "id": "tournament-experience",
+      "name": "Tournament Experience",
+      "description": "Non-lethal competitive fighting",
+      "likelihood": 12
+    },
+    {
+      "id": "duel-survivor",
+      "name": "Duel Survivor",
+      "description": "Won formal duels",
+      "likelihood": 6
+    },
+    {
+      "id": "monster-hunter",
+      "name": "Monster Hunter",
+      "description": "Fought beasts and creatures",
+      "likelihood": 7
+    },
+    {
+      "id": "lost-first-fight",
+      "name": "Lost First Fight",
+      "description": "Traumatized by defeat",
+      "likelihood": 11
+    }
+  ]
+}

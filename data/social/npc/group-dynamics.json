@@ -1,0 +1,490 @@
+{
+  "groupRoles": [
+    {
+      "id": "leader",
+      "name": "The Leader",
+      "description": "Makes decisions and takes charge",
+      "likelihood": 12
+    },
+    {
+      "id": "second-command",
+      "name": "Second-in-Command",
+      "description": "Backs up the leader",
+      "likelihood": 10
+    },
+    {
+      "id": "mediator",
+      "name": "The Mediator",
+      "description": "Resolves conflicts within group",
+      "likelihood": 14
+    },
+    {
+      "id": "comic-relief",
+      "name": "Comic Relief",
+      "description": "Lightens the mood with humor",
+      "likelihood": 13
+    },
+    {
+      "id": "voice-reason",
+      "name": "Voice of Reason",
+      "description": "Provides logical perspective",
+      "likelihood": 15
+    },
+    {
+      "id": "troublemaker",
+      "name": "Troublemaker",
+      "description": "Stirs up conflict",
+      "likelihood": 11
+    },
+    {
+      "id": "outcast",
+      "name": "The Outcast",
+      "description": "On fringes of group",
+      "likelihood": 10
+    },
+    {
+      "id": "heart",
+      "name": "The Heart",
+      "description": "Emotional center of group",
+      "likelihood": 14
+    },
+    {
+      "id": "brains",
+      "name": "The Brains",
+      "description": "Intellectual resource",
+      "likelihood": 12
+    },
+    {
+      "id": "muscle",
+      "name": "The Muscle",
+      "description": "Physical enforcer",
+      "likelihood": 11
+    },
+    {
+      "id": "newcomer",
+      "name": "Newcomer",
+      "description": "Recently joined group",
+      "likelihood": 9
+    },
+    {
+      "id": "veteran",
+      "name": "The Veteran",
+      "description": "Been with group longest",
+      "likelihood": 13
+    },
+    {
+      "id": "wild-card",
+      "name": "Wild Card",
+      "description": "Unpredictable member",
+      "likelihood": 10
+    },
+    {
+      "id": "loyalist",
+      "name": "The Loyalist",
+      "description": "Most devoted to group",
+      "likelihood": 15
+    },
+    {
+      "id": "skeptic",
+      "name": "The Skeptic",
+      "description": "Questions group decisions",
+      "likelihood": 12
+    }
+  ],
+  "groupCohesion": [
+    {
+      "id": "tight-knit",
+      "name": "Tight-Knit",
+      "description": "Very close and unified",
+      "likelihood": 20
+    },
+    {
+      "id": "professional",
+      "name": "Professional",
+      "description": "Work well together but not personal",
+      "likelihood": 25
+    },
+    {
+      "id": "fractured",
+      "name": "Fractured",
+      "description": "Multiple competing factions",
+      "likelihood": 15
+    },
+    {
+      "id": "new-forming",
+      "name": "Newly Formed",
+      "description": "Still finding rhythm",
+      "likelihood": 12
+    },
+    {
+      "id": "dysfunctional",
+      "name": "Dysfunctional",
+      "description": "Barely holding together",
+      "likelihood": 11
+    },
+    {
+      "id": "family-like",
+      "name": "Like Family",
+      "description": "Deep personal bonds",
+      "likelihood": 18
+    },
+    {
+      "id": "hierarchical",
+      "name": "Strictly Hierarchical",
+      "description": "Clear chain of command",
+      "likelihood": 16
+    },
+    {
+      "id": "egalitarian",
+      "name": "Egalitarian",
+      "description": "All voices equal",
+      "likelihood": 14
+    },
+    {
+      "id": "tense",
+      "name": "Tense",
+      "description": "Underlying conflicts",
+      "likelihood": 13
+    },
+    {
+      "id": "casual",
+      "name": "Casual Alliance",
+      "description": "Loosely affiliated",
+      "likelihood": 17
+    }
+  ],
+  "interGroupConflicts": [
+    {
+      "id": "leadership-dispute",
+      "name": "Leadership Dispute",
+      "description": "Multiple people want to lead",
+      "likelihood": 15
+    },
+    {
+      "id": "romantic-triangle",
+      "name": "Romantic Triangle",
+      "description": "Love triangle causing tension",
+      "likelihood": 12
+    },
+    {
+      "id": "ideological-split",
+      "name": "Ideological Split",
+      "description": "Disagreement on core values",
+      "likelihood": 18
+    },
+    {
+      "id": "resource-competition",
+      "name": "Resource Competition",
+      "description": "Fighting over limited resources",
+      "likelihood": 14
+    },
+    {
+      "id": "betrayal-aftermath",
+      "name": "Past Betrayal",
+      "description": "Someone betrayed group before",
+      "likelihood": 16
+    },
+    {
+      "id": "personality-clash",
+      "name": "Personality Clash",
+      "description": "Two members can't stand each other",
+      "likelihood": 20
+    },
+    {
+      "id": "secret-keeping",
+      "name": "Secret Keeping",
+      "description": "Someone hiding something important",
+      "likelihood": 17
+    },
+    {
+      "id": "favoritism",
+      "name": "Favoritism",
+      "description": "Leader plays favorites",
+      "likelihood": 13
+    },
+    {
+      "id": "credit-stealing",
+      "name": "Credit Stealing",
+      "description": "Someone takes credit for others' work",
+      "likelihood": 11
+    },
+    {
+      "id": "different-goals",
+      "name": "Different Goals",
+      "description": "Members want different things",
+      "likelihood": 16
+    },
+    {
+      "id": "trust-issues",
+      "name": "Trust Issues",
+      "description": "General lack of trust",
+      "likelihood": 15
+    },
+    {
+      "id": "power-struggle",
+      "name": "Power Struggle",
+      "description": "Fight for influence",
+      "likelihood": 14
+    }
+  ],
+  "groupBonds": [
+    {
+      "id": "shared-trauma",
+      "name": "Shared Trauma",
+      "description": "Bonded through hardship",
+      "likelihood": 18
+    },
+    {
+      "id": "common-enemy",
+      "name": "Common Enemy",
+      "description": "United against threat",
+      "likelihood": 20
+    },
+    {
+      "id": "shared-dream",
+      "name": "Shared Dream",
+      "description": "Working toward same goal",
+      "likelihood": 22
+    },
+    {
+      "id": "blood-oath",
+      "name": "Blood Oath",
+      "description": "Magically or ceremonially bound",
+      "likelihood": 8
+    },
+    {
+      "id": "mutual-benefit",
+      "name": "Mutual Benefit",
+      "description": "Help each other succeed",
+      "likelihood": 24
+    },
+    {
+      "id": "orphans-together",
+      "name": "Grew Up Together",
+      "description": "Known each other since childhood",
+      "likelihood": 15
+    },
+    {
+      "id": "military-unit",
+      "name": "Military Bond",
+      "description": "Served together in war",
+      "likelihood": 12
+    },
+    {
+      "id": "academy-friends",
+      "name": "Academy Friends",
+      "description": "Met at school or training",
+      "likelihood": 14
+    },
+    {
+      "id": "family-ties",
+      "name": "Family Ties",
+      "description": "Related by blood or marriage",
+      "likelihood": 13
+    },
+    {
+      "id": "saved-lives",
+      "name": "Saved Each Other",
+      "description": "Life debts bind them",
+      "likelihood": 16
+    }
+  ],
+  "groupPurpose": [
+    {
+      "id": "adventuring-party",
+      "name": "Adventuring Party",
+      "description": "Seek fortune and glory",
+      "likelihood": 15
+    },
+    {
+      "id": "criminal-gang",
+      "name": "Criminal Gang",
+      "description": "Organized crime",
+      "likelihood": 12
+    },
+    {
+      "id": "merchant-company",
+      "name": "Merchant Company",
+      "description": "Trade and commerce",
+      "likelihood": 14
+    },
+    {
+      "id": "religious-order",
+      "name": "Religious Order",
+      "description": "Serve deity or faith",
+      "likelihood": 11
+    },
+    {
+      "id": "military-unit",
+      "name": "Military Unit",
+      "description": "Soldiers serving together",
+      "likelihood": 13
+    },
+    {
+      "id": "scholarly-circle",
+      "name": "Scholarly Circle",
+      "description": "Pursue knowledge",
+      "likelihood": 9
+    },
+    {
+      "id": "rebel-cell",
+      "name": "Rebel Cell",
+      "description": "Fight against oppression",
+      "likelihood": 10
+    },
+    {
+      "id": "guard-patrol",
+      "name": "Guard Patrol",
+      "description": "Law enforcement",
+      "likelihood": 12
+    },
+    {
+      "id": "guild-members",
+      "name": "Guild Members",
+      "description": "Professional association",
+      "likelihood": 16
+    },
+    {
+      "id": "noble-court",
+      "name": "Noble's Court",
+      "description": "Serve noble house",
+      "likelihood": 8
+    },
+    {
+      "id": "survival-group",
+      "name": "Survival Group",
+      "description": "Banded together to survive",
+      "likelihood": 11
+    },
+    {
+      "id": "secret-society",
+      "name": "Secret Society",
+      "description": "Hidden agenda",
+      "likelihood": 9
+    }
+  ],
+  "leadershipStyle": [
+    {
+      "id": "authoritarian",
+      "name": "Authoritarian",
+      "description": "Leader's word is law",
+      "likelihood": 16
+    },
+    {
+      "id": "democratic",
+      "name": "Democratic",
+      "description": "Group votes on decisions",
+      "likelihood": 18
+    },
+    {
+      "id": "consensus",
+      "name": "Consensus",
+      "description": "Everyone must agree",
+      "likelihood": 12
+    },
+    {
+      "id": "rotating",
+      "name": "Rotating Leadership",
+      "description": "Takes turns leading",
+      "likelihood": 8
+    },
+    {
+      "id": "meritocratic",
+      "name": "Meritocratic",
+      "description": "Most skilled leads",
+      "likelihood": 15
+    },
+    {
+      "id": "chaotic",
+      "name": "Chaotic",
+      "description": "No clear leadership",
+      "likelihood": 11
+    },
+    {
+      "id": "benevolent-dictator",
+      "name": "Benevolent Dictator",
+      "description": "Kind but absolute authority",
+      "likelihood": 14
+    },
+    {
+      "id": "council",
+      "name": "Council of Equals",
+      "description": "Multiple leaders share power",
+      "likelihood": 13
+    },
+    {
+      "id": "shadow-leader",
+      "name": "Shadow Leader",
+      "description": "Real power behind the scenes",
+      "likelihood": 10
+    },
+    {
+      "id": "reluctant-leader",
+      "name": "Reluctant Leader",
+      "description": "Leader doesn't want the role",
+      "likelihood": 12
+    }
+  ],
+  "groupSecrets": [
+    {
+      "id": "mole",
+      "name": "Has a Mole",
+      "description": "Someone is spying on group",
+      "likelihood": 14
+    },
+    {
+      "id": "hidden-agenda",
+      "name": "Hidden Agenda",
+      "description": "Group's true purpose is secret",
+      "likelihood": 16
+    },
+    {
+      "id": "cursed",
+      "name": "Cursed",
+      "description": "Group is under magical curse",
+      "likelihood": 8
+    },
+    {
+      "id": "past-crime",
+      "name": "Past Crime",
+      "description": "Group committed terrible act",
+      "likelihood": 12
+    },
+    {
+      "id": "hidden-member",
+      "name": "Hidden Member",
+      "description": "Secret member pulling strings",
+      "likelihood": 10
+    },
+    {
+      "id": "doomed",
+      "name": "Doomed",
+      "description": "Prophecy predicts their end",
+      "likelihood": 7
+    },
+    {
+      "id": "front-organization",
+      "name": "Front Organization",
+      "description": "Covers for something else",
+      "likelihood": 11
+    },
+    {
+      "id": "hunted",
+      "name": "Being Hunted",
+      "description": "Powerful enemy seeks them",
+      "likelihood": 15
+    },
+    {
+      "id": "artifact",
+      "name": "Possess Artifact",
+      "description": "Guard dangerous magical item",
+      "likelihood": 9
+    },
+    {
+      "id": "true-identity",
+      "name": "False Identities",
+      "description": "All members living under assumed names",
+      "likelihood": 8
+    }
+  ]
+}

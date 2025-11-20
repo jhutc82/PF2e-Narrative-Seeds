@@ -1,0 +1,454 @@
+{
+  "hobbies": [
+    {
+      "id": "reading",
+      "name": "Reading",
+      "category": "intellectual",
+      "description": "Enjoys books, scrolls, and written works",
+      "timeCommitment": "moderate",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 18
+    },
+    {
+      "id": "gambling",
+      "name": "Gambling",
+      "category": "social",
+      "description": "Frequents games of chance",
+      "timeCommitment": "variable",
+      "socializing": "social",
+      "ancestries": ["all"],
+      "likelihood": 14
+    },
+    {
+      "id": "hunting",
+      "name": "Hunting",
+      "category": "outdoor",
+      "description": "Tracks and hunts game for sport",
+      "timeCommitment": "high",
+      "socializing": "small-group",
+      "ancestries": ["all"],
+      "likelihood": 12
+    },
+    {
+      "id": "fishing",
+      "name": "Fishing",
+      "category": "outdoor",
+      "description": "Enjoys angling and fishing",
+      "timeCommitment": "high",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 15
+    },
+    {
+      "id": "cooking",
+      "name": "Cooking",
+      "category": "creative",
+      "description": "Experiments with recipes and cuisine",
+      "timeCommitment": "moderate",
+      "socializing": "variable",
+      "ancestries": ["all"],
+      "likelihood": 16
+    },
+    {
+      "id": "gardening",
+      "name": "Gardening",
+      "category": "outdoor",
+      "description": "Cultivates plants and flowers",
+      "timeCommitment": "moderate",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 14
+    },
+    {
+      "id": "woodworking",
+      "name": "Woodworking",
+      "category": "crafting",
+      "description": "Creates items from wood",
+      "timeCommitment": "moderate",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 11
+    },
+    {
+      "id": "painting",
+      "name": "Painting",
+      "category": "artistic",
+      "description": "Creates visual art",
+      "timeCommitment": "moderate",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 9
+    },
+    {
+      "id": "music",
+      "name": "Playing Music",
+      "category": "artistic",
+      "description": "Plays instrument or sings",
+      "timeCommitment": "high",
+      "socializing": "variable",
+      "ancestries": ["all"],
+      "likelihood": 13
+    },
+    {
+      "id": "dancing",
+      "name": "Dancing",
+      "category": "performance",
+      "description": "Enjoys social or performance dancing",
+      "timeCommitment": "moderate",
+      "socializing": "social",
+      "ancestries": ["all"],
+      "likelihood": 12
+    },
+    {
+      "id": "storytelling",
+      "name": "Storytelling",
+      "category": "performance",
+      "description": "Tells tales and recounts stories",
+      "timeCommitment": "low",
+      "socializing": "social",
+      "ancestries": ["all"],
+      "likelihood": 10
+    },
+    {
+      "id": "drinking",
+      "name": "Social Drinking",
+      "category": "social",
+      "description": "Frequents taverns and enjoys alcohol",
+      "timeCommitment": "variable",
+      "socializing": "social",
+      "ancestries": ["all"],
+      "likelihood": 17
+    },
+    {
+      "id": "fighting-sport",
+      "name": "Combat Sports",
+      "category": "athletic",
+      "description": "Participates in wrestling, boxing, or dueling",
+      "timeCommitment": "high",
+      "socializing": "social",
+      "ancestries": ["all"],
+      "likelihood": 10
+    },
+    {
+      "id": "horseback-riding",
+      "name": "Horseback Riding",
+      "category": "outdoor",
+      "description": "Rides horses for pleasure",
+      "timeCommitment": "moderate",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 9
+    },
+    {
+      "id": "animal-breeding",
+      "name": "Animal Breeding",
+      "category": "outdoor",
+      "description": "Raises and breeds animals",
+      "timeCommitment": "high",
+      "socializing": "small-group",
+      "ancestries": ["all"],
+      "likelihood": 7
+    },
+    {
+      "id": "collecting",
+      "name": "Collecting",
+      "category": "intellectual",
+      "description": "Collects specific items (coins, art, curiosities)",
+      "timeCommitment": "variable",
+      "socializing": "variable",
+      "ancestries": ["all"],
+      "likelihood": 11
+    },
+    {
+      "id": "poetry",
+      "name": "Writing Poetry",
+      "category": "artistic",
+      "description": "Composes verses and poems",
+      "timeCommitment": "moderate",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 7
+    },
+    {
+      "id": "astronomy",
+      "name": "Astronomy",
+      "category": "intellectual",
+      "description": "Studies stars and celestial bodies",
+      "timeCommitment": "moderate",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 6
+    },
+    {
+      "id": "alchemy-hobby",
+      "name": "Amateur Alchemy",
+      "category": "intellectual",
+      "description": "Experiments with potions and elixirs",
+      "timeCommitment": "high",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 5
+    },
+    {
+      "id": "magic-tricks",
+      "name": "Sleight of Hand",
+      "category": "performance",
+      "description": "Performs magic tricks and illusions",
+      "timeCommitment": "moderate",
+      "socializing": "social",
+      "ancestries": ["all"],
+      "likelihood": 6
+    },
+    {
+      "id": "board-games",
+      "name": "Strategy Games",
+      "category": "intellectual",
+      "description": "Plays chess, checkers, and similar games",
+      "timeCommitment": "moderate",
+      "socializing": "small-group",
+      "ancestries": ["all"],
+      "likelihood": 13
+    },
+    {
+      "id": "card-games",
+      "name": "Card Games",
+      "category": "social",
+      "description": "Plays various card games",
+      "timeCommitment": "variable",
+      "socializing": "social",
+      "ancestries": ["all"],
+      "likelihood": 14
+    },
+    {
+      "id": "theater",
+      "name": "Theater Attendance",
+      "category": "cultural",
+      "description": "Enjoys watching plays and performances",
+      "timeCommitment": "low",
+      "socializing": "social",
+      "ancestries": ["all"],
+      "likelihood": 8
+    },
+    {
+      "id": "archery",
+      "name": "Archery",
+      "category": "athletic",
+      "description": "Practices with bow and arrow",
+      "timeCommitment": "moderate",
+      "socializing": "variable",
+      "ancestries": ["all"],
+      "likelihood": 8
+    },
+    {
+      "id": "swimming",
+      "name": "Swimming",
+      "category": "athletic",
+      "description": "Swims for exercise or pleasure",
+      "timeCommitment": "moderate",
+      "socializing": "variable",
+      "ancestries": ["all"],
+      "likelihood": 9
+    },
+    {
+      "id": "hiking",
+      "name": "Hiking",
+      "category": "outdoor",
+      "description": "Takes long walks in nature",
+      "timeCommitment": "moderate",
+      "socializing": "variable",
+      "ancestries": ["all"],
+      "likelihood": 11
+    },
+    {
+      "id": "bird-watching",
+      "name": "Bird Watching",
+      "category": "outdoor",
+      "description": "Observes and identifies birds",
+      "timeCommitment": "moderate",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 5
+    },
+    {
+      "id": "calligraphy",
+      "name": "Calligraphy",
+      "category": "artistic",
+      "description": "Practices decorative writing",
+      "timeCommitment": "moderate",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 6
+    },
+    {
+      "id": "jewelry-making",
+      "name": "Jewelry Making",
+      "category": "crafting",
+      "description": "Crafts jewelry and ornaments",
+      "timeCommitment": "moderate",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 7
+    },
+    {
+      "id": "leatherworking",
+      "name": "Leatherworking",
+      "category": "crafting",
+      "description": "Works with leather to create goods",
+      "timeCommitment": "high",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 7
+    },
+    {
+      "id": "weaving",
+      "name": "Weaving",
+      "category": "crafting",
+      "description": "Creates textiles and fabrics",
+      "timeCommitment": "high",
+      "socializing": "variable",
+      "ancestries": ["all"],
+      "likelihood": 8
+    },
+    {
+      "id": "knitting",
+      "name": "Knitting",
+      "category": "crafting",
+      "description": "Knits clothing and items",
+      "timeCommitment": "moderate",
+      "socializing": "variable",
+      "ancestries": ["all"],
+      "likelihood": 9
+    },
+    {
+      "id": "whittling",
+      "name": "Whittling",
+      "category": "crafting",
+      "description": "Carves small objects from wood",
+      "timeCommitment": "low",
+      "socializing": "variable",
+      "ancestries": ["all"],
+      "likelihood": 10
+    },
+    {
+      "id": "puzzle-solving",
+      "name": "Puzzles",
+      "category": "intellectual",
+      "description": "Enjoys riddles, puzzles, and brainteasers",
+      "timeCommitment": "low",
+      "socializing": "variable",
+      "ancestries": ["all"],
+      "likelihood": 9
+    },
+    {
+      "id": "debate",
+      "name": "Debate",
+      "category": "intellectual",
+      "description": "Enjoys structured arguments and rhetoric",
+      "timeCommitment": "moderate",
+      "socializing": "social",
+      "ancestries": ["all"],
+      "likelihood": 7
+    },
+    {
+      "id": "philosophy",
+      "name": "Philosophy",
+      "category": "intellectual",
+      "description": "Studies and discusses philosophical questions",
+      "timeCommitment": "variable",
+      "socializing": "variable",
+      "ancestries": ["all"],
+      "likelihood": 6
+    },
+    {
+      "id": "mapmaking",
+      "name": "Cartography",
+      "category": "intellectual",
+      "description": "Creates maps and charts",
+      "timeCommitment": "high",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 4
+    },
+    {
+      "id": "genealogy",
+      "name": "Genealogy",
+      "category": "intellectual",
+      "description": "Researches family histories and lineages",
+      "timeCommitment": "moderate",
+      "socializing": "variable",
+      "ancestries": ["all"],
+      "likelihood": 5
+    },
+    {
+      "id": "herb-lore",
+      "name": "Herbalism",
+      "category": "intellectual",
+      "description": "Studies medicinal and magical plants",
+      "timeCommitment": "moderate",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 7
+    },
+    {
+      "id": "wine-tasting",
+      "name": "Wine Connoisseur",
+      "category": "cultural",
+      "description": "Collects and appreciates fine wines",
+      "timeCommitment": "low",
+      "socializing": "social",
+      "ancestries": ["all"],
+      "likelihood": 6
+    },
+    {
+      "id": "bee-keeping",
+      "name": "Beekeeping",
+      "category": "outdoor",
+      "description": "Maintains bee hives for honey",
+      "timeCommitment": "moderate",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 5
+    },
+    {
+      "id": "falconry",
+      "name": "Falconry",
+      "category": "outdoor",
+      "description": "Trains and hunts with birds of prey",
+      "timeCommitment": "high",
+      "socializing": "small-group",
+      "ancestries": ["all"],
+      "likelihood": 4
+    },
+    {
+      "id": "sailing",
+      "name": "Sailing",
+      "category": "outdoor",
+      "description": "Sails boats for pleasure",
+      "timeCommitment": "high",
+      "socializing": "variable",
+      "ancestries": ["all"],
+      "likelihood": 6
+    },
+    {
+      "id": "rock-climbing",
+      "name": "Climbing",
+      "category": "athletic",
+      "description": "Climbs mountains and cliffs",
+      "timeCommitment": "high",
+      "socializing": "small-group",
+      "ancestries": ["all"],
+      "likelihood": 5
+    },
+    {
+      "id": "meditation-hobby",
+      "name": "Meditation",
+      "category": "contemplative",
+      "description": "Practices mindfulness and inner peace",
+      "timeCommitment": "moderate",
+      "socializing": "solitary",
+      "ancestries": ["all"],
+      "likelihood": 8
+    }
+  ]
+}
