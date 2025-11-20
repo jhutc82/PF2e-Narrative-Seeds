@@ -5,128 +5,902 @@
       "name": "Hostile",
       "description": "Openly antagonistic and unfriendly",
       "socialDC": 5,
-      "attitudes": ["hostile", "unfriendly"],
-      "likelihood": 10
+      "attitudes": [
+        "hostile",
+        "unfriendly"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "suspicious",
       "name": "Suspicious",
       "description": "Wary and distrustful",
       "socialDC": 3,
-      "attitudes": ["unfriendly", "indifferent"],
-      "likelihood": 15
+      "attitudes": [
+        "unfriendly",
+        "indifferent"
+      ],
+      "likelihood": 15,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "guarded",
       "name": "Guarded",
       "description": "Careful and reserved",
       "socialDC": 2,
-      "attitudes": ["unfriendly", "indifferent"],
-      "likelihood": 20
+      "attitudes": [
+        "unfriendly",
+        "indifferent"
+      ],
+      "likelihood": 20,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "indifferent",
       "name": "Indifferent",
       "description": "Neither friendly nor unfriendly",
       "socialDC": 0,
-      "attitudes": ["indifferent"],
-      "likelihood": 25
+      "attitudes": [
+        "indifferent"
+      ],
+      "likelihood": 25,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "neutral",
       "name": "Neutral",
       "description": "Calm and businesslike",
       "socialDC": 0,
-      "attitudes": ["indifferent", "friendly"],
-      "likelihood": 20
+      "attitudes": [
+        "indifferent",
+        "friendly"
+      ],
+      "likelihood": 20,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "curious",
       "name": "Curious",
       "description": "Interested and inquisitive",
       "socialDC": -1,
-      "attitudes": ["indifferent", "friendly"],
-      "likelihood": 15
+      "attitudes": [
+        "indifferent",
+        "friendly"
+      ],
+      "likelihood": 15,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "friendly",
       "name": "Friendly",
       "description": "Warm and welcoming",
       "socialDC": -2,
-      "attitudes": ["friendly", "helpful"],
-      "likelihood": 20
+      "attitudes": [
+        "friendly",
+        "helpful"
+      ],
+      "likelihood": 20,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "eager",
       "name": "Eager",
       "description": "Enthusiastic and cooperative",
       "socialDC": -3,
-      "attitudes": ["friendly", "helpful"],
-      "likelihood": 10
+      "attitudes": [
+        "friendly",
+        "helpful"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "nervous",
       "name": "Nervous",
       "description": "Anxious and on edge",
       "socialDC": 1,
-      "attitudes": ["unfriendly", "indifferent"],
-      "likelihood": 15
+      "attitudes": [
+        "unfriendly",
+        "indifferent"
+      ],
+      "likelihood": 15,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "fearful",
       "name": "Fearful",
       "description": "Scared and ready to flee",
       "socialDC": 4,
-      "attitudes": ["hostile", "unfriendly"],
-      "likelihood": 10
+      "attitudes": [
+        "hostile",
+        "unfriendly"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "distracted",
       "name": "Distracted",
       "description": "Preoccupied with other concerns",
       "socialDC": 2,
-      "attitudes": ["indifferent"],
-      "likelihood": 12
+      "attitudes": [
+        "indifferent"
+      ],
+      "likelihood": 12,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "bored",
       "name": "Bored",
       "description": "Uninterested and looking for entertainment",
       "socialDC": -1,
-      "attitudes": ["indifferent", "friendly"],
-      "likelihood": 8
+      "attitudes": [
+        "indifferent",
+        "friendly"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "irritated",
       "name": "Irritated",
       "description": "Annoyed and impatient",
       "socialDC": 3,
-      "attitudes": ["unfriendly", "indifferent"],
-      "likelihood": 12
+      "attitudes": [
+        "unfriendly",
+        "indifferent"
+      ],
+      "likelihood": 12,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "jovial",
       "name": "Jovial",
       "description": "Cheerful and good-humored",
       "socialDC": -2,
-      "attitudes": ["friendly", "helpful"],
-      "likelihood": 8
+      "attitudes": [
+        "friendly",
+        "helpful"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "melancholic",
       "name": "Melancholic",
       "description": "Sad and withdrawn",
       "socialDC": 2,
-      "attitudes": ["unfriendly", "indifferent"],
-      "likelihood": 8
+      "attitudes": [
+        "unfriendly",
+        "indifferent"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "calculating",
       "name": "Calculating",
       "description": "Weighing every word and action",
       "socialDC": 1,
-      "attitudes": ["indifferent"],
-      "likelihood": 10
+      "attitudes": [
+        "indifferent"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "aggressive",
+      "name": "Aggressive",
+      "description": "Confrontational and looking for a fight",
+      "socialDC": 5,
+      "attitudes": [
+        "hostile",
+        "unfriendly"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "defensive",
+      "name": "Defensive",
+      "description": "On guard and ready to protect themselves",
+      "socialDC": 3,
+      "attitudes": [
+        "unfriendly",
+        "indifferent"
+      ],
+      "likelihood": 12,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "resigned",
+      "name": "Resigned",
+      "description": "Accepting their fate with quiet despair",
+      "socialDC": 1,
+      "attitudes": [
+        "indifferent",
+        "unfriendly"
+      ],
+      "likelihood": 9,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "contemptuous",
+      "name": "Contemptuous",
+      "description": "Disdainful and dismissive",
+      "socialDC": 4,
+      "attitudes": [
+        "hostile",
+        "unfriendly"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "wary",
+      "name": "Wary",
+      "description": "Cautious but not necessarily unfriendly",
+      "socialDC": 2,
+      "attitudes": [
+        "indifferent",
+        "unfriendly"
+      ],
+      "likelihood": 14,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "skeptical",
+      "name": "Skeptical",
+      "description": "Doubting and questioning everything",
+      "socialDC": 2,
+      "attitudes": [
+        "indifferent",
+        "unfriendly"
+      ],
+      "likelihood": 13,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "impatient",
+      "name": "Impatient",
+      "description": "Rushed and easily frustrated",
+      "socialDC": 2,
+      "attitudes": [
+        "unfriendly",
+        "indifferent"
+      ],
+      "likelihood": 11,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "weary",
+      "name": "Weary",
+      "description": "Exhausted and lacking energy",
+      "socialDC": 1,
+      "attitudes": [
+        "indifferent"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "enthusiastic",
+      "name": "Enthusiastic",
+      "description": "Excited and full of energy",
+      "socialDC": -2,
+      "attitudes": [
+        "friendly",
+        "helpful"
+      ],
+      "likelihood": 9,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "playful",
+      "name": "Playful",
+      "description": "Teasing and lighthearted",
+      "socialDC": -1,
+      "attitudes": [
+        "friendly",
+        "indifferent"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "reverent",
+      "name": "Reverent",
+      "description": "Respectful and deferential",
+      "socialDC": -1,
+      "attitudes": [
+        "friendly",
+        "helpful"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "dismissive",
+      "name": "Dismissive",
+      "description": "Uninterested and condescending",
+      "socialDC": 3,
+      "attitudes": [
+        "unfriendly",
+        "indifferent"
+      ],
+      "likelihood": 9,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "mischievous",
+      "name": "Mischievous",
+      "description": "Playfully troublesome",
+      "socialDC": 0,
+      "attitudes": [
+        "indifferent",
+        "friendly"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "seductive",
+      "name": "Seductive",
+      "description": "Alluring and flirtatious",
+      "socialDC": -1,
+      "attitudes": [
+        "friendly",
+        "indifferent"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "apologetic",
+      "name": "Apologetic",
+      "description": "Sorry and seeking forgiveness",
+      "socialDC": -1,
+      "attitudes": [
+        "friendly",
+        "indifferent"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "grateful",
+      "name": "Grateful",
+      "description": "Thankful and appreciative",
+      "socialDC": -2,
+      "attitudes": [
+        "friendly",
+        "helpful"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "envious",
+      "name": "Envious",
+      "description": "Jealous of others' fortune",
+      "socialDC": 2,
+      "attitudes": [
+        "unfriendly",
+        "indifferent"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "proud",
+      "name": "Proud",
+      "description": "Confident and self-important",
+      "socialDC": 1,
+      "attitudes": [
+        "indifferent",
+        "unfriendly"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "ashamed",
+      "name": "Ashamed",
+      "description": "Embarrassed and avoiding attention",
+      "socialDC": 1,
+      "attitudes": [
+        "unfriendly",
+        "indifferent"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "arrogant",
+      "name": "Arrogant",
+      "description": "Haughty and superior",
+      "socialDC": 3,
+      "attitudes": [
+        "unfriendly",
+        "indifferent"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "humble",
+      "name": "Humble",
+      "description": "Modest and self-effacing",
+      "socialDC": -1,
+      "attitudes": [
+        "friendly",
+        "indifferent"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "bewildered",
+      "name": "Bewildered",
+      "description": "Confused and disoriented",
+      "socialDC": 0,
+      "attitudes": [
+        "indifferent"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "determined",
+      "name": "Determined",
+      "description": "Focused and resolute",
+      "socialDC": 0,
+      "attitudes": [
+        "indifferent",
+        "friendly"
+      ],
+      "likelihood": 9,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "desperate",
+      "name": "Desperate",
+      "description": "At their wits' end and grasping",
+      "socialDC": -1,
+      "attitudes": [
+        "indifferent",
+        "friendly"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "relieved",
+      "name": "Relieved",
+      "description": "Unburdened and at ease",
+      "socialDC": -2,
+      "attitudes": [
+        "friendly",
+        "helpful"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "exasperated",
+      "name": "Exasperated",
+      "description": "Frustrated beyond patience",
+      "socialDC": 3,
+      "attitudes": [
+        "unfriendly",
+        "indifferent"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "tentative",
+      "name": "Tentative",
+      "description": "Hesitant and uncertain",
+      "socialDC": 1,
+      "attitudes": [
+        "indifferent"
+      ],
+      "likelihood": 9,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "obsessive",
+      "name": "Obsessive",
+      "description": "Fixated on a particular subject",
+      "socialDC": 1,
+      "attitudes": [
+        "indifferent",
+        "unfriendly"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "nostalgic",
+      "name": "Nostalgic",
+      "description": "Lost in memories of the past",
+      "socialDC": 0,
+      "attitudes": [
+        "indifferent",
+        "friendly"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "cynical",
+      "name": "Cynical",
+      "description": "Distrustful of motives and pessimistic",
+      "socialDC": 2,
+      "attitudes": [
+        "indifferent",
+        "unfriendly"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "hopeful",
+      "name": "Hopeful",
+      "description": "Optimistic about the future",
+      "socialDC": -1,
+      "attitudes": [
+        "friendly",
+        "indifferent"
+      ],
+      "likelihood": 9,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "vindictive",
+      "name": "Vindictive",
+      "description": "Seeking revenge for perceived wrongs",
+      "socialDC": 4,
+      "attitudes": [
+        "hostile",
+        "unfriendly"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "merciful",
+      "name": "Merciful",
+      "description": "Compassionate and forgiving",
+      "socialDC": -2,
+      "attitudes": [
+        "friendly",
+        "helpful"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "paranoid",
+      "name": "Paranoid",
+      "description": "Seeing threats everywhere",
+      "socialDC": 4,
+      "attitudes": [
+        "hostile",
+        "unfriendly"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "trusting",
+      "name": "Trusting",
+      "description": "Open and believing in good faith",
+      "socialDC": -2,
+      "attitudes": [
+        "friendly",
+        "helpful"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "pensive",
+      "name": "Pensive",
+      "description": "Deep in thought and reflective",
+      "socialDC": 0,
+      "attitudes": [
+        "indifferent"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "manic",
+      "name": "Manic",
+      "description": "Erratically energetic and unpredictable",
+      "socialDC": 2,
+      "attitudes": [
+        "indifferent",
+        "unfriendly"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "serene",
+      "name": "Serene",
+      "description": "Calm and peacefully composed",
+      "socialDC": -1,
+      "attitudes": [
+        "friendly",
+        "indifferent"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "bitter",
+      "name": "Bitter",
+      "description": "Resentful about past injustices",
+      "socialDC": 3,
+      "attitudes": [
+        "unfriendly",
+        "indifferent"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "earnest",
+      "name": "Earnest",
+      "description": "Sincere and serious in intention",
+      "socialDC": -1,
+      "attitudes": [
+        "friendly",
+        "helpful"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "aloof",
+      "name": "Aloof",
+      "description": "Emotionally distant and detached",
+      "socialDC": 2,
+      "attitudes": [
+        "indifferent",
+        "unfriendly"
+      ],
+      "likelihood": 9,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "anxious",
+      "name": "Anxious",
+      "description": "Worried about potential problems",
+      "socialDC": 1,
+      "attitudes": [
+        "indifferent",
+        "unfriendly"
+      ],
+      "likelihood": 11,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "content",
+      "name": "Content",
+      "description": "Satisfied and at peace",
+      "socialDC": -1,
+      "attitudes": [
+        "friendly",
+        "indifferent"
+      ],
+      "likelihood": 9,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "rebellious",
+      "name": "Rebellious",
+      "description": "Defiant against authority",
+      "socialDC": 2,
+      "attitudes": [
+        "unfriendly",
+        "indifferent"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "cooperative",
+      "name": "Cooperative",
+      "description": "Willing to work together",
+      "socialDC": -2,
+      "attitudes": [
+        "friendly",
+        "helpful"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "solemn",
+      "name": "Solemn",
+      "description": "Grave and serious in demeanor",
+      "socialDC": 1,
+      "attitudes": [
+        "indifferent"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "whimsical",
+      "name": "Whimsical",
+      "description": "Unpredictably playful and fanciful",
+      "socialDC": 0,
+      "attitudes": [
+        "indifferent",
+        "friendly"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "brooding",
+      "name": "Brooding",
+      "description": "Dark and contemplative",
+      "socialDC": 2,
+      "attitudes": [
+        "unfriendly",
+        "indifferent"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "inquisitive",
+      "name": "Inquisitive",
+      "description": "Eager to learn and ask questions",
+      "socialDC": -1,
+      "attitudes": [
+        "friendly",
+        "indifferent"
+      ],
+      "likelihood": 9,
+      "ancestries": [
+        "all"
+      ]
     }
   ]
 }

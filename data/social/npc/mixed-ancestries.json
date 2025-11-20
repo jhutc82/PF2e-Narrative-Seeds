@@ -1,0 +1,385 @@
+{
+  "mixedAncestries": {
+    "half-elf": {
+      "id": "half-elf",
+      "name": "Half-Elf",
+      "primary": "human",
+      "secondary": "elf",
+      "inheritanceRatio": 0.5,
+      "description": "Born of human and elven parents, bridging two worlds",
+      "selectionStrategy": "blend",
+      "uniqueFeatures": [
+        {
+          "id": "slightly-pointed-ears",
+          "description": "Ears that are pointed but less pronounced than full elves",
+          "likelihood": 20
+        },
+        {
+          "id": "mixed-lifespan",
+          "description": "Lives longer than humans but shorter than elves",
+          "likelihood": 15
+        },
+        {
+          "id": "adaptable-grace",
+          "description": "Combines human versatility with elven grace",
+          "likelihood": 12
+        },
+        {
+          "id": "between-worlds",
+          "description": "Never quite fitting in either human or elven society",
+          "likelihood": 18
+        }
+      ],
+      "influences": {
+        "increases": [
+          {"id": "adaptable", "multiplier": 2.5, "category": "personality"},
+          {"id": "curious", "multiplier": 2.0, "category": "personality"},
+          {"id": "outsider", "multiplier": 2.5, "category": "personality"}
+        ]
+      }
+    },
+    "half-orc": {
+      "id": "half-orc",
+      "name": "Half-Orc",
+      "primary": "human",
+      "secondary": "orc",
+      "inheritanceRatio": 0.4,
+      "description": "Born of human and orc parentage, often facing prejudice",
+      "selectionStrategy": "blend",
+      "uniqueFeatures": [
+        {
+          "id": "prominent-tusks-small",
+          "description": "Small tusks, less pronounced than full orcs",
+          "likelihood": 20
+        },
+        {
+          "id": "robust-build",
+          "description": "Muscular and imposing frame",
+          "likelihood": 18
+        },
+        {
+          "id": "green-tinted-skin",
+          "description": "Skin with a faint greenish or grayish tint",
+          "likelihood": 15
+        },
+        {
+          "id": "prejudice-scars",
+          "description": "Emotional or physical scars from prejudice",
+          "likelihood": 16
+        }
+      ],
+      "influences": {
+        "increases": [
+          {"id": "determined", "multiplier": 2.8, "category": "personality"},
+          {"id": "proud", "multiplier": 2.5, "category": "personality"},
+          {"id": "defensive", "multiplier": 2.0, "category": "personality"}
+        ]
+      }
+    }
+  },
+  "versatileHeritages": {
+    "tiefling": {
+      "id": "tiefling",
+      "name": "Tiefling",
+      "overlay": true,
+      "baseAncestry": "any",
+      "description": "Planar-touched with fiendish heritage",
+      "uniqueFeatures": [
+        {
+          "id": "small-horns",
+          "description": "Small curved horns on the forehead",
+          "likelihood": 25,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "large-horns",
+          "description": "Large, dramatic horns",
+          "likelihood": 15,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "devil-tail",
+          "description": "Pointed, devil-like tail",
+          "likelihood": 22,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "red-skin-tint",
+          "description": "Reddish or ashen skin tone",
+          "likelihood": 20,
+          "ancestries": ["human", "elf", "dwarf", "gnome", "halfling", "orc"]
+        },
+        {
+          "id": "glowing-eyes",
+          "description": "Eyes that glow faintly with inner fire",
+          "likelihood": 18,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "unnatural-beauty",
+          "description": "Eerily perfect or unsettling features",
+          "likelihood": 12,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "sulfur-scent",
+          "description": "Faint smell of sulfur or brimstone",
+          "likelihood": 15,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "sharp-teeth",
+          "description": "Pointed, predatory teeth",
+          "likelihood": 16,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "cloven-hooves",
+          "description": "Goat-like hooves instead of feet",
+          "likelihood": 8,
+          "ancestries": ["all"]
+        }
+      ],
+      "influences": {
+        "increases": [
+          {"id": "rebellious", "multiplier": 2.5, "category": "personality"},
+          {"id": "misunderstood", "multiplier": 2.8, "category": "personality"},
+          {"id": "suspicious", "multiplier": 2.0, "category": "personality"}
+        ]
+      },
+      "socialModifier": {
+        "prejudice": 2.5,
+        "suspicion": 2.0
+      }
+    },
+    "aasimar": {
+      "id": "aasimar",
+      "name": "Aasimar",
+      "overlay": true,
+      "baseAncestry": "any",
+      "description": "Planar-touched with celestial heritage",
+      "uniqueFeatures": [
+        {
+          "id": "faint-halo",
+          "description": "Barely visible halo in bright light",
+          "likelihood": 15,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "metallic-eyes",
+          "description": "Eyes with metallic gold or silver sheen",
+          "likelihood": 20,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "luminescent-skin",
+          "description": "Skin that seems to glow faintly",
+          "likelihood": 18,
+          "ancestries": ["human", "elf", "dwarf", "gnome", "halfling"]
+        },
+        {
+          "id": "metallic-hair",
+          "description": "Hair with golden, silver, or copper sheen",
+          "likelihood": 22,
+          "ancestries": ["human", "elf", "dwarf", "gnome", "halfling", "orc"]
+        },
+        {
+          "id": "otherworldly-beauty",
+          "description": "Ethereal, perfect features",
+          "likelihood": 16,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "warm-aura",
+          "description": "Comforting warmth radiates from them",
+          "likelihood": 14,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "feathered-markings",
+          "description": "Feather-like patterns on skin",
+          "likelihood": 12,
+          "ancestries": ["all"]
+        }
+      ],
+      "influences": {
+        "increases": [
+          {"id": "kind", "multiplier": 2.5, "category": "personality"},
+          {"id": "righteous", "multiplier": 2.8, "category": "personality"},
+          {"id": "patient", "multiplier": 2.0, "category": "personality"}
+        ]
+      },
+      "socialModifier": {
+        "trust": 1.5,
+        "awe": 2.0
+      }
+    },
+    "dhampir": {
+      "id": "dhampir",
+      "name": "Dhampir",
+      "overlay": true,
+      "baseAncestry": "any",
+      "description": "Born of vampire and mortal parentage",
+      "uniqueFeatures": [
+        {
+          "id": "pale-skin-extreme",
+          "description": "Deathly pale, almost translucent skin",
+          "likelihood": 25,
+          "ancestries": ["human", "elf", "dwarf", "gnome", "halfling"]
+        },
+        {
+          "id": "fangs-subtle",
+          "description": "Slightly elongated canines",
+          "likelihood": 22,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "no-reflection",
+          "description": "Appears faint or absent in mirrors",
+          "likelihood": 18,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "cold-touch",
+          "description": "Unnaturally cold skin",
+          "likelihood": 20,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "red-eyes",
+          "description": "Eyes with crimson tint",
+          "likelihood": 16,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "light-sensitivity",
+          "description": "Uncomfortable in bright sunlight",
+          "likelihood": 20,
+          "ancestries": ["all"]
+        }
+      ],
+      "influences": {
+        "increases": [
+          {"id": "brooding", "multiplier": 3.0, "category": "personality"},
+          {"id": "isolated", "multiplier": 2.5, "category": "personality"},
+          {"id": "nocturnal", "multiplier": 2.8, "category": "habit"}
+        ]
+      },
+      "healthModifications": {
+        "removes": ["pregnancy", "budding"],
+        "adds": ["blood-hunger", "light-sensitivity"]
+      }
+    },
+    "changeling": {
+      "id": "changeling",
+      "name": "Changeling",
+      "overlay": true,
+      "baseAncestry": "any",
+      "description": "Child of a hag, with uncanny features",
+      "uniqueFeatures": [
+        {
+          "id": "heterochromia",
+          "description": "Two different colored eyes",
+          "likelihood": 22,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "unsettling-features",
+          "description": "Subtly wrong or uncanny features",
+          "likelihood": 20,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "long-nails",
+          "description": "Abnormally long, sharp fingernails",
+          "likelihood": 18,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "eerie-beauty",
+          "description": "Beautiful but unsettling appearance",
+          "likelihood": 16,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "hag-marks",
+          "description": "Birthmarks in strange patterns",
+          "likelihood": 15,
+          "ancestries": ["all"]
+        }
+      ],
+      "influences": {
+        "increases": [
+          {"id": "paranoid", "multiplier": 2.5, "category": "personality"},
+          {"id": "secretive", "multiplier": 3.0, "category": "personality"},
+          {"id": "manipulative", "multiplier": 2.0, "category": "personality"}
+        ]
+      }
+    },
+    "beastkin": {
+      "id": "beastkin",
+      "name": "Beastkin",
+      "overlay": true,
+      "baseAncestry": "any",
+      "description": "Touched by primal beast magic",
+      "uniqueFeatures": [
+        {
+          "id": "animal-eyes",
+          "description": "Eyes like a predator or prey animal",
+          "likelihood": 25,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "fur-patches",
+          "description": "Patches of fur on body",
+          "likelihood": 20,
+          "ancestries": ["human", "elf", "dwarf", "gnome", "halfling", "orc"]
+        },
+        {
+          "id": "enhanced-senses",
+          "description": "Noticeably keen senses",
+          "likelihood": 22,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "animal-mannerisms",
+          "description": "Moves or acts like an animal",
+          "likelihood": 18,
+          "ancestries": ["all"]
+        },
+        {
+          "id": "fangs-or-claws",
+          "description": "Prominent teeth or nails",
+          "likelihood": 16,
+          "ancestries": ["all"]
+        }
+      ],
+      "influences": {
+        "increases": [
+          {"id": "feral", "multiplier": 2.8, "category": "personality"},
+          {"id": "instinctive", "multiplier": 2.5, "category": "personality"},
+          {"id": "territorial", "multiplier": 2.0, "category": "personality"}
+        ]
+      }
+    }
+  },
+  "selectionRules": {
+    "mixedAncestry": {
+      "optionDistribution": {
+        "primary": 0.5,
+        "secondary": 0.3,
+        "unique": 0.2
+      },
+      "note": "For mixed ancestries, select 50% from primary, 30% from secondary, 20% unique features"
+    },
+    "versatileHeritage": {
+      "baseAncestryPercentage": 0.7,
+      "heritageFeatureCount": {
+        "minimal": 1,
+        "standard": 2,
+        "comprehensive": 3
+      },
+      "note": "Versatile heritages overlay on base ancestry, adding 1-3 unique features based on detail level"
+    }
+  }
+}

@@ -115,23 +115,27 @@ export class NPCGenerator {
         return null;
       }
 
-      // Select personality traits (1-2 based on detail level)
-      const numPersonalities = this.getNumPersonalities(detailLevel);
-      const personalities = this.selectUniqueItems(personalitiesData.personalities, numPersonalities);
-
-      // Select mannerisms (1-3 based on detail level)
-      const numMannerisms = this.getNumMannerisms(detailLevel);
-      const mannerisms = this.selectUniqueItems(mannerismsData.mannerisms, numMannerisms);
-
-      // Select motivation (always 1)
-      const motivation = RandomUtils.selectFrom(motivationsData.motivations);
-
-      // Select quirks (0-2 based on detail level and random chance)
-      const numQuirks = this.getNumQuirks(detailLevel);
-      const quirks = numQuirks > 0 ? this.selectUniqueItems(quirksData.quirks, numQuirks) : [];
-
-      // Generate name based on ancestry
+      // Generate name based on ancestry (calculate ancestry first for filtering)
       const ancestry = params.ancestry || (params.actor ? NameGenerator.detectAncestry(params.actor) : "human");
+
+      // Select personality traits (1-2 based on detail level) - filtered by ancestry
+      const numPersonalities = this.getNumPersonalities(detailLevel);
+      const filteredPersonalities = this.filterByAncestry(personalitiesData.personalities, ancestry);
+      const personalities = this.selectUniqueItems(filteredPersonalities, numPersonalities);
+
+      // Select mannerisms (1-3 based on detail level) - filtered by ancestry
+      const numMannerisms = this.getNumMannerisms(detailLevel);
+      const filteredMannerisms = this.filterByAncestry(mannerismsData.mannerisms, ancestry);
+      const mannerisms = this.selectUniqueItems(filteredMannerisms, numMannerisms);
+
+      // Select motivation (always 1) - filtered by ancestry
+      const filteredMotivations = this.filterByAncestry(motivationsData.motivations, ancestry);
+      const motivation = RandomUtils.selectFrom(filteredMotivations);
+
+      // Select quirks (0-2 based on detail level and random chance) - filtered by ancestry
+      const numQuirks = this.getNumQuirks(detailLevel);
+      const filteredQuirks = this.filterByAncestry(quirksData.quirks, ancestry);
+      const quirks = numQuirks > 0 ? this.selectUniqueItems(filteredQuirks, numQuirks) : [];
       const gender = params.gender || null; // null = random
       const name = await NameGenerator.generate(ancestry, gender);
 
@@ -140,6 +144,25 @@ export class NPCGenerator {
 
       // Generate occupation and social class with ancestry-specific options
       const occupation = this.generateOccupation(occupationsData, occupationsAncestryData, ancestry, detailLevel);
+
+      // Create influence map from selected traits
+      const influenceSources = [...personalities];
+      if (occupation) influenceSources.push(occupation);
+      const influenceMap = this.createInfluenceMap(influenceSources);
+
+      // Get age category for context-aware generation
+      const ageCategory = this.getAgeCategory(appearance);
+
+      // Get social class from occupation
+      const socialClass = occupation?.socialClass?.value || 'commoner';
+
+      // Create context object for contextual modifiers
+      const context = {
+        influenceMap,
+        ageCategory,
+        socialClass,
+        ancestry
+      };
 
       // Generate abilities based on level and occupation
       const abilities = this.generateAbilities(abilitiesData, occupation, detailLevel);
@@ -151,16 +174,16 @@ export class NPCGenerator {
       const relationships = this.generateRelationships(relationshipsData, relationshipsExpandedData, occupation, ancestry, detailLevel);
 
       // Generate plot hooks with expanded variety
-      const plotHooks = this.generatePlotHooks(plotHooksData, plotHooksExpandedData, occupation, relationships, detailLevel);
+      const plotHooks = this.generatePlotHooks(plotHooksData, plotHooksExpandedData, occupation, relationships, ancestry, detailLevel);
 
       // Generate Influence stat block
       const influence = this.generateInfluence(influenceData, occupation, abilities, mood, personalities, plotHooks);
 
       // Generate psychological depth
-      const psychology = this.generatePsychology(psychologicalDepthData, personalities, occupation, plotHooks, detailLevel);
+      const psychology = this.generatePsychology(psychologicalDepthData, personalities, occupation, plotHooks, ancestry, detailLevel);
 
       // Generate physical details with ancestry and occupation influences
-      const physicalDetails = this.generatePhysicalDetails(physicalDetailsData, ancestry, occupation, psychology, detailLevel);
+      const physicalDetails = this.generatePhysicalDetails(physicalDetailsData, ancestry, occupation, psychology, context, detailLevel);
 
       // Generate life history shaped by ancestry and occupation
       const lifeHistory = this.generateLifeHistory(lifeHistoryData, ancestry, occupation, psychology, detailLevel);
@@ -169,7 +192,7 @@ export class NPCGenerator {
       const dailyLife = this.generateDailyLife(dailyLifeData, occupation, psychology, lifeHistory, detailLevel);
 
       // Generate speech patterns influenced by background
-      const speechPatterns = this.generateSpeechPatterns(speechPatternsData, occupation, lifeHistory, personalities, detailLevel);
+      const speechPatterns = this.generateSpeechPatterns(speechPatternsData, occupation, lifeHistory, personalities, ancestry, context, detailLevel);
 
       // Generate character complexity (contradictions, conflicts, hidden depths)
       const complexity = this.generateComplexity(characterComplexityData, personalities, psychology, plotHooks, detailLevel);
@@ -187,10 +210,11 @@ export class NPCGenerator {
       const economics = this.generateEconomics(economicRealityData, occupation, currentSituation, detailLevel);
 
       // Generate sensory signature (how they smell, sound, feel)
-      const sensory = this.generateSensory(sensorySignatureData, occupation, physicalDetails, detailLevel);
+      const sensory = this.generateSensory(sensorySignatureData, occupation, physicalDetails, ancestry, detailLevel);
 
       // Generate health status (conditions, fitness, mental health)
-      const health = this.generateHealth(healthConditionsData, age, occupation, lifeHistory, detailLevel);
+      const age = appearance?.age?.age || 30; // Extract age from appearance or default to 30
+      const health = this.generateHealth(healthConditionsData, age, occupation, lifeHistory, ancestry, context, detailLevel);
 
       // Generate relationship dynamics (how they treat different groups)
       const relationshipDynamics = this.generateRelationshipDynamics(relationshipDynamicsData, psychology, lifeHistory, detailLevel);
@@ -278,6 +302,204 @@ export class NPCGenerator {
 
     // Default: weighted random selection
     return RandomUtils.selectWeighted(moods, "likelihood");
+  }
+
+  /**
+   * Filter options by ancestry
+   * @param {Array} options - Options array with "ancestries" field
+   * @param {string} ancestry - Target ancestry (e.g., "human", "elf", "leshy")
+   * @returns {Array} Filtered options appropriate for the ancestry
+   */
+  static filterByAncestry(options, ancestry) {
+    if (!options || !Array.isArray(options)) return options;
+    if (!ancestry) return options;
+
+    // Normalize ancestry name to lowercase for comparison
+    const normalizedAncestry = ancestry.toLowerCase();
+
+    return options.filter(option => {
+      // If no ancestries field, assume universal (for backward compatibility)
+      if (!option.ancestries) return true;
+
+      // If "all" is in the list, it's universal
+      if (option.ancestries.includes("all")) return true;
+
+      // Check if the specific ancestry is in the list
+      return option.ancestries.some(a => a.toLowerCase() === normalizedAncestry);
+    });
+  }
+
+  /**
+   * Create influence map from selected traits (personalities, occupation, etc.)
+   * @param {Array} selectedTraits - Selected personalities, occupation, etc.
+   * @returns {Object} Map of trait IDs to cumulative influence multipliers
+   */
+  static createInfluenceMap(selectedTraits) {
+    const influenceMap = {
+      increases: {},
+      decreases: {}
+    };
+
+    if (!selectedTraits || !Array.isArray(selectedTraits)) return influenceMap;
+
+    selectedTraits.forEach(trait => {
+      if (!trait || !trait.influences) return;
+
+      // Accumulate increases
+      if (trait.influences.increases) {
+        trait.influences.increases.forEach(inf => {
+          const key = `${inf.category}:${inf.id}`;
+          if (!influenceMap.increases[key]) {
+            influenceMap.increases[key] = [];
+          }
+          influenceMap.increases[key].push(inf.multiplier);
+        });
+      }
+
+      // Accumulate decreases
+      if (trait.influences.decreases) {
+        trait.influences.decreases.forEach(inf => {
+          const key = `${inf.category}:${inf.id}`;
+          if (!influenceMap.decreases[key]) {
+            influenceMap.decreases[key] = [];
+          }
+          influenceMap.decreases[key].push(inf.multiplier);
+        });
+      }
+    });
+
+    return influenceMap;
+  }
+
+  /**
+   * Apply influences to modify option likelihoods
+   * @param {Array} options - Options to modify
+   * @param {Object} influenceMap - Influence map from createInfluenceMap
+   * @param {string} category - Category name for influence matching
+   * @returns {Array} Options with modified likelihoods
+   */
+  static applyInfluences(options, influenceMap, category) {
+    if (!options || !Array.isArray(options)) return options;
+    if (!influenceMap) return options;
+
+    return options.map(option => {
+      const key = `${category}:${option.id}`;
+      let likelihood = option.likelihood || 1;
+
+      // Apply increases (multiply)
+      if (influenceMap.increases[key]) {
+        influenceMap.increases[key].forEach(multiplier => {
+          likelihood *= multiplier;
+        });
+      }
+
+      // Apply decreases (multiply)
+      if (influenceMap.decreases[key]) {
+        influenceMap.decreases[key].forEach(multiplier => {
+          likelihood *= multiplier;
+        });
+      }
+
+      return { ...option, likelihood };
+    });
+  }
+
+  /**
+   * Apply age multipliers to options
+   * @param {Array} options - Options with ageMultiplier field
+   * @param {string} ageCategory - Age category (young, adult, mature, elderly)
+   * @returns {Array} Options with age-adjusted likelihoods
+   */
+  static applyAgeMultipliers(options, ageCategory) {
+    if (!options || !Array.isArray(options)) return options;
+    if (!ageCategory) return options;
+
+    return options.map(option => {
+      let likelihood = option.likelihood || 1;
+
+      if (option.ageMultiplier && option.ageMultiplier[ageCategory]) {
+        likelihood *= option.ageMultiplier[ageCategory];
+      }
+
+      return { ...option, likelihood };
+    });
+  }
+
+  /**
+   * Apply social class multipliers to options
+   * @param {Array} options - Options with classMultiplier field
+   * @param {string} socialClass - Social class (destitute, peasant, commoner, merchant, gentry, noble, royalty)
+   * @returns {Array} Options with class-adjusted likelihoods
+   */
+  static applyClassMultipliers(options, socialClass) {
+    if (!options || !Array.isArray(options)) return options;
+    if (!socialClass) return options;
+
+    return options.map(option => {
+      let likelihood = option.likelihood || 1;
+
+      if (option.classMultiplier && option.classMultiplier[socialClass]) {
+        likelihood *= option.classMultiplier[socialClass];
+      }
+
+      return { ...option, likelihood };
+    });
+  }
+
+  /**
+   * Apply all contextual modifiers (influences, age, class, ancestry)
+   * @param {Array} options - Options to modify
+   * @param {Object} context - Context object with influences, ageCategory, socialClass, ancestry, category
+   * @returns {Array} Fully modified options ready for weighted selection
+   */
+  static applyContextualModifiers(options, context = {}) {
+    if (!options || !Array.isArray(options)) return options;
+
+    let modifiedOptions = options;
+
+    // 1. Filter by ancestry first
+    if (context.ancestry && context.category !== 'skipAncestr') {
+      modifiedOptions = this.filterByAncestry(modifiedOptions, context.ancestry);
+    }
+
+    // 2. Apply influences from personalities/occupation
+    if (context.influenceMap && context.category) {
+      modifiedOptions = this.applyInfluences(modifiedOptions, context.influenceMap, context.category);
+    }
+
+    // 3. Apply age multipliers
+    if (context.ageCategory) {
+      modifiedOptions = this.applyAgeMultipliers(modifiedOptions, context.ageCategory);
+    }
+
+    // 4. Apply social class multipliers
+    if (context.socialClass) {
+      modifiedOptions = this.applyClassMultipliers(modifiedOptions, context.socialClass);
+    }
+
+    return modifiedOptions;
+  }
+
+  /**
+   * Get age category from appearance age description
+   * @param {Object} appearance - Appearance object with age
+   * @returns {string} Age category (young, adult, mature, elderly)
+   */
+  static getAgeCategory(appearance) {
+    if (!appearance || !appearance.age) return 'adult';
+
+    const ageValue = appearance.age.value || appearance.age;
+    const ageLower = (typeof ageValue === 'string' ? ageValue : '').toLowerCase();
+
+    if (ageLower.includes('young') || ageLower.includes('youth') || ageLower.includes('teen')) {
+      return 'young';
+    } else if (ageLower.includes('elder') || ageLower.includes('old') || ageLower.includes('ancient')) {
+      return 'elderly';
+    } else if (ageLower.includes('mature') || ageLower.includes('middle')) {
+      return 'mature';
+    } else {
+      return 'adult';
+    }
   }
 
   /**
@@ -728,10 +950,11 @@ export class NPCGenerator {
    * @param {Object} plotHooksExpandedData - Expanded plot hooks data
    * @param {Object} occupation - NPC occupation
    * @param {Object} relationships - NPC relationships
+   * @param {string} ancestry - NPC ancestry
    * @param {string} detailLevel - Detail level
    * @returns {Object} Generated plot hooks
    */
-  static generatePlotHooks(plotHooksData, plotHooksExpandedData, occupation, relationships, detailLevel) {
+  static generatePlotHooks(plotHooksData, plotHooksExpandedData, occupation, relationships, ancestry, detailLevel) {
     if (!plotHooksData) return null;
 
     const hooks = {};
@@ -742,9 +965,10 @@ export class NPCGenerator {
       allSecrets.push(...plotHooksExpandedData.additionalSecrets);
     }
 
-    // Add secret based on detail level
+    // Add secret based on detail level - filtered by ancestry
     if (detailLevel !== "minimal" && Math.random() < 0.4) {
-      hooks.secret = RandomUtils.selectWeighted(allSecrets, "likelihood");
+      const filteredSecrets = this.filterByAncestry(allSecrets, ancestry);
+      hooks.secret = RandomUtils.selectWeighted(filteredSecrets, "likelihood");
     }
 
     // Combine base and expanded goals
@@ -753,10 +977,11 @@ export class NPCGenerator {
       allGoals.push(...plotHooksExpandedData.additionalGoals);
     }
 
-    // Add goal (more likely in detailed modes)
+    // Add goal (more likely in detailed modes) - filtered by ancestry
     const goalChance = detailLevel === "minimal" ? 0.3 : detailLevel === "standard" ? 0.6 : 0.8;
     if (Math.random() < goalChance) {
-      hooks.goal = RandomUtils.selectWeighted(allGoals, "likelihood");
+      const filteredGoals = this.filterByAncestry(allGoals, ancestry);
+      hooks.goal = RandomUtils.selectWeighted(filteredGoals, "likelihood");
     }
 
     // Combine base and expanded conflicts
@@ -765,10 +990,11 @@ export class NPCGenerator {
       allConflicts.push(...plotHooksExpandedData.additionalConflicts);
     }
 
-    // Add conflict
+    // Add conflict - filtered by ancestry
     const conflictChance = detailLevel === "minimal" ? 0.2 : detailLevel === "standard" ? 0.5 : 0.7;
     if (Math.random() < conflictChance) {
-      hooks.conflict = RandomUtils.selectWeighted(allConflicts, "likelihood");
+      const filteredConflicts = this.filterByAncestry(allConflicts, ancestry);
+      hooks.conflict = RandomUtils.selectWeighted(filteredConflicts, "likelihood");
     }
 
     // Combine base and expanded quest hooks
@@ -777,9 +1003,10 @@ export class NPCGenerator {
       allQuestHooks.push(...plotHooksExpandedData.additionalQuestHooks);
     }
 
-    // Add quest hook (only in detailed/cinematic, and only sometimes)
+    // Add quest hook (only in detailed/cinematic, and only sometimes) - filtered by ancestry
     if ((detailLevel === "detailed" || detailLevel === "cinematic") && Math.random() < 0.3) {
-      hooks.questHook = RandomUtils.selectWeighted(allQuestHooks, "likelihood");
+      const filteredQuestHooks = this.filterByAncestry(allQuestHooks, ancestry);
+      hooks.questHook = RandomUtils.selectWeighted(filteredQuestHooks, "likelihood");
     }
 
     return Object.keys(hooks).length > 0 ? hooks : null;
@@ -955,29 +1182,35 @@ export class NPCGenerator {
    * @param {Array} personalities - Selected personality traits
    * @param {Object} occupation - Occupation data
    * @param {Object} plotHooks - Plot hooks (for consistency)
+   * @param {string} ancestry - NPC ancestry
    * @param {string} detailLevel - Level of detail
    * @returns {Object} Psychology data
    */
-  static generatePsychology(data, personalities, occupation, plotHooks, detailLevel) {
+  static generatePsychology(data, personalities, occupation, plotHooks, ancestry, detailLevel) {
     if (!data) return null;
 
     const numItems = detailLevel === "cinematic" ? 2 : 1;
 
-    // Select fears (1-2)
-    const fears = this.selectUniqueItems(RandomUtils.selectWeighted(data.fears, "likelihood", numItems));
+    // Select fears (1-2) - filtered by ancestry
+    const filteredFears = this.filterByAncestry(data.fears, ancestry);
+    const fears = this.selectUniqueItems(RandomUtils.selectWeighted(filteredFears, "likelihood", numItems));
 
-    // Select desires (1-2)
-    const desires = this.selectUniqueItems(RandomUtils.selectWeighted(data.desires, "likelihood", numItems));
+    // Select desires (1-2) - filtered by ancestry
+    const filteredDesires = this.filterByAncestry(data.desires, ancestry);
+    const desires = this.selectUniqueItems(RandomUtils.selectWeighted(filteredDesires, "likelihood", numItems));
 
-    // Select regrets (0-1, not everyone has notable regrets)
-    const regrets = Math.random() < 0.7 ? [RandomUtils.selectWeighted(data.regrets, "likelihood")] : [];
+    // Select regrets (0-1, not everyone has notable regrets) - filtered by ancestry
+    const filteredRegrets = this.filterByAncestry(data.regrets, ancestry);
+    const regrets = Math.random() < 0.7 ? [RandomUtils.selectWeighted(filteredRegrets, "likelihood")] : [];
 
-    // Select vices (1-2)
-    const vices = this.selectUniqueItems(RandomUtils.selectWeighted(data.vices, "likelihood", numItems));
+    // Select vices (1-2) - filtered by ancestry
+    const filteredVices = this.filterByAncestry(data.vices, ancestry);
+    const vices = this.selectUniqueItems(RandomUtils.selectWeighted(filteredVices, "likelihood", numItems));
 
-    // Select virtues (1-3, most people have some virtues)
+    // Select virtues (1-3, most people have some virtues) - filtered by ancestry
     const numVirtues = detailLevel === "cinematic" ? 3 : 2;
-    const virtues = this.selectUniqueItems(RandomUtils.selectWeighted(data.virtues, "likelihood", numVirtues));
+    const filteredVirtues = this.filterByAncestry(data.virtues, ancestry);
+    const virtues = this.selectUniqueItems(RandomUtils.selectWeighted(filteredVirtues, "likelihood", numVirtues));
 
     return {
       fears,
@@ -994,39 +1227,72 @@ export class NPCGenerator {
    * @param {string} ancestry - Character ancestry
    * @param {Object} occupation - Occupation data
    * @param {Object} psychology - Psychology data (for consistency)
+   * @param {Object} context - Context object with influenceMap, ageCategory, socialClass
    * @param {string} detailLevel - Level of detail
    * @returns {Object} Physical details
    */
-  static generatePhysicalDetails(data, ancestry, occupation, psychology, detailLevel) {
+  static generatePhysicalDetails(data, ancestry, occupation, psychology, context, detailLevel) {
     if (!data) return null;
 
-    // Voice quality
-    const voice = RandomUtils.selectWeighted(data.voiceQualities, "likelihood");
+    // Voice quality - with contextual modifiers
+    const contextualVoiceQualities = this.applyContextualModifiers(
+      data.voiceQualities,
+      { ...context, category: 'voice' }
+    );
+    const voice = RandomUtils.selectWeighted(contextualVoiceQualities, "likelihood");
 
-    // Scars/markings (40% chance, higher for certain occupations)
+    // Scars/markings (40% chance, higher for certain occupations) - with contextual modifiers
     const hasScars = Math.random() < (occupation.socialClass?.includes("lower-class") ? 0.6 : 0.4);
-    const scars = hasScars ? [RandomUtils.selectWeighted(data.scarsAndMarkings, "likelihood")] : [];
+    const contextualScarsAndMarkings = this.applyContextualModifiers(
+      data.scarsAndMarkings,
+      { ...context, category: 'physical' }
+    );
+    const scars = hasScars ? [RandomUtils.selectWeighted(contextualScarsAndMarkings, "likelihood")] : [];
 
-    // Tattoos (30% chance, varies by culture)
+    // Tattoos (30% chance, varies by culture) - with contextual modifiers
     const hasTattoos = Math.random() < 0.3;
-    const tattoos = hasTattoos ? [RandomUtils.selectWeighted(data.tattoos, "likelihood")] : [];
+    const contextualTattoos = this.applyContextualModifiers(
+      data.tattoos,
+      { ...context, category: 'physical' }
+    );
+    const tattoos = hasTattoos ? [RandomUtils.selectWeighted(contextualTattoos, "likelihood")] : [];
 
-    // Clothing style (always have one)
-    const clothing = RandomUtils.selectWeighted(data.clothingStyles, "likelihood");
+    // Clothing style (always have one) - with contextual modifiers
+    const contextualClothingStyles = this.applyContextualModifiers(
+      data.clothingStyles,
+      { ...context, category: 'appearance' }
+    );
+    const clothing = RandomUtils.selectWeighted(contextualClothingStyles, "likelihood");
 
-    // Jewelry (50% chance)
+    // Jewelry (50% chance) - with contextual modifiers
     const hasJewelry = Math.random() < 0.5;
-    const jewelry = hasJewelry ? [RandomUtils.selectWeighted(data.jewelry, "likelihood")] : [];
+    const contextualJewelry = this.applyContextualModifiers(
+      data.jewelry,
+      { ...context, category: 'appearance' }
+    );
+    const jewelry = hasJewelry ? [RandomUtils.selectWeighted(contextualJewelry, "likelihood")] : [];
 
-    // Physical quirks (1-2 for detailed/cinematic)
+    // Physical quirks (1-2 for detailed/cinematic) - with contextual modifiers
     const numQuirks = detailLevel === "minimal" || detailLevel === "standard" ? 1 : 2;
-    const physicalQuirks = this.selectUniqueItems(data.physicalQuirks, numQuirks);
+    const contextualPhysicalQuirks = this.applyContextualModifiers(
+      data.physicalQuirks,
+      { ...context, category: 'physical' }
+    );
+    const physicalQuirks = this.selectUniqueItems(contextualPhysicalQuirks, numQuirks);
 
-    // Posture
-    const posture = RandomUtils.selectWeighted(data.posture, "likelihood");
+    // Posture - with contextual modifiers
+    const contextualPosture = this.applyContextualModifiers(
+      data.posture,
+      { ...context, category: 'physical' }
+    );
+    const posture = RandomUtils.selectWeighted(contextualPosture, "likelihood");
 
-    // Hygiene
-    const hygiene = RandomUtils.selectWeighted(data.hygiene, "likelihood");
+    // Hygiene - with contextual modifiers
+    const contextualHygiene = this.applyContextualModifiers(
+      data.hygiene,
+      { ...context, category: 'appearance' }
+    );
+    const hygiene = RandomUtils.selectWeighted(contextualHygiene, "likelihood");
 
     return {
       voice,
@@ -1132,36 +1398,66 @@ export class NPCGenerator {
    * @param {Object} occupation - Occupation data
    * @param {Object} lifeHistory - Life history (for consistency)
    * @param {Array} personalities - Personality traits
+   * @param {string} ancestry - NPC ancestry
+   * @param {Object} context - Context object with influenceMap, ageCategory, socialClass
    * @param {string} detailLevel - Level of detail
    * @returns {Object} Speech patterns
    */
-  static generateSpeechPatterns(data, occupation, lifeHistory, personalities, detailLevel) {
+  static generateSpeechPatterns(data, occupation, lifeHistory, personalities, ancestry, context, detailLevel) {
     if (!data) return null;
 
-    // Catchphrases (1-2)
+    // Catchphrases (1-2) - with contextual modifiers
     const numCatchphrases = detailLevel === "cinematic" ? 2 : 1;
-    const catchphrases = this.selectUniqueItems(data.catchphrases, numCatchphrases);
+    const contextualCatchphrases = this.applyContextualModifiers(
+      data.catchphrases,
+      { ...context, category: 'speech' }
+    );
+    const catchphrases = this.selectUniqueItems(contextualCatchphrases, numCatchphrases);
 
-    // Verbal tics (0-2, not everyone has them)
+    // Verbal tics (0-2, not everyone has them) - with contextual modifiers
     const hasVerbals = Math.random() < 0.6;
     const numVerbalTics = hasVerbals ? (detailLevel === "cinematic" ? 2 : 1) : 0;
-    const verbalTics = numVerbalTics > 0 ? this.selectUniqueItems(data.verbalTics, numVerbalTics) : [];
+    const contextualVerbalTics = this.applyContextualModifiers(
+      data.verbalTics,
+      { ...context, category: 'speech' }
+    );
+    const verbalTics = numVerbalTics > 0 ? this.selectUniqueItems(contextualVerbalTics, numVerbalTics) : [];
 
-    // Conversation style
-    const conversationStyle = RandomUtils.selectWeighted(data.conversationStyles, "likelihood");
+    // Conversation style - with contextual modifiers
+    const contextualConversationStyles = this.applyContextualModifiers(
+      data.conversationStyles,
+      { ...context, category: 'speech' }
+    );
+    const conversationStyle = RandomUtils.selectWeighted(contextualConversationStyles, "likelihood");
 
-    // Accent (based on background)
-    const accent = RandomUtils.selectWeighted(data.accents, "likelihood");
+    // Accent (based on background) - with contextual modifiers
+    const contextualAccents = this.applyContextualModifiers(
+      data.accents,
+      { ...context, category: 'speech' }
+    );
+    const accent = RandomUtils.selectWeighted(contextualAccents, "likelihood");
 
-    // Speaking speed
-    const speakingSpeed = RandomUtils.selectWeighted(data.speakingSpeed, "likelihood");
+    // Speaking speed - with contextual modifiers
+    const contextualSpeakingSpeed = this.applyContextualModifiers(
+      data.speakingSpeed,
+      { ...context, category: 'speech' }
+    );
+    const speakingSpeed = RandomUtils.selectWeighted(contextualSpeakingSpeed, "likelihood");
 
-    // Laugh type
-    const laugh = RandomUtils.selectWeighted(data.laughTypes, "likelihood");
+    // Laugh type - with contextual modifiers
+    const contextualLaughTypes = this.applyContextualModifiers(
+      data.laughTypes,
+      { ...context, category: 'speech' }
+    );
+    const laugh = RandomUtils.selectWeighted(contextualLaughTypes, "likelihood");
 
-    // Emotional tells (1-2)
+    // Emotional tells (1-2) - with contextual modifiers
     const numTells = detailLevel === "cinematic" ? 2 : 1;
-    const emotionalTells = this.selectUniqueItems(data.emotionalTells, numTells);
+    const contextualEmotionalTells = this.applyContextualModifiers(
+      data.emotionalTells,
+      { ...context, category: 'speech' }
+    );
+    const emotionalTells = this.selectUniqueItems(contextualEmotionalTells, numTells);
 
     return {
       catchphrases,
@@ -1409,31 +1705,38 @@ export class NPCGenerator {
    * @param {Object} data - Sensory signature data
    * @param {Object} occupation - Occupation data (for consistency)
    * @param {Object} physicalDetails - Physical details (for consistency)
+   * @param {string} ancestry - NPC ancestry
    * @param {string} detailLevel - Level of detail
    * @returns {Object} Sensory signature
    */
-  static generateSensory(data, occupation, physicalDetails, detailLevel) {
+  static generateSensory(data, occupation, physicalDetails, ancestry, detailLevel) {
     if (!data) return null;
 
-    // Scent (always)
-    const scent = RandomUtils.selectWeighted(data.scents, "likelihood");
+    // Scent (always) - filtered by ancestry
+    const filteredScents = this.filterByAncestry(data.scents, ancestry);
+    const scent = RandomUtils.selectWeighted(filteredScents, "likelihood");
 
-    // Sounds (1-2)
+    // Sounds (1-2) - filtered by ancestry
     const numSounds = detailLevel === "cinematic" ? 2 : 1;
-    const sounds = this.selectUniqueItems(data.sounds, numSounds);
+    const filteredSounds = this.filterByAncestry(data.sounds, ancestry);
+    const sounds = this.selectUniqueItems(filteredSounds, numSounds);
 
-    // Texture (always)
-    const texture = RandomUtils.selectWeighted(data.textures, "likelihood");
+    // Texture (always) - filtered by ancestry
+    const filteredTextures = this.filterByAncestry(data.textures, ancestry);
+    const texture = RandomUtils.selectWeighted(filteredTextures, "likelihood");
 
-    // Temperature (always)
-    const temperature = RandomUtils.selectWeighted(data.temperatures, "likelihood");
+    // Temperature (always) - filtered by ancestry
+    const filteredTemperatures = this.filterByAncestry(data.temperatures, ancestry);
+    const temperature = RandomUtils.selectWeighted(filteredTemperatures, "likelihood");
 
-    // Aura (always)
-    const aura = RandomUtils.selectWeighted(data.auras, "likelihood");
+    // Aura (always) - filtered by ancestry
+    const filteredAuras = this.filterByAncestry(data.auras, ancestry);
+    const aura = RandomUtils.selectWeighted(filteredAuras, "likelihood");
 
-    // Visual signature (1-2)
+    // Visual signature (1-2) - filtered by ancestry
     const numVisual = detailLevel === "cinematic" ? 2 : 1;
-    const visualSignature = this.selectUniqueItems(data.visualSignature, numVisual);
+    const filteredVisualSignature = this.filterByAncestry(data.visualSignature, ancestry);
+    const visualSignature = this.selectUniqueItems(filteredVisualSignature, numVisual);
 
     return {
       scent,
@@ -1451,42 +1754,76 @@ export class NPCGenerator {
    * @param {number} age - Age of NPC
    * @param {Object} occupation - Occupation data (for consistency)
    * @param {Object} lifeHistory - Life history (for consistency)
+   * @param {string} ancestry - NPC ancestry
+   * @param {Object} context - Context object with influenceMap, ageCategory, socialClass
    * @param {string} detailLevel - Level of detail
    * @returns {Object} Health status
    */
-  static generateHealth(data, age, occupation, lifeHistory, detailLevel) {
+  static generateHealth(data, age, occupation, lifeHistory, ancestry, context, detailLevel) {
     if (!data) return null;
 
-    // Chronic conditions (0-1, increases with age)
+    // Chronic conditions (0-1, increases with age) - with contextual modifiers
     const chronicChance = age < 30 ? 0.2 : age < 50 ? 0.4 : 0.6;
     const hasChronic = Math.random() < chronicChance;
-    const chronicConditions = hasChronic ? [RandomUtils.selectWeighted(data.chronicConditions, "likelihood")] : [];
+    const contextualChronicConditions = this.applyContextualModifiers(
+      data.chronicConditions,
+      { ...context, category: 'health' }
+    );
+    const chronicConditions = hasChronic ? [RandomUtils.selectWeighted(contextualChronicConditions, "likelihood")] : [];
 
-    // Disabilities (0-1, rare but possible)
+    // Disabilities (0-1, rare but possible) - with contextual modifiers
     const hasDisability = Math.random() < 0.15;
-    const disabilities = hasDisability ? [RandomUtils.selectWeighted(data.disabilities, "likelihood")] : [];
+    const contextualDisabilities = this.applyContextualModifiers(
+      data.disabilities,
+      { ...context, category: 'health' }
+    );
+    const disabilities = hasDisability ? [RandomUtils.selectWeighted(contextualDisabilities, "likelihood")] : [];
 
-    // Fitness level (always)
-    const fitnessLevel = RandomUtils.selectWeighted(data.fitnessLevels, "likelihood");
+    // Fitness level (always) - with contextual modifiers
+    const contextualFitnessLevels = this.applyContextualModifiers(
+      data.fitnessLevels,
+      { ...context, category: 'health' }
+    );
+    const fitnessLevel = RandomUtils.selectWeighted(contextualFitnessLevels, "likelihood");
 
-    // Allergies and sensitivities (0-2, 40% have at least one)
+    // Allergies and sensitivities (0-2, 40% have at least one) - with contextual modifiers
     const hasAllergies = Math.random() < 0.4;
     const numAllergies = hasAllergies ? (detailLevel === "cinematic" ? 2 : 1) : 0;
-    const allergiesAndSensitivities = numAllergies > 0 ? this.selectUniqueItems(data.allergiesAndSensitivities, numAllergies) : [];
+    const contextualAllergiesAndSensitivities = this.applyContextualModifiers(
+      data.allergiesAndSensitivities,
+      { ...context, category: 'health' }
+    );
+    const allergiesAndSensitivities = numAllergies > 0 ? this.selectUniqueItems(contextualAllergiesAndSensitivities, numAllergies) : [];
 
-    // Mental health (0-1, 50% have something)
+    // Mental health (0-1, 50% have something) - with contextual modifiers
     const hasMentalHealth = Math.random() < 0.5;
-    const mentalHealthConditions = hasMentalHealth ? [RandomUtils.selectWeighted(data.mentalHealthConditions, "likelihood")] : [];
+    const contextualMentalHealthConditions = this.applyContextualModifiers(
+      data.mentalHealthConditions,
+      { ...context, category: 'health' }
+    );
+    const mentalHealthConditions = hasMentalHealth ? [RandomUtils.selectWeighted(contextualMentalHealthConditions, "likelihood")] : [];
 
-    // Addictions (0-1, 30% have one)
+    // Addictions (0-1, 30% have one) - with contextual modifiers
     const hasAddiction = Math.random() < 0.3;
-    const addictions = hasAddiction ? [RandomUtils.selectWeighted(data.addictions, "likelihood")] : [];
+    const contextualAddictions = this.applyContextualModifiers(
+      data.addictions,
+      { ...context, category: 'health' }
+    );
+    const addictions = hasAddiction ? [RandomUtils.selectWeighted(contextualAddictions, "likelihood")] : [];
 
-    // Current health status (always)
-    const currentHealthStatus = RandomUtils.selectWeighted(data.currentHealthStatus, "likelihood");
+    // Current health status (always) - with contextual modifiers
+    const contextualCurrentHealthStatus = this.applyContextualModifiers(
+      data.currentHealthStatus,
+      { ...context, category: 'health' }
+    );
+    const currentHealthStatus = RandomUtils.selectWeighted(contextualCurrentHealthStatus, "likelihood");
 
-    // Scars and injury history (always at least one type)
-    const scarsAndInjuryHistory = RandomUtils.selectWeighted(data.scarsAndInjuryHistory, "likelihood");
+    // Scars and injury history (always at least one type) - with contextual modifiers
+    const contextualScarsAndInjuryHistory = this.applyContextualModifiers(
+      data.scarsAndInjuryHistory,
+      { ...context, category: 'health' }
+    );
+    const scarsAndInjuryHistory = RandomUtils.selectWeighted(contextualScarsAndInjuryHistory, "likelihood");
 
     return {
       chronicConditions,

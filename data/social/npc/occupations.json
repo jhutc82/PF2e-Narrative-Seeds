@@ -36,241 +36,1877 @@
       "id": "farmer",
       "name": "Farmer",
       "description": "Works the land, growing crops or raising livestock",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["nature", "athletics", "survival"],
-      "likelihood": 15
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "nature",
+        "athletics",
+        "survival"
+      ],
+      "likelihood": 15,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "callused-hands", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "weather-beaten-skin", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "dirt-under-nails", "multiplier": 3.0, "category": "hygiene"},
+          {"id": "muscular-build", "multiplier": 2.5, "category": "build"},
+          {"id": "simple-speech", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "merchant",
       "name": "Merchant",
       "description": "Buys and sells goods",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["diplomacy", "society", "deception"],
-      "likelihood": 12
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "diplomacy",
+        "society",
+        "deception"
+      ],
+      "likelihood": 12,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "gregarious-manner", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "frequent-smiling", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "maintains-eye-contact", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "persuasive-speech", "multiplier": 4.0, "category": "speech"},
+          {"id": "well-groomed", "multiplier": 2.5, "category": "hygiene"}
+        ]
+      }
     },
     {
       "id": "blacksmith",
       "name": "Blacksmith",
       "description": "Forges metal goods and weapons",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting", "athletics"],
-      "likelihood": 8
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "athletics"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "callused-hands", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "burn-scars", "multiplier": 3.5, "category": "scar"},
+          {"id": "muscular-build", "multiplier": 3.5, "category": "build"},
+          {"id": "soot-stained", "multiplier": 3.5, "category": "hygiene"},
+          {"id": "strong-grip", "multiplier": 2.5, "category": "physicalQuirk"},
+          {"id": "direct-speech", "multiplier": 2.5, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "innkeeper",
       "name": "Innkeeper",
       "description": "Runs a tavern or inn",
-      "socialClass": ["middle-class"],
-      "skills": ["diplomacy", "society"],
-      "likelihood": 10
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "diplomacy",
+        "society"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "gregarious-manner", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "frequent-smiling", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "welcoming-demeanor", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "persuasive-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "beer-smell", "multiplier": 2.5, "category": "hygiene"}
+        ]
+      }
     },
     {
       "id": "guard",
       "name": "Guard",
       "description": "Protects a location or person",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["athletics", "intimidation"],
-      "likelihood": 12
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "athletics",
+        "intimidation"
+      ],
+      "likelihood": 12,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "vigilant-posture", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "watches-door", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "battle-scars", "multiplier": 2.5, "category": "scar"},
+          {"id": "disciplined-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "military-bearing", "multiplier": 3.5, "category": "posture"}
+        ]
+      }
     },
     {
       "id": "priest",
       "name": "Priest",
       "description": "Serves a deity or faith",
-      "socialClass": ["lower-class", "middle-class", "upper-class"],
-      "skills": ["religion", "diplomacy", "medicine"],
-      "likelihood": 10
+      "socialClass": [
+        "lower-class",
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "religion",
+        "diplomacy",
+        "medicine"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "scholar",
       "name": "Scholar",
       "description": "Studies and teaches knowledge",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["arcana", "society"],
-      "likelihood": 7
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "arcana",
+        "society"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "ink-stained-fingers", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "poor-posture", "multiplier": 3.5, "category": "posture"},
+          {"id": "pale-skin", "multiplier": 3.0, "category": "complexion"},
+          {"id": "wears-spectacles", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "formal-speech", "multiplier": 4.0, "category": "speech"},
+          {"id": "uses-big-words", "multiplier": 3.5, "category": "speech"},
+          {"id": "corrects-others", "multiplier": 2.5, "category": "mannerism"}
+        ]
+      }
     },
     {
       "id": "laborer",
       "name": "Laborer",
       "description": "Does physical work for wages",
-      "socialClass": ["destitute", "lower-class"],
-      "skills": ["athletics"],
-      "likelihood": 15
+      "socialClass": [
+        "destitute",
+        "lower-class"
+      ],
+      "skills": [
+        "athletics"
+      ],
+      "likelihood": 15,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "callused-hands", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "muscular-build", "multiplier": 3.0, "category": "build"},
+          {"id": "dirt-stained", "multiplier": 3.5, "category": "hygiene"},
+          {"id": "tired-eyes", "multiplier": 2.5, "category": "physicalDetail"},
+          {"id": "simple-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "worn-clothing", "multiplier": 3.0, "category": "hygiene"}
+        ]
+      }
     },
     {
       "id": "artisan",
       "name": "Artisan",
       "description": "Creates crafted goods",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting"],
-      "likelihood": 10
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "noble",
       "name": "Noble",
       "description": "Member of the aristocracy",
-      "socialClass": ["upper-class", "nobility"],
-      "skills": ["society", "diplomacy"],
-      "likelihood": 5
+      "socialClass": [
+        "upper-class",
+        "nobility"
+      ],
+      "skills": [
+        "society",
+        "diplomacy"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "thief",
       "name": "Thief",
       "description": "Steals for a living",
-      "socialClass": ["destitute", "lower-class", "middle-class"],
-      "skills": ["thievery", "stealth", "deception"],
-      "likelihood": 6
+      "socialClass": [
+        "destitute",
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "thievery",
+        "stealth",
+        "deception"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "paranoid-behavior", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "watches-door", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "keeps-distance", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "whispers", "multiplier": 3.5, "category": "speech"},
+          {"id": "nimble-fingers", "multiplier": 3.0, "category": "physicalQuirk"},
+          {"id": "cautious-speech", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "sailor",
       "name": "Sailor",
       "description": "Works on ships",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["athletics", "survival"],
-      "likelihood": 7
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "athletics",
+        "survival"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "weather-beaten-skin", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "rope-scarred-hands", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "rolling-gait", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "nautical-speech", "multiplier": 3.5, "category": "speech"},
+          {"id": "colorful-curses", "multiplier": 3.0, "category": "speech"},
+          {"id": "salt-smell", "multiplier": 2.5, "category": "hygiene"}
+        ]
+      }
     },
     {
       "id": "hunter",
       "name": "Hunter",
       "description": "Tracks and kills game",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["survival", "nature", "stealth"],
-      "likelihood": 8
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "survival",
+        "nature",
+        "stealth"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "weather-beaten-skin", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "quiet-demeanor", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "keen-eyes", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "patient-manner", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "animal-smell", "multiplier": 3.0, "category": "hygiene"},
+          {"id": "direct-speech", "multiplier": 2.5, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "healer",
       "name": "Healer",
       "description": "Treats the sick and injured",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["medicine", "nature"],
-      "likelihood": 7
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "medicine",
+        "nature"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "entertainer",
       "name": "Entertainer",
       "description": "Performs for audiences",
-      "socialClass": ["destitute", "lower-class", "middle-class"],
-      "skills": ["performance", "acrobatics"],
-      "likelihood": 8
+      "socialClass": [
+        "destitute",
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "performance",
+        "acrobatics"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "gregarious-manner", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "expressive-gestures", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "dramatic-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "attention-seeking", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "colorful-clothing", "multiplier": 3.0, "category": "hygiene"},
+          {"id": "loud-voice", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "soldier",
       "name": "Soldier",
       "description": "Serves in a military force",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["athletics", "intimidation"],
-      "likelihood": 10
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "athletics",
+        "intimidation"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "battle-scars", "multiplier": 4.0, "category": "scar"},
+          {"id": "military-bearing", "multiplier": 4.0, "category": "posture"},
+          {"id": "vigilant-posture", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "watches-door", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "direct-speech", "multiplier": 3.5, "category": "speech"},
+          {"id": "disciplined-speech", "multiplier": 3.5, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "scribe",
       "name": "Scribe",
       "description": "Copies and records documents",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["society"],
-      "likelihood": 6
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "society"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "ink-stained-fingers", "multiplier": 4.5, "category": "physicalDetail"},
+          {"id": "poor-posture", "multiplier": 3.5, "category": "posture"},
+          {"id": "pale-skin", "multiplier": 2.5, "category": "complexion"},
+          {"id": "cramped-hand", "multiplier": 2.5, "category": "physicalQuirk"},
+          {"id": "formal-speech", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "cook",
       "name": "Cook",
       "description": "Prepares food professionally",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting"],
-      "likelihood": 8
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "servant",
       "name": "Servant",
       "description": "Works in a household",
-      "socialClass": ["destitute", "lower-class"],
-      "skills": ["society"],
-      "likelihood": 10
+      "socialClass": [
+        "destitute",
+        "lower-class"
+      ],
+      "skills": [
+        "society"
+      ],
+      "likelihood": 10,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "beggar",
       "name": "Beggar",
       "description": "Lives by asking for charity",
-      "socialClass": ["destitute"],
-      "skills": ["deception", "stealth"],
-      "likelihood": 5
+      "socialClass": [
+        "destitute"
+      ],
+      "skills": [
+        "deception",
+        "stealth"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "wizard",
       "name": "Wizard",
       "description": "Studies arcane magic",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["arcana", "society"],
-      "likelihood": 4
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "arcana",
+        "society"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "ink-stained-fingers", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "poor-posture", "multiplier": 3.0, "category": "posture"},
+          {"id": "pale-skin", "multiplier": 3.5, "category": "complexion"},
+          {"id": "wears-spectacles", "multiplier": 3.0, "category": "physicalDetail"},
+          {"id": "formal-speech", "multiplier": 3.5, "category": "speech"},
+          {"id": "uses-big-words", "multiplier": 4.0, "category": "speech"},
+          {"id": "arcane-gestures", "multiplier": 3.0, "category": "mannerism"}
+        ]
+      }
     },
     {
       "id": "herbalist",
       "name": "Herbalist",
       "description": "Gathers and sells medicinal plants",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["nature", "medicine"],
-      "likelihood": 6
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "nature",
+        "medicine"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "miner",
       "name": "Miner",
       "description": "Extracts ore and minerals",
-      "socialClass": ["lower-class"],
-      "skills": ["athletics", "survival"],
-      "likelihood": 6
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "athletics",
+        "survival"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "callused-hands", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "coal-dust-stained", "multiplier": 4.5, "category": "hygiene"},
+          {"id": "muscular-build", "multiplier": 3.5, "category": "build"},
+          {"id": "scarred-hands", "multiplier": 3.0, "category": "scar"},
+          {"id": "cough", "multiplier": 3.0, "category": "health"},
+          {"id": "simple-speech", "multiplier": 2.5, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "tailor",
       "name": "Tailor",
       "description": "Makes and repairs clothing",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting"],
-      "likelihood": 7
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "carpenter",
       "name": "Carpenter",
       "description": "Works with wood",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["crafting", "athletics"],
-      "likelihood": 8
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "athletics"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "callused-hands", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "sawdust-covered", "multiplier": 3.0, "category": "hygiene"},
+          {"id": "muscular-build", "multiplier": 2.5, "category": "build"},
+          {"id": "splinter-scars", "multiplier": 2.5, "category": "scar"},
+          {"id": "wood-smell", "multiplier": 3.0, "category": "hygiene"},
+          {"id": "direct-speech", "multiplier": 2.5, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "jeweler",
       "name": "Jeweler",
       "description": "Crafts jewelry and precious items",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["crafting", "society"],
-      "likelihood": 5
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "crafting",
+        "society"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "alchemist",
       "name": "Alchemist",
       "description": "Creates potions and elixirs",
-      "socialClass": ["middle-class"],
-      "skills": ["crafting", "arcana"],
-      "likelihood": 5
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "arcana"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "bureaucrat",
       "name": "Bureaucrat",
       "description": "Works in government administration",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["society", "diplomacy"],
-      "likelihood": 6
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "society",
+        "diplomacy"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
     },
     {
       "id": "spy",
       "name": "Spy",
       "description": "Gathers intelligence secretly",
-      "socialClass": ["middle-class", "upper-class"],
-      "skills": ["deception", "stealth", "society"],
-      "likelihood": 3
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "deception",
+        "stealth",
+        "society"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "observant-manner", "multiplier": 4.5, "category": "mannerism"},
+          {"id": "watches-door", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "unremarkable-appearance", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "careful-speech", "multiplier": 4.0, "category": "speech"},
+          {"id": "neutral-expression", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "memory-for-details", "multiplier": 3.0, "category": "mannerism"}
+        ]
+      }
     },
     {
       "id": "fortune-teller",
       "name": "Fortune Teller",
       "description": "Claims to predict the future",
-      "socialClass": ["lower-class", "middle-class"],
-      "skills": ["occultism", "deception", "performance"],
-      "likelihood": 4
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "occultism",
+        "deception",
+        "performance"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "cartographer",
+      "name": "Cartographer",
+      "description": "Creates maps and charts",
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "crafting",
+        "society",
+        "nature"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "brewer",
+      "name": "Brewer",
+      "description": "Produces alcoholic beverages",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "society"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "fisherman",
+      "name": "Fisherman",
+      "description": "Catches fish for a living",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "athletics",
+        "survival",
+        "nature"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "weather-beaten-skin", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "rope-scarred-hands", "multiplier": 3.0, "category": "physicalDetail"},
+          {"id": "fish-smell", "multiplier": 4.0, "category": "hygiene"},
+          {"id": "patient-demeanor", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "nautical-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "squinting-eyes", "multiplier": 2.5, "category": "physicalDetail"}
+        ]
+      }
+    },
+    {
+      "id": "shepherd",
+      "name": "Shepherd",
+      "description": "Tends flocks of sheep or goats",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "nature",
+        "survival"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "banker",
+      "name": "Banker",
+      "description": "Manages money and extends credit",
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "society",
+        "diplomacy",
+        "deception"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "lawyer",
+      "name": "Lawyer",
+      "description": "Practices law and represents clients",
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "society",
+        "diplomacy",
+        "deception"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "judge",
+      "name": "Judge",
+      "description": "Presides over legal matters",
+      "socialClass": [
+        "upper-class",
+        "nobility"
+      ],
+      "skills": [
+        "society",
+        "intimidation"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "executioner",
+      "name": "Executioner",
+      "description": "Carries out death sentences",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "intimidation",
+        "athletics"
+      ],
+      "likelihood": 2,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "jailer",
+      "name": "Jailer",
+      "description": "Guards prisoners",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "intimidation",
+        "athletics"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "diplomat",
+      "name": "Diplomat",
+      "description": "Represents a faction or nation",
+      "socialClass": [
+        "upper-class",
+        "nobility"
+      ],
+      "skills": [
+        "diplomacy",
+        "society",
+        "deception"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "eloquent-speech", "multiplier": 4.5, "category": "speech"},
+          {"id": "measured-gestures", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "maintains-eye-contact", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "well-groomed", "multiplier": 4.0, "category": "hygiene"},
+          {"id": "persuasive-speech", "multiplier": 4.0, "category": "speech"},
+          {"id": "formal-bearing", "multiplier": 3.5, "category": "posture"}
+        ]
+      }
+    },
+    {
+      "id": "courier",
+      "name": "Courier",
+      "description": "Delivers messages and packages",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "athletics",
+        "society"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "lean-build", "multiplier": 3.5, "category": "build"},
+          {"id": "quick-movements", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "alert-posture", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "travel-worn", "multiplier": 3.0, "category": "hygiene"},
+          {"id": "brief-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "road-dust", "multiplier": 2.5, "category": "hygiene"}
+        ]
+      }
+    },
+    {
+      "id": "librarian",
+      "name": "Librarian",
+      "description": "Maintains collections of books",
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "society",
+        "arcana"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "ink-stained-fingers", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "pale-skin", "multiplier": 3.0, "category": "complexion"},
+          {"id": "wears-spectacles", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "quiet-demeanor", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "formal-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "corrects-others", "multiplier": 3.0, "category": "mannerism"}
+        ]
+      }
+    },
+    {
+      "id": "architect",
+      "name": "Architect",
+      "description": "Designs buildings and structures",
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "crafting",
+        "society"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "engineer",
+      "name": "Engineer",
+      "description": "Designs mechanisms and infrastructure",
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "crafting",
+        "arcana"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "mason",
+      "name": "Mason",
+      "description": "Works with stone and brick",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "athletics"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "callused-hands", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "stone-dust-covered", "multiplier": 3.5, "category": "hygiene"},
+          {"id": "muscular-build", "multiplier": 3.5, "category": "build"},
+          {"id": "scarred-hands", "multiplier": 2.5, "category": "scar"},
+          {"id": "strong-arms", "multiplier": 3.0, "category": "physicalQuirk"},
+          {"id": "direct-speech", "multiplier": 2.5, "category": "speech"}
+        ]
+      }
+    },
+    {
+      "id": "glassblower",
+      "name": "Glassblower",
+      "description": "Creates glass items",
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "potter",
+      "name": "Potter",
+      "description": "Makes ceramic vessels",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "cobbler",
+      "name": "Cobbler",
+      "description": "Makes and repairs shoes",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "tanner",
+      "name": "Tanner",
+      "description": "Prepares leather from hides",
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "chandler",
+      "name": "Chandler",
+      "description": "Makes candles and soap",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "cooper",
+      "name": "Cooper",
+      "description": "Makes barrels and casks",
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "fletcher",
+      "name": "Fletcher",
+      "description": "Makes arrows and bows",
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "locksmith",
+      "name": "Locksmith",
+      "description": "Creates and repairs locks",
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "thievery"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "bookbinder",
+      "name": "Bookbinder",
+      "description": "Binds and repairs books",
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "miller",
+      "name": "Miller",
+      "description": "Grinds grain into flour",
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "athletics"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "baker",
+      "name": "Baker",
+      "description": "Bakes bread and pastries",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "butcher",
+      "name": "Butcher",
+      "description": "Prepares and sells meat",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "crafting",
+        "intimidation"
+      ],
+      "likelihood": 8,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "blood-stained", "multiplier": 4.0, "category": "hygiene"},
+          {"id": "strong-hands", "multiplier": 3.5, "category": "physicalQuirk"},
+          {"id": "meat-smell", "multiplier": 4.0, "category": "hygiene"},
+          {"id": "knife-scars", "multiplier": 3.0, "category": "scar"},
+          {"id": "muscular-build", "multiplier": 2.5, "category": "build"},
+          {"id": "direct-speech", "multiplier": 2.5, "category": "speech"}
+        ]
+      }
+    },
+    {
+      "id": "bard",
+      "name": "Bard",
+      "description": "Traveling musician and storyteller",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "performance",
+        "occultism",
+        "society"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "expressive-gestures", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "dramatic-speech", "multiplier": 4.5, "category": "speech"},
+          {"id": "gregarious-manner", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "eloquent-speech", "multiplier": 4.0, "category": "speech"},
+          {"id": "colorful-clothing", "multiplier": 3.0, "category": "hygiene"},
+          {"id": "musical-voice", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
+    },
+    {
+      "id": "actor",
+      "name": "Actor",
+      "description": "Performs in theatrical productions",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "performance",
+        "deception"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "expressive-gestures", "multiplier": 4.5, "category": "mannerism"},
+          {"id": "dramatic-speech", "multiplier": 4.0, "category": "speech"},
+          {"id": "theatrical-manner", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "eloquent-speech", "multiplier": 3.5, "category": "speech"},
+          {"id": "emotive-face", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "varied-voice", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
+    },
+    {
+      "id": "acrobat",
+      "name": "Acrobat",
+      "description": "Performs physical feats",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "acrobatics",
+        "performance"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "gambler",
+      "name": "Gambler",
+      "description": "Makes living through games of chance",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "deception",
+        "society"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "prostitute",
+      "name": "Courtesan",
+      "description": "Sells companionship",
+      "socialClass": [
+        "destitute",
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "diplomacy",
+        "deception",
+        "society"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "gladiator",
+      "name": "Gladiator",
+      "description": "Fights for entertainment",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "athletics",
+        "intimidation",
+        "performance"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "bounty-hunter",
+      "name": "Bounty Hunter",
+      "description": "Tracks down fugitives for reward",
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "survival",
+        "intimidation",
+        "society"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "mercenary",
+      "name": "Mercenary",
+      "description": "Sells combat skills",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "athletics",
+        "intimidation"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "battle-scars", "multiplier": 4.5, "category": "scar"},
+          {"id": "vigilant-posture", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "weapon-calluses", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "hardened-expression", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "direct-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "battle-worn", "multiplier": 3.0, "category": "hygiene"}
+        ]
+      }
+    },
+    {
+      "id": "smuggler",
+      "name": "Smuggler",
+      "description": "Illegally transports goods",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "deception",
+        "stealth",
+        "society"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "paranoid-behavior", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "watches-door", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "keeps-distance", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "cautious-speech", "multiplier": 4.0, "category": "speech"},
+          {"id": "secretive-manner", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "vague-answers", "multiplier": 3.5, "category": "speech"}
+        ]
+      }
+    },
+    {
+      "id": "fence",
+      "name": "Fence",
+      "description": "Buys and sells stolen goods",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "deception",
+        "society",
+        "thievery"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "con-artist",
+      "name": "Con Artist",
+      "description": "Makes living through deception",
+      "socialClass": [
+        "lower-class",
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "deception",
+        "society",
+        "performance"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "pickpocket",
+      "name": "Pickpocket",
+      "description": "Steals from people's pockets",
+      "socialClass": [
+        "destitute",
+        "lower-class"
+      ],
+      "skills": [
+        "thievery",
+        "stealth"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "nimble-fingers", "multiplier": 4.5, "category": "physicalQuirk"},
+          {"id": "quick-movements", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "observant-manner", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "avoids-eye-contact", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "nervous-behavior", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "brief-speech", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
+    },
+    {
+      "id": "burglar",
+      "name": "Burglar",
+      "description": "Breaks into buildings to steal",
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "thievery",
+        "stealth",
+        "athletics"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "nimble-fingers", "multiplier": 4.0, "category": "physicalQuirk"},
+          {"id": "watchful-manner", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "paranoid-behavior", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "nervous-twitches", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "quiet-footsteps", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "cautious-speech", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
+    },
+    {
+      "id": "assassin",
+      "name": "Assassin",
+      "description": "Kills for money",
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "stealth",
+        "deception",
+        "society"
+      ],
+      "likelihood": 2,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "cold-eyes", "multiplier": 4.5, "category": "physicalDetail"},
+          {"id": "silent-movement", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "watchful-manner", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "keeps-distance", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "whispers", "multiplier": 3.5, "category": "speech"},
+          {"id": "emotionless-expression", "multiplier": 3.5, "category": "mannerism"}
+        ]
+      }
+    },
+    {
+      "id": "tax-collector",
+      "name": "Tax Collector",
+      "description": "Collects taxes for authorities",
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "society",
+        "intimidation"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "town-crier",
+      "name": "Town Crier",
+      "description": "Announces news publicly",
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "performance",
+        "society"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "gravedigger",
+      "name": "Gravedigger",
+      "description": "Buries the dead",
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "athletics"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "undertaker",
+      "name": "Undertaker",
+      "description": "Prepares bodies for burial",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "medicine",
+        "society"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "midwife",
+      "name": "Midwife",
+      "description": "Assists in childbirth",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "medicine",
+        "nature"
+      ],
+      "likelihood": 6,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "veterinarian",
+      "name": "Veterinarian",
+      "description": "Treats sick and injured animals",
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "medicine",
+        "nature"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "stable-hand",
+      "name": "Stable Hand",
+      "description": "Cares for horses and livestock",
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "nature",
+        "athletics"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "animal-trainer",
+      "name": "Animal Trainer",
+      "description": "Trains animals for work or performance",
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "nature",
+        "performance"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "rat-catcher",
+      "name": "Rat Catcher",
+      "description": "Eliminates vermin",
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "survival",
+        "nature"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "nightsoil-collector",
+      "name": "Nightsoil Collector",
+      "description": "Collects human waste",
+      "socialClass": [
+        "destitute",
+        "lower-class"
+      ],
+      "skills": [
+        "athletics"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "chimney-sweep",
+      "name": "Chimney Sweep",
+      "description": "Cleans chimneys",
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "athletics",
+        "acrobatics"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "lamplighter",
+      "name": "Lamplighter",
+      "description": "Lights and maintains street lamps",
+      "socialClass": [
+        "lower-class"
+      ],
+      "skills": [
+        "athletics"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "watchman",
+      "name": "Watchman",
+      "description": "Patrols and watches for trouble",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "perception",
+        "intimidation"
+      ],
+      "likelihood": 7,
+      "ancestries": [
+        "all"
+      ],
+      "influences": {
+        "increases": [
+          {"id": "vigilant-posture", "multiplier": 4.5, "category": "mannerism"},
+          {"id": "observant-manner", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "tired-eyes", "multiplier": 3.0, "category": "physicalDetail"},
+          {"id": "authoritative-speech", "multiplier": 3.5, "category": "speech"},
+          {"id": "patrol-stance", "multiplier": 3.0, "category": "posture"},
+          {"id": "suspicious-gaze", "multiplier": 3.0, "category": "mannerism"}
+        ]
+      }
+    },
+    {
+      "id": "herald",
+      "name": "Herald",
+      "description": "Official messenger and announcer",
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "diplomacy",
+        "society",
+        "performance"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "steward",
+      "name": "Steward",
+      "description": "Manages a noble's household or estate",
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "society",
+        "diplomacy"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "ranger",
+      "name": "Ranger",
+      "description": "Patrols wilderness areas",
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "survival",
+        "nature",
+        "stealth"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "druid",
+      "name": "Druid",
+      "description": "Nature-focused religious practitioner",
+      "socialClass": [
+        "middle-class"
+      ],
+      "skills": [
+        "nature",
+        "religion",
+        "survival"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "monk",
+      "name": "Monk",
+      "description": "Member of religious order",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "religion",
+        "society"
+      ],
+      "likelihood": 5,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "inquisitor",
+      "name": "Inquisitor",
+      "description": "Investigates heresy and corruption",
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "religion",
+        "intimidation",
+        "society"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "oracle",
+      "name": "Oracle",
+      "description": "Divines the future through divine insight",
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "occultism",
+        "religion"
+      ],
+      "likelihood": 2,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "charlatan",
+      "name": "Charlatan",
+      "description": "Pretends to have powers or knowledge",
+      "socialClass": [
+        "lower-class",
+        "middle-class"
+      ],
+      "skills": [
+        "deception",
+        "performance"
+      ],
+      "likelihood": 4,
+      "ancestries": [
+        "all"
+      ]
+    },
+    {
+      "id": "antiquarian",
+      "name": "Antiquarian",
+      "description": "Collects and studies ancient artifacts",
+      "socialClass": [
+        "middle-class",
+        "upper-class"
+      ],
+      "skills": [
+        "society",
+        "arcana",
+        "occultism"
+      ],
+      "likelihood": 3,
+      "ancestries": [
+        "all"
+      ]
     }
   ]
 }
