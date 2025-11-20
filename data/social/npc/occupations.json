@@ -48,7 +48,16 @@
       "likelihood": 15,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "callused-hands", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "weather-beaten-skin", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "dirt-under-nails", "multiplier": 3.0, "category": "hygiene"},
+          {"id": "muscular-build", "multiplier": 2.5, "category": "build"},
+          {"id": "simple-speech", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "merchant",
@@ -66,7 +75,16 @@
       "likelihood": 12,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "gregarious-manner", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "frequent-smiling", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "maintains-eye-contact", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "persuasive-speech", "multiplier": 4.0, "category": "speech"},
+          {"id": "well-groomed", "multiplier": 2.5, "category": "hygiene"}
+        ]
+      }
     },
     {
       "id": "blacksmith",
@@ -83,7 +101,17 @@
       "likelihood": 8,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "callused-hands", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "burn-scars", "multiplier": 3.5, "category": "scar"},
+          {"id": "muscular-build", "multiplier": 3.5, "category": "build"},
+          {"id": "soot-stained", "multiplier": 3.5, "category": "hygiene"},
+          {"id": "strong-grip", "multiplier": 2.5, "category": "physicalQuirk"},
+          {"id": "direct-speech", "multiplier": 2.5, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "innkeeper",
@@ -99,7 +127,16 @@
       "likelihood": 10,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "gregarious-manner", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "frequent-smiling", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "welcoming-demeanor", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "persuasive-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "beer-smell", "multiplier": 2.5, "category": "hygiene"}
+        ]
+      }
     },
     {
       "id": "guard",
@@ -116,7 +153,16 @@
       "likelihood": 12,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "vigilant-posture", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "watches-door", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "battle-scars", "multiplier": 2.5, "category": "scar"},
+          {"id": "disciplined-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "military-bearing", "multiplier": 3.5, "category": "posture"}
+        ]
+      }
     },
     {
       "id": "priest",
@@ -152,7 +198,18 @@
       "likelihood": 7,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "ink-stained-fingers", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "poor-posture", "multiplier": 3.5, "category": "posture"},
+          {"id": "pale-skin", "multiplier": 3.0, "category": "complexion"},
+          {"id": "wears-spectacles", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "formal-speech", "multiplier": 4.0, "category": "speech"},
+          {"id": "uses-big-words", "multiplier": 3.5, "category": "speech"},
+          {"id": "corrects-others", "multiplier": 2.5, "category": "mannerism"}
+        ]
+      }
     },
     {
       "id": "laborer",
@@ -168,7 +225,17 @@
       "likelihood": 15,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "callused-hands", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "muscular-build", "multiplier": 3.0, "category": "build"},
+          {"id": "dirt-stained", "multiplier": 3.5, "category": "hygiene"},
+          {"id": "tired-eyes", "multiplier": 2.5, "category": "physicalDetail"},
+          {"id": "simple-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "worn-clothing", "multiplier": 3.0, "category": "hygiene"}
+        ]
+      }
     },
     {
       "id": "artisan",
@@ -220,7 +287,17 @@
       "likelihood": 6,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "paranoid-behavior", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "watches-door", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "keeps-distance", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "whispers", "multiplier": 3.5, "category": "speech"},
+          {"id": "nimble-fingers", "multiplier": 3.0, "category": "physicalQuirk"},
+          {"id": "cautious-speech", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "sailor",
@@ -237,7 +314,17 @@
       "likelihood": 7,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "weather-beaten-skin", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "rope-scarred-hands", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "rolling-gait", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "nautical-speech", "multiplier": 3.5, "category": "speech"},
+          {"id": "colorful-curses", "multiplier": 3.0, "category": "speech"},
+          {"id": "salt-smell", "multiplier": 2.5, "category": "hygiene"}
+        ]
+      }
     },
     {
       "id": "hunter",
@@ -255,7 +342,17 @@
       "likelihood": 8,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "weather-beaten-skin", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "quiet-demeanor", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "keen-eyes", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "patient-manner", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "animal-smell", "multiplier": 3.0, "category": "hygiene"},
+          {"id": "direct-speech", "multiplier": 2.5, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "healer",
@@ -290,7 +387,17 @@
       "likelihood": 8,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "gregarious-manner", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "expressive-gestures", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "dramatic-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "attention-seeking", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "colorful-clothing", "multiplier": 3.0, "category": "hygiene"},
+          {"id": "loud-voice", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "soldier",
@@ -307,7 +414,17 @@
       "likelihood": 10,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "battle-scars", "multiplier": 4.0, "category": "scar"},
+          {"id": "military-bearing", "multiplier": 4.0, "category": "posture"},
+          {"id": "vigilant-posture", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "watches-door", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "direct-speech", "multiplier": 3.5, "category": "speech"},
+          {"id": "disciplined-speech", "multiplier": 3.5, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "scribe",
@@ -323,7 +440,16 @@
       "likelihood": 6,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "ink-stained-fingers", "multiplier": 4.5, "category": "physicalDetail"},
+          {"id": "poor-posture", "multiplier": 3.5, "category": "posture"},
+          {"id": "pale-skin", "multiplier": 2.5, "category": "complexion"},
+          {"id": "cramped-hand", "multiplier": 2.5, "category": "physicalQuirk"},
+          {"id": "formal-speech", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "cook",
@@ -388,7 +514,18 @@
       "likelihood": 4,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "ink-stained-fingers", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "poor-posture", "multiplier": 3.0, "category": "posture"},
+          {"id": "pale-skin", "multiplier": 3.5, "category": "complexion"},
+          {"id": "wears-spectacles", "multiplier": 3.0, "category": "physicalDetail"},
+          {"id": "formal-speech", "multiplier": 3.5, "category": "speech"},
+          {"id": "uses-big-words", "multiplier": 4.0, "category": "speech"},
+          {"id": "arcane-gestures", "multiplier": 3.0, "category": "mannerism"}
+        ]
+      }
     },
     {
       "id": "herbalist",
@@ -421,7 +558,17 @@
       "likelihood": 6,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "callused-hands", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "coal-dust-stained", "multiplier": 4.5, "category": "hygiene"},
+          {"id": "muscular-build", "multiplier": 3.5, "category": "build"},
+          {"id": "scarred-hands", "multiplier": 3.0, "category": "scar"},
+          {"id": "cough", "multiplier": 3.0, "category": "health"},
+          {"id": "simple-speech", "multiplier": 2.5, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "tailor",
@@ -454,7 +601,17 @@
       "likelihood": 8,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "callused-hands", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "sawdust-covered", "multiplier": 3.0, "category": "hygiene"},
+          {"id": "muscular-build", "multiplier": 2.5, "category": "build"},
+          {"id": "splinter-scars", "multiplier": 2.5, "category": "scar"},
+          {"id": "wood-smell", "multiplier": 3.0, "category": "hygiene"},
+          {"id": "direct-speech", "multiplier": 2.5, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "jeweler",
@@ -522,7 +679,17 @@
       "likelihood": 3,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "observant-manner", "multiplier": 4.5, "category": "mannerism"},
+          {"id": "watches-door", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "unremarkable-appearance", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "careful-speech", "multiplier": 4.0, "category": "speech"},
+          {"id": "neutral-expression", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "memory-for-details", "multiplier": 3.0, "category": "mannerism"}
+        ]
+      }
     },
     {
       "id": "fortune-teller",
@@ -593,7 +760,17 @@
       "likelihood": 8,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "weather-beaten-skin", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "rope-scarred-hands", "multiplier": 3.0, "category": "physicalDetail"},
+          {"id": "fish-smell", "multiplier": 4.0, "category": "hygiene"},
+          {"id": "patient-demeanor", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "nautical-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "squinting-eyes", "multiplier": 2.5, "category": "physicalDetail"}
+        ]
+      }
     },
     {
       "id": "shepherd",
@@ -715,7 +892,17 @@
       "likelihood": 3,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "eloquent-speech", "multiplier": 4.5, "category": "speech"},
+          {"id": "measured-gestures", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "maintains-eye-contact", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "well-groomed", "multiplier": 4.0, "category": "hygiene"},
+          {"id": "persuasive-speech", "multiplier": 4.0, "category": "speech"},
+          {"id": "formal-bearing", "multiplier": 3.5, "category": "posture"}
+        ]
+      }
     },
     {
       "id": "courier",
@@ -732,7 +919,17 @@
       "likelihood": 7,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "lean-build", "multiplier": 3.5, "category": "build"},
+          {"id": "quick-movements", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "alert-posture", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "travel-worn", "multiplier": 3.0, "category": "hygiene"},
+          {"id": "brief-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "road-dust", "multiplier": 2.5, "category": "hygiene"}
+        ]
+      }
     },
     {
       "id": "librarian",
@@ -748,7 +945,17 @@
       "likelihood": 5,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "ink-stained-fingers", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "pale-skin", "multiplier": 3.0, "category": "complexion"},
+          {"id": "wears-spectacles", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "quiet-demeanor", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "formal-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "corrects-others", "multiplier": 3.0, "category": "mannerism"}
+        ]
+      }
     },
     {
       "id": "architect",
@@ -799,7 +1006,17 @@
       "likelihood": 7,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "callused-hands", "multiplier": 4.0, "category": "physicalDetail"},
+          {"id": "stone-dust-covered", "multiplier": 3.5, "category": "hygiene"},
+          {"id": "muscular-build", "multiplier": 3.5, "category": "build"},
+          {"id": "scarred-hands", "multiplier": 2.5, "category": "scar"},
+          {"id": "strong-arms", "multiplier": 3.0, "category": "physicalQuirk"},
+          {"id": "direct-speech", "multiplier": 2.5, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "glassblower",
@@ -987,7 +1204,17 @@
       "likelihood": 8,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "blood-stained", "multiplier": 4.0, "category": "hygiene"},
+          {"id": "strong-hands", "multiplier": 3.5, "category": "physicalQuirk"},
+          {"id": "meat-smell", "multiplier": 4.0, "category": "hygiene"},
+          {"id": "knife-scars", "multiplier": 3.0, "category": "scar"},
+          {"id": "muscular-build", "multiplier": 2.5, "category": "build"},
+          {"id": "direct-speech", "multiplier": 2.5, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "bard",
@@ -1005,7 +1232,17 @@
       "likelihood": 6,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "expressive-gestures", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "dramatic-speech", "multiplier": 4.5, "category": "speech"},
+          {"id": "gregarious-manner", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "eloquent-speech", "multiplier": 4.0, "category": "speech"},
+          {"id": "colorful-clothing", "multiplier": 3.0, "category": "hygiene"},
+          {"id": "musical-voice", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "actor",
@@ -1022,7 +1259,17 @@
       "likelihood": 5,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "expressive-gestures", "multiplier": 4.5, "category": "mannerism"},
+          {"id": "dramatic-speech", "multiplier": 4.0, "category": "speech"},
+          {"id": "theatrical-manner", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "eloquent-speech", "multiplier": 3.5, "category": "speech"},
+          {"id": "emotive-face", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "varied-voice", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "acrobat",
@@ -1127,7 +1374,17 @@
       "likelihood": 6,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "battle-scars", "multiplier": 4.5, "category": "scar"},
+          {"id": "vigilant-posture", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "weapon-calluses", "multiplier": 3.5, "category": "physicalDetail"},
+          {"id": "hardened-expression", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "direct-speech", "multiplier": 3.0, "category": "speech"},
+          {"id": "battle-worn", "multiplier": 3.0, "category": "hygiene"}
+        ]
+      }
     },
     {
       "id": "smuggler",
@@ -1145,7 +1402,17 @@
       "likelihood": 4,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "paranoid-behavior", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "watches-door", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "keeps-distance", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "cautious-speech", "multiplier": 4.0, "category": "speech"},
+          {"id": "secretive-manner", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "vague-answers", "multiplier": 3.5, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "fence",
@@ -1199,7 +1466,17 @@
       "likelihood": 4,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "nimble-fingers", "multiplier": 4.5, "category": "physicalQuirk"},
+          {"id": "quick-movements", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "observant-manner", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "avoids-eye-contact", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "nervous-behavior", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "brief-speech", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "burglar",
@@ -1216,7 +1493,17 @@
       "likelihood": 3,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "nimble-fingers", "multiplier": 4.0, "category": "physicalQuirk"},
+          {"id": "watchful-manner", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "paranoid-behavior", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "nervous-twitches", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "quiet-footsteps", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "cautious-speech", "multiplier": 3.0, "category": "speech"}
+        ]
+      }
     },
     {
       "id": "assassin",
@@ -1234,7 +1521,17 @@
       "likelihood": 2,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "cold-eyes", "multiplier": 4.5, "category": "physicalDetail"},
+          {"id": "silent-movement", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "watchful-manner", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "keeps-distance", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "whispers", "multiplier": 3.5, "category": "speech"},
+          {"id": "emotionless-expression", "multiplier": 3.5, "category": "mannerism"}
+        ]
+      }
     },
     {
       "id": "tax-collector",
@@ -1443,7 +1740,17 @@
       "likelihood": 7,
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "vigilant-posture", "multiplier": 4.5, "category": "mannerism"},
+          {"id": "observant-manner", "multiplier": 4.0, "category": "mannerism"},
+          {"id": "tired-eyes", "multiplier": 3.0, "category": "physicalDetail"},
+          {"id": "authoritative-speech", "multiplier": 3.5, "category": "speech"},
+          {"id": "patrol-stance", "multiplier": 3.0, "category": "posture"},
+          {"id": "suspicious-gaze", "multiplier": 3.0, "category": "mannerism"}
+        ]
+      }
     },
     {
       "id": "herald",

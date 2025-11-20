@@ -1,0 +1,377 @@
+{
+  "backstoryTemplates": [
+    {
+      "id": "witnessed-murder",
+      "name": "Witnessed a Murder",
+      "category": "trauma",
+      "likelihood": 12,
+      "plotHook": {
+        "type": "secret",
+        "id": "witnessed-murder"
+      },
+      "triggers": {
+        "fears": [
+          {"id": "fear-authority", "multiplier": 3.0},
+          {"id": "fear-dark", "multiplier": 2.5},
+          {"id": "fear-death", "multiplier": 2.0}
+        ],
+        "mannerisms": [
+          {"id": "avoids-eye-contact", "multiplier": 2.5},
+          {"id": "looks-around", "multiplier": 3.0},
+          {"id": "watches-door", "multiplier": 2.8},
+          {"id": "jumpy", "multiplier": 2.5}
+        ],
+        "health": [
+          {"id": "insomnia", "multiplier": 2.5},
+          {"id": "anxiety", "multiplier": 3.0},
+          {"id": "nightmares", "multiplier": 3.5}
+        ],
+        "speechPatterns": [
+          {"id": "trails-off", "multiplier": 2.0},
+          {"id": "long-pauses", "multiplier": 1.8},
+          {"id": "whispers", "multiplier": 1.5}
+        ],
+        "personalities": [
+          {"id": "paranoid", "multiplier": 2.5},
+          {"id": "nervous", "multiplier": 2.0}
+        ]
+      }
+    },
+    {
+      "id": "war-veteran",
+      "name": "War Veteran",
+      "category": "military",
+      "likelihood": 15,
+      "plotHook": {
+        "type": "background",
+        "id": "soldier"
+      },
+      "triggers": {
+        "physicalDetails": [
+          {"id": "battle-scars", "multiplier": 3.5},
+          {"id": "missing-digit", "multiplier": 2.0},
+          {"id": "old-wounds", "multiplier": 2.5}
+        ],
+        "mannerisms": [
+          {"id": "watches-door", "multiplier": 3.0},
+          {"id": "military-posture", "multiplier": 3.5},
+          {"id": "scans-surroundings", "multiplier": 2.8}
+        ],
+        "health": [
+          {"id": "old-war-wound", "multiplier": 3.5},
+          {"id": "ptsd", "multiplier": 2.5},
+          {"id": "chronic-pain", "multiplier": 2.0}
+        ],
+        "personalities": [
+          {"id": "disciplined", "multiplier": 2.5},
+          {"id": "vigilant", "multiplier": 3.0},
+          {"id": "stoic", "multiplier": 2.0}
+        ],
+        "speechPatterns": [
+          {"id": "direct", "multiplier": 2.5},
+          {"id": "tactical-thinking", "multiplier": 2.0}
+        ]
+      }
+    },
+    {
+      "id": "lost-loved-one",
+      "name": "Lost a Loved One",
+      "category": "grief",
+      "likelihood": 18,
+      "plotHook": {
+        "type": "emotional",
+        "id": "grieving"
+      },
+      "triggers": {
+        "mannerisms": [
+          {"id": "sighs", "multiplier": 2.5},
+          {"id": "distant-stare", "multiplier": 2.8},
+          {"id": "touches-locket", "multiplier": 3.0}
+        ],
+        "health": [
+          {"id": "depression", "multiplier": 2.5},
+          {"id": "insomnia", "multiplier": 2.0}
+        ],
+        "personalities": [
+          {"id": "melancholic", "multiplier": 3.0},
+          {"id": "withdrawn", "multiplier": 2.5}
+        ],
+        "possessions": [
+          {"id": "mourning-jewelry", "multiplier": 4.0},
+          {"id": "keepsake", "multiplier": 3.5}
+        ]
+      }
+    },
+    {
+      "id": "escaped-slavery",
+      "name": "Escaped Slavery",
+      "category": "trauma",
+      "likelihood": 10,
+      "plotHook": {
+        "type": "secret",
+        "id": "runaway-slave"
+      },
+      "triggers": {
+        "physicalDetails": [
+          {"id": "shackle-scars", "multiplier": 4.0},
+          {"id": "whip-scars", "multiplier": 3.5},
+          {"id": "brand", "multiplier": 3.0}
+        ],
+        "mannerisms": [
+          {"id": "avoids-eye-contact", "multiplier": 2.5},
+          {"id": "flinches", "multiplier": 3.0},
+          {"id": "keeps-distance", "multiplier": 2.5}
+        ],
+        "personalities": [
+          {"id": "suspicious", "multiplier": 3.0},
+          {"id": "determined", "multiplier": 2.5},
+          {"id": "defensive", "multiplier": 2.8}
+        ],
+        "fears": [
+          {"id": "fear-authority", "multiplier": 3.5},
+          {"id": "fear-capture", "multiplier": 4.0}
+        ]
+      }
+    },
+    {
+      "id": "scholar-disgraced",
+      "name": "Disgraced Scholar",
+      "category": "social",
+      "likelihood": 8,
+      "plotHook": {
+        "type": "secret",
+        "id": "academic-fraud"
+      },
+      "triggers": {
+        "mannerisms": [
+          {"id": "avoids-questions", "multiplier": 2.5},
+          {"id": "defensive", "multiplier": 2.8},
+          {"id": "name-drops", "multiplier": 2.0}
+        ],
+        "personalities": [
+          {"id": "bitter", "multiplier": 3.0},
+          {"id": "prideful", "multiplier": 2.5}
+        ],
+        "speechPatterns": [
+          {"id": "uses-big-words", "multiplier": 3.0},
+          {"id": "corrects-others", "multiplier": 2.5},
+          {"id": "formal-speech", "multiplier": 2.0}
+        ],
+        "possessions": [
+          {"id": "old-academic-robes", "multiplier": 3.0},
+          {"id": "worthless-credentials", "multiplier": 2.5}
+        ]
+      }
+    },
+    {
+      "id": "survivor-plague",
+      "name": "Plague Survivor",
+      "category": "trauma",
+      "likelihood": 12,
+      "plotHook": {
+        "type": "background",
+        "id": "plague-survivor"
+      },
+      "triggers": {
+        "physicalDetails": [
+          {"id": "pockmarks", "multiplier": 4.0},
+          {"id": "scarred-skin", "multiplier": 3.0}
+        ],
+        "health": [
+          {"id": "weakened-health", "multiplier": 2.5},
+          {"id": "chronic-cough", "multiplier": 2.0}
+        ],
+        "personalities": [
+          {"id": "grateful", "multiplier": 2.5},
+          {"id": "fearful", "multiplier": 2.0}
+        ],
+        "mannerisms": [
+          {"id": "washes-hands-often", "multiplier": 3.0},
+          {"id": "avoids-crowds", "multiplier": 2.5}
+        ]
+      }
+    },
+    {
+      "id": "noble-fallen",
+      "name": "Fallen Noble",
+      "category": "social",
+      "likelihood": 10,
+      "plotHook": {
+        "type": "secret",
+        "id": "lost-title"
+      },
+      "triggers": {
+        "mannerisms": [
+          {"id": "formal-speech", "multiplier": 3.5},
+          {"id": "name-drops", "multiplier": 3.0},
+          {"id": "adjusts-worn-jewelry", "multiplier": 2.5}
+        ],
+        "personalities": [
+          {"id": "proud", "multiplier": 3.0},
+          {"id": "bitter", "multiplier": 2.5},
+          {"id": "nostalgic", "multiplier": 2.8}
+        ],
+        "possessions": [
+          {"id": "tarnished-signet-ring", "multiplier": 4.0},
+          {"id": "faded-heraldry", "multiplier": 3.0}
+        ],
+        "appearance": [
+          {"id": "ragged-but-clean", "multiplier": 3.0},
+          {"id": "worn-fine-clothes", "multiplier": 3.5}
+        ]
+      }
+    },
+    {
+      "id": "criminal-reformed",
+      "name": "Reformed Criminal",
+      "category": "redemption",
+      "likelihood": 12,
+      "plotHook": {
+        "type": "secret",
+        "id": "criminal-past"
+      },
+      "triggers": {
+        "mannerisms": [
+          {"id": "watches-door", "multiplier": 2.5},
+          {"id": "keeps-distance", "multiplier": 2.0},
+          {"id": "covers-tattoos", "multiplier": 2.8}
+        ],
+        "personalities": [
+          {"id": "guilty", "multiplier": 3.0},
+          {"id": "determined", "multiplier": 2.5},
+          {"id": "secretive", "multiplier": 2.8}
+        ],
+        "physicalDetails": [
+          {"id": "gang-tattoos", "multiplier": 3.0},
+          {"id": "knife-scars", "multiplier": 2.5},
+          {"id": "brand", "multiplier": 2.0}
+        ],
+        "fears": [
+          {"id": "fear-past-catching-up", "multiplier": 3.5}
+        ]
+      }
+    },
+    {
+      "id": "orphan-street",
+      "name": "Street Orphan",
+      "category": "hardship",
+      "likelihood": 15,
+      "plotHook": {
+        "type": "background",
+        "id": "orphan"
+      },
+      "triggers": {
+        "mannerisms": [
+          {"id": "suspicious", "multiplier": 2.8},
+          {"id": "watches-pockets", "multiplier": 2.5},
+          {"id": "hoards-food", "multiplier": 3.0}
+        ],
+        "personalities": [
+          {"id": "survival-focused", "multiplier": 3.0},
+          {"id": "distrustful", "multiplier": 2.5},
+          {"id": "scrappy", "multiplier": 2.8}
+        ],
+        "physicalDetails": [
+          {"id": "malnourished", "multiplier": 2.5},
+          {"id": "street-worn", "multiplier": 3.0}
+        ],
+        "fears": [
+          {"id": "fear-starvation", "multiplier": 3.0},
+          {"id": "fear-abandonment", "multiplier": 2.8}
+        ]
+      }
+    },
+    {
+      "id": "cult-survivor",
+      "name": "Cult Survivor",
+      "category": "trauma",
+      "likelihood": 8,
+      "plotHook": {
+        "type": "secret",
+        "id": "cult-escape"
+      },
+      "triggers": {
+        "mannerisms": [
+          {"id": "flinches-at-symbols", "multiplier": 3.0},
+          {"id": "avoids-religion", "multiplier": 3.5},
+          {"id": "looks-over-shoulder", "multiplier": 2.8}
+        ],
+        "personalities": [
+          {"id": "paranoid", "multiplier": 3.0},
+          {"id": "questioning", "multiplier": 2.5},
+          {"id": "traumatized", "multiplier": 3.5}
+        ],
+        "physicalDetails": [
+          {"id": "ritual-scars", "multiplier": 4.0},
+          {"id": "brands", "multiplier": 3.0}
+        ],
+        "fears": [
+          {"id": "fear-indoctrination", "multiplier": 3.5},
+          {"id": "fear-being-found", "multiplier": 4.0}
+        ]
+      }
+    },
+    {
+      "id": "magical-accident",
+      "name": "Magical Accident Victim",
+      "category": "trauma",
+      "likelihood": 10,
+      "plotHook": {
+        "type": "background",
+        "id": "magic-scarred"
+      },
+      "triggers": {
+        "physicalDetails": [
+          {"id": "magical-scars", "multiplier": 4.0},
+          {"id": "unnatural-markings", "multiplier": 3.5},
+          {"id": "changed-eye-color", "multiplier": 2.5}
+        ],
+        "mannerisms": [
+          {"id": "wary-of-magic", "multiplier": 3.5},
+          {"id": "flinches-at-spells", "multiplier": 3.0}
+        ],
+        "personalities": [
+          {"id": "cautious", "multiplier": 2.8},
+          {"id": "fearful", "multiplier": 2.5}
+        ],
+        "fears": [
+          {"id": "fear-magic", "multiplier": 4.0}
+        ]
+      }
+    },
+    {
+      "id": "lost-family-fortune",
+      "name": "Lost Family Fortune",
+      "category": "social",
+      "likelihood": 10,
+      "plotHook": {
+        "type": "goal",
+        "id": "reclaim-fortune"
+      },
+      "triggers": {
+        "mannerisms": [
+          {"id": "counts-coins-obsessively", "multiplier": 3.0},
+          {"id": "haggles-everything", "multiplier": 2.8},
+          {"id": "mentions-past-wealth", "multiplier": 3.5}
+        ],
+        "personalities": [
+          {"id": "bitter", "multiplier": 2.5},
+          {"id": "determined", "multiplier": 3.0},
+          {"id": "nostalgic", "multiplier": 2.8}
+        ],
+        "possessions": [
+          {"id": "last-heirloom", "multiplier": 4.0}
+        ]
+      }
+    }
+  ],
+  "applicationRules": {
+    "maxTemplatesPerNPC": 2,
+    "detailLevelModifier": {
+      "minimal": 0,
+      "standard": 1,
+      "comprehensive": 2
+    },
+    "conflictResolution": "merge_highest_multiplier"
+  }
+}

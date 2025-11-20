@@ -1,0 +1,366 @@
+{
+  "cultures": {
+    "human": {
+      "taldan": {
+        "id": "taldan",
+        "name": "Taldan",
+        "region": "Taldor",
+        "description": "Noble, refined traditionalists from the declining empire",
+        "likelihood": 15,
+        "influences": {
+          "increases": [
+            {"id": "formal-speech", "multiplier": 3.0, "category": "speech"},
+            {"id": "quotes-people", "multiplier": 2.5, "category": "mannerism"},
+            {"id": "name-drops", "multiplier": 2.8, "category": "mannerism"},
+            {"id": "pompous", "multiplier": 2.0, "category": "personality"},
+            {"id": "courtly-manner", "multiplier": 3.5, "category": "mannerism"}
+          ]
+        }
+      },
+      "ulfen": {
+        "id": "ulfen",
+        "name": "Ulfen",
+        "region": "Lands of the Linnorm Kings",
+        "description": "Fierce warriors and direct speakers from the frozen north",
+        "likelihood": 12,
+        "influences": {
+          "increases": [
+            {"id": "loud-voice", "multiplier": 2.5, "category": "speech"},
+            {"id": "aggressive", "multiplier": 2.0, "category": "personality"},
+            {"id": "colorful-curses", "multiplier": 3.0, "category": "speech"},
+            {"id": "battle-scars", "multiplier": 2.5, "category": "physical"}
+          ]
+        }
+      },
+      "keleshite": {
+        "id": "keleshite",
+        "name": "Keleshite",
+        "region": "Qadira/Casmaron",
+        "description": "Eloquent traders and scholars from the eastern deserts",
+        "likelihood": 12,
+        "influences": {
+          "increases": [
+            {"id": "formal-speech", "multiplier": 2.5, "category": "speech"},
+            {"id": "hand-talker", "multiplier": 3.0, "category": "mannerism"},
+            {"id": "gregarious", "multiplier": 2.0, "category": "personality"},
+            {"id": "perfumed", "multiplier": 2.5, "category": "hygiene"}
+          ]
+        }
+      },
+      "chelaxian": {
+        "id": "chelaxian",
+        "name": "Chelaxian",
+        "region": "Cheliax",
+        "description": "Disciplined and often sinister people from the devil-bound empire",
+        "likelihood": 15,
+        "influences": {
+          "increases": [
+            {"id": "formal-speech", "multiplier": 2.8, "category": "speech"},
+            {"id": "stoic", "multiplier": 2.5, "category": "personality"},
+            {"id": "poker-face", "multiplier": 2.0, "category": "mannerism"},
+            {"id": "disciplined", "multiplier": 2.5, "category": "personality"}
+          ]
+        }
+      },
+      "varisian": {
+        "id": "varisian",
+        "name": "Varisian",
+        "region": "Varisia",
+        "description": "Wandering fortune-tellers and free spirits",
+        "likelihood": 10,
+        "influences": {
+          "increases": [
+            {"id": "dramatic-pauses", "multiplier": 3.0, "category": "speech"},
+            {"id": "hand-talker", "multiplier": 2.5, "category": "mannerism"},
+            {"id": "flirtatious", "multiplier": 2.0, "category": "personality"},
+            {"id": "colorful", "multiplier": 3.0, "category": "appearance"}
+          ]
+        }
+      },
+      "shoanti": {
+        "id": "shoanti",
+        "name": "Shoanti",
+        "region": "Varisia",
+        "description": "Proud tribal warriors with strong traditions",
+        "likelihood": 8,
+        "influences": {
+          "increases": [
+            {"id": "taciturn", "multiplier": 2.5, "category": "personality"},
+            {"id": "proud", "multiplier": 3.0, "category": "personality"},
+            {"id": "battle-scars", "multiplier": 2.5, "category": "physical"},
+            {"id": "ritual-scars", "multiplier": 3.5, "category": "physical"}
+          ]
+        }
+      },
+      "mwangi": {
+        "id": "mwangi",
+        "name": "Mwangi",
+        "region": "Mwangi Expanse",
+        "description": "Diverse peoples from the jungle nations",
+        "likelihood": 10,
+        "influences": {
+          "increases": [
+            {"id": "gregarious", "multiplier": 2.0, "category": "personality"},
+            {"id": "sing-song", "multiplier": 2.5, "category": "speech"},
+            {"id": "tribal-tattoos", "multiplier": 3.0, "category": "physical"}
+          ]
+        }
+      },
+      "tian": {
+        "id": "tian",
+        "name": "Tian",
+        "region": "Tian Xia",
+        "description": "Honorable people from the Dragon Empires",
+        "likelihood": 10,
+        "influences": {
+          "increases": [
+            {"id": "formal-speech", "multiplier": 2.5, "category": "speech"},
+            {"id": "stoic", "multiplier": 2.0, "category": "personality"},
+            {"id": "respectful", "multiplier": 3.0, "category": "personality"},
+            {"id": "martial-posture", "multiplier": 2.5, "category": "physical"}
+          ]
+        }
+      }
+    },
+    "elf": {
+      "aiudara": {
+        "id": "aiudara",
+        "name": "Aiudara Elf",
+        "region": "Kyonin",
+        "description": "Traditional elves connected to ancient magic and nature",
+        "likelihood": 20,
+        "influences": {
+          "increases": [
+            {"id": "formal-speech", "multiplier": 2.5, "category": "speech"},
+            {"id": "aloof", "multiplier": 2.5, "category": "personality"},
+            {"id": "patient", "multiplier": 2.0, "category": "personality"}
+          ]
+        }
+      },
+      "ancient": {
+        "id": "ancient",
+        "name": "Ancient Elf",
+        "region": "Varied",
+        "description": "Worldly elves who have seen empires rise and fall",
+        "likelihood": 10,
+        "influences": {
+          "increases": [
+            {"id": "wise", "multiplier": 3.0, "category": "personality"},
+            {"id": "melancholic", "multiplier": 2.5, "category": "personality"},
+            {"id": "quotes-people", "multiplier": 2.5, "category": "mannerism"}
+          ]
+        }
+      },
+      "forlorn": {
+        "id": "forlorn",
+        "name": "Forlorn Elf",
+        "region": "Human lands",
+        "description": "Elves raised among shorter-lived races, often melancholic",
+        "likelihood": 15,
+        "influences": {
+          "increases": [
+            {"id": "melancholic", "multiplier": 3.0, "category": "personality"},
+            {"id": "lonely", "multiplier": 2.5, "category": "personality"},
+            {"id": "sighs", "multiplier": 2.0, "category": "mannerism"}
+          ]
+        }
+      },
+      "spiresworn": {
+        "id": "spiresworn",
+        "name": "Spiresworn Elf",
+        "region": "Jinin",
+        "description": "Elves of the Spire of Nex, magic-focused and studious",
+        "likelihood": 8,
+        "influences": {
+          "increases": [
+            {"id": "scholarly", "multiplier": 3.0, "category": "personality"},
+            {"id": "uses-big-words", "multiplier": 2.5, "category": "speech"},
+            {"id": "corrects-others", "multiplier": 2.0, "category": "mannerism"}
+          ]
+        }
+      },
+      "ekujae": {
+        "id": "ekujae",
+        "name": "Ekujae Elf",
+        "region": "Mwangi Expanse",
+        "description": "Jungle elves, fierce protectors of their territory",
+        "likelihood": 10,
+        "influences": {
+          "increases": [
+            {"id": "suspicious", "multiplier": 2.5, "category": "personality"},
+            {"id": "vigilant", "multiplier": 3.0, "category": "personality"},
+            {"id": "watches-surroundings", "multiplier": 2.5, "category": "mannerism"}
+          ]
+        }
+      }
+    },
+    "dwarf": {
+      "stoneclan": {
+        "id": "stoneclan",
+        "name": "Stoneclan Dwarf",
+        "region": "Five Kings Mountains",
+        "description": "Traditional mountain dwarves, masters of stone and forge",
+        "likelihood": 25,
+        "influences": {
+          "increases": [
+            {"id": "stubborn", "multiplier": 3.0, "category": "personality"},
+            {"id": "taciturn", "multiplier": 2.5, "category": "personality"},
+            {"id": "strokes-beard", "multiplier": 3.0, "category": "mannerism"}
+          ]
+        }
+      },
+      "anvil": {
+        "id": "anvil",
+        "name": "Anvil Dwarf",
+        "region": "Dongun Hold/Alkenstar",
+        "description": "Gunsmithing dwarves from the Mana Wastes",
+        "likelihood": 12,
+        "influences": {
+          "increases": [
+            {"id": "innovative", "multiplier": 2.5, "category": "personality"},
+            {"id": "practical", "multiplier": 2.0, "category": "personality"},
+            {"id": "tinkerer", "multiplier": 3.0, "category": "occupation"}
+          ]
+        }
+      },
+      "ouat": {
+        "id": "ouat",
+        "name": "Ouat Dwarf",
+        "region": "Mwangi Expanse",
+        "description": "Jungle dwarves adapted to tropical climates",
+        "likelihood": 8,
+        "influences": {
+          "increases": [
+            {"id": "practical", "multiplier": 2.5, "category": "personality"},
+            {"id": "adaptable", "multiplier": 2.0, "category": "personality"}
+          ]
+        }
+      }
+    },
+    "gnome": {
+      "feyling": {
+        "id": "feyling",
+        "name": "Feyling Gnome",
+        "region": "Varied",
+        "description": "Gnomes with strong ties to the First World",
+        "likelihood": 20,
+        "influences": {
+          "increases": [
+            {"id": "whimsical", "multiplier": 3.5, "category": "personality"},
+            {"id": "impulsive", "multiplier": 2.5, "category": "personality"},
+            {"id": "dramatic-pauses", "multiplier": 2.0, "category": "speech"}
+          ]
+        }
+      },
+      "bleachling": {
+        "id": "bleachling",
+        "name": "Bleachling",
+        "region": "Varied",
+        "description": "Gnomes who survived the Bleaching, often stoic and subdued",
+        "likelihood": 10,
+        "influences": {
+          "increases": [
+            {"id": "stoic", "multiplier": 3.0, "category": "personality"},
+            {"id": "melancholic", "multiplier": 2.5, "category": "personality"},
+            {"id": "monotone", "multiplier": 2.5, "category": "speech"}
+          ]
+        }
+      },
+      "urban": {
+        "id": "urban",
+        "name": "Urban Gnome",
+        "region": "Major cities",
+        "description": "City-dwelling gnomes, often inventors and tinkerers",
+        "likelihood": 18,
+        "influences": {
+          "increases": [
+            {"id": "tinkerer", "multiplier": 3.0, "category": "occupation"},
+            {"id": "curious", "multiplier": 2.5, "category": "personality"},
+            {"id": "fast-speech", "multiplier": 2.0, "category": "speech"}
+          ]
+        }
+      }
+    },
+    "halfling": {
+      "nomadic": {
+        "id": "nomadic",
+        "name": "Nomadic Halfling",
+        "region": "Roads and caravans",
+        "description": "Traveling halflings, fortune-tellers and wanderers",
+        "likelihood": 18,
+        "influences": {
+          "increases": [
+            {"id": "friendly", "multiplier": 3.0, "category": "personality"},
+            {"id": "adaptable", "multiplier": 2.5, "category": "personality"},
+            {"id": "stories", "multiplier": 2.5, "category": "speech"}
+          ]
+        }
+      },
+      "settled": {
+        "id": "settled",
+        "name": "Settled Halfling",
+        "region": "Villages and towns",
+        "description": "Community-focused halflings who build permanent homes",
+        "likelihood": 20,
+        "influences": {
+          "increases": [
+            {"id": "homebody", "multiplier": 3.0, "category": "personality"},
+            {"id": "hospitable", "multiplier": 3.5, "category": "personality"},
+            {"id": "practical", "multiplier": 2.0, "category": "personality"}
+          ]
+        }
+      }
+    },
+    "orc": {
+      "holdfast": {
+        "id": "holdfast",
+        "name": "Holdfast Orc",
+        "region": "Belkzen",
+        "description": "Settled orcs building permanent communities",
+        "likelihood": 15,
+        "influences": {
+          "increases": [
+            {"id": "protective", "multiplier": 3.0, "category": "personality"},
+            {"id": "determined", "multiplier": 2.5, "category": "personality"},
+            {"id": "practical", "multiplier": 2.0, "category": "personality"}
+          ]
+        }
+      },
+      "raider": {
+        "id": "raider",
+        "name": "Raider Orc",
+        "region": "Belkzen",
+        "description": "Traditional warrior culture orcs",
+        "likelihood": 18,
+        "influences": {
+          "increases": [
+            {"id": "aggressive", "multiplier": 3.0, "category": "personality"},
+            {"id": "proud", "multiplier": 2.5, "category": "personality"},
+            {"id": "battle-scars", "multiplier": 3.5, "category": "physical"}
+          ]
+        }
+      },
+      "civilized": {
+        "id": "civilized",
+        "name": "Civilized Orc",
+        "region": "Mixed communities",
+        "description": "Orcs integrated into multi-ancestry societies",
+        "likelihood": 12,
+        "influences": {
+          "increases": [
+            {"id": "adaptable", "multiplier": 2.5, "category": "personality"},
+            {"id": "diplomatic", "multiplier": 2.0, "category": "personality"}
+          ]
+        }
+      }
+    }
+  },
+  "defaultCulture": {
+    "human": "taldan",
+    "elf": "aiudara",
+    "dwarf": "stoneclan",
+    "gnome": "feyling",
+    "halfling": "nomadic",
+    "orc": "holdfast"
+  }
+}

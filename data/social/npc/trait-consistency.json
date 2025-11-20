@@ -1,0 +1,178 @@
+{
+  "incompatibilities": [
+    {
+      "traits": ["verbose", "taciturn"],
+      "severity": "impossible",
+      "reason": "Cannot be both extremely talkative and extremely quiet",
+      "category": "speech-contradiction"
+    },
+    {
+      "traits": ["smiles-constantly", "scowls"],
+      "severity": "impossible",
+      "reason": "Cannot have both constant smiling and constant frowning",
+      "category": "expression-contradiction"
+    },
+    {
+      "traits": ["gregarious", "reclusive"],
+      "severity": "impossible",
+      "reason": "Cannot be both social butterfly and hermit",
+      "category": "personality-contradiction"
+    },
+    {
+      "traits": ["trusting", "paranoid"],
+      "severity": "impossible",
+      "reason": "Cannot be both trusting and paranoid",
+      "category": "personality-contradiction"
+    },
+    {
+      "traits": ["confident", "insecure"],
+      "severity": "impossible",
+      "reason": "Cannot be both confident and insecure",
+      "category": "personality-contradiction"
+    },
+    {
+      "traits": ["optimistic", "pessimistic"],
+      "severity": "impossible",
+      "reason": "Cannot be both optimistic and pessimistic",
+      "category": "personality-contradiction"
+    },
+    {
+      "traits": ["formal-speech", "crude-speech"],
+      "severity": "impossible",
+      "reason": "Cannot speak both formally and crudely",
+      "category": "speech-contradiction"
+    },
+    {
+      "traits": ["loud-voice", "whispers"],
+      "severity": "impossible",
+      "reason": "Cannot habitually speak both loudly and quietly",
+      "category": "speech-contradiction"
+    },
+    {
+      "traits": ["fast-speech", "slow-speech"],
+      "severity": "impossible",
+      "reason": "Cannot speak both rapidly and slowly",
+      "category": "speech-contradiction"
+    },
+    {
+      "traits": ["monotone", "dramatic-pauses"],
+      "severity": "impossible",
+      "reason": "Cannot be both monotonous and dramatically expressive",
+      "category": "speech-contradiction"
+    }
+  ],
+  "interestingTensions": [
+    {
+      "traits": ["paranoid", "gregarious"],
+      "storyPotential": "high",
+      "description": "Wants connection but fears betrayal - creates internal conflict",
+      "narrativeUse": "Spy, reformed criminal, abuse survivor"
+    },
+    {
+      "traits": ["formal-speech", "slovenly-hygiene"],
+      "storyPotential": "high",
+      "description": "Speaks like nobility but appears disheveled",
+      "narrativeUse": "Fallen noble, eccentric aristocrat, undercover investigator"
+    },
+    {
+      "traits": ["wealthy-possessions", "ragged-clothing"],
+      "storyPotential": "high",
+      "description": "Has valuable items but dresses poorly",
+      "narrativeUse": "Miser, disguised noble, thief with stolen goods"
+    },
+    {
+      "traits": ["kind-personality", "battle-scars"],
+      "storyPotential": "medium",
+      "description": "Gentle soul with violent past",
+      "narrativeUse": "Retired warrior seeking peace, reformed mercenary"
+    },
+    {
+      "traits": ["scholarly", "illiterate"],
+      "storyPotential": "high",
+      "description": "Intellectual mind but cannot read",
+      "narrativeUse": "Self-taught genius, scholar who lost ability, oral tradition keeper"
+    },
+    {
+      "traits": ["nervous-mannerisms", "confident-speech"],
+      "storyPotential": "medium",
+      "description": "Projects confidence despite anxiety",
+      "narrativeUse": "Imposter syndrome, faking it, overcompensating"
+    },
+    {
+      "traits": ["aggressive-personality", "gentle-occupation"],
+      "storyPotential": "high",
+      "description": "Violent nature in peaceful profession",
+      "narrativeUse": "Reformed criminal, anger management, forced retirement"
+    },
+    {
+      "traits": ["cynical", "optimistic-speech"],
+      "storyPotential": "medium",
+      "description": "Acts positive despite pessimistic worldview",
+      "narrativeUse": "Maintaining facade, protecting others, learned behavior"
+    },
+    {
+      "traits": ["wealthy-class", "criminal-occupation"],
+      "storyPotential": "high",
+      "description": "Rich person involved in crime",
+      "narrativeUse": "Thrill-seeker, corrupt noble, fallen from grace"
+    },
+    {
+      "traits": ["poor-health", "soldier-occupation"],
+      "storyPotential": "medium",
+      "description": "Warrior despite physical limitations",
+      "narrativeUse": "Injured veteran, pushing limits, desperate circumstances"
+    }
+  ],
+  "synergies": [
+    {
+      "traits": ["scholarly", "formal-speech", "uses-big-words"],
+      "strength": "strong",
+      "description": "Perfect academic profile - traits reinforce each other"
+    },
+    {
+      "traits": ["gregarious", "smiles-constantly", "loud-voice"],
+      "strength": "strong",
+      "description": "Perfectly sociable extrovert"
+    },
+    {
+      "traits": ["paranoid", "watches-door", "keeps-distance"],
+      "strength": "strong",
+      "description": "Coherent suspicious behavior pattern"
+    },
+    {
+      "traits": ["stoic", "poker-face", "taciturn"],
+      "strength": "strong",
+      "description": "Consistently unexpressive personality"
+    },
+    {
+      "traits": ["aggressive", "loud-voice", "clenches-fists"],
+      "strength": "strong",
+      "description": "Coherent intimidating presence"
+    },
+    {
+      "traits": ["noble-class", "pristine-hygiene", "formal-speech"],
+      "strength": "strong",
+      "description": "Classic aristocratic presentation"
+    },
+    {
+      "traits": ["soldier-occupation", "battle-scars", "vigilant-manner"],
+      "strength": "strong",
+      "description": "Authentic military background"
+    },
+    {
+      "traits": ["merchant-occupation", "gregarious", "persuasive-speech"],
+      "strength": "strong",
+      "description": "Natural trader profile"
+    }
+  ],
+  "checkPriority": {
+    "impossible": 1,
+    "highTension": 2,
+    "synergy": 3
+  },
+  "resolutionStrategies": {
+    "impossible": "remove_conflicting",
+    "highTension": "flag_for_narrative",
+    "synergy": "encourage"
+  }
+}

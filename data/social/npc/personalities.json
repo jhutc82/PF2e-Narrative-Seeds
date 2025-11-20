@@ -9,7 +9,22 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "fast-speech", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "hand-talker", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "interrupts", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "finishes-sentences", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "uses-analogies", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "exaggerates", "multiplier": 2.0, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "taciturn", "multiplier": 0.0, "category": "personality"},
+          {"id": "mumbles", "multiplier": 0.3, "category": "mannerism"},
+          {"id": "whispers", "multiplier": 0.5, "category": "mannerism"}
+        ]
+      }
     },
     {
       "id": "taciturn",
@@ -64,7 +79,26 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "name-drops", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "corrects-others", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "formal-speech", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "uses-big-words", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "checks-reflection", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "stands-too-close", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "interrupts", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "smooths-clothes", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "eyeroll", "multiplier": 2.5, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "humble", "multiplier": 0.0, "category": "personality"},
+          {"id": "whispers", "multiplier": 0.3, "category": "mannerism"},
+          {"id": "avoids-eye-contact", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "wrings-hands", "multiplier": 0.1, "category": "mannerism"}
+        ]
+      }
     },
     {
       "id": "humble",
@@ -86,7 +120,27 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "loud-voice", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "clenches-fists", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "crosses-arms", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "eye-contact", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "scowls", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "jaw-clenches", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "stands-too-close", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "interrupts", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "points", "multiplier": 2.0, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "whispers", "multiplier": 0.1, "category": "mannerism"},
+          {"id": "avoids-eye-contact", "multiplier": 0.1, "category": "mannerism"},
+          {"id": "smiles-constantly", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "wrings-hands", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "timid", "multiplier": 0.0, "category": "personality"}
+        ]
+      }
     },
     {
       "id": "timid",
@@ -97,7 +151,27 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "avoids-eye-contact", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "whispers", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "fidgets", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "wrings-hands", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "keeps-distance", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "laughs-nervously", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "touches-face", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "mumbles", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "trails-off", "multiplier": 2.5, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "eye-contact", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "loud-voice", "multiplier": 0.1, "category": "mannerism"},
+          {"id": "stands-too-close", "multiplier": 0.1, "category": "mannerism"},
+          {"id": "confident", "multiplier": 0.1, "category": "personality"},
+          {"id": "aggressive", "multiplier": 0.0, "category": "personality"}
+        ]
+      }
     },
     {
       "id": "flirtatious",
@@ -108,7 +182,24 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "eye-contact", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "smiles-constantly", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "touches-arm", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "stands-too-close", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "winks", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "twirls-hair", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "leans-forward", "multiplier": 2.5, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "avoids-eye-contact", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "keeps-distance", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "crosses-arms", "multiplier": 0.3, "category": "mannerism"},
+          {"id": "aloof", "multiplier": 0.2, "category": "personality"}
+        ]
+      }
     },
     {
       "id": "scholarly",
@@ -119,7 +210,25 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "formal-speech", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "uses-big-words", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "corrects-others", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "steeples-fingers", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "slow-speech", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "adjusts-clothing", "multiplier": 1.5, "category": "mannerism"},
+          {"id": "strokes-beard", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "uses-analogies", "multiplier": 2.5, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "colorful-curses", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "mumbles", "multiplier": 0.3, "category": "mannerism"},
+          {"id": "inarticulate", "multiplier": 0.1, "category": "personality"},
+          {"id": "simple", "multiplier": 0.1, "category": "personality"}
+        ]
+      }
     },
     {
       "id": "superstitious",
@@ -163,7 +272,24 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "raises-eyebrow", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "squints", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "looks-around", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "watches-door", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "crosses-arms", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "eyeroll", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "scowls", "multiplier": 2.0, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "smiles-constantly", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "optimistic", "multiplier": 0.1, "category": "personality"},
+          {"id": "credulous", "multiplier": 0.0, "category": "personality"},
+          {"id": "trusting", "multiplier": 0.1, "category": "personality"}
+        ]
+      }
     },
     {
       "id": "optimistic",
@@ -174,7 +300,23 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "smiles-constantly", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "cheerful", "multiplier": 2.5, "category": "personality"},
+          {"id": "enthusiastic", "multiplier": 2.0, "category": "personality"},
+          {"id": "hand-talker", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "fast-speech", "multiplier": 1.5, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "scowls", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "frowns", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "cynical", "multiplier": 0.1, "category": "personality"},
+          {"id": "gloomy", "multiplier": 0.0, "category": "personality"},
+          {"id": "pessimistic", "multiplier": 0.1, "category": "personality"}
+        ]
+      }
     },
     {
       "id": "paranoid",
@@ -185,7 +327,26 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "watches-door", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "keeps-distance", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "looks-around", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "avoids-eye-contact", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "whispers", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "fidgets", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "wrings-hands", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "crosses-arms", "multiplier": 2.0, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "stands-too-close", "multiplier": 0.1, "category": "mannerism"},
+          {"id": "eye-contact", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "smiles-constantly", "multiplier": 0.1, "category": "mannerism"},
+          {"id": "optimistic", "multiplier": 0.3, "category": "personality"},
+          {"id": "trusting", "multiplier": 0.0, "category": "personality"}
+        ]
+      }
     },
     {
       "id": "gregarious",
@@ -196,7 +357,26 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "hand-talker", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "touches-arm", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "stands-too-close", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "smiles-constantly", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "loud-voice", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "eye-contact", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "laughs-nervously", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "leans-forward", "multiplier": 2.0, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "keeps-distance", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "avoids-eye-contact", "multiplier": 0.1, "category": "mannerism"},
+          {"id": "whispers", "multiplier": 0.3, "category": "mannerism"},
+          {"id": "aloof", "multiplier": 0.1, "category": "personality"},
+          {"id": "reserved", "multiplier": 0.2, "category": "personality"}
+        ]
+      }
     },
     {
       "id": "aloof",
@@ -218,7 +398,24 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "hand-talker", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "exaggerates", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "dramatic-pauses", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "loud-voice", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "voice-cracks", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "wide-eyes", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "sighs", "multiplier": 2.5, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "understates", "multiplier": 0.0, "category": "mannerism"},
+          {"id": "monotone", "multiplier": 0.1, "category": "mannerism"},
+          {"id": "poker-face", "multiplier": 0.1, "category": "mannerism"},
+          {"id": "stoic", "multiplier": 0.0, "category": "personality"}
+        ]
+      }
     },
     {
       "id": "stoic",
@@ -229,7 +426,23 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "poker-face", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "crosses-arms", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "slow-speech", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "monotone", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "blank-stare", "multiplier": 2.5, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "fidgets", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "hand-talker", "multiplier": 0.3, "category": "mannerism"},
+          {"id": "smiles-constantly", "multiplier": 0.1, "category": "mannerism"},
+          {"id": "melodramatic", "multiplier": 0.0, "category": "personality"},
+          {"id": "passionate", "multiplier": 0.1, "category": "personality"}
+        ]
+      }
     },
     {
       "id": "impulsive",
@@ -284,7 +497,22 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "eye-contact", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "interrupts", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "name-drops", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "leans-forward", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "fast-speech", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "competitive", "multiplier": 2.0, "category": "personality"}
+        ],
+        "decreases": [
+          {"id": "content", "multiplier": 0.0, "category": "personality"},
+          {"id": "easygoing", "multiplier": 0.3, "category": "personality"},
+          {"id": "carefree", "multiplier": 0.2, "category": "personality"}
+        ]
+      }
     },
     {
       "id": "content",
@@ -372,7 +600,22 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "scowls", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "raises-eyebrow", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "corrects-others", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "lip-purse", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "crosses-arms", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "nose-wrinkle", "multiplier": 2.0, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "smiles-constantly", "multiplier": 0.3, "category": "mannerism"},
+          {"id": "accepting", "multiplier": 0.0, "category": "personality"},
+          {"id": "forgiving", "multiplier": 0.2, "category": "personality"}
+        ]
+      }
     },
     {
       "id": "accepting",
@@ -603,7 +846,24 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "smiles-constantly", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "touches-arm", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "eye-contact", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "leans-forward", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "head-tilt", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "nods-constantly", "multiplier": 2.0, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "scowls", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "crosses-arms", "multiplier": 0.3, "category": "mannerism"},
+          {"id": "clenches-fists", "multiplier": 0.1, "category": "mannerism"},
+          {"id": "callous", "multiplier": 0.0, "category": "personality"},
+          {"id": "detached", "multiplier": 0.1, "category": "personality"}
+        ]
+      }
     },
     {
       "id": "callous",
@@ -669,7 +929,25 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "eye-contact", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "loud-voice", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "stands-too-close", "multiplier": 1.5, "category": "mannerism"},
+          {"id": "steeples-fingers", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "hand-talker", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "interrupts", "multiplier": 2.0, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "avoids-eye-contact", "multiplier": 0.1, "category": "mannerism"},
+          {"id": "whispers", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "fidgets", "multiplier": 0.3, "category": "mannerism"},
+          {"id": "wrings-hands", "multiplier": 0.1, "category": "mannerism"},
+          {"id": "insecure", "multiplier": 0.0, "category": "personality"},
+          {"id": "timid", "multiplier": 0.1, "category": "personality"}
+        ]
+      }
     },
     {
       "id": "insecure",
@@ -680,7 +958,26 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "fidgets", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "fast-speech", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "bounces-knee", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "taps-foot", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "avoids-eye-contact", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "wrings-hands", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "touches-face", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "laughs-nervously", "multiplier": 3.0, "category": "mannerism"},
+          {"id": "trails-off", "multiplier": 2.5, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "eye-contact", "multiplier": 0.3, "category": "mannerism"},
+          {"id": "slow-speech", "multiplier": 0.2, "category": "mannerism"},
+          {"id": "confident", "multiplier": 0.0, "category": "personality"},
+          {"id": "assertive", "multiplier": 0.2, "category": "personality"}
+        ]
+      }
     },
     {
       "id": "independent",
@@ -1054,7 +1351,22 @@
       ],
       "ancestries": [
         "all"
-      ]
+      ],
+      "influences": {
+        "increases": [
+          {"id": "asks-questions", "multiplier": 3.5, "category": "mannerism"},
+          {"id": "leans-forward", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "eye-contact", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "head-tilt", "multiplier": 2.5, "category": "mannerism"},
+          {"id": "interrupts", "multiplier": 2.0, "category": "mannerism"},
+          {"id": "wide-eyes", "multiplier": 2.0, "category": "mannerism"}
+        ],
+        "decreases": [
+          {"id": "incurious", "multiplier": 0.0, "category": "personality"},
+          {"id": "apathetic", "multiplier": 0.1, "category": "personality"},
+          {"id": "blank-stare", "multiplier": 0.2, "category": "mannerism"}
+        ]
+      }
     },
     {
       "id": "incurious",
