@@ -1,0 +1,84 @@
+{
+  "chronicConditions": [
+    { "id": "old-injury", "condition": "Old injury that flares up", "location": "Leg, back, or shoulder", "effect": "Occasional pain and limitation", "likelihood": 8 },
+    { "id": "arthritis", "condition": "Arthritis in joints", "affected": "Hands, knees, or spine", "effect": "Stiffness, especially in cold/damp", "likelihood": 7 },
+    { "id": "partial-blindness", "condition": "Partial vision loss", "extent": "One eye or peripheral vision", "adaptation": "Learned to compensate", "likelihood": 4 },
+    { "id": "partial-deafness", "condition": "Hearing loss", "extent": "One ear or partial", "adaptation": "Reads lips, asks for repetition", "likelihood": 5 },
+    { "id": "chronic-cough", "condition": "Persistent cough", "cause": "Lung damage or illness", "triggers": "Dust, smoke, exertion", "likelihood": 6 },
+    { "id": "chronic-pain", "condition": "Constant low-level pain", "source": "Old wound or illness", "management": "Herbal remedies, grit", "likelihood": 6 },
+    { "id": "tremor", "condition": "Hand tremors", "severity": "Mild to moderate", "impact": "Affects fine work", "likelihood": 5 },
+    { "id": "headaches", "condition": "Frequent severe headaches", "triggers": "Stress, weather, light", "relief": "Dark, quiet, rest", "likelihood": 7 },
+    { "id": "digestive-issues", "condition": "Chronic stomach problems", "restrictions": "Can't eat certain foods", "symptoms": "Pain, nausea", "likelihood": 6 },
+    { "id": "insomnia", "condition": "Chronic insomnia", "cause": "Trauma or anxiety", "effect": "Always tired", "likelihood": 7 },
+    { "id": "scarred-lungs", "condition": "Lung scarring", "from": "Smoke inhalation or disease", "effect": "Reduced stamina", "likelihood": 5 },
+    { "id": "weak-heart", "condition": "Heart condition", "symptoms": "Fatigue, breathlessness", "limits": "Can't overexert", "likelihood": 5 },
+    { "id": "skin-condition", "condition": "Chronic skin condition", "type": "Rash, psoriasis, or scarring", "impact": "Cosmetic and discomfort", "likelihood": 6 },
+    { "id": "nerve-damage", "condition": "Nerve damage", "location": "Limb or region", "symptoms": "Numbness, weakness, pain", "likelihood": 4 },
+    { "id": "seizures", "condition": "Occasional seizures", "frequency": "Rare to periodic", "warning": "Sometimes has aura", "likelihood": 3 }
+  ],
+  "disabilities": [
+    { "id": "missing-limb", "disability": "Missing hand/arm/leg", "cause": "Combat, accident, or birth", "adaptation": "Prosthetic or learned compensation", "likelihood": 4 },
+    { "id": "blind", "disability": "Completely blind", "cause": "Birth, disease, or injury", "adaptation": "Other senses heightened", "likelihood": 2 },
+    { "id": "deaf", "disability": "Completely deaf", "communication": "Sign language or lip reading", "adaptation": "Visual awareness", "likelihood": 2 },
+    { "id": "mute", "disability": "Cannot speak", "cause": "Birth defect or trauma", "communication": "Writing, signs, gestures", "likelihood": 2 },
+    { "id": "limp", "disability": "Pronounced limp", "cause": "Poorly healed injury", "aid": "Walking stick or cane", "likelihood": 6 },
+    { "id": "scarred-face", "disability": "Severely scarred face", "cause": "Fire, acid, or violence", "impact": "Social difficulties", "likelihood": 4 },
+    { "id": "hunchback", "disability": "Severe spinal curvature", "cause": "Birth or injury", "impact": "Pain and mobility issues", "likelihood": 3 },
+    { "id": "paralysis", "disability": "Partial paralysis", "extent": "One side or lower body", "mobility": "Chair or crutches", "likelihood": 2 },
+    { "id": "disfigurement", "disability": "Significant disfigurement", "type": "Burns, scars, or deformity", "social": "Often stared at", "likelihood": 3 }
+  ],
+  "fitnessLevels": [
+    { "id": "peak-condition", "fitness": "Peak Physical Condition", "description": "Athletic and strong", "stamina": "Exceptional endurance", "likelihood": 5 },
+    { "id": "very-fit", "fitness": "Very Fit", "description": "Regular exercise and training", "stamina": "High endurance", "likelihood": 6 },
+    { "id": "fit", "fitness": "Fit", "description": "Active lifestyle", "stamina": "Good endurance", "likelihood": 8 },
+    { "id": "average", "fitness": "Average Fitness", "description": "Moderate activity", "stamina": "Typical endurance", "likelihood": 10 },
+    { "id": "below-average", "fitness": "Below Average", "description": "Sedentary lifestyle", "stamina": "Tires easily", "likelihood": 8 },
+    { "id": "poor", "fitness": "Poor Fitness", "description": "Little physical activity", "stamina": "Low endurance", "likelihood": 6 },
+    { "id": "very-poor", "fitness": "Very Poor Fitness", "description": "Ill or extremely sedentary", "stamina": "Minimal endurance", "likelihood": 4 }
+  ],
+  "allergiesAndSensitivities": [
+    { "id": "food-allergy", "allergy": "Food allergy", "specific": "Common food item", "severity": "Mild to severe", "likelihood": 6 },
+    { "id": "pollen", "allergy": "Pollen allergies", "season": "Seasonal suffering", "symptoms": "Sneezing, watery eyes", "likelihood": 7 },
+    { "id": "animal-dander", "allergy": "Animal allergies", "type": "Cats, dogs, horses", "reaction": "Skin or respiratory", "likelihood": 5 },
+    { "id": "dust", "allergy": "Dust sensitivity", "triggers": "Dusty environments", "symptoms": "Coughing, sneezing", "likelihood": 6 },
+    { "id": "alcohol-intolerance", "allergy": "Alcohol intolerance", "reaction": "Gets very ill from drinking", "avoidance": "Doesn't drink", "likelihood": 4 },
+    { "id": "sun-sensitive", "allergy": "Sun sensitivity", "effect": "Burns easily, rashes", "protection": "Stays covered", "likelihood": 4 },
+    { "id": "metal-allergy", "allergy": "Metal sensitivity", "metals": "Certain metals cause rashes", "impact": "Limits jewelry", "likelihood": 3 },
+    { "id": "magical-sensitivity", "allergy": "Sensitive to magic", "reaction": "Headaches or nausea near magic", "rare": "Uncommon trait", "likelihood": 2 }
+  ],
+  "mentalHealthConditions": [
+    { "id": "ptsd", "condition": "Post-Traumatic Stress", "from": "Combat or trauma", "triggers": "Specific reminders", "symptoms": "Flashbacks, anxiety, avoidance", "likelihood": 6 },
+    { "id": "anxiety", "condition": "Chronic Anxiety", "type": "Generalized or specific", "symptoms": "Worry, tension, fear", "management": "Varies", "likelihood": 8 },
+    { "id": "depression", "condition": "Depression", "severity": "Mild to severe", "symptoms": "Low mood, lack of energy", "episodic": "May come in waves", "likelihood": 7 },
+    { "id": "phobia", "condition": "Specific Phobia", "of": "Heights, water, enclosed spaces, etc.", "severity": "Debilitating fear", "avoidance": "Goes to great lengths", "likelihood": 7 },
+    { "id": "paranoia", "condition": "Paranoid Tendencies", "about": "Being watched, poisoned, betrayed", "impact": "Trust issues", "likelihood": 6 },
+    { "id": "obsessive", "condition": "Obsessive Behaviors", "about": "Cleanliness, order, or rituals", "compulsive": "Must perform rituals", "likelihood": 5 },
+    { "id": "mood-swings", "condition": "Extreme Mood Swings", "pattern": "Unpredictable shifts", "impact": "Difficult relationships", "likelihood": 5 },
+    { "id": "nightmares", "condition": "Severe Nightmares", "frequency": "Nightly or frequent", "impact": "Fear of sleep", "likelihood": 6 }
+  ],
+  "addictions": [
+    { "id": "alcohol", "addiction": "Alcohol", "severity": "Functional to severe", "control": "Struggling or in denial", "likelihood": 7 },
+    { "id": "gambling", "addiction": "Gambling", "severity": "Compulsive", "impact": "Financial ruin", "likelihood": 6 },
+    { "id": "drugs", "addiction": "Narcotic substances", "type": "Opiates, stimulants, or hallucinogens", "desperation": "Will do anything for fix", "likelihood": 5 },
+    { "id": "work", "addiction": "Work", "driven": "Can't stop working", "neglect": "Neglects health and relationships", "likelihood": 7 },
+    { "id": "thrill-seeking", "addiction": "Danger/thrills", "behavior": "Takes unnecessary risks", "adrenaline": "Needs the rush", "likelihood": 5 },
+    { "id": "hoarding", "addiction": "Hoarding", "items": "Can't throw anything away", "problem": "Living space cluttered", "likelihood": 4 }
+  ],
+  "currentHealthStatus": [
+    { "id": "healthy", "status": "Currently Healthy", "description": "No immediate health concerns", "maintenance": "Normal care", "likelihood": 8 },
+    { "id": "recovering", "status": "Recovering from Illness", "from": "Recent sickness or injury", "timeline": "Getting better", "likelihood": 6 },
+    { "id": "ill", "status": "Currently Ill", "sickness": "Fighting infection or disease", "severity": "Mild to moderate", "likelihood": 5 },
+    { "id": "injured", "status": "Recently Injured", "injury": "Healing from wound", "mobility": "May be limited", "likelihood": 5 },
+    { "id": "declining", "status": "Health Declining", "age": "Age or disease taking toll", "prognosis": "Concerned about future", "likelihood": 4 },
+    { "id": "pregnancy", "status": "Pregnant", "stage": "Various stages", "impact": "Affects activities", "likelihood": 3 },
+    { "id": "terminal", "status": "Terminally Ill", "knowledge": "May or may not know", "time": "Limited time left", "likelihood": 2 }
+  ],
+  "scarsAndInjuryHistory": [
+    { "id": "many-scars", "history": "Extensive scarring", "from": "Years of combat or hard work", "visible": "Obviously battle-worn", "likelihood": 6 },
+    { "id": "few-scars", "history": "Few notable scars", "from": "Specific memorable incidents", "stories": "Each has a story", "likelihood": 8 },
+    { "id": "hidden-scars", "history": "Hidden scars", "location": "Covered by clothing", "secret": "Doesn't discuss them", "likelihood": 7 },
+    { "id": "no-scars", "history": "Remarkably unscarred", "reason": "Avoided danger or healed magically", "unusual": "For their profession", "likelihood": 5 },
+    { "id": "torture-marks", "history": "Marks of torture", "from": "Imprisonment or interrogation", "trauma": "Deeply traumatic", "likelihood": 3 },
+    { "id": "ritual-scars", "history": "Ritual scarification", "purpose": "Religious or cultural", "pride": "Worn with pride or shame", "likelihood": 4 }
+  ]
+}
