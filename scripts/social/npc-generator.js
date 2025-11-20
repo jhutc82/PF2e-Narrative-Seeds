@@ -56,7 +56,14 @@ export class NPCGenerator {
         dailyLifeData,
         speechPatternsData,
         characterComplexityData,
-        currentSituationData
+        currentSituationData,
+        emotionalTriggersData,
+        secretsInformationData,
+        economicRealityData,
+        sensorySignatureData,
+        healthConditionsData,
+        relationshipDynamicsData,
+        professionalExpertiseData
       ] = await Promise.all([
         DataLoader.loadJSON("data/social/npc/moods.json"),
         DataLoader.loadJSON("data/social/npc/personalities.json"),
@@ -80,7 +87,14 @@ export class NPCGenerator {
         DataLoader.loadJSON("data/social/npc/daily-life.json"),
         DataLoader.loadJSON("data/social/npc/speech-patterns.json"),
         DataLoader.loadJSON("data/social/npc/character-complexity.json"),
-        DataLoader.loadJSON("data/social/npc/current-situation.json")
+        DataLoader.loadJSON("data/social/npc/current-situation.json"),
+        DataLoader.loadJSON("data/social/npc/emotional-triggers.json"),
+        DataLoader.loadJSON("data/social/npc/secrets-information.json"),
+        DataLoader.loadJSON("data/social/npc/economic-reality.json"),
+        DataLoader.loadJSON("data/social/npc/sensory-signature.json"),
+        DataLoader.loadJSON("data/social/npc/health-conditions.json"),
+        DataLoader.loadJSON("data/social/npc/relationship-dynamics.json"),
+        DataLoader.loadJSON("data/social/npc/professional-expertise.json")
       ]);
 
       if (!moodsData || !personalitiesData || !mannerismsData || !motivationsData || !quirksData) {
@@ -163,6 +177,27 @@ export class NPCGenerator {
       // Generate current situation they're dealing with
       const currentSituation = this.generateCurrentSituation(currentSituationData, occupation, plotHooks, psychology, detailLevel);
 
+      // Generate emotional triggers (what sets them off, wins them over)
+      const emotionalTriggers = this.generateEmotionalTriggers(emotionalTriggersData, psychology, personalities, detailLevel);
+
+      // Generate secrets and information layers (progressive disclosure)
+      const secrets = this.generateSecrets(secretsInformationData, occupation, plotHooks, psychology, detailLevel);
+
+      // Generate economic reality (wealth, debts, financial pressures)
+      const economics = this.generateEconomics(economicRealityData, occupation, currentSituation, detailLevel);
+
+      // Generate sensory signature (how they smell, sound, feel)
+      const sensory = this.generateSensory(sensorySignatureData, occupation, physicalDetails, detailLevel);
+
+      // Generate health status (conditions, fitness, mental health)
+      const health = this.generateHealth(healthConditionsData, age, occupation, lifeHistory, detailLevel);
+
+      // Generate relationship dynamics (how they treat different groups)
+      const relationshipDynamics = this.generateRelationshipDynamics(relationshipDynamicsData, psychology, lifeHistory, detailLevel);
+
+      // Generate professional expertise (occupation-specific knowledge)
+      const professionalExpertise = this.generateProfessionalExpertise(professionalExpertiseData, occupation, detailLevel);
+
       // Build NPC seed
       const seed = {
         name,
@@ -186,6 +221,13 @@ export class NPCGenerator {
         speechPatterns,
         complexity,
         currentSituation,
+        emotionalTriggers,
+        secrets,
+        economics,
+        sensory,
+        health,
+        relationshipDynamics,
+        professionalExpertise,
         detailLevel,
         actor: params.actor,
         timestamp: Date.now()
@@ -1200,6 +1242,354 @@ export class NPCGenerator {
       currentMood,
       stakes,
       timeConstraints
+    };
+  }
+
+  /**
+   * Generate emotional triggers (what sets them off, wins them over)
+   * @param {Object} data - Emotional triggers data
+   * @param {Object} psychology - Psychology data (for consistency)
+   * @param {Array} personalities - Personality traits (for consistency)
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Emotional triggers
+   */
+  static generateEmotionalTriggers(data, psychology, personalities, detailLevel) {
+    if (!data) return null;
+
+    // Emotional triggers (1-2)
+    const numTriggers = detailLevel === "cinematic" ? 2 : 1;
+    const emotionalTriggers = this.selectUniqueItems(data.emotionalTriggers, numTriggers);
+
+    // Hot buttons (things that anger them, 1-2)
+    const numHotButtons = detailLevel === "cinematic" ? 2 : 1;
+    const hotButtons = this.selectUniqueItems(data.hotButtons, numHotButtons);
+
+    // Soft spots (things that touch them emotionally, 1)
+    const softSpots = [RandomUtils.selectWeighted(data.softSpots, "likelihood")];
+
+    // Trust builders (how to earn trust, 1-2)
+    const numTrustBuilders = detailLevel === "cinematic" ? 2 : 1;
+    const trustBuilders = this.selectUniqueItems(data.trustBuilders, numTrustBuilders);
+
+    // Dealbreakers (things they can't tolerate, 0-1)
+    const hasDealbreaker = Math.random() < 0.7;
+    const dealbreakers = hasDealbreaker ? [RandomUtils.selectWeighted(data.dealbreakers, "likelihood")] : [];
+
+    // Loyalty conditions (what keeps them loyal, 1)
+    const loyaltyConditions = [RandomUtils.selectWeighted(data.loyaltyConditions, "likelihood")];
+
+    // Persuasion vulnerabilities (how to convince them, 1-2)
+    const numPersuasion = detailLevel === "cinematic" ? 2 : 1;
+    const persuasionVulnerabilities = this.selectUniqueItems(data.persuasionVulnerabilities, numPersuasion);
+
+    return {
+      emotionalTriggers,
+      hotButtons,
+      softSpots,
+      trustBuilders,
+      dealbreakers,
+      loyaltyConditions,
+      persuasionVulnerabilities
+    };
+  }
+
+  /**
+   * Generate secrets and information layers (progressive disclosure)
+   * @param {Object} data - Secrets and information data
+   * @param {Object} occupation - Occupation data (for consistency)
+   * @param {Object} plotHooks - Plot hooks (for consistency)
+   * @param {Object} psychology - Psychology data (for consistency)
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Secrets and information
+   */
+  static generateSecrets(data, occupation, plotHooks, psychology, detailLevel) {
+    if (!data) return null;
+
+    // Surface information (what they'll tell strangers, 2-3)
+    const numSurface = detailLevel === "cinematic" ? 3 : 2;
+    const surfaceInformation = this.selectUniqueItems(data.surfaceInformation, numSurface);
+
+    // Personal information (what they'll tell acquaintances, 2-3)
+    const numPersonal = detailLevel === "cinematic" ? 3 : 2;
+    const personalInformation = this.selectUniqueItems(data.personalInformation, numPersonal);
+
+    // Intimate information (what they'll tell friends, 1-2)
+    const numIntimate = detailLevel === "cinematic" ? 2 : 1;
+    const intimateInformation = this.selectUniqueItems(data.intimateInformation, numIntimate);
+
+    // Deep secrets (what they hide from everyone, 0-1)
+    const hasDeepSecret = Math.random() < 0.6;
+    const deepSecrets = hasDeepSecret ? [RandomUtils.selectWeighted(data.deepSecrets, "likelihood")] : [];
+
+    // Knowledge areas (what they know about, 2-3)
+    const numKnowledge = detailLevel === "cinematic" ? 3 : 2;
+    const knowledgeAreas = this.selectUniqueItems(data.knowledgeAreas, numKnowledge);
+
+    // Hidden agendas (0-1, 40% have one)
+    const hasAgenda = Math.random() < 0.4;
+    const hiddenAgendas = hasAgenda ? [RandomUtils.selectWeighted(data.hiddenAgendas, "likelihood")] : [];
+
+    return {
+      surfaceInformation,
+      personalInformation,
+      intimateInformation,
+      deepSecrets,
+      knowledgeAreas,
+      hiddenAgendas
+    };
+  }
+
+  /**
+   * Generate economic reality (wealth, debts, financial pressures)
+   * @param {Object} data - Economic reality data
+   * @param {Object} occupation - Occupation data (for consistency)
+   * @param {Object} currentSituation - Current situation (for consistency)
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Economic reality
+   */
+  static generateEconomics(data, occupation, currentSituation, detailLevel) {
+    if (!data) return null;
+
+    // Wealth level (always)
+    const wealthLevel = RandomUtils.selectWeighted(data.wealthLevels, "likelihood");
+
+    // Income source (1-2)
+    const numIncome = detailLevel === "cinematic" ? 2 : 1;
+    const incomeSources = this.selectUniqueItems(data.incomeSourceTypes, numIncome);
+
+    // Debt situation (0-1, 50% have debt)
+    const hasDebt = Math.random() < 0.5;
+    const debtSituation = hasDebt ? RandomUtils.selectWeighted(data.debtSituations, "likelihood") : null;
+
+    // Creditor (only if has debt)
+    const creditor = hasDebt ? RandomUtils.selectWeighted(data.creditorTypes, "likelihood") : null;
+
+    // Financial pressures (0-2, 60% have at least one)
+    const hasPressures = Math.random() < 0.6;
+    const numPressures = hasPressures ? (detailLevel === "cinematic" ? 2 : 1) : 0;
+    const financialPressures = numPressures > 0 ? this.selectUniqueItems(data.financialPressures, numPressures) : [];
+
+    // Financial goals (1)
+    const financialGoals = [RandomUtils.selectWeighted(data.financialGoals, "likelihood")];
+
+    // Attitude toward money (always)
+    const attitudeTowardMoney = RandomUtils.selectWeighted(data.attitudeTowardMoney, "likelihood");
+
+    // Hidden assets (0-1, 20% have something hidden)
+    const hasHiddenAssets = Math.random() < 0.2;
+    const hiddenAssets = hasHiddenAssets ? [RandomUtils.selectWeighted(data.hiddenAssets, "likelihood")] : [];
+
+    return {
+      wealthLevel,
+      incomeSources,
+      debtSituation,
+      creditor,
+      financialPressures,
+      financialGoals,
+      attitudeTowardMoney,
+      hiddenAssets
+    };
+  }
+
+  /**
+   * Generate sensory signature (how they smell, sound, feel)
+   * @param {Object} data - Sensory signature data
+   * @param {Object} occupation - Occupation data (for consistency)
+   * @param {Object} physicalDetails - Physical details (for consistency)
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Sensory signature
+   */
+  static generateSensory(data, occupation, physicalDetails, detailLevel) {
+    if (!data) return null;
+
+    // Scent (always)
+    const scent = RandomUtils.selectWeighted(data.scents, "likelihood");
+
+    // Sounds (1-2)
+    const numSounds = detailLevel === "cinematic" ? 2 : 1;
+    const sounds = this.selectUniqueItems(data.sounds, numSounds);
+
+    // Texture (always)
+    const texture = RandomUtils.selectWeighted(data.textures, "likelihood");
+
+    // Temperature (always)
+    const temperature = RandomUtils.selectWeighted(data.temperatures, "likelihood");
+
+    // Aura (always)
+    const aura = RandomUtils.selectWeighted(data.auras, "likelihood");
+
+    // Visual signature (1-2)
+    const numVisual = detailLevel === "cinematic" ? 2 : 1;
+    const visualSignature = this.selectUniqueItems(data.visualSignature, numVisual);
+
+    return {
+      scent,
+      sounds,
+      texture,
+      temperature,
+      aura,
+      visualSignature
+    };
+  }
+
+  /**
+   * Generate health status (conditions, fitness, mental health)
+   * @param {Object} data - Health conditions data
+   * @param {number} age - Age of NPC
+   * @param {Object} occupation - Occupation data (for consistency)
+   * @param {Object} lifeHistory - Life history (for consistency)
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Health status
+   */
+  static generateHealth(data, age, occupation, lifeHistory, detailLevel) {
+    if (!data) return null;
+
+    // Chronic conditions (0-1, increases with age)
+    const chronicChance = age < 30 ? 0.2 : age < 50 ? 0.4 : 0.6;
+    const hasChronic = Math.random() < chronicChance;
+    const chronicConditions = hasChronic ? [RandomUtils.selectWeighted(data.chronicConditions, "likelihood")] : [];
+
+    // Disabilities (0-1, rare but possible)
+    const hasDisability = Math.random() < 0.15;
+    const disabilities = hasDisability ? [RandomUtils.selectWeighted(data.disabilities, "likelihood")] : [];
+
+    // Fitness level (always)
+    const fitnessLevel = RandomUtils.selectWeighted(data.fitnessLevels, "likelihood");
+
+    // Allergies and sensitivities (0-2, 40% have at least one)
+    const hasAllergies = Math.random() < 0.4;
+    const numAllergies = hasAllergies ? (detailLevel === "cinematic" ? 2 : 1) : 0;
+    const allergiesAndSensitivities = numAllergies > 0 ? this.selectUniqueItems(data.allergiesAndSensitivities, numAllergies) : [];
+
+    // Mental health (0-1, 50% have something)
+    const hasMentalHealth = Math.random() < 0.5;
+    const mentalHealthConditions = hasMentalHealth ? [RandomUtils.selectWeighted(data.mentalHealthConditions, "likelihood")] : [];
+
+    // Addictions (0-1, 30% have one)
+    const hasAddiction = Math.random() < 0.3;
+    const addictions = hasAddiction ? [RandomUtils.selectWeighted(data.addictions, "likelihood")] : [];
+
+    // Current health status (always)
+    const currentHealthStatus = RandomUtils.selectWeighted(data.currentHealthStatus, "likelihood");
+
+    // Scars and injury history (always at least one type)
+    const scarsAndInjuryHistory = RandomUtils.selectWeighted(data.scarsAndInjuryHistory, "likelihood");
+
+    return {
+      chronicConditions,
+      disabilities,
+      fitnessLevel,
+      allergiesAndSensitivities,
+      mentalHealthConditions,
+      addictions,
+      currentHealthStatus,
+      scarsAndInjuryHistory
+    };
+  }
+
+  /**
+   * Generate relationship dynamics (how they treat different groups)
+   * @param {Object} data - Relationship dynamics data
+   * @param {Object} psychology - Psychology data (for consistency)
+   * @param {Object} lifeHistory - Life history (for consistency)
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Relationship dynamics
+   */
+  static generateRelationshipDynamics(data, psychology, lifeHistory, detailLevel) {
+    if (!data) return null;
+
+    // Treatment of different groups (always)
+    const treatmentOfNobles = RandomUtils.selectWeighted(data.treatmentOfNobles, "likelihood");
+    const treatmentOfCommoners = RandomUtils.selectWeighted(data.treatmentOfCommoners, "likelihood");
+    const treatmentOfChildren = RandomUtils.selectWeighted(data.treatmentOfChildren, "likelihood");
+    const treatmentOfElderly = RandomUtils.selectWeighted(data.treatmentOfElderly, "likelihood");
+    const treatmentOfForeigners = RandomUtils.selectWeighted(data.treatmentOfForeigners, "likelihood");
+    const treatmentOfAuthority = RandomUtils.selectWeighted(data.treatmentOfAuthority, "likelihood");
+    const treatmentOfCriminals = RandomUtils.selectWeighted(data.treatmentOfCriminals, "likelihood");
+    const treatmentOfReligious = RandomUtils.selectWeighted(data.treatmentOfReligious, "likelihood");
+    const treatmentOfWealthy = RandomUtils.selectWeighted(data.treatmentOfWealthy, "likelihood");
+    const treatmentOfPoor = RandomUtils.selectWeighted(data.treatmentOfPoor, "likelihood");
+
+    // Social masks (always)
+    const socialMask = RandomUtils.selectWeighted(data.socialMasks, "likelihood");
+
+    // Genuine with (always)
+    const genuineWith = RandomUtils.selectWeighted(data.genuineWith, "likelihood");
+
+    // Conflict style (always)
+    const conflictStyle = RandomUtils.selectWeighted(data.conflictStyle, "likelihood");
+
+    // Boundaries with strangers (always)
+    const boundariesWithStrangers = RandomUtils.selectWeighted(data.boundariesWithStrangers, "likelihood");
+
+    return {
+      treatmentOfNobles,
+      treatmentOfCommoners,
+      treatmentOfChildren,
+      treatmentOfElderly,
+      treatmentOfForeigners,
+      treatmentOfAuthority,
+      treatmentOfCriminals,
+      treatmentOfReligious,
+      treatmentOfWealthy,
+      treatmentOfPoor,
+      socialMask,
+      genuineWith,
+      conflictStyle,
+      boundariesWithStrangers
+    };
+  }
+
+  /**
+   * Generate professional expertise (occupation-specific knowledge)
+   * @param {Object} data - Professional expertise data
+   * @param {Object} occupation - Occupation data (for consistency)
+   * @param {string} detailLevel - Level of detail
+   * @returns {Object} Professional expertise
+   */
+  static generateProfessionalExpertise(data, occupation, detailLevel) {
+    if (!data) return null;
+
+    // Get occupation-specific expertise
+    const occupationKey = occupation.name.toLowerCase().replace(/\s+/g, "-");
+    const expertise = data.expertiseByOccupation[occupationKey] || data.expertiseByOccupation["merchant"];
+
+    // Knowledge areas (2-4 from their occupation)
+    const numKnowledge = detailLevel === "cinematic" ? 4 : 2;
+    const knowledge = this.selectUniqueItems(expertise.knowledge, Math.min(numKnowledge, expertise.knowledge.length));
+
+    // Skills (2-3 from their occupation)
+    const numSkills = detailLevel === "cinematic" ? 3 : 2;
+    const skills = this.selectUniqueItems(expertise.skills, Math.min(numSkills, expertise.skills.length));
+
+    // Contacts (1-3 from their occupation)
+    const numContacts = detailLevel === "cinematic" ? 3 : 1;
+    const contacts = this.selectUniqueItems(expertise.contacts, Math.min(numContacts, expertise.contacts.length));
+
+    // Secrets (0-1 from their occupation, 50% chance)
+    const hasSecret = Math.random() < 0.5;
+    const secrets = hasSecret && expertise.secrets ? [expertise.secrets[Math.floor(Math.random() * expertise.secrets.length)]] : [];
+
+    // Teachable skills (1-2)
+    const numTeachable = detailLevel === "cinematic" ? 2 : 1;
+    const teachableSkills = this.selectUniqueItems(data.teachableSkills, numTeachable);
+
+    // Professional opinions (1-2)
+    const numOpinions = detailLevel === "cinematic" ? 2 : 1;
+    const professionalOpinions = this.selectUniqueItems(data.professionalOpinions, numOpinions);
+
+    // Insider knowledge (0-1, 60% have something)
+    const hasInsider = Math.random() < 0.6;
+    const insiderKnowledge = hasInsider ? [RandomUtils.selectWeighted(data.insiderKnowledge, "likelihood")] : [];
+
+    return {
+      knowledge,
+      skills,
+      contacts,
+      secrets,
+      teachableSkills,
+      professionalOpinions,
+      insiderKnowledge
     };
   }
 }

@@ -1,0 +1,100 @@
+{
+  "expertiseByOccupation": {
+    "blacksmith": {
+      "knowledge": ["Metal properties", "Forging techniques", "Weapon balance", "Armor construction", "Tool maintenance"],
+      "skills": ["Identify metal quality", "Estimate repair costs", "Craft custom items", "Temper blades"],
+      "contacts": ["Miners", "Weapon dealers", "Armor merchants", "Other smiths"],
+      "secrets": ["Knows who buys weapons in bulk", "Can identify weaponsmith by their work", "Understands military demand"]
+    },
+    "merchant": {
+      "knowledge": ["Trade routes", "Market prices", "Supply and demand", "Import/export laws", "Currency exchange"],
+      "skills": ["Negotiate prices", "Spot counterfeits", "Assess value", "Network contacts"],
+      "contacts": ["Caravan masters", "Port authorities", "Other merchants", "Nobles"],
+      "secrets": ["Knows smuggling routes", "Understands economic manipulation", "Tracks who's buying what"]
+    },
+    "farmer": {
+      "knowledge": ["Crop cycles", "Weather patterns", "Soil quality", "Animal husbandry", "Pest control"],
+      "skills": ["Predict harvests", "Judge land value", "Treat animal illness", "Preserve food"],
+      "contacts": ["Other farmers", "Mill owners", "Market traders", "Landowners"],
+      "secrets": ["Knows food supply situation", "Can predict famine", "Understands rural politics"]
+    },
+    "priest": {
+      "knowledge": ["Religious doctrine", "Sacred rituals", "Theological debates", "Church politics", "Divine lore"],
+      "skills": ["Perform ceremonies", "Counsel troubled", "Identify heresies", "Interpret omens"],
+      "contacts": ["Other clergy", "Faithful nobles", "Temple hierarchy", "Religious scholars"],
+      "secrets": ["Knows confessed sins", "Understands church corruption", "Tracks spiritual movements"]
+    },
+    "soldier": {
+      "knowledge": ["Military tactics", "Weapon techniques", "Fortification design", "Unit movements", "Chain of command"],
+      "skills": ["Assess defenses", "Train recruits", "Identify military units", "Execute orders"],
+      "contacts": ["Other veterans", "Military officers", "Arms dealers", "Mercenaries"],
+      "secrets": ["Knows troop movements", "Understands military weaknesses", "Can identify deserters"]
+    },
+    "thief": {
+      "knowledge": ["Lock mechanisms", "Security systems", "Fence networks", "Guard routines", "Escape routes"],
+      "skills": ["Pick locks", "Spot marks", "Fence stolen goods", "Evade pursuit"],
+      "contacts": ["Fence", "Other thieves", "Corrupt guards", "Black market"],
+      "secrets": ["Knows who steals what", "Understands criminal hierarchies", "Tracks valuable targets"]
+    },
+    "scholar": {
+      "knowledge": ["Academic subjects", "Research methods", "Ancient languages", "Library locations", "Historical events"],
+      "skills": ["Research topics", "Translate texts", "Verify facts", "Teach students"],
+      "contacts": ["Other scholars", "Librarians", "Nobles", "Collectors"],
+      "secrets": ["Knows forbidden knowledge", "Understands dangerous texts", "Tracks rare books"]
+    },
+    "innkeeper": {
+      "knowledge": ["Local gossip", "Travel routes", "Guest behaviors", "Food preparation", "Drink quality"],
+      "skills": ["Remember faces", "Diffuse conflicts", "Spot trouble", "Manage staff"],
+      "contacts": ["Travelers", "Locals", "Merchants", "Everyone who passes through"],
+      "secrets": ["Knows who meets whom", "Overhears conversations", "Tracks suspicious activity"]
+    },
+    "healer": {
+      "knowledge": ["Anatomy", "Diseases", "Herbal remedies", "Poisons", "Surgical techniques"],
+      "skills": ["Diagnose illness", "Treat wounds", "Prepare medicine", "Identify poisons"],
+      "contacts": ["Patients", "Herbalists", "Other healers", "Midwives"],
+      "secrets": ["Knows who's sick", "Understands plague patterns", "Can identify cause of death"]
+    },
+    "hunter": {
+      "knowledge": ["Animal behavior", "Wilderness survival", "Tracking", "Trap construction", "Territory boundaries"],
+      "skills": ["Track prey", "Set traps", "Navigate wilderness", "Preserve meat"],
+      "contacts": ["Other hunters", "Furriers", "Rangers", "Wilderness guides"],
+      "secrets": ["Knows monster locations", "Understands migration patterns", "Tracks human movement in wilds"]
+    },
+    "noble": {
+      "knowledge": ["Court etiquette", "Genealogy", "Political alliances", "Land law", "Heraldry"],
+      "skills": ["Navigate politics", "Host events", "Command servants", "Manage estates"],
+      "contacts": ["Other nobles", "Courtiers", "Advisors", "Royal connections"],
+      "secrets": ["Knows court scandals", "Understands power structures", "Tracks marriage alliances"]
+    },
+    "sailor": {
+      "knowledge": ["Navigation", "Ship handling", "Weather reading", "Port cities", "Maritime law"],
+      "skills": ["Read stars", "Predict storms", "Tie complex knots", "Swim well"],
+      "contacts": ["Other sailors", "Port masters", "Merchants", "Pirates"],
+      "secrets": ["Knows smuggling operations", "Understands sea routes", "Tracks ship movements"]
+    }
+  },
+  "teachableSkills": {
+    "craft": ["Can teach their craft to apprentices", "Knows techniques worth learning", "Has mastered difficult skills"],
+    "combat": ["Can train in weapons", "Knows fighting techniques", "Experienced in actual combat"],
+    "magic": ["Can teach basic spells", "Understands magical theory", "Knows arcane traditions"],
+    "social": ["Can teach etiquette", "Knows how to network", "Understands social manipulation"],
+    "survival": ["Can teach wilderness skills", "Knows how to track", "Understands nature"],
+    "knowledge": ["Can tutor in subjects", "Knows research methods", "Has extensive education"]
+  },
+  "professionalOpinions": {
+    "economic": ["Has views on trade policies", "Understands market impacts", "Knows who profits from what"],
+    "political": ["Opinions on local governance", "Views on nobility", "Thoughts on laws affecting their trade"],
+    "social": ["Views on class structure", "Opinions on guilds", "Thoughts on apprenticeship systems"],
+    "technical": ["Opinions on craftsmanship quality", "Views on modern techniques", "Thoughts on traditional methods"]
+  },
+  "insiderKnowledge": {
+    "priceFluctuations": "Knows why prices change before public does",
+    "supplyIssues": "Aware of shortages before they hit market",
+    "qualityProblems": "Knows which goods are shoddy",
+    "reputations": "Understands professional reputations in their field",
+    "opportunities": "Knows when opportunities arise in their trade",
+    "threats": "Aware of threats to their profession",
+    "innovations": "Knows about new techniques or tools",
+    "corruption": "Understands where corruption exists in their field"
+  }
+}
