@@ -1964,4 +1964,358 @@ export class NPCGenerator {
 
     return rewards[wealth] || "Appropriate reward for the task";
   }
+
+  /**
+   * Generate a variant of an existing NPC (family member, younger/older version, etc.)
+   * @param {Object} baseNPC - The base NPC to create a variant from
+   * @param {string} variantType - Type of variant: "family", "younger", "older", "corrupted", "redeemed"
+   * @param {Object} params - Additional parameters
+   * @returns {Object} Variant NPC seed
+   */
+  static async generateVariant(baseNPC, variantType = "family", params = {}) {
+    if (!baseNPC) return null;
+
+    const detailLevel = params.detailLevel || baseNPC.detailLevel || "standard";
+
+    switch(variantType) {
+      case "family":
+        return await this.generateFamilyMember(baseNPC, params);
+      case "younger":
+        return await this.generateYoungerVersion(baseNPC, params);
+      case "older":
+        return await this.generateOlderVersion(baseNPC, params);
+      case "corrupted":
+        return await this.generateCorruptedVersion(baseNPC, params);
+      case "redeemed":
+        return await this.generateRedeemedVersion(baseNPC, params);
+      default:
+        return await this.generateFamilyMember(baseNPC, params);
+    }
+  }
+
+  /**
+   * Generate a family member variant
+   */
+  static async generateFamilyMember(baseNPC, params = {}) {
+    const relationship = params.relationship || this.selectRandom(["sibling", "parent", "child", "cousin"]);
+
+    // Generate new NPC with some inherited traits
+    const newNPC = await this.generate({
+      ...params,
+      ancestry: baseNPC.ancestry, // Same ancestry
+      detailLevel: baseNPC.detailLevel
+    });
+
+    if (!newNPC) return null;
+
+    // Add family resemblance notes
+    newNPC.familyConnection = {
+      relativeTo: baseNPC.name,
+      relationship: relationship,
+      sharedTraits: this.identifySharedTraits(baseNPC, newNPC),
+      familyDynamic: this.generateFamilyDynamic(relationship)
+    };
+
+    return newNPC;
+  }
+
+  /**
+   * Generate younger version (10-20 years ago)
+   */
+  static async generateYoungerVersion(baseNPC, params = {}) {
+    const newNPC = await this.generate({
+      ...params,
+      ancestry: baseNPC.ancestry,
+      detailLevel: baseNPC.detailLevel
+    });
+
+    if (!newNPC) return null;
+
+    newNPC.variantNote = {
+      type: "younger",
+      description: `This is ${baseNPC.name} from 10-20 years ago`,
+      differences: [
+        "More idealistic and naive",
+        "Less scarred and weathered",
+        "Different occupation (earlier in career)",
+        "Fewer regrets and burdens"
+      ]
+    };
+
+    return newNPC;
+  }
+
+  /**
+   * Generate older version (10-20 years in future)
+   */
+  static async generateOlderVersion(baseNPC, params = {}) {
+    const newNPC = await this.generate({
+      ...params,
+      ancestry: baseNPC.ancestry,
+      detailLevel: baseNPC.detailLevel
+    });
+
+    if (!newNPC) return null;
+
+    newNPC.variantNote = {
+      type: "older",
+      description: `This is ${baseNPC.name} 10-20 years in the future`,
+      differences: [
+        "More cynical or wise",
+        "More scars and health issues",
+        "Advanced in career or retired",
+        "Consequences of past choices visible"
+      ]
+    };
+
+    return newNPC;
+  }
+
+  /**
+   * Generate corrupted version (fell to darkness)
+   */
+  static async generateCorruptedVersion(baseNPC, params = {}) {
+    const newNPC = await this.generate({
+      ...params,
+      ancestry: baseNPC.ancestry,
+      detailLevel: baseNPC.detailLevel
+    });
+
+    if (!newNPC) return null;
+
+    newNPC.variantNote = {
+      type: "corrupted",
+      description: `This is ${baseNPC.name} after falling to darkness`,
+      corruption: "Their original virtues twisted into vices",
+      differences: [
+        "Original personality traits inverted",
+        "Former allies now enemies",
+        "Motivated by revenge or power",
+        "Willing to cross moral lines they once respected"
+      ]
+    };
+
+    return newNPC;
+  }
+
+  /**
+   * Generate redeemed version (seeking redemption)
+   */
+  static async generateRedeemedVersion(baseNPC, params = {}) {
+    const newNPC = await this.generate({
+      ...params,
+      ancestry: baseNPC.ancestry,
+      detailLevel: baseNPC.detailLevel
+    });
+
+    if (!newNPC) return null;
+
+    newNPC.variantNote = {
+      type: "redeemed",
+      description: `This is ${baseNPC.name} seeking redemption`,
+      redemption: "Trying to make amends for past wrongs",
+      differences: [
+        "Haunted by past actions",
+        "Genuinely trying to change",
+        "May not be fully trusted yet",
+        "Willing to sacrifice for others"
+      ]
+    };
+
+    return newNPC;
+  }
+
+  static identifySharedTraits(npc1, npc2) {
+    const shared = [];
+
+    if (npc1.ancestry?.name === npc2.ancestry?.name) {
+      shared.push(`Both ${npc1.ancestry.name}`);
+    }
+
+    // Check for personality overlaps
+    const personalities1 = npc1.personalities?.map(p => p.trait) || [];
+    const personalities2 = npc2.personalities?.map(p => p.trait) || [];
+    const sharedPersonalities = personalities1.filter(p => personalities2.includes(p));
+
+    if (sharedPersonalities.length > 0) {
+      shared.push(`Shared personality: ${sharedPersonalities.join(", ")}`);
+    }
+
+    return shared.length > 0 ? shared : ["Family resemblance in appearance"];
+  }
+
+  static generateFamilyDynamic(relationship) {
+    const dynamics = {
+      "sibling": ["Competitive", "Supportive", "Estranged", "Close friends", "Rival", "Protective"],
+      "parent": ["Loving", "Strict", "Distant", "Proud", "Disappointed", "Controlling"],
+      "child": ["Rebellious", "Dutiful", "Independent", "Struggling", "Successful", "Disappointed"],
+      "cousin": ["Friendly", "Barely know each other", "Like siblings", "Competitive", "Business partners"]
+    };
+
+    const options = dynamics[relationship] || ["Complex relationship"];
+    return this.selectRandom(options);
+  }
+
+  /**
+   * Generate a rival NPC (opposing goals, similar capabilities)
+   * @param {Object} baseNPC - The NPC to create a rival for
+   * @param {Object} params - Additional parameters
+   * @returns {Object} Rival NPC seed
+   */
+  static async generateRival(baseNPC, params = {}) {
+    if (!baseNPC) return null;
+
+    const rivalNPC = await this.generate({
+      ...params,
+      detailLevel: baseNPC.detailLevel
+    });
+
+    if (!rivalNPC) return null;
+
+    rivalNPC.relationshipToBase = {
+      type: "Rival",
+      target: baseNPC.name,
+      nature: this.selectRandom([
+        "Professional competition",
+        "Romantic rivalry",
+        "Ideological opposition",
+        "Resource competition",
+        "Personal grudge",
+        "Political opposition"
+      ]),
+      history: this.selectRandom([
+        "Long-standing rivalry",
+        "Recent conflict",
+        "Betrayal in the past",
+        "Competing for same goal",
+        "Philosophical differences"
+      ]),
+      currentStatus: this.selectRandom([
+        "Active competition",
+        "Cold war",
+        "Occasional clashes",
+        "Intensifying conflict",
+        "Stalemate"
+      ]),
+      strength: "Roughly equal in capabilities to create interesting conflict"
+    };
+
+    return rivalNPC;
+  }
+
+  /**
+   * Generate an ally NPC (compatible goals, complementary skills)
+   * @param {Object} baseNPC - The NPC to create an ally for
+   * @param {Object} params - Additional parameters
+   * @returns {Object} Ally NPC seed
+   */
+  static async generateAlly(baseNPC, params = {}) {
+    if (!baseNPC) return null;
+
+    const allyNPC = await this.generate({
+      ...params,
+      detailLevel: baseNPC.detailLevel
+    });
+
+    if (!allyNPC) return null;
+
+    allyNPC.relationshipToBase = {
+      type: "Ally",
+      target: baseNPC.name,
+      nature: this.selectRandom([
+        "Longtime friends",
+        "Business partners",
+        "Shared cause",
+        "Mutual benefit arrangement",
+        "Former enemies turned allies",
+        "Saved each other's lives"
+      ]),
+      strengths: this.selectRandom([
+        "Complements base NPC's skills",
+        "Provides resources base NPC lacks",
+        "Has connections base NPC needs",
+        "Offers different perspective",
+        "Covers base NPC's weaknesses"
+      ]),
+      trustLevel: this.selectRandom([
+        "Absolute trust",
+        "High trust with some boundaries",
+        "Professional trust",
+        "Conditional trust",
+        "Growing trust"
+      ]),
+      reliability: this.selectRandom([
+        "Always reliable",
+        "Reliable in crisis",
+        "Usually reliable",
+        "Reliable but has own priorities",
+        "Reliable unless conflicted"
+      ])
+    };
+
+    return allyNPC;
+  }
+
+  /**
+   * Generate an enemy NPC (active opposition, history of conflict)
+   * @param {Object} baseNPC - The NPC to create an enemy for
+   * @param {Object} params - Additional parameters
+   * @returns {Object} Enemy NPC seed
+   */
+  static async generateEnemy(baseNPC, params = {}) {
+    if (!baseNPC) return null;
+
+    const enemyNPC = await this.generate({
+      ...params,
+      detailLevel: baseNPC.detailLevel
+    });
+
+    if (!enemyNPC) return null;
+
+    enemyNPC.relationshipToBase = {
+      type: "Enemy",
+      target: baseNPC.name,
+      origin: this.selectRandom([
+        "Base NPC wronged them",
+        "They wronged base NPC",
+        "Mutual betrayal",
+        "Ideological hatred",
+        "Competing for something important",
+        "Collateral damage escalated",
+        "Family feud",
+        "Professional destruction"
+      ]),
+      intensity: this.selectRandom([
+        "Burning hatred",
+        "Cold professional enmity",
+        "Obsessive vendetta",
+        "Bitter resentment",
+        "Calculated opposition"
+      ]),
+      activelyHostile: this.selectRandom([
+        "Actively seeking to destroy base NPC",
+        "Will sabotage when opportunity arises",
+        "Waiting for the right moment",
+        "Using proxies and indirect methods",
+        "Open warfare"
+      ]),
+      dangerLevel: this.selectRandom([
+        "Dangerous - has means and motive",
+        "Very dangerous - well-positioned to strike",
+        "Extremely dangerous - obsessed and capable",
+        "Moderate threat - limited resources",
+        "Unpredictable threat"
+      ])
+    };
+
+    return enemyNPC;
+  }
+
+  /**
+   * Helper method to select random item from array
+   */
+  static selectRandom(array) {
+    if (!array || array.length === 0) return null;
+    return array[Math.floor(Math.random() * array.length)];
+  }
 }
