@@ -1,0 +1,500 @@
+<div class="npc-manager-container">
+  <!-- Header -->
+  <header class="npc-manager-header">
+    <nav class="tabs" data-group="primary-tabs">
+      <a class="item {{#if (eq currentView 'list')}}active{{/if}}" data-view="list">
+        <i class="fas fa-list"></i> NPC List
+      </a>
+      <a class="item {{#if (eq currentView 'generate')}}active{{/if}}" data-view="generate">
+        <i class="fas fa-magic"></i> Generate New
+      </a>
+    </nav>
+
+    <div class="stats-bar">
+      <span class="stat-item">
+        <i class="fas fa-users"></i> {{stats.totalNPCs}} NPCs
+      </span>
+      <span class="stat-item">
+        <i class="fas fa-home"></i> {{stats.totalFamilies}} Families
+      </span>
+      <span class="stat-item">
+        <i class="fas fa-shield-alt"></i> {{stats.totalFactions}} Factions
+      </span>
+    </div>
+  </header>
+
+  <!-- Content -->
+  <section class="content">
+
+    {{#if (eq currentView 'list')}}
+      {{> npcListView}}
+    {{/if}}
+
+    {{#if (eq currentView 'generate')}}
+      {{> generateView}}
+    {{/if}}
+
+    {{#if (eq currentView 'detail')}}
+      {{> detailView}}
+    {{/if}}
+
+  </section>
+</div>
+
+<!-- ========================================================================== -->
+<!-- PARTIAL: NPC List View -->
+<!-- ========================================================================== -->
+{{#*inline "npcListView"}}
+<div class="npc-list-view">
+  <!-- Controls -->
+  <div class="list-controls">
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input
+        type="text"
+        class="search-input"
+        placeholder="Search by name or occupation..."
+        value="{{searchQuery}}"
+      />
+    </div>
+
+    <div class="filters">
+      <select class="filter-ancestry">
+        <option value="all">All Ancestries</option>
+        {{#each ancestries}}
+          <option value="{{this}}" {{#if (eq this ../filterAncestry)}}selected{{/if}}>
+            {{capitalize this}}
+          </option>
+        {{/each}}
+      </select>
+
+      <select class="sort-by">
+        <option value="name-asc" {{#if (and (eq sortBy 'name') (eq sortOrder 'asc'))}}selected{{/if}}>
+          Name (A-Z)
+        </option>
+        <option value="name-desc" {{#if (and (eq sortBy 'name') (eq sortOrder 'desc'))}}selected{{/if}}>
+          Name (Z-A)
+        </option>
+        <option value="ancestry-asc" {{#if (and (eq sortBy 'ancestry') (eq sortOrder 'asc'))}}selected{{/if}}>
+          Ancestry (A-Z)
+        </option>
+        <option value="date-desc" {{#if (and (eq sortBy 'date') (eq sortOrder 'desc'))}}selected{{/if}}>
+          Recently Added
+        </option>
+        <option value="date-asc" {{#if (and (eq sortBy 'date') (eq sortOrder 'asc'))}}selected{{/if}}>
+          Oldest First
+        </option>
+      </select>
+    </div>
+
+    <div class="actions">
+      <button class="export-all" title="Export All Data">
+        <i class="fas fa-file-export"></i>
+      </button>
+      <button class="import-data" title="Import Data">
+        <i class="fas fa-file-import"></i>
+      </button>
+      <button class="clear-all" title="Clear All Data">
+        <i class="fas fa-trash"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- NPC List -->
+  <div class="npc-list">
+    {{#if npcs}}
+      {{#each npcs}}
+        <div class="npc-item" data-npc-id="{{this.id}}">
+          <div class="npc-item-main">
+            <div class="npc-avatar">
+              {{#if this.appearance.distinguishingFeatures.[0]}}
+                <i class="fas fa-user-circle"></i>
+              {{else}}
+                <i class="fas fa-user"></i>
+              {{/if}}
+            </div>
+
+            <div class="npc-info">
+              <h3 class="npc-name">{{this.name}}</h3>
+              <p class="npc-details">
+                <span class="ancestry">{{capitalize this.ancestry}}</span>
+                {{#if this.occupation.profession.name}}
+                  <span class="separator">•</span>
+                  <span class="occupation">{{this.occupation.profession.name}}</span>
+                {{/if}}
+              </p>
+              {{#if this.tags}}
+                <div class="npc-tags">
+                  {{#each this.tags}}
+                    <span class="tag">{{this}}</span>
+                  {{/each}}
+                </div>
+              {{/if}}
+            </div>
+          </div>
+
+          <div class="npc-item-actions">
+            <button
+              class="delete-npc"
+              data-npc-id="{{this.id}}"
+              title="Delete NPC"
+            >
+              <i class="fas fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      {{/each}}
+    {{else}}
+      <div class="empty-state">
+        <i class="fas fa-users"></i>
+        <p>No NPCs found</p>
+        <button data-view="generate">Generate Your First NPC</button>
+      </div>
+    {{/if}}
+  </div>
+</div>
+{{/inline}}
+
+<!-- ========================================================================== -->
+<!-- PARTIAL: Generate View -->
+<!-- ========================================================================== -->
+{{#*inline "generateView"}}
+<div class="generate-view">
+  <div class="generate-container">
+    <h2>Generate New NPC</h2>
+    <p class="subtitle">Create a new procedurally generated NPC with customizable options</p>
+
+    <form class="generate-form">
+      <!-- Ancestry Selection -->
+      <div class="form-group">
+        <label for="ancestry">
+          <i class="fas fa-dna"></i> Ancestry
+        </label>
+        <div class="input-group">
+          <select name="ancestry" class="ancestry-select">
+            <option value="random">Random</option>
+            {{#each generationOptions.ancestries}}
+              <option value="{{this}}">{{capitalize this}}</option>
+            {{/each}}
+          </select>
+          <button type="button" class="random-ancestry" title="Random Ancestry">
+            <i class="fas fa-dice"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Gender Selection -->
+      <div class="form-group">
+        <label for="gender">
+          <i class="fas fa-venus-mars"></i> Gender
+        </label>
+        <select name="gender">
+          {{#each generationOptions.genders}}
+            <option value="{{this}}">{{capitalize this}}</option>
+          {{/each}}
+        </select>
+      </div>
+
+      <!-- Detail Level -->
+      <div class="form-group">
+        <label for="detailLevel">
+          <i class="fas fa-layer-group"></i> Detail Level
+        </label>
+        <select name="detailLevel">
+          {{#each generationOptions.detailLevels}}
+            <option value="{{this.value}}" {{#if (eq this.value 'standard')}}selected{{/if}}>
+              {{this.label}}
+            </option>
+          {{/each}}
+        </select>
+        <small class="help-text">
+          Higher detail levels generate more personality traits, quirks, and background details
+        </small>
+      </div>
+
+      <!-- Generate Button -->
+      <div class="form-actions">
+        <button type="submit" class="generate-npc-btn">
+          <i class="fas fa-magic"></i> Generate NPC
+        </button>
+      </div>
+    </form>
+
+    <!-- Quick Info -->
+    <div class="generation-info">
+      <h3>What Gets Generated?</h3>
+      <ul>
+        <li><i class="fas fa-check"></i> Name & Physical Appearance</li>
+        <li><i class="fas fa-check"></i> Personality & Mannerisms</li>
+        <li><i class="fas fa-check"></i> Occupation & Background</li>
+        <li><i class="fas fa-check"></i> Relationships & Family</li>
+        <li><i class="fas fa-check"></i> Motivations & Plot Hooks</li>
+        <li><i class="fas fa-check"></i> Psychology & Secrets</li>
+        <li><i class="fas fa-check"></i> And 30+ more subsystems!</li>
+      </ul>
+    </div>
+  </div>
+</div>
+{{/inline}}
+
+<!-- ========================================================================== -->
+<!-- PARTIAL: Detail View -->
+<!-- ========================================================================== -->
+{{#*inline "detailView"}}
+<div class="detail-view">
+  {{#with currentNPC}}
+    <!-- Header -->
+    <div class="detail-header">
+      <button class="back-to-list">
+        <i class="fas fa-arrow-left"></i> Back to List
+      </button>
+
+      <div class="detail-actions">
+        <button class="save-npc" title="Save Changes">
+          <i class="fas fa-save"></i> Save
+        </button>
+        <button class="export-npc" title="Export NPC">
+          <i class="fas fa-file-export"></i>
+        </button>
+        <button class="create-actor" title="Create Actor">
+          <i class="fas fa-user-plus"></i> Create Actor
+        </button>
+      </div>
+    </div>
+
+    <!-- NPC Info -->
+    <div class="detail-content">
+      <!-- Basic Info -->
+      <section class="detail-section">
+        <h2>
+          <input
+            type="text"
+            class="edit-field name-field"
+            data-field="name"
+            value="{{this.name}}"
+          />
+        </h2>
+
+        <div class="basic-info">
+          <div class="info-item">
+            <label>Ancestry</label>
+            <input
+              type="text"
+              class="edit-field"
+              data-field="ancestry"
+              value="{{this.ancestry}}"
+            />
+          </div>
+
+          {{#if this.occupation.profession.name}}
+            <div class="info-item">
+              <label>Occupation</label>
+              <input
+                type="text"
+                class="edit-field"
+                data-field="occupation.profession.name"
+                value="{{this.occupation.profession.name}}"
+              />
+            </div>
+          {{/if}}
+
+          {{#if this.abilities.level}}
+            <div class="info-item">
+              <label>Level</label>
+              <input
+                type="number"
+                class="edit-field"
+                data-field="abilities.level"
+                value="{{this.abilities.level}}"
+              />
+            </div>
+          {{/if}}
+        </div>
+
+        <!-- Tags -->
+        <div class="tags-section">
+          <label>Tags</label>
+          <div class="tags">
+            {{#if this.tags}}
+              {{#each this.tags}}
+                <span class="tag">
+                  {{this}}
+                  <button class="remove-tag" data-tag="{{this}}">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </span>
+              {{/each}}
+            {{/if}}
+            <button class="add-tag">
+              <i class="fas fa-plus"></i> Add Tag
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Appearance -->
+      {{#if this.appearance}}
+        <section class="detail-section collapsible">
+          <h3>
+            <i class="fas fa-eye"></i> Appearance
+            <button class="regenerate-trait" data-trait="appearance" title="Regenerate">
+              <i class="fas fa-sync"></i>
+            </button>
+          </h3>
+          <div class="section-content">
+            {{#if this.appearance.age}}
+              <p><strong>Age:</strong> {{this.appearance.age.age}} ({{this.appearance.age.category}})</p>
+            {{/if}}
+            {{#if this.appearance.build}}
+              <p><strong>Build:</strong> {{this.appearance.build.name}}</p>
+            {{/if}}
+            {{#if this.appearance.height}}
+              <p><strong>Height:</strong> {{this.appearance.height.name}}</p>
+            {{/if}}
+            {{#if this.appearance.hairColor}}
+              <p><strong>Hair:</strong> {{this.appearance.hairColor.name}}</p>
+            {{/if}}
+            {{#if this.appearance.eyeColor}}
+              <p><strong>Eyes:</strong> {{this.appearance.eyeColor.name}}</p>
+            {{/if}}
+            {{#if this.appearance.distinguishingFeatures}}
+              <p><strong>Features:</strong></p>
+              <ul>
+                {{#each this.appearance.distinguishingFeatures}}
+                  <li>{{this.description}}</li>
+                {{/each}}
+              </ul>
+            {{/if}}
+          </div>
+        </section>
+      {{/if}}
+
+      <!-- Personality -->
+      {{#if this.personalities}}
+        <section class="detail-section collapsible">
+          <h3>
+            <i class="fas fa-brain"></i> Personality
+            <button class="regenerate-trait" data-trait="personalities" title="Regenerate">
+              <i class="fas fa-sync"></i>
+            </button>
+          </h3>
+          <div class="section-content">
+            {{#each this.personalities}}
+              <div class="trait-item">
+                <strong>{{this.name}}</strong>
+                <p>{{this.description}}</p>
+              </div>
+            {{/each}}
+          </div>
+        </section>
+      {{/if}}
+
+      <!-- Mannerisms -->
+      {{#if this.mannerisms}}
+        <section class="detail-section collapsible">
+          <h3>
+            <i class="fas fa-hand-paper"></i> Mannerisms
+            <button class="regenerate-trait" data-trait="mannerisms" title="Regenerate">
+              <i class="fas fa-sync"></i>
+            </button>
+          </h3>
+          <div class="section-content">
+            {{#each this.mannerisms}}
+              <p>{{this.description}}</p>
+            {{/each}}
+          </div>
+        </section>
+      {{/if}}
+
+      <!-- Motivation -->
+      {{#if this.motivation}}
+        <section class="detail-section collapsible">
+          <h3>
+            <i class="fas fa-bullseye"></i> Motivation
+            <button class="regenerate-trait" data-trait="motivation" title="Regenerate">
+              <i class="fas fa-sync"></i>
+            </button>
+          </h3>
+          <div class="section-content">
+            <p><strong>{{this.motivation.name}}</strong></p>
+            {{#if this.motivation.gmGuidance}}
+              <p class="gm-guidance">GM Guidance: {{this.motivation.gmGuidance}}</p>
+            {{/if}}
+          </div>
+        </section>
+      {{/if}}
+
+      <!-- Related NPCs -->
+      {{#if relatedNPCs}}
+        <section class="detail-section">
+          <h3><i class="fas fa-users"></i> Related NPCs</h3>
+          <div class="section-content">
+            <div class="related-npcs-list">
+              {{#each relatedNPCs}}
+                <div class="related-npc-stub" data-stub="{{json this.stub}}">
+                  <div class="stub-info">
+                    <strong>{{this.name}}</strong>
+                    <span class="relationship-type">{{this.relationship}}</span>
+                    <span class="ancestry-info">{{capitalize this.ancestry}}</span>
+                  </div>
+                  <button
+                    class="generate-related"
+                    data-stub="{{json this.stub}}"
+                    title="Generate Full NPC"
+                  >
+                    <i class="fas fa-magic"></i>
+                  </button>
+                </div>
+              {{/each}}
+            </div>
+          </div>
+        </section>
+      {{/if}}
+
+      <!-- Families -->
+      <section class="detail-section">
+        <h3><i class="fas fa-home"></i> Families</h3>
+        <div class="section-content">
+          {{#if families}}
+            {{#each families}}
+              <div class="family-item">
+                <strong>{{this.surname}}</strong>
+                <span>{{this.type.name}}</span>
+              </div>
+            {{/each}}
+          {{/if}}
+          <button class="add-to-family">
+            <i class="fas fa-plus"></i> Add to Family
+          </button>
+        </div>
+      </section>
+
+      <!-- Factions -->
+      <section class="detail-section">
+        <h3><i class="fas fa-shield-alt"></i> Factions</h3>
+        <div class="section-content">
+          {{#if factions}}
+            {{#each factions}}
+              <div class="faction-item">
+                <strong>{{this.name}}</strong>
+                <span>{{this.type.name}}</span>
+              </div>
+            {{/each}}
+          {{/if}}
+          <button class="add-to-faction">
+            <i class="fas fa-plus"></i> Add to Faction
+          </button>
+        </div>
+      </section>
+
+      <!-- Raw Data (Collapsible) -->
+      <section class="detail-section collapsible collapsed">
+        <h3><i class="fas fa-code"></i> Raw Data</h3>
+        <div class="section-content">
+          <pre>{{json this}}</pre>
+        </div>
+      </section>
+    </div>
+  {{/with}}
+</div>
+{{/inline}}

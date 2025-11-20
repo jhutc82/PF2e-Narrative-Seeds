@@ -14,6 +14,8 @@ import { SkillHooks } from './skill/skill-hooks.js';
 import { SocialHooks } from './social/social-hooks.js';
 import { NPCGenerator } from './social/npc-generator.js';
 import { NameGenerator } from './social/name-generator.js';
+import { NPCManagerApp } from './social/npc-manager-app.js';
+import { NPCManagerStorage } from './social/npc-manager-storage.js';
 import { AnatomyDetector } from './combat/anatomy-detector.js';
 import { DamageDetector } from './combat/damage-detector.js';
 import { ActionDetector } from './skill/action-detector.js';
@@ -264,6 +266,21 @@ Hooks.once("ready", () => {
       detectAncestry: (actor) => NameGenerator.detectAncestry(actor)
     },
 
+    // NPC Manager utilities
+    manager: {
+      open: () => SocialHooks.openNPCManager(),
+      storage: NPCManagerStorage,
+      getAllNPCs: () => NPCManagerStorage.getAllNPCs(),
+      getNPC: (id) => NPCManagerStorage.getNPC(id),
+      saveNPC: (npc) => NPCManagerStorage.saveNPC(npc),
+      deleteNPC: (id) => NPCManagerStorage.deleteNPC(id),
+      searchNPCs: (criteria) => NPCManagerStorage.searchNPCs(criteria),
+      exportData: () => NPCManagerStorage.exportData(),
+      importData: (jsonString) => NPCManagerStorage.importData(jsonString),
+      clearAll: () => NPCManagerStorage.clearAll(),
+      getStats: () => NPCManagerStorage.getStats()
+    },
+
     // Performance monitoring
     performance: {
       enable: () => PerformanceMonitor.enable(),
@@ -288,6 +305,7 @@ Hooks.once("ready", () => {
   };
 
   console.log("PF2e Narrative Seeds | Console API available as window.PF2eNarrativeSeeds");
+  console.log("PF2e Narrative Seeds | NPC Manager: window.PF2eNarrativeSeeds.manager.open() or type /npc-manager");
   console.log("PF2e Narrative Seeds | Performance monitoring: window.PF2eNarrativeSeeds.performance.enable()");
   console.log("PF2e Narrative Seeds | Cache warming: window.PF2eNarrativeSeeds.data.warmCache()");
 });
