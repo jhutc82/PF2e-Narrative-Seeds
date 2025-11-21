@@ -1,0 +1,710 @@
+{
+  "thoughts": {
+    "social": {
+      "had-good-conversation": {
+        "id": "had-good-conversation",
+        "name": "Had Good Conversation",
+        "description": "I enjoyed talking with {name}",
+        "category": "social",
+        "moodEffect": 8,
+        "duration": 6,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "💬"
+      },
+      "had-meaningful-conversation": {
+        "id": "had-meaningful-conversation",
+        "name": "Deep Connection",
+        "description": "I had a meaningful conversation with {name}",
+        "category": "social",
+        "moodEffect": 12,
+        "duration": 12,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "✨"
+      },
+      "was-insulted": {
+        "id": "was-insulted",
+        "name": "Was Insulted",
+        "description": "{name} insulted me",
+        "category": "social",
+        "moodEffect": -10,
+        "duration": 24,
+        "decayType": "exponential",
+        "stackable": true,
+        "maxStacks": 3,
+        "icon": "😠"
+      },
+      "was-complimented": {
+        "id": "was-complimented",
+        "name": "Was Complimented",
+        "description": "{name} said something nice to me",
+        "category": "social",
+        "moodEffect": 6,
+        "duration": 8,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "😊"
+      },
+      "awkward-conversation": {
+        "id": "awkward-conversation",
+        "name": "Awkward Conversation",
+        "description": "That conversation with {name} was uncomfortable",
+        "category": "social",
+        "moodEffect": -4,
+        "duration": 4,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "😬"
+      },
+      "attended-social-event": {
+        "id": "attended-social-event",
+        "name": "Attended Social Event",
+        "description": "I enjoyed the social gathering",
+        "category": "social",
+        "moodEffect": 10,
+        "duration": 12,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "🎉"
+      },
+      "rejected-socially": {
+        "id": "rejected-socially",
+        "name": "Rejected",
+        "description": "{name} rejected my social advance",
+        "category": "social",
+        "moodEffect": -12,
+        "duration": 48,
+        "decayType": "exponential",
+        "stackable": false,
+        "icon": "💔"
+      }
+    },
+
+    "food": {
+      "ate-poor-meal": {
+        "id": "ate-poor-meal",
+        "name": "Ate Poor Meal",
+        "description": "That food was barely edible",
+        "category": "food",
+        "moodEffect": -5,
+        "duration": 6,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "🍞"
+      },
+      "ate-good-meal": {
+        "id": "ate-good-meal",
+        "name": "Ate Good Meal",
+        "description": "That was a delicious meal",
+        "category": "food",
+        "moodEffect": 7,
+        "duration": 8,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "🍖"
+      },
+      "attended-feast": {
+        "id": "attended-feast",
+        "name": "Attended Feast",
+        "description": "What a magnificent feast!",
+        "category": "food",
+        "moodEffect": 15,
+        "duration": 24,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "🍗"
+      },
+      "ate-without-table": {
+        "id": "ate-without-table",
+        "name": "Ate Without Table",
+        "description": "I had to eat standing up like an animal",
+        "category": "food",
+        "moodEffect": -3,
+        "duration": 3,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "😣"
+      },
+      "ate-raw-food": {
+        "id": "ate-raw-food",
+        "name": "Ate Raw Food",
+        "description": "I had to eat raw food",
+        "category": "food",
+        "moodEffect": -8,
+        "duration": 12,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "🤢"
+      }
+    },
+
+    "rest": {
+      "slept-on-ground": {
+        "id": "slept-on-ground",
+        "name": "Slept on Ground",
+        "description": "My back hurts from sleeping on the ground",
+        "category": "rest",
+        "moodEffect": -6,
+        "duration": 12,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "😫"
+      },
+      "slept-in-luxury": {
+        "id": "slept-in-luxury",
+        "name": "Slept in Luxury",
+        "description": "That was the most comfortable sleep",
+        "category": "rest",
+        "moodEffect": 10,
+        "duration": 24,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "😌"
+      },
+      "well-rested": {
+        "id": "well-rested",
+        "name": "Well Rested",
+        "description": "I feel refreshed and energized",
+        "category": "rest",
+        "moodEffect": 8,
+        "duration": 12,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "✨"
+      },
+      "sleep-deprived": {
+        "id": "sleep-deprived",
+        "name": "Sleep Deprived",
+        "description": "I desperately need sleep",
+        "category": "rest",
+        "moodEffect": -15,
+        "duration": "while-true",
+        "decayType": "none",
+        "stackable": false,
+        "icon": "😵"
+      }
+    },
+
+    "traumatic": {
+      "saw-loved-one-die": {
+        "id": "saw-loved-one-die",
+        "name": "Witnessed Death of Loved One",
+        "description": "I saw {name} die before my eyes",
+        "category": "traumatic",
+        "moodEffect": -30,
+        "duration": 720,
+        "decayType": "exponential",
+        "stackable": true,
+        "maxStacks": 5,
+        "icon": "💀",
+        "persistent": true
+      },
+      "saw-friend-die": {
+        "id": "saw-friend-die",
+        "name": "Witnessed Death of Friend",
+        "description": "I watched {name} fall",
+        "category": "traumatic",
+        "moodEffect": -20,
+        "duration": 480,
+        "decayType": "exponential",
+        "stackable": true,
+        "maxStacks": 3,
+        "icon": "☠️"
+      },
+      "saw-corpse": {
+        "id": "saw-corpse",
+        "name": "Saw Corpse",
+        "description": "I saw a dead body",
+        "category": "traumatic",
+        "moodEffect": -8,
+        "duration": 24,
+        "decayType": "exponential",
+        "stackable": true,
+        "maxStacks": 10,
+        "icon": "💀"
+      },
+      "witnessed-atrocity": {
+        "id": "witnessed-atrocity",
+        "name": "Witnessed Atrocity",
+        "description": "I saw something horrific",
+        "category": "traumatic",
+        "moodEffect": -25,
+        "duration": 240,
+        "decayType": "exponential",
+        "stackable": true,
+        "maxStacks": 3,
+        "icon": "😱"
+      },
+      "was-attacked": {
+        "id": "was-attacked",
+        "name": "Was Attacked",
+        "description": "Someone tried to kill me!",
+        "category": "traumatic",
+        "moodEffect": -15,
+        "duration": 120,
+        "decayType": "exponential",
+        "stackable": true,
+        "maxStacks": 5,
+        "icon": "⚔️"
+      },
+      "nearly-died": {
+        "id": "nearly-died",
+        "name": "Nearly Died",
+        "description": "I almost died",
+        "category": "traumatic",
+        "moodEffect": -20,
+        "duration": 168,
+        "decayType": "exponential",
+        "stackable": false,
+        "icon": "💀"
+      }
+    },
+
+    "positive-life-events": {
+      "saved-by-hero": {
+        "id": "saved-by-hero",
+        "name": "Life Saved",
+        "description": "{name} saved my life!",
+        "category": "positive-life-events",
+        "moodEffect": 20,
+        "duration": 480,
+        "decayType": "exponential",
+        "stackable": false,
+        "icon": "🦸",
+        "persistent": true
+      },
+      "received-gift": {
+        "id": "received-gift",
+        "name": "Received Gift",
+        "description": "{name} gave me a gift",
+        "category": "positive-life-events",
+        "moodEffect": 10,
+        "duration": 72,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "🎁"
+      },
+      "received-valuable-gift": {
+        "id": "received-valuable-gift",
+        "name": "Received Valuable Gift",
+        "description": "{name} gave me something valuable",
+        "category": "positive-life-events",
+        "moodEffect": 18,
+        "duration": 168,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "💎"
+      },
+      "accomplished-something": {
+        "id": "accomplished-something",
+        "name": "Accomplishment",
+        "description": "I accomplished something meaningful",
+        "category": "positive-life-events",
+        "moodEffect": 12,
+        "duration": 48,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "⭐"
+      },
+      "fell-in-love": {
+        "id": "fell-in-love",
+        "name": "Fell in Love",
+        "description": "I'm in love with {name}",
+        "category": "positive-life-events",
+        "moodEffect": 25,
+        "duration": 720,
+        "decayType": "none",
+        "stackable": false,
+        "icon": "❤️",
+        "persistent": true
+      },
+      "romantic-success": {
+        "id": "romantic-success",
+        "name": "Romantic Success",
+        "description": "{name} reciprocated my feelings",
+        "category": "positive-life-events",
+        "moodEffect": 20,
+        "duration": 240,
+        "decayType": "exponential",
+        "stackable": false,
+        "icon": "💕"
+      }
+    },
+
+    "negative-life-events": {
+      "betrayed": {
+        "id": "betrayed",
+        "name": "Betrayed",
+        "description": "{name} betrayed me",
+        "category": "negative-life-events",
+        "moodEffect": -25,
+        "duration": 480,
+        "decayType": "exponential",
+        "stackable": true,
+        "maxStacks": 3,
+        "icon": "🗡️",
+        "persistent": true
+      },
+      "lost-loved-one": {
+        "id": "lost-loved-one",
+        "name": "Lost Loved One",
+        "description": "{name} is gone",
+        "category": "negative-life-events",
+        "moodEffect": -35,
+        "duration": 1440,
+        "decayType": "exponential",
+        "stackable": true,
+        "maxStacks": 5,
+        "icon": "😭",
+        "persistent": true
+      },
+      "robbed": {
+        "id": "robbed",
+        "name": "Was Robbed",
+        "description": "I was robbed!",
+        "category": "negative-life-events",
+        "moodEffect": -15,
+        "duration": 120,
+        "decayType": "exponential",
+        "stackable": false,
+        "icon": "💰"
+      },
+      "humiliated": {
+        "id": "humiliated",
+        "name": "Humiliated",
+        "description": "I was publicly humiliated",
+        "category": "negative-life-events",
+        "moodEffect": -18,
+        "duration": 168,
+        "decayType": "exponential",
+        "stackable": true,
+        "maxStacks": 3,
+        "icon": "😓"
+      },
+      "failed-important-task": {
+        "id": "failed-important-task",
+        "name": "Failed",
+        "description": "I failed at something important",
+        "category": "negative-life-events",
+        "moodEffect": -14,
+        "duration": 96,
+        "decayType": "exponential",
+        "stackable": true,
+        "maxStacks": 3,
+        "icon": "❌"
+      }
+    },
+
+    "environmental": {
+      "beautiful-environment": {
+        "id": "beautiful-environment",
+        "name": "Beautiful Environment",
+        "description": "This place is beautiful",
+        "category": "environmental",
+        "moodEffect": 6,
+        "duration": "while-true",
+        "decayType": "none",
+        "stackable": false,
+        "icon": "🌸"
+      },
+      "ugly-environment": {
+        "id": "ugly-environment",
+        "name": "Ugly Environment",
+        "description": "This place is depressing",
+        "category": "environmental",
+        "moodEffect": -5,
+        "duration": "while-true",
+        "decayType": "none",
+        "stackable": false,
+        "icon": "🗑️"
+      },
+      "outdoors": {
+        "id": "outdoors",
+        "name": "Enjoyed Outdoors",
+        "description": "I enjoyed being outside",
+        "category": "environmental",
+        "moodEffect": 5,
+        "duration": 12,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "🌳"
+      },
+      "cramped-space": {
+        "id": "cramped-space",
+        "name": "Cramped Space",
+        "description": "This space is too cramped",
+        "category": "environmental",
+        "moodEffect": -4,
+        "duration": "while-true",
+        "decayType": "none",
+        "stackable": false,
+        "icon": "📦"
+      },
+      "in-darkness": {
+        "id": "in-darkness",
+        "name": "In Darkness",
+        "description": "I can barely see anything",
+        "category": "environmental",
+        "moodEffect": -6,
+        "duration": "while-true",
+        "decayType": "none",
+        "stackable": false,
+        "icon": "🌑"
+      }
+    },
+
+    "recreation": {
+      "enjoyed-hobby": {
+        "id": "enjoyed-hobby",
+        "name": "Enjoyed Hobby",
+        "description": "I enjoyed pursuing my hobby",
+        "category": "recreation",
+        "moodEffect": 8,
+        "duration": 12,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "🎨"
+      },
+      "was-entertained": {
+        "id": "was-entertained",
+        "name": "Was Entertained",
+        "description": "That was entertaining",
+        "category": "recreation",
+        "moodEffect": 10,
+        "duration": 8,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "🎭"
+      },
+      "won-game": {
+        "id": "won-game",
+        "name": "Won Game",
+        "description": "I won!",
+        "category": "recreation",
+        "moodEffect": 12,
+        "duration": 24,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "🏆"
+      },
+      "lost-game": {
+        "id": "lost-game",
+        "name": "Lost Game",
+        "description": "I lost",
+        "category": "recreation",
+        "moodEffect": -5,
+        "duration": 6,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "😞"
+      },
+      "heard-music": {
+        "id": "heard-music",
+        "name": "Heard Music",
+        "description": "I enjoyed the music",
+        "category": "recreation",
+        "moodEffect": 6,
+        "duration": 6,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "🎵"
+      }
+    },
+
+    "work": {
+      "career-progress": {
+        "id": "career-progress",
+        "name": "Career Progress",
+        "description": "I made progress in my career",
+        "category": "work",
+        "moodEffect": 15,
+        "duration": 168,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "📈"
+      },
+      "fulfilled-purpose": {
+        "id": "fulfilled-purpose",
+        "name": "Fulfilled Purpose",
+        "description": "I'm living my purpose",
+        "category": "work",
+        "moodEffect": 18,
+        "duration": 240,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "⭐"
+      },
+      "praised-for-work": {
+        "id": "praised-for-work",
+        "name": "Praised for Work",
+        "description": "{name} praised my work",
+        "category": "work",
+        "moodEffect": 10,
+        "duration": 72,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "👏"
+      },
+      "criticized-for-work": {
+        "id": "criticized-for-work",
+        "name": "Criticized for Work",
+        "description": "{name} criticized my work",
+        "category": "work",
+        "moodEffect": -8,
+        "duration": 48,
+        "decayType": "linear",
+        "stackable": true,
+        "maxStacks": 3,
+        "icon": "👎"
+      }
+    },
+
+    "health": {
+      "in-pain": {
+        "id": "in-pain",
+        "name": "In Pain",
+        "description": "I'm in pain",
+        "category": "health",
+        "moodEffect": -12,
+        "duration": "while-true",
+        "decayType": "none",
+        "stackable": false,
+        "icon": "🤕"
+      },
+      "sick": {
+        "id": "sick",
+        "name": "Sick",
+        "description": "I feel ill",
+        "category": "health",
+        "moodEffect": -10,
+        "duration": "while-true",
+        "decayType": "none",
+        "stackable": false,
+        "icon": "🤒"
+      },
+      "healed": {
+        "id": "healed",
+        "name": "Healed",
+        "description": "I was healed",
+        "category": "health",
+        "moodEffect": 12,
+        "duration": 24,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "💚"
+      },
+      "healthy": {
+        "id": "healthy",
+        "name": "Healthy",
+        "description": "I feel great",
+        "category": "health",
+        "moodEffect": 5,
+        "duration": "while-true",
+        "decayType": "none",
+        "stackable": false,
+        "icon": "💪"
+      }
+    },
+
+    "combat": {
+      "won-combat": {
+        "id": "won-combat",
+        "name": "Won Combat",
+        "description": "I emerged victorious",
+        "category": "combat",
+        "moodEffect": 10,
+        "duration": 48,
+        "decayType": "linear",
+        "stackable": false,
+        "icon": "⚔️"
+      },
+      "defeated-in-combat": {
+        "id": "defeated-in-combat",
+        "name": "Defeated",
+        "description": "I was defeated",
+        "category": "combat",
+        "moodEffect": -12,
+        "duration": 72,
+        "decayType": "exponential",
+        "stackable": true,
+        "maxStacks": 3,
+        "icon": "💢"
+      },
+      "killed-someone": {
+        "id": "killed-someone",
+        "name": "Killed Someone",
+        "description": "I took a life",
+        "category": "combat",
+        "moodEffect": -8,
+        "duration": 120,
+        "decayType": "exponential",
+        "stackable": true,
+        "maxStacks": 10,
+        "icon": "🗡️",
+        "personalityModifiers": {
+          "bloodthirsty": 8,
+          "pacifist": -25
+        }
+      }
+    }
+  },
+
+  "thoughtCategories": {
+    "social": {
+      "name": "Social",
+      "color": "#4CAF50",
+      "icon": "👥"
+    },
+    "food": {
+      "name": "Food",
+      "color": "#FF9800",
+      "icon": "🍞"
+    },
+    "rest": {
+      "name": "Rest",
+      "color": "#2196F3",
+      "icon": "😴"
+    },
+    "traumatic": {
+      "name": "Traumatic",
+      "color": "#F44336",
+      "icon": "💀"
+    },
+    "positive-life-events": {
+      "name": "Positive Events",
+      "color": "#8BC34A",
+      "icon": "⭐"
+    },
+    "negative-life-events": {
+      "name": "Negative Events",
+      "color": "#E91E63",
+      "icon": "💔"
+    },
+    "environmental": {
+      "name": "Environment",
+      "color": "#00BCD4",
+      "icon": "🌸"
+    },
+    "recreation": {
+      "name": "Recreation",
+      "color": "#9C27B0",
+      "icon": "🎲"
+    },
+    "work": {
+      "name": "Work",
+      "color": "#607D8B",
+      "icon": "💼"
+    },
+    "health": {
+      "name": "Health",
+      "color": "#CDDC39",
+      "icon": "💚"
+    },
+    "combat": {
+      "name": "Combat",
+      "color": "#795548",
+      "icon": "⚔️"
+    }
+  }
+}

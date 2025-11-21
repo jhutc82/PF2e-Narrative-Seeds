@@ -1,0 +1,585 @@
+{
+  "behaviors": {
+    "need-driven": {
+      "seek-food": {
+        "id": "seek-food",
+        "name": "Seek Food",
+        "description": "Look for something to eat",
+        "category": "need-driven",
+        "trigger": {
+          "type": "need",
+          "need": "sustenance",
+          "threshold": "hungry"
+        },
+        "priority": "high",
+        "priorityCalculation": "100 - sustenanceValue",
+        "validLocations": ["tavern", "market", "home", "kitchen"],
+        "duration": 1,
+        "actions": [
+          "travel-to-food-source",
+          "purchase-or-acquire-food",
+          "eat-food"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "sustenance": 50 },
+            "thoughts": ["ate-normal-meal"],
+            "message": "{npc} found and ate some food"
+          },
+          "failure": {
+            "needsSatisfied": {},
+            "thoughts": [],
+            "message": "{npc} couldn't find food"
+          }
+        },
+        "personalityModifiers": {
+          "gluttonous": { "priorityBonus": 20, "triggerThresholdShift": 15 },
+          "ascetic": { "priorityBonus": -10, "triggerThresholdShift": -20 }
+        }
+      },
+
+      "seek-rest": {
+        "id": "seek-rest",
+        "name": "Seek Rest",
+        "description": "Find a place to sleep",
+        "category": "need-driven",
+        "trigger": {
+          "type": "need",
+          "need": "rest",
+          "threshold": "tired"
+        },
+        "priority": "high",
+        "priorityCalculation": "100 - restValue",
+        "validLocations": ["home", "inn", "camp"],
+        "duration": 8,
+        "timeOfDayPreference": ["night", "evening"],
+        "actions": [
+          "travel-to-sleeping-location",
+          "sleep"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "rest": 80 },
+            "thoughts": ["well-rested"],
+            "message": "{npc} slept soundly"
+          },
+          "failure": {
+            "needsSatisfied": { "rest": 30 },
+            "thoughts": ["slept-on-ground"],
+            "message": "{npc} slept poorly"
+          }
+        },
+        "personalityModifiers": {
+          "lazy": { "priorityBonus": 15, "triggerThresholdShift": 20 },
+          "energetic": { "priorityBonus": -10, "triggerThresholdShift": -15 }
+        }
+      },
+
+      "seek-social-interaction": {
+        "id": "seek-social-interaction",
+        "name": "Seek Social Interaction",
+        "description": "Find someone to talk to",
+        "category": "need-driven",
+        "trigger": {
+          "type": "need",
+          "need": "social",
+          "threshold": "lonely"
+        },
+        "priority": "medium",
+        "priorityCalculation": "80 - socialValue",
+        "validLocations": ["tavern", "market", "town-square", "guild"],
+        "duration": 1,
+        "actions": [
+          "travel-to-social-location",
+          "initiate-conversation"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "social": 35 },
+            "thoughts": ["had-good-conversation"],
+            "message": "{npc} enjoyed socializing"
+          },
+          "failure": {
+            "needsSatisfied": { "social": 10 },
+            "thoughts": [],
+            "message": "{npc} had a brief chat"
+          }
+        },
+        "personalityModifiers": {
+          "outgoing": { "priorityBonus": 30, "triggerThresholdShift": 25 },
+          "taciturn": { "priorityBonus": -20, "triggerThresholdShift": -25 },
+          "shy": { "priorityBonus": -15, "triggerThresholdShift": -20 }
+        }
+      },
+
+      "seek-recreation": {
+        "id": "seek-recreation",
+        "name": "Seek Recreation",
+        "description": "Find entertainment or pursue hobby",
+        "category": "need-driven",
+        "trigger": {
+          "type": "need",
+          "need": "recreation",
+          "threshold": "understimulated"
+        },
+        "priority": "medium",
+        "priorityCalculation": "70 - recreationValue",
+        "validLocations": ["tavern", "theater", "home", "park", "gaming-hall"],
+        "duration": 2,
+        "actions": [
+          "travel-to-recreation-location",
+          "engage-in-activity"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "recreation": 45 },
+            "thoughts": ["enjoyed-hobby"],
+            "message": "{npc} enjoyed their leisure time"
+          },
+          "failure": {
+            "needsSatisfied": { "recreation": 15 },
+            "thoughts": [],
+            "message": "{npc} passed some time"
+          }
+        },
+        "personalityModifiers": {
+          "playful": { "priorityBonus": 25 },
+          "serious": { "priorityBonus": -20 }
+        }
+      },
+
+      "seek-safety": {
+        "id": "seek-safety",
+        "name": "Seek Safety",
+        "description": "Find a safe location",
+        "category": "need-driven",
+        "trigger": {
+          "type": "need",
+          "need": "safety",
+          "threshold": "anxious"
+        },
+        "priority": "critical",
+        "priorityCalculation": "120 - safetyValue",
+        "validLocations": ["home", "guards", "temple", "fortress"],
+        "duration": 0.5,
+        "actions": [
+          "flee-to-safety",
+          "hide"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "safety": 60 },
+            "thoughts": ["felt-safer"],
+            "message": "{npc} found safety"
+          },
+          "failure": {
+            "needsSatisfied": { "safety": 20 },
+            "thoughts": [],
+            "message": "{npc} is still anxious"
+          }
+        },
+        "personalityModifiers": {
+          "paranoid": { "priorityBonus": 40, "triggerThresholdShift": 30 },
+          "brave": { "priorityBonus": -30, "triggerThresholdShift": -25 },
+          "timid": { "priorityBonus": 25, "triggerThresholdShift": 20 }
+        }
+      }
+    },
+
+    "personality-driven": {
+      "investigate-curiosity": {
+        "id": "investigate-curiosity",
+        "name": "Investigate Something",
+        "description": "Explore something that piqued interest",
+        "category": "personality-driven",
+        "trigger": {
+          "type": "personality",
+          "requiredTraits": ["curious"],
+          "randomChance": 0.15
+        },
+        "priority": "low",
+        "priorityCalculation": "40",
+        "validLocations": ["any"],
+        "duration": 1,
+        "actions": [
+          "investigate",
+          "ask-questions"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "recreation": 25, "purpose": 15 },
+            "thoughts": [],
+            "message": "{npc} investigated something interesting",
+            "informationGained": true
+          }
+        },
+        "personalityModifiers": {
+          "curious": { "randomChance": 0.25 },
+          "scholarly": { "randomChance": 0.20, "priorityBonus": 10 }
+        }
+      },
+
+      "cause-mischief": {
+        "id": "cause-mischief",
+        "name": "Cause Mischief",
+        "description": "Play a prank or stir up trouble",
+        "category": "personality-driven",
+        "trigger": {
+          "type": "personality",
+          "requiredTraits": ["mischievous", "playful"],
+          "randomChance": 0.12
+        },
+        "priority": "low",
+        "priorityCalculation": "35",
+        "validLocations": ["tavern", "market", "town-square"],
+        "duration": 0.5,
+        "actions": [
+          "play-prank",
+          "stir-trouble"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "recreation": 35 },
+            "thoughts": [],
+            "message": "{npc} caused some mischief"
+          }
+        }
+      },
+
+      "pray-or-meditate": {
+        "id": "pray-or-meditate",
+        "name": "Pray or Meditate",
+        "description": "Engage in spiritual practices",
+        "category": "personality-driven",
+        "trigger": {
+          "type": "personality",
+          "requiredTraits": ["pious", "spiritual"],
+          "randomChance": 0.20
+        },
+        "priority": "medium",
+        "priorityCalculation": "50",
+        "validLocations": ["temple", "shrine", "home", "nature"],
+        "duration": 1,
+        "timeOfDayPreference": ["morning", "evening"],
+        "actions": [
+          "travel-to-holy-place",
+          "pray"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "purpose": 40, "comfort": 20 },
+            "thoughts": [],
+            "message": "{npc} engaged in prayer"
+          }
+        },
+        "personalityModifiers": {
+          "pious": { "randomChance": 0.35, "priorityBonus": 20 },
+          "spiritual": { "randomChance": 0.25 }
+        }
+      },
+
+      "train-or-practice": {
+        "id": "train-or-practice",
+        "name": "Train or Practice",
+        "description": "Practice skills or train",
+        "category": "personality-driven",
+        "trigger": {
+          "type": "personality",
+          "requiredTraits": ["ambitious", "disciplined"],
+          "randomChance": 0.18
+        },
+        "priority": "medium",
+        "priorityCalculation": "55",
+        "validLocations": ["training-grounds", "home", "guild"],
+        "duration": 2,
+        "timeOfDayPreference": ["morning", "afternoon"],
+        "actions": [
+          "practice-skills",
+          "train"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "purpose": 35, "recreation": 15 },
+            "thoughts": ["accomplished-something"],
+            "message": "{npc} trained diligently"
+          }
+        },
+        "personalityModifiers": {
+          "ambitious": { "randomChance": 0.28, "priorityBonus": 15 },
+          "disciplined": { "randomChance": 0.25, "priorityBonus": 10 },
+          "lazy": { "randomChance": 0.02, "priorityBonus": -30 }
+        }
+      },
+
+      "gossip": {
+        "id": "gossip",
+        "name": "Gossip",
+        "description": "Share and gather gossip",
+        "category": "personality-driven",
+        "trigger": {
+          "type": "personality",
+          "requiredTraits": ["verbose", "gossipy"],
+          "randomChance": 0.25
+        },
+        "priority": "low",
+        "priorityCalculation": "45",
+        "validLocations": ["tavern", "market", "town-square"],
+        "duration": 1,
+        "actions": [
+          "find-gossip-partner",
+          "share-gossip"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "social": 30, "recreation": 20 },
+            "thoughts": [],
+            "message": "{npc} engaged in gossip",
+            "rumorsLearned": true
+          }
+        },
+        "personalityModifiers": {
+          "verbose": { "randomChance": 0.30 },
+          "gossipy": { "randomChance": 0.40, "priorityBonus": 15 }
+        }
+      }
+    },
+
+    "motivation-driven": {
+      "pursue-power": {
+        "id": "pursue-power",
+        "name": "Pursue Power",
+        "description": "Seek opportunities for advancement",
+        "category": "motivation-driven",
+        "trigger": {
+          "type": "motivation",
+          "requiredMotivations": ["gain-power", "become-influential"],
+          "randomChance": 0.15
+        },
+        "priority": "high",
+        "priorityCalculation": "75",
+        "validLocations": ["guild", "noble-court", "political-venue"],
+        "duration": 3,
+        "actions": [
+          "network-with-powerful",
+          "seek-advancement",
+          "political-maneuvering"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "purpose": 60 },
+            "thoughts": ["career-progress", "fulfilled-purpose"],
+            "message": "{npc} advanced their ambitions"
+          }
+        }
+      },
+
+      "pursue-wealth": {
+        "id": "pursue-wealth",
+        "name": "Pursue Wealth",
+        "description": "Seek ways to make money",
+        "category": "motivation-driven",
+        "trigger": {
+          "type": "motivation",
+          "requiredMotivations": ["gain-wealth", "become-rich"],
+          "randomChance": 0.18
+        },
+        "priority": "high",
+        "priorityCalculation": "70",
+        "validLocations": ["market", "guild", "business-venue"],
+        "duration": 4,
+        "actions": [
+          "seek-business-opportunity",
+          "negotiate-deal",
+          "work-on-venture"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "purpose": 50 },
+            "thoughts": ["accomplished-something"],
+            "message": "{npc} worked on their financial goals"
+          }
+        },
+        "personalityModifiers": {
+          "greedy": { "priorityBonus": 25, "randomChance": 0.30 },
+          "ambitious": { "priorityBonus": 15 }
+        }
+      },
+
+      "pursue-knowledge": {
+        "id": "pursue-knowledge",
+        "name": "Pursue Knowledge",
+        "description": "Seek to learn and discover",
+        "category": "motivation-driven",
+        "trigger": {
+          "type": "motivation",
+          "requiredMotivations": ["gain-knowledge", "uncover-secrets"],
+          "randomChance": 0.20
+        },
+        "priority": "medium",
+        "priorityCalculation": "65",
+        "validLocations": ["library", "academy", "sage"],
+        "duration": 3,
+        "actions": [
+          "research",
+          "study",
+          "seek-mentor"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "purpose": 55, "recreation": 25 },
+            "thoughts": ["accomplished-something"],
+            "message": "{npc} pursued knowledge",
+            "knowledgeGained": true
+          }
+        },
+        "personalityModifiers": {
+          "scholarly": { "priorityBonus": 25, "randomChance": 0.35 },
+          "curious": { "priorityBonus": 15, "randomChance": 0.28 }
+        }
+      },
+
+      "seek-revenge": {
+        "id": "seek-revenge",
+        "name": "Seek Revenge",
+        "description": "Plot or enact revenge",
+        "category": "motivation-driven",
+        "trigger": {
+          "type": "motivation",
+          "requiredMotivations": ["seek-revenge", "get-even"],
+          "randomChance": 0.10
+        },
+        "priority": "high",
+        "priorityCalculation": "80",
+        "validLocations": ["any"],
+        "duration": 2,
+        "actions": [
+          "gather-information",
+          "plot-revenge",
+          "confront-enemy"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "purpose": 40 },
+            "thoughts": [],
+            "message": "{npc} plotted revenge",
+            "dangerousAction": true
+          }
+        },
+        "personalityModifiers": {
+          "vengeful": { "priorityBonus": 35, "randomChance": 0.25 },
+          "aggressive": { "priorityBonus": 20 }
+        }
+      }
+    },
+
+    "scheduled": {
+      "work": {
+        "id": "work",
+        "name": "Work",
+        "description": "Go to work",
+        "category": "scheduled",
+        "trigger": {
+          "type": "schedule",
+          "timeOfDay": ["morning", "afternoon"],
+          "daysOfWeek": ["weekday"]
+        },
+        "priority": "high",
+        "priorityCalculation": "85",
+        "validLocations": ["workplace"],
+        "duration": 8,
+        "actions": [
+          "travel-to-work",
+          "perform-job"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "purpose": 30 },
+            "thoughts": [],
+            "message": "{npc} worked at their job"
+          }
+        }
+      },
+
+      "morning-routine": {
+        "id": "morning-routine",
+        "name": "Morning Routine",
+        "description": "Perform morning routine",
+        "category": "scheduled",
+        "trigger": {
+          "type": "schedule",
+          "timeOfDay": ["morning"]
+        },
+        "priority": "medium",
+        "priorityCalculation": "60",
+        "validLocations": ["home"],
+        "duration": 1,
+        "actions": [
+          "wake-up",
+          "eat-breakfast",
+          "prepare-for-day"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "sustenance": 25, "comfort": 15 },
+            "thoughts": [],
+            "message": "{npc} completed their morning routine"
+          }
+        }
+      },
+
+      "evening-routine": {
+        "id": "evening-routine",
+        "name": "Evening Routine",
+        "description": "Perform evening routine",
+        "category": "scheduled",
+        "trigger": {
+          "type": "schedule",
+          "timeOfDay": ["evening"]
+        },
+        "priority": "medium",
+        "priorityCalculation": "60",
+        "validLocations": ["home"],
+        "duration": 1,
+        "actions": [
+          "eat-dinner",
+          "wind-down",
+          "prepare-for-bed"
+        ],
+        "outcomes": {
+          "success": {
+            "needsSatisfied": { "sustenance": 30, "comfort": 20 },
+            "thoughts": [],
+            "message": "{npc} completed their evening routine"
+          }
+        }
+      }
+    }
+  },
+
+  "behaviorCategories": {
+    "need-driven": {
+      "name": "Need-Driven",
+      "description": "Behaviors triggered by needs",
+      "priority": "high",
+      "color": "#F44336"
+    },
+    "personality-driven": {
+      "name": "Personality-Driven",
+      "description": "Behaviors based on personality",
+      "priority": "medium",
+      "color": "#9C27B0"
+    },
+    "motivation-driven": {
+      "name": "Motivation-Driven",
+      "description": "Behaviors based on motivations",
+      "priority": "high",
+      "color": "#FF9800"
+    },
+    "scheduled": {
+      "name": "Scheduled",
+      "description": "Routine behaviors",
+      "priority": "medium",
+      "color": "#2196F3"
+    }
+  }
+}

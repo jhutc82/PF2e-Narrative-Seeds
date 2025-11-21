@@ -1,0 +1,564 @@
+{
+  "needs": {
+    "sustenance": {
+      "id": "sustenance",
+      "name": "Sustenance",
+      "description": "Food and water needs",
+      "category": "physical",
+      "baseMax": 100,
+      "baseDecayRate": 1.5,
+      "icon": "🍞",
+      "thresholds": {
+        "starving": {
+          "value": 10,
+          "label": "Starving",
+          "moodEffect": -20,
+          "color": "#8B0000",
+          "urgency": "critical"
+        },
+        "hungry": {
+          "value": 35,
+          "label": "Hungry",
+          "moodEffect": -8,
+          "color": "#FF6347",
+          "urgency": "high"
+        },
+        "satisfied": {
+          "value": 65,
+          "label": "Satisfied",
+          "moodEffect": 0,
+          "color": "#FFD700",
+          "urgency": "none"
+        },
+        "well-fed": {
+          "value": 85,
+          "label": "Well Fed",
+          "moodEffect": 5,
+          "color": "#32CD32",
+          "urgency": "none"
+        }
+      },
+      "personalityModifiers": {
+        "gluttonous": {
+          "decayRateMultiplier": 1.5,
+          "thresholdShift": 10
+        },
+        "ascetic": {
+          "decayRateMultiplier": 0.7,
+          "thresholdShift": -15
+        }
+      }
+    },
+
+    "rest": {
+      "id": "rest",
+      "name": "Rest",
+      "description": "Sleep and energy levels",
+      "category": "physical",
+      "baseMax": 100,
+      "baseDecayRate": 3.0,
+      "icon": "😴",
+      "thresholds": {
+        "exhausted": {
+          "value": 15,
+          "label": "Exhausted",
+          "moodEffect": -15,
+          "color": "#4B0082",
+          "urgency": "critical",
+          "statusEffects": ["penaltyToChecks"]
+        },
+        "tired": {
+          "value": 40,
+          "label": "Tired",
+          "moodEffect": -6,
+          "color": "#9370DB",
+          "urgency": "high"
+        },
+        "rested": {
+          "value": 70,
+          "label": "Rested",
+          "moodEffect": 0,
+          "color": "#87CEEB",
+          "urgency": "none"
+        },
+        "well-rested": {
+          "value": 90,
+          "label": "Well Rested",
+          "moodEffect": 8,
+          "color": "#00CED1",
+          "urgency": "none",
+          "statusEffects": ["bonusToChecks"]
+        }
+      },
+      "personalityModifiers": {
+        "energetic": {
+          "decayRateMultiplier": 0.8,
+          "thresholdShift": -10
+        },
+        "lazy": {
+          "decayRateMultiplier": 1.3,
+          "thresholdShift": 5
+        }
+      }
+    },
+
+    "social": {
+      "id": "social",
+      "name": "Social",
+      "description": "Need for social interaction",
+      "category": "emotional",
+      "baseMax": 100,
+      "baseDecayRate": 2.0,
+      "icon": "👥",
+      "thresholds": {
+        "isolated": {
+          "value": 15,
+          "label": "Isolated",
+          "moodEffect": -12,
+          "color": "#696969",
+          "urgency": "critical"
+        },
+        "lonely": {
+          "value": 40,
+          "label": "Lonely",
+          "moodEffect": -5,
+          "color": "#A9A9A9",
+          "urgency": "high"
+        },
+        "content": {
+          "value": 65,
+          "label": "Content",
+          "moodEffect": 0,
+          "color": "#98FB98",
+          "urgency": "none"
+        },
+        "socially-fulfilled": {
+          "value": 85,
+          "label": "Socially Fulfilled",
+          "moodEffect": 6,
+          "color": "#228B22",
+          "urgency": "none"
+        },
+        "overstimulated": {
+          "value": 95,
+          "label": "Socially Drained",
+          "moodEffect": -3,
+          "color": "#FFA500",
+          "urgency": "low",
+          "description": "Too much social interaction for introverts"
+        }
+      },
+      "personalityModifiers": {
+        "outgoing": {
+          "decayRateMultiplier": 2.5,
+          "thresholdShift": 20,
+          "overstimulationResistance": 1.5
+        },
+        "taciturn": {
+          "decayRateMultiplier": 0.5,
+          "thresholdShift": -20,
+          "overstimulationResistance": 0.3
+        },
+        "shy": {
+          "decayRateMultiplier": 0.7,
+          "thresholdShift": -15,
+          "overstimulationResistance": 0.4
+        }
+      }
+    },
+
+    "safety": {
+      "id": "safety",
+      "name": "Safety",
+      "description": "Feeling secure and protected",
+      "category": "emotional",
+      "baseMax": 100,
+      "baseDecayRate": 0,
+      "icon": "🛡️",
+      "thresholds": {
+        "terrified": {
+          "value": 15,
+          "label": "Terrified",
+          "moodEffect": -25,
+          "color": "#8B0000",
+          "urgency": "critical",
+          "statusEffects": ["frightened"]
+        },
+        "anxious": {
+          "value": 40,
+          "label": "Anxious",
+          "moodEffect": -10,
+          "color": "#FF4500",
+          "urgency": "high"
+        },
+        "secure": {
+          "value": 70,
+          "label": "Secure",
+          "moodEffect": 0,
+          "color": "#4682B4",
+          "urgency": "none"
+        },
+        "protected": {
+          "value": 90,
+          "label": "Protected",
+          "moodEffect": 5,
+          "color": "#4169E1",
+          "urgency": "none"
+        }
+      },
+      "personalityModifiers": {
+        "paranoid": {
+          "decayRateMultiplier": 1.0,
+          "baseValue": 40,
+          "thresholdShift": 15
+        },
+        "brave": {
+          "decayRateMultiplier": 0.5,
+          "baseValue": 80,
+          "thresholdShift": -20
+        },
+        "timid": {
+          "decayRateMultiplier": 0.8,
+          "baseValue": 50,
+          "thresholdShift": 10
+        }
+      }
+    },
+
+    "purpose": {
+      "id": "purpose",
+      "name": "Purpose",
+      "description": "Sense of meaning and direction in life",
+      "category": "existential",
+      "baseMax": 100,
+      "baseDecayRate": 0.5,
+      "icon": "⭐",
+      "thresholds": {
+        "aimless": {
+          "value": 20,
+          "label": "Aimless",
+          "moodEffect": -10,
+          "color": "#708090",
+          "urgency": "high"
+        },
+        "seeking": {
+          "value": 45,
+          "label": "Seeking Purpose",
+          "moodEffect": -3,
+          "color": "#B0C4DE",
+          "urgency": "medium"
+        },
+        "fulfilled": {
+          "value": 70,
+          "label": "Fulfilled",
+          "moodEffect": 0,
+          "color": "#FFD700",
+          "urgency": "none"
+        },
+        "driven": {
+          "value": 90,
+          "label": "Driven",
+          "moodEffect": 10,
+          "color": "#FF8C00",
+          "urgency": "none",
+          "statusEffects": ["motivated"]
+        }
+      },
+      "personalityModifiers": {
+        "ambitious": {
+          "decayRateMultiplier": 1.5,
+          "thresholdShift": 15
+        },
+        "content": {
+          "decayRateMultiplier": 0.3,
+          "thresholdShift": -20
+        }
+      }
+    },
+
+    "recreation": {
+      "id": "recreation",
+      "name": "Recreation",
+      "description": "Need for entertainment and leisure",
+      "category": "emotional",
+      "baseMax": 100,
+      "baseDecayRate": 1.8,
+      "icon": "🎲",
+      "thresholds": {
+        "bored": {
+          "value": 20,
+          "label": "Bored",
+          "moodEffect": -8,
+          "color": "#A9A9A9",
+          "urgency": "medium"
+        },
+        "understimulated": {
+          "value": 45,
+          "label": "Understimulated",
+          "moodEffect": -3,
+          "color": "#C0C0C0",
+          "urgency": "low"
+        },
+        "entertained": {
+          "value": 70,
+          "label": "Entertained",
+          "moodEffect": 0,
+          "color": "#DDA0DD",
+          "urgency": "none"
+        },
+        "engaged": {
+          "value": 88,
+          "label": "Engaged",
+          "moodEffect": 7,
+          "color": "#DA70D6",
+          "urgency": "none"
+        }
+      },
+      "personalityModifiers": {
+        "playful": {
+          "decayRateMultiplier": 2.0,
+          "thresholdShift": 10
+        },
+        "serious": {
+          "decayRateMultiplier": 0.6,
+          "thresholdShift": -15
+        }
+      },
+      "recreationTypes": {
+        "social": ["drinking", "gambling", "dancing", "conversation"],
+        "solitary": ["reading", "crafting", "meditation", "walking"],
+        "cerebral": ["reading", "games-of-strategy", "research", "puzzles"],
+        "active": ["sports", "hunting", "dancing", "training"]
+      }
+    },
+
+    "comfort": {
+      "id": "comfort",
+      "name": "Comfort",
+      "description": "Physical comfort and environment quality",
+      "category": "physical",
+      "baseMax": 100,
+      "baseDecayRate": 0,
+      "icon": "🛋️",
+      "decayToBase": true,
+      "baseComfortValue": 50,
+      "thresholds": {
+        "miserable": {
+          "value": 15,
+          "label": "Miserable",
+          "moodEffect": -12,
+          "color": "#8B4513",
+          "urgency": "high"
+        },
+        "uncomfortable": {
+          "value": 40,
+          "label": "Uncomfortable",
+          "moodEffect": -4,
+          "color": "#D2691E",
+          "urgency": "low"
+        },
+        "comfortable": {
+          "value": 65,
+          "label": "Comfortable",
+          "moodEffect": 0,
+          "color": "#F4A460",
+          "urgency": "none"
+        },
+        "luxurious": {
+          "value": 88,
+          "label": "Luxurious",
+          "moodEffect": 8,
+          "color": "#DAA520",
+          "urgency": "none"
+        }
+      },
+      "personalityModifiers": {
+        "pompous": {
+          "baseComfortValue": 30,
+          "thresholdShift": 20
+        },
+        "humble": {
+          "baseComfortValue": 65,
+          "thresholdShift": -15
+        }
+      }
+    }
+  },
+
+  "satisfactionMethods": {
+    "sustenance": [
+      {
+        "id": "eat-poor-meal",
+        "name": "Eat Poor Meal",
+        "satisfactionAmount": 30,
+        "duration": 4,
+        "thoughts": ["ate-poor-meal"]
+      },
+      {
+        "id": "eat-normal-meal",
+        "name": "Eat Normal Meal",
+        "satisfactionAmount": 50,
+        "duration": 6,
+        "thoughts": []
+      },
+      {
+        "id": "eat-good-meal",
+        "name": "Eat Good Meal",
+        "satisfactionAmount": 70,
+        "duration": 8,
+        "thoughts": ["ate-good-meal"]
+      },
+      {
+        "id": "feast",
+        "name": "Attend Feast",
+        "satisfactionAmount": 90,
+        "duration": 12,
+        "thoughts": ["attended-feast"]
+      }
+    ],
+    "rest": [
+      {
+        "id": "nap",
+        "name": "Take Nap",
+        "satisfactionAmount": 25,
+        "duration": 2,
+        "thoughts": []
+      },
+      {
+        "id": "sleep-ground",
+        "name": "Sleep on Ground",
+        "satisfactionAmount": 50,
+        "duration": 8,
+        "thoughts": ["slept-on-ground"]
+      },
+      {
+        "id": "sleep-bed",
+        "name": "Sleep in Bed",
+        "satisfactionAmount": 80,
+        "duration": 8,
+        "thoughts": []
+      },
+      {
+        "id": "sleep-luxury",
+        "name": "Sleep in Luxury",
+        "satisfactionAmount": 100,
+        "duration": 8,
+        "thoughts": ["slept-in-luxury"]
+      }
+    ],
+    "social": [
+      {
+        "id": "brief-chat",
+        "name": "Brief Chat",
+        "satisfactionAmount": 15,
+        "duration": 0.5,
+        "thoughts": []
+      },
+      {
+        "id": "conversation",
+        "name": "Good Conversation",
+        "satisfactionAmount": 35,
+        "duration": 1,
+        "thoughts": ["had-good-conversation"]
+      },
+      {
+        "id": "deep-talk",
+        "name": "Deep Talk",
+        "satisfactionAmount": 55,
+        "duration": 2,
+        "thoughts": ["had-meaningful-conversation"]
+      },
+      {
+        "id": "social-gathering",
+        "name": "Social Gathering",
+        "satisfactionAmount": 70,
+        "duration": 4,
+        "thoughts": ["attended-social-event"]
+      }
+    ],
+    "recreation": [
+      {
+        "id": "quick-game",
+        "name": "Quick Game",
+        "satisfactionAmount": 20,
+        "duration": 1,
+        "thoughts": []
+      },
+      {
+        "id": "engage-hobby",
+        "name": "Engage in Hobby",
+        "satisfactionAmount": 45,
+        "duration": 2,
+        "thoughts": ["enjoyed-hobby"]
+      },
+      {
+        "id": "entertainment",
+        "name": "Attend Entertainment",
+        "satisfactionAmount": 65,
+        "duration": 3,
+        "thoughts": ["was-entertained"]
+      }
+    ],
+    "safety": [
+      {
+        "id": "seek-guards",
+        "name": "Seek Guards",
+        "satisfactionAmount": 30,
+        "duration": 1,
+        "thoughts": []
+      },
+      {
+        "id": "fortify-location",
+        "name": "Fortify Location",
+        "satisfactionAmount": 50,
+        "duration": 4,
+        "thoughts": ["felt-safer"]
+      }
+    ],
+    "purpose": [
+      {
+        "id": "complete-minor-goal",
+        "name": "Complete Minor Goal",
+        "satisfactionAmount": 20,
+        "duration": null,
+        "thoughts": ["accomplished-something"]
+      },
+      {
+        "id": "advance-career",
+        "name": "Advance Career",
+        "satisfactionAmount": 45,
+        "duration": null,
+        "thoughts": ["career-progress"]
+      },
+      {
+        "id": "fulfill-calling",
+        "name": "Fulfill Calling",
+        "satisfactionAmount": 80,
+        "duration": null,
+        "thoughts": ["fulfilled-purpose"]
+      }
+    ]
+  },
+
+  "environmentalEffects": {
+    "comfort": {
+      "sleeping-on-ground": -30,
+      "basic-bedroll": 0,
+      "simple-bed": 20,
+      "comfortable-bed": 40,
+      "luxury-bed": 60,
+      "dirt-floor": -10,
+      "stone-floor": 0,
+      "wood-floor": 10,
+      "carpeted-floor": 20
+    },
+    "safety": {
+      "combat-nearby": -40,
+      "in-dungeon": -20,
+      "in-wilderness": -10,
+      "in-town": 10,
+      "in-guarded-area": 20,
+      "in-fortress": 30
+    }
+  }
+}
