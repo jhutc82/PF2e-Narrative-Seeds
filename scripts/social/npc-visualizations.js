@@ -6,6 +6,7 @@
  */
 
 import { NPCManagerStorage } from './npc-manager-storage.js';
+import { StringUtils } from '../utils.js';
 
 export class NPCVisualizations {
 
@@ -285,7 +286,7 @@ export class NPCVisualizations {
     // For now, render as a simple hierarchical list
     // A full family tree would require more complex layout
     let html = `<div class="family-tree">`;
-    html += `<h3>${family.surname} Family</h3>`;
+    html += `<h3>${StringUtils.escapeHTML(family.surname)} Family</h3>`;
     html += `<div class="family-members">`;
 
     familyNPCs.forEach(npc => {
@@ -296,8 +297,8 @@ export class NPCVisualizations {
             <i class="fas fa-user-circle"></i>
           </div>
           <div class="member-info">
-            <strong>${npc.name}</strong>
-            <span>${role}</span>
+            <strong>${StringUtils.escapeHTML(npc.name)}</strong>
+            <span>${StringUtils.escapeHTML(role)}</span>
           </div>
         </div>
       `;
@@ -354,19 +355,19 @@ export class NPCVisualizations {
 
     // Render org chart
     let html = `<div class="faction-org-chart">`;
-    html += `<h3>${faction.name}</h3>`;
-    html += `<p class="faction-type">${faction.type?.name || 'Organization'}</p>`;
+    html += `<h3>${StringUtils.escapeHTML(faction.name)}</h3>`;
+    html += `<p class="faction-type">${StringUtils.escapeHTML(faction.type?.name || 'Organization')}</p>`;
 
     ranks.forEach((npcs, rank) => {
       html += `<div class="org-rank">`;
-      html += `<h4>${rank}</h4>`;
+      html += `<h4>${StringUtils.escapeHTML(rank)}</h4>`;
       html += `<div class="rank-members">`;
 
       npcs.forEach(npc => {
         html += `
           <div class="faction-member" data-npc-id="${npc.id}">
             <i class="fas fa-user"></i>
-            <span>${npc.name}</span>
+            <span>${StringUtils.escapeHTML(npc.name)}</span>
           </div>
         `;
       });
@@ -415,10 +416,10 @@ export class NPCVisualizations {
         <div class="timeline-item" data-encounter-id="${encounter.id}">
           <div class="timeline-marker"></div>
           <div class="timeline-content">
-            <div class="timeline-date">${date}</div>
-            <div class="timeline-title">${encounter.title || 'Untitled Encounter'}</div>
-            <div class="timeline-description">${encounter.description || ''}</div>
-            ${encounter.location ? `<div class="timeline-location"><i class="fas fa-map-marker-alt"></i> ${encounter.location}</div>` : ''}
+            <div class="timeline-date">${StringUtils.escapeHTML(date)}</div>
+            <div class="timeline-title">${StringUtils.escapeHTML(encounter.title || 'Untitled Encounter')}</div>
+            <div class="timeline-description">${StringUtils.escapeHTML(encounter.description || '')}</div>
+            ${encounter.location ? `<div class="timeline-location"><i class="fas fa-map-marker-alt"></i> ${StringUtils.escapeHTML(encounter.location)}</div>` : ''}
           </div>
         </div>
       `;
