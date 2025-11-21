@@ -315,9 +315,13 @@ Hooks.once("ready", () => {
  */
 if (import.meta.hot) {
   import.meta.hot.accept(() => {
-    console.log("PF2e Narrative Seeds | Hot reload detected");
-    PF2eNarrativeSeeds.shutdown();
-    PF2eNarrativeSeeds.initialize();
+    try {
+      console.log("PF2e Narrative Seeds | Hot reload detected");
+      PF2eNarrativeSeeds.shutdown();
+      PF2eNarrativeSeeds.initialize();
+    } catch (error) {
+      console.error("PF2e Narrative Seeds | Hot reload failed:", error);
+    }
   });
 }
 
