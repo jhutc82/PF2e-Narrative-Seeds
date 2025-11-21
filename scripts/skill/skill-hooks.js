@@ -179,7 +179,7 @@ export class SkillHooks {
 
       // Force variety reset for this action/outcome combination
       const cacheKey = `skill-${skillData.action}-${skillData.outcome}`;
-      game.modules.get("pf2e-narrative-seeds").api?.random?.clearHistory(cacheKey);
+      window.PF2eNarrativeSeeds?.api?.random?.clearHistory(cacheKey);
 
       // Generate new narrative
       const seed = await this.generator.generate(skillData);

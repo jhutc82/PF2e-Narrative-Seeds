@@ -222,7 +222,12 @@ export class NarrativeSeedsSettings {
       },
       default: 60,
       onChange: value => {
-        // Validate and clamp value to valid range
+        // Validate type and clamp value to valid range
+        if (typeof value !== 'number' || isNaN(value)) {
+          console.warn(`PF2e Narrative Seeds | Complication chance must be a number. Resetting to default: 60`);
+          game.settings.set("pf2e-narrative-seeds", "complicationChance", 60);
+          return;
+        }
         if (value < 0 || value > 100) {
           const clamped = Math.max(0, Math.min(100, value));
           console.warn(`PF2e Narrative Seeds | Complication chance must be 0-100. Clamping ${value} to ${clamped}`);

@@ -119,17 +119,18 @@ export class DismembermentManager {
      */
     static calculateDismembermentChance(target) {
         const baseChance = NarrativeSeedsSettings.get('dismembermentBaseChance', 10);
-        const levelScaling = NarrativeSeedsSettings.get('dismembermentLevelScaling', true);
+        const levelScaling = NarrativeSeedsSettings.get('dismembermentLevelScaling', 0.5);
         const maxChance = NarrativeSeedsSettings.get('dismembermentMaxChance', 50);
 
         // Validate numeric values to prevent NaN
         const validBaseChance = typeof baseChance === 'number' && !isNaN(baseChance) ? baseChance : 10;
+        const validLevelScaling = typeof levelScaling === 'number' && !isNaN(levelScaling) ? levelScaling : 0.5;
         const validMaxChance = typeof maxChance === 'number' && !isNaN(maxChance) ? maxChance : 50;
 
         const targetLevel = target?.system?.details?.level?.value || 0;
 
-        // Calculate: base + (level if scaling enabled)
-        let chance = validBaseChance + (levelScaling ? targetLevel : 0);
+        // Calculate: base + (level * scaling multiplier)
+        let chance = validBaseChance + (targetLevel * validLevelScaling);
 
         // Cap at max
         chance = Math.min(chance, validMaxChance);

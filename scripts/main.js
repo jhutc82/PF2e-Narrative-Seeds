@@ -202,7 +202,7 @@ Hooks.once("init", () => {
   DismembermentManager.initialize();
 
   // Expose API
-  const module = game.modules.get("pf2e-narrative-seeds");
+  const module = game.modules.get(PF2eNarrativeSeeds.MODULE_ID);
   if (module) {
     module.api = {
       version: PF2eNarrativeSeeds.VERSION,
@@ -299,7 +299,7 @@ Hooks.once("ready", () => {
 
     // Random utils for debugging
     random: {
-      clearHistory: () => RandomUtils.clearHistory(),
+      clearHistory: (key) => RandomUtils.clearHistory(key),
       stats: () => RandomUtils.getCacheStats()
     }
   };

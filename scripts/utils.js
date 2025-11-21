@@ -343,13 +343,22 @@ export class RandomUtils {
   }
 
   /**
-   * Clear all usage history (useful for testing or resetting)
+   * Clear usage history (useful for testing or resetting)
+   * @param {string} [key] - Optional specific cache key to clear. If omitted, clears all history.
    */
-  static clearHistory() {
-    this.usageHistory.clear();
-    this.cacheTimestamps.clear();
-    this.messageHistory = [];
-    console.log("PF2e Narrative Seeds | Random usage history cleared");
+  static clearHistory(key = null) {
+    if (key) {
+      // Clear specific cache key
+      this.usageHistory.delete(key);
+      this.cacheTimestamps.delete(key);
+      console.log(`PF2e Narrative Seeds | Random usage history cleared for key: ${key}`);
+    } else {
+      // Clear all history
+      this.usageHistory.clear();
+      this.cacheTimestamps.clear();
+      this.messageHistory = [];
+      console.log("PF2e Narrative Seeds | Random usage history cleared");
+    }
   }
 
   /**
