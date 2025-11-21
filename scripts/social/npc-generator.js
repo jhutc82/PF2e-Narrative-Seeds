@@ -339,7 +339,14 @@ export class NPCGenerator {
         sessionTracking: this.initializeSessionTracking(),
         detailLevel,
         actor: params.actor,
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        // Dynamic systems (initialized empty - systems will populate on first use)
+        needs: null, // Will be initialized by NPCNeedsSystem on first access
+        thoughts: [], // Active thoughts/moodlets
+        relationshipsDynamic: {}, // Opinion-based dynamic relationships
+        moodHistory: [], // Historical mood data
+        currentActivity: null, // Current autonomous activity
+        lastDynamicUpdate: Date.now() // Last time dynamic systems were updated
       };
 
       // Add to memory

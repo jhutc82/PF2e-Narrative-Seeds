@@ -1,0 +1,533 @@
+{
+  "interactions": {
+    "friendly": {
+      "small-talk": {
+        "id": "small-talk",
+        "name": "Small Talk",
+        "description": "Brief, casual conversation",
+        "category": "friendly",
+        "baseSuccessChance": 0.7,
+        "duration": 0.25,
+        "requiredSkill": "diplomacy",
+        "baseDC": 10,
+        "needsSatisfied": {
+          "social": 15
+        },
+        "onSuccess": {
+          "opinionChange": 3,
+          "thoughts": ["had-good-conversation"],
+          "moodBonus": 2,
+          "message": "{npc} enjoyed the brief chat"
+        },
+        "onFailure": {
+          "opinionChange": -1,
+          "thoughts": ["awkward-conversation"],
+          "moodBonus": -1,
+          "message": "{npc} seemed distracted"
+        },
+        "personalityModifiers": {
+          "outgoing": { "successBonus": 0.2, "opinionBonus": 2 },
+          "taciturn": { "successBonus": -0.15, "opinionBonus": -1 },
+          "friendly": { "successBonus": 0.15 }
+        },
+        "moodModifiers": {
+          "hostile": -0.4,
+          "unfriendly": -0.2,
+          "friendly": 0.1,
+          "helpful": 0.2
+        }
+      },
+
+      "deep-conversation": {
+        "id": "deep-conversation",
+        "name": "Deep Conversation",
+        "description": "Meaningful, in-depth discussion",
+        "category": "friendly",
+        "baseSuccessChance": 0.4,
+        "duration": 2,
+        "requiredSkill": "diplomacy",
+        "baseDC": 18,
+        "minimumRelationship": 30,
+        "needsSatisfied": {
+          "social": 40,
+          "recreation": 20
+        },
+        "onSuccess": {
+          "opinionChange": 12,
+          "thoughts": ["had-meaningful-conversation"],
+          "moodBonus": 8,
+          "message": "{npc} really connected with you",
+          "secretsRevealed": 0.3,
+          "trustIncrease": true
+        },
+        "onFailure": {
+          "opinionChange": -3,
+          "thoughts": ["awkward-conversation"],
+          "moodBonus": -2,
+          "message": "The conversation fell flat"
+        },
+        "personalityModifiers": {
+          "scholarly": { "successBonus": 0.25, "opinionBonus": 5 },
+          "verbose": { "successBonus": 0.15 },
+          "taciturn": { "successBonus": -0.3, "opinionBonus": -3 },
+          "curious": { "successBonus": 0.2 }
+        },
+        "needsModifiers": {
+          "social": {
+            "low": -0.2,
+            "high": 0.15
+          }
+        }
+      },
+
+      "compliment": {
+        "id": "compliment",
+        "name": "Compliment",
+        "description": "Say something nice",
+        "category": "friendly",
+        "baseSuccessChance": 0.6,
+        "duration": 0.1,
+        "requiredSkill": "diplomacy",
+        "baseDC": 12,
+        "needsSatisfied": {
+          "social": 8
+        },
+        "onSuccess": {
+          "opinionChange": 8,
+          "thoughts": ["was-complimented"],
+          "moodBonus": 5,
+          "message": "{npc} appreciates the kind words"
+        },
+        "onFailure": {
+          "opinionChange": -2,
+          "thoughts": [],
+          "moodBonus": 0,
+          "message": "{npc} thinks you're being insincere"
+        },
+        "personalityModifiers": {
+          "pompous": { "successBonus": 0.3, "opinionBonus": 5 },
+          "humble": { "successBonus": -0.1 },
+          "vain": { "successBonus": 0.4, "opinionBonus": 8 }
+        }
+      },
+
+      "share-meal": {
+        "id": "share-meal",
+        "name": "Share Meal",
+        "description": "Eat together",
+        "category": "friendly",
+        "baseSuccessChance": 0.8,
+        "duration": 1,
+        "requiredSkill": null,
+        "baseDC": 8,
+        "needsSatisfied": {
+          "social": 25,
+          "sustenance": 40,
+          "recreation": 10
+        },
+        "onSuccess": {
+          "opinionChange": 10,
+          "thoughts": ["had-good-conversation", "ate-good-meal"],
+          "moodBonus": 8,
+          "message": "You shared a pleasant meal with {npc}"
+        },
+        "onFailure": {
+          "opinionChange": 2,
+          "thoughts": [],
+          "moodBonus": 2,
+          "message": "The meal was okay"
+        },
+        "personalityModifiers": {
+          "gluttonous": { "successBonus": 0.3, "opinionBonus": 8 }
+        }
+      },
+
+      "give-gift": {
+        "id": "give-gift",
+        "name": "Give Gift",
+        "description": "Present a gift",
+        "category": "friendly",
+        "baseSuccessChance": 0.85,
+        "duration": 0.25,
+        "requiredSkill": null,
+        "baseDC": 5,
+        "requiresItem": true,
+        "needsSatisfied": {},
+        "onSuccess": {
+          "opinionChange": 15,
+          "thoughts": ["received-gift"],
+          "moodBonus": 10,
+          "message": "{npc} is grateful for the gift"
+        },
+        "onFailure": {
+          "opinionChange": 3,
+          "thoughts": [],
+          "moodBonus": 2,
+          "message": "{npc} accepts the gift politely"
+        },
+        "valueModifiers": {
+          "cheap": { "opinionChange": 5, "thought": "received-gift" },
+          "modest": { "opinionChange": 15, "thought": "received-gift" },
+          "valuable": { "opinionChange": 25, "thought": "received-valuable-gift" },
+          "precious": { "opinionChange": 40, "thought": "received-valuable-gift" }
+        },
+        "personalityModifiers": {
+          "greedy": { "opinionBonus": 10 },
+          "generous": { "opinionBonus": 5 },
+          "humble": { "opinionBonus": -5 }
+        }
+      }
+    },
+
+    "flirtatious": {
+      "flirt": {
+        "id": "flirt",
+        "name": "Flirt",
+        "description": "Make romantic advances",
+        "category": "flirtatious",
+        "baseSuccessChance": 0.3,
+        "duration": 0.5,
+        "requiredSkill": "diplomacy",
+        "baseDC": 16,
+        "minimumRelationship": 20,
+        "needsSatisfied": {
+          "social": 20
+        },
+        "onSuccess": {
+          "opinionChange": 8,
+          "romanceOpinionChange": 15,
+          "thoughts": [],
+          "moodBonus": 6,
+          "message": "{npc} seems interested"
+        },
+        "onFailure": {
+          "opinionChange": -8,
+          "romanceOpinionChange": -10,
+          "thoughts": ["rejected-socially"],
+          "moodBonus": -5,
+          "message": "{npc} is not interested"
+        },
+        "personalityModifiers": {
+          "flirtatious": { "successBonus": 0.4, "opinionBonus": 5 },
+          "shy": { "successBonus": -0.3 },
+          "romantic": { "successBonus": 0.3 }
+        },
+        "compatibilityCheck": true
+      },
+
+      "romantic-confession": {
+        "id": "romantic-confession",
+        "name": "Confess Feelings",
+        "description": "Confess romantic feelings",
+        "category": "flirtatious",
+        "baseSuccessChance": 0.2,
+        "duration": 0.5,
+        "requiredSkill": "diplomacy",
+        "baseDC": 20,
+        "minimumRelationship": 50,
+        "minimumRomanceOpinion": 30,
+        "needsSatisfied": {},
+        "onSuccess": {
+          "opinionChange": 20,
+          "romanceOpinionChange": 40,
+          "thoughts": ["romantic-success", "fell-in-love"],
+          "moodBonus": 20,
+          "message": "{npc} reciprocates your feelings!",
+          "relationshipTypeChange": "romantic-interest"
+        },
+        "onFailure": {
+          "opinionChange": -15,
+          "romanceOpinionChange": -20,
+          "thoughts": ["rejected-socially"],
+          "moodBonus": -12,
+          "message": "{npc} doesn't feel the same way",
+          "awkwardnessTimer": 168
+        },
+        "personalityModifiers": {
+          "romantic": { "successBonus": 0.3 },
+          "cautious": { "successBonus": -0.2 }
+        }
+      }
+    },
+
+    "aggressive": {
+      "insult": {
+        "id": "insult",
+        "name": "Insult",
+        "description": "Say something offensive",
+        "category": "aggressive",
+        "baseSuccessChance": 0.8,
+        "duration": 0.1,
+        "requiredSkill": "intimidation",
+        "baseDC": 10,
+        "needsSatisfied": {},
+        "onSuccess": {
+          "opinionChange": -15,
+          "thoughts": ["was-insulted"],
+          "moodBonus": -10,
+          "message": "You insulted {npc}",
+          "possibleHostility": true
+        },
+        "onFailure": {
+          "opinionChange": -8,
+          "thoughts": [],
+          "moodBonus": -3,
+          "message": "{npc} shrugs off your words"
+        },
+        "personalityModifiers": {
+          "aggressive": { "opinionChange": -5 },
+          "timid": { "opinionChange": -25 },
+          "proud": { "opinionChange": -20 }
+        }
+      },
+
+      "intimidate": {
+        "id": "intimidate",
+        "name": "Intimidate",
+        "description": "Threaten or coerce",
+        "category": "aggressive",
+        "baseSuccessChance": 0.5,
+        "duration": 0.25,
+        "requiredSkill": "intimidation",
+        "baseDC": 15,
+        "needsSatisfied": {},
+        "onSuccess": {
+          "opinionChange": -20,
+          "thoughts": [],
+          "moodBonus": -15,
+          "message": "{npc} is intimidated",
+          "complianceBonus": 0.5,
+          "fearEffect": true
+        },
+        "onFailure": {
+          "opinionChange": -10,
+          "thoughts": [],
+          "moodBonus": -5,
+          "message": "{npc} is not afraid",
+          "possibleHostility": true
+        },
+        "personalityModifiers": {
+          "timid": { "successBonus": 0.4, "opinionChange": -30 },
+          "brave": { "successBonus": -0.4 },
+          "aggressive": { "successBonus": -0.3, "possibleFight": true }
+        }
+      }
+    },
+
+    "professional": {
+      "business-proposition": {
+        "id": "business-proposition",
+        "name": "Business Proposition",
+        "description": "Propose a business deal",
+        "category": "professional",
+        "baseSuccessChance": 0.5,
+        "duration": 1,
+        "requiredSkill": "diplomacy",
+        "baseDC": 14,
+        "needsSatisfied": {
+          "social": 10
+        },
+        "onSuccess": {
+          "opinionChange": 5,
+          "thoughts": [],
+          "moodBonus": 3,
+          "message": "{npc} is interested in the deal"
+        },
+        "onFailure": {
+          "opinionChange": -2,
+          "thoughts": [],
+          "moodBonus": 0,
+          "message": "{npc} declines"
+        },
+        "personalityModifiers": {
+          "greedy": { "successBonus": 0.3 },
+          "cautious": { "successBonus": -0.2 },
+          "honest": { "successBonus": 0.1 }
+        }
+      },
+
+      "request-favor": {
+        "id": "request-favor",
+        "name": "Request Favor",
+        "description": "Ask for help",
+        "category": "professional",
+        "baseSuccessChance": 0.4,
+        "duration": 0.5,
+        "requiredSkill": "diplomacy",
+        "baseDC": 16,
+        "minimumRelationship": 40,
+        "needsSatisfied": {},
+        "onSuccess": {
+          "opinionChange": -5,
+          "thoughts": [],
+          "moodBonus": 0,
+          "message": "{npc} agrees to help",
+          "favorOwed": true
+        },
+        "onFailure": {
+          "opinionChange": -3,
+          "thoughts": [],
+          "moodBonus": -2,
+          "message": "{npc} cannot help right now"
+        },
+        "personalityModifiers": {
+          "generous": { "successBonus": 0.3, "opinionChange": 0 },
+          "selfish": { "successBonus": -0.3, "opinionChange": -10 },
+          "helpful": { "successBonus": 0.4 }
+        },
+        "relationshipModifiers": {
+          "close-friend": 0.4,
+          "friend": 0.2,
+          "acquaintance": 0,
+          "rival": -0.5
+        }
+      },
+
+      "offer-help": {
+        "id": "offer-help",
+        "name": "Offer Help",
+        "description": "Offer assistance",
+        "category": "professional",
+        "baseSuccessChance": 0.75,
+        "duration": 0.25,
+        "requiredSkill": null,
+        "baseDC": 8,
+        "needsSatisfied": {},
+        "onSuccess": {
+          "opinionChange": 12,
+          "thoughts": [],
+          "moodBonus": 6,
+          "message": "{npc} appreciates your offer"
+        },
+        "onFailure": {
+          "opinionChange": 3,
+          "thoughts": [],
+          "moodBonus": 2,
+          "message": "{npc} politely declines"
+        },
+        "personalityModifiers": {
+          "proud": { "successBonus": -0.3, "opinionBonus": -5 },
+          "humble": { "successBonus": 0.2, "opinionBonus": 5 }
+        }
+      }
+    },
+
+    "informational": {
+      "ask-about-topic": {
+        "id": "ask-about-topic",
+        "name": "Ask About Topic",
+        "description": "Inquire about something",
+        "category": "informational",
+        "baseSuccessChance": 0.6,
+        "duration": 0.5,
+        "requiredSkill": "diplomacy",
+        "baseDC": 12,
+        "needsSatisfied": {
+          "social": 10
+        },
+        "onSuccess": {
+          "opinionChange": 2,
+          "thoughts": [],
+          "moodBonus": 1,
+          "message": "{npc} shares information",
+          "informationGained": true
+        },
+        "onFailure": {
+          "opinionChange": 0,
+          "thoughts": [],
+          "moodBonus": 0,
+          "message": "{npc} doesn't know much about that"
+        },
+        "personalityModifiers": {
+          "verbose": { "successBonus": 0.3, "informationBonus": true },
+          "taciturn": { "successBonus": -0.2 },
+          "scholarly": { "successBonus": 0.25 }
+        }
+      },
+
+      "gather-rumors": {
+        "id": "gather-rumors",
+        "name": "Gather Rumors",
+        "description": "Ask about local gossip",
+        "category": "informational",
+        "baseSuccessChance": 0.7,
+        "duration": 1,
+        "requiredSkill": "diplomacy",
+        "baseDC": 10,
+        "needsSatisfied": {
+          "social": 15
+        },
+        "onSuccess": {
+          "opinionChange": 3,
+          "thoughts": [],
+          "moodBonus": 2,
+          "message": "{npc} shares some gossip",
+          "rumorsGained": true
+        },
+        "onFailure": {
+          "opinionChange": 0,
+          "thoughts": [],
+          "moodBonus": 0,
+          "message": "{npc} hasn't heard anything interesting"
+        },
+        "personalityModifiers": {
+          "gossipy": { "successBonus": 0.4, "informationBonus": true },
+          "discrete": { "successBonus": -0.3 }
+        }
+      }
+    }
+  },
+
+  "interactionCategories": {
+    "friendly": {
+      "name": "Friendly",
+      "color": "#4CAF50",
+      "icon": "😊"
+    },
+    "flirtatious": {
+      "name": "Flirtatious",
+      "color": "#E91E63",
+      "icon": "💕"
+    },
+    "aggressive": {
+      "name": "Aggressive",
+      "color": "#F44336",
+      "icon": "😠"
+    },
+    "professional": {
+      "name": "Professional",
+      "color": "#2196F3",
+      "icon": "💼"
+    },
+    "informational": {
+      "name": "Informational",
+      "color": "#FF9800",
+      "icon": "❓"
+    }
+  },
+
+  "globalModifiers": {
+    "needsEffects": {
+      "sustenance": {
+        "starving": { "allInteractions": -0.4, "moodPenalty": -5 },
+        "hungry": { "allInteractions": -0.2, "moodPenalty": -2 }
+      },
+      "rest": {
+        "exhausted": { "allInteractions": -0.3, "moodPenalty": -4 },
+        "tired": { "allInteractions": -0.15, "moodPenalty": -2 }
+      },
+      "social": {
+        "isolated": { "friendlyBonus": 0.3, "moodBonus": 3 },
+        "lonely": { "friendlyBonus": 0.15, "moodBonus": 1 }
+      }
+    },
+    "relationshipEffects": {
+      "enemy": { "allInteractions": -0.5, "aggressiveBonus": 0.3 },
+      "rival": { "allInteractions": -0.3 },
+      "acquaintance": { "allInteractions": 0 },
+      "friend": { "allInteractions": 0.2, "favorBonus": 0.3 },
+      "close-friend": { "allInteractions": 0.3, "favorBonus": 0.5 },
+      "romantic-interest": { "flirtBonus": 0.4 }
+    }
+  }
+}

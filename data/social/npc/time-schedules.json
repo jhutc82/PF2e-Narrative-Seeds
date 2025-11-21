@@ -1,0 +1,492 @@
+{
+  "timeBlocks": {
+    "early-morning": {
+      "id": "early-morning",
+      "name": "Early Morning",
+      "startHour": 5,
+      "endHour": 7,
+      "description": "Pre-dawn hours"
+    },
+    "morning": {
+      "id": "morning",
+      "name": "Morning",
+      "startHour": 7,
+      "endHour": 12,
+      "description": "Morning hours"
+    },
+    "afternoon": {
+      "id": "afternoon",
+      "name": "Afternoon",
+      "startHour": 12,
+      "endHour": 17,
+      "description": "Afternoon hours"
+    },
+    "evening": {
+      "id": "evening",
+      "name": "Evening",
+      "startHour": 17,
+      "endHour": 21,
+      "description": "Evening hours"
+    },
+    "night": {
+      "id": "night",
+      "name": "Night",
+      "startHour": 21,
+      "endHour": 24,
+      "description": "Night hours"
+    },
+    "late-night": {
+      "id": "late-night",
+      "name": "Late Night",
+      "startHour": 0,
+      "endHour": 5,
+      "description": "After midnight"
+    }
+  },
+
+  "scheduleTemplates": {
+    "commoner-standard": {
+      "id": "commoner-standard",
+      "name": "Standard Commoner",
+      "description": "Typical working-class schedule",
+      "schedule": {
+        "weekday": {
+          "early-morning": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ],
+          "morning": [
+            { "activity": "morning-routine", "priority": 80, "location": "home", "duration": 1 },
+            { "activity": "work", "priority": 90, "location": "workplace", "startTime": 8, "duration": 4 }
+          ],
+          "afternoon": [
+            { "activity": "work", "priority": 90, "location": "workplace", "duration": 5 },
+            { "activity": "lunch-break", "priority": 70, "location": "workplace", "startTime": 12, "duration": 1 }
+          ],
+          "evening": [
+            { "activity": "evening-routine", "priority": 80, "location": "home", "duration": 1 },
+            { "activity": "recreation", "priority": 50, "location": "tavern", "duration": 2 },
+            { "activity": "dinner", "priority": 75, "location": "home", "duration": 1 }
+          ],
+          "night": [
+            { "activity": "recreation", "priority": 40, "location": "home", "duration": 1 },
+            { "activity": "prepare-for-bed", "priority": 85, "location": "home", "duration": 1 },
+            { "activity": "sleeping", "priority": 100, "location": "home", "duration": 3 }
+          ],
+          "late-night": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ]
+        },
+        "weekend": {
+          "early-morning": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ],
+          "morning": [
+            { "activity": "sleeping", "priority": 70, "location": "home", "duration": 2 },
+            { "activity": "morning-routine", "priority": 60, "location": "home", "duration": 1 },
+            { "activity": "breakfast", "priority": 65, "location": "home", "duration": 1 }
+          ],
+          "afternoon": [
+            { "activity": "recreation", "priority": 70, "location": "various", "duration": 4 },
+            { "activity": "social", "priority": 60, "location": "tavern", "duration": 3 }
+          ],
+          "evening": [
+            { "activity": "social", "priority": 70, "location": "tavern", "duration": 3 },
+            { "activity": "dinner", "priority": 75, "location": "home", "duration": 1 }
+          ],
+          "night": [
+            { "activity": "recreation", "priority": 50, "location": "home", "duration": 2 },
+            { "activity": "prepare-for-bed", "priority": 80, "location": "home", "duration": 1 },
+            { "activity": "sleeping", "priority": 100, "location": "home", "duration": 3 }
+          ],
+          "late-night": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ]
+        }
+      },
+      "applicableOccupations": ["laborer", "farmer", "artisan", "shopkeeper"]
+    },
+
+    "merchant": {
+      "id": "merchant",
+      "name": "Merchant",
+      "description": "Business owner schedule",
+      "schedule": {
+        "weekday": {
+          "early-morning": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ],
+          "morning": [
+            { "activity": "morning-routine", "priority": 80, "location": "home", "duration": 1 },
+            { "activity": "open-shop", "priority": 95, "location": "shop", "startTime": 8, "duration": 4 }
+          ],
+          "afternoon": [
+            { "activity": "business", "priority": 95, "location": "shop", "duration": 5 }
+          ],
+          "evening": [
+            { "activity": "business", "priority": 90, "location": "shop", "duration": 2 },
+            { "activity": "close-shop", "priority": 95, "location": "shop", "duration": 1 },
+            { "activity": "dinner", "priority": 75, "location": "home", "duration": 1 }
+          ],
+          "night": [
+            { "activity": "accounting", "priority": 60, "location": "home", "duration": 1 },
+            { "activity": "recreation", "priority": 40, "location": "home", "duration": 1 },
+            { "activity": "sleeping", "priority": 100, "location": "home", "duration": 3 }
+          ],
+          "late-night": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ]
+        },
+        "weekend": {
+          "early-morning": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ],
+          "morning": [
+            { "activity": "sleeping", "priority": 60, "location": "home", "duration": 2 },
+            { "activity": "morning-routine", "priority": 70, "location": "home", "duration": 1 }
+          ],
+          "afternoon": [
+            { "activity": "social", "priority": 65, "location": "market", "duration": 3 },
+            { "activity": "networking", "priority": 70, "location": "guild", "duration": 2 }
+          ],
+          "evening": [
+            { "activity": "family-time", "priority": 75, "location": "home", "duration": 3 },
+            { "activity": "dinner", "priority": 80, "location": "home", "duration": 1 }
+          ],
+          "night": [
+            { "activity": "recreation", "priority": 50, "location": "home", "duration": 2 },
+            { "activity": "sleeping", "priority": 100, "location": "home", "duration": 3 }
+          ],
+          "late-night": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ]
+        }
+      },
+      "applicableOccupations": ["merchant", "shopkeeper", "trader"]
+    },
+
+    "guard": {
+      "id": "guard",
+      "name": "Guard/Watch",
+      "description": "Guard or city watch schedule",
+      "schedule": {
+        "weekday": {
+          "early-morning": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ],
+          "morning": [
+            { "activity": "morning-routine", "priority": 85, "location": "home", "duration": 1 },
+            { "activity": "patrol", "priority": 95, "location": "streets", "duration": 4 }
+          ],
+          "afternoon": [
+            { "activity": "patrol", "priority": 95, "location": "streets", "duration": 4 },
+            { "activity": "lunch-break", "priority": 70, "location": "guardhouse", "duration": 1 }
+          ],
+          "evening": [
+            { "activity": "patrol", "priority": 95, "location": "streets", "duration": 2 },
+            { "activity": "dinner", "priority": 75, "location": "home", "duration": 1 }
+          ],
+          "night": [
+            { "activity": "recreation", "priority": 50, "location": "tavern", "duration": 2 },
+            { "activity": "sleeping", "priority": 100, "location": "home", "duration": 3 }
+          ],
+          "late-night": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ]
+        },
+        "weekend": {
+          "early-morning": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ],
+          "morning": [
+            { "activity": "sleeping", "priority": 70, "location": "home", "duration": 2 },
+            { "activity": "training", "priority": 60, "location": "training-grounds", "duration": 2 }
+          ],
+          "afternoon": [
+            { "activity": "recreation", "priority": 65, "location": "various", "duration": 4 }
+          ],
+          "evening": [
+            { "activity": "social", "priority": 70, "location": "tavern", "duration": 3 },
+            { "activity": "dinner", "priority": 75, "location": "home", "duration": 1 }
+          ],
+          "night": [
+            { "activity": "recreation", "priority": 50, "location": "home", "duration": 2 },
+            { "activity": "sleeping", "priority": 100, "location": "home", "duration": 3 }
+          ],
+          "late-night": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ]
+        }
+      },
+      "applicableOccupations": ["guard", "city-watch", "soldier"]
+    },
+
+    "scholar": {
+      "id": "scholar",
+      "name": "Scholar/Mage",
+      "description": "Academic schedule",
+      "schedule": {
+        "weekday": {
+          "early-morning": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ],
+          "morning": [
+            { "activity": "morning-routine", "priority": 75, "location": "home", "duration": 1 },
+            { "activity": "research", "priority": 90, "location": "library", "duration": 4 }
+          ],
+          "afternoon": [
+            { "activity": "research", "priority": 90, "location": "library", "duration": 4 },
+            { "activity": "teaching", "priority": 80, "location": "academy", "duration": 2 }
+          ],
+          "evening": [
+            { "activity": "study", "priority": 85, "location": "home", "duration": 2 },
+            { "activity": "dinner", "priority": 70, "location": "home", "duration": 1 }
+          ],
+          "night": [
+            { "activity": "study", "priority": 75, "location": "home", "duration": 3 },
+            { "activity": "sleeping", "priority": 100, "location": "home", "duration": 2 }
+          ],
+          "late-night": [
+            { "activity": "study", "priority": 60, "location": "home", "duration": 2 },
+            { "activity": "sleeping", "priority": 100, "location": "home", "duration": 3 }
+          ]
+        },
+        "weekend": {
+          "early-morning": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ],
+          "morning": [
+            { "activity": "sleeping", "priority": 65, "location": "home", "duration": 2 },
+            { "activity": "research", "priority": 80, "location": "library", "duration": 3 }
+          ],
+          "afternoon": [
+            { "activity": "research", "priority": 75, "location": "library", "duration": 4 }
+          ],
+          "evening": [
+            { "activity": "intellectual-social", "priority": 70, "location": "academy", "duration": 3 },
+            { "activity": "dinner", "priority": 70, "location": "home", "duration": 1 }
+          ],
+          "night": [
+            { "activity": "study", "priority": 70, "location": "home", "duration": 3 },
+            { "activity": "sleeping", "priority": 100, "location": "home", "duration": 2 }
+          ],
+          "late-night": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ]
+        }
+      },
+      "applicableOccupations": ["scholar", "mage", "sage", "teacher", "librarian"]
+    },
+
+    "noble": {
+      "id": "noble",
+      "name": "Noble",
+      "description": "Noble or wealthy individual schedule",
+      "schedule": {
+        "weekday": {
+          "early-morning": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ],
+          "morning": [
+            { "activity": "sleeping", "priority": 80, "location": "home", "duration": 2 },
+            { "activity": "morning-routine", "priority": 85, "location": "home", "duration": 2 }
+          ],
+          "afternoon": [
+            { "activity": "social-calls", "priority": 75, "location": "various", "duration": 3 },
+            { "activity": "business", "priority": 70, "location": "estate", "duration": 2 }
+          ],
+          "evening": [
+            { "activity": "social-events", "priority": 80, "location": "various", "duration": 3 },
+            { "activity": "fine-dining", "priority": 85, "location": "home", "duration": 1 }
+          ],
+          "night": [
+            { "activity": "leisure", "priority": 70, "location": "home", "duration": 2 },
+            { "activity": "sleeping", "priority": 100, "location": "home", "duration": 3 }
+          ],
+          "late-night": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ]
+        },
+        "weekend": {
+          "early-morning": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ],
+          "morning": [
+            { "activity": "sleeping", "priority": 85, "location": "home", "duration": 3 },
+            { "activity": "morning-routine", "priority": 80, "location": "home", "duration": 2 }
+          ],
+          "afternoon": [
+            { "activity": "recreation", "priority": 75, "location": "estate", "duration": 4 }
+          ],
+          "evening": [
+            { "activity": "banquet", "priority": 85, "location": "various", "duration": 4 }
+          ],
+          "night": [
+            { "activity": "social-events", "priority": 75, "location": "various", "duration": 2 },
+            { "activity": "sleeping", "priority": 100, "location": "home", "duration": 3 }
+          ],
+          "late-night": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ]
+        }
+      },
+      "applicableOccupations": ["noble", "aristocrat", "wealthy-merchant"]
+    },
+
+    "criminal": {
+      "id": "criminal",
+      "name": "Criminal/Thief",
+      "description": "Criminal or rogue schedule",
+      "schedule": {
+        "weekday": {
+          "early-morning": [
+            { "activity": "sleeping", "priority": 100, "location": "hideout" }
+          ],
+          "morning": [
+            { "activity": "sleeping", "priority": 90, "location": "hideout", "duration": 5 }
+          ],
+          "afternoon": [
+            { "activity": "scouting", "priority": 75, "location": "streets", "duration": 3 },
+            { "activity": "fence-goods", "priority": 70, "location": "market", "duration": 2 }
+          ],
+          "evening": [
+            { "activity": "planning", "priority": 80, "location": "hideout", "duration": 2 },
+            { "activity": "dinner", "priority": 60, "location": "tavern", "duration": 1 }
+          ],
+          "night": [
+            { "activity": "criminal-work", "priority": 95, "location": "various", "duration": 4 }
+          ],
+          "late-night": [
+            { "activity": "criminal-work", "priority": 90, "location": "various", "duration": 2 },
+            { "activity": "drinking", "priority": 70, "location": "tavern", "duration": 2 },
+            { "activity": "sleeping", "priority": 85, "location": "hideout", "duration": 1 }
+          ]
+        },
+        "weekend": {
+          "early-morning": [
+            { "activity": "sleeping", "priority": 100, "location": "hideout" }
+          ],
+          "morning": [
+            { "activity": "sleeping", "priority": 95, "location": "hideout", "duration": 5 }
+          ],
+          "afternoon": [
+            { "activity": "gambling", "priority": 70, "location": "gambling-den", "duration": 4 }
+          ],
+          "evening": [
+            { "activity": "social", "priority": 75, "location": "tavern", "duration": 3 }
+          ],
+          "night": [
+            { "activity": "criminal-work", "priority": 85, "location": "various", "duration": 4 }
+          ],
+          "late-night": [
+            { "activity": "drinking", "priority": 80, "location": "tavern", "duration": 3 },
+            { "activity": "sleeping", "priority": 90, "location": "hideout", "duration": 2 }
+          ]
+        }
+      },
+      "applicableOccupations": ["thief", "smuggler", "burglar", "assassin"]
+    },
+
+    "innkeeper": {
+      "id": "innkeeper",
+      "name": "Innkeeper/Barkeep",
+      "description": "Service industry schedule",
+      "schedule": {
+        "weekday": {
+          "early-morning": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ],
+          "morning": [
+            { "activity": "morning-routine", "priority": 85, "location": "home", "duration": 1 },
+            { "activity": "open-inn", "priority": 95, "location": "inn", "duration": 1 },
+            { "activity": "serve-breakfast", "priority": 90, "location": "inn", "duration": 3 }
+          ],
+          "afternoon": [
+            { "activity": "inn-work", "priority": 90, "location": "inn", "duration": 4 },
+            { "activity": "lunch-service", "priority": 85, "location": "inn", "duration": 1 }
+          ],
+          "evening": [
+            { "activity": "dinner-service", "priority": 95, "location": "inn", "duration": 2 },
+            { "activity": "serve-drinks", "priority": 90, "location": "inn", "duration": 2 }
+          ],
+          "night": [
+            { "activity": "serve-drinks", "priority": 85, "location": "inn", "duration": 3 },
+            { "activity": "close-inn", "priority": 90, "location": "inn", "duration": 1 }
+          ],
+          "late-night": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ]
+        },
+        "weekend": {
+          "early-morning": [
+            { "activity": "sleeping", "priority": 100, "location": "home" }
+          ],
+          "morning": [
+            { "activity": "morning-routine", "priority": 85, "location": "home", "duration": 1 },
+            { "activity": "open-inn", "priority": 95, "location": "inn", "duration": 1 },
+            { "activity": "serve-breakfast", "priority": 90, "location": "inn", "duration": 3 }
+          ],
+          "afternoon": [
+            { "activity": "inn-work", "priority": 95, "location": "inn", "duration": 4 },
+            { "activity": "lunch-service", "priority": 90, "location": "inn", "duration": 1 }
+          ],
+          "evening": [
+            { "activity": "dinner-service", "priority": 100, "location": "inn", "duration": 2 },
+            { "activity": "serve-drinks", "priority": 95, "location": "inn", "duration": 2 }
+          ],
+          "night": [
+            { "activity": "serve-drinks", "priority": 90, "location": "inn", "duration": 4 }
+          ],
+          "late-night": [
+            { "activity": "serve-drinks", "priority": 80, "location": "inn", "duration": 2 },
+            { "activity": "close-inn", "priority": 85, "location": "inn", "duration": 1 },
+            { "activity": "sleeping", "priority": 100, "location": "home", "duration": 2 }
+          ]
+        }
+      },
+      "applicableOccupations": ["innkeeper", "barkeep", "tavern-owner"]
+    }
+  },
+
+  "personalityScheduleModifiers": {
+    "early-riser": {
+      "name": "Early Riser",
+      "sleepTimeShift": -2,
+      "wakeTimeShift": -2,
+      "morningEnergyBonus": 15
+    },
+    "night-owl": {
+      "name": "Night Owl",
+      "sleepTimeShift": 2,
+      "wakeTimeShift": 2,
+      "nightEnergyBonus": 15
+    },
+    "lazy": {
+      "name": "Lazy",
+      "workPriorityPenalty": -20,
+      "recreationPriorityBonus": 15,
+      "sleepDurationBonus": 2
+    },
+    "energetic": {
+      "name": "Energetic",
+      "workPriorityBonus": 15,
+      "sleepDurationPenalty": -1,
+      "activityFrequencyBonus": 1.2
+    },
+    "workaholic": {
+      "name": "Workaholic",
+      "workPriorityBonus": 30,
+      "workDurationBonus": 3,
+      "recreationPriorityPenalty": -20
+    },
+    "social": {
+      "name": "Social",
+      "socialActivityPriorityBonus": 20,
+      "soloActivityPriorityPenalty": -10
+    },
+    "reclusive": {
+      "name": "Reclusive",
+      "socialActivityPriorityPenalty": -25,
+      "soloActivityPriorityBonus": 15
+    }
+  }
+}
