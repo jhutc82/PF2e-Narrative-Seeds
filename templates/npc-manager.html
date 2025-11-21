@@ -8,6 +8,12 @@
       <a class="item {{#if (eq currentView 'generate')}}active{{/if}}" data-view="generate">
         <i class="fas fa-magic"></i> Generate New
       </a>
+      <a class="item {{#if (eq currentView 'visualizations')}}active{{/if}}" data-view="visualizations">
+        <i class="fas fa-project-diagram"></i> Visualizations
+      </a>
+      <a class="item {{#if (eq currentView 'encounters')}}active{{/if}}" data-view="encounters">
+        <i class="fas fa-dice-d20"></i> Encounters
+      </a>
     </nav>
 
     <div class="stats-bar">
@@ -20,6 +26,16 @@
       <span class="stat-item">
         <i class="fas fa-shield-alt"></i> {{stats.totalFactions}} Factions
       </span>
+      {{#if stats.pinnedNPCs}}
+        <span class="stat-item">
+          <i class="fas fa-thumbtack"></i> {{stats.pinnedNPCs}} Pinned
+        </span>
+      {{/if}}
+      {{#if stats.archivedNPCs}}
+        <span class="stat-item">
+          <i class="fas fa-archive"></i> {{stats.archivedNPCs}} Archived
+        </span>
+      {{/if}}
     </div>
   </header>
 
@@ -38,6 +54,14 @@
       {{> detailView}}
     {{/if}}
 
+    {{#if (eq currentView 'visualizations')}}
+      {{> visualizationsView}}
+    {{/if}}
+
+    {{#if (eq currentView 'encounters')}}
+      {{> encountersView}}
+    {{/if}}
+
   </section>
 </div>
 
@@ -53,12 +77,24 @@
       <input
         type="text"
         class="search-input"
-        placeholder="Search by name or occupation..."
+        placeholder="Search by name or occupation... (Press / to focus)"
         value="{{searchQuery}}"
       />
+      <button class="toggle-advanced-search" title="Advanced Search">
+        <i class="fas fa-filter"></i>
+      </button>
     </div>
 
     <div class="filters">
+      {{#if savedSearches}}
+        <select class="load-saved-search">
+          <option value="">Load Saved Search...</option>
+          {{#each savedSearches}}
+            <option value="{{this.id}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+      {{/if}}
+
       <select class="filter-ancestry">
         <option value="all">All Ancestries</option>
         {{#each ancestries}}
@@ -78,6 +114,9 @@
         <option value="ancestry-asc" {{#if (and (eq sortBy 'ancestry') (eq sortOrder 'asc'))}}selected{{/if}}>
           Ancestry (A-Z)
         </option>
+        <option value="viewCount-desc" {{#if (and (eq sortBy 'viewCount') (eq sortOrder 'desc'))}}selected{{/if}}>
+          Most Viewed
+        </option>
         <option value="date-desc" {{#if (and (eq sortBy 'date') (eq sortOrder 'desc'))}}selected{{/if}}>
           Recently Added
         </option>
@@ -88,8 +127,14 @@
     </div>
 
     <div class="actions">
-      <button class="export-all" title="Export All Data">
+      <button class="export-csv" title="Export to CSV">
+        <i class="fas fa-file-csv"></i>
+      </button>
+      <button class="export-all" title="Export All (JSON)">
         <i class="fas fa-file-export"></i>
+      </button>
+      <button class="create-backup" title="Create Backup">
+        <i class="fas fa-save"></i>
       </button>
       <button class="import-data" title="Import Data">
         <i class="fas fa-file-import"></i>
@@ -100,14 +145,59 @@
     </div>
   </div>
 
+  <!-- Advanced Search Panel -->
+  {{#if advancedSearchOpen}}
+    <div class="advanced-search-panel">
+      <h4><i class="fas fa-search-plus"></i> Advanced Search</h4>
+      <div class="advanced-filters">
+        <!-- Add more advanced filter options here -->
+        <button class="save-search"><i class="fas fa-bookmark"></i> Save Search</button>
+        <button class="clear-filters"><i class="fas fa-times"></i> Clear Filters</button>
+      </div>
+    </div>
+  {{/if}}
+
+  <!-- Bulk Operations Bar -->
+  {{#if selectedNPCs}}
+    {{#if selectedNPCs.length}}
+      <div class="bulk-operations-bar">
+        <span class="bulk-count">{{selectedNPCs.length}} selected</span>
+        <button class="bulk-delete"><i class="fas fa-trash"></i> Delete</button>
+        <button class="bulk-tag"><i class="fas fa-tag"></i> Add Tag</button>
+        <button class="bulk-export"><i class="fas fa-file-export"></i> Export</button>
+        <button class="bulk-archive"><i class="fas fa-archive"></i> Archive</button>
+        <button class="deselect-all"><i class="fas fa-times"></i> Deselect All</button>
+      </div>
+    {{/if}}
+  {{/if}}
+
   <!-- NPC List -->
   <div class="npc-list">
     {{#if npcs}}
+      <!-- Select All -->
+      <div class="select-all-row">
+        <label>
+          <input type="checkbox" class="select-all" />
+          Select All ({{npcs.length}} on this page)
+        </label>
+      </div>
+
       {{#each npcs}}
-        <div class="npc-item" data-npc-id="{{this.id}}">
+        <div class="npc-item {{#if this.pinned}}pinned{{/if}} {{#if this.archived}}archived{{/if}}" data-npc-id="{{this.id}}" style="{{#if this.color}}border-left: 4px solid {{this.color}};{{/if}}">
+          <div class="npc-checkbox-container">
+            <input
+              type="checkbox"
+              class="npc-checkbox"
+              data-npc-id="{{this.id}}"
+              {{#if (includes ../selectedNPCs this.id)}}checked{{/if}}
+            />
+          </div>
+
           <div class="npc-item-main">
-            <div class="npc-avatar">
-              {{#if this.appearance.distinguishingFeatures.[0]}}
+            <div class="npc-avatar" style="{{#if this.color}}color: {{this.color}};{{/if}}">
+              {{#if this.pinned}}
+                <i class="fas fa-thumbtack"></i>
+              {{else if this.appearance.distinguishingFeatures.[0]}}
                 <i class="fas fa-user-circle"></i>
               {{else}}
                 <i class="fas fa-user"></i>
@@ -115,12 +205,20 @@
             </div>
 
             <div class="npc-info">
-              <h3 class="npc-name">{{this.name}}</h3>
+              <h3 class="npc-name">
+                {{this.name}}
+                {{#if this.pinned}}<i class="fas fa-thumbtack pinned-icon" title="Pinned"></i>{{/if}}
+                {{#if this.archived}}<i class="fas fa-archive archived-icon" title="Archived"></i>{{/if}}
+              </h3>
               <p class="npc-details">
                 <span class="ancestry">{{capitalize this.ancestry}}</span>
                 {{#if this.occupation.profession.name}}
                   <span class="separator">•</span>
                   <span class="occupation">{{this.occupation.profession.name}}</span>
+                {{/if}}
+                {{#if this.viewCount}}
+                  <span class="separator">•</span>
+                  <span class="view-count" title="View count"><i class="fas fa-eye"></i> {{this.viewCount}}</span>
                 {{/if}}
               </p>
               {{#if this.tags}}
@@ -152,6 +250,24 @@
       </div>
     {{/if}}
   </div>
+
+  <!-- Pagination -->
+  {{#if (gt totalPages 1)}}
+    <div class="pagination">
+      <button class="page-prev" {{#unless (gt currentPage 1)}}disabled{{/unless}}>
+        <i class="fas fa-chevron-left"></i> Previous
+      </button>
+
+      <div class="page-numbers">
+        <span class="page-info">Page {{currentPage}} of {{totalPages}}</span>
+        <span class="items-info">(Showing {{npcs.length}} of {{totalNPCs}} NPCs)</span>
+      </div>
+
+      <button class="page-next" {{#unless (lt currentPage totalPages)}}disabled{{/unless}}>
+        Next <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  {{/if}}
 </div>
 {{/inline}}
 
@@ -165,6 +281,23 @@
     <p class="subtitle">Create a new procedurally generated NPC with customizable options</p>
 
     <form class="generate-form">
+      <!-- Template Selection -->
+      {{#if templates}}
+        {{#if templates.length}}
+          <div class="form-group">
+            <label for="template">
+              <i class="fas fa-bookmark"></i> Load Template
+            </label>
+            <select name="template" class="load-template">
+              <option value="">-- No Template --</option>
+              {{#each templates}}
+                <option value="{{this.id}}">{{this.name}}</option>
+              {{/each}}
+            </select>
+          </div>
+        {{/if}}
+      {{/if}}
+
       <!-- Ancestry Selection -->
       <div class="form-group">
         <label for="ancestry">
@@ -212,10 +345,13 @@
         </small>
       </div>
 
-      <!-- Generate Button -->
+      <!-- Action Buttons -->
       <div class="form-actions">
         <button type="submit" class="generate-npc-btn">
           <i class="fas fa-magic"></i> Generate NPC
+        </button>
+        <button type="button" class="save-template">
+          <i class="fas fa-bookmark"></i> Save as Template
         </button>
       </div>
     </form>
@@ -250,14 +386,32 @@
       </button>
 
       <div class="detail-actions">
+        <button class="pin-npc {{#if this.pinned}}active{{/if}}" title="{{#if this.pinned}}Unpin{{else}}Pin{{/if}}">
+          <i class="fas fa-thumbtack"></i>
+        </button>
+        <button class="archive-npc {{#if this.archived}}active{{/if}}" title="{{#if this.archived}}Unarchive{{else}}Archive{{/if}}">
+          <i class="fas fa-archive"></i>
+        </button>
+        <button class="set-color" title="Set Color">
+          <i class="fas fa-palette"></i>
+        </button>
+        <button class="duplicate-npc" title="Duplicate NPC">
+          <i class="fas fa-copy"></i>
+        </button>
         <button class="save-npc" title="Save Changes">
           <i class="fas fa-save"></i> Save
         </button>
-        <button class="export-npc" title="Export NPC">
+        <button class="export-npc" title="Export (JSON)">
           <i class="fas fa-file-export"></i>
         </button>
+        <button class="export-markdown" title="Export (Markdown)">
+          <i class="fas fa-file-alt"></i>
+        </button>
         <button class="create-actor" title="Create Actor">
-          <i class="fas fa-user-plus"></i> Create Actor
+          <i class="fas fa-user-plus"></i>
+        </button>
+        <button class="create-journal" title="Create Journal Entry">
+          <i class="fas fa-book"></i>
         </button>
       </div>
     </div>
@@ -487,6 +641,71 @@
         </div>
       </section>
 
+      <!-- Session Notes -->
+      <section class="detail-section collapsible">
+        <h3><i class="fas fa-sticky-note"></i> Session Notes</h3>
+        <div class="section-content">
+          {{#if sessionNotes}}
+            {{#each sessionNotes}}
+              <div class="session-note">
+                <div class="note-header">
+                  <strong>{{this.sessionName}}</strong>
+                  <button class="delete-session-note" data-note-id="{{this.id}}">
+                    <i class="fas fa-times"></i>
+                  </button>
+                </div>
+                <p>{{this.note}}</p>
+                <small>{{formatDate this.timestamp}}</small>
+              </div>
+            {{/each}}
+          {{else}}
+            <p class="empty-message">No session notes yet</p>
+          {{/if}}
+          <button class="add-session-note">
+            <i class="fas fa-plus"></i> Add Session Note
+          </button>
+        </div>
+      </section>
+
+      <!-- Encounters -->
+      <section class="detail-section collapsible">
+        <h3><i class="fas fa-dice-d20"></i> Encounters</h3>
+        <div class="section-content">
+          {{#if encounters}}
+            <div class="encounter-list">
+              {{#each encounters}}
+                <div class="encounter-item">
+                  <strong>{{this.title}}</strong>
+                  {{#if this.location}}
+                    <span><i class="fas fa-map-marker-alt"></i> {{this.location}}</span>
+                  {{/if}}
+                </div>
+              {{/each}}
+            </div>
+          {{else}}
+            <p class="empty-message">No encounters recorded</p>
+          {{/if}}
+          <button class="add-npc-to-encounter">
+            <i class="fas fa-plus"></i> Add to Encounter
+          </button>
+        </div>
+      </section>
+
+      <!-- Statistics -->
+      <section class="detail-section collapsible">
+        <h3><i class="fas fa-chart-bar"></i> Statistics</h3>
+        <div class="section-content">
+          <p><strong>View Count:</strong> {{this.viewCount}} times</p>
+          {{#if this.lastViewed}}
+            <p><strong>Last Viewed:</strong> {{formatDate this.lastViewed}}</p>
+          {{/if}}
+          <p><strong>Created:</strong> {{formatDate this.savedAt}}</p>
+          {{#if this.updatedAt}}
+            <p><strong>Last Modified:</strong> {{formatDate this.updatedAt}}</p>
+          {{/if}}
+        </div>
+      </section>
+
       <!-- Raw Data (Collapsible) -->
       <section class="detail-section collapsible collapsed">
         <h3><i class="fas fa-code"></i> Raw Data</h3>
@@ -496,5 +715,108 @@
       </section>
     </div>
   {{/with}}
+</div>
+{{/inline}}
+
+<!-- ========================================================================== -->
+<!-- PARTIAL: Visualizations View -->
+<!-- ========================================================================== -->
+{{#*inline "visualizationsView"}}
+<div class="visualizations-view">
+  <div class="visualizations-container">
+    <h2><i class="fas fa-project-diagram"></i> Relationship Visualizations</h2>
+    <p class="subtitle">Visual representations of NPC relationships, families, and factions</p>
+
+    <div class="visualization-controls">
+      <button class="show-relationship-graph active">
+        <i class="fas fa-project-diagram"></i> Relationship Network
+      </button>
+      <button data-view="list">
+        <i class="fas fa-arrow-left"></i> Back to List
+      </button>
+    </div>
+
+    <div class="visualization-display" id="visualization-container">
+      <!-- Visualization will be rendered here by JavaScript -->
+      <p class="loading-message">Loading visualization...</p>
+    </div>
+
+    <div class="visualization-info">
+      <h4>About Relationship Networks</h4>
+      <ul>
+        <li>Drag nodes to rearrange the graph</li>
+        <li>Click on a node to view that NPC's details</li>
+        <li>Lines represent relationships between NPCs</li>
+        <li>Node colors indicate ancestry or custom NPC colors</li>
+      </ul>
+    </div>
+  </div>
+</div>
+{{/inline}}
+
+<!-- ========================================================================== -->
+<!-- PARTIAL: Encounters View -->
+<!-- ========================================================================== -->
+{{#*inline "encountersView"}}
+<div class="encounters-view">
+  <div class="encounters-container">
+    <h2><i class="fas fa-dice-d20"></i> Encounter Management</h2>
+    <p class="subtitle">Track where and when the party encounters your NPCs</p>
+
+    <div class="encounter-controls">
+      <button class="create-encounter">
+        <i class="fas fa-plus"></i> Create Encounter
+      </button>
+      <button data-view="list">
+        <i class="fas fa-arrow-left"></i> Back to List
+      </button>
+    </div>
+
+    <div class="encounters-list">
+      {{#if encounters}}
+        {{#if encounters.length}}
+          {{#each encounters}}
+            <div class="encounter-card">
+              <div class="encounter-header">
+                <h3>{{this.title}}</h3>
+                {{#if this.location}}
+                  <span class="encounter-location">
+                    <i class="fas fa-map-marker-alt"></i> {{this.location}}
+                  </span>
+                {{/if}}
+              </div>
+
+              {{#if this.description}}
+                <p class="encounter-description">{{this.description}}</p>
+              {{/if}}
+
+              {{#if this.npcIds}}
+                <div class="encounter-npcs">
+                  <strong>NPCs Involved:</strong>
+                  <span class="npc-count">{{this.npcIds.length}} NPC(s)</span>
+                </div>
+              {{/if}}
+
+              <div class="encounter-meta">
+                <small>Created: {{formatDate this.savedAt}}</small>
+              </div>
+            </div>
+          {{/each}}
+        {{else}}
+          <div class="empty-state">
+            <i class="fas fa-dice-d20"></i>
+            <p>No encounters yet</p>
+            <button class="create-encounter">Create Your First Encounter</button>
+          </div>
+        {{/if}}
+      {{else}}
+        <div class="empty-state">
+          <i class="fas fa-dice-d20"></i>
+          <p>No encounters yet</p>
+          <button class="create-encounter">Create Your First Encounter</button>
+        </div>
+      {{/if}}
+    </div>
+  </div>
 </div>
 {{/inline}}
