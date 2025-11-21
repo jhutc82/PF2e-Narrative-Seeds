@@ -218,6 +218,14 @@ export class NPCManagerStorage {
     if (!npc.actorId) npc.actorId = null;
     if (!npc.journalId) npc.journalId = null;
 
+    // Initialize media fields if not present
+    if (!npc.media) npc.media = {};
+    if (!npc.media.portrait) npc.media.portrait = null;
+    if (!npc.media.voiceNotes) npc.media.voiceNotes = [];
+    if (!npc.media.themeMusic) npc.media.themeMusic = null;
+    if (!npc.media.handouts) npc.media.handouts = [];
+    if (!npc.media.customIcon) npc.media.customIcon = null;
+
     // Store NPC
     data.npcs[npc.id] = npc;
 
@@ -2193,5 +2201,818 @@ export class NPCManagerStorage {
    */
   static onDataChanged() {
     this.invalidateSearchIndex();
+  }
+
+  // ============================================================================
+  // RICH MEDIA SUPPORT
+  // ============================================================================
+
+  /**
+   * Set NPC portrait
+   * @param {string} npcId - NPC ID
+   * @param {string} url - Portrait image URL or path
+   * @returns {Promise<boolean>}
+   */
+  static async setPortrait(npcId, url) {
+    try {
+      const npc = this.getNPC(npcId);
+      if (!npc) {
+        ui.notifications?.error('NPC not found');
+        return false;
+      }
+
+      if (!npc.media) npc.media = {};
+      npc.media.portrait = url;
+
+      await this.saveNPC(npc);
+      console.log(`NPCManagerStorage | Set portrait for ${npc.name}`);
+      return true;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to set portrait:', error);
+      this.logError('setPortrait', error, { npcId, url });
+      return false;
+    }
+  }
+
+  /**
+   * Add voice note to NPC
+   * @param {string} npcId - NPC ID
+   * @param {Object} voiceNote - Voice note data {url, name, duration, timestamp}
+   * @returns {Promise<boolean>}
+   */
+  static async addVoiceNote(npcId, voiceNote) {
+    try {
+      const npc = this.getNPC(npcId);
+      if (!npc) {
+        ui.notifications?.error('NPC not found');
+        return false;
+      }
+
+      if (!npc.media) npc.media = {};
+      if (!npc.media.voiceNotes) npc.media.voiceNotes = [];
+
+      const note = {
+        id: `voice-${Date.now()}`,
+        url: voiceNote.url,
+        name: voiceNote.name || 'Voice Note',
+        duration: voiceNote.duration || null,
+        timestamp: Date.now(),
+        description: voiceNote.description || ''
+      };
+
+      npc.media.voiceNotes.push(note);
+      await this.saveNPC(npc);
+
+      console.log(`NPCManagerStorage | Added voice note to ${npc.name}`);
+      return true;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to add voice note:', error);
+      this.logError('addVoiceNote', error, { npcId });
+      return false;
+    }
+  }
+
+  /**
+   * Remove voice note from NPC
+   * @param {string} npcId - NPC ID
+   * @param {string} voiceNoteId - Voice note ID
+   * @returns {Promise<boolean>}
+   */
+  static async removeVoiceNote(npcId, voiceNoteId) {
+    try {
+      const npc = this.getNPC(npcId);
+      if (!npc) return false;
+
+      if (npc.media && npc.media.voiceNotes) {
+        npc.media.voiceNotes = npc.media.voiceNotes.filter(note => note.id !== voiceNoteId);
+        await this.saveNPC(npc);
+        console.log(`NPCManagerStorage | Removed voice note from ${npc.name}`);
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to remove voice note:', error);
+      this.logError('removeVoiceNote', error, { npcId, voiceNoteId });
+      return false;
+    }
+  }
+
+  /**
+   * Set theme music for NPC
+   * @param {string} npcId - NPC ID
+   * @param {Object} music - Music data {url, name, artist}
+   * @returns {Promise<boolean>}
+   */
+  static async setThemeMusic(npcId, music) {
+    try {
+      const npc = this.getNPC(npcId);
+      if (!npc) {
+        ui.notifications?.error('NPC not found');
+        return false;
+      }
+
+      if (!npc.media) npc.media = {};
+      npc.media.themeMusic = {
+        url: music.url,
+        name: music.name || 'Theme Music',
+        artist: music.artist || null,
+        loop: music.loop !== false, // Default to true
+        volume: music.volume || 0.5
+      };
+
+      await this.saveNPC(npc);
+      console.log(`NPCManagerStorage | Set theme music for ${npc.name}`);
+      return true;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to set theme music:', error);
+      this.logError('setThemeMusic', error, { npcId });
+      return false;
+    }
+  }
+
+  /**
+   * Add handout attachment to NPC
+   * @param {string} npcId - NPC ID
+   * @param {Object} handout - Handout data {url, name, type, description}
+   * @returns {Promise<boolean>}
+   */
+  static async addHandout(npcId, handout) {
+    try {
+      const npc = this.getNPC(npcId);
+      if (!npc) {
+        ui.notifications?.error('NPC not found');
+        return false;
+      }
+
+      if (!npc.media) npc.media = {};
+      if (!npc.media.handouts) npc.media.handouts = [];
+
+      const newHandout = {
+        id: `handout-${Date.now()}`,
+        url: handout.url,
+        name: handout.name || 'Handout',
+        type: handout.type || 'document', // document, image, pdf, etc.
+        description: handout.description || '',
+        timestamp: Date.now()
+      };
+
+      npc.media.handouts.push(newHandout);
+      await this.saveNPC(npc);
+
+      console.log(`NPCManagerStorage | Added handout to ${npc.name}`);
+      return true;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to add handout:', error);
+      this.logError('addHandout', error, { npcId });
+      return false;
+    }
+  }
+
+  /**
+   * Remove handout from NPC
+   * @param {string} npcId - NPC ID
+   * @param {string} handoutId - Handout ID
+   * @returns {Promise<boolean>}
+   */
+  static async removeHandout(npcId, handoutId) {
+    try {
+      const npc = this.getNPC(npcId);
+      if (!npc) return false;
+
+      if (npc.media && npc.media.handouts) {
+        npc.media.handouts = npc.media.handouts.filter(h => h.id !== handoutId);
+        await this.saveNPC(npc);
+        console.log(`NPCManagerStorage | Removed handout from ${npc.name}`);
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to remove handout:', error);
+      this.logError('removeHandout', error, { npcId, handoutId });
+      return false;
+    }
+  }
+
+  /**
+   * Set custom icon for NPC
+   * @param {string} npcId - NPC ID
+   * @param {string} iconUrl - Icon URL or FontAwesome class
+   * @returns {Promise<boolean>}
+   */
+  static async setCustomIcon(npcId, iconUrl) {
+    try {
+      const npc = this.getNPC(npcId);
+      if (!npc) {
+        ui.notifications?.error('NPC not found');
+        return false;
+      }
+
+      if (!npc.media) npc.media = {};
+      npc.media.customIcon = iconUrl;
+
+      await this.saveNPC(npc);
+      console.log(`NPCManagerStorage | Set custom icon for ${npc.name}`);
+      return true;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to set custom icon:', error);
+      this.logError('setCustomIcon', error, { npcId, iconUrl });
+      return false;
+    }
+  }
+
+  /**
+   * Get all media for an NPC
+   * @param {string} npcId - NPC ID
+   * @returns {Object|null} - Media object or null
+   */
+  static getNPCMedia(npcId) {
+    const npc = this.getNPC(npcId);
+    if (!npc) return null;
+
+    return {
+      portrait: npc.media?.portrait || null,
+      voiceNotes: npc.media?.voiceNotes || [],
+      themeMusic: npc.media?.themeMusic || null,
+      handouts: npc.media?.handouts || [],
+      customIcon: npc.media?.customIcon || null
+    };
+  }
+
+  /**
+   * Play theme music for NPC (client-side helper)
+   * @param {string} npcId - NPC ID
+   * @returns {Promise<HTMLAudioElement|null>}
+   */
+  static async playThemeMusic(npcId) {
+    try {
+      const npc = this.getNPC(npcId);
+      if (!npc || !npc.media?.themeMusic) {
+        console.log('NPCManagerStorage | No theme music for this NPC');
+        return null;
+      }
+
+      const music = npc.media.themeMusic;
+      const audio = new Audio(music.url);
+      audio.loop = music.loop !== false;
+      audio.volume = music.volume || 0.5;
+
+      await audio.play();
+      console.log(`NPCManagerStorage | Playing theme music for ${npc.name}`);
+
+      return audio;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to play theme music:', error);
+      this.logError('playThemeMusic', error, { npcId });
+      ui.notifications?.error('Failed to play theme music');
+      return null;
+    }
+  }
+
+  /**
+   * Generate portrait gallery for all NPCs with portraits
+   * @returns {Array} - Array of {npcId, npcName, portraitUrl}
+   */
+  static getPortraitGallery() {
+    const npcs = this.getAllNPCs();
+    return npcs
+      .filter(npc => npc.media?.portrait)
+      .map(npc => ({
+        npcId: npc.id,
+        npcName: npc.name,
+        portraitUrl: npc.media.portrait,
+        ancestry: npc.ancestry,
+        archived: npc.archived || false
+      }));
+  }
+
+  // ============================================================================
+  // WORKFLOW ENHANCEMENTS
+  // ============================================================================
+
+  /**
+   * Clone an NPC with modifications
+   * @param {string} npcId - NPC ID to clone
+   * @param {Object} modifications - Properties to modify in the clone
+   * @returns {Promise<string|null>} - New NPC ID or null
+   */
+  static async cloneNPC(npcId, modifications = {}) {
+    try {
+      const original = this.getNPC(npcId);
+      if (!original) {
+        ui.notifications?.error('NPC not found');
+        return null;
+      }
+
+      // Deep clone the NPC
+      const clone = JSON.parse(JSON.stringify(original));
+
+      // Remove ID and timestamps
+      delete clone.id;
+      delete clone.savedAt;
+      delete clone.updatedAt;
+      delete clone.viewCount;
+      delete clone.lastViewed;
+
+      // Apply modifications
+      Object.assign(clone, modifications);
+
+      // Modify name to indicate it's a clone
+      if (!modifications.name) {
+        clone.name = `${original.name} (Copy)`;
+      }
+
+      // Save the clone
+      const newId = await this.saveNPC(clone, true);
+      console.log(`NPCManagerStorage | Cloned ${original.name} to ${newId}`);
+
+      ui.notifications?.info(`Cloned ${original.name}`);
+      return newId;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to clone NPC:', error);
+      this.logError('cloneNPC', error, { npcId });
+      ui.notifications?.error('Failed to clone NPC');
+      return null;
+    }
+  }
+
+  /**
+   * Batch edit multiple NPCs
+   * @param {Array<string>} npcIds - Array of NPC IDs
+   * @param {Object} updates - Properties to update
+   * @returns {Promise<number>} - Number of NPCs updated
+   */
+  static async batchEditNPCs(npcIds, updates) {
+    try {
+      await this.createBackup(this.getData(), 'pre-batch-edit');
+
+      let updateCount = 0;
+      for (const id of npcIds) {
+        const npc = this.getNPC(id);
+        if (npc) {
+          Object.assign(npc, updates);
+          await this.saveNPC(npc);
+          updateCount++;
+        }
+      }
+
+      console.log(`NPCManagerStorage | Batch edited ${updateCount} NPCs`);
+      ui.notifications?.info(`Updated ${updateCount} NPCs`);
+      return updateCount;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to batch edit NPCs:', error);
+      this.logError('batchEditNPCs', error, { npcIds, updates });
+      ui.notifications?.error('Failed to batch edit NPCs');
+      return 0;
+    }
+  }
+
+  /**
+   * Create relationship preset (family, rivals, etc.)
+   * @param {Array<string>} npcIds - Array of NPC IDs
+   * @param {string} presetType - Preset type (family, rivals, allies, faction)
+   * @returns {Promise<boolean>}
+   */
+  static async applyRelationshipPreset(npcIds, presetType) {
+    try {
+      const data = this.getData();
+
+      const presets = {
+        family: ['parent', 'sibling', 'child', 'spouse'],
+        rivals: ['rival', 'enemy', 'competitor'],
+        allies: ['ally', 'friend', 'associate', 'mentor'],
+        faction: ['leader', 'member', 'subordinate']
+      };
+
+      const relationshipTypes = presets[presetType] || ['associate'];
+
+      // Create relationships between all NPCs in the group
+      for (let i = 0; i < npcIds.length; i++) {
+        for (let j = i + 1; j < npcIds.length; j++) {
+          const relType = relationshipTypes[Math.floor(Math.random() * relationshipTypes.length)];
+
+          // Check if relationship already exists
+          const existing = data.relationships.find(
+            r => (r.npc1 === npcIds[i] && r.npc2 === npcIds[j]) ||
+                 (r.npc1 === npcIds[j] && r.npc2 === npcIds[i])
+          );
+
+          if (!existing) {
+            await this.addRelationship(npcIds[i], npcIds[j], relType);
+          }
+        }
+      }
+
+      console.log(`NPCManagerStorage | Applied ${presetType} preset to ${npcIds.length} NPCs`);
+      ui.notifications?.info(`Created ${presetType} relationships`);
+      return true;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to apply relationship preset:', error);
+      this.logError('applyRelationshipPreset', error, { npcIds, presetType });
+      ui.notifications?.error('Failed to create relationships');
+      return false;
+    }
+  }
+
+  /**
+   * Get generation history for tracking
+   * @param {number} limit - Number of recent generations to return
+   * @returns {Array} - Recent NPCs sorted by creation date
+   */
+  static getGenerationHistory(limit = 20) {
+    const npcs = this.getAllNPCs();
+    return npcs
+      .sort((a, b) => (b.savedAt || 0) - (a.savedAt || 0))
+      .slice(0, limit)
+      .map(npc => ({
+        id: npc.id,
+        name: npc.name,
+        ancestry: npc.ancestry,
+        occupation: npc.occupation?.profession?.name,
+        savedAt: npc.savedAt,
+        updatedAt: npc.updatedAt
+      }));
+  }
+
+  // ============================================================================
+  // CAMPAIGN INTEGRATION
+  // ============================================================================
+
+  /**
+   * Link NPC to scene
+   * @param {string} npcId - NPC ID
+   * @param {string} sceneId - Scene ID
+   * @returns {Promise<boolean>}
+   */
+  static async linkToScene(npcId, sceneId) {
+    try {
+      const npc = this.getNPC(npcId);
+      if (!npc) return false;
+
+      if (!npc.campaign) npc.campaign = {};
+      if (!npc.campaign.scenes) npc.campaign.scenes = [];
+
+      if (!npc.campaign.scenes.includes(sceneId)) {
+        npc.campaign.scenes.push(sceneId);
+        await this.saveNPC(npc);
+        console.log(`NPCManagerStorage | Linked ${npc.name} to scene ${sceneId}`);
+        return true;
+      }
+      return false;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to link to scene:', error);
+      this.logError('linkToScene', error, { npcId, sceneId });
+      return false;
+    }
+  }
+
+  /**
+   * Set NPC schedule/location by time
+   * @param {string} npcId - NPC ID
+   * @param {Object} scheduleEntry - {day, time, location, activity}
+   * @returns {Promise<boolean>}
+   */
+  static async setSchedule(npcId, scheduleEntry) {
+    try {
+      const npc = this.getNPC(npcId);
+      if (!npc) return false;
+
+      if (!npc.campaign) npc.campaign = {};
+      if (!npc.campaign.schedule) npc.campaign.schedule = [];
+
+      npc.campaign.schedule.push({
+        id: `schedule-${Date.now()}`,
+        day: scheduleEntry.day, // e.g., "Monday", "Fireday", etc.
+        time: scheduleEntry.time, // e.g., "morning", "9:00 AM"
+        location: scheduleEntry.location,
+        activity: scheduleEntry.activity,
+        notes: scheduleEntry.notes || ''
+      });
+
+      await this.saveNPC(npc);
+      console.log(`NPCManagerStorage | Added schedule entry for ${npc.name}`);
+      return true;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to set schedule:', error);
+      this.logError('setSchedule', error, { npcId });
+      return false;
+    }
+  }
+
+  /**
+   * Set NPC loot/inventory
+   * @param {string} npcId - NPC ID
+   * @param {Array} lootTable - Array of items {name, quantity, rarity, value}
+   * @returns {Promise<boolean>}
+   */
+  static async setLootTable(npcId, lootTable) {
+    try {
+      const npc = this.getNPC(npcId);
+      if (!npc) return false;
+
+      if (!npc.campaign) npc.campaign = {};
+      npc.campaign.lootTable = lootTable;
+
+      await this.saveNPC(npc);
+      console.log(`NPCManagerStorage | Set loot table for ${npc.name}`);
+      return true;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to set loot table:', error);
+      this.logError('setLootTable', error, { npcId });
+      return false;
+    }
+  }
+
+  /**
+   * Get NPCs by location/scene
+   * @param {string} sceneId - Scene ID
+   * @returns {Array} - NPCs in that scene
+   */
+  static getNPCsByScene(sceneId) {
+    const npcs = this.getAllNPCs();
+    return npcs.filter(npc =>
+      npc.campaign?.scenes?.includes(sceneId)
+    );
+  }
+
+  /**
+   * Get NPC schedule for a specific day/time
+   * @param {string} day - Day of week
+   * @param {string} time - Time of day
+   * @returns {Array} - NPCs and their activities
+   */
+  static getNPCSchedule(day, time) {
+    const npcs = this.getAllNPCs();
+    const scheduled = [];
+
+    for (const npc of npcs) {
+      if (npc.campaign?.schedule) {
+        const matches = npc.campaign.schedule.filter(entry =>
+          entry.day === day && entry.time === time
+        );
+
+        if (matches.length > 0) {
+          scheduled.push({
+            npc,
+            scheduleEntries: matches
+          });
+        }
+      }
+    }
+
+    return scheduled;
+  }
+
+  // ============================================================================
+  // CAMPAIGN ANALYTICS
+  // ============================================================================
+
+  /**
+   * Get most used NPCs
+   * @param {number} limit - Number of NPCs to return
+   * @returns {Array} - NPCs sorted by view count
+   */
+  static getMostUsedNPCs(limit = 10) {
+    const npcs = this.getAllNPCs();
+    return npcs
+      .filter(npc => !npc.archived)
+      .sort((a, b) => (b.viewCount || 0) - (a.viewCount || 0))
+      .slice(0, limit)
+      .map(npc => ({
+        id: npc.id,
+        name: npc.name,
+        viewCount: npc.viewCount || 0,
+        lastViewed: npc.lastViewed
+      }));
+  }
+
+  /**
+   * Get forgotten/unused NPCs
+   * @param {number} daysThreshold - Days since last view
+   * @returns {Array} - NPCs not viewed recently
+   */
+  static getForgottenNPCs(daysThreshold = 30) {
+    const npcs = this.getAllNPCs();
+    const thresholdTime = Date.now() - (daysThreshold * 24 * 60 * 60 * 1000);
+
+    return npcs
+      .filter(npc =>
+        !npc.archived &&
+        (!npc.lastViewed || npc.lastViewed < thresholdTime)
+      )
+      .map(npc => ({
+        id: npc.id,
+        name: npc.name,
+        ancestry: npc.ancestry,
+        viewCount: npc.viewCount || 0,
+        lastViewed: npc.lastViewed,
+        daysSinceView: npc.lastViewed
+          ? Math.floor((Date.now() - npc.lastViewed) / (24 * 60 * 60 * 1000))
+          : null
+      }));
+  }
+
+  /**
+   * Calculate relationship density (network connectivity)
+   * @returns {Object} - Density metrics
+   */
+  static getRelationshipDensity() {
+    const data = this.getData();
+    const npcCount = Object.keys(data.npcs || {}).length;
+    const relationshipCount = (data.relationships || []).length;
+
+    // Maximum possible relationships in complete graph
+    const maxRelationships = (npcCount * (npcCount - 1)) / 2;
+
+    const density = maxRelationships > 0
+      ? (relationshipCount / maxRelationships) * 100
+      : 0;
+
+    // Calculate average connections per NPC
+    const connectionCounts = {};
+    for (const rel of data.relationships || []) {
+      connectionCounts[rel.npc1] = (connectionCounts[rel.npc1] || 0) + 1;
+      connectionCounts[rel.npc2] = (connectionCounts[rel.npc2] || 0) + 1;
+    }
+
+    const avgConnections = npcCount > 0
+      ? Object.values(connectionCounts).reduce((sum, val) => sum + val, 0) / npcCount
+      : 0;
+
+    return {
+      npcCount,
+      relationshipCount,
+      maxPossible: maxRelationships,
+      density: density.toFixed(2),
+      avgConnectionsPerNPC: avgConnections.toFixed(2),
+      isolatedNPCs: npcCount - Object.keys(connectionCounts).length
+    };
+  }
+
+  /**
+   * Get campaign statistics
+   * @returns {Object} - Comprehensive stats
+   */
+  static getCampaignStatistics() {
+    const npcs = this.getAllNPCs();
+    const data = this.getData();
+
+    // Ancestry distribution
+    const ancestryDist = {};
+    npcs.forEach(npc => {
+      const ancestry = npc.ancestry || 'Unknown';
+      ancestryDist[ancestry] = (ancestryDist[ancestry] || 0) + 1;
+    });
+
+    // Gender distribution
+    const genderDist = {};
+    npcs.forEach(npc => {
+      const gender = npc.gender || 'Unknown';
+      genderDist[gender] = (genderDist[gender] || 0) + 1;
+    });
+
+    // Tag usage
+    const tagUsage = {};
+    npcs.forEach(npc => {
+      (npc.tags || []).forEach(tag => {
+        tagUsage[tag] = (tagUsage[tag] || 0) + 1;
+      });
+    });
+
+    const sortedTags = Object.entries(tagUsage)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, 10);
+
+    return {
+      totalNPCs: npcs.length,
+      activeNPCs: npcs.filter(npc => !npc.archived).length,
+      archivedNPCs: npcs.filter(npc => npc.archived).length,
+      pinnedNPCs: npcs.filter(npc => npc.pinned).length,
+      totalFamilies: Object.keys(data.families || {}).length,
+      totalFactions: Object.keys(data.factions || {}).length,
+      totalRelationships: (data.relationships || []).length,
+      totalEncounters: Object.keys(data.encounters || {}).length,
+      ancestryDistribution: ancestryDist,
+      genderDistribution: genderDist,
+      topTags: sortedTags,
+      relationshipDensity: this.getRelationshipDensity(),
+      mostUsed: this.getMostUsedNPCs(5),
+      recentlyCreated: this.getGenerationHistory(5)
+    };
+  }
+
+  // ============================================================================
+  // SEARCH & DISCOVERY ENHANCEMENTS
+  // ============================================================================
+
+  /**
+   * Get tag autocomplete suggestions
+   * @param {string} query - Partial tag name
+   * @param {number} limit - Max suggestions
+   * @returns {Array} - Matching tags with usage count
+   */
+  static getTagSuggestions(query, limit = 10) {
+    const npcs = this.getAllNPCs();
+    const tagCounts = {};
+
+    // Count tag usage
+    npcs.forEach(npc => {
+      (npc.tags || []).forEach(tag => {
+        tagCounts[tag] = (tagCounts[tag] || 0) + 1;
+      });
+    });
+
+    // Filter and sort by query match and usage
+    const queryLower = query.toLowerCase();
+    return Object.entries(tagCounts)
+      .filter(([tag]) => tag.toLowerCase().includes(queryLower))
+      .sort((a, b) => {
+        // Prioritize exact prefix matches
+        const aStartsWith = a[0].toLowerCase().startsWith(queryLower);
+        const bStartsWith = b[0].toLowerCase().startsWith(queryLower);
+        if (aStartsWith && !bStartsWith) return -1;
+        if (!aStartsWith && bStartsWith) return 1;
+        // Then sort by usage count
+        return b[1] - a[1];
+      })
+      .slice(0, limit)
+      .map(([tag, count]) => ({ tag, count }));
+  }
+
+  /**
+   * Get recently modified NPCs
+   * @param {number} limit - Number to return
+   * @returns {Array} - Recently updated NPCs
+   */
+  static getRecentlyModified(limit = 10) {
+    const npcs = this.getAllNPCs();
+    return npcs
+      .filter(npc => npc.updatedAt)
+      .sort((a, b) => (b.updatedAt || 0) - (a.updatedAt || 0))
+      .slice(0, limit)
+      .map(npc => ({
+        id: npc.id,
+        name: npc.name,
+        ancestry: npc.ancestry,
+        updatedAt: npc.updatedAt,
+        timeSince: this.getTimeSince(npc.updatedAt)
+      }));
+  }
+
+  /**
+   * Helper to get time since timestamp
+   * @param {number} timestamp
+   * @returns {string}
+   */
+  static getTimeSince(timestamp) {
+    const seconds = Math.floor((Date.now() - timestamp) / 1000);
+    if (seconds < 60) return 'Just now';
+    if (seconds < 3600) return `${Math.floor(seconds / 60)} minutes ago`;
+    if (seconds < 86400) return `${Math.floor(seconds / 3600)} hours ago`;
+    return `${Math.floor(seconds / 86400)} days ago`;
+  }
+
+  /**
+   * Smart filter: NPCs the party hasn't met
+   * @returns {Array} - NPCs with viewCount = 0
+   */
+  static getUnmetNPCs() {
+    const npcs = this.getAllNPCs();
+    return npcs.filter(npc => !npc.archived && (!npc.viewCount || npc.viewCount === 0));
+  }
+
+  /**
+   * Smart filter: NPCs by relationship to a specific NPC
+   * @param {string} npcId - Center NPC ID
+   * @param {number} degrees - Degrees of separation (1 = direct, 2 = friends of friends)
+   * @returns {Array} - Connected NPCs
+   */
+  static getNPCsByRelationship(npcId, degrees = 1) {
+    const data = this.getData();
+    const connected = new Set();
+    const toProcess = [{ id: npcId, degree: 0 }];
+    const processed = new Set();
+
+    while (toProcess.length > 0) {
+      const { id, degree } = toProcess.shift();
+
+      if (processed.has(id) || degree > degrees) continue;
+      processed.add(id);
+
+      if (degree > 0) connected.add(id);
+
+      // Find all relationships
+      const relationships = data.relationships.filter(
+        rel => rel.npc1 === id || rel.npc2 === id
+      );
+
+      relationships.forEach(rel => {
+        const otherId = rel.npc1 === id ? rel.npc2 : rel.npc1;
+        if (!processed.has(otherId)) {
+          toProcess.push({ id: otherId, degree: degree + 1 });
+        }
+      });
+    }
+
+    return Array.from(connected).map(id => this.getNPC(id)).filter(Boolean);
   }
 }
