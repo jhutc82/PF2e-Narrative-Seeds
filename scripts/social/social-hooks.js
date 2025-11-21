@@ -15,7 +15,7 @@ import { NPCManagerStorage } from './npc-manager-storage.js';
 export class SocialHooks {
 
   /**
-   * Hook IDs for cleanup
+   * Hook registrations for cleanup (stores {name, id} objects)
    */
   static hookIds = [];
 
@@ -57,7 +57,7 @@ export class SocialHooks {
         console.error("PF2e Narrative Seeds | Error in social renderChatMessage hook:", error);
       }
     });
-    this.hookIds.push(renderHookId);
+    this.hookIds.push({ name: "renderChatMessage", id: renderHookId });
 
     // Hook into actor sheet rendering to add generate button
     const renderActorHookId = Hooks.on("renderActorSheet", (sheet, html, data) => {
@@ -67,7 +67,7 @@ export class SocialHooks {
         console.error("PF2e Narrative Seeds | Error in renderActorSheet hook:", error);
       }
     });
-    this.hookIds.push(renderActorHookId);
+    this.hookIds.push({ name: "renderActorSheet", id: renderActorHookId });
   }
 
   /**
@@ -248,7 +248,13 @@ export class SocialHooks {
   static async regenerateNPC(message, oldSeed) {
     try {
       // Generate new NPC with same actor if available
-      const params = oldSeed.actor ? { actor: game.actors.get(oldSeed.actor.id) } : {};
+      let params = {};
+      if (oldSeed.actor) {
+        const actor = game.actors.get(oldSeed.actor.id);
+        if (actor) {
+          params.actor = actor;
+        }
+      }
       const newSeed = await NPCGenerator.generate(params);
 
       if (!newSeed) {
@@ -319,8 +325,8 @@ export class SocialHooks {
     }
 
     // Remove all hooks
-    for (const hookId of this.hookIds) {
-      Hooks.off(hookId);
+    for (const hook of this.hookIds) {
+      Hooks.off(hook.name, hook.id);
     }
 
     this.hookIds = [];

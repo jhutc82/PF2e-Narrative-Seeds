@@ -152,6 +152,18 @@ export class RandomUtils {
       }
     }
 
+    // Defensive: Ensure Maps stay in sync by removing orphaned entries
+    for (const key of this.usageHistory.keys()) {
+      if (!this.cacheTimestamps.has(key)) {
+        this.usageHistory.delete(key);
+      }
+    }
+    for (const key of this.cacheTimestamps.keys()) {
+      if (!this.usageHistory.has(key)) {
+        this.cacheTimestamps.delete(key);
+      }
+    }
+
     // Limit size (LRU eviction) - remove oldest entries if over limit
     if (this.usageHistory.size > this.MAX_CACHE_SIZE) {
       const toDelete = this.usageHistory.size - this.MAX_CACHE_SIZE;
@@ -164,6 +176,14 @@ export class RandomUtils {
         this.usageHistory.delete(key);
         this.cacheTimestamps.delete(key);
       });
+    }
+
+    // Emergency failsafe: Force clear if cache grows beyond reasonable limits
+    const EMERGENCY_MAX_SIZE = 1000;
+    if (this.usageHistory.size > EMERGENCY_MAX_SIZE || this.cacheTimestamps.size > EMERGENCY_MAX_SIZE) {
+      console.warn(`PF2e Narrative Seeds | Cache exceeded emergency limit (${EMERGENCY_MAX_SIZE}). Force clearing.`);
+      this.usageHistory.clear();
+      this.cacheTimestamps.clear();
     }
   }
 
@@ -343,13 +363,22 @@ export class RandomUtils {
   }
 
   /**
-   * Clear all usage history (useful for testing or resetting)
+   * Clear usage history (useful for testing or resetting)
+   * @param {string} [key] - Optional specific cache key to clear. If omitted, clears all history.
    */
-  static clearHistory() {
-    this.usageHistory.clear();
-    this.cacheTimestamps.clear();
-    this.messageHistory = [];
-    console.log("PF2e Narrative Seeds | Random usage history cleared");
+  static clearHistory(key = null) {
+    if (key) {
+      // Clear specific cache key
+      this.usageHistory.delete(key);
+      this.cacheTimestamps.delete(key);
+      console.log(`PF2e Narrative Seeds | Random usage history cleared for key: ${key}`);
+    } else {
+      // Clear all history
+      this.usageHistory.clear();
+      this.cacheTimestamps.clear();
+      this.messageHistory = [];
+      console.log("PF2e Narrative Seeds | Random usage history cleared");
+    }
   }
 
   /**

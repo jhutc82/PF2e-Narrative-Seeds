@@ -2,6 +2,8 @@
  * Handles the application of mechanical effects from complications
  * to PF2e actors.
  */
+import { StringUtils } from '../utils.js';
+
 export class EffectApplicator {
     /**
      * Apply a complication effect to an actor
@@ -81,7 +83,7 @@ export class EffectApplicator {
                 break;
         }
 
-        return `<p>${description}</p>${mechanicsText}`;
+        return `<p>${StringUtils.escapeHTML(description)}</p>${mechanicsText}`;
     }
 
     /**
@@ -396,7 +398,7 @@ export class EffectApplicator {
                 img: 'icons/svg/blood.svg',
                 system: {
                     description: {
-                        value: `<p><strong>PERMANENT INJURY</strong></p><p>${description}</p>${effects.map(e => `<p>${e.description}</p>`).join('')}`
+                        value: `<p><strong>PERMANENT INJURY</strong></p><p>${StringUtils.escapeHTML(description)}</p>${effects.map(e => `<p>${StringUtils.escapeHTML(e.description)}</p>`).join('')}`
                     },
                     duration: {
                         value: -1,
@@ -429,8 +431,8 @@ export class EffectApplicator {
             await ChatMessage.create({
                 content: `<div style="background: #8b0000; border: 2px solid #ff0000; padding: 10px; border-radius: 5px; color: #fff;">
                     <h3 style="margin: 0 0 5px 0; color: #ff0000;">💀 PERMANENT INJURY 💀</h3>
-                    <p style="margin: 0;"><strong>${actor.name}</strong> has suffered: <strong>${name}</strong></p>
-                    <p style="margin: 5px 0 0 0; font-size: 0.9em;">${description}</p>
+                    <p style="margin: 0;"><strong>${StringUtils.escapeHTML(actor.name)}</strong> has suffered: <strong>${StringUtils.escapeHTML(name)}</strong></p>
+                    <p style="margin: 5px 0 0 0; font-size: 0.9em;">${StringUtils.escapeHTML(description)}</p>
                 </div>`,
                 style: CONST.CHAT_MESSAGE_STYLES.OTHER,
                 whisper: game.users.filter(u => u.isGM).map(u => u.id)

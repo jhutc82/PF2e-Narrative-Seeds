@@ -36,7 +36,7 @@ export class CombatHooks {
   static cleanupIntervalId = null;
 
   /**
-   * Hook IDs for cleanup
+   * Hook registrations for cleanup (stores {name, id} objects)
    */
   static hookIds = [];
 
@@ -82,6 +82,13 @@ export class CombatHooks {
         this.pendingAttacks.delete(key);
       }
     }
+
+    // Emergency failsafe: Force clear if Map grows beyond reasonable limits
+    const EMERGENCY_MAX_SIZE = 500;
+    if (this.pendingAttacks.size > EMERGENCY_MAX_SIZE) {
+      console.warn(`PF2e Narrative Seeds | Pending attacks exceeded emergency limit (${EMERGENCY_MAX_SIZE}). Force clearing.`);
+      this.pendingAttacks.clear();
+    }
   }
 
   /**
@@ -110,7 +117,7 @@ export class CombatHooks {
         console.error("PF2e Narrative Seeds | Error in createChatMessage hook:", error);
       }
     });
-    this.hookIds.push(createHookId);
+    this.hookIds.push({ name: "createChatMessage", id: createHookId });
 
     // Hook into chat message rendering to attach event listeners
     const renderHookId = Hooks.on("renderChatMessage", (message, html, data) => {
@@ -120,7 +127,7 @@ export class CombatHooks {
         console.error("PF2e Narrative Seeds | Error in renderChatMessage hook:", error);
       }
     });
-    this.hookIds.push(renderHookId);
+    this.hookIds.push({ name: "renderChatMessage", id: renderHookId });
   }
 
   /**
@@ -1055,8 +1062,8 @@ export class CombatHooks {
     console.log("PF2e Narrative Seeds | Shutting down combat hooks");
 
     // Remove registered Foundry hooks
-    for (const hookId of this.hookIds) {
-      Hooks.off(hookId);
+    for (const hook of this.hookIds) {
+      Hooks.off(hook.name, hook.id);
     }
     this.hookIds = [];
 

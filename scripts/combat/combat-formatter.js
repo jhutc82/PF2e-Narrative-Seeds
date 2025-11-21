@@ -331,7 +331,7 @@ export class CombatFormatter {
    */
   static async narrateToChat(description) {
     await ChatMessage.create({
-      content: description,
+      content: StringUtils.escapeHTML(description),
       style: CONST.CHAT_MESSAGE_STYLES.IC
     });
   }

@@ -7,6 +7,7 @@
  */
 
 import { NarrativeSeedsSettings } from '../settings.js';
+import { StringUtils } from '../utils.js';
 
 /**
  * Skill narrative formatter
@@ -35,19 +36,20 @@ export class SkillFormatter {
 
     // Main narrative text
     html += '<div class="narrative-text">';
-    html += seed.text;
+    html += StringUtils.escapeHTML(seed.text);
     html += '</div>';
 
     // Metadata footer
     html += '<div class="narrative-footer">';
-    html += `<span class="narrative-action">${seed.actionName || seed.action}</span>`;
+    html += `<span class="narrative-action">${StringUtils.escapeHTML(seed.actionName || seed.action)}</span>`;
 
     if (seed.outcome) {
       html += ` • <span class="narrative-outcome ${seed.outcome}">${this.formatOutcome(seed.outcome)}</span>`;
     }
 
     if (Array.isArray(seed.feats) && seed.feats.length > 0 && showDetectedFeats) {
-      html += ` • <span class="narrative-feats">${seed.feats.join(', ')}</span>`;
+      const escapedFeats = seed.feats.map(f => StringUtils.escapeHTML(f)).join(', ');
+      html += ` • <span class="narrative-feats">${escapedFeats}</span>`;
     }
 
     html += '</div>';

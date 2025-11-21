@@ -10,6 +10,7 @@ import { NPCGenerator } from './npc-generator.js';
 import { FamilyGenerator } from './family-generator.js';
 import { FactionGenerator } from './faction-generator.js';
 import { NPCVisualizations } from './npc-visualizations.js';
+import { StringUtils } from '../utils.js';
 
 export class NPCManagerApp extends Application {
 
@@ -414,14 +415,14 @@ export class NPCManagerApp extends Application {
 
     const confirmed = await Dialog.confirm({
       title: "Delete NPC",
-      content: `<p>Are you sure you want to delete <strong>${npc.name}</strong>?</p><p>This action cannot be undone.</p>`,
+      content: `<p>Are you sure you want to delete <strong>${StringUtils.escapeHTML(npc.name)}</strong>?</p><p>This action cannot be undone.</p>`,
       yes: () => true,
       no: () => false
     });
 
     if (confirmed) {
       await NPCManagerStorage.deleteNPC(npcId);
-      ui.notifications.info(`${npc.name} has been deleted.`);
+      ui.notifications.info(`${StringUtils.escapeHTML(npc.name)} has been deleted.`);
       this.render();
     }
   }
@@ -889,13 +890,13 @@ export class NPCManagerApp extends Application {
 
     // Show stub information in a dialog
     new Dialog({
-      title: stub.name,
+      title: StringUtils.escapeHTML(stub.name),
       content: `
         <div class="related-npc-info">
-          <p><strong>Relationship:</strong> ${stub.relationship}</p>
-          <p><strong>Ancestry:</strong> ${stub.ancestry || "Unknown"}</p>
-          ${stub.age ? `<p><strong>Age:</strong> ${stub.age}</p>` : ""}
-          ${stub.description ? `<p><strong>Description:</strong> ${stub.description}</p>` : ""}
+          <p><strong>Relationship:</strong> ${StringUtils.escapeHTML(stub.relationship)}</p>
+          <p><strong>Ancestry:</strong> ${StringUtils.escapeHTML(stub.ancestry || "Unknown")}</p>
+          ${stub.age ? `<p><strong>Age:</strong> ${StringUtils.escapeHTML(stub.age)}</p>` : ""}
+          ${stub.description ? `<p><strong>Description:</strong> ${StringUtils.escapeHTML(stub.description)}</p>` : ""}
         </div>
       `,
       buttons: {
@@ -1192,12 +1193,12 @@ export class NPCManagerApp extends Application {
   async _promptForText(title, label, defaultValue = "") {
     return new Promise((resolve) => {
       new Dialog({
-        title,
+        title: StringUtils.escapeHTML(title),
         content: `
           <form>
             <div class="form-group">
-              <label>${label}</label>
-              <input type="text" name="input" value="${defaultValue}" autofocus/>
+              <label>${StringUtils.escapeHTML(label)}</label>
+              <input type="text" name="input" value="${StringUtils.escapeHTML(defaultValue)}" autofocus/>
             </div>
           </form>
         `,
