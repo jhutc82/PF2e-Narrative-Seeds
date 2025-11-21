@@ -10,6 +10,13 @@ export class NPCManagerStorage {
   static STORAGE_KEY = "npcManagerData";
   static VERSION = "2.0.0";
   static MAX_UNDO_HISTORY = 50;
+  static MAX_BACKUPS = 5;
+  static MAX_ERROR_LOG = 100;
+  static SAVE_RETRY_ATTEMPTS = 3;
+  static SAVE_RETRY_DELAY = 1000; // ms
+  static ENABLE_COMPRESSION = true;
+  static SEARCH_INDEX_CACHE = null;
+  static SEARCH_INDEX_DIRTY = true;
 
   /**
    * Initialize storage system
@@ -35,6 +42,8 @@ export class NPCManagerStorage {
           encounters: {},
           sessionNotes: {},
           undoHistory: [],
+          backups: [],
+          errorLog: [],
           nextId: 1
         }
       });
@@ -57,6 +66,8 @@ export class NPCManagerStorage {
       return data;
     } catch (error) {
       console.error("NPCManagerStorage | Failed to get data:", error);
+      // Log the error
+      this.logError('getData', error);
       return {
         version: this.VERSION,
         npcs: {},
@@ -68,6 +79,8 @@ export class NPCManagerStorage {
         encounters: {},
         sessionNotes: {},
         undoHistory: [],
+        backups: [],
+        errorLog: [],
         nextId: 1
       };
     }
@@ -80,6 +93,10 @@ export class NPCManagerStorage {
    */
   static migrateData(oldData) {
     console.log(`NPCManagerStorage | Migrating data from version ${oldData.version} to ${this.VERSION}`);
+
+    // Create backup before migration
+    this.createBackup(oldData, 'pre-migration');
+
     const migratedData = {
       ...oldData,
       version: this.VERSION,
@@ -87,7 +104,9 @@ export class NPCManagerStorage {
       savedSearches: oldData.savedSearches || {},
       encounters: oldData.encounters || {},
       sessionNotes: oldData.sessionNotes || {},
-      undoHistory: oldData.undoHistory || []
+      undoHistory: oldData.undoHistory || [],
+      backups: oldData.backups || [],
+      errorLog: oldData.errorLog || []
     };
 
     // Add new tracking fields to existing NPCs
@@ -106,15 +125,34 @@ export class NPCManagerStorage {
   }
 
   /**
-   * Save all data
+   * Save all data with retry logic and validation
    * @param {Object} data
+   * @param {number} attempt - Current retry attempt (internal use)
+   * @returns {Promise<boolean>}
    */
-  static async saveData(data) {
+  static async saveData(data, attempt = 1) {
     try {
+      // Validate data before saving
+      if (!this.validateData(data)) {
+        throw new Error('Data validation failed');
+      }
+
       await game.settings.set("pf2e-narrative-seeds", this.STORAGE_KEY, data);
       return true;
     } catch (error) {
-      console.error("NPCManagerStorage | Failed to save data:", error);
+      console.error(`NPCManagerStorage | Failed to save data (attempt ${attempt}):`, error);
+      this.logError('saveData', error, { attempt });
+
+      // Retry with exponential backoff
+      if (attempt < this.SAVE_RETRY_ATTEMPTS) {
+        const delay = this.SAVE_RETRY_DELAY * Math.pow(2, attempt - 1);
+        console.log(`NPCManagerStorage | Retrying save in ${delay}ms...`);
+        await new Promise(resolve => setTimeout(resolve, delay));
+        return this.saveData(data, attempt + 1);
+      }
+
+      // All retries failed
+      ui.notifications?.error('Failed to save NPC data. Please try again.');
       return false;
     }
   }
@@ -184,6 +222,7 @@ export class NPCManagerStorage {
     data.npcs[npc.id] = npc;
 
     await this.saveData(data);
+    this.onDataChanged(); // Invalidate caches
     console.log(`NPCManagerStorage | Saved NPC: ${npc.name} (${npc.id})`);
 
     return npc.id;
@@ -256,6 +295,7 @@ export class NPCManagerStorage {
     );
 
     await this.saveData(data);
+    this.onDataChanged(); // Invalidate caches
     console.log(`NPCManagerStorage | Deleted NPC: ${id}`);
 
     return true;
@@ -945,6 +985,10 @@ export class NPCManagerStorage {
    */
   static async bulkDeleteNPCs(npcIds) {
     const data = this.getData();
+
+    // Create backup before bulk delete
+    await this.createBackup(data, 'pre-bulk-delete');
+
     let deletedCount = 0;
 
     for (const id of npcIds) {
@@ -960,6 +1004,7 @@ export class NPCManagerStorage {
     }
 
     await this.saveData(data);
+    this.onDataChanged(); // Invalidate caches
     console.log(`NPCManagerStorage | Bulk deleted ${deletedCount} NPCs`);
 
     return deletedCount;
@@ -1417,20 +1462,736 @@ export class NPCManagerStorage {
     return markdown;
   }
 
+  // ============================================================================
+  // ERROR HANDLING & RESILIENCE
+  // ============================================================================
+
   /**
-   * Create automatic backup
-   * @returns {Promise<string>}
+   * Log an error to the error log
+   * @param {string} operation - Operation that failed
+   * @param {Error} error - Error object
+   * @param {Object} context - Additional context
    */
-  static async createBackup() {
+  static logError(operation, error, context = {}) {
+    try {
+      const data = this.getData();
+      if (!data.errorLog) data.errorLog = [];
+
+      const errorEntry = {
+        timestamp: Date.now(),
+        operation,
+        message: error.message,
+        stack: error.stack,
+        context,
+        userAgent: navigator.userAgent,
+        foundryVersion: game.version
+      };
+
+      data.errorLog.push(errorEntry);
+
+      // Keep only recent errors
+      if (data.errorLog.length > this.MAX_ERROR_LOG) {
+        data.errorLog = data.errorLog.slice(-this.MAX_ERROR_LOG);
+      }
+
+      // Save without triggering validation to avoid recursion
+      game.settings.set("pf2e-narrative-seeds", this.STORAGE_KEY, data).catch(e => {
+        console.error('Failed to log error:', e);
+      });
+    } catch (e) {
+      console.error('Failed to log error:', e);
+    }
+  }
+
+  /**
+   * Get error log
+   * @param {number} limit - Number of recent errors to return
+   * @returns {Array}
+   */
+  static getErrorLog(limit = 50) {
     const data = this.getData();
-    const backup = {
-      ...data,
-      backupDate: Date.now()
+    const errors = data.errorLog || [];
+    return errors.slice(-limit);
+  }
+
+  /**
+   * Clear error log
+   */
+  static async clearErrorLog() {
+    const data = this.getData();
+    data.errorLog = [];
+    await this.saveData(data);
+  }
+
+  /**
+   * Validate data structure
+   * @param {Object} data
+   * @returns {boolean}
+   */
+  static validateData(data) {
+    try {
+      // Check required top-level properties
+      if (!data || typeof data !== 'object') {
+        console.error('NPCManagerStorage | Data is not an object');
+        return false;
+      }
+
+      if (!data.version) {
+        console.error('NPCManagerStorage | Data missing version');
+        return false;
+      }
+
+      if (!data.npcs || typeof data.npcs !== 'object') {
+        console.error('NPCManagerStorage | Data missing or invalid npcs object');
+        return false;
+      }
+
+      // Validate NPCs structure
+      for (const [id, npc] of Object.entries(data.npcs)) {
+        if (!npc.id || !npc.name) {
+          console.error(`NPCManagerStorage | Invalid NPC ${id}: missing id or name`);
+          return false;
+        }
+      }
+
+      // Validate relationships array
+      if (data.relationships && !Array.isArray(data.relationships)) {
+        console.error('NPCManagerStorage | Relationships is not an array');
+        return false;
+      }
+
+      return true;
+    } catch (error) {
+      console.error('NPCManagerStorage | Validation error:', error);
+      return false;
+    }
+  }
+
+  /**
+   * Create automatic backup before major operations
+   * @param {Object} dataToBackup - Data to backup (optional, uses current data if not provided)
+   * @param {string} reason - Reason for backup
+   * @returns {Promise<boolean>}
+   */
+  static async createBackup(dataToBackup = null, reason = 'manual') {
+    try {
+      const data = dataToBackup || this.getData();
+
+      // Don't backup if no data yet
+      if (!data.npcs || Object.keys(data.npcs).length === 0) {
+        return false;
+      }
+
+      const backup = {
+        timestamp: Date.now(),
+        reason,
+        version: data.version,
+        npcCount: Object.keys(data.npcs || {}).length,
+        data: JSON.parse(JSON.stringify(data)) // Deep clone
+      };
+
+      // Add to backups array
+      if (!data.backups) data.backups = [];
+      data.backups.push(backup);
+
+      // Keep only recent backups
+      if (data.backups.length > this.MAX_BACKUPS) {
+        data.backups = data.backups.slice(-this.MAX_BACKUPS);
+      }
+
+      // Save without creating another backup (prevent recursion)
+      await game.settings.set("pf2e-narrative-seeds", this.STORAGE_KEY, data);
+
+      console.log(`NPCManagerStorage | Backup created: ${reason}`);
+      return true;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to create backup:', error);
+      this.logError('createBackup', error, { reason });
+      return false;
+    }
+  }
+
+  /**
+   * Restore from backup
+   * @param {number} backupIndex - Index of backup to restore (0 = most recent)
+   * @returns {Promise<boolean>}
+   */
+  static async restoreFromBackup(backupIndex = 0) {
+    try {
+      const data = this.getData();
+      if (!data.backups || data.backups.length === 0) {
+        ui.notifications?.warn('No backups available');
+        return false;
+      }
+
+      const backups = data.backups.slice().reverse(); // Most recent first
+      const backup = backups[backupIndex];
+
+      if (!backup) {
+        ui.notifications?.error('Backup not found');
+        return false;
+      }
+
+      // Create a backup before restoring (in case restore goes wrong)
+      await this.createBackup(data, 'pre-restore');
+
+      // Restore the backup data
+      const restoredData = backup.data;
+      await this.saveData(restoredData);
+
+      ui.notifications?.info(`Restored backup from ${new Date(backup.timestamp).toLocaleString()}`);
+      console.log('NPCManagerStorage | Restored from backup:', backup.timestamp);
+      return true;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to restore backup:', error);
+      this.logError('restoreFromBackup', error, { backupIndex });
+      ui.notifications?.error('Failed to restore backup');
+      return false;
+    }
+  }
+
+  /**
+   * Get list of available backups
+   * @returns {Array}
+   */
+  static getBackups() {
+    const data = this.getData();
+    return (data.backups || []).map(backup => ({
+      timestamp: backup.timestamp,
+      reason: backup.reason,
+      version: backup.version,
+      npcCount: backup.npcCount,
+      date: new Date(backup.timestamp).toLocaleString()
+    }));
+  }
+
+  /**
+   * Export data with validation
+   * @returns {string} - JSON string of data
+   */
+  static exportDataSafe() {
+    try {
+      const data = this.getData();
+
+      if (!this.validateData(data)) {
+        throw new Error('Data validation failed before export');
+      }
+
+      return JSON.stringify(data, null, 2);
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to export data:', error);
+      this.logError('exportDataSafe', error);
+      throw error;
+    }
+  }
+
+  /**
+   * Import data with validation
+   * @param {string} jsonData - JSON string to import
+   * @param {boolean} merge - Whether to merge with existing data or replace
+   * @returns {Promise<boolean>}
+   */
+  static async importDataSafe(jsonData, merge = false) {
+    try {
+      // Parse JSON
+      let importedData;
+      try {
+        importedData = JSON.parse(jsonData);
+      } catch (error) {
+        ui.notifications?.error('Invalid JSON data');
+        return false;
+      }
+
+      // Validate imported data
+      if (!this.validateData(importedData)) {
+        ui.notifications?.error('Imported data failed validation');
+        return false;
+      }
+
+      // Create backup before import
+      await this.createBackup(this.getData(), 'pre-import');
+
+      if (merge) {
+        // Merge with existing data
+        const currentData = this.getData();
+        const mergedData = {
+          ...currentData,
+          npcs: { ...currentData.npcs, ...importedData.npcs },
+          families: { ...currentData.families, ...importedData.families },
+          factions: { ...currentData.factions, ...importedData.factions },
+          relationships: [
+            ...currentData.relationships,
+            ...importedData.relationships.filter(r =>
+              !currentData.relationships.some(cr =>
+                cr.npc1 === r.npc1 && cr.npc2 === r.npc2 && cr.type === r.type
+              )
+            )
+          ]
+        };
+        await this.saveData(mergedData);
+      } else {
+        // Replace all data
+        await this.saveData(importedData);
+      }
+
+      ui.notifications?.info('Data imported successfully');
+      console.log('NPCManagerStorage | Data imported');
+      return true;
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to import data:', error);
+      this.logError('importDataSafe', error);
+      ui.notifications?.error('Failed to import data');
+      return false;
+    }
+  }
+
+  /**
+   * Perform data integrity check
+   * @returns {Object} - Report of integrity issues
+   */
+  static checkDataIntegrity() {
+    const data = this.getData();
+    const report = {
+      healthy: true,
+      issues: [],
+      warnings: []
     };
 
-    const backupData = JSON.stringify(backup, null, 2);
-    console.log('NPCManagerStorage | Backup created');
+    try {
+      // Check for orphaned relationships
+      const npcIds = new Set(Object.keys(data.npcs || {}));
+      (data.relationships || []).forEach((rel, index) => {
+        if (!npcIds.has(rel.npc1) || !npcIds.has(rel.npc2)) {
+          report.issues.push(`Orphaned relationship at index ${index}: ${rel.npc1} <-> ${rel.npc2}`);
+          report.healthy = false;
+        }
+      });
 
-    return backupData;
+      // Check for duplicate NPC IDs
+      const ids = Object.keys(data.npcs || {});
+      const duplicates = ids.filter((id, index) => ids.indexOf(id) !== index);
+      if (duplicates.length > 0) {
+        report.issues.push(`Duplicate NPC IDs: ${duplicates.join(', ')}`);
+        report.healthy = false;
+      }
+
+      // Check for NPCs missing required fields
+      Object.entries(data.npcs || {}).forEach(([id, npc]) => {
+        if (!npc.name) {
+          report.warnings.push(`NPC ${id} missing name`);
+        }
+        if (!npc.id) {
+          report.warnings.push(`NPC ${id} missing id field`);
+        }
+      });
+
+      // Check data size
+      const dataSize = JSON.stringify(data).length;
+      if (dataSize > 5000000) { // 5MB warning
+        report.warnings.push(`Large data size: ${(dataSize / 1000000).toFixed(2)}MB`);
+      }
+
+    } catch (error) {
+      report.healthy = false;
+      report.issues.push(`Integrity check error: ${error.message}`);
+      this.logError('checkDataIntegrity', error);
+    }
+
+    console.log('NPCManagerStorage | Integrity check:', report);
+    return report;
+  }
+
+  /**
+   * Repair data integrity issues
+   * @returns {Promise<boolean>}
+   */
+  static async repairDataIntegrity() {
+    try {
+      const data = this.getData();
+
+      // Create backup before repairs
+      await this.createBackup(data, 'pre-repair');
+
+      let repaired = false;
+
+      // Remove orphaned relationships
+      const npcIds = new Set(Object.keys(data.npcs || {}));
+      const validRelationships = (data.relationships || []).filter(rel =>
+        npcIds.has(rel.npc1) && npcIds.has(rel.npc2)
+      );
+
+      if (validRelationships.length !== (data.relationships || []).length) {
+        data.relationships = validRelationships;
+        repaired = true;
+        console.log('NPCManagerStorage | Removed orphaned relationships');
+      }
+
+      // Fix NPCs missing IDs
+      Object.entries(data.npcs || {}).forEach(([id, npc]) => {
+        if (!npc.id) {
+          npc.id = id;
+          repaired = true;
+        }
+      });
+
+      if (repaired) {
+        await this.saveData(data);
+        ui.notifications?.info('Data integrity issues repaired');
+        console.log('NPCManagerStorage | Data repaired');
+        return true;
+      } else {
+        ui.notifications?.info('No integrity issues found');
+        return false;
+      }
+    } catch (error) {
+      console.error('NPCManagerStorage | Failed to repair data:', error);
+      this.logError('repairDataIntegrity', error);
+      ui.notifications?.error('Failed to repair data');
+      return false;
+    }
+  }
+
+  // ============================================================================
+  // PERFORMANCE OPTIMIZATIONS
+  // ============================================================================
+
+  /**
+   * Build search index for fast lookups
+   * @returns {Object} - Search index
+   */
+  static buildSearchIndex() {
+    if (!this.SEARCH_INDEX_DIRTY && this.SEARCH_INDEX_CACHE) {
+      return this.SEARCH_INDEX_CACHE;
+    }
+
+    const data = this.getData();
+    const index = {
+      byName: {},
+      byAncestry: {},
+      byOccupation: {},
+      byTag: {},
+      byFamily: {},
+      byFaction: {},
+      fullText: {}
+    };
+
+    // Index NPCs
+    for (const [id, npc] of Object.entries(data.npcs || {})) {
+      // Name index
+      const nameLower = (npc.name || '').toLowerCase();
+      if (!index.byName[nameLower]) index.byName[nameLower] = [];
+      index.byName[nameLower].push(id);
+
+      // Ancestry index
+      const ancestry = (npc.ancestry || '').toLowerCase();
+      if (!index.byAncestry[ancestry]) index.byAncestry[ancestry] = [];
+      index.byAncestry[ancestry].push(id);
+
+      // Occupation index
+      const occupation = (npc.occupation?.profession?.name || '').toLowerCase();
+      if (occupation) {
+        if (!index.byOccupation[occupation]) index.byOccupation[occupation] = [];
+        index.byOccupation[occupation].push(id);
+      }
+
+      // Tag index
+      (npc.tags || []).forEach(tag => {
+        const tagLower = tag.toLowerCase();
+        if (!index.byTag[tagLower]) index.byTag[tagLower] = [];
+        index.byTag[tagLower].push(id);
+      });
+
+      // Build full-text search string
+      const fullText = [
+        npc.name,
+        npc.ancestry,
+        npc.gender,
+        npc.occupation?.profession?.name,
+        ...(npc.tags || []),
+        npc.motivation?.name,
+        ...(npc.personalities || []).map(p => p.name)
+      ].filter(Boolean).join(' ').toLowerCase();
+
+      index.fullText[id] = fullText;
+    }
+
+    this.SEARCH_INDEX_CACHE = index;
+    this.SEARCH_INDEX_DIRTY = false;
+
+    console.log('NPCManagerStorage | Search index built');
+    return index;
+  }
+
+  /**
+   * Mark search index as dirty (needs rebuilding)
+   */
+  static invalidateSearchIndex() {
+    this.SEARCH_INDEX_DIRTY = true;
+  }
+
+  /**
+   * Fuzzy search NPCs
+   * @param {string} query - Search query
+   * @param {Object} options - Search options
+   * @returns {Array} - Matching NPC IDs with scores
+   */
+  static fuzzySearch(query, options = {}) {
+    const {
+      maxResults = 50,
+      threshold = 0.3,
+      searchFields = ['name', 'ancestry', 'occupation', 'tags']
+    } = options;
+
+    if (!query || query.length < 2) {
+      return [];
+    }
+
+    const queryLower = query.toLowerCase();
+    const index = this.buildSearchIndex();
+    const data = this.getData();
+    const scores = {};
+
+    // Search full text
+    for (const [id, fullText] of Object.entries(index.fullText)) {
+      const score = this.calculateFuzzyScore(queryLower, fullText);
+      if (score >= threshold) {
+        scores[id] = score;
+      }
+    }
+
+    // Sort by score and limit results
+    const results = Object.entries(scores)
+      .sort((a, b) => b[1] - a[1])
+      .slice(0, maxResults)
+      .map(([id, score]) => ({
+        id,
+        score,
+        npc: data.npcs[id]
+      }));
+
+    console.log(`NPCManagerStorage | Fuzzy search for "${query}" found ${results.length} results`);
+    return results;
+  }
+
+  /**
+   * Calculate fuzzy match score between query and text
+   * @param {string} query
+   * @param {string} text
+   * @returns {number} - Score between 0 and 1
+   */
+  static calculateFuzzyScore(query, text) {
+    // Simple scoring: check if query is substring, with bonuses for:
+    // - Exact match at start
+    // - Word boundary match
+    // - Multiple word matches
+
+    if (text.includes(query)) {
+      if (text.startsWith(query)) {
+        return 1.0; // Perfect match at start
+      }
+      if (text.includes(` ${query}`)) {
+        return 0.9; // Word boundary match
+      }
+      return 0.7; // Substring match
+    }
+
+    // Check for partial word matches
+    const queryWords = query.split(' ');
+    const textWords = text.split(' ');
+    let matchCount = 0;
+
+    for (const qWord of queryWords) {
+      for (const tWord of textWords) {
+        if (tWord.includes(qWord) || qWord.includes(tWord)) {
+          matchCount++;
+          break;
+        }
+      }
+    }
+
+    if (matchCount > 0) {
+      return Math.min(0.6, (matchCount / queryWords.length) * 0.6);
+    }
+
+    // Levenshtein distance for very fuzzy matching
+    const distance = this.levenshteinDistance(query, text.substring(0, query.length * 2));
+    const maxLength = Math.max(query.length, text.length);
+    const similarity = 1 - (distance / maxLength);
+
+    return similarity > 0.5 ? similarity * 0.4 : 0;
+  }
+
+  /**
+   * Calculate Levenshtein distance between two strings
+   * @param {string} str1
+   * @param {string} str2
+   * @returns {number}
+   */
+  static levenshteinDistance(str1, str2) {
+    const matrix = [];
+
+    for (let i = 0; i <= str2.length; i++) {
+      matrix[i] = [i];
+    }
+
+    for (let j = 0; j <= str1.length; j++) {
+      matrix[0][j] = j;
+    }
+
+    for (let i = 1; i <= str2.length; i++) {
+      for (let j = 1; j <= str1.length; j++) {
+        if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
+          matrix[i][j] = matrix[i - 1][j - 1];
+        } else {
+          matrix[i][j] = Math.min(
+            matrix[i - 1][j - 1] + 1,
+            matrix[i][j - 1] + 1,
+            matrix[i - 1][j] + 1
+          );
+        }
+      }
+    }
+
+    return matrix[str2.length][str1.length];
+  }
+
+  /**
+   * Get NPCs in batches for virtual scrolling
+   * @param {number} offset - Start index
+   * @param {number} limit - Number of items
+   * @param {Object} filters - Filter criteria
+   * @returns {Array} - Batch of NPCs
+   */
+  static getNPCBatch(offset = 0, limit = 50, filters = {}) {
+    let npcs = this.getAllNPCs();
+
+    // Apply filters
+    if (filters.search) {
+      const searchResults = this.fuzzySearch(filters.search);
+      const searchIds = new Set(searchResults.map(r => r.id));
+      npcs = npcs.filter(npc => searchIds.has(npc.id));
+    }
+
+    if (filters.ancestry && filters.ancestry !== 'all') {
+      npcs = npcs.filter(npc => npc.ancestry === filters.ancestry);
+    }
+
+    if (filters.tags && filters.tags.length > 0) {
+      npcs = npcs.filter(npc =>
+        filters.tags.some(tag => (npc.tags || []).includes(tag))
+      );
+    }
+
+    if (filters.archived !== undefined) {
+      npcs = npcs.filter(npc => npc.archived === filters.archived);
+    }
+
+    if (filters.pinned !== undefined) {
+      npcs = npcs.filter(npc => npc.pinned === filters.pinned);
+    }
+
+    // Sort
+    if (filters.sortBy) {
+      npcs = this.sortNPCs(npcs, filters.sortBy, filters.sortOrder || 'asc');
+    }
+
+    // Return batch
+    return {
+      items: npcs.slice(offset, offset + limit),
+      total: npcs.length,
+      offset,
+      limit
+    };
+  }
+
+  /**
+   * Sort NPCs array
+   * @param {Array} npcs
+   * @param {string} sortBy
+   * @param {string} sortOrder
+   * @returns {Array}
+   */
+  static sortNPCs(npcs, sortBy, sortOrder = 'asc') {
+    const sorted = [...npcs].sort((a, b) => {
+      let aVal, bVal;
+
+      switch (sortBy) {
+        case 'name':
+          aVal = (a.name || '').toLowerCase();
+          bVal = (b.name || '').toLowerCase();
+          break;
+        case 'ancestry':
+          aVal = (a.ancestry || '').toLowerCase();
+          bVal = (b.ancestry || '').toLowerCase();
+          break;
+        case 'date':
+          aVal = a.savedAt || 0;
+          bVal = b.savedAt || 0;
+          break;
+        case 'viewCount':
+          aVal = a.viewCount || 0;
+          bVal = b.viewCount || 0;
+          break;
+        default:
+          return 0;
+      }
+
+      if (aVal < bVal) return sortOrder === 'asc' ? -1 : 1;
+      if (aVal > bVal) return sortOrder === 'asc' ? 1 : -1;
+      return 0;
+    });
+
+    return sorted;
+  }
+
+  /**
+   * Performance monitoring
+   * @param {string} operation - Operation name
+   * @param {Function} fn - Function to measure
+   * @returns {Promise<any>} - Result of function
+   */
+  static async measurePerformance(operation, fn) {
+    const startTime = performance.now();
+    try {
+      const result = await fn();
+      const duration = performance.now() - startTime;
+      console.log(`NPCManagerStorage | ${operation} took ${duration.toFixed(2)}ms`);
+      return result;
+    } catch (error) {
+      const duration = performance.now() - startTime;
+      console.error(`NPCManagerStorage | ${operation} failed after ${duration.toFixed(2)}ms:`, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Get performance metrics
+   * @returns {Object} - Performance stats
+   */
+  static getPerformanceMetrics() {
+    const data = this.getData();
+    const dataSize = JSON.stringify(data).length;
+
+    return {
+      npcCount: Object.keys(data.npcs || {}).length,
+      familyCount: Object.keys(data.families || {}).length,
+      factionCount: Object.keys(data.factions || {}).length,
+      relationshipCount: (data.relationships || []).length,
+      dataSize: dataSize,
+      dataSizeMB: (dataSize / 1000000).toFixed(2),
+      backupCount: (data.backups || []).length,
+      errorCount: (data.errorLog || []).length,
+      searchIndexCached: !this.SEARCH_INDEX_DIRTY,
+      avgNPCSize: Object.keys(data.npcs || {}).length > 0
+        ? (dataSize / Object.keys(data.npcs).length).toFixed(0)
+        : 0
+    };
+  }
+
+  /**
+   * Invalidate caches when data changes
+   */
+  static onDataChanged() {
+    this.invalidateSearchIndex();
   }
 }
