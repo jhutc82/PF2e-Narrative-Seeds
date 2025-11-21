@@ -82,6 +82,13 @@ export class CombatHooks {
         this.pendingAttacks.delete(key);
       }
     }
+
+    // Emergency failsafe: Force clear if Map grows beyond reasonable limits
+    const EMERGENCY_MAX_SIZE = 500;
+    if (this.pendingAttacks.size > EMERGENCY_MAX_SIZE) {
+      console.warn(`PF2e Narrative Seeds | Pending attacks exceeded emergency limit (${EMERGENCY_MAX_SIZE}). Force clearing.`);
+      this.pendingAttacks.clear();
+    }
   }
 
   /**

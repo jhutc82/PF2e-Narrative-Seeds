@@ -248,7 +248,13 @@ export class SocialHooks {
   static async regenerateNPC(message, oldSeed) {
     try {
       // Generate new NPC with same actor if available
-      const params = oldSeed.actor ? { actor: game.actors.get(oldSeed.actor.id) } : {};
+      let params = {};
+      if (oldSeed.actor) {
+        const actor = game.actors.get(oldSeed.actor.id);
+        if (actor) {
+          params.actor = actor;
+        }
+      }
       const newSeed = await NPCGenerator.generate(params);
 
       if (!newSeed) {
