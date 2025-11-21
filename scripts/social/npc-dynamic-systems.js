@@ -15,6 +15,7 @@ class NPCDynamicSystems {
         this.relationshipDynamics = null;
         this.behaviorEngine = null;
         this.timeManager = null;
+        this.influenceIntegration = null;
         this.initialized = false;
     }
 
@@ -44,6 +45,7 @@ class NPCDynamicSystems {
                 this.relationshipDynamics,
                 this.behaviorEngine
             );
+            this.influenceIntegration = new NPCInfluenceIntegration(this);
 
             // Initialize all systems in parallel
             await Promise.all([
@@ -355,6 +357,72 @@ class NPCDynamicSystems {
         if (!this.initialized) return null;
 
         return this.timeManager.getUpdateSummary(npcs, context);
+    }
+
+    // ===== PF2e INFLUENCE SYSTEM INTEGRATION =====
+
+    /**
+     * Calculate dynamic Influence DC for PF2e Influence subsystem
+     * Integrates mood, needs, thoughts, and relationships
+     * @param {Object} npc - The NPC object
+     * @param {string} skill - Skill being used to Influence
+     * @param {Object} initiator - PC attempting to influence
+     * @param {number} baseDC - Base DC from influence stat block
+     * @returns {Object} - Modified DC with breakdown
+     */
+    calculateInfluenceDC(npc, skill, initiator = null, baseDC = 15) {
+        if (!this.initialized || !this.influenceIntegration) {
+            return { finalDC: baseDC, modifiers: [] };
+        }
+
+        this.initializeNPC(npc);
+        return this.influenceIntegration.calculateInfluenceDC(npc, skill, initiator, baseDC);
+    }
+
+    /**
+     * Process PF2e Influence action
+     * @param {Object} npc - The NPC object
+     * @param {Object} initiator - PC attempting to influence
+     * @param {string} skill - Skill being used
+     * @param {number} rollResult - Total of skill check
+     * @param {number} baseDC - Base DC from influence stat block
+     * @returns {Object} - Influence result with Influence Points
+     */
+    processInfluence(npc, initiator, skill, rollResult, baseDC = 15) {
+        if (!this.initialized || !this.influenceIntegration) return null;
+
+        this.initializeNPC(npc);
+        return this.influenceIntegration.processInfluence(npc, initiator, skill, rollResult, baseDC);
+    }
+
+    /**
+     * Process PF2e Discovery action
+     * Allows discovering dynamic state information about NPC
+     * @param {Object} npc - The NPC object
+     * @param {Object} initiator - PC attempting discovery
+     * @param {number} rollResult - Perception or skill check result
+     * @param {number} baseDC - Base DC from influence stat block
+     * @returns {Object} - Discovery result with available information
+     */
+    processDiscovery(npc, initiator, rollResult, baseDC = 13) {
+        if (!this.initialized || !this.influenceIntegration) return null;
+
+        this.initializeNPC(npc);
+        return this.influenceIntegration.processDiscovery(npc, initiator, rollResult, baseDC);
+    }
+
+    /**
+     * Create complete PF2e influence stat block with dynamic modifiers
+     * @param {Object} npc - The NPC object
+     * @param {Object} influenceData - Base influence data from NPC generation
+     * @param {Object} initiator - PC for relationship-based modifiers (optional)
+     * @returns {Object} - Complete influence stat block
+     */
+    createInfluenceStatBlock(npc, influenceData, initiator = null) {
+        if (!this.initialized || !this.influenceIntegration) return influenceData;
+
+        this.initializeNPC(npc);
+        return this.influenceIntegration.createInfluenceStatBlock(npc, influenceData, initiator);
     }
 }
 
