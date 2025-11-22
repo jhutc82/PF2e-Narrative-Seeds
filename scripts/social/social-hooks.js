@@ -59,15 +59,8 @@ export class SocialHooks {
     });
     this.hookIds.push({ name: "renderChatMessage", id: renderHookId });
 
-    // Hook into actor sheet rendering to add generate button
-    const renderActorHookId = Hooks.on("renderActorSheet", (sheet, html, data) => {
-      try {
-        this.onRenderActorSheet(sheet, html, data);
-      } catch (error) {
-        console.error("PF2e Narrative Seeds | Error in renderActorSheet hook:", error);
-      }
-    });
-    this.hookIds.push({ name: "renderActorSheet", id: renderActorHookId });
+    // Note: renderActorSheet hook removed to avoid modifying character sheets
+    // NPC management is accessible via the left sidebar button added in addUIControls()
   }
 
   /**
@@ -157,44 +150,6 @@ export class SocialHooks {
     }
   }
 
-  /**
-   * Handle actor sheet rendering
-   * Adds a "Generate NPC Personality" button to NPC actor sheets
-   * @param {ActorSheet} sheet
-   * @param {jQuery} html
-   * @param {Object} data
-   */
-  static onRenderActorSheet(sheet, html, data) {
-    // Only add button for GMs
-    if (!game.user.isGM) return;
-
-    // Only add to NPC sheets (not PCs)
-    if (sheet.actor.type !== "npc") return;
-
-    // Check if social hooks are enabled
-    if (!NarrativeSeedsSettings.get("enableSocial", false)) return;
-
-    // Check if button already exists
-    if (html.find(".generate-npc-personality").length > 0) return;
-
-    // Find the header or a suitable location to add button
-    const headerActions = html.find("header.sheet-header .header-actions");
-
-    if (headerActions.length > 0) {
-      const button = $(`
-        <button type="button" class="generate-npc-personality" title="Generate NPC Personality">
-          <i class="fas fa-theater-masks"></i> Generate Personality
-        </button>
-      `);
-
-      button.on("click", async (event) => {
-        event.preventDefault();
-        await this.generateNPC({ actor: sheet.actor });
-      });
-
-      headerActions.prepend(button);
-    }
-  }
 
   /**
    * Generate a new NPC personality
