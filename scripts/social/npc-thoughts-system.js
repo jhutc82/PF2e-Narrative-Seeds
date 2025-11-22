@@ -16,7 +16,7 @@ class NPCThoughtsSystem {
         if (this.initialized) return;
 
         try {
-            const response = await fetch('data/social/npc/thoughts.json');
+            const response = await fetch('modules/pf2e-narrative-seeds/data/social/npc/thoughts.json');
             this.thoughtsConfig = await response.json();
             this.initialized = true;
             console.log('NPC Thoughts System initialized');

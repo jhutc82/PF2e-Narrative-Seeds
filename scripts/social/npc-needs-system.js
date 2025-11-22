@@ -16,7 +16,7 @@ class NPCNeedsSystem {
         if (this.initialized) return;
 
         try {
-            const response = await fetch('data/social/npc/needs-config.json');
+            const response = await fetch('modules/pf2e-narrative-seeds/data/social/npc/needs-config.json');
             this.needsConfig = await response.json();
             this.initialized = true;
             console.log('NPC Needs System initialized');
