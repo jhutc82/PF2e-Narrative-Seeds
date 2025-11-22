@@ -235,13 +235,10 @@ export class DamageDetector {
       }
     }
 
-    // Parse message content for damage types
-    const content = message.content?.toLowerCase() || "";
-    for (const damageType of this.DAMAGE_TYPES) {
-      if (content.includes(damageType)) {
-        return damageType;
-      }
-    }
+    // Don't parse message content - it can lead to false positives
+    // (e.g., the word "fire" appearing in chat history or system text)
+    // If we can't get damage type from flags, return null and let
+    // the calling code fall back to other detection methods
 
     return null;
   }
