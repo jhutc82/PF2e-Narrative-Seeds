@@ -4,7 +4,7 @@
  *
  * @module pf2e-narrative-seeds
  * @author Justin Hutchinson
- * @version 1.3.8
+ * @version 1.3.9
  */
 
 import { NarrativeSeedsSettings } from './settings.js';
