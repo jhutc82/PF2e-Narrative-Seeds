@@ -36,7 +36,7 @@
             <span class="setting-hint">Who can see the generated narrative descriptions?</span>
           </label>
           <select name="visibilityMode">
-            {{selectOptions choices.visibilityMode selected=settings.visibilityMode nameAttr="value" labelAttr="label"}}
+            {{selectOptions choices.visibilityMode selected=settings.visibilityMode valueAttr="value" labelAttr="label"}}
           </select>
         </div>
 
@@ -58,7 +58,7 @@
             <span class="setting-hint">How graphic and intense should descriptions be?</span>
           </label>
           <select name="contentTone">
-            {{selectOptions choices.contentTone selected=settings.contentTone nameAttr="value" labelAttr="label"}}
+            {{selectOptions choices.contentTone selected=settings.contentTone valueAttr="value" labelAttr="label"}}
           </select>
         </div>
 
@@ -68,7 +68,7 @@
             <span class="setting-hint">How much variation between descriptions?</span>
           </label>
           <select name="varietyMode">
-            {{selectOptions choices.varietyMode selected=settings.varietyMode nameAttr="value" labelAttr="label"}}
+            {{selectOptions choices.varietyMode selected=settings.varietyMode valueAttr="value" labelAttr="label"}}
           </select>
         </div>
       </div>
@@ -94,7 +94,7 @@
             <span class="setting-hint">How much detail to include in combat descriptions</span>
           </label>
           <select name="combatDetailLevel" class="combat-dependent">
-            {{selectOptions choices.detailLevel selected=settings.combatDetailLevel nameAttr="value" labelAttr="label"}}
+            {{selectOptions choices.detailLevel selected=settings.combatDetailLevel valueAttr="value" labelAttr="label"}}
           </select>
         </div>
 
@@ -210,7 +210,7 @@
             <span class="setting-hint">How much detail to include in skill descriptions</span>
           </label>
           <select name="skillDetailLevel" class="skills-dependent">
-            {{selectOptions choices.detailLevel selected=settings.skillDetailLevel nameAttr="value" labelAttr="label"}}
+            {{selectOptions choices.detailLevel selected=settings.skillDetailLevel valueAttr="value" labelAttr="label"}}
           </select>
         </div>
 
