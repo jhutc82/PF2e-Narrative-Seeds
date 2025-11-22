@@ -19,8 +19,8 @@ class NPCBehaviorEngine {
 
         try {
             const [behaviorsResponse, schedulesResponse] = await Promise.all([
-                fetch('data/social/npc/autonomous-behaviors.json'),
-                fetch('data/social/npc/time-schedules.json')
+                fetch('modules/pf2e-narrative-seeds/data/social/npc/autonomous-behaviors.json'),
+                fetch('modules/pf2e-narrative-seeds/data/social/npc/time-schedules.json')
             ]);
 
             this.behaviorsConfig = await behaviorsResponse.json();

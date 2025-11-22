@@ -19,8 +19,8 @@ class NPCRelationshipDynamics {
 
         try {
             const [interactionsResponse, progressionResponse] = await Promise.all([
-                fetch('data/social/npc/social-interactions.json'),
-                fetch('data/social/npc/relationship-progression.json')
+                fetch('modules/pf2e-narrative-seeds/data/social/npc/social-interactions.json'),
+                fetch('modules/pf2e-narrative-seeds/data/social/npc/relationship-progression.json')
             ]);
 
             this.interactionsConfig = await interactionsResponse.json();

@@ -94,11 +94,11 @@ export class SocialHooks {
     Hooks.on("getSceneControlButtons", (controls) => {
       if (!game.user.isGM) return;
 
-      // Find the notes control group (or create a new one)
-      let notesControl = controls.find(c => c.name === "notes");
+      // Find the journal control group (in PF2e this is where notes/journals are)
+      let journalControl = controls.find(c => c.name === "journal");
 
-      if (notesControl) {
-        notesControl.tools.push({
+      if (journalControl) {
+        journalControl.tools.push({
           name: "npc-manager",
           title: "NPC Manager",
           icon: "fas fa-users",

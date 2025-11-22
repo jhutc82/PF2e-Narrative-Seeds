@@ -67,8 +67,8 @@ export class NarrativeSeedsSettingsApp extends FormApplication {
       showDetectedFeats: game.settings.get("pf2e-narrative-seeds", "showDetectedFeats")
     };
 
-    // Choices for dropdowns
-    data.choices = {
+    // Choices for dropdowns - convert to array format for selectOptions helper
+    const rawChoices = {
       visibilityMode: {
         "gm-only": "GM Only (Whispered)",
         "everyone": "All Players",
@@ -93,6 +93,15 @@ export class NarrativeSeedsSettingsApp extends FormApplication {
         "cinematic": "Cinematic"
       }
     };
+
+    // Convert to array format for Foundry v12+ selectOptions helper
+    data.choices = {};
+    for (const [key, options] of Object.entries(rawChoices)) {
+      data.choices[key] = Object.entries(options).map(([value, label]) => ({
+        value,
+        label
+      }));
+    }
 
     data.activeTab = this.activeTab;
 

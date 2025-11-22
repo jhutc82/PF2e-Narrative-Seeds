@@ -18,7 +18,7 @@ class NPCMoodCalculator {
         if (this.initialized) return;
 
         try {
-            const response = await fetch('data/social/npc/moods.json');
+            const response = await fetch('modules/pf2e-narrative-seeds/data/social/npc/moods.json');
             this.moodsConfig = await response.json();
             this.initialized = true;
             console.log('NPC Mood Calculator initialized');
