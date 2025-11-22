@@ -169,7 +169,7 @@
    FORM GROUPS
    ======================================== */
 
-.form-group {
+.narrative-seeds-settings .form-group {
   margin-bottom: 16px;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -177,24 +177,24 @@
   align-items: center;
 }
 
-.form-group:last-child {
+.narrative-seeds-settings .form-group:last-child {
   margin-bottom: 0;
 }
 
-.setting-label {
+.narrative-seeds-settings .setting-label {
   display: flex;
   flex-direction: column;
   gap: 4px;
   cursor: pointer;
 }
 
-.setting-name {
+.narrative-seeds-settings .setting-name {
   font-weight: bold;
   color: #333;
   font-size: 14px;
 }
 
-.setting-hint {
+.narrative-seeds-settings .setting-hint {
   font-size: 12px;
   color: #666;
   font-style: italic;
@@ -205,14 +205,14 @@
    FORM CONTROLS
    ======================================== */
 
-.form-group input[type="checkbox"] {
+.narrative-seeds-settings .form-group input[type="checkbox"] {
   width: 24px;
   height: 24px;
   cursor: pointer;
   accent-color: #5e0000;
 }
 
-.form-group select {
+.narrative-seeds-settings .form-group select {
   min-width: 200px;
   padding: 6px 12px;
   border: 2px solid #ddd;
@@ -224,11 +224,11 @@
   transition: border-color 0.2s ease;
 }
 
-.form-group select:hover {
+.narrative-seeds-settings .form-group select:hover {
   border-color: #5e0000;
 }
 
-.form-group select:focus {
+.narrative-seeds-settings .form-group select:focus {
   outline: none;
   border-color: #d4af37;
   box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
@@ -238,14 +238,14 @@
    SLIDERS
    ======================================== */
 
-.slider-container {
+.narrative-seeds-settings .slider-container {
   display: flex;
   align-items: center;
   gap: 12px;
   min-width: 250px;
 }
 
-.slider-container input[type="range"] {
+.narrative-seeds-settings .slider-container input[type="range"] {
   flex: 1;
   height: 6px;
   border-radius: 3px;
@@ -255,7 +255,7 @@
   -webkit-appearance: none;
 }
 
-.slider-container input[type="range"]::-webkit-slider-thumb {
+.narrative-seeds-settings .slider-container input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
   width: 18px;
@@ -267,11 +267,11 @@
   transition: background 0.2s ease;
 }
 
-.slider-container input[type="range"]::-webkit-slider-thumb:hover {
+.narrative-seeds-settings .slider-container input[type="range"]::-webkit-slider-thumb:hover {
   background: #8b0000;
 }
 
-.slider-container input[type="range"]::-moz-range-thumb {
+.narrative-seeds-settings .slider-container input[type="range"]::-moz-range-thumb {
   width: 18px;
   height: 18px;
   border-radius: 50%;
@@ -282,11 +282,11 @@
   transition: background 0.2s ease;
 }
 
-.slider-container input[type="range"]::-moz-range-thumb:hover {
+.narrative-seeds-settings .slider-container input[type="range"]::-moz-range-thumb:hover {
   background: #8b0000;
 }
 
-.slider-value {
+.narrative-seeds-settings .slider-value {
   min-width: 50px;
   text-align: right;
   font-weight: bold;
@@ -298,14 +298,14 @@
    DISABLED STATES
    ======================================== */
 
-.form-group select:disabled,
-.form-group input:disabled,
-.slider-container input:disabled {
+.narrative-seeds-settings .form-group select:disabled,
+.narrative-seeds-settings .form-group input:disabled,
+.narrative-seeds-settings .slider-container input:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
 
-.disabled + .slider-value {
+.narrative-seeds-settings .disabled + .slider-value {
   opacity: 0.5;
 }
 
@@ -313,7 +313,8 @@
    FOOTER BUTTONS
    ======================================== */
 
-.sheet-footer {
+/* IMPORTANT: Scope to settings app only to avoid bleeding into character sheets */
+.narrative-seeds-settings .sheet-footer {
   background: linear-gradient(to top, #e8e8e0, #f0f0e8);
   padding: 16px 20px;
   border-top: 2px solid #5e0000;
@@ -323,7 +324,7 @@
   flex-shrink: 0;
 }
 
-.sheet-footer button {
+.narrative-seeds-settings .sheet-footer button {
   padding: 10px 20px;
   border: 2px solid #5e0000;
   border-radius: 4px;
@@ -338,24 +339,24 @@
   gap: 8px;
 }
 
-.sheet-footer button:hover {
+.narrative-seeds-settings .sheet-footer button:hover {
   background: #5e0000;
   color: #d4af37;
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.sheet-footer button[type="submit"] {
+.narrative-seeds-settings .sheet-footer button[type="submit"] {
   background: #5e0000;
   color: #d4af37;
 }
 
-.sheet-footer button[type="submit"]:hover {
+.narrative-seeds-settings .sheet-footer button[type="submit"]:hover {
   background: #8b0000;
   color: #ffd700;
 }
 
-.sheet-footer button i {
+.narrative-seeds-settings .sheet-footer button i {
   font-size: 14px;
 }
 
@@ -385,20 +386,20 @@
    ======================================== */
 
 @media (max-width: 600px) {
-  .form-group {
+  .narrative-seeds-settings .form-group {
     grid-template-columns: 1fr;
   }
 
-  .form-group select,
-  .slider-container {
+  .narrative-seeds-settings .form-group select,
+  .narrative-seeds-settings .slider-container {
     width: 100%;
   }
 
-  .sheet-footer {
+  .narrative-seeds-settings .sheet-footer {
     flex-direction: column;
   }
 
-  .sheet-footer button {
+  .narrative-seeds-settings .sheet-footer button {
     width: 100%;
     justify-content: center;
   }
