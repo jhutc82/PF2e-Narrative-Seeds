@@ -143,7 +143,7 @@ export class AnatomyDetector {
     }
 
     // Get traits from items (for some systems)
-    if (actor.system?.traits?.traits) {
+    if (actor.system?.traits?.traits?.value) {
       traits.push(...actor.system.traits.traits.value);
     }
 

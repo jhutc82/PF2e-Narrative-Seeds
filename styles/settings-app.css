@@ -98,10 +98,10 @@
 }
 
 /* ========================================
-   SETTINGS SECTIONS
+   SETTINGS SECTIONS (scoped to module settings)
    ======================================== */
 
-.settings-section {
+.narrative-seeds-settings .settings-section {
   background: white;
   border: 2px solid #5e0000;
   border-radius: 8px;
@@ -110,11 +110,11 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-.settings-section:last-child {
+.narrative-seeds-settings .settings-section:last-child {
   margin-bottom: 0;
 }
 
-.settings-section h3 {
+.narrative-seeds-settings .settings-section h3 {
   margin: 0 0 12px 0;
   padding-bottom: 8px;
   border-bottom: 2px solid #d4af37;
@@ -126,12 +126,12 @@
   gap: 8px;
 }
 
-.settings-section h3 i {
+.narrative-seeds-settings .settings-section h3 i {
   color: #d4af37;
   font-size: 20px;
 }
 
-.section-description {
+.narrative-seeds-settings .section-description {
   margin: 0 0 16px 0;
   padding: 10px;
   background: #f8f8f8;
@@ -141,27 +141,27 @@
   line-height: 1.4;
 }
 
-.section-description.warning {
+.narrative-seeds-settings .section-description.warning {
   background: #fff3cd;
   border-left-color: #ff6b6b;
   color: #856404;
 }
 
-.section-description i {
+.narrative-seeds-settings .section-description i {
   margin-right: 6px;
 }
 
-.warning-section {
+.narrative-seeds-settings .warning-section {
   border-color: #ff6b6b;
   background: #fff9f9;
 }
 
-.warning-section h3 {
+.narrative-seeds-settings .warning-section h3 {
   color: #d63031;
   border-bottom-color: #ff6b6b;
 }
 
-.warning-section h3 i {
+.narrative-seeds-settings .warning-section h3 i {
   color: #ff6b6b;
 }
 

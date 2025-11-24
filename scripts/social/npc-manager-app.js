@@ -1732,4 +1732,22 @@ export class NPCManagerApp extends Application {
     event.preventDefault();
     event.currentTarget.closest('.detail-section').classList.toggle('collapsed');
   }
+
+  // ============================================================================
+  // CLEANUP
+  // ============================================================================
+
+  /**
+   * Clean up resources when the application is closed
+   * @override
+   */
+  close(options = {}) {
+    // Clear any pending search debounce timer to prevent memory leaks
+    if (this.searchDebounceTimer) {
+      clearTimeout(this.searchDebounceTimer);
+      this.searchDebounceTimer = null;
+    }
+
+    return super.close(options);
+  }
 }
