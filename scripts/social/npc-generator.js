@@ -122,7 +122,15 @@ export class NPCGenerator {
       ]);
 
       if (!moodsData || !personalitiesData || !mannerismsData || !motivationsData || !quirksData) {
-        console.error("PF2e Narrative Seeds | Failed to load NPC data");
+        // Log which specific files failed to help with debugging
+        const failedFiles = [];
+        if (!moodsData) failedFiles.push('moods.json');
+        if (!personalitiesData) failedFiles.push('personalities.json');
+        if (!mannerismsData) failedFiles.push('mannerisms.json');
+        if (!motivationsData) failedFiles.push('motivations.json');
+        if (!quirksData) failedFiles.push('quirks.json');
+        console.error(`PF2e Narrative Seeds | Failed to load critical NPC data files: ${failedFiles.join(', ')}`);
+        console.error("PF2e Narrative Seeds | Try reinstalling the module or clearing your browser cache.");
         return null;
       }
 
