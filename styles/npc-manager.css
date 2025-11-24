@@ -130,12 +130,12 @@
   color: var(--color-text-dark-primary);
 }
 
-.filters {
+.npc-manager .filters {
   display: flex;
   gap: 8px;
 }
 
-.filters select {
+.npc-manager .filters select {
   padding: 8px 12px;
   border: 1px solid var(--color-border-dark);
   border-radius: 4px;
@@ -143,12 +143,12 @@
   color: var(--color-text-dark-primary);
 }
 
-.actions {
+.npc-manager .actions {
   display: flex;
   gap: 6px;
 }
 
-.actions button {
+.npc-manager .actions button {
   padding: 8px 12px;
   border: 1px solid var(--color-border-dark);
   border-radius: 4px;
@@ -158,7 +158,7 @@
   transition: all 0.2s;
 }
 
-.actions button:hover {
+.npc-manager .actions button:hover {
   background: var(--color-bg-option);
   border-color: var(--color-border-highlight-alt);
 }
@@ -237,7 +237,7 @@
   margin-top: 5px;
 }
 
-.tag {
+.npc-manager .tag {
   display: inline-block;
   padding: 2px 8px;
   background: var(--color-bg-option);
@@ -338,15 +338,15 @@
   margin-bottom: 30px;
 }
 
-.form-group {
+.npc-manager .form-group {
   margin-bottom: 20px;
 }
 
-.form-group:last-child {
+.npc-manager .form-group:last-child {
   margin-bottom: 0;
 }
 
-.form-group label {
+.npc-manager .form-group label {
   display: block;
   margin-bottom: 8px;
   font-weight: 600;
@@ -354,14 +354,14 @@
   font-size: 14px;
 }
 
-.form-group label i {
+.npc-manager .form-group label i {
   margin-right: 6px;
   color: var(--color-border-highlight-alt);
 }
 
-.form-group select,
-.form-group input[type="text"],
-.form-group input[type="number"] {
+.npc-manager .form-group select,
+.npc-manager .form-group input[type="text"],
+.npc-manager .form-group input[type="number"] {
   width: 100%;
   padding: 10px 12px;
   border: 1px solid var(--color-border-dark);
@@ -371,16 +371,16 @@
   font-size: 14px;
 }
 
-.input-group {
+.npc-manager .input-group {
   display: flex;
   gap: 8px;
 }
 
-.input-group select {
+.npc-manager .input-group select {
   flex: 1;
 }
 
-.input-group button {
+.npc-manager .input-group button {
   padding: 10px 15px;
   border: 1px solid var(--color-border-dark);
   border-radius: 4px;
@@ -390,12 +390,12 @@
   transition: all 0.2s;
 }
 
-.input-group button:hover {
+.npc-manager .input-group button:hover {
   background: var(--color-bg-option);
   border-color: var(--color-border-highlight-alt);
 }
 
-.help-text {
+.npc-manager .help-text {
   display: block;
   margin-top: 5px;
   font-size: 12px;
@@ -403,7 +403,7 @@
   font-style: italic;
 }
 
-.form-actions {
+.npc-manager .form-actions {
   margin-top: 25px;
   text-align: center;
 }
@@ -587,7 +587,7 @@
 
 /* Editable Fields */
 
-.edit-field {
+.npc-manager .edit-field {
   padding: 8px 12px;
   border: 1px solid var(--color-border-dark);
   border-radius: 4px;
@@ -597,12 +597,12 @@
   width: 100%;
 }
 
-.edit-field:focus {
+.npc-manager .edit-field:focus {
   outline: none;
   border-color: var(--color-border-highlight-alt);
 }
 
-.name-field {
+.npc-manager .name-field {
   font-size: 24px;
   font-weight: 600;
   padding: 10px 15px;
@@ -610,11 +610,11 @@
 
 /* Tags */
 
-.tags-section {
+.npc-manager .tags-section {
   margin-top: 15px;
 }
 
-.tags-section label {
+.npc-manager .tags-section label {
   display: block;
   font-size: 12px;
   font-weight: 600;
@@ -623,13 +623,13 @@
   margin-bottom: 8px;
 }
 
-.tags {
+.npc-manager .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
 
-.tags .tag {
+.npc-manager .tags .tag {
   display: flex;
   align-items: center;
   gap: 6px;
@@ -640,7 +640,7 @@
   font-size: 12px;
 }
 
-.tags .tag button {
+.npc-manager .tags .tag button {
   padding: 0;
   border: none;
   background: none;
@@ -649,11 +649,11 @@
   font-size: 10px;
 }
 
-.tags .tag button:hover {
+.npc-manager .tags .tag button:hover {
   color: #c53030;
 }
 
-.add-tag {
+.npc-manager .add-tag {
   padding: 4px 10px;
   border: 1px dashed var(--color-border-dark);
   border-radius: 3px;
@@ -664,7 +664,7 @@
   transition: all 0.2s;
 }
 
-.add-tag:hover {
+.npc-manager .add-tag:hover {
   border-color: var(--color-border-highlight-alt);
   color: var(--color-text-dark-primary);
   background: var(--color-bg-option);
@@ -1948,42 +1948,42 @@
 }
 
 /* ============================================================================
-   Utility Classes
+   Utility Classes (scoped to npc-manager)
    ============================================================================ */
 
-.hidden {
+.npc-manager .hidden {
   display: none !important;
 }
 
-.text-muted {
+.npc-manager .text-muted {
   color: var(--color-text-dark-secondary);
 }
 
-.text-center {
+.npc-manager .text-center {
   text-align: center;
 }
 
-.mt-10 {
+.npc-manager .mt-10 {
   margin-top: 10px;
 }
 
-.mb-10 {
+.npc-manager .mb-10 {
   margin-bottom: 10px;
 }
 
-.flex-between {
+.npc-manager .flex-between {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.flex-center {
+.npc-manager .flex-center {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.gap-10 {
+.npc-manager .gap-10 {
   gap: 10px;
 }
 
