@@ -350,12 +350,12 @@ export class SkillHooks {
       if (lower.includes('fail')) return 'failure';
     }
 
-    // Handle numeric degrees (PF2e sometimes uses numbers)
+    // Handle numeric degrees (PF2e uses: 3=critSuccess, 2=success, 1=failure, 0=critFailure)
     if (typeof outcome === 'number') {
-      if (outcome >= 2) return 'criticalSuccess';
-      if (outcome === 1) return 'success';
-      if (outcome === 0) return 'failure';
-      if (outcome <= -1) return 'criticalFailure';
+      if (outcome === 3) return 'criticalSuccess';
+      if (outcome === 2) return 'success';
+      if (outcome === 1) return 'failure';
+      if (outcome === 0) return 'criticalFailure';
     }
 
     return null;
