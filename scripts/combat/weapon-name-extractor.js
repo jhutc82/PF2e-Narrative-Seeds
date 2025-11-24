@@ -461,17 +461,19 @@ export class WeaponNameExtractor {
 
   /**
    * Format any name with POV
+   * Note: Templates already include possessives like "your ${weaponType}",
+   * so we return bare weapon names to avoid "your your sword" duplication
    */
   static formatName(name, pov) {
     switch(pov) {
       case "first":
         return `my ${name}`;
       case "third":
-        // For third person, return bare weapon name (templates handle possessive context)
-        return name;
       case "second":
       default:
-        return `your ${name}`;
+        // Return bare weapon name - templates handle possessive context
+        // (e.g., templates say "your ${weaponType}" so weaponType should be "sword" not "your sword")
+        return name;
     }
   }
 

@@ -33,7 +33,7 @@ class PF2eNarrativeSeeds {
   static MODULE_ID = "pf2e-narrative-seeds";
   static MODULE_TITLE = "PF2e Narrative Seeds";
   // Version should match module.json - update both when releasing
-  static VERSION = "1.3.14";
+  static VERSION = "1.3.15";
 
   static generators = new Map();
   static initialized = false;
