@@ -599,10 +599,15 @@ export class DataLoader {
    */
   static async loadJSONData(filePath) {
     return await PerformanceMonitor.measureAsync('data-load-json', async () => {
+      const fullPath = `modules/pf2e-narrative-seeds/${filePath}`;
       try {
-        const response = await fetch(`modules/pf2e-narrative-seeds/${filePath}`);
+        const response = await fetch(fullPath);
         if (!response.ok) {
+          // Log the full path to help debug ForgeVTT CDN issues
           console.warn(`PF2e Narrative Seeds | Failed to load ${filePath}: HTTP ${response.status}`);
+          if (response.status === 403) {
+            console.warn(`PF2e Narrative Seeds | 403 Forbidden - this may indicate the module needs to be reinstalled or updated on ForgeVTT`);
+          }
           return null;
         }
         return await response.json();
